@@ -1060,6 +1060,19 @@
         }
         .footer-link:hover { color: var(--neon-cyan); }
 
+        /* Screen reader only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         /* Cookie Banner */
         .cookie-banner {
             position: fixed;
@@ -1221,35 +1234,36 @@
                     <div class="stat-label">用户评价</div>
                 </div>
             </div>
-            <div class="search-section">
+            <div class="search-section" role="search" aria-label="平台搜索">
                 <div class="search-container">
-                    <span class="search-icon">◈</span>
-                    <input type="text" class="search-input" id="searchInput" placeholder="搜索平台名称、模型类型或功能特性..." oninput="handleSearch(this.value)">
+                    <span class="search-icon" aria-hidden="true">◈</span>
+                    <label for="searchInput" class="sr-only">搜索平台</label>
+                    <input type="text" class="search-input" id="searchInput" placeholder="搜索平台名称、模型类型或功能特性..." oninput="handleSearch(this.value)" aria-label="搜索平台名称、模型类型或功能特性">
                 </div>
             </div>
         </section>
 
         <!-- 筛选 -->
-        <section class="filter-section">
-            <div class="filter-container">
-                <button class="filter-tag active" onclick="setFilter('all', this)">全部</button>
-                <button class="filter-tag" onclick="setFilter('official', this)">官方平台</button>
-                <button class="filter-tag" onclick="setFilter('aggregator', this)">聚合平台</button>
-                <button class="filter-tag" onclick="setFilter('china', this)">国内中转</button>
-                <button class="filter-tag" onclick="setFilter('free', this)">免费额度</button>
-                <button class="filter-tag" onclick="setFilter('cheapest', this)">最便宜</button>
-                <button class="filter-tag" onclick="setFilter('stable', this)">最稳定</button>
+        <section class="filter-section" aria-label="平台筛选">
+            <div class="filter-container" role="group" aria-label="筛选选项">
+                <button class="filter-tag active" onclick="setFilter('all', this)" aria-pressed="true">全部</button>
+                <button class="filter-tag" onclick="setFilter('official', this)" aria-pressed="false">官方平台</button>
+                <button class="filter-tag" onclick="setFilter('aggregator', this)" aria-pressed="false">聚合平台</button>
+                <button class="filter-tag" onclick="setFilter('china', this)" aria-pressed="false">国内中转</button>
+                <button class="filter-tag" onclick="setFilter('free', this)" aria-pressed="false">免费额度</button>
+                <button class="filter-tag" onclick="setFilter('cheapest', this)" aria-pressed="false">最便宜</button>
+                <button class="filter-tag" onclick="setFilter('stable', this)" aria-pressed="false">最稳定</button>
             </div>
         </section>
 
         <!-- 平台列表 -->
-        <section class="platforms-section" id="platforms">
+        <main class="platforms-section" id="platforms" role="main" aria-label="平台列表">
             <div class="section-header">
                 <h2 class="section-title">热门平台</h2>
                 <span class="platform-count" id="platformCount">加载中...</span>
             </div>
-            <div class="platforms-grid" id="platformsGrid"></div>
-        </section>
+            <div class="platforms-grid" id="platformsGrid" role="list" aria-label="AI API平台列表"></div>
+        </main>
     </main>
 
     <!-- Footer -->
@@ -1320,17 +1334,21 @@
     </div>
 
     <!-- 登录弹窗 -->
-    <div class="modal-overlay" id="loginModal">
-        <div class="modal">
-            <button class="modal-close" onclick="closeLoginModal()">✕</button>
-            <div class="modal-title"><span class="gradient-text">欢迎回来</span></div>
-            <p style="color: var(--text-secondary); margin-bottom: 30px;">登录以参与评论和评分</p>
-            <input type="email" class="form-input" id="loginEmail" placeholder="your@email.com">
-            <input type="password" class="form-input" id="loginPassword" placeholder="密码">
-            <div style="display: flex; gap: 16px;">
-                <button class="btn btn-secondary" onclick="closeLoginModal()" style="flex: 1;">取消</button>
-                <button class="btn btn-primary" onclick="handleLogin()" style="flex: 1;">登录</button>
-            </div>
+    <div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle" aria-describedby="loginDesc">
+        <div class="modal" role="document">
+            <button class="modal-close" onclick="closeLoginModal()" aria-label="关闭登录窗口">✕</button>
+            <div class="modal-title" id="loginTitle"><span class="gradient-text">欢迎回来</span></div>
+            <p id="loginDesc" style="color: var(--text-secondary); margin-bottom: 30px;">登录以参与评论和评分</p>
+            <form onsubmit="event.preventDefault(); handleLogin();" autocomplete="on">
+                <label for="loginEmail" class="sr-only">邮箱地址</label>
+                <input type="email" class="form-input" id="loginEmail" placeholder="your@email.com" autocomplete="email" required aria-required="true">
+                <label for="loginPassword" class="sr-only">密码</label>
+                <input type="password" class="form-input" id="loginPassword" placeholder="密码" autocomplete="current-password" required aria-required="true">
+                <div style="display: flex; gap: 16px;">
+                    <button type="button" class="btn btn-secondary" onclick="closeLoginModal()" style="flex: 1;">取消</button>
+                    <button type="submit" class="btn btn-primary" style="flex: 1;">登录</button>
+                </div>
+            </form>
             <p style="text-align: center; margin-top: 20px; color: var(--text-secondary); font-size: 14px;">
                 还没有账号？<a href="#" onclick="switchToRegister(); return false;" style="color: var(--neon-cyan);">立即注册</a>
             </p>
@@ -1338,18 +1356,23 @@
     </div>
 
     <!-- 注册弹窗 -->
-    <div class="modal-overlay" id="registerModal">
-        <div class="modal">
-            <button class="modal-close" onclick="closeRegisterModal()">✕</button>
-            <div class="modal-title"><span class="gradient-text">创建账号</span></div>
-            <p style="color: var(--text-secondary); margin-bottom: 30px;">注册后即可评论和评分平台</p>
-            <input type="text" class="form-input" id="regUsername" placeholder="用户名">
-            <input type="email" class="form-input" id="regEmail" placeholder="your@email.com">
-            <input type="password" class="form-input" id="regPassword" placeholder="密码">
-            <div style="display: flex; gap: 16px;">
-                <button class="btn btn-secondary" onclick="closeRegisterModal()" style="flex: 1;">取消</button>
-                <button class="btn btn-primary" onclick="handleRegister()" style="flex: 1;">注册</button>
-            </div>
+    <div class="modal-overlay" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="registerTitle" aria-describedby="registerDesc">
+        <div class="modal" role="document">
+            <button class="modal-close" onclick="closeRegisterModal()" aria-label="关闭注册窗口">✕</button>
+            <div class="modal-title" id="registerTitle"><span class="gradient-text">创建账号</span></div>
+            <p id="registerDesc" style="color: var(--text-secondary); margin-bottom: 30px;">注册后即可评论和评分平台</p>
+            <form onsubmit="event.preventDefault(); handleRegister();" autocomplete="on">
+                <label for="regUsername" class="sr-only">用户名</label>
+                <input type="text" class="form-input" id="regUsername" placeholder="用户名" autocomplete="username" required aria-required="true">
+                <label for="regEmail" class="sr-only">邮箱地址</label>
+                <input type="email" class="form-input" id="regEmail" placeholder="your@email.com" autocomplete="email" required aria-required="true">
+                <label for="regPassword" class="sr-only">密码</label>
+                <input type="password" class="form-input" id="regPassword" placeholder="密码（至少6位）" autocomplete="new-password" minlength="6" required aria-required="true">
+                <div style="display: flex; gap: 16px;">
+                    <button type="button" class="btn btn-secondary" onclick="closeRegisterModal()" style="flex: 1;">取消</button>
+                    <button type="submit" class="btn btn-primary" style="flex: 1;">注册</button>
+                </div>
+            </form>
             <p style="text-align: center; margin-top: 20px; color: var(--text-secondary); font-size: 14px;">
                 已有账号？<a href="#" onclick="switchToLogin(); return false;" style="color: var(--neon-cyan);">立即登录</a>
             </p>
@@ -1886,8 +1909,12 @@
         // ==================== 筛选和搜索 ====================
         function setFilter(filter, btn) {
             currentFilter = filter;
-            document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.filter-tag').forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-pressed', 'false');
+            });
             btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
             renderPlatforms();
         }
 

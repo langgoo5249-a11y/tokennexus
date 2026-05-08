@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050508"/>
+      <stop offset="100%" style="stop-color:#0a0a18"/>
+    </linearGradient>
+    <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f0ff"/>
+      <stop offset="100%" style="stop-color:#b829dd"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <polygon fill="none" stroke="url(#neon)" stroke-width="6" points="600,150 780,255 780,465 600,570 420,465 420,255"/>
+  <text x="600" y="380" text-anchor="middle" fill="#00f0ff" font-family="Arial, sans-serif" font-size="120" font-weight="bold">T</text>
+  <text x="600" y="480" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="48">TokenNexus</text>
+  <text x="600" y="530" text-anchor="middle" fill="#8b92a8" font-family="Arial, sans-serif" font-size="24">全球AI Token导航平台 · 收录65+ AI API服务商</text>
+</svg>
