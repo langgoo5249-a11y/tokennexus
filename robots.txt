@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://token.nexus/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow patterns
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
