@@ -1060,6 +1060,70 @@
         }
         .footer-link:hover { color: var(--neon-cyan); }
 
+        /* Pagination */
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 48px;
+            padding: 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            flex-wrap: wrap;
+        }
+        .page-numbers {
+            display: flex;
+            gap: 8px;
+        }
+        .page-btn {
+            background: transparent;
+            border: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            min-width: 40px;
+        }
+        .page-btn:hover:not(:disabled) {
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+            background: rgba(0, 240, 255, 0.05);
+        }
+        .page-btn.active {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            border-color: transparent;
+            color: white;
+        }
+        .page-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        .page-ellipsis {
+            color: var(--text-secondary);
+            padding: 8px;
+        }
+        .page-info {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-left: 16px;
+        }
+        @media (max-width: 768px) {
+            .pagination {
+                padding: 16px;
+                gap: 12px;
+            }
+            .page-info {
+                width: 100%;
+                text-align: center;
+                margin-left: 0;
+                margin-top: 8px;
+            }
+        }
+
         /* Screen reader only */
         .sr-only {
             position: absolute;
@@ -1543,65 +1607,67 @@
         // ==================== 初始评论数据 ====================
         const initialComments = {
             1: [
-                { userName: "AI开发者小王", rating: 5, text: "GPT-4o的推理能力真的很强，API响应速度快，文档完善。虽然价格稍高，但物有所值。", date: "2024-01-15" },
-                { userName: "创业公司CTO", rating: 5, text: "OpenAI的API稳定性很好，我们产品已经稳定运行两年了。o1模型的推理能力令人印象深刻。", date: "2024-01-10" },
-                { userName: "独立开发者", rating: 4, text: "功能强大，但价格确实不便宜。建议先用免费额度测试，确认适合再付费。", date: "2024-01-05" }
+                { userName: "Jason Chen", rating: 5, text: "GPT-4o的推理能力真的很强，API响应速度快，文档完善。虽然价格稍高，但物有所值。", date: "2024-01-15" },
+                { userName: "林雨晴", rating: 5, text: "OpenAI的API稳定性很好，我们产品已经稳定运行两年了。o1模型的推理能力令人印象深刻。", date: "2024-01-10" },
+                { userName: "Michael Zhang", rating: 4, text: "功能强大，但价格确实不便宜。建议先用免费额度测试，确认适合再付费。", date: "2024-01-05" }
             ],
             2: [
-                { userName: "安全研究员", rating: 5, text: "Claude的安全对齐做得很好，不会输出有害内容。200K上下文处理长文档非常方便。", date: "2024-01-14" },
-                { userName: "产品经理Lisa", rating: 5, text: "Claude 4 Sonnet的推理能力媲美GPT-4，但价格更合理。强烈推荐用于复杂任务。", date: "2024-01-12" },
-                { userName: "后端工程师", rating: 4, text: "API稳定，响应速度快。希望中文能力能进一步提升。", date: "2024-01-08" }
+                { userName: "王思远", rating: 5, text: "Claude的安全对齐做得很好，不会输出有害内容。200K上下文处理长文档非常方便。", date: "2024-01-14" },
+                { userName: "Emily Liu", rating: 5, text: "Claude 4 Sonnet的推理能力媲美GPT-4，但价格更合理。强烈推荐用于复杂任务。", date: "2024-01-12" },
+                { userName: "陈浩然", rating: 4, text: "API稳定，响应速度快。希望中文能力能进一步提升。", date: "2024-01-08" }
             ],
             3: [
-                { userName: "Google生态开发者", rating: 5, text: "Gemini 2.0 Pro的多模态能力很强，200万token上下文是业界领先。AI Studio免费额度很良心。", date: "2024-01-13" },
-                { userName: "学生开发者", rating: 5, text: "Google AI Studio的免费额度让我可以学习和实验，非常适合学生和初学者。", date: "2024-01-11" },
-                { userName: "全栈工程师", rating: 4, text: "Gemini API接入简单，但有时候响应会比较慢。整体来说性价比很高。", date: "2024-01-06" }
+                { userName: "David Wang", rating: 5, text: "Gemini 2.0 Pro的多模态能力很强，200万token上下文是业界领先。AI Studio免费额度很良心。", date: "2024-01-13" },
+                { userName: "张诗涵", rating: 5, text: "Google AI Studio的免费额度让我可以学习和实验，非常适合学生和初学者。", date: "2024-01-11" },
+                { userName: "Kevin Zhao", rating: 4, text: "Gemini API接入简单，但有时候响应会比较慢。整体来说性价比很高。", date: "2024-01-06" }
             ],
             5: [
-                { userName: "成本敏感创业者", rating: 5, text: "DeepSeek的价格只有OpenAI的1/10，但性能差距不大。R1推理模型很强，性价比无敌！", date: "2024-01-15" },
-                { userName: "中国开发者", rating: 5, text: "国产模型的骄傲！中文理解能力出色，API响应速度快，价格便宜。强烈推荐！", date: "2024-01-14" },
-                { userName: "算法工程师", rating: 5, text: "DeepSeek-V3在代码生成任务上表现优秀，R1的推理能力令人印象深刻。", date: "2024-01-10" }
+                { userName: "刘子轩", rating: 5, text: "DeepSeek的价格只有OpenAI的1/10，但性能差距不大。R1推理模型很强，性价比无敌！", date: "2024-01-15" },
+                { userName: "Sarah Li", rating: 5, text: "国产模型的骄傲！中文理解能力出色，API响应速度快，价格便宜。强烈推荐！", date: "2024-01-14" },
+                { userName: "周明辉", rating: 5, text: "DeepSeek-V3在代码生成任务上表现优秀，R1的推理能力令人印象深刻。", date: "2024-01-10" }
             ],
             26: [
-                { userName: "多模型使用者", rating: 5, text: "OpenRouter太方便了！一个API Key访问400+模型，智能路由自动选择最优模型。", date: "2024-01-15" },
-                { userName: "独立开发者", rating: 5, text: "可以按需选择不同价格的模型，非常灵活。故障转移功能也很实用。", date: "2024-01-12" },
-                { userName: "技术博主", rating: 4, text: "统一接口设计得很好，文档清晰。希望能支持更多新模型。", date: "2024-01-08" }
+                { userName: "Alex Huang", rating: 5, text: "OpenRouter太方便了！一个API Key访问400+模型，智能路由自动选择最优模型。", date: "2024-01-15" },
+                { userName: "李梦琪", rating: 5, text: "可以按需选择不同价格的模型，非常灵活。故障转移功能也很实用。", date: "2024-01-12" },
+                { userName: "Ryan Wu", rating: 4, text: "统一接口设计得很好，文档清晰。希望能支持更多新模型。", date: "2024-01-08" }
             ],
             28: [
-                { userName: "实时应用开发者", rating: 5, text: "Groq的推理速度太惊人了！10ms延迟让实时对话成为可能。LPU芯片技术领先。", date: "2024-01-14" },
-                { userName: "游戏开发者", rating: 5, text: "把Groq用在游戏NPC对话中，响应速度让玩家感觉不到延迟。免费额度也很慷慨。", date: "2024-01-11" },
-                { userName: "语音AI开发者", rating: 5, text: "语音助手项目用了Groq，用户体验提升明显。速度是最大的优势。", date: "2024-01-09" }
+                { userName: "郑雅婷", rating: 5, text: "Groq的推理速度太惊人了！10ms延迟让实时对话成为可能。LPU芯片技术领先。", date: "2024-01-14" },
+                { userName: "Chris Yang", rating: 5, text: "把Groq用在游戏NPC对话中，响应速度让玩家感觉不到延迟。免费额度也很慷慨。", date: "2024-01-11" },
+                { userName: "何俊杰", rating: 5, text: "语音助手项目用了Groq，用户体验提升明显。速度是最大的优势。", date: "2024-01-09" }
             ],
             34: [
-                { userName: "阿里云用户", rating: 5, text: "Qwen-Max的中文能力很强，128K上下文处理长文档很方便。与阿里云生态集成很好。", date: "2024-01-15" },
-                { userName: "企业开发者", rating: 4, text: "企业级支持完善，稳定性好。价格在国内平台中比较合理。", date: "2024-01-12" },
-                { userName: "电商开发者", rating: 5, text: "通义千问在电商客服场景表现优秀，中文理解准确。", date: "2024-01-08" }
+                { userName: "Sophia Guo", rating: 5, text: "Qwen-Max的中文能力很强，128K上下文处理长文档很方便。与阿里云生态集成很好。", date: "2024-01-15" },
+                { userName: "黄伟强", rating: 4, text: "企业级支持完善，稳定性好。价格在国内平台中比较合理。", date: "2024-01-12" },
+                { userName: "Jessica Lin", rating: 5, text: "通义千问在电商客服场景表现优秀，中文理解准确。", date: "2024-01-08" }
             ],
             39: [
-                { userName: "学术研究者", rating: 5, text: "Kimi的200万字上下文太强了！处理学术论文和长文档非常方便。", date: "2024-01-14" },
-                { userName: "文档处理用户", rating: 5, text: "上传PDF直接解析，提取信息准确。长文档理解能力是最大优势。", date: "2024-01-11" },
-                { userName: "知识问答用户", rating: 4, text: "知识问答准确，但有时候会过于保守。整体体验很好。", date: "2024-01-07" }
+                { userName: "吴思远", rating: 5, text: "Kimi的200万字上下文太强了！处理学术论文和长文档非常方便。", date: "2024-01-14" },
+                { userName: "Daniel Zhou", rating: 5, text: "上传PDF直接解析，提取信息准确。长文档理解能力是最大优势。", date: "2024-01-11" },
+                { userName: "杨雪婷", rating: 4, text: "知识问答准确，但有时候会过于保守。整体体验很好。", date: "2024-01-07" }
             ],
             46: [
-                { userName: "开源爱好者", rating: 5, text: "硅基流动的价格太香了！DeepSeek、Qwen等开源模型API价格比官方还低。", date: "2024-01-13" },
-                { userName: "预算敏感开发者", rating: 5, text: "同样的模型，这里价格便宜一半以上。稳定性也不错，强烈推荐！", date: "2024-01-10" },
-                { userName: "学生党", rating: 5, text: "作为学生预算有限，这里的价格让我可以负担得起AI API。", date: "2024-01-06" }
+                { userName: "Andrew Xu", rating: 5, text: "硅基流动的价格太香了！DeepSeek、Qwen等开源模型API价格比官方还低。", date: "2024-01-13" },
+                { userName: "马晓东", rating: 5, text: "同样的模型，这里价格便宜一半以上。稳定性也不错，强烈推荐！", date: "2024-01-10" },
+                { userName: "Linda Fang", rating: 5, text: "作为学生预算有限，这里的价格让我可以负担得起AI API。", date: "2024-01-06" }
             ],
             51: [
-                { userName: "Claude重度用户", rating: 5, text: "老张API稳定运营多年，中文技术支持响应快。支持支付宝充值很方便。", date: "2024-01-15" },
-                { userName: "国内开发者", rating: 5, text: "国内使用Claude的首选中转平台，稳定可靠，价格合理。", date: "2024-01-12" },
-                { userName: "产品经理", rating: 4, text: "文档完善，接入简单。希望价格能再优惠一些。", date: "2024-01-08" }
+                { userName: "孙浩然", rating: 5, text: "老张API稳定运营多年，中文技术支持响应快。支持支付宝充值很方便。", date: "2024-01-15" },
+                { userName: "Brian Ma", rating: 5, text: "国内使用Claude的首选中转平台，稳定可靠，价格合理。", date: "2024-01-12" },
+                { userName: "许婷婷", rating: 4, text: "文档完善，接入简单。希望价格能再优惠一些。", date: "2024-01-08" }
             ],
             52: [
-                { userName: "多模型需求者", rating: 5, text: "DMXAPI聚合了100+模型，一个API Key搞定所有需求。支付宝充值方便。", date: "2024-01-14" },
-                { userName: "性价比追求者", rating: 5, text: "价格比官方优惠很多，稳定性也不错。非常适合预算有限的团队。", date: "2024-01-11" },
-                { userName: "创业公司", rating: 4, text: "模型选择丰富，计费灵活。希望能增加更多新模型。", date: "2024-01-07" }
+                { userName: "Steven Jiang", rating: 5, text: "DMXAPI聚合了100+模型，一个API Key搞定所有需求。支付宝充值方便。", date: "2024-01-14" },
+                { userName: "罗志强", rating: 5, text: "价格比官方优惠很多，稳定性也不错。非常适合预算有限的团队。", date: "2024-01-11" },
+                { userName: "Amy Cheng", rating: 4, text: "模型选择丰富，计费灵活。希望能增加更多新模型。", date: "2024-01-07" }
             ]
         };
 
         // ==================== 全局状态 ====================
         let currentUser = Storage.get('currentUser');
         let currentFilter = 'all';
+        let currentPage = 1;
+        const ITEMS_PER_PAGE = 12; // 每页显示12个平台
 
         // ==================== Cookie管理 ====================
         const CookieManager = {
@@ -1828,11 +1894,20 @@
                     p.description.toLowerCase().includes(searchValue) ||
                     p.tags.some(t => t.toLowerCase().includes(searchValue))
                 );
+                // 搜索时显示所有结果，不分页
+                currentPage = 1;
             }
 
-            document.getElementById('platformCount').textContent = `${filtered.length} 个平台`;
+            // 分页逻辑
+            const totalItems = filtered.length;
+            const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+            const endIndex = startIndex + ITEMS_PER_PAGE;
+            const paginatedItems = filtered.slice(startIndex, endIndex);
 
-            grid.innerHTML = filtered.map(platform => {
+            document.getElementById('platformCount').textContent = `${totalItems} 个平台`;
+
+            let html = paginatedItems.map(platform => {
                 const comments = getComments(platform.id);
                 return `
                 <div class="platform-card" data-id="${platform.id}">
@@ -1871,6 +1946,56 @@
                     </div>
                 </div>
             `}).join('');
+
+            // 添加分页控件
+            if (totalPages > 1) {
+                html += renderPagination(currentPage, totalPages, totalItems);
+            }
+
+            grid.innerHTML = html;
+        }
+
+        function renderPagination(current, total, totalItems) {
+            let pages = [];
+            const maxVisible = 5;
+            let start = Math.max(1, current - Math.floor(maxVisible / 2));
+            let end = Math.min(total, start + maxVisible - 1);
+            
+            if (end - start < maxVisible - 1) {
+                start = Math.max(1, end - maxVisible + 1);
+            }
+
+            // 首页
+            if (start > 1) {
+                pages.push(`<button class="page-btn" onclick="goToPage(1)">1</button>`);
+                if (start > 2) pages.push(`<span class="page-ellipsis">...</span>`);
+            }
+
+            // 中间页码
+            for (let i = start; i <= end; i++) {
+                pages.push(`<button class="page-btn ${i === current ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`);
+            }
+
+            // 尾页
+            if (end < total) {
+                if (end < total - 1) pages.push(`<span class="page-ellipsis">...</span>`);
+                pages.push(`<button class="page-btn" onclick="goToPage(${total})">${total}</button>`);
+            }
+
+            return `
+                <div class="pagination" role="navigation" aria-label="分页导航">
+                    <button class="page-btn ${current === 1 ? 'disabled' : ''}" onclick="goToPage(${current - 1})" ${current === 1 ? 'disabled' : ''}>上一页</button>
+                    <div class="page-numbers">${pages.join('')}</div>
+                    <button class="page-btn ${current === total ? 'disabled' : ''}" onclick="goToPage(${current + 1})" ${current === total ? 'disabled' : ''}>下一页</button>
+                    <span class="page-info">${current}/${total}页 (共${totalItems}个)</span>
+                </div>
+            `;
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            renderPlatforms();
+            document.getElementById('platforms').scrollIntoView({ behavior: 'smooth' });
         }
 
         function getComments(platformId) {
@@ -1996,9 +2121,30 @@
 
         function filterAndScroll(category) {
             currentFilter = category;
-            document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+            
+            // 同步筛选标签状态
+            const filterMap = {
+                'all': 0, 'official': 1, 'aggregator': 2, 'china': 3, 'free': 4, 'cheapest': 5, 'stable': 6
+            };
+            const filterTags = document.querySelectorAll('.filter-tag');
+            filterTags.forEach((t, i) => {
+                t.classList.remove('active');
+                t.setAttribute('aria-pressed', 'false');
+                if (i === filterMap[category]) {
+                    t.classList.add('active');
+                    t.setAttribute('aria-pressed', 'true');
+                }
+            });
+            
+            // 同步导航链接状态
             document.querySelectorAll('.nav-link').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+            
+            // 重置分页到第一页
+            currentPage = 1;
+            
             renderPlatforms();
             document.getElementById('platforms').scrollIntoView({ behavior: 'smooth' });
             document.getElementById('navLinks').classList.remove('show');
