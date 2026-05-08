@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>提交收录 | TokenNexus - 全球AI Token导航平台</title>
+    <meta name="description" content="提交您的AI API平台到TokenNexus。我们收录全球优质的AI API服务商，帮助开发者发现最佳平台。">
+    <meta name="keywords" content="TokenNexus,提交收录,AI API平台,平台入驻,API导航">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://token.nexus/submit.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://token.nexus/submit.html">
+    <meta property="og:title" content="提交收录 | TokenNexus">
+    <meta property="og:description" content="提交您的AI API平台到TokenNexus。我们收录全球优质的AI API服务商。">
+    <meta property="og:locale" content="zh_CN">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon fill='none' stroke='%2300f0ff' stroke-width='4' points='50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5'/%3E%3Ctext x='50' y='62' text-anchor='middle' fill='%2300f0ff' font-size='35' font-weight='bold'%3ET%3C/text%3E%3C/svg%3E">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --neon-cyan: #00f0ff;
+            --neon-purple: #b829dd;
+            --gold: #ffd700;
+            --dark-bg: #050508;
+            --card-bg: rgba(10, 10, 18, 0.9);
+            --card-border: rgba(0, 240, 255, 0.15);
+            --text-primary: #ffffff;
+            --text-secondary: #8b92a8;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.8;
+        }
+        
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 80px;
+            background: rgba(5, 5, 8, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            z-index: 1000;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+        
+        .logo-icon {
+            width: 50px; height: 50px;
+        }
+        
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--neon-cyan);
+        }
+        
+        /* 面包屑 */
+        .breadcrumb {
+            padding: 100px 60px 20px;
+            background: linear-gradient(180deg, rgba(0, 240, 255, 0.05), transparent);
+        }
+        
+        .breadcrumb-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .breadcrumb a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--neon-cyan);
+        }
+        
+        .breadcrumb-separator {
+            color: var(--text-secondary);
+        }
+        
+        .breadcrumb-current {
+            color: var(--neon-cyan);
+        }
+        
+        /* 主内容 */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 60px 80px;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .page-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        
+        .page-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+        
+        /* 内容区块 */
+        .content-section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--neon-cyan);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--card-border);
+        }
+        
+        .section-content {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 2;
+        }
+        
+        .section-content p {
+            margin-bottom: 20px;
+        }
+        
+        /* 表单样式 */
+        .submit-form {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 48px;
+        }
+        
+        .form-group {
+            margin-bottom: 28px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        
+        .form-label .required {
+            color: var(--gold);
+            margin-left: 4px;
+        }
+        
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--neon-cyan);
+            background: rgba(0, 240, 255, 0.1);
+        }
+        
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: var(--text-secondary);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238b92a8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 48px;
+        }
+        
+        .form-select option {
+            background: var(--dark-bg);
+            color: var(--text-primary);
+        }
+        
+        .form-hint {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        
+        .submit-button {
+            width: 100%;
+            padding: 18px 32px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            border: none;
+            border-radius: 12px;
+            color: var(--dark-bg);
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 12px;
+        }
+        
+        .submit-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 40px rgba(0, 240, 255, 0.4);
+        }
+        
+        /* 收录标准 */
+        .criteria-list {
+            list-style: none;
+        }
+        
+        .criteria-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .criteria-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        
+        .criteria-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .criteria-content p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* 流程步骤 */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            margin-top: 40px;
+        }
+        
+        .process-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 32px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            opacity: 0.3;
+        }
+        
+        .step-number {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-bg);
+        }
+        
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .step-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        /* 页脚 */
+        .footer {
+            background: rgba(5, 5, 8, 0.95);
+            border-top: 1px solid var(--card-border);
+            padding: 60px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+        
+        .footer-text {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+        
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: var(--neon-cyan);
+        }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .navbar { padding: 0 20px; }
+            .nav-links { display: none; }
+            .breadcrumb { padding: 100px 20px 20px; }
+            .main-content { padding: 20px; }
+            .page-title { font-size: 32px; }
+            .submit-form { padding: 28px; }
+            .form-row { grid-template-columns: 1fr; }
+            .process-steps { flex-direction: column; }
+            .process-step:not(:last-child)::after { display: none; }
+            .footer { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" role="navigation" aria-label="主导航">
+        <a href="index.html" class="logo" aria-label="TokenNexus首页">
+            <div class="logo-icon">
+                <svg viewBox="0 0 100 100" width="50" height="50">
+                    <polygon fill="none" stroke="#00f0ff" stroke-width="3" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"/>
+                    <text x="50" y="58" text-anchor="middle" fill="#00f0ff" font-size="35" font-weight="bold">T</text>
+                </svg>
+            </div>
+            <span class="logo-text">TokenNexus</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">首页</a>
+            <a href="about.html" class="nav-link">关于我们</a>
+            <a href="submit.html" class="nav-link active" aria-current="page">提交收录</a>
+            <a href="privacy.html" class="nav-link">隐私政策</a>
+        </div>
+    </nav>
+
+    <!-- 面包屑导航 -->
+    <nav class="breadcrumb" aria-label="面包屑导航">
+        <div class="breadcrumb-inner">
+            <a href="index.html">首页</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current" aria-current="page">提交收录</span>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="main-content" role="main">
+        <header class="page-header">
+            <h1 class="page-title">提交收录</h1>
+            <p class="page-subtitle">将您的AI API平台展示给全球开发者</p>
+        </header>
+
+        <!-- 收录标准 -->
+        <section class="content-section">
+            <h2 class="section-title">收录标准</h2>
+            <ul class="criteria-list">
+                <li class="criteria-item">
+                    <div class="criteria-icon">✓</div>
+                    <div class="criteria-content">
+                        <h3>合法合规</h3>
+                        <p>平台需具备合法经营资质，服务内容符合相关法律法规</p>
+                    </div>
+                </li>
+                <li class="criteria-item">
+                    <div class="criteria-icon">✓</div>
+                    <div class="criteria-content">
+                        <h3>服务稳定</h3>
+                        <p>提供稳定可靠的API服务，具备良好的服务可用性</p>
+                    </div>
+                </li>
+                <li class="criteria-item">
+                    <div class="criteria-icon">✓</div>
+                    <div class="criteria-content">
+                        <h3>公开透明</h3>
+                        <p>提供清晰的定价信息和API文档，支持公开访问或注册试用</p>
+                    </div>
+                </li>
+                <li class="criteria-item">
+                    <div class="criteria-icon">✓</div>
+                    <div class="criteria-content">
+                        <h3>AI相关</h3>
+                        <p>平台提供大语言模型、图像生成、语音识别等AI能力API</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 提交流程 -->
+        <section class="content-section">
+            <h2 class="section-title">提交流程</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">填写表单</h3>
+                    <p class="step-desc">提交平台基本信息</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">审核评估</h3>
+                    <p class="step-desc">3-5个工作日审核</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">上线展示</h3>
+                    <p class="step-desc">审核通过后上线</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 提交表单 -->
+        <section class="content-section">
+            <h2 class="section-title">提交表单</h2>
+            <form class="submit-form" action="mailto:lang@skillxm.cn" method="post" enctype="text/plain">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">平台名称 <span class="required">*</span></label>
+                        <input type="text" class="form-input" name="platform_name" placeholder="例如：OpenAI" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">官方网站 <span class="required">*</span></label>
+                        <input type="url" class="form-input" name="website" placeholder="https://example.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">平台类型 <span class="required">*</span></label>
+                        <select class="form-select" name="platform_type" required>
+                            <option value="">请选择</option>
+                            <option value="official">海外官方平台</option>
+                            <option value="aggregator">聚合/中转平台</option>
+                            <option value="china_official">国内官方平台</option>
+                            <option value="china_aggregator">国内中转/聚合平台</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">联系邮箱 <span class="required">*</span></label>
+                        <input type="email" class="form-input" name="contact_email" placeholder="contact@example.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">支持模型 <span class="required">*</span></label>
+                    <input type="text" class="form-input" name="models" placeholder="例如：GPT-4o、Claude 4、Llama 4" required>
+                    <p class="form-hint">请列出平台支持的主要AI模型</p>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">定价信息</label>
+                    <input type="text" class="form-input" name="pricing" placeholder="例如：$0.002-15/1M tokens">
+                    <p class="form-hint">请提供大致的价格区间或定价模式</p>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">平台简介 <span class="required">*</span></label>
+                    <textarea class="form-textarea" name="description" placeholder="请简要介绍您的平台特色、优势和主要功能..." required></textarea>
+                    <p class="form-hint">建议200-500字，突出平台特色和差异化优势</p>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Logo链接</label>
+                    <input type="url" class="form-input" name="logo_url" placeholder="https://example.com/logo.svg">
+                    <p class="form-hint">请提供平台Logo的URL地址（SVG或PNG格式，建议正方形）</p>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">其他说明</label>
+                    <textarea class="form-textarea" name="notes" placeholder="如有其他需要说明的信息，请在此填写..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-button">提交申请</button>
+            </form>
+        </section>
+
+        <!-- 注意事项 -->
+        <section class="content-section">
+            <h2 class="section-title">注意事项</h2>
+            <div class="section-content">
+                <p>• 提交后我们会在3-5个工作日内完成审核，审核结果将通过邮件通知</p>
+                <p>• 请确保填写的信息真实准确，虚假信息将导致申请被拒绝</p>
+                <p>• 审核通过后，平台信息将免费展示在TokenNexus上</p>
+                <p>• 如需修改已上线平台信息，请联系 lang@skillxm.cn</p>
+                <p>• 如有紧急需求，可发送邮件至 lang@skillxm.cn 标注【加急】</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <svg viewBox="0 0 100 100" width="40" height="40">
+                    <polygon fill="none" stroke="#00f0ff" stroke-width="3" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"/>
+                    <text x="50" y="58" text-anchor="middle" fill="#00f0ff" font-size="35" font-weight="bold">T</text>
+                </svg>
+                TokenNexus
+            </div>
+            <p class="footer-text">致力于打造最全面的全球 AI Token 导航平台</p>
+            <nav class="footer-links" aria-label="页脚导航">
+                <a href="about.html" class="footer-link">关于我们</a>
+                <a href="contact.html" class="footer-link">联系我们</a>
+                <a href="business.html" class="footer-link">商务合作</a>
+                <a href="disclaimer.html" class="footer-link">免责声明</a>
+            </nav>
+            <p style="margin-top: 24px; font-size: 12px; color: var(--text-secondary);">
+                &copy; 2024 TokenNexus. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
