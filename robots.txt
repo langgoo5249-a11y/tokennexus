@@ -2,12 +2,21 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://token.nexus/sitemap.xml
+Sitemap: https://tokennexus.skillxm.cn/sitemap.xml
 
-# Crawl-delay
+# 禁止爬虫访问的路径（如果有）
+# Disallow: /admin/
+# Disallow: /private/
+
+# 针对特定爬虫的规则
+User-agent: Googlebot
+Allow: /
 Crawl-delay: 1
 
-# Disallow patterns
-Disallow: /admin/
-Disallow: /api/
-Disallow: /private/
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
