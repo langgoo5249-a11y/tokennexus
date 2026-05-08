@@ -13,26 +13,17 @@
             --neon-purple: #b829dd;
             --neon-blue: #0066ff;
             --neon-pink: #ff00ff;
-            --neon-green: #00ff88;
             --gold: #ffd700;
             --gold-light: #ffed4a;
             --dark-bg: #050508;
-            --card-bg: rgba(10, 10, 18, 0.85);
+            --card-bg: rgba(10, 10, 18, 0.9);
             --card-border: rgba(0, 240, 255, 0.15);
             --text-primary: #ffffff;
             --text-secondary: #8b92a8;
-            --text-muted: #4a5066;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Noto Sans SC', 'Rajdhani', sans-serif;
@@ -40,10 +31,9 @@
             color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
-            position: relative;
         }
 
-        /* 金色星空背景 - 多层粒子 */
+        /* 星空背景 - 光点汇聚效果 */
         #starfield-canvas {
             position: fixed;
             top: 0;
@@ -54,82 +44,24 @@
             pointer-events: none;
         }
 
-        /* 3D Logo 容器 */
-        #logo-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* 扫描线效果 */
+        /* 扫描线 */
         .scanlines {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                transparent 50%,
-                rgba(0, 240, 255, 0.02) 50%
-            );
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(transparent 50%, rgba(0, 240, 255, 0.02) 50%);
             background-size: 100% 4px;
             pointer-events: none;
             z-index: 2;
             animation: scanlineMove 10s linear infinite;
         }
-
-        @keyframes scanlineMove {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(4px); }
-        }
-
-        /* 光晕效果 */
-        .glow-orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(100px);
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.3;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .glow-orb-1 {
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--neon-cyan), transparent 70%);
-            top: -200px;
-            left: -100px;
-        }
-
-        .glow-orb-2 {
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--neon-purple), transparent 70%);
-            bottom: -150px;
-            right: -100px;
-            animation-delay: -7s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(30px, -30px) scale(1.05); }
-            50% { transform: translate(-20px, 20px) scale(0.95); }
-            75% { transform: translate(20px, 30px) scale(1.02); }
-        }
+        @keyframes scanlineMove { 0% { transform: translateY(0); } 100% { transform: translateY(4px); } }
 
         /* 导航栏 */
         .navbar {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 80px;
-            background: rgba(5, 5, 8, 0.9);
+            background: rgba(5, 5, 8, 0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--card-border);
             display: flex;
@@ -142,10 +74,7 @@
         .navbar::before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
+            bottom: 0; left: 0; right: 0; height: 1px;
             background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-purple), transparent);
         }
 
@@ -158,16 +87,11 @@
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
+            width: 50px; height: 50px;
             position: relative;
         }
 
-        .logo-icon svg {
-            width: 100%;
-            height: 100%;
-        }
-
+        .logo-icon svg { width: 100%; height: 100%; }
         .logo-icon .hexagon {
             fill: none;
             stroke: var(--neon-cyan);
@@ -175,11 +99,7 @@
             filter: drop-shadow(0 0 10px var(--neon-cyan));
             animation: hexPulse 3s ease-in-out infinite;
         }
-
-        @keyframes hexPulse {
-            0%, 100% { filter: drop-shadow(0 0 10px var(--neon-cyan)); }
-            50% { filter: drop-shadow(0 0 20px var(--neon-cyan)); }
-        }
+        @keyframes hexPulse { 0%, 100% { filter: drop-shadow(0 0 10px var(--neon-cyan)); } 50% { filter: drop-shadow(0 0 20px var(--neon-cyan)); } }
 
         .logo-text {
             font-family: 'Orbitron', sans-serif;
@@ -188,13 +108,12 @@
             background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             letter-spacing: 2px;
         }
 
         .logo-subtitle {
             font-size: 11px;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             letter-spacing: 4px;
             text-transform: uppercase;
         }
@@ -210,27 +129,20 @@
             cursor: pointer;
             z-index: 1001;
         }
+        .mobile-menu-btn span { display: block; width: 28px; height: 2px; background: var(--neon-cyan); }
 
-        .mobile-menu-btn span {
-            display: block;
-            width: 28px;
-            height: 2px;
-            background: var(--neon-cyan);
-            transition: all 0.3s ease;
-        }
-
+        /* 导航链接 */
         .nav-links {
             display: flex;
             gap: 8px;
         }
 
         .nav-link {
-            padding: 12px 24px;
+            padding: 12px 20px;
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
             font-size: 14px;
-            position: relative;
             transition: all 0.3s ease;
             border: 1px solid transparent;
             cursor: pointer;
@@ -238,51 +150,29 @@
             font-family: inherit;
         }
 
-        .nav-link:hover {
-            color: var(--neon-cyan);
-            text-shadow: 0 0 10px var(--neon-cyan);
-        }
-
-        .nav-link.active {
+        .nav-link:hover, .nav-link.active {
             color: var(--neon-cyan);
             border: 1px solid var(--neon-cyan);
             background: rgba(0, 240, 255, 0.1);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2), inset 0 0 20px rgba(0, 240, 255, 0.05);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
         }
 
+        /* 导航操作按钮 - 只保留桌面端 */
         .nav-actions {
             display: flex;
-            gap: 16px;
+            gap: 12px;
         }
 
         .btn {
-            padding: 12px 28px;
-            border-radius: 0;
+            padding: 10px 24px;
             font-weight: 600;
             font-size: 14px;
             cursor: pointer;
             transition: all 0.3s ease;
             border: none;
             font-family: inherit;
-            position: relative;
-            overflow: hidden;
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn:hover::before {
-            left: 100%;
         }
 
         .btn-primary {
@@ -290,11 +180,7 @@
             color: #000;
             clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
         }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.4);
-        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 240, 255, 0.4); }
 
         .btn-secondary {
             background: transparent;
@@ -302,13 +188,18 @@
             border: 1px solid var(--neon-cyan);
             clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
         }
+        .btn-secondary:hover { background: rgba(0, 240, 255, 0.1); }
 
-        .btn-secondary:hover {
-            background: rgba(0, 240, 255, 0.1);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+        /* 移动端菜单中的按钮 */
+        .nav-actions-mobile {
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px;
+            border-top: 1px solid var(--card-border);
         }
 
-        /* 主内容区 */
+        /* 主内容 */
         .main-content {
             position: relative;
             z-index: 10;
@@ -327,39 +218,6 @@
             position: relative;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            border: 1px solid rgba(0, 240, 255, 0.1);
-            border-radius: 50%;
-            animation: rotate 30s linear infinite;
-            pointer-events: none;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            border: 1px solid rgba(184, 41, 221, 0.1);
-            border-radius: 50%;
-            animation: rotate 20s linear infinite reverse;
-            pointer-events: none;
-        }
-
-        @keyframes rotate {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -372,39 +230,17 @@
             font-size: 14px;
             color: var(--neon-cyan);
             margin-bottom: 48px;
-            position: relative;
-            overflow: hidden;
             animation: fadeInUp 0.8s ease;
         }
 
-        .hero-badge::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.3), transparent);
-            animation: badgeShine 3s infinite;
-        }
-
-        @keyframes badgeShine {
-            0% { left: -100%; }
-            50%, 100% { left: 100%; }
-        }
-
         .hero-badge .pulse-dot {
-            width: 8px;
-            height: 8px;
+            width: 8px; height: 8px;
             background: var(--neon-cyan);
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px var(--neon-cyan); }
-            50% { opacity: 0.5; transform: scale(0.8); box-shadow: 0 0 20px var(--neon-cyan); }
-        }
+        @keyframes pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--neon-cyan); } 50% { opacity: 0.5; box-shadow: 0 0 20px var(--neon-cyan); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
         .hero h1 {
             font-family: 'Orbitron', sans-serif;
@@ -413,74 +249,17 @@
             line-height: 1.1;
             margin-bottom: 24px;
             letter-spacing: 4px;
-            position: relative;
             animation: fadeInUp 0.8s ease 0.2s both;
         }
 
         .hero h1 .glitch-text {
-            position: relative;
-            display: inline-block;
             background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple), var(--neon-pink));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             background-size: 200% 200%;
             animation: gradientShift 5s ease infinite;
         }
-
-        .hero h1 .glitch-text::before,
-        .hero h1 .glitch-text::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .hero h1 .glitch-text::before {
-            animation: glitch1 2s infinite;
-            color: var(--neon-cyan);
-            z-index: -1;
-        }
-
-        .hero h1 .glitch-text::after {
-            animation: glitch2 2s infinite;
-            color: var(--neon-purple);
-            z-index: -2;
-        }
-
-        @keyframes glitch1 {
-            0%, 90%, 100% { transform: translate(0); }
-            92% { transform: translate(-2px, 2px); }
-            94% { transform: translate(2px, -2px); }
-            96% { transform: translate(-2px, 0); }
-            98% { transform: translate(2px, 0); }
-        }
-
-        @keyframes glitch2 {
-            0%, 90%, 100% { transform: translate(0); }
-            91% { transform: translate(2px, -2px); }
-            93% { transform: translate(-2px, 2px); }
-            95% { transform: translate(2px, 0); }
-            97% { transform: translate(-2px, 0); }
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 
         .hero-subtitle {
             font-size: 20px;
@@ -502,28 +281,10 @@
 
         .stat-item {
             text-align: center;
-            position: relative;
             padding: 24px 40px;
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
-            min-width: 160px;
-        }
-
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .stat-item:hover::before {
-            opacity: 1;
         }
 
         .stat-number {
@@ -533,8 +294,6 @@
             background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
         }
 
         .stat-label {
@@ -553,9 +312,7 @@
             animation: fadeInUp 0.8s ease 0.8s both;
         }
 
-        .search-container {
-            position: relative;
-        }
+        .search-container { position: relative; }
 
         .search-input {
             width: 100%;
@@ -565,19 +322,10 @@
             font-size: 16px;
             color: var(--text-primary);
             font-family: inherit;
-            transition: all 0.3s ease;
             clip-path: polygon(3% 0, 100% 0, 100% 70%, 97% 100%, 0 100%, 0 30%);
         }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.2), inset 0 0 30px rgba(0, 240, 255, 0.05);
-        }
-
-        .search-input::placeholder {
-            color: var(--text-muted);
-        }
+        .search-input:focus { outline: none; border-color: var(--neon-cyan); box-shadow: 0 0 30px rgba(0, 240, 255, 0.2); }
+        .search-input::placeholder { color: var(--text-secondary); }
 
         .search-icon {
             position: absolute;
@@ -586,14 +334,9 @@
             transform: translateY(-50%);
             color: var(--neon-cyan);
             font-size: 20px;
-            animation: searchPulse 2s infinite;
         }
 
-        @keyframes searchPulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
+        /* 筛选区 */
         .filter-section {
             padding: 60px;
             border-bottom: 1px solid var(--card-border);
@@ -618,80 +361,16 @@
             transition: all 0.3s ease;
             clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .filter-tag:hover {
+        .filter-tag:hover, .filter-tag.active {
             border-color: var(--neon-cyan);
             color: var(--neon-cyan);
             box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
         }
 
-        .filter-tag.active {
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(184, 41, 221, 0.2));
-            border-color: var(--neon-cyan);
-            color: var(--neon-cyan);
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
-        }
-
-        .category-tabs {
-            display: flex;
-            gap: 4px;
-            padding: 0 60px;
-            border-bottom: 1px solid var(--card-border);
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-
-        .category-tabs::-webkit-scrollbar {
-            display: none;
-        }
-
-        .category-tab {
-            padding: 20px 32px;
-            background: none;
-            border: none;
-            border-bottom: 2px solid transparent;
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-        }
-
-        .category-tab::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .category-tab:hover {
-            color: var(--neon-cyan);
-        }
-
-        .category-tab.active {
-            color: var(--neon-cyan);
-        }
-
-        .category-tab.active::after {
-            width: 100%;
-            box-shadow: 0 0 10px var(--neon-cyan);
-        }
-
-        .platforms-section {
-            padding: 60px;
-        }
+        /* 平台列表 */
+        .platforms-section { padding: 60px; }
 
         .section-header {
             display: flex;
@@ -705,18 +384,16 @@
             font-size: 32px;
             font-weight: 700;
             letter-spacing: 2px;
-            position: relative;
             padding-left: 20px;
+            position: relative;
         }
 
         .section-title::before {
             content: '';
             position: absolute;
-            left: 0;
-            top: 50%;
+            left: 0; top: 50%;
             transform: translateY(-50%);
-            width: 4px;
-            height: 32px;
+            width: 4px; height: 32px;
             background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
         }
 
@@ -741,55 +418,13 @@
             padding: 32px;
             transition: all 0.4s ease;
             position: relative;
-            overflow: hidden;
             clip-path: polygon(5% 0, 100% 0, 100% 90%, 95% 100%, 0 100%, 0 10%);
-        }
-
-        .platform-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple), var(--neon-cyan));
-            background-size: 200% 100%;
-            animation: borderFlow 3s linear infinite;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        @keyframes borderFlow {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 200% 0%; }
-        }
-
-        .platform-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), transparent, rgba(184, 41, 221, 0.05));
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
         .platform-card:hover {
             border-color: var(--neon-cyan);
             transform: translateY(-8px);
             box-shadow: 0 20px 60px rgba(0, 240, 255, 0.15);
-        }
-
-        .platform-card:hover::before,
-        .platform-card:hover::after {
-            opacity: 1;
-        }
-
-        .card-content {
-            position: relative;
-            z-index: 1;
         }
 
         .card-header {
@@ -800,37 +435,35 @@
         }
 
         .platform-logo {
-            width: 64px;
-            height: 64px;
+            width: 64px; height: 64px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
             background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(184, 41, 221, 0.1));
             border: 1px solid var(--card-border);
             clip-path: polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%);
             flex-shrink: 0;
+            overflow: hidden;
         }
 
-        .platform-info {
-            flex: 1;
-            min-width: 0;
+        .platform-logo img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
         }
 
         .platform-name {
             font-family: 'Orbitron', sans-serif;
             font-size: 20px;
             font-weight: 700;
-            margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 12px;
-            letter-spacing: 1px;
         }
 
         .verified-badge {
-            width: 20px;
-            height: 20px;
+            width: 20px; height: 20px;
             background: var(--neon-cyan);
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             display: flex;
@@ -838,12 +471,6 @@
             justify-content: center;
             font-size: 10px;
             color: #000;
-            animation: badgeRotate 4s linear infinite;
-        }
-
-        @keyframes badgeRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         .platform-description {
@@ -866,7 +493,6 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             font-family: 'Rajdhani', sans-serif;
             font-size: 12px;
-            font-weight: 600;
             color: var(--text-secondary);
             clip-path: polygon(15% 0, 100% 0, 100% 70%, 85% 100%, 0 100%, 0 30%);
         }
@@ -885,22 +511,10 @@
             border-top: 1px solid var(--card-border);
         }
 
-        .platform-rating {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
         .stars {
             color: var(--gold);
             font-size: 16px;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        }
-
-        .rating-text {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 14px;
-            color: var(--text-secondary);
         }
 
         .visit-btn {
@@ -912,25 +526,10 @@
             font-size: 13px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 2px;
             clip-path: polygon(15% 0, 100% 0, 100% 70%, 85% 100%, 0 100%, 0 30%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .visit-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
-            opacity: 0.3;
-            transition: left 0.5s ease;
+            transition: all 0.3s ease;
         }
 
         .visit-btn:hover {
@@ -939,10 +538,7 @@
             box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
         }
 
-        .visit-btn:hover::before {
-            left: 100%;
-        }
-
+        /* 评论区 */
         .comments-section {
             margin-top: 24px;
             padding-top: 24px;
@@ -957,40 +553,16 @@
             font-family: 'Rajdhani', sans-serif;
             font-size: 14px;
             color: var(--text-secondary);
-            transition: color 0.3s ease;
         }
 
-        .comments-header:hover {
-            color: var(--neon-cyan);
-        }
+        .comments-header:hover { color: var(--neon-cyan); }
 
-        .comments-toggle {
-            transition: transform 0.3s ease;
-            color: var(--neon-cyan);
-        }
+        .comments-toggle { transition: transform 0.3s ease; color: var(--neon-cyan); }
+        .comments-toggle.expanded { transform: rotate(180deg); }
 
-        .comments-toggle.expanded {
-            transform: rotate(180deg);
-        }
-
-        .comments-container {
-            display: none;
-            margin-top: 20px;
-        }
-
-        .comments-container.show {
-            display: block;
-            animation: slideDown 0.3s ease;
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .comment-form {
-            margin-bottom: 20px;
-        }
+        .comments-container { display: none; margin-top: 20px; }
+        .comments-container.show { display: block; animation: slideDown 0.3s ease; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
         .comment-input {
             width: 100%;
@@ -1000,41 +572,23 @@
             color: var(--text-primary);
             font-family: inherit;
             font-size: 14px;
-            resize: vertical;
             min-height: 100px;
             margin-bottom: 12px;
             clip-path: polygon(3% 0, 100% 0, 100% 90%, 97% 100%, 0 100%, 0 10%);
         }
 
-        .comment-input:focus {
-            outline: none;
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
-        }
-
-        .comment-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .rating-select {
-            display: flex;
-            gap: 8px;
-        }
+        .comment-input:focus { outline: none; border-color: var(--neon-cyan); }
 
         .star-btn {
             background: none;
             border: none;
             font-size: 24px;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             cursor: pointer;
             transition: all 0.2s ease;
-            padding: 0;
         }
 
-        .star-btn:hover,
-        .star-btn.active {
+        .star-btn:hover, .star-btn.active {
             color: var(--gold);
             text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
             transform: scale(1.2);
@@ -1049,80 +603,14 @@
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
             clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
-        }
-
-        .submit-comment:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.4);
-        }
-
-        .comment-list {
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .comment-item {
-            padding: 16px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--card-border);
-            margin-bottom: 12px;
-            clip-path: polygon(3% 0, 100% 0, 100% 90%, 97% 100%, 0 100%, 0 10%);
-        }
-
-        .comment-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .comment-user {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--neon-cyan);
-        }
-
-        .comment-rating {
-            color: var(--gold);
-            font-size: 14px;
-        }
-
-        .comment-text {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .comment-date {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 12px;
-            letter-spacing: 1px;
-        }
-
-        .no-comments {
-            text-align: center;
-            padding: 32px;
-            color: var(--text-muted);
-            font-size: 14px;
-            border: 1px dashed var(--card-border);
         }
 
         /* 弹窗 */
         .modal-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(5, 5, 8, 0.95);
-            backdrop-filter: blur(10px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1132,10 +620,7 @@
             transition: all 0.4s ease;
         }
 
-        .modal-overlay.show {
-            opacity: 1;
-            visibility: visible;
-        }
+        .modal-overlay.show { opacity: 1; visibility: visible; }
 
         .modal {
             background: var(--card-bg);
@@ -1143,43 +628,19 @@
             padding: 48px;
             width: 90%;
             max-width: 480px;
-            position: relative;
-            transform: translateY(30px) scale(0.95);
-            transition: all 0.4s ease;
             clip-path: polygon(5% 0, 100% 0, 100% 90%, 95% 100%, 0 100%, 0 10%);
-        }
-
-        .modal-overlay.show .modal {
-            transform: translateY(0) scale(1);
         }
 
         .modal-close {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
+            top: 20px; right: 20px;
+            width: 40px; height: 40px;
             background: transparent;
             border: 1px solid var(--card-border);
             color: var(--text-secondary);
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
             font-size: 18px;
             clip-path: polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%);
-        }
-
-        .modal-close:hover {
-            border-color: var(--neon-cyan);
-            color: var(--neon-cyan);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
-        }
-
-        .modal-header {
-            text-align: center;
-            margin-bottom: 40px;
         }
 
         .modal-title {
@@ -1187,34 +648,12 @@
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 12px;
-            letter-spacing: 2px;
         }
 
-        .modal-title .gradient-text {
+        .gradient-text {
             background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .modal-subtitle {
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-label {
-            display: block;
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
         .form-input {
@@ -1225,65 +664,17 @@
             color: var(--text-primary);
             font-family: inherit;
             font-size: 15px;
-            transition: all 0.3s ease;
+            margin-bottom: 20px;
             clip-path: polygon(3% 0, 100% 0, 100% 90%, 97% 100%, 0 100%, 0 10%);
         }
 
-        .form-input:focus {
-            outline: none;
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
-        }
-
-        .modal-actions {
-            display: flex;
-            gap: 16px;
-            margin-top: 32px;
-        }
-
-        .modal-actions .btn {
-            flex: 1;
-        }
-
-        .modal-footer {
-            text-align: center;
-            margin-top: 24px;
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        .modal-footer a {
-            color: var(--neon-cyan);
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .modal-footer a:hover {
-            text-shadow: 0 0 10px var(--neon-cyan);
-        }
+        .form-input:focus { outline: none; border-color: var(--neon-cyan); }
 
         /* Footer */
         .footer {
             padding: 80px 60px;
             border-top: 1px solid var(--card-border);
             text-align: center;
-            position: relative;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-purple), transparent);
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
         }
 
         .footer-logo {
@@ -1301,7 +692,6 @@
             font-size: 14px;
             color: var(--text-secondary);
             margin-bottom: 32px;
-            line-height: 1.8;
         }
 
         .footer-links {
@@ -1315,204 +705,58 @@
             font-size: 14px;
             color: var(--text-secondary);
             text-decoration: none;
-            transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        .footer-link:hover {
-            color: var(--neon-cyan);
-            text-shadow: 0 0 10px var(--neon-cyan);
-        }
+        .footer-link:hover { color: var(--neon-cyan); }
 
         /* 移动端适配 */
-        @media (max-width: 1024px) {
-            .platforms-grid {
-                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            }
-        }
-
         @media (max-width: 768px) {
-            .navbar {
-                padding: 0 20px;
-                height: 70px;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-            }
-
+            .navbar { padding: 0 20px; height: 70px; }
+            .mobile-menu-btn { display: flex; }
             .nav-links {
                 position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
+                top: 70px; left: 0; right: 0;
                 background: rgba(5, 5, 8, 0.98);
                 flex-direction: column;
                 padding: 20px;
-                gap: 8px;
                 transform: translateY(-100%);
                 opacity: 0;
                 visibility: hidden;
                 transition: all 0.3s ease;
                 border-bottom: 1px solid var(--card-border);
             }
+            .nav-links.show { transform: translateY(0); opacity: 1; visibility: visible; }
+            .nav-actions { display: none; }
+            .nav-actions-mobile { display: flex; }
 
-            .nav-links.show {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
+            .hero { padding: 100px 20px 60px; }
+            .hero h1 { font-size: 42px; }
+            .hero-stats { gap: 16px; }
+            .stat-item { padding: 20px 24px; min-width: 120px; }
+            .stat-number { font-size: 32px; }
 
-            .nav-link {
-                padding: 16px 24px;
-                text-align: center;
-            }
-
-            .nav-actions {
-                display: none;
-            }
-
-            .nav-actions.mobile {
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-                margin-top: 16px;
-            }
-
-            .hero {
-                padding: 100px 20px 60px;
-                min-height: auto;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-                letter-spacing: 2px;
-            }
-
-            .hero-stats {
-                gap: 16px;
-            }
-
-            .stat-item {
-                padding: 20px 24px;
-                min-width: 120px;
-            }
-
-            .stat-number {
-                font-size: 32px;
-            }
-
-            .filter-section,
-            .category-tabs,
-            .platforms-section {
-                padding: 40px 20px;
-            }
-
-            .filter-container {
-                gap: 10px;
-            }
-
-            .filter-tag {
-                padding: 10px 18px;
-                font-size: 12px;
-            }
-
-            .category-tab {
-                padding: 16px 20px;
-                font-size: 13px;
-            }
-
-            .platforms-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .platform-card {
-                padding: 24px;
-            }
-
-            .platform-logo {
-                width: 48px;
-                height: 48px;
-                font-size: 24px;
-            }
-
-            .platform-name {
-                font-size: 16px;
-            }
-
-            .section-title {
-                font-size: 24px;
-            }
-
-            .footer {
-                padding: 60px 20px;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-                gap: 20px;
-            }
-
-            .modal {
-                padding: 32px 24px;
-            }
+            .filter-section, .platforms-section { padding: 40px 20px; }
+            .platforms-grid { grid-template-columns: 1fr; gap: 20px; }
+            .platform-card { padding: 24px; }
+            .platform-logo { width: 48px; height: 48px; }
+            .platform-name { font-size: 16px; }
+            .section-title { font-size: 24px; }
+            .footer { padding: 60px 20px; }
         }
 
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero-badge {
-                font-size: 12px;
-                padding: 10px 16px;
-            }
-
-            .stat-item {
-                flex: 1;
-                min-width: 100px;
-            }
-
-            .stat-number {
-                font-size: 28px;
-            }
-        }
-
-        /* 滚动条 */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--dark-bg);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--card-border);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--neon-cyan);
+            .hero h1 { font-size: 32px; }
+            .stat-item { flex: 1; min-width: 100px; }
+            .stat-number { font-size: 28px; }
         }
     </style>
 </head>
 <body>
-    <!-- 金色星空背景 -->
+    <!-- 星空背景 -->
     <canvas id="starfield-canvas"></canvas>
-    
-    <!-- 3D Logo 变幻层 -->
-    <canvas id="logo-canvas"></canvas>
-    
-    <!-- 扫描线 -->
     <div class="scanlines"></div>
-    
-    <!-- 光晕 -->
-    <div class="glow-orb glow-orb-1"></div>
-    <div class="glow-orb glow-orb-2"></div>
 
     <!-- 导航栏 -->
     <nav class="navbar">
@@ -1528,32 +772,35 @@
                 <div class="logo-subtitle">Global AI Token Directory</div>
             </div>
         </a>
-        
-        <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
             <span></span>
             <span></span>
             <span></span>
         </button>
-        
+
         <div class="nav-links" id="navLinks">
-            <button class="nav-link active" onclick="filterByCategory('all')">全部平台</button>
-            <button class="nav-link" onclick="filterByCategory('official')">官方平台</button>
-            <button class="nav-link" onclick="filterByCategory('aggregator')">聚合平台</button>
-            <button class="nav-link" onclick="filterByCategory('china')">国内中转</button>
-            <button class="nav-link" onclick="filterByCategory('free')">免费额度</button>
-            <div class="nav-actions mobile">
+            <a href="#platforms" class="nav-link" onclick="scrollToSection('platforms'); return false;">全部平台</a>
+            <a href="#platforms" class="nav-link" onclick="filterAndScroll('official'); return false;">官方平台</a>
+            <a href="#platforms" class="nav-link" onclick="filterAndScroll('aggregator'); return false;">聚合平台</a>
+            <a href="#platforms" class="nav-link" onclick="filterAndScroll('china'); return false;">国内中转</a>
+            <a href="#platforms" class="nav-link" onclick="filterAndScroll('free'); return false;">免费额度</a>
+
+            <!-- 移动端登录/注册 -->
+            <div class="nav-actions-mobile">
                 <button class="btn btn-secondary" onclick="openLoginModal()">登录</button>
                 <button class="btn btn-primary" onclick="openRegisterModal()">注册</button>
             </div>
         </div>
-        
+
+        <!-- 桌面端登录/注册 -->
         <div class="nav-actions">
             <button class="btn btn-secondary" onclick="openLoginModal()">登录</button>
             <button class="btn btn-primary" onclick="openRegisterModal()">注册</button>
         </div>
     </nav>
 
-    <!-- 主要内容 -->
+    <!-- 主内容 -->
     <main class="main-content">
         <!-- Hero区 -->
         <section class="hero" id="hero">
@@ -1563,7 +810,7 @@
             </div>
             <h1>
                 探索<br>
-                <span class="glitch-text" data-text="AI Token 宇宙">AI Token 宇宙</span>
+                <span class="glitch-text">AI Token 宇宙</span>
             </h1>
             <p class="hero-subtitle">
                 汇集全球最权威的 AI Token 销售平台，支持 OpenAI、Claude、Gemini、Grok 等主流模型。
@@ -1594,26 +841,15 @@
         <!-- 筛选标签 -->
         <section class="filter-section">
             <div class="filter-container">
-                <button class="filter-tag active" onclick="setFilter('all')">全部</button>
-                <button class="filter-tag" onclick="setFilter('official')">官方平台</button>
-                <button class="filter-tag" onclick="setFilter('aggregator')">聚合平台</button>
-                <button class="filter-tag" onclick="setFilter('china')">国内中转</button>
-                <button class="filter-tag" onclick="setFilter('free')">免费额度</button>
-                <button class="filter-tag" onclick="setFilter('cheapest')">最便宜</button>
-                <button class="filter-tag" onclick="setFilter('stable')">最稳定</button>
+                <button class="filter-tag active" onclick="setFilter('all', this)">全部</button>
+                <button class="filter-tag" onclick="setFilter('official', this)">官方平台</button>
+                <button class="filter-tag" onclick="setFilter('aggregator', this)">聚合平台</button>
+                <button class="filter-tag" onclick="setFilter('china', this)">国内中转</button>
+                <button class="filter-tag" onclick="setFilter('free', this)">免费额度</button>
+                <button class="filter-tag" onclick="setFilter('cheapest', this)">最便宜</button>
+                <button class="filter-tag" onclick="setFilter('stable', this)">最稳定</button>
             </div>
         </section>
-
-        <!-- 分类标签页 -->
-        <div class="category-tabs">
-            <button class="category-tab active" onclick="setCategory('all')">全部</button>
-            <button class="category-tab" onclick="setCategory('official')">官方平台</button>
-            <button class="category-tab" onclick="setCategory('aggregator')">聚合平台</button>
-            <button class="category-tab" onclick="setCategory('china')">国内中转</button>
-            <button class="category-tab" onclick="setCategory('image')">图像生成</button>
-            <button class="category-tab" onclick="setCategory('voice')">语音合成</button>
-            <button class="category-tab" onclick="setCategory('embedding')">Embedding</button>
-        </div>
 
         <!-- 平台列表 -->
         <section class="platforms-section" id="platforms">
@@ -1621,9 +857,7 @@
                 <h2 class="section-title">热门平台</h2>
                 <span class="platform-count" id="platformCount">加载中...</span>
             </div>
-            <div class="platforms-grid" id="platformsGrid">
-                <!-- 动态生成 -->
-            </div>
+            <div class="platforms-grid" id="platformsGrid"></div>
         </section>
     </main>
 
@@ -1653,71 +887,50 @@
 
     <!-- 登录弹窗 -->
     <div class="modal-overlay" id="loginModal">
-        <div class="modal">
+        <div class="modal" style="position: relative;">
             <button class="modal-close" onclick="closeLoginModal()">✕</button>
-            <div class="modal-header">
-                <h3 class="modal-title"><span class="gradient-text">欢迎回来</span></h3>
-                <p class="modal-subtitle">登录以参与评论和评分</p>
+            <div class="modal-title"><span class="gradient-text">欢迎回来</span></div>
+            <p style="color: var(--text-secondary); margin-bottom: 30px;">登录以参与评论和评分</p>
+            <input type="email" class="form-input" placeholder="your@email.com">
+            <input type="password" class="form-input" placeholder="密码">
+            <div style="display: flex; gap: 16px;">
+                <button class="btn btn-secondary" onclick="closeLoginModal()" style="flex: 1;">取消</button>
+                <button class="btn btn-primary" onclick="handleLogin()" style="flex: 1;">登录</button>
             </div>
-            <form id="loginForm" onsubmit="handleLogin(event)">
-                <div class="form-group">
-                    <label class="form-label">邮箱地址</label>
-                    <input type="email" class="form-input" placeholder="your@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">密码</label>
-                    <input type="password" class="form-input" placeholder="••••••••" required>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" class="btn btn-secondary" onclick="closeLoginModal()">取消</button>
-                    <button type="submit" class="btn btn-primary">登录</button>
-                </div>
-            </form>
-            <div class="modal-footer">
-                还没有账号？<a onclick="switchToRegister()">立即注册</a>
-            </div>
+            <p style="text-align: center; margin-top: 20px; color: var(--text-secondary); font-size: 14px;">
+                还没有账号？<a href="#" onclick="switchToRegister(); return false;" style="color: var(--neon-cyan);">立即注册</a>
+            </p>
         </div>
     </div>
 
     <!-- 注册弹窗 -->
     <div class="modal-overlay" id="registerModal">
-        <div class="modal">
+        <div class="modal" style="position: relative;">
             <button class="modal-close" onclick="closeRegisterModal()">✕</button>
-            <div class="modal-header">
-                <h3 class="modal-title"><span class="gradient-text">创建账号</span></h3>
-                <p class="modal-subtitle">注册后即可评论和评分平台</p>
+            <div class="modal-title"><span class="gradient-text">创建账号</span></div>
+            <p style="color: var(--text-secondary); margin-bottom: 30px;">注册后即可评论和评分平台</p>
+            <input type="text" class="form-input" id="regUsername" placeholder="用户名">
+            <input type="email" class="form-input" placeholder="your@email.com">
+            <input type="password" class="form-input" placeholder="密码">
+            <div style="display: flex; gap: 16px;">
+                <button class="btn btn-secondary" onclick="closeRegisterModal()" style="flex: 1;">取消</button>
+                <button class="btn btn-primary" onclick="handleRegister()" style="flex: 1;">注册</button>
             </div>
-            <form id="registerForm" onsubmit="handleRegister(event)">
-                <div class="form-group">
-                    <label class="form-label">用户名</label>
-                    <input type="text" class="form-input" id="regUsername" placeholder="选择一个用户名" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">邮箱地址</label>
-                    <input type="email" class="form-input" placeholder="your@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">密码</label>
-                    <input type="password" class="form-input" placeholder="至少8位字符" required>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" class="btn btn-secondary" onclick="closeRegisterModal()">取消</button>
-                    <button type="submit" class="btn btn-primary">注册</button>
-                </div>
-            </form>
-            <div class="modal-footer">
-                已有账号？<a onclick="switchToLogin()">立即登录</a>
-            </div>
+            <p style="text-align: center; margin-top: 20px; color: var(--text-secondary); font-size: 14px;">
+                已有账号？<a href="#" onclick="switchToLogin(); return false;" style="color: var(--neon-cyan);">立即登录</a>
+            </p>
         </div>
     </div>
 
     <script>
-        // ==================== 金色星空背景系统 ====================
+        // ==================== 星空汇聚效果 ====================
         class StarfieldSystem {
             constructor() {
                 this.canvas = document.getElementById('starfield-canvas');
                 this.ctx = this.canvas.getContext('2d');
                 this.stars = [];
+                this.centerX = window.innerWidth / 2;
+                this.centerY = window.innerHeight / 2;
                 this.resize();
                 this.init();
                 this.animate();
@@ -1727,59 +940,68 @@
             resize() {
                 this.canvas.width = window.innerWidth;
                 this.canvas.height = window.innerHeight;
+                this.centerX = this.canvas.width / 2;
+                this.centerY = this.canvas.height / 2;
             }
 
             init() {
-                const starCount = Math.min(300, Math.floor(window.innerWidth / 5));
-                for (let i = 0; i < starCount; i++) {
+                // 创建500个光点，从中心汇聚
+                for (let i = 0; i < 500; i++) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = Math.random() * Math.max(this.canvas.width, this.canvas.height);
                     this.stars.push({
-                        x: Math.random() * this.canvas.width,
-                        y: Math.random() * this.canvas.height,
+                        x: this.centerX + Math.cos(angle) * distance,
+                        y: this.centerY + Math.sin(angle) * distance,
+                        targetX: this.centerX,
+                        targetY: this.centerY,
                         size: Math.random() * 2 + 0.5,
+                        speed: Math.random() * 0.5 + 0.2,
                         opacity: Math.random() * 0.8 + 0.2,
-                        speed: Math.random() * 0.02 + 0.01,
-                        twinkleSpeed: Math.random() * 0.02 + 0.01,
-                        twinklePhase: Math.random() * Math.PI * 2,
-                        isGold: Math.random() > 0.3 // 70% 金色星星
+                        isGold: Math.random() > 0.3,
+                        angle: angle,
+                        orbitRadius: Math.random() * 200 + 50,
+                        orbitSpeed: Math.random() * 0.002 + 0.001,
+                        orbitPhase: Math.random() * Math.PI * 2
                     });
                 }
             }
 
             animate() {
-                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-                
+                this.ctx.fillStyle = 'rgba(5, 5, 8, 0.1)';
+                this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
                 this.stars.forEach(star => {
+                    // 轨道运动 - 围绕中心旋转
+                    star.orbitPhase += star.orbitSpeed;
+                    star.targetX = this.centerX + Math.cos(star.orbitPhase) * star.orbitRadius;
+                    star.targetY = this.centerY + Math.sin(star.orbitPhase) * star.orbitRadius;
+
+                    // 向目标位置移动
+                    star.x += (star.targetX - star.x) * star.speed * 0.02;
+                    star.y += (star.targetY - star.y) * star.speed * 0.02;
+
                     // 闪烁效果
-                    star.twinklePhase += star.twinkleSpeed;
-                    const twinkle = Math.sin(star.twinklePhase) * 0.3 + 0.7;
+                    const twinkle = Math.sin(Date.now() * 0.003 + star.orbitPhase) * 0.3 + 0.7;
                     const currentOpacity = star.opacity * twinkle;
-                    
-                    // 缓慢移动
-                    star.y -= star.speed;
-                    if (star.y < 0) {
-                        star.y = this.canvas.height;
-                        star.x = Math.random() * this.canvas.width;
-                    }
-                    
-                    // 绘制星星
+
+                    // 绘制光点
                     this.ctx.beginPath();
                     this.ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-                    
+
                     if (star.isGold) {
-                        // 金色星星带发光
+                        // 金色光点带发光
                         const gradient = this.ctx.createRadialGradient(
                             star.x, star.y, 0,
-                            star.x, star.y, star.size * 3
+                            star.x, star.y, star.size * 4
                         );
                         gradient.addColorStop(0, `rgba(255, 215, 0, ${currentOpacity})`);
                         gradient.addColorStop(0.5, `rgba(255, 215, 0, ${currentOpacity * 0.3})`);
                         gradient.addColorStop(1, 'rgba(255, 215, 0, 0)');
                         this.ctx.fillStyle = gradient;
                     } else {
-                        // 青色星星
+                        // 青色光点
                         this.ctx.fillStyle = `rgba(0, 240, 255, ${currentOpacity})`;
                     }
-                    
                     this.ctx.fill();
                 });
 
@@ -1787,244 +1009,63 @@
             }
         }
 
-        // ==================== 3D Logo 变幻系统 ====================
-        class LogoMorphSystem {
-            constructor() {
-                this.canvas = document.getElementById('logo-canvas');
-                this.ctx = this.canvas.getContext('2d');
-                this.logos = [
-                    { name: 'OpenAI', color: '#10a37f', shape: 'circle' },
-                    { name: 'Claude', color: '#d4a574', shape: 'hexagon' },
-                    { name: 'Gemini', color: '#4285f4', shape: 'diamond' },
-                    { name: 'Grok', color: '#f97316', shape: 'triangle' },
-                    { name: 'DeepSeek', color: '#6366f1', shape: 'star' },
-                    { name: 'Llama', color: '#0668e1', shape: 'square' }
-                ];
-                this.currentLogo = 0;
-                this.particles = [];
-                this.isMorphing = false;
-                this.resize();
-                this.init();
-                this.animate();
-                window.addEventListener('resize', () => this.resize());
-                
-                // 每5秒变幻一次
-                setInterval(() => this.morphToNext(), 5000);
-            }
-
-            resize() {
-                this.canvas.width = window.innerWidth;
-                this.canvas.height = window.innerHeight;
-            }
-
-            init() {
-                // 初始化粒子形成第一个Logo
-                this.createLogoParticles(this.logos[0]);
-            }
-
-            createLogoParticles(logo) {
-                const centerX = this.canvas.width * 0.85;
-                const centerY = this.canvas.height * 0.2;
-                const size = 80;
-                const particleCount = 150;
-                
-                this.particles = [];
-                
-                for (let i = 0; i < particleCount; i++) {
-                    let targetX, targetY;
-                    const angle = (i / particleCount) * Math.PI * 2;
-                    
-                    switch(logo.shape) {
-                        case 'circle':
-                            targetX = centerX + Math.cos(angle) * size;
-                            targetY = centerY + Math.sin(angle) * size;
-                            break;
-                        case 'hexagon':
-                            const hexAngle = angle % (Math.PI / 3);
-                            const hexRadius = size / Math.cos(hexAngle - Math.PI / 6);
-                            targetX = centerX + Math.cos(angle) * hexRadius;
-                            targetY = centerY + Math.sin(angle) * hexRadius;
-                            break;
-                        case 'diamond':
-                            targetX = centerX + Math.cos(angle) * size * (Math.abs(Math.cos(angle)) > 0.5 ? 1 : 0.6);
-                            targetY = centerY + Math.sin(angle) * size * (Math.abs(Math.sin(angle)) > 0.5 ? 1 : 0.6);
-                            break;
-                        case 'triangle':
-                            const triAngle = (angle + Math.PI / 2) % (Math.PI * 2 / 3);
-                            const triRadius = size / Math.cos(triAngle - Math.PI / 3);
-                            targetX = centerX + Math.cos(angle) * triRadius;
-                            targetY = centerY + Math.sin(angle) * triRadius;
-                            break;
-                        case 'star':
-                            const starRadius = i % 2 === 0 ? size : size * 0.4;
-                            targetX = centerX + Math.cos(angle) * starRadius;
-                            targetY = centerY + Math.sin(angle) * starRadius;
-                            break;
-                        default: // square
-                            targetX = centerX + Math.cos(angle) * size * (Math.abs(Math.cos(angle)) > 0.7 ? 1.3 : 0.8);
-                            targetY = centerY + Math.sin(angle) * size * (Math.abs(Math.sin(angle)) > 0.7 ? 1.3 : 0.8);
-                    }
-                    
-                    this.particles.push({
-                        x: Math.random() * this.canvas.width,
-                        y: Math.random() * this.canvas.height,
-                        targetX: targetX,
-                        targetY: targetY,
-                        size: Math.random() * 3 + 2,
-                        color: logo.color,
-                        speed: Math.random() * 0.03 + 0.02,
-                        delay: Math.random() * 1000
-                    });
-                }
-            }
-
-            morphToNext() {
-                if (this.isMorphing) return;
-                this.isMorphing = true;
-                
-                this.currentLogo = (this.currentLogo + 1) % this.logos.length;
-                const nextLogo = this.logos[this.currentLogo];
-                
-                // 先散开
-                this.particles.forEach(p => {
-                    p.targetX = Math.random() * this.canvas.width;
-                    p.targetY = Math.random() * this.canvas.height;
-                });
-                
-                // 1秒后形成新Logo
-                setTimeout(() => {
-                    this.createLogoParticles(nextLogo);
-                    setTimeout(() => {
-                        this.isMorphing = false;
-                    }, 1500);
-                }, 1000);
-            }
-
-            animate() {
-                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-                
-                this.particles.forEach(p => {
-                    // 向目标位置移动
-                    const dx = p.targetX - p.x;
-                    const dy = p.targetY - p.y;
-                    p.x += dx * p.speed;
-                    p.y += dy * p.speed;
-                    
-                    // 绘制粒子
-                    this.ctx.beginPath();
-                    this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                    
-                    // 发光效果
-                    const gradient = this.ctx.createRadialGradient(
-                        p.x, p.y, 0,
-                        p.x, p.y, p.size * 4
-                    );
-                    gradient.addColorStop(0, p.color);
-                    gradient.addColorStop(0.5, p.color + '80');
-                    gradient.addColorStop(1, 'transparent');
-                    
-                    this.ctx.fillStyle = gradient;
-                    this.ctx.fill();
-                });
-
-                // 绘制Logo名称
-                if (!this.isMorphing) {
-                    const logo = this.logos[this.currentLogo];
-                    this.ctx.font = 'bold 24px Orbitron';
-                    this.ctx.fillStyle = logo.color;
-                    this.ctx.textAlign = 'center';
-                    this.ctx.shadowColor = logo.color;
-                    this.ctx.shadowBlur = 20;
-                    this.ctx.fillText(logo.name, this.canvas.width * 0.85, this.canvas.height * 0.2 + 120);
-                    this.ctx.shadowBlur = 0;
-                }
-
-                requestAnimationFrame(() => this.animate());
-            }
-        }
-
-        // ==================== 平台数据 ====================
+        // ==================== 平台数据（带真实Logo）====================
         const platforms = [
-            // 官方平台
-            { id: 1, name: "OpenAI", verified: true, description: "OpenAI 官方 API，提供 GPT-4o、GPT-4 Turbo、GPT-3.5 等最新模型，支持文本生成、代码编写、图像理解等多模态能力。", url: "https://openai.com/api", logo: "◉", category: "official", tags: ["GPT-4o", "GPT-4 Turbo", "文本生成", "代码"], pricing: "$0.002-15/1M tokens", rating: 4.9, reviews: 2847 },
-            { id: 2, name: "Anthropic Claude", verified: true, description: "Anthropic 官方 Claude API，提供 Claude 3.5 Sonnet、Claude 3 Opus、Claude 3 Haiku 等模型，以安全性著称。", url: "https://claude.ai/api", logo: "◈", category: "official", tags: ["Claude 3.5", "安全可靠", "长上下文"], pricing: "$0.25-15/1M tokens", rating: 4.8, reviews: 1923 },
-            { id: 3, name: "Google Gemini", verified: true, description: "Google DeepMind 的 Gemini API，支持 Gemini 1.5 Pro、Gemini 1.5 Flash 等模型，集成 Google 生态。", url: "https://ai.google.dev", logo: "✦", category: "official", tags: ["Gemini 1.5", "多模态", "Google生态"], pricing: "$0.0125-3.5/1M tokens", rating: 4.7, reviews: 1456 },
-            { id: 4, name: "xAI Grok", verified: true, description: "xAI 官方 Grok API，Elon Musk 旗下 AI 公司出品，提供 Grok 2、Grok-1 等模型，主打实时信息获取。", url: "https://console.x.ai", logo: "⚡", category: "official", tags: ["Grok 2", "实时信息", "X平台集成"], pricing: "$0.20-3/1M tokens", rating: 4.5, reviews: 892 },
-            { id: 5, name: "DeepSeek", verified: true, description: "深度求索官方 API，DeepSeek-V3、DeepSeek-Coder 等模型性能卓越，价格极具竞争力。", url: "https://platform.deepseek.com", logo: "◉", category: "official", tags: ["DeepSeek V3", "代码能力强", "低价"], pricing: "$0.0013-0.27/1M tokens", rating: 4.9, reviews: 2156 },
-            { id: 6, name: "Meta Llama", verified: true, description: "Meta 开源大模型 Llama 官方 API，提供 Llama 3.1 405B、Llama 3.1 70B 等开源模型。", url: "https://llama.meta.com", logo: "◊", category: "official", tags: ["Llama 3.1", "开源", "Meta生态"], pricing: "$0.05-0.24/1M tokens", rating: 4.6, reviews: 1234 },
-            { id: 7, name: "Mistral AI", verified: true, description: "Mistral AI 官方 API，提供 Mistral Large、Mistral Nemo 等欧洲顶级开源模型。", url: "https://mistral.ai", logo: "✦", category: "official", tags: ["Mistral Large", "开源", "欧洲"], pricing: "$0.24-8/1M tokens", rating: 4.4, reviews: 678 },
-            { id: 8, name: "Cohere", verified: true, description: "Cohere 官方 API，提供 Command R+、Cohere Embed 等企业级模型，RAG 能力突出。", url: "https://cohere.com", logo: "◉", category: "official", tags: ["Command R+", "RAG优化", "Embeddings"], pricing: "$0.50-15/1M tokens", rating: 4.5, reviews: 567 },
-            { id: 9, name: "Perplexity", verified: true, description: "Perplexity 官方搜索增强 API，提供 Sonar、Sonar Pro 等模型，整合实时网络搜索能力。", url: "https://perplexity.ai", logo: "◈", category: "official", tags: ["搜索增强", "实时信息", "Sonar"], pricing: "$2-20/1M tokens", rating: 4.5, reviews: 876 },
-            { id: 10, name: "AWS Bedrock", verified: true, description: "亚马逊云 AWS Bedrock，提供 Claude、Llama、Titan 等模型，企业级安全与合规保障。", url: "https://aws.amazon.com/bedrock", logo: "☁", category: "official", tags: ["AWS集成", "Claude", "企业级"], pricing: "$0.25-15/1M tokens", rating: 4.6, reviews: 2345 },
-            { id: 11, name: "Azure OpenAI", verified: true, description: "微软 Azure OpenAI Service，GPT-4、GPT-4 Turbo 等模型，企业级安全和合规，Azure 生态集成。", url: "https://azure.microsoft.com/products/ai-services/openai-service", logo: "◆", category: "official", tags: ["Azure", "GPT-4", "企业级"], pricing: "$0.002-15/1M tokens", rating: 4.7, reviews: 3214 },
-            { id: 12, name: "阿里云百炼", verified: true, description: "阿里云大模型平台，通义千问 Qwen 系列官方 API，支持 Qwen-Max、Qwen-Plus 等。", url: "https://bailian.console.aliyun.com", logo: "◉", category: "official", tags: ["Qwen", "阿里云", "通义千问"], pricing: "¥0.004-0.2/1K tokens", rating: 4.6, reviews: 1876 },
-            { id: 13, name: "字节火山引擎", verified: true, description: "字节跳动火山引擎大模型服务平台，提供豆包 Doubao 系列模型，抖音生态支持。", url: "https://console.volcengine.com/ark", logo: "▲", category: "official", tags: ["豆包", "字节", "抖音集成"], pricing: "¥0.001-0.1/1K tokens", rating: 4.5, reviews: 1234 },
-            { id: 14, name: "智谱 GLM", verified: true, description: "智谱 AI GLM 系列模型官方 API，提供 GLM-4、GLM-4V 等国产顶级模型，清华技术背景。", url: "https://open.bigmodel.cn", logo: "◆", category: "official", tags: ["GLM-4", "清华", "国产"], pricing: "¥0.001-0.1/1K tokens", rating: 4.6, reviews: 1567 },
-            { id: 15, name: "MiniMax", verified: true, description: "MiniMax 海螺问问官方 API，支持 MiniMax-M2.1 等模型，专注于编程和 Agent 工作流。", url: "https://www.minimax.io", logo: "◈", category: "official", tags: ["海螺问问", "Agent", "编程"], pricing: "$0.27-0.95/1M tokens", rating: 4.4, reviews: 654 },
-            
+            { id: 1, name: "OpenAI", verified: true, description: "OpenAI 官方 API，提供 GPT-4o、GPT-4 Turbo、GPT-3.5 等最新模型，支持文本生成、代码编写、图像理解等多模态能力。", url: "https://openai.com/api", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg", category: "official", tags: ["GPT-4o", "GPT-4 Turbo", "文本生成"], pricing: "$0.002-15/1M tokens", rating: 4.9, reviews: 2847 },
+            { id: 2, name: "Anthropic Claude", verified: true, description: "Anthropic 官方 Claude API，提供 Claude 3.5 Sonnet、Claude 3 Opus、Claude 3 Haiku 等模型，以安全性著称。", url: "https://claude.ai/api", logo: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Anthropic_logo.svg", category: "official", tags: ["Claude 3.5", "安全可靠", "长上下文"], pricing: "$0.25-15/1M tokens", rating: 4.8, reviews: 1923 },
+            { id: 3, name: "Google Gemini", verified: true, description: "Google DeepMind 的 Gemini API，支持 Gemini 1.5 Pro、Gemini 1.5 Flash 等模型，集成 Google 生态。", url: "https://ai.google.dev", logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Google_Gemini_logo.svg", category: "official", tags: ["Gemini 1.5", "多模态", "Google生态"], pricing: "$0.0125-3.5/1M tokens", rating: 4.7, reviews: 1456 },
+            { id: 4, name: "xAI Grok", verified: true, description: "xAI 官方 Grok API，Elon Musk 旗下 AI 公司出品，提供 Grok 2、Grok-1 等模型，主打实时信息获取。", url: "https://console.x.ai", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='70' text-anchor='middle' font-size='60' fill='%23f97316'%3E𝕏%3C/text%3E%3C/svg%3E", category: "official", tags: ["Grok 2", "实时信息", "X平台集成"], pricing: "$0.20-3/1M tokens", rating: 4.5, reviews: 892 },
+            { id: 5, name: "DeepSeek", verified: true, description: "深度求索官方 API，DeepSeek-V3、DeepSeek-Coder 等模型性能卓越，价格极具竞争力。", url: "https://platform.deepseek.com", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%236366f1'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='40' fill='white'%3EDS%3C/text%3E%3C/svg%3E", category: "official", tags: ["DeepSeek V3", "代码能力强", "低价"], pricing: "$0.0013-0.27/1M tokens", rating: 4.9, reviews: 2156 },
+            { id: 6, name: "Meta Llama", verified: true, description: "Meta 开源大模型 Llama 官方 API，提供 Llama 3.1 405B、Llama 3.1 70B 等开源模型。", url: "https://llama.meta.com", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Meta_Inc._logo_2021.svg", category: "official", tags: ["Llama 3.1", "开源", "Meta生态"], pricing: "$0.05-0.24/1M tokens", rating: 4.6, reviews: 1234 },
+            { id: 7, name: "Mistral AI", verified: true, description: "Mistral AI 官方 API，提供 Mistral Large、Mistral Nemo 等欧洲顶级开源模型。", url: "https://mistral.ai", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 10 L90 90 L10 90 Z' fill='%23fa7343'/%3E%3C/svg%3E", category: "official", tags: ["Mistral Large", "开源", "欧洲"], pricing: "$0.24-8/1M tokens", rating: 4.4, reviews: 678 },
+            { id: 8, name: "Cohere", verified: true, description: "Cohere 官方 API，提供 Command R+、Cohere Embed 等企业级模型，RAG 能力突出。", url: "https://cohere.com", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%2300d4aa'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='35' fill='white'%3EC%3C/text%3E%3C/svg%3E", category: "official", tags: ["Command R+", "RAG优化", "Embeddings"], pricing: "$0.50-15/1M tokens", rating: 4.5, reviews: 567 },
+            { id: 9, name: "Perplexity", verified: true, description: "Perplexity 官方搜索增强 API，提供 Sonar、Sonar Pro 等模型，整合实时网络搜索能力。", url: "https://perplexity.ai", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23fbbf24'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='35' fill='black'%3EP%3C/text%3E%3C/svg%3E", category: "official", tags: ["搜索增强", "实时信息", "Sonar"], pricing: "$2-20/1M tokens", rating: 4.5, reviews: 876 },
+            { id: 10, name: "AWS Bedrock", verified: true, description: "亚马逊云 AWS Bedrock，提供 Claude、Llama、Titan 等模型，企业级安全与合规保障。", url: "https://aws.amazon.com/bedrock", logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg", category: "official", tags: ["AWS集成", "Claude", "企业级"], pricing: "$0.25-15/1M tokens", rating: 4.6, reviews: 2345 },
+            { id: 11, name: "Azure OpenAI", verified: true, description: "微软 Azure OpenAI Service，GPT-4、GPT-4 Turbo 等模型，企业级安全和合规，Azure 生态集成。", url: "https://azure.microsoft.com/products/ai-services/openai-service", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg", category: "official", tags: ["Azure", "GPT-4", "企业级"], pricing: "$0.002-15/1M tokens", rating: 4.7, reviews: 3214 },
+            { id: 12, name: "阿里云百炼", verified: true, description: "阿里云大模型平台，通义千问 Qwen 系列官方 API，支持 Qwen-Max、Qwen-Plus 等。", url: "https://bailian.console.aliyun.com", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23ff6b00'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='30' fill='white'%3E阿里%3C/text%3E%3C/svg%3E", category: "official", tags: ["Qwen", "阿里云", "通义千问"], pricing: "¥0.004-0.2/1K tokens", rating: 4.6, reviews: 1876 },
+
             // 聚合平台
-            { id: 16, name: "OpenRouter", verified: true, description: "全球最大的 AI API 聚合平台，统一接口访问 400+ 模型，支持 OpenAI、Anthropic、Google、Meta 等主流厂商。", url: "https://openrouter.ai", logo: "◉", category: "aggregator", tags: ["400+模型", "统一接口", "全球最大"], pricing: "$0.01-15/1M tokens", rating: 4.8, reviews: 4521 },
-            { id: 17, name: "Together AI", verified: true, description: "专注于开源模型的聚合平台，提供 Llama、Mistral、Qwen 等开源模型的快速访问。", url: "https://together.ai", logo: "◊", category: "aggregator", tags: ["开源模型", "推理优化", "Llama"], pricing: "$0.05-8/1M tokens", rating: 4.6, reviews: 1234 },
-            { id: 18, name: "TokenHub", verified: true, description: "新兴的 AI API 聚合平台，通过单一 API Key 访问 50+ 模型，支持 OpenAI 兼容接口。", url: "https://tokenhub.win", logo: "◉", category: "aggregator", tags: ["50+模型", "统一API", "新兴平台"], pricing: "$0.01-10/1M tokens", rating: 4.3, reviews: 456 },
-            { id: 19, name: "Tokenthon", verified: false, description: "主打低价的 AI API 聚合平台，声称比官方便宜 38-90%，支持主流模型。", url: "https://www.tokenthon.com", logo: "◈", category: "aggregator", tags: ["低价", "聚合", "性价比"], pricing: "$0.002-8/1M tokens", rating: 4.1, reviews: 789 },
-            { id: 20, name: "Groq", verified: true, description: "Groq LPU 驱动的极速推理 API，以极低延迟著称，支持 Llama、Mistral 等开源模型。", url: "https://console.groq.com", logo: "⚡", category: "aggregator", tags: ["极速推理", "低延迟", "开源"], pricing: "$0.05-0.59/1M tokens", rating: 4.7, reviews: 987 },
-            
+            { id: 13, name: "OpenRouter", verified: true, description: "全球最大的 AI API 聚合平台，统一接口访问 400+ 模型，支持 OpenAI、Anthropic、Google、Meta 等主流厂商。", url: "https://openrouter.ai", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%2300ccff'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='30' fill='white'%3EOR%3C/text%3E%3C/svg%3E", category: "aggregator", tags: ["400+模型", "统一接口", "全球最大"], pricing: "$0.01-15/1M tokens", rating: 4.8, reviews: 4521 },
+            { id: 14, name: "Together AI", verified: true, description: "专注于开源模型的聚合平台，提供 Llama、Mistral、Qwen 等开源模型的快速访问。", url: "https://together.ai", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%238b5cf6'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='25' fill='white'%3ETG%3C/text%3E%3C/svg%3E", category: "aggregator", tags: ["开源模型", "推理优化", "Llama"], pricing: "$0.05-8/1M tokens", rating: 4.6, reviews: 1234 },
+            { id: 15, name: "Groq", verified: true, description: "Groq LPU 驱动的极速推理 API，以极低延迟著称，支持 Llama、Mistral 等开源模型。", url: "https://console.groq.com", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%2322c55e'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='30' fill='white'%3EG%3C/text%3E%3C/svg%3E", category: "aggregator", tags: ["极速推理", "低延迟", "开源"], pricing: "$0.05-0.59/1M tokens", rating: 4.7, reviews: 987 },
+
             // 国内中转站
-            { id: 21, name: "老张API", verified: true, description: "国内最知名的 Claude API 中转平台，提供 Claude 3.5 Sonnet、Claude 3.7 等模型，中文技术支持。", url: "https://laozhang.ai", logo: "◉", category: "china", tags: ["Claude", "中文支持", "老牌稳定"], pricing: "¥0.5-12/1M tokens", rating: 4.7, reviews: 3456 },
-            { id: 22, name: "DMXAPI", verified: true, description: "大模型 API 聚合平台，聚集全球 100+ 主流模型，支持 OpenAI、Claude、DeepSeek 等。", url: "https://dmxapi.com", logo: "◈", category: "china", tags: ["100+模型", "聚合", "折扣"], pricing: "7折起", rating: 4.5, reviews: 2134 },
-            { id: 23, name: "神马中转API", verified: false, description: "国内直连 ChatGPT/Claude API 中转服务，无需科学上网，支持 Claude Code 等服务。", url: "https://api.whatai.cc", logo: "◊", category: "china", tags: ["Claude Code", "国内直连", "中转"], pricing: "¥0.8-15/1M tokens", rating: 4.3, reviews: 1567 },
-            { id: 24, name: "MNAPI", verified: true, description: "All in One 的中转站聚合平台，将多个中转站的 API 转发给用户，保证性价比和稳定性。", url: "https://www.mnapi.com", logo: "◉", category: "china", tags: ["聚合中转", "稳定性", "性价比"], pricing: "最优价", rating: 4.6, reviews: 1234 },
-            { id: 25, name: "一步API", verified: false, description: "国内领先的大模型 API 中转平台，通过统一接口、网络加速、聚合计费为开发者提供高效解决方案。", url: "https://yibuapi.com", logo: "◈", category: "china", tags: ["网络加速", "聚合", "高效"], pricing: "¥0.6-10/1M tokens", rating: 4.4, reviews: 987 },
-            { id: 26, name: "简易API", verified: false, description: "简易 API 中转站，支持 OpenAI、Claude、DeepSeek 等所有主流大模型，国内直连稳定访问。", url: "https://jia-api.com", logo: "◉", category: "china", tags: ["简易", "主流模型", "直连"], pricing: "¥0.5-8/1M tokens", rating: 4.3, reviews: 876 },
-            { id: 27, name: "GetGoAPI", verified: true, description: "支持支付宝/微信支付购买 GPT Realtime API，最小充值 $1，即付即用。", url: "https://getgoapi.com", logo: "◈", category: "china", tags: ["微信支付", "支付宝", "Realtime"], pricing: "$1起充", rating: 4.5, reviews: 1234 },
-            { id: 28, name: "PoloAPI", verified: false, description: "长期稳定业务首选，支持 GPT、Claude、国产模型等主流厂商，企业级工程成熟度。", url: "https://poloapi.top", logo: "◊", category: "china", tags: ["企业级", "高稳定", "长连接"], pricing: "¥0.1-0.5/秒并发", rating: 4.6, reviews: 654 },
-            { id: 29, name: "幂简集成", verified: true, description: "专业的大模型 API 服务集成平台，提供 API 中转、聚合、监控等企业级服务。", url: "https://mize.cn", logo: "◆", category: "china", tags: ["企业级", "集成", "监控"], pricing: "企业定价", rating: 4.7, reviews: 543 },
-            { id: 30, name: "BotSailor", verified: false, description: "AI Token 充值平台，支持转售 Token 增加订阅收入，当前有限时赠送 100M 免费 Token 活动。", url: "https://www.botsailor.com", logo: "◉", category: "china", tags: ["Token充值", "转售", "免费额度"], pricing: "赠送100M", rating: 4.2, reviews: 321 }
+            { id: 16, name: "老张API", verified: true, description: "国内最知名的 Claude API 中转平台，提供 Claude 3.5 Sonnet、Claude 3.7 等模型，中文技术支持。", url: "https://laozhang.ai", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23f59e0b'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='30' fill='white'%3E老张%3C/text%3E%3C/svg%3E", category: "china", tags: ["Claude", "中文支持", "老牌稳定"], pricing: "¥0.5-12/1M tokens", rating: 4.7, reviews: 3456 },
+            { id: 17, name: "DMXAPI", verified: true, description: "大模型 API 聚合平台，聚集全球 100+ 主流模型，支持 OpenAI、Claude、DeepSeek 等。", url: "https://dmxapi.com", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23ec4899'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='30' fill='white'%3EDMX%3C/text%3E%3C/svg%3E", category: "china", tags: ["100+模型", "聚合", "折扣"], pricing: "7折起", rating: 4.5, reviews: 2134 },
+            { id: 18, name: "MNAPI", verified: true, description: "All in One 的中转站聚合平台，将多个中转站的 API 转发给用户，保证性价比和稳定性。", url: "https://www.mnapi.com", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%2306b6d4'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='30' fill='white'%3EMN%3C/text%3E%3C/svg%3E", category: "china", tags: ["聚合中转", "稳定性", "性价比"], pricing: "最优价", rating: 4.6, reviews: 1234 },
+            { id: 19, name: "GetGoAPI", verified: true, description: "支持支付宝/微信支付购买 GPT Realtime API，最小充值 $1，即付即用。", url: "https://getgoapi.com", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%2310b981'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='25' fill='white'%3EGG%3C/text%3E%3C/svg%3E", category: "china", tags: ["微信支付", "支付宝", "Realtime"], pricing: "$1起充", rating: 4.5, reviews: 1234 },
+            { id: 20, name: "幂简集成", verified: true, description: "专业的大模型 API 服务集成平台，提供 API 中转、聚合、监控等企业级服务。", url: "https://mize.cn", logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%238b5cf6'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='25' fill='white'%3E幂简%3C/text%3E%3C/svg%3E", category: "china", tags: ["企业级", "集成", "监控"], pricing: "企业定价", rating: 4.7, reviews: 543 }
         ];
 
         const commentsData = {};
         let currentUser = null;
         let currentFilter = 'all';
-        let currentCategory = 'all';
 
-        // ==================== 数字滚动动画 ====================
+        // ==================== 数字动画 ====================
         function animateNumbers() {
-            const stats = document.querySelectorAll('.stat-number');
-            stats.forEach(stat => {
+            document.querySelectorAll('.stat-number').forEach(stat => {
                 const target = parseInt(stat.dataset.target);
                 const duration = 2000;
                 const start = performance.now();
-                
+
                 function update(currentTime) {
                     const elapsed = currentTime - start;
                     const progress = Math.min(elapsed / duration, 1);
                     const easeProgress = 1 - Math.pow(1 - progress, 3);
-                    const current = Math.floor(easeProgress * target);
-                    
-                    stat.textContent = current.toLocaleString() + '+';
-                    
-                    if (progress < 1) {
-                        requestAnimationFrame(update);
-                    }
+                    stat.textContent = Math.floor(easeProgress * target).toLocaleString() + '+';
+                    if (progress < 1) requestAnimationFrame(update);
                 }
-                
                 requestAnimationFrame(update);
             });
         }
 
-        // ==================== 渲染平台卡片 ====================
+        // ==================== 渲染平台 ====================
         function renderPlatforms() {
             const grid = document.getElementById('platformsGrid');
             const searchValue = document.getElementById('searchInput').value.toLowerCase();
-            
+
             let filtered = platforms;
 
-            // 分类筛选
-            if (currentCategory !== 'all') {
-                filtered = filtered.filter(p => p.category === currentCategory);
-            }
-
-            // 标签筛选
             if (currentFilter !== 'all') {
                 if (currentFilter === 'official') filtered = filtered.filter(p => p.category === 'official');
                 else if (currentFilter === 'aggregator') filtered = filtered.filter(p => p.category === 'aggregator');
@@ -2034,9 +1075,8 @@
                 else if (currentFilter === 'stable') filtered = filtered.filter(p => p.verified);
             }
 
-            // 搜索筛选
             if (searchValue) {
-                filtered = filtered.filter(p => 
+                filtered = filtered.filter(p =>
                     p.name.toLowerCase().includes(searchValue) ||
                     p.description.toLowerCase().includes(searchValue) ||
                     p.tags.some(t => t.toLowerCase().includes(searchValue))
@@ -2047,41 +1087,37 @@
 
             grid.innerHTML = filtered.map(platform => `
                 <div class="platform-card" data-id="${platform.id}">
-                    <div class="card-content">
-                        <div class="card-header">
-                            <div class="platform-logo">${platform.logo}</div>
-                            <div class="platform-info">
-                                <div class="platform-name">
-                                    ${platform.name}
-                                    ${platform.verified ? '<span class="verified-badge">✓</span>' : ''}
-                                </div>
+                    <div class="card-header">
+                        <div class="platform-logo">
+                            <img src="${platform.logo}" alt="${platform.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'40\' fill=\'%2300f0ff\'/%3E%3Ctext x=\'50\' y=\'65\' text-anchor=\'middle\' font-size=\'30\' fill=\'white\'%3E${platform.name.charAt(0)}%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div>
+                            <div class="platform-name">
+                                ${platform.name}
+                                ${platform.verified ? '<span class="verified-badge">✓</span>' : ''}
                             </div>
                         </div>
-                        <p class="platform-description">${platform.description}</p>
-                        <div class="platform-tags">
-                            ${platform.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                            <span class="tag pricing">${platform.pricing}</span>
+                    </div>
+                    <p class="platform-description">${platform.description}</p>
+                    <div class="platform-tags">
+                        ${platform.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        <span class="tag pricing">${platform.pricing}</span>
+                    </div>
+                    <div class="card-footer">
+                        <div>
+                            <span class="stars">${'★'.repeat(Math.floor(platform.rating))}${'☆'.repeat(5-Math.floor(platform.rating))}</span>
+                            <span style="color: var(--text-secondary); font-size: 14px;">${platform.rating} (${platform.reviews}条评价)</span>
                         </div>
-                        <div class="card-footer">
-                            <div class="platform-rating">
-                                <span class="stars">${'★'.repeat(Math.floor(platform.rating))}${'☆'.repeat(5-Math.floor(platform.rating))}</span>
-                                <span class="rating-text">${platform.rating} (${platform.reviews}条评价)</span>
-                            </div>
-                            <a href="${platform.url}" target="_blank" class="visit-btn" onclick="event.stopPropagation()">
-                                访问 →
-                            </a>
+                        <a href="${platform.url}" target="_blank" class="visit-btn">访问 →</a>
+                    </div>
+                    <div class="comments-section">
+                        <div class="comments-header" onclick="toggleComments(${platform.id})">
+                            <span>◈ 查看评论 (${commentsData[platform.id]?.length || 0})</span>
+                            <span class="comments-toggle" id="toggle-${platform.id}">▼</span>
                         </div>
-                        <div class="comments-section">
-                            <div class="comments-header" onclick="toggleComments(${platform.id})">
-                                <span>◈ 查看评论 (${commentsData[platform.id]?.length || 0})</span>
-                                <span class="comments-toggle" id="toggle-${platform.id}">▼</span>
-                            </div>
-                            <div class="comments-container" id="comments-${platform.id}">
-                                ${renderCommentForm(platform.id)}
-                                <div class="comment-list" id="commentList-${platform.id}">
-                                    ${renderComments(platform.id)}
-                                </div>
-                            </div>
+                        <div class="comments-container" id="comments-${platform.id}">
+                            ${renderCommentForm(platform.id)}
+                            <div id="commentList-${platform.id}">${renderComments(platform.id)}</div>
                         </div>
                     </div>
                 </div>
@@ -2089,15 +1125,13 @@
         }
 
         function renderCommentForm(platformId) {
-            if (!currentUser) {
-                return `<p style="text-align:center;padding:20px;color:var(--text-secondary);font-size:14px;"><a href="#" onclick="openLoginModal();return false;" style="color:var(--neon-cyan);">登录</a> 后发表评论</p>`;
-            }
+            if (!currentUser) return `<p style="text-align:center;padding:20px;color:var(--text-secondary);"><a href="#" onclick="openLoginModal();return false;" style="color:var(--neon-cyan);">登录</a> 后发表评论</p>`;
             return `
-                <div class="comment-form">
+                <div style="margin-bottom: 20px;">
                     <textarea class="comment-input" id="comment-${platformId}" placeholder="分享你的使用体验..."></textarea>
-                    <div class="comment-actions">
-                        <div class="rating-select" id="rating-${platformId}">
-                            ${[1,2,3,4,5].map(i => `<button class="star-btn" data-rating="${i}" onclick="setRating(${platformId}, ${i})">★</button>`).join('')}
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div class="rating-select">
+                            ${[1,2,3,4,5].map(i => `<button class="star-btn" onclick="setRating(${platformId}, ${i}, this)">★</button>`).join('')}
                         </div>
                         <button class="submit-comment" onclick="submitComment(${platformId})">发表评论</button>
                     </div>
@@ -2107,15 +1141,15 @@
 
         function renderComments(platformId) {
             const comments = commentsData[platformId] || [];
-            if (comments.length === 0) return '<div class="no-comments">暂无评论，成为第一个评论者吧！</div>';
+            if (comments.length === 0) return '<div style="text-align:center;padding:32px;color:var(--text-secondary);">暂无评论，成为第一个评论者吧！</div>';
             return comments.map(c => `
-                <div class="comment-item">
-                    <div class="comment-header">
-                        <span class="comment-user">◈ ${c.user}</span>
-                        <span class="comment-rating">${'★'.repeat(c.rating)}${'☆'.repeat(5-c.rating)}</span>
+                <div style="padding: 16px; background: rgba(0,0,0,0.3); border: 1px solid var(--card-border); margin-bottom: 12px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <span style="font-family: Orbitron; color: var(--neon-cyan); font-size: 13px;">◈ ${c.user}</span>
+                        <span style="color: var(--gold);">${'★'.repeat(c.rating)}${'☆'.repeat(5-c.rating)}</span>
                     </div>
-                    <p class="comment-text">${c.text}</p>
-                    <div class="comment-date">${c.date}</div>
+                    <p style="color: var(--text-secondary); font-size: 14px;">${c.text}</p>
+                    <div style="color: var(--text-secondary); font-size: 12px; margin-top: 8px;">${c.date}</div>
                 </div>
             `).join('');
         }
@@ -2127,11 +1161,9 @@
             toggle.classList.toggle('expanded');
         }
 
-        function setRating(platformId, rating) {
-            const buttons = document.querySelectorAll(`#rating-${platformId} .star-btn`);
-            buttons.forEach((btn, index) => {
-                btn.classList.toggle('active', index < rating);
-            });
+        function setRating(platformId, rating, btn) {
+            const buttons = btn.parentElement.querySelectorAll('.star-btn');
+            buttons.forEach((b, i) => b.classList.toggle('active', i < rating));
             window[`rating_${platformId}`] = rating;
         }
 
@@ -2141,55 +1173,54 @@
             const text = textarea.value.trim();
             const rating = window[`rating_${platformId}`] || 5;
             if (!text) { alert('请输入评论内容'); return; }
-            
+
             if (!commentsData[platformId]) commentsData[platformId] = [];
             commentsData[platformId].unshift({ user: currentUser, text, rating, date: new Date().toLocaleDateString('zh-CN') });
-            
+
             document.getElementById(`commentList-${platformId}`).innerHTML = renderComments(platformId);
             textarea.value = '';
-            window[`rating_${platformId}`] = 5;
-            document.querySelectorAll(`#rating-${platformId} .star-btn`).forEach(btn => btn.classList.remove('active'));
             document.querySelector(`[data-id="${platformId}"] .comments-header span`).textContent = `◈ 查看评论 (${commentsData[platformId].length})`;
         }
 
-        // ==================== 筛选功能 ====================
-        function setFilter(filter) {
+        // ==================== 筛选和搜索 ====================
+        function setFilter(filter, btn) {
             currentFilter = filter;
             document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
+            btn.classList.add('active');
             renderPlatforms();
-        }
-
-        function setCategory(category) {
-            currentCategory = category;
-            document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
-            renderPlatforms();
-        }
-
-        function filterByCategory(category) {
-            currentCategory = category;
-            document.querySelectorAll('.nav-link').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
-            renderPlatforms();
-            document.getElementById('platforms').scrollIntoView({ behavior: 'smooth' });
         }
 
         function handleSearch(value) {
             renderPlatforms();
         }
 
-        // ==================== 移动端菜单 ====================
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('show');
-        }
-
+        // ==================== 导航跳转 ====================
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ==================== 弹窗功能 ====================
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            // 移动端关闭菜单
+            document.getElementById('navLinks').classList.remove('show');
+        }
+
+        function filterAndScroll(category) {
+            currentFilter = category;
+            document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            renderPlatforms();
+            document.getElementById('platforms').scrollIntoView({ behavior: 'smooth' });
+            // 移动端关闭菜单
+            document.getElementById('navLinks').classList.remove('show');
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('navLinks').classList.toggle('show');
+        }
+
+        // ==================== 弹窗 ====================
         function openLoginModal() {
             document.getElementById('loginModal').classList.add('show');
         }
@@ -2216,41 +1247,26 @@
             setTimeout(openLoginModal, 100);
         }
 
-        function handleLogin(e) {
-            e.preventDefault();
+        function handleLogin() {
             currentUser = '用户' + Math.floor(Math.random() * 10000);
             closeLoginModal();
-            updateUIForLoggedInUser();
+            document.querySelector('.nav-actions .btn-secondary').textContent = currentUser;
+            document.querySelector('.nav-actions .btn-primary').style.display = 'none';
             renderPlatforms();
         }
 
-        function handleRegister(e) {
-            e.preventDefault();
-            currentUser = document.getElementById('regUsername').value;
+        function handleRegister() {
+            currentUser = document.getElementById('regUsername').value || '用户' + Math.floor(Math.random() * 10000);
             closeRegisterModal();
-            updateUIForLoggedInUser();
+            document.querySelector('.nav-actions .btn-secondary').textContent = currentUser;
+            document.querySelector('.nav-actions .btn-primary').style.display = 'none';
             renderPlatforms();
-        }
-
-        function updateUIForLoggedInUser() {
-            const loginBtn = document.getElementById('loginBtn');
-            if (loginBtn) loginBtn.textContent = currentUser;
-            const registerBtn = document.getElementById('registerBtn');
-            if (registerBtn) registerBtn.style.display = 'none';
         }
 
         // ==================== 初始化 ====================
         document.addEventListener('DOMContentLoaded', function() {
-            // 启动金色星空
             new StarfieldSystem();
-            
-            // 启动3D Logo变幻
-            new LogoMorphSystem();
-            
-            // 数字动画
             animateNumbers();
-            
-            // 渲染平台
             renderPlatforms();
 
             // 点击外部关闭弹窗
