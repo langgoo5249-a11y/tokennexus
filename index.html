@@ -540,7 +540,7 @@
 
         .platforms-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 32px;
         }
 
@@ -550,6 +550,9 @@
             padding: 32px;
             transition: all 0.4s ease;
             clip-path: polygon(5% 0, 100% 0, 100% 90%, 95% 100%, 0 100%, 0 10%);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .platform-card:hover {
@@ -608,6 +611,11 @@
             color: var(--text-secondary);
             line-height: 1.7;
             margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex: 1;
         }
 
         .platform-tags {
@@ -1275,6 +1283,9 @@
 
             .filter-section, .platforms-section { padding: 40px 20px; }
             .platforms-grid { grid-template-columns: 1fr; gap: 20px; }
+            @media (min-width: 768px) and (max-width: 1200px) {
+                .platforms-grid { grid-template-columns: repeat(2, 1fr); }
+            }
             .platform-card { padding: 24px; }
             .platform-logo { width: 48px; height: 48px; }
             .platform-name { font-size: 16px; }
