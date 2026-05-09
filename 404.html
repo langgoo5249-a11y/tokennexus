@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - 页面未找到 | TokenNexus</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon fill='none' stroke='%2300f0ff' stroke-width='4' points='50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5'/%3E%3Ctext x='50' y='62' text-anchor='middle' fill='%2300f0ff' font-size='35' font-weight='bold'%3ET%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-cyan: #00f0ff;
+            --neon-purple: #b829dd;
+            --dark-bg: #050508;
+            --text-primary: #ffffff;
+            --text-secondary: #8b92a8;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            overflow: hidden;
+        }
+        
+        .error-code {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 180px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 0 0 60px rgba(0, 240, 255, 0.3);
+        }
+        
+        .error-title {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .error-message {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            color: var(--dark-bg);
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+        
+        .home-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 240, 255, 0.4);
+        }
+        
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        @media (max-width: 768px) {
+            .error-code { font-size: 100px; }
+            .error-title { font-size: 24px; }
+            .error-message { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="logo">
+        <svg viewBox="0 0 100 100" width="40" height="40">
+            <polygon fill="none" stroke="#00f0ff" stroke-width="3" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"/>
+            <text x="50" y="58" text-anchor="middle" fill="#00f0ff" font-size="35" font-weight="bold">T</text>
+        </svg>
+        TokenNexus
+    </a>
+    
+    <div class="error-code">404</div>
+    <h1 class="error-title">页面未找到</h1>
+    <p class="error-message">抱歉，您访问的页面不存在或已被移除。请检查网址是否正确，或返回首页继续浏览。</p>
+    <a href="/" class="home-button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        返回首页
+    </a>
+</body>
+</html>
