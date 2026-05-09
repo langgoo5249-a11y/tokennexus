@@ -1,17 +1,78 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- 背景 -->
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#050508"/>
-      <stop offset="100%" style="stop-color:#0a0a18"/>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050508;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0a0a18;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#050508;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#00f0ff"/>
-      <stop offset="100%" style="stop-color:#b829dd"/>
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b829dd;stop-opacity:1" />
     </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <polygon fill="none" stroke="url(#neon)" stroke-width="6" points="600,150 780,255 780,465 600,570 420,465 420,255"/>
-  <text x="600" y="380" text-anchor="middle" fill="#00f0ff" font-family="Arial, sans-serif" font-size="120" font-weight="bold">T</text>
-  <text x="600" y="480" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="48">TokenNexus</text>
-  <text x="600" y="530" text-anchor="middle" fill="#8b92a8" font-family="Arial, sans-serif" font-size="24">全球AI Token导航平台 · 收录65+ AI API服务商</text>
+  
+  <!-- 背景矩形 -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- 装饰性网格线 -->
+  <g stroke="rgba(0,240,255,0.1)" stroke-width="1">
+    <line x1="0" y1="157.5" x2="1200" y2="157.5"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="472.5" x2="1200" y2="472.5"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+  </g>
+  
+  <!-- Logo 六边形 -->
+  <g transform="translate(600, 200)">
+    <polygon points="0,-80 69.28,-40 69.28,40 0,80 -69.28,40 -69.28,-40" 
+             fill="none" 
+             stroke="url(#neonGradient)" 
+             stroke-width="4"
+             filter="url(#glow)"/>
+    <text x="0" y="20" 
+          text-anchor="middle" 
+          fill="#00f0ff" 
+          font-family="Arial, sans-serif" 
+          font-size="60" 
+          font-weight="bold"
+          filter="url(#glow)">T</text>
+  </g>
+  
+  <!-- 主标题 -->
+  <text x="600" y="340" 
+        text-anchor="middle" 
+        fill="#ffffff" 
+        font-family="Arial, sans-serif" 
+        font-size="56" 
+        font-weight="bold">TokenNexus</text>
+  
+  <!-- 副标题 -->
+  <text x="600" y="400" 
+        text-anchor="middle" 
+        fill="#00f0ff" 
+        font-family="Arial, sans-serif" 
+        font-size="32">全球AI Token导航平台</text>
+  
+  <!-- 描述文字 -->
+  <text x="600" y="460" 
+        text-anchor="middle" 
+        fill="#8b92a8" 
+        font-family="Arial, sans-serif" 
+        font-size="24">收录72+国内外AI API服务商 | 平台对比 | 用户评价</text>
+  
+  <!-- 底部装饰线 -->
+  <line x1="400" y1="520" x2="800" y2="520" 
+        stroke="url(#neonGradient)" 
+        stroke-width="3"
+        filter="url(#glow)"/>
 </svg>
