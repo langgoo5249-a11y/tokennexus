@@ -146,6 +146,109 @@
             position: relative;
         }
 
+        /* 科技感网格背景 */
+        .tech-grid {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+            pointer-events: none;
+            animation: gridMove 20s linear infinite;
+        }
+        @keyframes gridMove {
+            0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+            100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+        }
+
+        /* 浮动光点 */
+        .floating-orbs {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: floatOrb 15s ease-in-out infinite;
+        }
+        .orb:nth-child(1) { width: 4px; height: 4px; background: var(--neon-cyan); top: 20%; left: 10%; animation-delay: 0s; }
+        .orb:nth-child(2) { width: 6px; height: 6px; background: var(--neon-purple); top: 60%; left: 20%; animation-delay: 2s; }
+        .orb:nth-child(3) { width: 3px; height: 3px; background: var(--neon-cyan); top: 40%; left: 80%; animation-delay: 4s; }
+        .orb:nth-child(4) { width: 5px; height: 5px; background: var(--neon-blue); top: 80%; left: 60%; animation-delay: 6s; }
+        .orb:nth-child(5) { width: 4px; height: 4px; background: var(--neon-purple); top: 30%; left: 50%; animation-delay: 8s; }
+        .orb:nth-child(6) { width: 8px; height: 8px; background: var(--neon-cyan); top: 70%; left: 30%; animation-delay: 10s; }
+        .orb:nth-child(7) { width: 3px; height: 3px; background: var(--neon-blue); top: 10%; left: 70%; animation-delay: 12s; }
+        .orb:nth-child(8) { width: 5px; height: 5px; background: var(--neon-purple); top: 50%; left: 90%; animation-delay: 14s; }
+        @keyframes floatOrb {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+            25% { transform: translate(30px, -30px) scale(1.2); opacity: 1; }
+            50% { transform: translate(-20px, 20px) scale(0.8); opacity: 0.4; }
+            75% { transform: translate(10px, 40px) scale(1.1); opacity: 0.8; }
+        }
+
+        /* 数据流线条 */
+        .data-stream {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .stream-line {
+            position: absolute;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(180deg, transparent, var(--neon-cyan), transparent);
+            animation: streamFlow 8s linear infinite;
+            opacity: 0.3;
+        }
+        .stream-line:nth-child(1) { left: 5%; animation-delay: 0s; }
+        .stream-line:nth-child(2) { left: 15%; animation-delay: 1s; }
+        .stream-line:nth-child(3) { left: 25%; animation-delay: 2s; }
+        .stream-line:nth-child(4) { left: 35%; animation-delay: 3s; }
+        .stream-line:nth-child(5) { left: 45%; animation-delay: 4s; }
+        .stream-line:nth-child(6) { left: 55%; animation-delay: 5s; }
+        .stream-line:nth-child(7) { left: 65%; animation-delay: 6s; }
+        .stream-line:nth-child(8) { left: 75%; animation-delay: 7s; }
+        .stream-line:nth-child(9) { left: 85%; animation-delay: 0.5s; }
+        .stream-line:nth-child(10) { left: 95%; animation-delay: 1.5s; }
+        @keyframes streamFlow {
+            0% { transform: translateY(-100px); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        /* 脉冲圆环 */
+        .pulse-rings {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .pulse-ring {
+            position: absolute;
+            border: 1px solid var(--neon-cyan);
+            border-radius: 50%;
+            animation: pulseRing 4s ease-out infinite;
+            opacity: 0;
+        }
+        .pulse-ring:nth-child(1) { width: 200px; height: 200px; margin: -100px 0 0 -100px; animation-delay: 0s; }
+        .pulse-ring:nth-child(2) { width: 400px; height: 400px; margin: -200px 0 0 -200px; animation-delay: 1s; }
+        .pulse-ring:nth-child(3) { width: 600px; height: 600px; margin: -300px 0 0 -300px; animation-delay: 2s; }
+        .pulse-ring:nth-child(4) { width: 800px; height: 800px; margin: -400px 0 0 -400px; animation-delay: 3s; }
+        @keyframes pulseRing {
+            0% { transform: scale(0.5); opacity: 0.5; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
         /* 星空背景 */
         #starfield-canvas {
             position: fixed;
@@ -373,43 +476,76 @@
             align-items: center;
             padding: 120px 60px 80px;
             text-align: center;
+            position: relative;
+        }
+
+        /* Hero背景光晕 */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0,240,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+            animation: heroGlow 4s ease-in-out infinite;
+        }
+        @keyframes heroGlow {
+            0%, 100% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.8; transform: translateX(-50%) scale(1.1); }
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 12px 24px;
-            background: rgba(0, 240, 255, 0.1);
+            padding: 14px 28px;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.15) 0%, rgba(184, 41, 221, 0.1) 100%);
             border: 1px solid var(--neon-cyan);
             clip-path: polygon(5% 0, 100% 0, 100% 70%, 95% 100%, 0 100%, 0 30%);
             font-family: 'Rajdhani', sans-serif;
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: 600;
             color: var(--neon-cyan);
             margin-bottom: 48px;
+            animation: badgePulse 3s ease-in-out infinite;
+        }
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(0,240,255,0.3); }
+            50% { box-shadow: 0 0 40px rgba(0,240,255,0.5); }
         }
 
         .hero-badge .pulse-dot {
-            width: 8px; height: 8px;
+            width: 10px; height: 10px;
             background: var(--neon-cyan);
             border-radius: 50%;
             animation: pulse 2s infinite;
+            box-shadow: 0 0 10px var(--neon-cyan);
         }
         @keyframes pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--neon-cyan); } 50% { opacity: 0.5; box-shadow: 0 0 20px var(--neon-cyan); } }
 
         .hero h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 72px;
+            font-size: 80px;
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 24px;
             letter-spacing: 4px;
+            text-shadow: 0 0 40px rgba(0,240,255,0.3);
         }
 
         .hero h1 .glitch-text {
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple), var(--neon-cyan));
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .hero-subtitle {
@@ -613,7 +749,7 @@
         }
 
         .platform-card {
-            background: var(--card-bg);
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(20,25,35,0.8) 100%);
             border: 1px solid var(--card-border);
             padding: 32px;
             transition: all 0.4s ease;
@@ -621,12 +757,61 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 卡片角落装饰 */
+        .platform-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 60px; height: 60px;
+            border-left: 2px solid var(--neon-cyan);
+            border-top: 2px solid var(--neon-cyan);
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .platform-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 60px; height: 60px;
+            border-right: 2px solid var(--neon-purple);
+            border-bottom: 2px solid var(--neon-purple);
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
         }
 
         .platform-card:hover {
             border-color: var(--neon-cyan);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0, 240, 255, 0.15);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 20px 60px rgba(0, 240, 255, 0.2),
+                0 0 40px rgba(0, 240, 255, 0.1),
+                inset 0 0 30px rgba(0, 240, 255, 0.05);
+        }
+
+        .platform-card:hover::before,
+        .platform-card:hover::after {
+            opacity: 1;
+        }
+
+        /* 卡片扫描线效果 */
+        .platform-card .scan-effect {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, rgba(0,240,255,0.1), transparent);
+            transition: top 0.6s ease;
+            pointer-events: none;
+        }
+
+        .platform-card:hover .scan-effect {
+            top: 100%;
         }
 
         .card-header {
@@ -1378,6 +1563,22 @@
     </style>
 </head>
 <body>
+    <!-- 科技感背景元素 -->
+    <div class="tech-grid"></div>
+    <div class="floating-orbs">
+        <div class="orb"></div><div class="orb"></div><div class="orb"></div><div class="orb"></div>
+        <div class="orb"></div><div class="orb"></div><div class="orb"></div><div class="orb"></div>
+    </div>
+    <div class="data-stream">
+        <div class="stream-line"></div><div class="stream-line"></div><div class="stream-line"></div>
+        <div class="stream-line"></div><div class="stream-line"></div><div class="stream-line"></div>
+        <div class="stream-line"></div><div class="stream-line"></div><div class="stream-line"></div>
+        <div class="stream-line"></div>
+    </div>
+    <div class="pulse-rings">
+        <div class="pulse-ring"></div><div class="pulse-ring"></div>
+        <div class="pulse-ring"></div><div class="pulse-ring"></div>
+    </div>
     <!-- 星空背景 -->
     <canvas id="starfield-canvas"></canvas>
     <div class="scanlines"></div>
