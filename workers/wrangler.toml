@@ -1,0 +1,17 @@
+name = "tokennexus-monitor"
+main = "monitor.js"
+compatibility_date = "2024-01-01"
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "tokennexus-db"
+database_id = "your-database-id-here"
+
+# Cron Triggers - 每5分钟执行一次监测
+[[triggers]]
+crons = ["*/5 * * * *"]
+
+# Environment variables
+[vars]
+API_VERSION = "v1"
