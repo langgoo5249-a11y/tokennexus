@@ -1,0 +1,19 @@
+name = "tokennexus"
+main = "worker/index.js"
+compatibility_date = "2024-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tokennexus-db"
+database_id = "YOUR_DATABASE_ID"
+
+[triggers]
+crons = ["*/5 * * * *"]
+
+# 静态资源由Pages提供，Workers只处理API
+[assets]
+directory = "./public"
+
+# API路由
+[[routes]]
+pattern = "/api/*"
