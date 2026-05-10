@@ -1,19 +1,11 @@
-name = "tokennexus"
+name = "tokennexus-api"
 main = "worker/index.js"
 compatibility_date = "2024-01-01"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "tokennexus-db"
-database_id = "YOUR_DATABASE_ID"
+database_id = "31a93415-29f4-4cac-967a-e3b61ad67559"
 
 [triggers]
 crons = ["*/5 * * * *"]
-
-# 静态资源由Pages提供，Workers只处理API
-[assets]
-directory = "./public"
-
-# API路由
-[[routes]]
-pattern = "/api/*"
