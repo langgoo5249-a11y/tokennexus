@@ -862,10 +862,10 @@
         .platform-description {
             font-size: 14px;
             color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 20px;
+            line-height: 1.6;
+            margin-bottom: 16px;
             display: -webkit-box;
-            -webkit-line-clamp: 4;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
             flex: 1;
@@ -1528,37 +1528,65 @@
             .nav-actions { display: none; }
             .nav-actions-mobile { display: flex; }
 
-            .hero { padding: 100px 20px 60px; }
-            .hero h1 { font-size: 42px; }
-            .hero-stats { gap: 16px; }
-            .stat-item { padding: 20px 24px; min-width: 120px; }
-            .stat-number { font-size: 32px; }
+            /* 科技感效果移动端优化 */
+            .tech-grid { background-size: 30px 30px; opacity: 0.5; }
+            .floating-orbs { display: none; }
+            .data-stream { display: none; }
+            .pulse-rings { display: none; }
 
-            .filter-section, .platforms-section { padding: 40px 20px; }
-            .filter-title { font-size: 18px; margin-bottom: 20px; }
-            .filter-container { gap: 12px; }
-            .filter-tag { padding: 12px 20px; font-size: 14px; }
+            .hero { padding: 100px 20px 60px; min-height: auto; }
+            .hero::before { width: 300px; height: 300px; }
+            .hero h1 { font-size: 36px; letter-spacing: 2px; }
+            .hero-subtitle { font-size: 16px; margin-bottom: 40px; }
+            .hero-stats { gap: 12px; flex-wrap: wrap; }
+            .stat-item { padding: 16px 20px; min-width: 100px; }
+            .stat-number { font-size: 28px; }
+            .stat-label { font-size: 12px; }
+            .hero-badge { font-size: 13px; padding: 10px 20px; margin-bottom: 32px; }
+
+            .search-input { font-size: 16px; padding: 16px 20px; }
+
+            .filter-section { padding: 30px 16px; }
+            .filter-title { font-size: 16px; margin-bottom: 16px; }
+            .filter-container { gap: 8px; }
+            .filter-tag { padding: 10px 16px; font-size: 13px; }
             .filter-tag .count { display: none; }
-            .platforms-grid { grid-template-columns: 1fr; gap: 20px; }
-            @media (min-width: 768px) and (max-width: 1200px) {
-                .platforms-grid { grid-template-columns: repeat(2, 1fr); }
-            }
-            .platform-card { padding: 24px; }
+
+            .platforms-section { padding: 30px 16px; }
+            .platforms-grid { grid-template-columns: 1fr; gap: 16px; }
+            .platform-card { padding: 20px; }
+            .platform-card::before, .platform-card::after { width: 30px; height: 30px; }
             .platform-logo { width: 48px; height: 48px; }
             .platform-name { font-size: 16px; }
-            .section-title { font-size: 24px; }
-            .footer { padding: 60px 20px; }
-            .footer-sections { grid-template-columns: 1fr; gap: 24px; }
-            .friend-links { gap: 12px; }
-            .friend-link { padding: 6px 12px; font-size: 13px; }
-            .footer-links { gap: 16px; }
-            .footer-link { font-size: 12px; }
+            .platform-description { font-size: 13px; }
+            .section-title { font-size: 22px; }
+            .section-subtitle { font-size: 14px; }
 
-            .user-center { padding: 80px 20px 40px; }
+            .footer { padding: 40px 16px; }
+            .footer-sections { grid-template-columns: 1fr; gap: 24px; }
+            .friend-links { gap: 8px; }
+            .friend-link { padding: 6px 12px; font-size: 12px; }
+            .footer-links { gap: 12px; }
+            .footer-link { font-size: 11px; }
+
+            .user-center { padding: 80px 16px 40px; }
             .user-center-header { flex-direction: column; text-align: center; }
             .user-center-avatar { width: 80px; height: 80px; font-size: 32px; }
             .user-stats-grid { grid-template-columns: 1fr; }
-            .user-center-close { top: 20px; right: 20px; }
+            .user-center-close { top: 16px; right: 16px; }
+        }
+
+        /* 平板端 */
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .hero h1 { font-size: 56px; }
+            .hero-stats { gap: 24px; }
+            .platforms-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+            .filter-tag { padding: 14px 24px; font-size: 15px; }
+        }
+
+        /* 大屏优化 */
+        @media (min-width: 1400px) {
+            .platforms-grid { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
