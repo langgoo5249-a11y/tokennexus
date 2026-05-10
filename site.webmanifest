@@ -1,7 +1,7 @@
 {
     "name": "TokenNexus - 全球AI Token导航",
     "short_name": "TokenNexus",
-    "description": "全球最全的AI Token导航平台，收录65+国内外AI API服务商",
+    "description": "全球最全的AI Token导航平台，收录72+国内外AI API服务商",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#050508",
