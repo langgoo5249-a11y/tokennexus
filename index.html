@@ -749,8 +749,13 @@
             align-items: start;
         }
 
-        .category-section .platforms-grid,
+        /* 主平台容器不用grid，让分类独占一行 */
         #platformsGrid {
+            display: block;
+        }
+
+        .category-section .platforms-grid,
+        #platformsGrid .platforms-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
@@ -1563,6 +1568,7 @@
             .filter-tag .count { display: none; }
 
             .platforms-section { padding: 30px 16px; }
+            #platformsGrid { display: block !important; }
             .platforms-grid { grid-template-columns: 1fr !important; gap: 16px; }
             .category-section .platforms-grid { grid-template-columns: 1fr !important; }
             .platform-card { padding: 20px; min-height: 240px; max-height: 320px; }
