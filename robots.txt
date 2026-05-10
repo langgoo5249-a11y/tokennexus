@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://tokenfind.cn/sitemap.xml
+Sitemap: https://www.tokenfind.cn/sitemap.xml
 
 # 禁止爬虫访问的路径（如果有）
 # Disallow: /admin/

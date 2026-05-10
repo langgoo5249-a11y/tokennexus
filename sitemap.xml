@@ -7,7 +7,7 @@
 
     <!-- 首页 -->
     <url>
-        <loc>https://tokenfind.cn/</loc>
+        <loc>https://www.tokenfind.cn/</loc>
         <lastmod>2026-05-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
@@ -15,19 +15,19 @@
 
     <!-- 分类页面 -->
     <url>
-        <loc>https://tokenfind.cn/official</loc>
+        <loc>https://www.tokenfind.cn/official</loc>
         <lastmod>2026-05-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://tokenfind.cn/aggregator</loc>
+        <loc>https://www.tokenfind.cn/aggregator</loc>
         <lastmod>2026-05-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://tokenfind.cn/china</loc>
+        <loc>https://www.tokenfind.cn/china</loc>
         <lastmod>2026-05-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
@@ -35,25 +35,25 @@
 
     <!-- 信息页面 -->
     <url>
-        <loc>https://tokenfind.cn/about</loc>
+        <loc>https://www.tokenfind.cn/about</loc>
         <lastmod>2026-05-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://tokenfind.cn/contact</loc>
+        <loc>https://www.tokenfind.cn/contact</loc>
         <lastmod>2026-05-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://tokenfind.cn/business</loc>
+        <loc>https://www.tokenfind.cn/business</loc>
         <lastmod>2026-05-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://tokenfind.cn/submit</loc>
+        <loc>https://www.tokenfind.cn/submit</loc>
         <lastmod>2026-05-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
@@ -61,19 +61,19 @@
 
     <!-- 法律页面 -->
     <url>
-        <loc>https://tokenfind.cn/privacy</loc>
+        <loc>https://www.tokenfind.cn/privacy</loc>
         <lastmod>2026-05-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://tokenfind.cn/terms</loc>
+        <loc>https://www.tokenfind.cn/terms</loc>
         <lastmod>2026-05-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://tokenfind.cn/disclaimer</loc>
+        <loc>https://www.tokenfind.cn/disclaimer</loc>
         <lastmod>2026-05-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>

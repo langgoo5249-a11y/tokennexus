@@ -1,9 +1,12 @@
+# 将根域名重定向到www子域名（SEO最佳实践）
+https://tokenfind.cn/* https://www.tokenfind.cn/:splat 301
+
 # 将pages.dev域名301重定向到主域名tokenfind.cn
-https://tokennexus-*.pages.dev/* https://tokenfind.cn/:splat 301
-https://tokennexus.pages.dev/* https://tokenfind.cn/:splat 301
+https://tokennexus-*.pages.dev/* https://www.tokenfind.cn/:splat 301
+https://tokennexus.pages.dev/* https://www.tokenfind.cn/:splat 301
 
 # 将旧域名301重定向到新域名
-https://tokennexus.skillxm.cn/* https://tokenfind.cn/:splat 301
+https://tokennexus.skillxm.cn/* https://www.tokenfind.cn/:splat 301
 
 # Cloudflare Pages 重定向配置
 
