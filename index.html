@@ -749,6 +749,14 @@
             align-items: start;
         }
 
+        .category-section .platforms-grid,
+        #platformsGrid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            align-items: start;
+        }
+
         .platform-card {
             background: linear-gradient(135deg, var(--card-bg) 0%, rgba(20,25,35,0.8) 100%);
             border: 1px solid var(--card-border);
@@ -1601,6 +1609,14 @@
 
         /* 确保分类区域内的grid也是3列 */
         .category-section .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            align-items: start;
+        }
+
+        .category-section .platforms-grid,
+        #platformsGrid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;

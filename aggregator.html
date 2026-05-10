@@ -165,7 +165,7 @@
             font-family: 'Rajdhani', sans-serif; font-size: 16px; color: var(--neon-cyan);
             padding: 8px 20px; border: 1px solid var(--neon-cyan); background: rgba(0, 240, 255, 0.1);
         }
-        .platforms-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 32px; }
+        .platforms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; align-items: start; }
         .platform-card {
             background: var(--card-bg); border: 1px solid var(--card-border); padding: 32px;
             transition: all 0.4s ease; clip-path: polygon(5% 0, 100% 0, 100% 90%, 95% 100%, 0 100%, 0 10%);
@@ -288,7 +288,7 @@
             .nav-actions-mobile { display: flex; }
             .breadcrumb { padding: 16px 20px; }
             .platforms-section { padding: 40px 20px; }
-            .platforms-grid { grid-template-columns: 1fr; gap: 20px; }
+            .platforms-grid { grid-template-columns: 1fr !important; gap: 20px; }
             .platform-card { padding: 24px; }
             .platform-logo { width: 48px; height: 48px; }
             .platform-name { font-size: 16px; }
@@ -299,6 +299,16 @@
             .user-center-avatar { width: 80px; height: 80px; font-size: 32px; }
             .user-stats-grid { grid-template-columns: 1fr; }
             .user-center-close { top: 20px; right: 20px; }
+        }
+
+        /* 平板端 */
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .platforms-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 24px; }
+        }
+
+        /* 桌面端 */
+        @media (min-width: 1201px) {
+            .platforms-grid { grid-template-columns: repeat(3, 1fr) !important; }
         }
     </style>
 </head>
