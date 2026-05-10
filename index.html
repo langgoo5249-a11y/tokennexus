@@ -483,37 +483,90 @@
             font-size: 20px;
         }
 
-        /* 筛选 */
+        /* 筛选 - 加大加粗醒目版 */
         .filter-section {
-            padding: 60px;
+            padding: 50px 60px;
             border-bottom: 1px solid var(--card-border);
+            background: linear-gradient(180deg, rgba(0,240,255,0.03) 0%, transparent 100%);
+        }
+
+        .filter-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 3px;
         }
 
         .filter-container {
             display: flex;
-            gap: 16px;
+            gap: 20px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .filter-tag {
-            padding: 14px 28px;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
+            padding: 18px 36px;
+            background: linear-gradient(135deg, rgba(20,25,35,0.9) 0%, rgba(30,35,50,0.9) 100%);
+            border: 2px solid var(--card-border);
             font-family: 'Rajdhani', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 700;
             color: var(--text-secondary);
             cursor: pointer;
             transition: all 0.3s ease;
-            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+            clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
             text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .filter-tag:hover, .filter-tag.active {
+        .filter-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,240,255,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .filter-tag:hover::before {
+            left: 100%;
+        }
+
+        .filter-tag:hover {
             border-color: var(--neon-cyan);
             color: var(--neon-cyan);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3), inset 0 0 20px rgba(0, 240, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .filter-tag.active {
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+            background: linear-gradient(135deg, rgba(0,240,255,0.15) 0%, rgba(0,200,255,0.1) 100%);
+            box-shadow: 0 0 40px rgba(0, 240, 255, 0.4), inset 0 0 30px rgba(0, 240, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .filter-tag .count {
+            display: inline-block;
+            margin-left: 8px;
+            padding: 2px 8px;
+            background: rgba(0,240,255,0.2);
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .filter-tag.active .count {
+            background: var(--neon-cyan);
+            color: #000;
         }
 
         /* 平台列表 */
@@ -1297,6 +1350,10 @@
             .stat-number { font-size: 32px; }
 
             .filter-section, .platforms-section { padding: 40px 20px; }
+            .filter-title { font-size: 18px; margin-bottom: 20px; }
+            .filter-container { gap: 12px; }
+            .filter-tag { padding: 12px 20px; font-size: 14px; }
+            .filter-tag .count { display: none; }
             .platforms-grid { grid-template-columns: 1fr; gap: 20px; }
             @media (min-width: 768px) and (max-width: 1200px) {
                 .platforms-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1403,14 +1460,15 @@
 
         <!-- 筛选 -->
         <section class="filter-section" aria-label="平台筛选">
+            <h3 class="filter-title">🎯 快速筛选</h3>
             <div class="filter-container" role="group" aria-label="筛选选项">
-                <button class="filter-tag active" onclick="setFilter('all', this)" aria-pressed="true">全部</button>
-                <button class="filter-tag" onclick="setFilter('official', this)" aria-pressed="false">官方平台</button>
-                <button class="filter-tag" onclick="setFilter('aggregator', this)" aria-pressed="false">聚合平台</button>
-                <button class="filter-tag" onclick="setFilter('china', this)" aria-pressed="false">国内中转</button>
-                <button class="filter-tag" onclick="setFilter('free', this)" aria-pressed="false">免费额度</button>
-                <button class="filter-tag" onclick="setFilter('cheapest', this)" aria-pressed="false">最便宜</button>
-                <button class="filter-tag" onclick="setFilter('stable', this)" aria-pressed="false">最稳定</button>
+                <button class="filter-tag active" onclick="setFilter('all', this)" aria-pressed="true">全部<span class="count">103</span></button>
+                <button class="filter-tag" onclick="setFilter('official', this)" aria-pressed="false">🌍 官方平台<span class="count">40</span></button>
+                <button class="filter-tag" onclick="setFilter('aggregator', this)" aria-pressed="false">🔗 聚合平台<span class="count">19</span></button>
+                <button class="filter-tag" onclick="setFilter('china', this)" aria-pressed="false">🇨🇳 国内中转<span class="count">44</span></button>
+                <button class="filter-tag" onclick="setFilter('free', this)" aria-pressed="false">🎁 免费额度</button>
+                <button class="filter-tag" onclick="setFilter('cheapest', this)" aria-pressed="false">💰 最便宜</button>
+                <button class="filter-tag" onclick="setFilter('stable', this)" aria-pressed="false">⚡ 最稳定</button>
             </div>
         </section>
 
