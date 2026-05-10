@@ -1582,13 +1582,27 @@
         @media (min-width: 769px) and (max-width: 1200px) {
             .hero h1 { font-size: 56px; }
             .hero-stats { gap: 24px; }
-            .platforms-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+            .platforms-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 24px; }
             .filter-tag { padding: 14px 24px; font-size: 15px; }
         }
 
-        /* 大屏优化 */
+        /* 桌面端 (1201px - 1399px) */
+        @media (min-width: 1201px) {
+            .platforms-grid { grid-template-columns: repeat(3, 1fr) !important; }
+        }
+
+        /* 大屏优化 (1400px+) */
         @media (min-width: 1400px) {
-            .platforms-grid { grid-template-columns: repeat(3, 1fr); }
+            .platforms-grid { grid-template-columns: repeat(3, 1fr) !important; }
+            .category-section .platforms-grid { grid-template-columns: repeat(3, 1fr) !important; }
+        }
+
+        /* 确保分类区域内的grid也是3列 */
+        .category-section .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            align-items: start;
         }
     </style>
 </head>
