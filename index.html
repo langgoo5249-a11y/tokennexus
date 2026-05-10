@@ -1555,7 +1555,8 @@
             .filter-tag .count { display: none; }
 
             .platforms-section { padding: 30px 16px; }
-            .platforms-grid { grid-template-columns: 1fr; gap: 16px; }
+            .platforms-grid { grid-template-columns: 1fr !important; gap: 16px; }
+            .category-section .platforms-grid { grid-template-columns: 1fr !important; }
             .platform-card { padding: 20px; min-height: 240px; max-height: 320px; }
             .platform-card::before, .platform-card::after { width: 30px; height: 30px; }
             .platform-logo { width: 48px; height: 48px; }
@@ -1583,6 +1584,7 @@
             .hero h1 { font-size: 56px; }
             .hero-stats { gap: 24px; }
             .platforms-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 24px; }
+            .category-section .platforms-grid { grid-template-columns: repeat(2, 1fr) !important; }
             .filter-tag { padding: 14px 24px; font-size: 15px; }
         }
 
