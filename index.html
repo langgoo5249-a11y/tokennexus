@@ -3037,10 +3037,18 @@
             });
             btn.classList.add('active');
             btn.setAttribute('aria-pressed', 'true');
+            // 清除搜索框内容
+            document.getElementById('searchInput').value = '';
+            // 滚动到平台列表区域
+            document.getElementById('platformsGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
             renderPlatforms();
         }
 
         function handleSearch(value) {
+            // 设置搜索框的值
+            document.getElementById('searchInput').value = value;
+            // 滚动到平台列表区域
+            document.getElementById('platformsGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
             renderPlatforms();
         }
 
