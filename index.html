@@ -342,11 +342,14 @@
 
         .nav-links {
             display: flex;
-            gap: 8px;
+            gap: 4px;
+            background: rgba(255,255,255,0.02);
+            padding: 4px;
+            border-radius: 8px;
         }
 
         .nav-link {
-            padding: 12px 20px;
+            padding: 10px 18px;
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
@@ -356,18 +359,19 @@
             cursor: pointer;
             background: none;
             font-family: inherit;
+            border-radius: 6px;
         }
 
         .nav-link:hover, .nav-link.active {
             color: var(--neon-cyan);
-            border: 1px solid var(--neon-cyan);
-            background: rgba(0, 240, 255, 0.1);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+            border: 1px solid rgba(0,240,255,0.3);
+            background: rgba(0, 240, 255, 0.08);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
         }
 
         .nav-actions {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
         }
 
@@ -452,21 +456,46 @@
             clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
         }
 
-        .btn-outline {
-            background: transparent;
+        /* 导航栏特色按钮 - 提交收录/商务合作 */
+        .btn-featured {
+            background: linear-gradient(135deg, rgba(0,240,255,0.15), rgba(184,41,221,0.15));
             color: var(--text-primary);
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
+            border: 1px solid rgba(0,240,255,0.4);
+            border-radius: 6px;
             clip-path: none;
-            padding: 8px 18px;
+            padding: 10px 20px;
             font-size: 13px;
+            font-weight: 600;
             letter-spacing: 0;
             text-transform: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
-        .btn-outline:hover {
+        .btn-featured::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        .btn-featured:hover::before {
+            left: 100%;
+        }
+        .btn-featured:hover {
             border-color: var(--neon-cyan);
             color: var(--neon-cyan);
-            box-shadow: 0 0 15px rgba(0,240,255,0.2);
+            box-shadow: 0 0 20px rgba(0,240,255,0.3), inset 0 0 20px rgba(0,240,255,0.1);
+            transform: translateY(-1px);
+        }
+        
+        /* 按钮分隔符 */
+        .nav-divider {
+            width: 1px;
+            height: 24px;
+            background: linear-gradient(180deg, transparent, var(--card-border), transparent);
+            margin: 0 8px;
         }
 
         .nav-actions-mobile {
@@ -1905,16 +1934,18 @@
             <a href="china.html" class="nav-link" role="menuitem">国内平台</a>
             <a href="official.html" class="nav-link" role="menuitem">免费额度</a>
             <div class="nav-actions-mobile">
-                <button class="btn btn-outline" onclick="openModal('submitModal')" aria-label="提交收录">🚀 提交收录</button>
-                <button class="btn btn-outline" onclick="openModal('businessModal')" aria-label="商务合作">🤝 商务合作</button>
+                <button class="btn btn-featured" onclick="openModal('submitModal')" aria-label="提交收录">🚀 提交收录</button>
+                <button class="btn btn-featured" onclick="openModal('businessModal')" aria-label="商务合作">🤝 商务合作</button>
+                <div class="nav-divider" style="width:100%;height:1px;margin:8px 0;"></div>
                 <button class="btn btn-secondary" onclick="openLoginModal()" aria-label="登录">登录</button>
                 <button class="btn btn-primary" onclick="openRegisterModal()" aria-label="注册">注册</button>
             </div>
         </div>
 
         <div class="nav-actions" id="navActions">
-            <button class="btn btn-outline" onclick="openModal('submitModal')" aria-label="提交收录">🚀 提交收录</button>
-            <button class="btn btn-outline" onclick="openModal('businessModal')" aria-label="商务合作">🤝 商务合作</button>
+            <button class="btn btn-featured" onclick="openModal('submitModal')" aria-label="提交收录">🚀 提交收录</button>
+            <button class="btn btn-featured" onclick="openModal('businessModal')" aria-label="商务合作">🤝 商务合作</button>
+            <div class="nav-divider"></div>
             <button class="btn btn-secondary" onclick="openLoginModal()" aria-label="登录">登录</button>
             <button class="btn btn-primary" onclick="openRegisterModal()" aria-label="注册">注册</button>
         </div>
