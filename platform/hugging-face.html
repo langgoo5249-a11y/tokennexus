@@ -105,6 +105,41 @@
         .sidebar-ad{background:linear-gradient(135deg,rgba(0,240,255,0.05),rgba(184,41,221,0.05));border:1px solid var(--card-border);border-radius:12px;padding:20px;text-align:center}
         .sidebar-ad h4{font-family:'Orbitron',sans-serif;font-size:14px;color:var(--neon-cyan);margin-bottom:10px}
         .sidebar-ad p{font-size:13px;color:var(--text-secondary);line-height:1.6}
+        /* 底部CTA区域样式 */
+        .cta-section{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:40px 0 30px}
+        .cta-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:30px;text-align:center;transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+        .cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;opacity:0;transition:opacity .3s}
+        .cta-card.submit::before{background:linear-gradient(90deg,var(--neon-cyan),var(--neon-purple))}
+        .cta-card.business::before{background:linear-gradient(90deg,var(--neon-purple),#ff6b6b)}
+        .cta-card:hover{transform:translateY(-5px);border-color:var(--neon-cyan);box-shadow:0 15px 40px rgba(0,240,255,0.15)}
+        .cta-card:hover::before{opacity:1}
+        .cta-icon{font-size:40px;margin-bottom:15px;display:block}
+        .cta-card h3{font-family:'Orbitron',sans-serif;font-size:18px;margin-bottom:10px;color:var(--text-primary)}
+        .cta-card p{font-size:14px;color:var(--text-secondary);line-height:1.5}
+        /* 模态弹窗样式 */
+        .modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:10000;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(5px)}
+        .modal-overlay.active{display:flex}
+        .modal{background:#111;border:1px solid var(--card-border);border-radius:20px;width:100%;max-width:560px;max-height:85vh;overflow-y:auto;position:relative}
+        .modal-header{display:flex;justify-content:space-between;align-items:center;padding:24px 30px;border-bottom:1px solid var(--card-border)}
+        .modal-header h2{font-family:'Orbitron',sans-serif;font-size:20px;color:var(--text-primary);margin:0}
+        .modal-close{width:36px;height:36px;border-radius:50%;border:1px solid var(--card-border);background:transparent;color:var(--text-secondary);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+        .modal-close:hover{border-color:#ff4757;color:#ff4757;background:rgba(255,71,87,0.1)}
+        .modal-body{padding:30px}
+        .form-group{margin-bottom:20px}
+        .form-group label{display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px}
+        .form-group label .required{color:#ff4757;margin-left:2px}
+        .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid var(--card-border);border-radius:10px;color:var(--text-primary);font-size:14px;transition:border-color .2s;box-sizing:border-box;font-family:inherit}
+        .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--neon-cyan);box-shadow:0 0 0 3px rgba(0,240,255,0.1)}
+        .form-group textarea{resize:vertical;min-height:100px}
+        .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.25)}
+        .form-group select option{background:#111;color:var(--text-primary)}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+        .form-submit{width:100%;padding:14px;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));color:#000;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Orbitron',sans-serif;letter-spacing:1px;transition:all .3s;margin-top:10px}
+        .form-submit:hover{opacity:0.9;transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,240,255,0.3)}
+        .form-submit:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+        .form-msg{text-align:center;margin-top:12px;font-size:14px;min-height:20px}
+        .form-msg.success{color:#2ed573}
+        .form-msg.error{color:#ff4757}
         @media(max-width:768px){
             .navbar{padding:0 16px;height:60px}
             .main{padding:90px 16px 100px}
@@ -236,7 +271,7 @@
                             </div>
                             <div class="monitor-item">
                                 <div class="monitor-icon">🔄</div>
-                                <div><div class="monitor-label">最后检测</div><div class="monitor-val" style="font-size:14px">5/11 04:57</div></div>
+                                <div><div class="monitor-label">最后检测</div><div class="monitor-val" style="font-size:14px">5/11 05:06</div></div>
                             </div>
                             <div class="monitor-item">
                                 <div class="monitor-icon">📈</div>
@@ -499,6 +534,185 @@
     
             </div>
         </div>
+
+        <!-- 底部CTA区域 -->
+        <div class="cta-section" style="max-width:1400px;margin:0 auto;padding:0 40px">
+            <div class="cta-card submit" onclick="openModal('submitModal')">
+                <span class="cta-icon">🚀</span>
+                <h3>提交收录</h3>
+                <p>您的平台也想被收录？提交信息，我们将在1-3个工作日内审核</p>
+            </div>
+            <div class="cta-card business" onclick="openModal('businessModal')">
+                <span class="cta-icon">🤝</span>
+                <h3>商务合作</h3>
+                <p>广告投放、战略合作、API对接等商务合作咨询</p>
+            </div>
+        </div>
+
+        <!-- 提交收录弹窗 -->
+        <div class="modal-overlay" id="submitModal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h2>🚀 提交平台收录</h2>
+                    <button class="modal-close" onclick="closeModal('submitModal')">✕</button>
+                </div>
+                <div class="modal-body">
+                    <form id="submitForm" onsubmit="return handleSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>平台名称 <span class="required">*</span></label>
+                                <input type="text" name="platform_name" placeholder="例如：OpenAI" required>
+                            </div>
+                            <div class="form-group">
+                                <label>平台分类 <span class="required">*</span></label>
+                                <select name="category" required>
+                                    <option value="official">🌍 海外官方平台</option>
+                                    <option value="aggregator">🔗 聚合中转平台</option>
+                                    <option value="china">🇨🇳 国内平台</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>平台网址 <span class="required">*</span></label>
+                            <input type="url" name="platform_url" placeholder="https://example.com" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>联系邮箱 <span class="required">*</span></label>
+                                <input type="email" name="contact_email" placeholder="your@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>联系人</label>
+                                <input type="text" name="contact_name" placeholder="您的姓名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>平台描述</label>
+                            <textarea name="description" placeholder="请简要描述平台的主要功能和特点..."></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>价格信息</label>
+                                <input type="text" name="pricing" placeholder="例如：$0.002/1K tokens">
+                            </div>
+                            <div class="form-group">
+                                <label>支持模型</label>
+                                <input type="text" name="models" placeholder="例如：GPT-4, Claude, Gemini">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>补充说明</label>
+                            <textarea name="message" placeholder="其他需要说明的信息..."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit" id="submitBtn">提交收录申请</button>
+                        <div class="form-msg" id="submitMsg"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- 商务合作弹窗 -->
+        <div class="modal-overlay" id="businessModal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h2>🤝 商务合作</h2>
+                    <button class="modal-close" onclick="closeModal('businessModal')">✕</button>
+                </div>
+                <div class="modal-body">
+                    <form id="businessForm" onsubmit="return handleBusiness(event)">
+                        <div class="form-group">
+                            <label>合作类型 <span class="required">*</span></label>
+                            <select name="inquiry_type" required>
+                                <option value="advertising">📢 广告投放</option>
+                                <option value="partnership">🤝 战略合作</option>
+                                <option value="data_exchange">📊 数据交换</option>
+                                <option value="api_integration">🔗 API对接</option>
+                                <option value="listing_priority">⭐ 优先收录</option>
+                                <option value="other">📋 其他</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>公司名称 <span class="required">*</span></label>
+                                <input type="text" name="company_name" placeholder="您的公司名称" required>
+                            </div>
+                            <div class="form-group">
+                                <label>联系人 <span class="required">*</span></label>
+                                <input type="text" name="contact_name" placeholder="您的姓名" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>联系邮箱 <span class="required">*</span></label>
+                                <input type="email" name="contact_email" placeholder="your@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>联系电话</label>
+                                <input type="tel" name="phone" placeholder="您的手机号">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>公司网站</label>
+                                <input type="url" name="website" placeholder="https://your-company.com">
+                            </div>
+                            <div class="form-group">
+                                <label>预算范围</label>
+                                <input type="text" name="budget" placeholder="例如：1万-5万/月">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>合作详情</label>
+                            <textarea name="message" placeholder="请详细描述您的合作需求..."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit" id="businessBtn">提交合作咨询</button>
+                        <div class="form-msg" id="businessMsg"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        function openModal(id){document.getElementById(id).classList.add('active');document.body.style.overflow='hidden'}
+        function closeModal(id){document.getElementById(id).classList.remove('active');document.body.style.overflow=''}
+        document.querySelectorAll('.modal-overlay').forEach(m=>{m.addEventListener('click',function(e){if(e.target===this)closeModal(this.id)})});
+
+        async function handleSubmit(e){
+            e.preventDefault();
+            const btn=document.getElementById('submitBtn');
+            const msg=document.getElementById('submitMsg');
+            const form=document.getElementById('submitForm');
+            btn.disabled=true;btn.textContent='提交中...';
+            try{
+                const fd=new FormData(form);
+                const data=Object.fromEntries(fd);
+                const res=await fetch('/api/submit-platform',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+                const result=await res.json();
+                if(result.success){msg.className='form-msg success';msg.textContent=result.message;form.reset();setTimeout(()=>closeModal('submitModal'),2000)}
+                else{msg.className='form-msg error';msg.textContent=result.message}
+            }catch(err){msg.className='form-msg error';msg.textContent='网络错误，请稍后重试'}
+            btn.disabled=false;btn.textContent='提交收录申请';
+            return false;
+        }
+
+        async function handleBusiness(e){
+            e.preventDefault();
+            const btn=document.getElementById('businessBtn');
+            const msg=document.getElementById('businessMsg');
+            const form=document.getElementById('businessForm');
+            btn.disabled=true;btn.textContent='提交中...';
+            try{
+                const fd=new FormData(form);
+                const data=Object.fromEntries(fd);
+                const res=await fetch('/api/business-contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+                const result=await res.json();
+                if(result.success){msg.className='form-msg success';msg.textContent=result.message;form.reset();setTimeout(()=>closeModal('businessModal'),2000)}
+                else{msg.className='form-msg error';msg.textContent=result.message}
+            }catch(err){msg.className='form-msg error';msg.textContent='网络错误，请稍后重试'}
+            btn.disabled=false;btn.textContent='提交合作咨询';
+            return false;
+        }
+        </script>
     </main>
 
     <div class="action-bar">

@@ -1,0 +1,9 @@
+name = "tokennexus-contact"
+main = "contact.js"
+compatibility_date = "2024-01-01"
+
+# Email Worker binding
+# 需要在 Cloudflare Dashboard 中启用 Email Routing
+# 并配置 Email Worker 绑定
+[[email_workers]]
+catch_all = true
