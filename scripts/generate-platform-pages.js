@@ -336,7 +336,7 @@ platforms.forEach(platform => {
                 <div class="price-grid">
                     <div class="price-box">
                         <div class="label">定价</div>
-                        <div class="value">${platform.pricing.split('/')[0] || platform.pricing}</div>
+                        <div class="value">${(platform.pricing || '暂无').split('/')[0] || platform.pricing || '暂无'}</div>
                     </div>
                     <div class="price-box">
                         <div class="label">类型</div>
