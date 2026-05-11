@@ -2729,6 +2729,9 @@
             const navActions = document.getElementById('navActions');
             if (currentUser) {
                 navActions.innerHTML = `
+                    <button class="btn btn-featured" onclick="openModal('submitModal')" aria-label="提交收录">🚀 提交收录</button>
+                    <button class="btn btn-featured" onclick="openModal('businessModal')" aria-label="商务合作">🤝 商务合作</button>
+                    <div class="nav-divider"></div>
                     <div class="user-menu">
                         <div class="user-avatar" onclick="toggleUserMenu()">${currentUser.username.charAt(0).toUpperCase()}</div>
                         <div class="user-dropdown" id="userDropdown">
@@ -2739,6 +2742,9 @@
                 `;
             } else {
                 navActions.innerHTML = `
+                    <button class="btn btn-featured" onclick="openModal('submitModal')" aria-label="提交收录">🚀 提交收录</button>
+                    <button class="btn btn-featured" onclick="openModal('businessModal')" aria-label="商务合作">🤝 商务合作</button>
+                    <div class="nav-divider"></div>
                     <button class="btn btn-secondary" onclick="openLoginModal()">登录</button>
                     <button class="btn btn-primary" onclick="openRegisterModal()">注册</button>
                 `;
