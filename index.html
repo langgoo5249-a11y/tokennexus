@@ -619,6 +619,200 @@
             font-size: 20px;
         }
 
+        /* ========== 新增：特性展示区样式 ========== */
+        .features-section {
+            padding: 60px 60px;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,240,255,0.02) 50%, transparent 100%);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 20px 50px rgba(0, 240, 255, 0.15);
+        }
+        .feature-card:hover::before { opacity: 1; }
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+            filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.5));
+        }
+        .feature-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ========== 新增：分类导航区样式 ========== */
+        .category-nav-section {
+            padding: 80px 60px;
+            background: radial-gradient(ellipse at center, rgba(0,240,255,0.03) 0%, transparent 70%);
+        }
+        .section-title-center {
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: var(--text-primary);
+            letter-spacing: 4px;
+        }
+        .title-decorator {
+            color: var(--neon-cyan);
+            margin: 0 20px;
+            font-size: 14px;
+        }
+        .category-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .category-nav-card {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 35px 30px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .category-nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, transparent 50%, rgba(0,240,255,0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .category-nav-card:hover::before { opacity: 1; }
+        .category-nav-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 25px 60px rgba(0, 240, 255, 0.2);
+        }
+        .category-nav-card.official { border-left: 4px solid #00f0ff; }
+        .category-nav-card.aggregator { border-left: 4px solid #b829dd; }
+        .category-nav-card.china { border-left: 4px solid #ffd700; }
+        .category-icon {
+            font-size: 50px;
+            flex-shrink: 0;
+        }
+        .category-info { flex: 1; }
+        .category-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+        .category-info p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        .category-count {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--neon-cyan);
+            font-weight: 600;
+        }
+        .category-arrow {
+            font-size: 28px;
+            color: var(--neon-cyan);
+            opacity: 0.5;
+            transition: all 0.3s;
+        }
+        .category-nav-card:hover .category-arrow {
+            opacity: 1;
+            transform: translateX(10px);
+        }
+
+        /* ========== 新增：热门模型标签云样式 ========== */
+        .model-tags-section {
+            padding: 60px 60px;
+            background: linear-gradient(180deg, transparent 0%, rgba(184,41,221,0.02) 50%, transparent 100%);
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .model-tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .model-tag {
+            padding: 12px 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 30px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        .model-tag:hover {
+            background: rgba(0, 240, 255, 0.1);
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+            transform: scale(1.08);
+            box-shadow: 0 5px 20px rgba(0, 240, 255, 0.2);
+        }
+        .model-tag.hot {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(184, 41, 221, 0.15));
+            border-color: var(--neon-cyan);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        .model-tag.hot:hover {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.25), rgba(184, 41, 221, 0.25));
+            box-shadow: 0 5px 25px rgba(0, 240, 255, 0.3);
+        }
+
         /* 筛选 - 加大加粗醒目版 */
         .filter-section {
             padding: 50px 60px;
@@ -1558,6 +1752,23 @@
 
             .search-input { font-size: 16px; padding: 16px 20px; }
 
+            /* 新增区块移动端样式 */
+            .features-section { padding: 40px 20px; }
+            .features-grid { grid-template-columns: 1fr; gap: 20px; }
+            .feature-card { padding: 30px 20px; }
+            .feature-icon { font-size: 36px; }
+
+            .category-nav-section { padding: 50px 20px; }
+            .section-title-center { font-size: 20px; margin-bottom: 30px; }
+            .category-nav-grid { grid-template-columns: 1fr; gap: 20px; }
+            .category-nav-card { padding: 25px 20px; }
+            .category-icon { font-size: 36px; }
+            .category-info h3 { font-size: 18px; }
+
+            .model-tags-section { padding: 40px 20px; }
+            .model-tags-cloud { gap: 10px; }
+            .model-tag { padding: 10px 18px; font-size: 13px; }
+
             .filter-section { padding: 30px 16px; }
             .filter-title { font-size: 16px; margin-bottom: 16px; }
             .filter-container { gap: 8px; }
@@ -1597,6 +1808,10 @@
             .platforms-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 24px; }
             .category-section .platforms-grid { grid-template-columns: repeat(2, 1fr) !important; }
             .filter-tag { padding: 14px 24px; font-size: 15px; }
+
+            /* 新增区块平板端样式 */
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .category-nav-grid { grid-template-columns: 1fr; max-width: 600px; }
         }
 
         /* 桌面端 (1201px - 1399px) */
@@ -1712,6 +1927,96 @@
                     <label for="searchInput" class="sr-only">搜索平台</label>
                     <input type="text" class="search-input" id="searchInput" placeholder="搜索平台名称、模型类型或功能特性..." oninput="handleSearch(this.value)" aria-label="搜索平台名称、模型类型或功能特性">
                 </div>
+            </div>
+        </section>
+
+        <!-- ========== 新增：特性展示区 ========== -->
+        <section class="features-section" id="features">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>智能对比</h3>
+                    <p>多维度对比各平台价格、稳定性、响应速度，一键找到最优选择</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>实时监控</h3>
+                    <p>7x24小时监控平台可用性，第一时间发现服务异常</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>价格透明</h3>
+                    <p>统一计费单位，清晰展示各平台Token价格，拒绝隐藏费用</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>真实评价</h3>
+                    <p>汇聚真实用户使用体验，帮助您做出明智决策</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== 新增：分类导航区 ========== -->
+        <section class="category-nav-section" id="categoryNav">
+            <h2 class="section-title-center">
+                <span class="title-decorator">◆</span>
+                平台分类导航
+                <span class="title-decorator">◆</span>
+            </h2>
+            <div class="category-nav-grid">
+                <a href="official.html" class="category-nav-card official">
+                    <div class="category-icon">🌍</div>
+                    <div class="category-info">
+                        <h3>海外官方平台</h3>
+                        <p>OpenAI、Anthropic、Google等官方API直连</p>
+                        <span class="category-count">88 个平台</span>
+                    </div>
+                    <div class="category-arrow">→</div>
+                </a>
+                <a href="aggregator.html" class="category-nav-card aggregator">
+                    <div class="category-icon">🔗</div>
+                    <div class="category-info">
+                        <h3>聚合中转平台</h3>
+                        <p>一站式访问多模型，价格更优更便捷</p>
+                        <span class="category-count">46 个平台</span>
+                    </div>
+                    <div class="category-arrow">→</div>
+                </a>
+                <a href="china.html" class="category-nav-card china">
+                    <div class="category-icon">🇨🇳</div>
+                    <div class="category-info">
+                        <h3>国内平台</h3>
+                        <p>国产大模型与国内中转服务，支付便捷</p>
+                        <span class="category-count">86 个平台</span>
+                    </div>
+                    <div class="category-arrow">→</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ========== 新增：热门模型标签云 ========== -->
+        <section class="model-tags-section" id="modelTags">
+            <h2 class="section-title-center">
+                <span class="title-decorator">◆</span>
+                热门模型支持
+                <span class="title-decorator">◆</span>
+            </h2>
+            <div class="model-tags-cloud">
+                <span class="model-tag hot" onclick="handleSearch('GPT-4')">GPT-4</span>
+                <span class="model-tag hot" onclick="handleSearch('Claude')">Claude</span>
+                <span class="model-tag hot" onclick="handleSearch('Gemini')">Gemini</span>
+                <span class="model-tag" onclick="handleSearch('DeepSeek')">DeepSeek</span>
+                <span class="model-tag" onclick="handleSearch('Llama')">Llama</span>
+                <span class="model-tag" onclick="handleSearch('Qwen')">Qwen/通义千问</span>
+                <span class="model-tag" onclick="handleSearch('Mistral')">Mistral</span>
+                <span class="model-tag" onclick="handleSearch('Grok')">Grok</span>
+                <span class="model-tag" onclick="handleSearch('文心一言')">文心一言</span>
+                <span class="model-tag" onclick="handleSearch('智谱')">智谱GLM</span>
+                <span class="model-tag" onclick="handleSearch('Midjourney')">Midjourney</span>
+                <span class="model-tag" onclick="handleSearch('Stable Diffusion')">Stable Diffusion</span>
+                <span class="model-tag" onclick="handleSearch('DALL-E')">DALL-E</span>
+                <span class="model-tag" onclick="handleSearch('Whisper')">Whisper</span>
+                <span class="model-tag" onclick="handleSearch('Embedding')">Embedding</span>
             </div>
         </section>
 
