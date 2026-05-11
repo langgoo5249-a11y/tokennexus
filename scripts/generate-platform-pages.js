@@ -146,6 +146,61 @@ function generateStars(rating) {
     return '★'.repeat(full) + '☆'.repeat(5 - full);
 }
 
+// 生成排行榜侧边栏
+function generateSidebar(currentPlatform) {
+    // 获取同分类的热门平台（排除当前平台）
+    const sameCategory = platforms
+        .filter(p => p.category === currentPlatform.category && p.id !== currentPlatform.id)
+        .sort((a, b) => b.rating - a.rating)
+        .slice(0, 10);
+
+    // 获取其他分类的热门平台
+    const otherCategory = platforms
+        .filter(p => p.category !== currentPlatform.category)
+        .sort((a, b) => b.rating - a.rating)
+        .slice(0, 5);
+
+    const catInfo = categoryMap[currentPlatform.category] || categoryMap.china;
+
+    function renderRankList(list, startIdx) {
+        return list.map((p, i) => {
+            const idx = startIdx + i;
+            const numClass = idx === 0 ? 'top1' : idx === 1 ? 'top2' : idx === 2 ? 'top3' : '';
+            const pSlug = slugify(p.name);
+            return `
+                <li class="rank-item">
+                    <a href="/platform/${pSlug}.html">
+                        <span class="rank-num ${numClass}">${idx + 1}</span>
+                        <span class="rank-name">${p.name}</span>
+                        <span class="rank-rating">${p.rating}</span>
+                    </a>
+                </li>`;
+        }).join('');
+    }
+
+    return `
+        <div class="rank-card">
+            <div class="rank-title">🔥 ${catInfo.name}排行榜</div>
+            <ul class="rank-list">
+                ${renderRankList(sameCategory, 0)}
+            </ul>
+        </div>
+
+        <div class="rank-card">
+            <div class="rank-title">⭐ 其他热门平台</div>
+            <ul class="rank-list">
+                ${renderRankList(otherCategory, 0)}
+            </ul>
+        </div>
+
+        <div class="sidebar-ad">
+            <h4>🌐 探索更多平台</h4>
+            <p>TokenNexus 收录 220+ AI API 平台，帮您找到最适合的 AI 服务。</p>
+            <a href="/" style="display:inline-block;margin-top:12px;padding:8px 20px;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));color:#000;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600">返回首页</a>
+        </div>
+    `;
+}
+
 // Generate HTML for each platform
 let generated = 0;
 platforms.forEach(platform => {
@@ -191,7 +246,10 @@ platforms.forEach(platform => {
         .navbar{position:fixed;top:0;left:0;right:0;height:70px;background:rgba(10,10,15,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--card-border);display:flex;align-items:center;padding:0 40px;z-index:1000}
         .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text-primary)}
         .logo-text{font-family:'Orbitron',sans-serif;font-size:22px;font-weight:700;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-        .main{padding:90px 20px 100px;max-width:900px;margin:0 auto}
+        .main{padding:90px 40px 100px;max-width:1400px;margin:0 auto}
+        .layout{display:grid;grid-template-columns:1fr 340px;gap:30px;align-items:start}
+        .content-left{min-width:0}
+        .sidebar-right{position:sticky;top:90px}
         .breadcrumb{display:flex;gap:8px;align-items:center;margin-bottom:24px;font-size:14px;color:var(--text-secondary);flex-wrap:wrap}
         .breadcrumb a{color:var(--neon-cyan);text-decoration:none}
         .breadcrumb a:hover{text-decoration:underline}
@@ -252,9 +310,31 @@ platforms.forEach(platform => {
         .footer-links{display:flex;justify-content:center;gap:20px;margin-bottom:12px;flex-wrap:wrap}
         .footer-link{color:var(--text-secondary);text-decoration:none;font-size:13px}
         .footer-link:hover{color:var(--neon-cyan)}
+        /* 排行榜侧边栏样式 */
+        .rank-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:20px;margin-bottom:20px}
+        .rank-title{font-family:'Orbitron',sans-serif;font-size:15px;font-weight:600;color:var(--neon-cyan);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+        .rank-title::before{content:'';width:3px;height:16px;background:linear-gradient(180deg,var(--neon-cyan),var(--neon-purple));border-radius:2px}
+        .rank-list{list-style:none}
+        .rank-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(0,240,255,0.06);transition:all .2s}
+        .rank-item:last-child{border-bottom:none}
+        .rank-item:hover{padding-left:6px}
+        .rank-item a{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text-primary);flex:1;min-width:0}
+        .rank-item a:hover .rank-name{color:var(--neon-cyan)}
+        .rank-num{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;flex-shrink:0;background:rgba(0,240,255,0.08);color:var(--text-secondary)}
+        .rank-num.top1{background:linear-gradient(135deg,#ffd700,#ffaa00);color:#000}
+        .rank-num.top2{background:linear-gradient(135deg,#c0c0c0,#a0a0a0);color:#000}
+        .rank-num.top3{background:linear-gradient(135deg,#cd7f32,#b06820);color:#fff}
+        .rank-name{font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .rank-rating{font-family:'Orbitron',sans-serif;font-size:12px;color:var(--neon-cyan);flex-shrink:0}
+        .rank-cat{font-size:11px;padding:2px 8px;border-radius:10px;background:rgba(0,240,255,0.08);color:var(--text-secondary);flex-shrink:0}
+        .sidebar-ad{background:linear-gradient(135deg,rgba(0,240,255,0.05),rgba(184,41,221,0.05));border:1px solid var(--card-border);border-radius:12px;padding:20px;text-align:center}
+        .sidebar-ad h4{font-family:'Orbitron',sans-serif;font-size:14px;color:var(--neon-cyan);margin-bottom:10px}
+        .sidebar-ad p{font-size:13px;color:var(--text-secondary);line-height:1.6}
         @media(max-width:768px){
             .navbar{padding:0 16px;height:60px}
-            .main{padding-top:80px}
+            .main{padding:90px 16px 100px}
+            .layout{grid-template-columns:1fr}
+            .sidebar-right{display:none}
             .header-top{flex-direction:column;align-items:center;text-align:center}
             .logo-large{width:80px;height:80px}
             .platform-name{font-size:24px;justify-content:center}
@@ -290,124 +370,134 @@ platforms.forEach(platform => {
             <span>${platform.name}</span>
         </nav>
 
-        <div class="header-card">
-            <div class="header-top">
-                <div class="logo-large">
-                    <img src="${platform.logo}" alt="${platform.name} logo">
+        <div class="layout">
+            <!-- 左侧：平台详情 -->
+            <div class="content-left">
+                <div class="header-card">
+                    <div class="header-top">
+                        <div class="logo-large">
+                            <img src="${platform.logo}" alt="${platform.name} logo">
+                        </div>
+                        <div class="header-info">
+                            <h1 class="platform-name">
+                                ${platform.name}
+                                ${platform.verified ? '<span class="badge">✓ 已验证</span>' : ''}
+                                <span class="badge">${catInfo.name}</span>
+                            </h1>
+                            <a href="${platform.url}" target="_blank" rel="noopener" class="platform-url">
+                                ${platform.url}
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+                            <p class="short-desc">${platform.description}</p>
+                        </div>
+                    </div>
+                    <div class="rating-row">
+                        <div class="rating-item">
+                            <div class="stars-display">${stars}</div>
+                            <div class="rating-label">用户评分</div>
+                        </div>
+                        <div class="rating-item">
+                            <div class="rating-val">${platform.rating}</div>
+                            <div class="rating-label">综合评分</div>
+                        </div>
+                        <div class="rating-item">
+                            <div class="rating-val">${platform.reviews}</div>
+                            <div class="rating-label">评价数量</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="header-info">
-                    <h1 class="platform-name">
-                        ${platform.name}
-                        ${platform.verified ? '<span class="badge">✓ 已验证</span>' : ''}
-                        <span class="badge">${catInfo.name}</span>
-                    </h1>
-                    <a href="${platform.url}" target="_blank" rel="noopener" class="platform-url">
-                        ${platform.url}
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    </a>
-                    <p class="short-desc">${platform.description}</p>
+
+                <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:20px">
+                    <div class="section">
+                        <h2 class="section-title">支持的模型</h2>
+                        <div class="tags">
+                            ${platform.tags.map(t => `<span class="tag">${t}</span>`).join('\n                    ')}
+                        </div>
+                    </div>
+                    <div class="section">
+                        <h2 class="section-title">价格体系</h2>
+                        <div class="price-grid">
+                            <div class="price-box">
+                                <div class="label">定价</div>
+                                <div class="value">${(platform.pricing || '暂无').split('/')[0] || platform.pricing || '暂无'}</div>
+                            </div>
+                            <div class="price-box">
+                                <div class="label">类型</div>
+                                <div class="value ${platform.category === 'official' ? 'green' : ''}">${platform.category === 'official' ? '官方价' : '中转价'}</div>
+                            </div>
+                            <div class="price-box">
+                                <div class="label">免费额度</div>
+                                <div class="value">${platform.tags.some(t => t.includes('免费')) ? '✓ 有' : '查看官网'}</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:20px">
+                    <div class="section">
+                        <h2 class="section-title">支付方式</h2>
+                        <div class="payment-tags">
+                            ${payments.map(p => `<span class="pay-tag">${p}</span>`).join('\n                    ')}
+                        </div>
+                    </div>
+                    <div class="section">
+                        <h2 class="section-title">实时监测</h2>
+                        <div class="monitor-grid">
+                            <div class="monitor-item">
+                                <div class="monitor-icon">📊</div>
+                                <div><div class="monitor-label">30天可用率</div><div class="monitor-val good">99.2%</div></div>
+                            </div>
+                            <div class="monitor-item">
+                                <div class="monitor-icon">⚡</div>
+                                <div><div class="monitor-label">平均延迟</div><div class="monitor-val good">156ms</div></div>
+                            </div>
+                            <div class="monitor-item">
+                                <div class="monitor-icon">🔄</div>
+                                <div><div class="monitor-label">最后检测</div><div class="monitor-val" style="font-size:14px">${new Date().toLocaleString('zh-CN',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}</div></div>
+                            </div>
+                            <div class="monitor-item">
+                                <div class="monitor-icon">📈</div>
+                                <div><div class="monitor-label">检测次数</div><div class="monitor-val">8,640</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">特色功能</h2>
+                    <div class="feature-grid">
+                        ${featureRows.map(f => `
+                        <div class="feature-row">
+                            <div class="feature-icon ${f.supported ? 'yes' : 'no'}">${f.supported ? '✓' : '✗'}</div>
+                            <span class="feature-name">${f.name}</span>
+                            <span class="feature-status">${f.supported ? '支持' : '不支持'}</span>
+                        </div>`).join('\n                ')}
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">详细介绍</h2>
+                    <div class="content-area">
+                        ${longDesc}
+                    </div>
+                </div>
+
+                <footer class="footer">
+                    <div class="footer-links">
+                        <a href="/" class="footer-link">首页</a>
+                        <a href="/${catInfo.link}" class="footer-link">${catInfo.name}</a>
+                        <a href="/about.html" class="footer-link">关于我们</a>
+                        <a href="/privacy.html" class="footer-link">隐私政策</a>
+                    </div>
+                    <p style="color:var(--text-secondary);font-size:13px">&copy; 2024-2026 TokenNexus. All rights reserved.</p>
+                </footer>
             </div>
-            <div class="rating-row">
-                <div class="rating-item">
-                    <div class="stars-display">${stars}</div>
-                    <div class="rating-label">用户评分</div>
-                </div>
-                <div class="rating-item">
-                    <div class="rating-val">${platform.rating}</div>
-                    <div class="rating-label">综合评分</div>
-                </div>
-                <div class="rating-item">
-                    <div class="rating-val">${platform.reviews}</div>
-                    <div class="rating-label">评价数量</div>
-                </div>
+
+            <!-- 右侧：热门平台排行榜 -->
+            <div class="sidebar-right">
+                ${generateSidebar(platform)}
             </div>
         </div>
-
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:20px">
-            <div class="section">
-                <h2 class="section-title">支持的模型</h2>
-                <div class="tags">
-                    ${platform.tags.map(t => `<span class="tag">${t}</span>`).join('\n                    ')}
-                </div>
-            </div>
-            <div class="section">
-                <h2 class="section-title">价格体系</h2>
-                <div class="price-grid">
-                    <div class="price-box">
-                        <div class="label">定价</div>
-                        <div class="value">${(platform.pricing || '暂无').split('/')[0] || platform.pricing || '暂无'}</div>
-                    </div>
-                    <div class="price-box">
-                        <div class="label">类型</div>
-                        <div class="value ${platform.category === 'official' ? 'green' : ''}">${platform.category === 'official' ? '官方价' : '中转价'}</div>
-                    </div>
-                    <div class="price-box">
-                        <div class="label">免费额度</div>
-                        <div class="value">${platform.tags.some(t => t.includes('免费')) ? '✓ 有' : '查看官网'}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:20px">
-            <div class="section">
-                <h2 class="section-title">支付方式</h2>
-                <div class="payment-tags">
-                    ${payments.map(p => `<span class="pay-tag">${p}</span>`).join('\n                    ')}
-                </div>
-            </div>
-            <div class="section">
-                <h2 class="section-title">实时监测</h2>
-                <div class="monitor-grid">
-                    <div class="monitor-item">
-                        <div class="monitor-icon">📊</div>
-                        <div><div class="monitor-label">30天可用率</div><div class="monitor-val good">99.2%</div></div>
-                    </div>
-                    <div class="monitor-item">
-                        <div class="monitor-icon">⚡</div>
-                        <div><div class="monitor-label">平均延迟</div><div class="monitor-val good">156ms</div></div>
-                    </div>
-                    <div class="monitor-item">
-                        <div class="monitor-icon">🔄</div>
-                        <div><div class="monitor-label">最后检测</div><div class="monitor-val" style="font-size:14px">${new Date().toLocaleString('zh-CN',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}</div></div>
-                    </div>
-                    <div class="monitor-item">
-                        <div class="monitor-icon">📈</div>
-                        <div><div class="monitor-label">检测次数</div><div class="monitor-val">8,640</div></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">特色功能</h2>
-            <div class="feature-grid">
-                ${featureRows.map(f => `
-                <div class="feature-row">
-                    <div class="feature-icon ${f.supported ? 'yes' : 'no'}">${f.supported ? '✓' : '✗'}</div>
-                    <span class="feature-name">${f.name}</span>
-                    <span class="feature-status">${f.supported ? '支持' : '不支持'}</span>
-                </div>`).join('\n                ')}
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">详细介绍</h2>
-            <div class="content-area">
-                ${longDesc}
-            </div>
-        </div>
-
-        <footer class="footer">
-            <div class="footer-links">
-                <a href="/" class="footer-link">首页</a>
-                <a href="/${catInfo.link}" class="footer-link">${catInfo.name}</a>
-                <a href="/about.html" class="footer-link">关于我们</a>
-                <a href="/privacy.html" class="footer-link">隐私政策</a>
-            </div>
-            <p style="color:var(--text-secondary);font-size:13px">&copy; 2024-2026 TokenNexus. All rights reserved.</p>
-        </footer>
     </main>
 
     <div class="action-bar">
