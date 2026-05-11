@@ -279,7 +279,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 60px;
+            padding: 0 40px;
             z-index: 1000;
         }
 
@@ -342,24 +342,25 @@
 
         .nav-links {
             display: flex;
-            gap: 4px;
+            gap: 2px;
             background: rgba(255,255,255,0.02);
-            padding: 4px;
+            padding: 3px;
             border-radius: 8px;
         }
 
         .nav-link {
-            padding: 10px 18px;
+            padding: 10px 14px;
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
-            font-size: 14px;
+            font-size: 13px;
             transition: all 0.3s ease;
             border: 1px solid transparent;
             cursor: pointer;
             background: none;
             font-family: inherit;
             border-radius: 6px;
+            white-space: nowrap;
         }
 
         .nav-link:hover, .nav-link.active {
@@ -371,7 +372,7 @@
 
         .nav-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             align-items: center;
         }
 
@@ -463,14 +464,15 @@
             border: 1px solid rgba(0,240,255,0.4);
             border-radius: 6px;
             clip-path: none;
-            padding: 10px 20px;
-            font-size: 13px;
+            padding: 8px 14px;
+            font-size: 12px;
             font-weight: 600;
             letter-spacing: 0;
             text-transform: none;
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
         .btn-featured::before {
             content: '';
@@ -493,9 +495,9 @@
         /* 按钮分隔符 */
         .nav-divider {
             width: 1px;
-            height: 24px;
+            height: 20px;
             background: linear-gradient(180deg, transparent, var(--card-border), transparent);
-            margin: 0 8px;
+            margin: 0 6px;
         }
 
         .nav-actions-mobile {
