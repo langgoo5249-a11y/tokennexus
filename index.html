@@ -746,7 +746,6 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
-            align-items: start;
         }
 
         /* 主平台容器不用grid，让分类独占一行 */
@@ -759,7 +758,6 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
-            align-items: start;
         }
 
         .platform-card {
@@ -768,8 +766,6 @@
             padding: 28px;
             transition: all 0.4s ease;
             clip-path: polygon(5% 0, 100% 0, 100% 90%, 95% 100%, 0 100%, 0 10%);
-            min-height: 280px;
-            max-height: 380px;
             display: flex;
             flex-direction: column;
             position: relative;
@@ -1571,7 +1567,7 @@
             #platformsGrid { display: block !important; }
             .platforms-grid { grid-template-columns: 1fr !important; gap: 16px; }
             .category-section .platforms-grid { grid-template-columns: 1fr !important; }
-            .platform-card { padding: 20px; min-height: 240px; max-height: 320px; }
+            .platform-card { padding: 20px; }
             .platform-card::before, .platform-card::after { width: 30px; height: 30px; }
             .platform-logo { width: 48px; height: 48px; }
             .platform-name { font-size: 16px; }
@@ -1618,7 +1614,6 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
-            align-items: start;
         }
     </style>
 </head>
