@@ -1,4 +1,4 @@
-// Generate platform detail pages with real data and SEO long-tail keywords
+// Generate platform detail pages with real data and SEO/GEO long-tail keywords optimization
 const fs = require('fs');
 const path = require('path');
 
@@ -15,9 +15,9 @@ if (!fs.existsSync(platformDir)) fs.mkdirSync(platformDir, { recursive: true });
 
 // Category mapping
 const categoryMap = {
-    official: { name: '官方平台', link: 'official.html' },
-    aggregator: { name: '聚合平台', link: 'aggregator.html' },
-    china: { name: '国内平台', link: 'china.html' }
+    official: { name: '官方平台', link: 'official.html', enName: 'Official Platform' },
+    aggregator: { name: '聚合平台', link: 'aggregator.html', enName: 'Aggregator Platform' },
+    china: { name: '国内平台', link: 'china.html', enName: 'China Platform' }
 };
 
 // Payment methods by category
@@ -25,6 +25,32 @@ const paymentByCategory = {
     official: ['信用卡', 'PayPal'],
     aggregator: ['支付宝', '微信', 'USDT', '信用卡', 'PayPal'],
     china: ['支付宝', '微信', 'USDT', '银行转账']
+};
+
+// Long-tail keyword templates for SEO coverage
+const longTailTemplates = {
+    official: [
+        '{name} 官方API', '{name} API价格', '{name} API Key获取',
+        '{name} 注册教程', '{name} 充值方式', '{name} 使用指南',
+        '{name} API文档', '{name} 免费额度', '{name} 和 {alt} 对比',
+        '{name} 国内能用吗', '{name} 替代方案', '{name} API调用教程',
+        '{name} 价格表', '{name} 新手教程', '{name} 开发者指南'
+    ],
+    aggregator: [
+        '{name} 中转API', '{name} API中转站', '{name} 价格对比',
+        '{name} 稳定吗', '{name} 评测', '{name} 靠谱吗',
+        '{name} API Key', '{name} 免费额度', '{name} 好用吗',
+        '{name} 替代 {alt}', '{name} 和 {alt} 哪个好',
+        '{name} 国内直连', '{name} 延迟测试', '{name} API速度',
+        '{name} 便宜吗', '{name} 值得用吗'
+    ],
+    china: [
+        '{name} 国内API', '{name} API平台', '{name} 价格',
+        '{name} 注册', '{name} 支付宝充值', '{name} 微信支付',
+        '{name} 免费试用', '{name} API文档', '{name} 对比',
+        '{name} 和 {alt} 区别', '{name} 哪家好', '{name} 推荐',
+        '{name} 开发者', '{name} 接入教程', '{name} 使用体验'
+    ]
 };
 
 // Feature detection by tags
@@ -41,97 +67,265 @@ function detectFeatures(tags) {
     };
 }
 
-// Generate long-tail keywords
-function generateKeywords(platform) {
-    const base = [platform.name, platform.name + ' API', platform.name + ' 评测'];
-    const modelKw = platform.tags.slice(0, 3).map(t => `${t} API`);
-    const seoKw = [
-        `${platform.name} 怎么用`,
-        `${platform.name} 价格`,
-        `${platform.name} 注册`,
-        `${platform.name} API Key`,
-        `${platform.name} 替代`,
-        `${platform.name} 对比`,
-        `AI API 中转站推荐`,
-        `${platform.tags[0]} API 哪家好`
-    ];
-    return [...base, ...modelKw, ...seoKw].join(',');
+// Get a random alternative platform for comparison keywords
+function getAltPlatform(platform) {
+    const sameCat = platforms.filter(p => p.category === platform.category && p.id !== platform.id);
+    if (sameCat.length > 0) return sameCat[Math.floor(Math.random() * sameCat.length)].name;
+    const others = platforms.filter(p => p.id !== platform.id);
+    return others.length > 0 ? others[Math.floor(Math.random() * others.length)].name : '其他平台';
 }
 
-// Generate long description with SEO content
+// Generate comprehensive long-tail keywords for SEO
+function generateKeywords(platform) {
+    const cat = platform.category || 'china';
+    const templates = longTailTemplates[cat] || longTailTemplates.china;
+    const alt = getAltPlatform(platform);
+    
+    // Core keywords
+    const core = [
+        platform.name, platform.name + ' API', platform.name + ' 评测',
+        platform.name + ' 价格', platform.name + ' 怎么用', platform.name + ' 注册'
+    ];
+    
+    // Model-specific keywords
+    const modelKw = platform.tags.slice(0, 4).map(t => `${t} API`);
+    
+    // Category keywords
+    const catKw = [
+        'AI API平台', 'AI API中转', 'AI接口', '大模型API',
+        'ChatGPT API', 'Claude API', 'AI Token', 'API Key',
+        cat === 'official' ? 'AI官方API' : cat === 'aggregator' ? 'AI API中转站' : '国内AI API'
+    ];
+    
+    // Long-tail keywords from templates
+    const longTail = templates.map(t => t.replace('{name}', platform.name).replace('{alt}', alt));
+    
+    // Combine and deduplicate
+    const all = [...new Set([...core, ...modelKw, ...catKw, ...longTail])];
+    return all.join(',');
+}
+
+// Generate SEO-optimized title
+function generateTitle(platform) {
+    const catInfo = categoryMap[platform.category] || categoryMap.china;
+    const topModel = platform.tags[0] || 'AI';
+    return `${platform.name} - ${topModel} API${platform.category === 'official' ? '官方' : ''}评测|价格|使用教程 | TokenNexus AI导航`;
+}
+
+// Generate SEO-optimized meta description (150-160 chars for Google, 70-80 for Baidu)
+function generateMetaDesc(platform) {
+    const catInfo = categoryMap[platform.category] || categoryMap.china;
+    const models = platform.tags.slice(0, 3).join('、');
+    const desc = `${platform.name}是${catInfo.name}，支持${models}等模型，价格${platform.pricing}，用户评分${platform.rating}分。提供${platform.name}注册教程、API Key获取、使用指南及替代方案对比。`;
+    // Truncate to ~155 chars for Google optimal
+    return desc.length > 160 ? desc.substring(0, 157) + '...' : desc;
+}
+
+// Generate Baidu-specific meta description (shorter)
+function generateBaiduDesc(platform) {
+    const models = platform.tags.slice(0, 2).join('、');
+    return `${platform.name}支持${models}等AI模型，价格${platform.pricing}，评分${platform.rating}分。${platform.name}注册、API Key、使用教程及评测。`;
+}
+
+// Generate enhanced long description with rich SEO content and long-tail keywords
 function generateLongDescription(platform) {
     const catInfo = categoryMap[platform.category] || categoryMap.china;
     const features = detectFeatures(platform.tags);
     const featureList = [];
     if (features.functionCalling) featureList.push('Function Calling（函数调用）');
     if (features.streaming) featureList.push('流式输出（Streaming）');
-    if (features.image) featureList.push('图像生成与理解');
+    if (features.image) featureList.push('图像生成与理解（Vision/DALL-E）');
     if (features.embedding) featureList.push('Embedding 向量嵌入');
-    if (features.audio) featureList.push('语音识别与合成');
+    if (features.audio) featureList.push('语音识别与合成（TTS/STT）');
     if (features.video) featureList.push('视频理解与生成');
-    if (features.codeInterpreter) featureList.push('代码解释器');
+    if (features.codeInterpreter) featureList.push('代码解释器（Code Interpreter）');
 
     const payments = paymentByCategory[platform.category] || paymentByCategory.china;
     const isOfficial = platform.category === 'official';
-    const priceNote = isOfficial ? '官方定价，价格透明' : '中转服务，价格可能有加价';
+    const priceNote = isOfficial ? '官方定价，价格透明，无中间商加价' : '中转服务，价格可能有加价，但通常支持国内支付方式';
+    const alt = getAltPlatform(platform);
+
+    // Model description mapping with more detail
+    function modelDesc(t) {
+        if (/GPT-4o|GPT-4/i.test(t)) return '多模态大语言模型，支持文本、图像理解和生成，适用于复杂推理、创意写作、数据分析等高级场景';
+        if (/GPT-3\.5|GPT-4o-mini/i.test(t)) return '轻量级语言模型，响应速度快、成本低，适合日常对话、文本分类、简单问答等场景';
+        if (/Claude/i.test(t)) return 'Anthropic 出品的安全可靠AI助手，擅长长文本理解、学术写作、代码生成，支持200K上下文窗口';
+        if (/Gemini/i.test(t)) return 'Google 推出的多模态AI模型，深度集成Google生态，支持文本、图像、视频、音频理解';
+        if (/DeepSeek/i.test(t)) return '深度求索推出的高性价比AI模型，在代码生成和数学推理方面表现优异，价格极具竞争力';
+        if (/通义|Qwen/i.test(t)) return '阿里云推出的大语言模型，中文理解能力强，支持多模态，适合国内业务场景';
+        if (/文心|ERNIE/i.test(t)) return '百度推出的中文大语言模型，深度优化中文理解和生成，适合中文NLP任务';
+        if (/GLM|智谱/i.test(t)) return '智谱AI推出的中英双语大模型，学术背景深厚，推理能力强';
+        if (/Llama/i.test(t)) return 'Meta开源的大语言模型系列，社区活跃，支持本地部署和自定义微调';
+        if (/Mistral/i.test(t)) return '欧洲领先的开源AI模型，高效轻量，多语言支持优秀';
+        if (/embedding|向量/i.test(t)) return '文本向量化模型，用于语义搜索、文本聚类、推荐系统等场景';
+        if (/whisper|语音/i.test(t)) return '语音识别模型，支持多语言语音转文字，准确率高';
+        if (/tts|语音合成/i.test(t)) return '文本转语音模型，支持多种语言和音色，自然度接近真人';
+        if (/dall|绘图|image/i.test(t)) return 'AI图像生成模型，支持文生图、图生图，可创建高质量图片和艺术作品';
+        if (/vision|图像理解/i.test(t)) return '视觉理解模型，支持图像描述、OCR、视觉问答等多模态任务';
+        return '专业AI模型，适用于智能对话、文本生成、知识问答等AI应用场景';
+    }
 
     return `
     <h2>${platform.name} 详细介绍</h2>
-    <p>${platform.description}</p>
+    <p>${platform.description}。作为${isOfficial ? '官方API平台' : catInfo.name}，${platform.name} 为开发者提供稳定、高效的AI接口服务，${isOfficial ? '确保数据安全和服务质量' : '支持国内直连，解决网络访问问题'}。</p>
 
-    <h2>核心功能与特色</h2>
-    <p>${platform.name} 提供丰富的AI能力，${isOfficial ? '作为官方平台' : '作为' + catInfo.name}，具备以下核心功能：</p>
+    <h2>${platform.name} 核心功能与特色</h2>
+    <p>${platform.name} 提供丰富的AI能力，具备以下核心功能，开发者可以直接在应用中集成使用：</p>
     <ul>
-        ${featureList.map(f => `<li><strong>${f}</strong> - ${platform.name} 原生支持${f}功能，开发者可以直接在应用中集成使用。</li>`).join('\n        ')}
+        ${featureList.map(f => `<li><strong>${f}</strong> - ${platform.name} 原生支持${f}功能，API接口标准化，接入简单快捷。</li>`).join('\n        ')}
     </ul>
 
-    <h2>支持的模型</h2>
-    <p>${platform.name} 支持以下主流AI模型，覆盖文本生成、图像理解、代码编写等多种场景：</p>
+    <h2>${platform.name} 支持的AI模型</h2>
+    <p>${platform.name} 支持以下主流AI模型，覆盖文本生成、图像理解、代码编写、语音处理等多种应用场景：</p>
     <ul>
-        ${platform.tags.map(t => `<li><strong>${t}</strong> - 适用于${t.includes('GPT') ? '通用对话和文本生成' : t.includes('Claude') ? '长文本理解和安全对话' : t.includes('Gemini') ? '多模态理解和Google生态集成' : t.includes('DeepSeek') ? '高性价比推理和代码生成' : '专业AI任务处理'}场景。</li>`).join('\n        ')}
+        ${platform.tags.map(t => `<li><strong>${t}</strong> - ${modelDesc(t)}。</li>`).join('\n        ')}
     </ul>
 
-    <h2>价格体系</h2>
-    <p>${platform.name} 的定价为 <strong>${platform.pricing}</strong>。${priceNote}。对于预算有限的开发者，建议关注平台的免费额度和新用户优惠活动。</p>
-    <p>使用AI API时，建议根据实际业务需求选择合适的模型等级，避免不必要的成本支出。例如，简单对话场景可以使用轻量级模型，复杂推理场景再使用高级模型。</p>
+    <h2>${platform.name} 价格体系与计费方式</h2>
+    <p>${platform.name} 的定价为 <strong>${platform.pricing}</strong>。${priceNote}。</p>
+    <p>使用AI API时，建议开发者根据实际业务需求选择合适的模型等级以控制成本：</p>
+    <ul>
+        <li><strong>轻量级场景</strong>（日常对话、文本分类）：选择 GPT-4o-mini、Claude Haiku 等小模型，成本更低</li>
+        <li><strong>中等复杂度</strong>（内容创作、数据分析）：选择 GPT-4o、Claude Sonnet 等中端模型，性价比最优</li>
+        <li><strong>高复杂度</strong>（代码生成、复杂推理）：选择 GPT-4、Claude Opus、o1 等高端模型，效果最佳</li>
+    </ul>
+    <p>建议关注 ${platform.name} 的免费额度和新用户优惠活动，${platform.tags.some(t => t.includes('免费')) ? '该平台目前提供免费试用额度。' : '部分平台会不定期提供免费试用。'}。</p>
 
-    <h2>支付方式</h2>
-    <p>${platform.name} 支持 ${payments.join('、')} 等多种支付方式，${payments.includes('支付宝') ? '国内用户可以使用支付宝或微信便捷充值，' : ''}${payments.includes('USDT') ? '同时支持USDT等加密货币支付，保护用户隐私。' : '满足不同地区用户的需求。'}</p>
+    <h2>${platform.name} 支付方式</h2>
+    <p>${platform.name} 支持 ${payments.join('、')} 等多种支付方式。${payments.includes('支付宝') ? '国内用户可以使用支付宝或微信便捷充值，无需信用卡。' : ''}${payments.includes('USDT') ? '同时支持USDT等加密货币支付，保护用户隐私。' : ''}${payments.includes('PayPal') ? '海外用户可通过PayPal便捷支付。' : ''}</p>
 
-    <h2>稳定性与响应速度</h2>
-    <p>${platform.name} ${isOfficial ? '作为官方平台，' : ''}提供稳定可靠的API服务。建议开发者在使用时实现错误重试机制和降级策略，以确保应用的可用性。</p>
-    <p>响应速度方面，${platform.name} 在全球部署了多个数据中心节点，通常情况下API响应延迟在100-300ms之间，具体取决于所选模型和请求复杂度。</p>
+    <h2>${platform.name} 稳定性与响应速度</h2>
+    <p>${platform.name} ${isOfficial ? '作为官方平台，' : ''}提供稳定可靠的API服务，建议开发者在使用时实现错误重试机制和降级策略，以确保应用的可用性。</p>
+    <p>响应速度方面，${platform.name} ${isOfficial ? '在全球部署了多个数据中心节点' : '通常在国内有优化节点'}，API响应延迟一般在100-500ms之间，具体取决于所选模型和请求复杂度。</p>
 
-    <h2>使用指南</h2>
-    <p>开始使用 ${platform.name} API 的步骤如下：</p>
+    <h2>${platform.name} 注册与API Key获取教程</h2>
+    <p>开始使用 ${platform.name} API 只需简单几步：</p>
     <ol>
-        <li>访问 ${platform.name} 官网，注册账号并完成身份验证</li>
-        <li>在控制台中创建 API Key</li>
-        <li>根据官方文档配置API调用参数</li>
-        <li>在应用中集成API，开始使用AI能力</li>
-        <li>通过监控面板查看用量和费用</li>
+        <li>访问 <strong>${platform.name} 官网</strong>（${platform.url}），点击注册按钮创建账号</li>
+        <li>完成邮箱验证和身份认证${payments.includes('支付宝') ? '，支持手机号快捷注册' : ''}</li>
+        <li>登录控制台，进入 <strong>API管理</strong> 页面，点击「创建API Key」</li>
+        <li>复制并妥善保存 API Key（仅显示一次），配置到您的应用中</li>
+        <li>参考官方API文档，配置请求参数，开始调用AI接口</li>
+        <li>在监控面板查看API调用量、费用和使用统计</li>
     </ol>
 
-    <h2>适用场景</h2>
-    <p>${platform.name} 适用于以下场景：</p>
+    <h2>${platform.name} 适用场景</h2>
+    <p>${platform.name} 适用于以下典型业务场景：</p>
     <ul>
-        <li><strong>智能客服</strong> - 构建AI驱动的客服系统，提供7x24小时智能问答服务</li>
-        <li><strong>内容创作</strong> - 文章写作、营销文案、社交媒体内容自动生成</li>
-        <li><strong>代码辅助</strong> - 代码补全、代码审查、自动化测试生成</li>
-        <li><strong>数据分析</strong> - 自然语言查询数据库、智能报表生成</li>
-        <li><strong>教育辅导</strong> - 个性化学习助手、智能答疑系统</li>
+        <li><strong>智能客服系统</strong> - 构建7x24小时AI客服，自动回答用户常见问题，降低人工成本</li>
+        <li><strong>内容创作与营销</strong> - 文章写作、营销文案、社交媒体内容、SEO文章自动生成</li>
+        <li><strong>代码开发辅助</strong> - 代码补全、代码审查、Bug修复、自动化测试用例生成</li>
+        <li><strong>数据分析与报表</strong> - 自然语言查询数据库、智能数据可视化、自动化报表生成</li>
+        <li><strong>教育培训</strong> - 个性化学习助手、智能答疑、作业批改、知识图谱构建</li>
+        <li><strong>企业内部工具</strong> - 文档检索、知识库问答、会议纪要生成、邮件智能回复</li>
     </ul>
 
-    <h2>常见问题</h2>
-    <p><strong>${platform.name} 怎么注册？</strong> 访问 ${platform.name} 官网，点击注册按钮，使用邮箱或第三方账号完成注册即可。</p>
-    <p><strong>${platform.name} API Key 怎么获取？</strong> 登录控制台后，在API管理页面创建新的API Key。</p>
-    <p><strong>${platform.name} 有免费额度吗？</strong> ${platform.tags.includes('免费额度') ? '是的，' + platform.name + ' 为新用户提供免费额度，可以免费体验API服务。' : '请查看官网最新活动，部分平台会不定期提供免费试用额度。'}</p>
-    <p><strong>${platform.name} 和其他平台相比有什么优势？</strong> ${platform.name} 的核心优势包括：${platform.tags.slice(0, 3).join('、')}，用户评分 ${platform.rating}/5.0。</p>`;
+    <h2>${platform.name} 与 ${alt} 对比</h2>
+    <p>很多开发者在选择AI API平台时，会纠结 ${platform.name} 和 ${alt} 哪个更好。以下是关键对比维度：</p>
+    <ul>
+        <li><strong>模型支持</strong>：${platform.name} 支持 ${platform.tags.slice(0, 3).join('、')} 等模型，覆盖面广</li>
+        <li><strong>价格优势</strong>：${platform.name} 定价 ${platform.pricing}，${isOfficial ? '为官方原价' : '中转加价较低'}</li>
+        <li><strong>用户体验</strong>：${platform.name} 用户评分 ${platform.rating}/5.0，口碑${platform.rating >= 4.5 ? '优秀' : platform.rating >= 4.0 ? '良好' : '一般'}</li>
+        <li><strong>支付便利性</strong>：${platform.name} 支持 ${payments.join('、')}，${payments.includes('支付宝') ? '国内支付非常方便' : '满足多种支付需求'}</li>
+    </ul>
+
+    <h2>${platform.name} 常见问题（FAQ）</h2>
+    <p><strong>${platform.name} 怎么注册？</strong> 访问 ${platform.name} 官网 ${platform.url}，点击注册按钮，使用邮箱${payments.includes('支付宝') ? '或手机号' : ''}完成注册即可，通常1-2分钟即可完成。</p>
+    <p><strong>${platform.name} API Key 怎么获取？</strong> 登录 ${platform.name} 控制台后，在API管理或开发者设置页面创建新的API Key。建议为不同项目创建独立的Key，便于管理。</p>
+    <p><strong>${platform.name} 有免费额度吗？</strong> ${platform.tags.some(t => t.includes('免费')) ? '是的，' + platform.name + ' 为新用户提供免费额度，可以免费体验API服务后再决定是否付费。' : '建议查看 ' + platform.name + ' 官网最新活动，部分平台会不定期提供免费试用额度或新用户优惠券。'}</p>
+    <p><strong>${platform.name} 国内能用吗？</strong> ${isOfficial ? platform.name + ' 是海外平台，国内直接访问可能需要特殊网络环境。如果需要国内直连，可以考虑使用支持国内访问的聚合平台。' : platform.name + ' 支持国内直连访问，无需特殊网络配置，国内开发者可以直接使用。'}</p>
+    <p><strong>${platform.name} 安全可靠吗？</strong> ${platform.name} 用户评分 ${platform.rating}/5.0，${platform.verified ? '已通过TokenNexus平台验证。' : ''}建议开发者在使用时做好API Key安全管理，定期轮换密钥。</p>`;
 }
 
-// Generate meta description
-function generateMetaDesc(platform) {
-    return `${platform.name}详细介绍：支持${platform.tags.slice(0,4).join('、')}等模型，价格${platform.pricing}，${platform.rating}星评分。${platform.description.substring(0, 60)}...`;
+// Generate FAQ Schema for Google rich results
+function generateFAQSchema(platform) {
+    const catInfo = categoryMap[platform.category] || categoryMap.china;
+    const isOfficial = platform.category === 'official';
+    const hasFree = platform.tags.some(t => t.includes('免费'));
+    
+    return JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": `${platform.name}是什么？`,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": `${platform.name}是${catInfo.name}，${platform.description}。支持${platform.tags.slice(0,4).join('、')}等AI模型，用户评分${platform.rating}分。`
+                }
+            },
+            {
+                "@type": "Question",
+                "name": `${platform.name}怎么注册？`,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": `访问${platform.name}官网 ${platform.url}，点击注册按钮，使用邮箱完成注册即可。注册后可在控制台创建API Key开始使用。`
+                }
+            },
+            {
+                "@type": "Question",
+                "name": `${platform.name} API Key怎么获取？`,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": `登录${platform.name}控制台，进入API管理页面，点击创建新的API Key。建议为不同项目创建独立的Key便于管理。`
+                }
+            },
+            {
+                "@type": "Question",
+                "name": `${platform.name}有免费额度吗？`,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": hasFree ? `是的，${platform.name}为新用户提供免费额度，可以免费体验API服务。` : `建议查看${platform.name}官网最新活动，部分平台会不定期提供免费试用额度。`
+                }
+            },
+            {
+                "@type": "Question",
+                "name": `${platform.name}价格是多少？`,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": `${platform.name}的定价为${platform.pricing}。${isOfficial ? '官方定价透明无加价。' : '中转服务价格合理。'}建议根据业务需求选择合适的模型等级以控制成本。`
+                }
+            },
+            {
+                "@type": "Question",
+                "name": `${platform.name}国内能用吗？`,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": isOfficial ? `${platform.name}是海外官方平台，国内直接访问可能需要特殊网络环境。推荐使用支持国内直连的聚合平台作为替代。` : `${platform.name}支持国内直连访问，国内开发者可以直接使用，无需特殊网络配置。`
+                }
+            }
+        ]
+    });
+}
+
+// Generate BreadcrumbList Schema
+function generateBreadcrumbSchema(platform) {
+    const catInfo = categoryMap[platform.category] || categoryMap.china;
+    return JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "首页",
+                "item": "https://www.tokenfind.cn/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": catInfo.name,
+                "item": `https://www.tokenfind.cn/${catInfo.link}`
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": platform.name,
+                "item": `https://www.tokenfind.cn/platform/${slugify(platform.name)}.html`
+            }
+        ]
+    });
 }
 
 function slugify(name) {
@@ -211,7 +405,11 @@ platforms.forEach(platform => {
     const keywords = generateKeywords(platform);
     const longDesc = generateLongDescription(platform);
     const metaDesc = generateMetaDesc(platform);
+    const baiduDesc = generateBaiduDesc(platform);
+    const title = generateTitle(platform);
     const stars = generateStars(platform.rating);
+    const faqSchema = generateFAQSchema(platform);
+    const breadcrumbSchema = generateBreadcrumbSchema(platform);
 
     const featureRows = [
         { name: 'Function Calling', supported: features.functionCalling, desc: '函数调用' },
@@ -228,14 +426,26 @@ platforms.forEach(platform => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${platform.name} - ${platform.tags[0]} API评测与详细介绍 | TokenNexus</title>
+    <title>${title}</title>
     <meta name="description" content="${metaDesc}">
     <meta name="keywords" content="${keywords}">
-    <meta property="og:title" content="${platform.name} - ${platform.tags[0]} API评测 | TokenNexus">
-    <meta property="og:description" content="${platform.description}">
+    <meta name="author" content="TokenNexus Team">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1">
+    <!-- Baidu-specific meta -->
+    <meta name="baiduspider" content="index, follow">
+    <meta property="og:title" content="${platform.name} - ${platform.tags[0]} API评测|价格|使用教程 | TokenNexus">
+    <meta property="og:description" content="${metaDesc}">
     <meta property="og:image" content="https://www.tokenfind.cn${platform.logo}">
     <meta property="og:url" content="https://www.tokenfind.cn/platform/${slug}.html">
     <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:site_name" content="TokenNexus">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${platform.name} - ${platform.tags[0]} API评测 | TokenNexus">
+    <meta name="twitter:description" content="${metaDesc}">
+    <meta name="twitter:image" content="https://www.tokenfind.cn${platform.logo}">
     <link rel="canonical" href="https://www.tokenfind.cn/platform/${slug}.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -389,9 +599,18 @@ platforms.forEach(platform => {
         "applicationCategory":"AI API Platform",
         "operatingSystem":"Web",
         "description":"${platform.description.replace(/"/g, '&quot;')}",
-        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
-        "aggregateRating":{"@type":"AggregateRating","ratingValue":"${platform.rating}","reviewCount":"${platform.reviews}"}
+        "url":"https://www.tokenfind.cn/platform/${slug}.html",
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/OnlineOnly"},
+        "aggregateRating":{"@type":"AggregateRating","ratingValue":"${platform.rating}","bestRating":"5","worstRating":"1","reviewCount":"${platform.reviews}"},
+        "author":{"@type":"Organization","name":"${platform.name}","url":"${platform.url}"},
+        "provider":{"@type":"Organization","name":"TokenNexus","url":"https://www.tokenfind.cn/"}
     }
+    </script>
+    <script type="application/ld+json">
+    ${faqSchema}
+    </script>
+    <script type="application/ld+json">
+    ${breadcrumbSchema}
     </script>
 </head>
 <body>
