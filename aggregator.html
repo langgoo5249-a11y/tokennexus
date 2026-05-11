@@ -598,6 +598,13 @@
         function logout() { currentUser = null; Storage.remove('currentUser'); updateNavForUser(); renderPlatforms(); document.getElementById('userDropdown').classList.remove('show'); }
 
         // ==================== 渲染平台 ====================
+        function slugify(name) {
+            return name.toLowerCase()
+                .replace(/[^a-z0-9\u4e00-\u9fa5]/g, '-')
+                .replace(/-+/g, '-')
+                .replace(/^-|-$/g, '');
+        }
+
         function renderPlatforms() {
             const grid = document.getElementById('platformsGrid');
             const searchValue = document.getElementById('searchInput').value.toLowerCase();
@@ -612,15 +619,15 @@
             document.getElementById('platformCount').textContent = filtered.length + ' 个平台';
             let html = filtered.map(platform => {
                 const comments = getComments(platform.id);
-                return '<div class="platform-card" data-id="' + platform.id + '">' +
+                const slug = slugify(platform.name); return '<a href="/platform/' + slug + '.html" class="platform-card" data-id="' + platform.id + '" style="text-decoration:none;color:inherit;">' +
                     '<div class="card-header"><div class="platform-logo"><img src="' + platform.logo + '" alt="' + platform.name + ' logo" loading="lazy" decoding="async" onerror="this.src=\'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2740%27 fill=%27%2300f0ff%27/%3E%3Ctext x=%2750%27 y=%2765%27 text-anchor=%27middle%27 font-size=%2730%27 fill=%27white%27%3E' + platform.name.charAt(0) + '%3C/text%3E%3C/svg%3E\'"></div>' +
                     '<div><div class="platform-name">' + platform.name + (platform.verified ? ' <span class="verified-badge">✓</span>' : '') + '</div></div></div>' +
                     '<p class="platform-description">' + platform.description + '</p>' +
                     '<div class="platform-tags">' + platform.tags.map(tag => '<span class="tag">' + tag + '</span>').join('') + '<span class="tag pricing">' + platform.pricing + '</span></div>' +
                     '<div class="card-footer"><div><span class="stars">' + '★'.repeat(Math.floor(platform.rating)) + '☆'.repeat(5-Math.floor(platform.rating)) + '</span><span style="color: var(--text-secondary); font-size: 14px;">' + platform.rating + ' (' + (platform.reviews + comments.length) + '条评价)</span></div>' +
-                    '<a href="' + platform.url + '" target="_blank" class="visit-btn">访问 →</a></div>' +
+                    '<span class="visit-btn">查看详情 →</span></div>' +
                     '<div class="comments-section"><div class="comments-header" onclick="toggleComments(' + platform.id + ')"><span>◈ 查看评论 (' + comments.length + ')</span><span class="comments-toggle" id="toggle-' + platform.id + '">▼</span></div>' +
-                    '<div class="comments-container" id="comments-' + platform.id + '">' + renderCommentForm(platform.id) + '<div id="commentList-' + platform.id + '">' + renderComments(platform.id) + '</div></div></div></div>';
+                    '<div class="comments-container" id="comments-' + platform.id + '">' + renderCommentForm(platform.id) + '<div id="commentList-' + platform.id + '">' + renderComments(platform.id) + '</div></div></div></a>';
             }).join('');
             grid.innerHTML = html;
         }
