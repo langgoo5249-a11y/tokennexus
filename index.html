@@ -452,6 +452,23 @@
             clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
         }
 
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            clip-path: none;
+            padding: 8px 18px;
+            font-size: 13px;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+        .btn-outline:hover {
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0,240,255,0.2);
+        }
+
         .nav-actions-mobile {
             display: none;
             flex-direction: column;
@@ -1888,12 +1905,16 @@
             <a href="china.html" class="nav-link" role="menuitem">国内平台</a>
             <a href="official.html" class="nav-link" role="menuitem">免费额度</a>
             <div class="nav-actions-mobile">
+                <button class="btn btn-outline" onclick="openModal('submitModal')" aria-label="提交收录">🚀 提交收录</button>
+                <button class="btn btn-outline" onclick="openModal('businessModal')" aria-label="商务合作">🤝 商务合作</button>
                 <button class="btn btn-secondary" onclick="openLoginModal()" aria-label="登录">登录</button>
                 <button class="btn btn-primary" onclick="openRegisterModal()" aria-label="注册">注册</button>
             </div>
         </div>
 
         <div class="nav-actions" id="navActions">
+            <button class="btn btn-outline" onclick="openModal('submitModal')" aria-label="提交收录">🚀 提交收录</button>
+            <button class="btn btn-outline" onclick="openModal('businessModal')" aria-label="商务合作">🤝 商务合作</button>
             <button class="btn btn-secondary" onclick="openLoginModal()" aria-label="登录">登录</button>
             <button class="btn btn-primary" onclick="openRegisterModal()" aria-label="注册">注册</button>
         </div>
@@ -3233,5 +3254,160 @@
 </ul>
 </div>
 </noscript>
+
+        <!-- 提交收录弹窗 -->
+        <div class="modal-overlay" id="submitModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:10000;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(5px)">
+            <div style="background:#111;border:1px solid rgba(0,240,255,0.15);border-radius:20px;width:100%;max-width:560px;max-height:85vh;overflow-y:auto;position:relative">
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:24px 30px;border-bottom:1px solid rgba(0,240,255,0.1)">
+                    <h2 style="font-family:'Orbitron',sans-serif;font-size:20px;color:var(--text-primary);margin:0">🚀 提交平台收录</h2>
+                    <button onclick="closeModal('submitModal')" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(0,240,255,0.15);background:transparent;color:var(--text-secondary);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center">✕</button>
+                </div>
+                <div style="padding:30px">
+                    <form id="submitForm" onsubmit="return handleSubmit(event)">
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+                            <div>
+                                <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">平台名称 <span style="color:#ff4757">*</span></label>
+                                <input type="text" name="platform_name" placeholder="例如：OpenAI" required style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(0,240,255,0.15);border-radius:10px;color:var(--text-primary);font-size:14px;box-sizing:border-box">
+                            </div>
+                            <div>
+                                <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">平台分类 <span style="color:#ff4757">*</span></label>
+                                <select name="category" required style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(0,240,255,0.15);border-radius:10px;color:var(--text-primary);font-size:14px;box-sizing:border-box">
+                                    <option value="official">🌍 海外官方平台</option>
+                                    <option value="aggregator">🔗 聚合中转平台</option>
+                                    <option value="china">🇨🇳 国内平台</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:20px">
+                            <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">平台网址 <span style="color:#ff4757">*</span></label>
+                            <input type="url" name="platform_url" placeholder="https://example.com" required style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(0,240,255,0.15);border-radius:10px;color:var(--text-primary);font-size:14px;box-sizing:border-box">
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+                            <div>
+                                <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">联系邮箱 <span style="color:#ff4757">*</span></label>
+                                <input type="email" name="contact_email" placeholder="your@email.com" required style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(0,240,255,0.15);border-radius:10px;color:var(--text-primary);font-size:14px;box-sizing:border-box">
+                            </div>
+                            <div>
+                                <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">联系人</label>
+                                <input type="text" name="contact_name" placeholder="您的姓名" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(0,240,255,0.15);border-radius:10px;color:var(--text-primary);font-size:14px;box-sizing:border-box">
+                            </div>
+                        </div>
+                        <div style="margin-bottom:20px">
+                            <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">平台描述</label>
+                            <textarea name="description" placeholder="请简要描述平台的主要功能和特点..." style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(0,240,255,0.15);border-radius:10px;color:var(--text-primary);font-size:14px;min-height:80px;resize:vertical;box-sizing:border-box;font-family:inherit"></textarea>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+                            <div>
+                                <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">价格信息</label>
+                                <input type="text" name="pricing" placeholder="例如：$0.002/1K tokens" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(0,240,255,0.15);border-radius:10px;color:var(--text-primary);font-size:14px;box-sizing:border-box">
+                            </div>
+                            <div>
+                                <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">支持模型</label>
+                                <input type="text" name="models" placeholder="例如：GPT-4, Claude" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(0,240,255,0.15);border-radius:10px;color:var(--text-primary);font-size:14px;box-sizing:border-box">
+                            </div>
+                        </div>
+                        <button type="submit" id="submitBtn" style="width:100%;padding:14px;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));color:#000;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Orbitron',sans-serif;letter-spacing:1px">提交收录申请</button>
+                        <div id="submitMsg" style="text-align:center;margin-top:12px;font-size:14px;min-height:20px"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- 商务合作弹窗 -->
+        <div class="modal-overlay" id="businessModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:10000;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(5px)">
+            <div style="background:#111;border:1px solid rgba(184,41,221,0.2);border-radius:20px;width:100%;max-width:560px;max-height:85vh;overflow-y:auto;position:relative">
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:24px 30px;border-bottom:1px solid rgba(184,41,221,0.15)">
+                    <h2 style="font-family:'Orbitron',sans-serif;font-size:20px;color:var(--text-primary);margin:0">🤝 商务合作</h2>
+                    <button onclick="closeModal('businessModal')" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(184,41,221,0.2);background:transparent;color:var(--text-secondary);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center">✕</button>
+                </div>
+                <div style="padding:30px">
+                    <form id="businessForm" onsubmit="return handleBusiness(event)">
+                        <div style="margin-bottom:20px">
+                            <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">合作类型 <span style="color:#ff4757">*</span></label>
+                            <select name="inquiry_type" required style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(184,41,221,0.2);border-radius:10px;color:var(--text-primary);font-size:14px;box-sizing:border-box">
+                                <option value="advertising">📢 广告投放</option>
+                                <option value="partnership">🤝 战略合作</option>
+                                <option value="data_exchange">📊 数据交换</option>
+                                <option value="api_integration">🔗 API对接</option>
+                                <option value="listing_priority">⭐ 优先收录</option>
+                                <option value="other">📋 其他</option>
+                            </select>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+                            <div>
+                                <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">公司名称 <span style="color:#ff4757">*</span></label>
+                                <input type="text" name="company_name" placeholder="您的公司名称" required style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(184,41,221,0.2);border-radius:10px;color:var(--text-primary);font-size:14px;box-sizing:border-box">
+                            </div>
+                            <div>
+                                <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">联系人 <span style="color:#ff4757">*</span></label>
+                                <input type="text" name="contact_name" placeholder="您的姓名" required style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(184,41,221,0.2);border-radius:10px;color:var(--text-primary);font-size:14px;box-sizing:border-box">
+                            </div>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+                            <div>
+                                <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">联系邮箱 <span style="color:#ff4757">*</span></label>
+                                <input type="email" name="contact_email" placeholder="your@email.com" required style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(184,41,221,0.2);border-radius:10px;color:var(--text-primary);font-size:14px;box-sizing:border-box">
+                            </div>
+                            <div>
+                                <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">联系电话</label>
+                                <input type="tel" name="phone" placeholder="您的手机号" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(184,41,221,0.2);border-radius:10px;color:var(--text-primary);font-size:14px;box-sizing:border-box">
+                            </div>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+                            <div>
+                                <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">公司网站</label>
+                                <input type="url" name="website" placeholder="https://your-company.com" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(184,41,221,0.2);border-radius:10px;color:var(--text-primary);font-size:14px;box-sizing:border-box">
+                            </div>
+                            <div>
+                                <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">预算范围</label>
+                                <input type="text" name="budget" placeholder="例如：1万-5万/月" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(184,41,221,0.2);border-radius:10px;color:var(--text-primary);font-size:14px;box-sizing:border-box">
+                            </div>
+                        </div>
+                        <div style="margin-bottom:20px">
+                            <label style="display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px">合作详情</label>
+                            <textarea name="message" placeholder="请详细描述您的合作需求..." style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(184,41,221,0.2);border-radius:10px;color:var(--text-primary);font-size:14px;min-height:100px;resize:vertical;box-sizing:border-box;font-family:inherit"></textarea>
+                        </div>
+                        <button type="submit" id="businessBtn" style="width:100%;padding:14px;background:linear-gradient(135deg,var(--neon-purple),#ff6b6b);color:#fff;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Orbitron',sans-serif;letter-spacing:1px">提交合作咨询</button>
+                        <div id="businessMsg" style="text-align:center;margin-top:12px;font-size:14px;min-height:20px"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        function openModal(id){var m=document.getElementById(id);m.style.display='flex';document.body.style.overflow='hidden'}
+        function closeModal(id){var m=document.getElementById(id);m.style.display='none';document.body.style.overflow=''}
+        document.querySelectorAll('.modal-overlay').forEach(function(m){m.addEventListener('click',function(e){if(e.target===this)closeModal(this.id)})});
+
+        async function handleSubmit(e){
+            e.preventDefault();
+            var btn=document.getElementById('submitBtn'),msg=document.getElementById('submitMsg'),form=document.getElementById('submitForm');
+            btn.disabled=true;btn.textContent='提交中...';
+            try{
+                var fd=new FormData(form),data=Object.fromEntries(fd);
+                var res=await fetch('/api/submit-platform',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+                var result=await res.json();
+                if(result.success){msg.style.color='#2ed573';msg.textContent=result.message;form.reset();setTimeout(function(){closeModal('submitModal')},2000)}
+                else{msg.style.color='#ff4757';msg.textContent=result.message}
+            }catch(err){msg.style.color='#ff4757';msg.textContent='网络错误，请稍后重试'}
+            btn.disabled=false;btn.textContent='提交收录申请';
+            return false;
+        }
+
+        async function handleBusiness(e){
+            e.preventDefault();
+            var btn=document.getElementById('businessBtn'),msg=document.getElementById('businessMsg'),form=document.getElementById('businessForm');
+            btn.disabled=true;btn.textContent='提交中...';
+            try{
+                var fd=new FormData(form),data=Object.fromEntries(fd);
+                var res=await fetch('/api/business-contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+                var result=await res.json();
+                if(result.success){msg.style.color='#2ed573';msg.textContent=result.message;form.reset();setTimeout(function(){closeModal('businessModal')},2000)}
+                else{msg.style.color='#ff4757';msg.textContent=result.message}
+            }catch(err){msg.style.color='#ff4757';msg.textContent='网络错误，请稍后重试'}
+            btn.disabled=false;btn.textContent='提交合作咨询';
+            return false;
+        }
+        </script>
 </body>
 </html>
