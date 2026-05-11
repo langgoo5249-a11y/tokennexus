@@ -1026,6 +1026,7 @@
             align-items: flex-start;
             gap: 20px;
             margin-bottom: 20px;
+            min-height: 84px; /* 确保头部高度一致 */
         }
 
         .platform-logo {
@@ -1053,6 +1054,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            line-height: 1.3;
         }
 
         .verified-badge {
@@ -1075,6 +1077,9 @@
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            /* 固定高度确保所有卡片一致 */
+            height: 67.2px; /* 14px * 1.6 * 3 = 67.2px */
+            flex-shrink: 0;
         }
 
         .platform-tags {
@@ -1082,6 +1087,7 @@
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 20px;
+            min-height: 32px; /* 确保标签区域有最小高度 */
         }
 
         .tag {
@@ -1106,6 +1112,7 @@
             align-items: center;
             padding-top: 20px;
             border-top: 1px solid var(--card-border);
+            margin-top: auto; /* 确保footer始终在卡片底部 */
         }
 
         .stars {
@@ -1783,7 +1790,8 @@
             .platform-card::before, .platform-card::after { width: 30px; height: 30px; }
             .platform-logo { width: 48px; height: 48px; }
             .platform-name { font-size: 16px; }
-            .platform-description { font-size: 13px; }
+            .platform-description { font-size: 13px; height: 62.4px; /* 13px * 1.6 * 3 */ }
+            .card-header { min-height: 68px; }
             .section-title { font-size: 22px; }
             .section-subtitle { font-size: 14px; }
 
