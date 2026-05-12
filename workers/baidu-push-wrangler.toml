@@ -1,0 +1,11 @@
+name = "tokennexus-baidu-push"
+main = "baidu-push.js"
+compatibility_date = "2024-01-01"
+
+# 每天北京时间 09:00 自动推送（UTC 01:00）
+[triggers]
+crons = ["0 1 * * *"]
+
+# 环境变量（百度推送Token）
+[vars]
+BAIDU_PUSH_TOKEN = "zJsDaj5ibt8ZlVgz"
