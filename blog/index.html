@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- Google Search Console 验证 -->
+    <meta name="google-site-verification" content="3FATe9bp1LttSUR3xRU93RCPefwi_Vyo94PtCH-dJ8Q">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客 - TokenNexus | AI API行业资讯与教程</title>
+    <meta name="description" content="TokenNexus博客提供最新的AI API行业资讯、平台对比评测、使用教程和省钱攻略，帮助开发者选择最适合的AI服务。">
+    <meta name="keywords" content="AI API, OpenAI, DeepSeek, API教程, AI平台对比, API价格">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.tokenfind.cn/blog/">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TokenNexus">
+    <meta property="og:title" content="博客 - TokenNexus | AI API行业资讯与教程">
+    <meta property="og:description" content="TokenNexus博客提供最新的AI API行业资讯、平台对比评测、使用教程和省钱攻略。">
+    <meta property="og:url" content="https://www.tokenfind.cn/blog/">
+    <meta property="og:locale" content="zh_CN">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="博客 - TokenNexus | AI API行业资讯与教程">
+    <meta name="twitter:description" content="TokenNexus博客提供最新的AI API行业资讯、平台对比评测、使用教程和省钱攻略。">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "TokenNexus Blog",
+        "url": "https://www.tokenfind.cn/blog/",
+        "description": "AI API行业资讯与教程",
+        "publisher": {
+            "@type": "Organization",
+            "name": "TokenNexus",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.tokenfind.cn/favicon.svg"
+            }
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 40px;
+        }
+        
+        .blog-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .blog-header h1 {
+            font-size: 3rem;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+        
+        .blog-header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 10px 40px rgba(0, 240, 255, 0.1);
+        }
+        
+        .blog-card-image {
+            height: 200px;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(184, 41, 221, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        
+        .blog-card-content {
+            padding: 25px;
+        }
+        
+        .blog-card-category {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            margin-bottom: 15px;
+        }
+        
+        .blog-card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .blog-card h2 a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .blog-card h2 a:hover {
+            color: var(--neon-cyan);
+        }
+        
+        .blog-card-excerpt {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .blog-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .blog-card-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .blog-card-author img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(0, 240, 255, 0.2);
+        }
+        
+        /* 广告位预留 */
+        .ad-placeholder {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9rem;
+            margin: 30px 0;
+        }
+        
+        .ad-placeholder.top-banner {
+            width: 100%;
+            height: 90px;
+            max-width: 728px;
+            margin: 30px auto;
+        }
+        
+        .ad-placeholder.sidebar {
+            width: 300px;
+            height: 250px;
+        }
+        
+        .ad-placeholder.in-article {
+            width: 100%;
+            height: 250px;
+            max-width: 336px;
+            margin: 30px auto;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0CX9NNWKR8');
+    </script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../" class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">TokenNexus</span>
+            </a>
+            <div class="nav-links">
+                <a href="../">首页</a>
+                <a href="../official.html">海外官方</a>
+                <a href="../aggregator.html">聚合中转</a>
+                <a href="../china.html">国内平台</a>
+                <a href="./" class="active">博客</a>
+                <a href="../about.html">关于</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- 顶部广告位预留 -->
+    <div class="ad-placeholder top-banner">
+        <span>广告位预留 (728x90)</span>
+    </div>
+    
+    <main class="blog-container">
+        <header class="blog-header">
+            <h1>TokenNexus 博客</h1>
+            <p>探索AI API世界的最新资讯、深度评测和实用教程，帮助开发者做出明智选择</p>
+        </header>
+        
+        <div class="blog-grid">
+            <!-- 文章1 -->
+            <article class="blog-card">
+                <div class="blog-card-image">🚀</div>
+                <div class="blog-card-content">
+                    <span class="blog-card-category">平台对比</span>
+                    <h2><a href="openai-vs-deepseek-2026.html">OpenAI vs DeepSeek：2026年性价比全面对比</a></h2>
+                    <p class="blog-card-excerpt">深入对比两大AI API平台的性能、价格、稳定性，帮你找到最适合的选择。包含实际测试数据和省钱技巧。</p>
+                    <div class="blog-card-meta">
+                        <div class="blog-card-author">
+                            <img src="../favicon.svg" alt="作者">
+                            <span>TokenNexus团队</span>
+                        </div>
+                        <span>2026-05-12</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- 文章2 -->
+            <article class="blog-card">
+                <div class="blog-card-image">🔑</div>
+                <div class="blog-card-content">
+                    <span class="blog-card-category">使用教程</span>
+                    <h2><a href="how-to-get-openai-api-key.html">如何获取OpenAI API Key：完整教程（2026版）</a></h2>
+                    <p class="blog-card-excerpt">从注册到获取API Key的完整流程，包括常见问题解决、充值方法和安全使用建议。</p>
+                    <div class="blog-card-meta">
+                        <div class="blog-card-author">
+                            <img src="../favicon.svg" alt="作者">
+                            <span>TokenNexus团队</span>
+                        </div>
+                        <span>2026-05-10</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- 文章3 -->
+            <article class="blog-card">
+                <div class="blog-card-image">💰</div>
+                <div class="blog-card-content">
+                    <span class="blog-card-category">省钱攻略</span>
+                    <h2><a href="ai-api-pricing-guide-2026.html">AI API价格对比：2026年省钱完全指南</a></h2>
+                    <p class="blog-card-excerpt">详细对比主流AI API平台的价格体系，教你如何在保证质量的前提下节省50%以上的成本。</p>
+                    <div class="blog-card-meta">
+                        <div class="blog-card-author">
+                            <img src="../favicon.svg" alt="作者">
+                            <span>TokenNexus团队</span>
+                        </div>
+                        <span>2026-05-08</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- 文章4 -->
+            <article class="blog-card">
+                <div class="blog-card-image">🇨🇳</div>
+                <div class="blog-card-content">
+                    <span class="blog-card-category">国内平台</span>
+                    <h2><a href="china-ai-api-guide.html">国内AI大模型API接入指南：阿里云、百度、讯飞对比</a></h2>
+                    <p class="blog-card-excerpt">全面评测国内主流AI平台，包括接入流程、价格对比、性能测试和选型建议。</p>
+                    <div class="blog-card-meta">
+                        <div class="blog-card-author">
+                            <img src="../favicon.svg" alt="作者">
+                            <span>TokenNexus团队</span>
+                        </div>
+                        <span>2026-05-05</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- 文章5 -->
+            <article class="blog-card">
+                <div class="blog-card-image">🛠️</div>
+                <div class="blog-card-content">
+                    <span class="blog-card-category">技术教程</span>
+                    <h2><a href="api-integration-best-practices.html">AI API集成最佳实践：错误处理与性能优化</a></h2>
+                    <p class="blog-card-excerpt">分享生产环境中AI API集成的经验，包括错误重试、流式处理、成本控制等实用技巧。</p>
+                    <div class="blog-card-meta">
+                        <div class="blog-card-author">
+                            <img src="../favicon.svg" alt="作者">
+                            <span>TokenNexus团队</span>
+                        </div>
+                        <span>2026-05-01</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- 文章6 -->
+            <article class="blog-card">
+                <div class="blog-card-image">📊</div>
+                <div class="blog-card-content">
+                    <span class="blog-card-category">行业资讯</span>
+                    <h2><a href="top-10-ai-apis-2026.html">2026年最值得使用的10个AI API平台</a></h2>
+                    <p class="blog-card-excerpt">基于性能、价格、稳定性等多维度评测，精选2026年最值得开发者关注的AI API平台。</p>
+                    <div class="blog-card-meta">
+                        <div class="blog-card-author">
+                            <img src="../favicon.svg" alt="作者">
+                            <span>TokenNexus团队</span>
+                        </div>
+                        <span>2026-04-28</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <!-- 文章内广告位预留 -->
+        <div class="ad-placeholder in-article">
+            <span>广告位预留 (336x280)</span>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>关于我们</h3>
+                <p>TokenNexus是全球最全的AI Token导航平台，收录280+国内外AI API服务商。</p>
+            </div>
+            <div class="footer-section">
+                <h3>快速链接</h3>
+                <p><a href="../about.html">关于我们</a> | <a href="../contact.html">联系我们</a> | <a href="../privacy.html">隐私政策</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TokenNexus. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Cookie同意横幅 -->
+    <div id="cookie-consent" class="cookie-consent" style="display: none;">
+        <div class="cookie-content">
+            <p>我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的Cookie政策。</p>
+            <div class="cookie-buttons">
+                <button onclick="acceptCookies()" class="cookie-btn accept">同意</button>
+                <a href="../privacy.html" class="cookie-btn more">了解更多</a>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 46, 0.95);
+            border-top: 1px solid rgba(0, 240, 255, 0.3);
+            padding: 20px;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .cookie-content p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .cookie-buttons {
+            display: flex;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+        
+        .cookie-btn {
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .cookie-btn.accept {
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            border: none;
+            color: #fff;
+        }
+        
+        .cookie-btn.more {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+        }
+        
+        @media (max-width: 768px) {
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+    
+    <script>
+        // Cookie同意功能
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookie-consent').style.display = 'none';
+        }
+        
+        // 检查是否已同意
+        if (!localStorage.getItem('cookieConsent')) {
+            document.getElementById('cookie-consent').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

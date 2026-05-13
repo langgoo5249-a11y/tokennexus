@@ -1853,6 +1853,37 @@
         }
         .cookie-btn:hover { transform: scale(1.05); }
 
+        /* 广告位预留样式 */
+        .ad-placeholder {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px dashed rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.85rem;
+            margin: 20px auto;
+        }
+        
+        .ad-placeholder.top-banner {
+            width: 100%;
+            max-width: 728px;
+            height: 90px;
+            margin: 20px auto;
+        }
+        
+        .ad-placeholder.sidebar {
+            width: 300px;
+            height: 250px;
+        }
+        
+        .ad-placeholder.in-content {
+            width: 100%;
+            max-width: 336px;
+            height: 280px;
+        }
+
         @media (max-width: 768px) {
             .cookie-banner { padding: 16px 20px; }
             .cookie-content { flex-direction: column; text-align: center; }
@@ -1988,6 +2019,14 @@
     </script>
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4710405779358793" crossorigin="anonymous"></script>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0CX9NNWKR8');
+    </script>
 </head>
 <body>
     <!-- 科技感背景元素 -->
@@ -2091,6 +2130,11 @@
                 </div>
             </div>
         </section>
+
+        <!-- 顶部广告位预留 -->
+        <div class="ad-placeholder top-banner" style="margin-top: 100px;">
+            <span>广告位预留 (728x90)</span>
+        </div>
 
         <!-- ========== 新增：特性展示区 ========== -->
         <section class="features-section" id="features">
@@ -2203,6 +2247,12 @@
                 <span class="platform-count" id="platformCount">加载中...</span>
             </div>
             <p class="rating-disclaimer" style="font-size:12px;color:#8b92a8;margin-top:8px">* 评分数据来源于用户反馈和公开信息，仅供参考</p>
+            
+            <!-- 内容区广告位预留 -->
+            <div class="ad-placeholder in-content">
+                <span>广告位预留 (336x280)</span>
+            </div>
+            
         <div class="platforms-grid" id="platformsGrid" role="list" aria-label="AI API平台列表"></div>
         </main>
     </main>
@@ -2258,7 +2308,7 @@
     <!-- Cookie Consent Banner -->
     <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Cookie同意" style="display: none;">
         <div class="cookie-content">
-            <p>我们使用Cookie来提升您的浏览体验。继续使用本网站即表示您同意我们的<a href="privacy.html">隐私政策</a>。</p>
+            <p>我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。Google等第三方供应商使用Cookie来根据您之前访问我们网站和其他网站的记录提供广告。继续使用本网站即表示您同意我们的<a href="privacy.html">隐私政策</a>和<a href="terms.html">服务条款</a>。</p>
             <button onclick="acceptCookies()" class="cookie-btn">同意</button>
         </div>
     </div>
