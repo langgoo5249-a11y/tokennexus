@@ -1,6 +1,6 @@
 /**
  * 网站多语言切换组件
- * 使用Google Translate免费API实现实时翻译
+ * 使用Google Translate Website Widget实现翻译
  * 支持主流语言和东南亚语言
  */
 
@@ -10,38 +10,24 @@ const I18N = {
     
     // 支持的语言
     languages: {
-        'zh': { name: 'Chinese', native: '中文', dir: 'ltr' },
-        'en': { name: 'English', native: 'English', dir: 'ltr' },
-        'ja': { name: 'Japanese', native: '日本語', dir: 'ltr' },
-        'ko': { name: 'Korean', native: '한국어', dir: 'ltr' },
-        'es': { name: 'Spanish', native: 'Español', dir: 'ltr' },
-        'fr': { name: 'French', native: 'Français', dir: 'ltr' },
-        'de': { name: 'German', native: 'Deutsch', dir: 'ltr' },
-        'ru': { name: 'Russian', native: 'Русский', dir: 'ltr' },
-        'ar': { name: 'Arabic', native: 'العربية', dir: 'rtl' },
-        'vi': { name: 'Vietnamese', native: 'Tiếng Việt', dir: 'ltr' },
-        'th': { name: 'Thai', native: 'ไทย', dir: 'ltr' },
-        'id': { name: 'Indonesian', native: 'Bahasa Indonesia', dir: 'ltr' },
-        'ms': { name: 'Malay', native: 'Bahasa Melayu', dir: 'ltr' },
-        'fil': { name: 'Filipino', native: 'Filipino', dir: 'ltr' }
+        'zh': { name: 'Chinese', native: '中文', code: 'zh-CN' },
+        'en': { name: 'English', native: 'English', code: 'en' },
+        'ja': { name: 'Japanese', native: '日本語', code: 'ja' },
+        'ko': { name: 'Korean', native: '한국어', code: 'ko' },
+        'es': { name: 'Spanish', native: 'Español', code: 'es' },
+        'fr': { name: 'French', native: 'Français', code: 'fr' },
+        'de': { name: 'German', native: 'Deutsch', code: 'de' },
+        'ru': { name: 'Russian', native: 'Русский', code: 'ru' },
+        'ar': { name: 'Arabic', native: 'العربية', code: 'ar' },
+        'vi': { name: 'Vietnamese', native: 'Tiếng Việt', code: 'vi' },
+        'th': { name: 'Thai', native: 'ไทย', code: 'th' },
+        'id': { name: 'Indonesian', native: 'Bahasa Indonesia', code: 'id' },
+        'ms': { name: 'Malay', native: 'Bahasa Melayu', code: 'ms' },
+        'fil': { name: 'Filipino', native: 'Filipino', code: 'tl' }
     },
     
-    // 翻译缓存
-    cache: {},
-    
-    // 需要翻译的选择器
-    translateSelectors: [
-        'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-        'p', 'span', 'label', 'button', 'a',
-        '.platform-name', '.platform-description', '.tag',
-        '.category-info h3', '.category-info p',
-        '.filter-tag', '.stat-label', '.section-title',
-        '.nav-link', '.footer-link', '.modal-title',
-        '.btn', '.submit-comment', '.comment-input::placeholder'
-    ],
-    
-    // 不翻译的类名
-    excludeClasses: ['no-translate', 'logo', 'platform-logo', 'price', 'rating'],
+    // Google Translate实例
+    gtLoaded: false,
     
     /**
      * 初始化
@@ -49,7 +35,13 @@ const I18N = {
     init() {
         this.loadLanguage();
         this.createLanguageSelector();
-        this.updateHtmlLang();
+        
+        // 如果保存的语言不是中文，自动翻译
+        if (this.currentLang !== 'zh') {
+            this.loadGoogleTranslate(() => {
+                this.translateTo(this.currentLang);
+            });
+        }
     },
     
     /**
@@ -116,224 +108,133 @@ const I18N = {
     /**
      * 设置语言
      */
-    async setLanguage(lang) {
+    setLanguage(lang) {
         if (lang === this.currentLang) {
             this.toggleDropdown();
             return;
         }
         
-        // 如果切换回中文，直接刷新页面
+        // 如果切换回中文，刷新页面
         if (lang === 'zh') {
             this.saveLanguage('zh');
+            // 清除Google Translate cookie
+            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + window.location.hostname;
             location.reload();
             return;
         }
         
-        // 显示加载状态
-        const btn = document.querySelector('.i18n-btn');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<span class="i18n-loading">翻译中...</span>';
+        this.saveLanguage(lang);
         
-        try {
-            await this.translatePage(lang);
-            this.saveLanguage(lang);
-            this.updateHtmlLang();
-            
-            // 更新按钮显示
-            document.querySelector('.i18n-current-lang').textContent = this.languages[lang].native;
-            
-            // 更新下拉菜单选中状态
-            document.querySelectorAll('.i18n-option').forEach(opt => {
-                opt.classList.toggle('active', opt.dataset.lang === lang);
-            });
-            
-        } catch (error) {
-            console.error('Translation error:', error);
-            alert('翻译失败，请稍后重试');
-            btn.innerHTML = originalText;
-        }
+        // 更新按钮显示
+        document.querySelector('.i18n-current-lang').textContent = this.languages[lang].native;
+        
+        // 更新下拉菜单选中状态
+        document.querySelectorAll('.i18n-option').forEach(opt => {
+            opt.classList.toggle('active', opt.dataset.lang === lang);
+        });
+        
+        // 加载Google Translate并翻译
+        this.loadGoogleTranslate(() => {
+            this.translateTo(lang);
+        });
         
         this.toggleDropdown();
     },
     
     /**
-     * 翻译整个页面
+     * 加载Google Translate脚本
      */
-    async translatePage(targetLang) {
-        const elements = this.getTranslatableElements();
-        const texts = [];
-        const elementMap = new Map();
-        
-        // 收集所有需要翻译的文本
-        elements.forEach((el, index) => {
-            const text = el.textContent.trim();
-            if (text && !this.isExcluded(el)) {
-                texts.push(text);
-                elementMap.set(index, el);
-            }
-        });
-        
-        // 批量翻译
-        const translations = await this.batchTranslate(texts, targetLang);
-        
-        // 应用翻译
-        let translationIndex = 0;
-        elements.forEach((el) => {
-            const text = el.textContent.trim();
-            if (text && !this.isExcluded(el)) {
-                el.textContent = translations[translationIndex] || text;
-                el.setAttribute('data-i18n-original', text);
-                translationIndex++;
-            }
-        });
-        
-        // 翻译placeholder属性
-        document.querySelectorAll('[placeholder]').forEach(el => {
-            const placeholder = el.getAttribute('placeholder');
-            if (placeholder) {
-                el.setAttribute('data-i18n-original-placeholder', placeholder);
-                this.translateText(placeholder, targetLang).then(translated => {
-                    el.setAttribute('placeholder', translated);
-                });
-            }
-        });
-    },
-    
-    /**
-     * 获取可翻译的元素
-     */
-    getTranslatableElements() {
-        const selector = this.translateSelectors.join(', ');
-        return Array.from(document.querySelectorAll(selector));
-    },
-    
-    /**
-     * 检查元素是否排除翻译
-     */
-    isExcluded(el) {
-        return this.excludeClasses.some(cls => el.classList.contains(cls)) ||
-               el.closest('.' + this.excludeClasses.join(', .'));
-    },
-    
-    /**
-     * 批量翻译
-     */
-    async batchTranslate(texts, targetLang) {
-        // 去重
-        const uniqueTexts = [...new Set(texts)];
-        
-        // 检查缓存
-        const results = [];
-        const toTranslate = [];
-        const toTranslateIndices = [];
-        
-        uniqueTexts.forEach((text, index) => {
-            const cacheKey = `${targetLang}:${text}`;
-            if (this.cache[cacheKey]) {
-                results[index] = this.cache[cacheKey];
-            } else {
-                toTranslate.push(text);
-                toTranslateIndices.push(index);
-            }
-        });
-        
-        // 翻译未缓存的文本
-        if (toTranslate.length > 0) {
-            const translations = await Promise.all(
-                toTranslate.map(text => this.translateText(text, targetLang))
-            );
-            
-            translations.forEach((translated, i) => {
-                const originalIndex = toTranslateIndices[i];
-                results[originalIndex] = translated;
-                
-                // 缓存结果
-                const cacheKey = `${targetLang}:${toTranslate[i]}`;
-                this.cache[cacheKey] = translated;
-            });
+    loadGoogleTranslate(callback) {
+        if (this.gtLoaded) {
+            callback && callback();
+            return;
         }
         
-        // 映射回原始文本顺序
-        return texts.map(text => {
-            const cacheKey = `${targetLang}:${text}`;
-            return this.cache[cacheKey] || text;
-        });
+        // 创建Google Translate元素容器（隐藏）
+        if (!document.getElementById('google_translate_element')) {
+            const div = document.createElement('div');
+            div.id = 'google_translate_element';
+            div.style.display = 'none';
+            document.body.appendChild(div);
+        }
+        
+        // 加载Google Translate脚本
+        const script = document.createElement('script');
+        script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        script.onload = () => {
+            this.gtLoaded = true;
+            callback && callback();
+        };
+        script.onerror = () => {
+            console.error('Failed to load Google Translate');
+            alert('翻译服务加载失败，请检查网络连接');
+        };
+        document.body.appendChild(script);
     },
     
     /**
-     * 翻译单个文本
+     * 翻译到指定语言
      */
-    async translateText(text, targetLang) {
-        if (!text || text.trim() === '') return text;
+    translateTo(lang) {
+        const langCode = this.languages[lang].code;
         
-        // 检查缓存
-        const cacheKey = `${targetLang}:${text}`;
-        if (this.cache[cacheKey]) {
-            return this.cache[cacheKey];
-        }
+        // 设置Google Translate cookie
+        const domain = window.location.hostname;
+        document.cookie = `googtrans=/zh-CN/${langCode}; path=/;`;
+        document.cookie = `googtrans=/zh-CN/${langCode}; path=/; domain=.${domain};`;
         
-        try {
-            // 使用Google Translate免费API
-            const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=zh-CN&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
-            
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`Translation failed: ${response.status}`);
-            }
-            
-            const data = await response.json();
-            const translated = data[0].map(item => item[0]).join('');
-            
-            // 缓存结果
-            this.cache[cacheKey] = translated;
-            
-            // 保存到localStorage
-            this.saveCache();
-            
-            return translated;
-        } catch (error) {
-            console.error('Translation error:', error);
-            return text;
-        }
-    },
-    
-    /**
-     * 保存缓存到localStorage
-     */
-    saveCache() {
-        try {
-            localStorage.setItem('i18n_cache', JSON.stringify(this.cache));
-        } catch (e) {
-            // 缓存已满，清理旧缓存
-            if (e.name === 'QuotaExceededError') {
-                this.cache = {};
-                localStorage.removeItem('i18n_cache');
+        // 触发翻译
+        if (window.google && window.google.translate) {
+            const frame = document.querySelector('.goog-te-banner-frame');
+            if (frame) {
+                // 已经加载过，刷新页面应用新语言
+                location.reload();
             }
         }
     },
     
     /**
-     * 加载缓存
+     * 隐藏Google Translate顶部栏
      */
-    loadCache() {
-        try {
-            const saved = localStorage.getItem('i18n_cache');
-            if (saved) {
-                this.cache = JSON.parse(saved);
+    hideTopBar() {
+        const style = document.createElement('style');
+        style.textContent = `
+            /* 隐藏Google Translate顶部栏 */
+            .goog-te-banner-frame,
+            .goog-te-gadget,
+            .goog-te-ftab,
+            .skiptranslate {
+                display: none !important;
             }
-        } catch (e) {
-            this.cache = {};
-        }
-    },
-    
-    /**
-     * 更新HTML lang属性
-     */
-    updateHtmlLang() {
-        document.documentElement.lang = this.currentLang;
-        document.documentElement.dir = this.languages[this.currentLang].dir;
+            body {
+                top: 0 !important;
+            }
+            .goog-text-highlight {
+                background: none !important;
+                box-shadow: none !important;
+            }
+            /* 隐藏Google Translate水印 */
+            .goog-logo-link, .goog-logo-link img {
+                display: none !important;
+            }
+        `;
+        document.head.appendChild(style);
     }
 };
+
+// Google Translate初始化回调
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'zh-CN',
+        includedLanguages: 'en,ja,ko,es,fr,de,ru,ar,vi,th,id,ms,tl',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+    }, 'google_translate_element');
+    
+    // 隐藏Google Translate UI
+    I18N.hideTopBar();
+}
 
 // 添加样式
 const style = document.createElement('style');
@@ -342,7 +243,7 @@ style.textContent = `
     position: fixed;
     top: 80px;
     right: 20px;
-    z-index: 1000;
+    z-index: 9999;
 }
 
 .i18n-btn {
@@ -383,6 +284,8 @@ style.textContent = `
     display: none;
     backdrop-filter: blur(20px);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-height: 400px;
+    overflow-y: auto;
 }
 
 .i18n-dropdown.show {
@@ -426,21 +329,6 @@ style.textContent = `
     font-size: 12px;
 }
 
-.i18n-loading {
-    color: rgba(0, 240, 255, 1);
-}
-
-/* RTL语言支持 */
-[dir="rtl"] .i18n-selector {
-    right: auto;
-    left: 20px;
-}
-
-[dir="rtl"] .i18n-dropdown {
-    right: auto;
-    left: 0;
-}
-
 /* 移动端适配 */
 @media (max-width: 768px) {
     .i18n-selector {
@@ -453,8 +341,8 @@ style.textContent = `
         padding: 8px 12px;
     }
     
-    .i18n-btn span:not(.i18n-current-lang) {
-        display: none;
+    .i18n-dropdown {
+        max-height: 300px;
     }
 }
 `;
@@ -462,11 +350,5 @@ document.head.appendChild(style);
 
 // 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', () => {
-    I18N.loadCache();
     I18N.init();
-    
-    // 如果保存的语言不是中文，自动翻译
-    if (I18N.currentLang !== 'zh') {
-        I18N.setLanguage(I18N.currentLang);
-    }
 });
