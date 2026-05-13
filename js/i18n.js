@@ -724,13 +724,16 @@ const I18N = {
 
     translatePage(lang) {
         const dict = this.translations[lang];
+        console.log('[I18N] translatePage called, lang:', lang, 'dict keys:', dict ? Object.keys(dict).length : 'null');
         if (!dict) return;
 
         // 翻译所有文本节点（支持模糊匹配：包含中文即尝试翻译）
         const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
         const nodes = [];
         while (walker.nextNode()) nodes.push(walker.currentNode);
+        console.log('[I18N] Found', nodes.length, 'text nodes');
 
+        let translated = 0;
         nodes.forEach(node => {
             const text = node.textContent.trim();
             if (!text || !/[\u4e00-\u9fff]/.test(text)) return;
@@ -738,6 +741,7 @@ const I18N = {
             // 1. 精确匹配
             if (dict[text]) {
                 node.textContent = dict[text];
+                translated++;
                 return;
             }
 
@@ -745,6 +749,7 @@ const I18N = {
             const cleaned = text.replace(/^[\s\p{Emoji}\p{Symbol}]+|[\s\p{Emoji}\p{Symbol}]+$/gu, '').trim();
             if (cleaned !== text && dict[cleaned]) {
                 node.textContent = text.replace(cleaned, dict[cleaned]);
+                translated++;
                 return;
             }
 
@@ -752,10 +757,12 @@ const I18N = {
             for (const [key, val] of Object.entries(dict)) {
                 if (key.length >= 4 && text.includes(key)) {
                     node.textContent = text.replace(key, val);
+                    translated++;
                     return;
                 }
             }
         });
+        console.log('[I18N] Translated', translated, 'nodes');
 
         // 翻译placeholder
         document.querySelectorAll('[placeholder]').forEach(el => {
