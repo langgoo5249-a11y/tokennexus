@@ -4,6 +4,23 @@
     <!-- 百度站点验证 - 必须放在head最前面 -->
     <meta name="baidu-site-verification" content="codeva-Z1EetJ06B7">
     <meta name="google-site-verification" content="3FATe9bp1LttSUR3xRU93RCPefwi_Vyo94PtCH-dJ8Q">
+    
+    <!-- GEO地理位置优化 -->
+    <meta name="geo.region" content="CN">
+    <meta name="geo.placename" content="Global">
+    <meta name="geo.position" content="39.9042;116.4074">
+    <meta name="ICBM" content="39.9042, 116.4074">
+    
+    <!-- 百度GEO设置 -->
+    <meta name="location" content="province=北京;city=北京">
+    
+    <!-- OpenLocaiton Code (OLC) -->
+    <meta name="olp" content="4C5R+WX 北京">
+    
+    <!-- 分面搜索支持 -->
+    <meta name="audience" content="Global">
+    <meta name="coverage" content="Worldwide">
+    <meta name="robots" content="index, follow">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,6 +38,23 @@
     <meta name="applicable-device" content="pc,mobile">
     <link rel="canonical" href="https://www.tokenfind.cn/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    
+    <!-- hreflang for International SEO -->
+    <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/">
+    <link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/en/">
+    <link rel="alternate" hreflang="ja" href="https://www.tokenfind.cn/ja/">
+    <link rel="alternate" hreflang="ko" href="https://www.tokenfind.cn/ko/">
+    <link rel="alternate" hreflang="es" href="https://www.tokenfind.cn/es/">
+    <link rel="alternate" hreflang="fr" href="https://www.tokenfind.cn/fr/">
+    <link rel="alternate" hreflang="de" href="https://www.tokenfind.cn/de/">
+    <link rel="alternate" hreflang="ru" href="https://www.tokenfind.cn/ru/">
+    <link rel="alternate" hreflang="ar" href="https://www.tokenfind.cn/ar/">
+    <link rel="alternate" hreflang="vi" href="https://www.tokenfind.cn/vi/">
+    <link rel="alternate" hreflang="th" href="https://www.tokenfind.cn/th/">
+    <link rel="alternate" hreflang="id" href="https://www.tokenfind.cn/id/">
+    <link rel="alternate" hreflang="ms" href="https://www.tokenfind.cn/ms/">
+    <link rel="alternate" hreflang="fil" href="https://www.tokenfind.cn/fil/">
+    <link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -128,6 +162,53 @@
         ]
     }
     </script>
+    
+    <!-- 地理位置结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "TokenNexus",
+        "description": "全球最全的AI Token导航平台",
+        "url": "https://www.tokenfind.cn/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "areaServed": {
+            "@type": "Place",
+            "name": "Worldwide"
+        }
+    }
+    </script>
+    
+    <!-- 服务范围结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "AI API Platform Navigation",
+        "description": "AI Token API平台导航与对比服务",
+        "provider": {
+            "@type": "Organization",
+            "name": "TokenNexus",
+            "url": "https://www.tokenfind.cn/"
+        },
+        "areaServed": [
+            {"@type": "Country", "name": "China"},
+            {"@type": "Country", "name": "United States"},
+            {"@type": "Country", "name": "Japan"},
+            {"@type": "Country", "name": "South Korea"},
+            {"@type": "Country", "name": "Singapore"},
+            {"@type": "Country", "name": "Global"}
+        ],
+        "serviceType": "Information Services"
+    }
+    </script>
+    
     <style>
         :root {
             --neon-cyan: #00f0ff;

@@ -1,203 +1,53 @@
-# ============================================
-# TokenNexus - AI Token导航平台
-# 允许所有AI搜索引擎和官方爬虫访问
-# ============================================
+# TokenNexus 机器人访问协议
+# robots.txt for tokenfind.cn
 
-# 默认规则：允许所有爬虫
 User-agent: *
 Allow: /
+
+# Sitemap位置
+Sitemap: https://www.tokenfind.cn/sitemap.xml
+
+# 主要页面
+Allow: /$
+Allow: /official.html
+Allow: /aggregator.html
+Allow: /china.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /business.html
+Allow: /submit.html
+Allow: /platform/
+
+# 静态资源
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /assets/
+
+# API端点
+Allow: /api/
+
+# Disallow后台和管理页面（如果有的话）
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /api/admin/
+
+# 限制爬虫访问频率
 Crawl-delay: 1
 
-# ============================================
-# 主要搜索引擎爬虫
-# ============================================
-
-# Google 爬虫
+# 特定爬虫设置
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0
 
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Googlebot-News
-Allow: /
-
-User-agent: Googlebot-Video
-Allow: /
-
-# Bing 爬虫
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
-User-agent: BingPreview
-Allow: /
-
-# 百度爬虫
 User-agent: Baiduspider
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 2
 
-User-agent: Baiduspider-image
-Allow: /
-
-User-agent: Baiduspider-video
-Allow: /
-
-User-agent: Baiduspider-news
-Allow: /
-
-# 搜狗爬虫
-User-agent: Sogou spider
-Allow: /
-Crawl-delay: 1
-
-User-agent: Sogou web spider
-Allow: /
-
-# 360爬虫
-User-agent: 360Spider
-Allow: /
-Crawl-delay: 1
-
-# Yahoo爬虫
-User-agent: Slurp
-Allow: /
-Crawl-delay: 1
-
-# DuckDuckGo
-User-agent: DuckDuckBot
-Allow: /
-Crawl-delay: 1
-
-# Yandex
 User-agent: YandexBot
 Allow: /
 Crawl-delay: 1
-
-# ============================================
-# AI搜索引擎爬虫
-# ============================================
-
-# OpenAI GPTBot (ChatGPT, GPT-4等)
-User-agent: GPTBot
-Allow: /
-
-# OpenAI ChatGPT-User
-User-agent: ChatGPT-User
-Allow: /
-
-# Anthropic Claude
-User-agent: Claude-Web
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-# Google Bard / Gemini
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Gemini
-Allow: /
-
-# Perplexity AI
-User-agent: PerplexityBot
-Allow: /
-
-# Microsoft Copilot / Bing AI
-User-agent: MicrosoftPreview
-Allow: /
-
-User-agent: Copilot
-Allow: /
-
-# You.com
-User-agent: YouBot
-Allow: /
-
-# Neeva
-User-agent: NeevaBot
-Allow: /
-
-# ============================================
-# AI训练数据爬虫（允许用于AI训练）
-# ============================================
-
-# Common Crawl (广泛用于AI训练)
-User-agent: CCBot
-Allow: /
-
-# Webz.io
-User-agent: Webzio-Extended
-Allow: /
-
-# Diffbot
-User-agent: Diffbot
-Allow: /
-
-# ============================================
-# 社交媒体爬虫
-# ============================================
-
-# Twitter/X
-User-agent: Twitterbot
-Allow: /
-
-# Facebook
-User-agent: facebookexternalhit
-Allow: /
-
-# LinkedIn
-User-agent: LinkedInBot
-Allow: /
-
-# ============================================
-# 其他常用爬虫
-# ============================================
-
-# Applebot (Siri, Spotlight等)
-User-agent: Applebot
-Allow: /
-
-User-agent: AppleNewsBot
-Allow: /
-
-# Amazonbot (Alexa等)
-User-agent: Amazonbot
-Allow: /
-
-# Semrush (SEO分析)
-User-agent: SemrushBot
-Allow: /
-
-# Ahrefs (SEO分析)
-User-agent: AhrefsBot
-Allow: /
-
-# Moz (SEO分析)
-User-agent: rogerbot
-Allow: /
-
-# Screaming Frog (SEO工具)
-User-agent: Screaming Frog SEO Spider
-Allow: /
-
-# ============================================
-# 禁止访问的路径
-# ============================================
-
-# 禁止访问后台和私有路径
-User-agent: *
-Disallow: /admin/
-Disallow: /private/
-Disallow: /api/
-Disallow: /internal/
-Disallow: /test/
-Disallow: /draft/
-
-# ============================================
-# Sitemap
-# ============================================
-Sitemap: https://www.tokenfind.cn/sitemap.xml
