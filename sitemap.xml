@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
@@ -8,66 +9,231 @@
         <lastmod>2026-05-12</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.tokenfind.cn/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/en/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://www.tokenfind.cn/ja/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://www.tokenfind.cn/ko/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.tokenfind.cn/es/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.tokenfind.cn/fr/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.tokenfind.cn/de/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.tokenfind.cn/ru/"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.tokenfind.cn/ar/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://www.tokenfind.cn/vi/"/>
+        <xhtml:link rel="alternate" hreflang="th" href="https://www.tokenfind.cn/th/"/>
+        <xhtml:link rel="alternate" hreflang="id" href="https://www.tokenfind.cn/id/"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://www.tokenfind.cn/ms/"/>
+        <xhtml:link rel="alternate" hreflang="fil" href="https://www.tokenfind.cn/fil/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/"/>
     </url>
     <url>
         <loc>https://www.tokenfind.cn/official.html</loc>
         <lastmod>2026-05-12</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.tokenfind.cn/official.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/en/official.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://www.tokenfind.cn/ja/official.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://www.tokenfind.cn/ko/official.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.tokenfind.cn/es/official.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.tokenfind.cn/fr/official.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.tokenfind.cn/de/official.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.tokenfind.cn/ru/official.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.tokenfind.cn/ar/official.html"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://www.tokenfind.cn/vi/official.html"/>
+        <xhtml:link rel="alternate" hreflang="th" href="https://www.tokenfind.cn/th/official.html"/>
+        <xhtml:link rel="alternate" hreflang="id" href="https://www.tokenfind.cn/id/official.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://www.tokenfind.cn/ms/official.html"/>
+        <xhtml:link rel="alternate" hreflang="fil" href="https://www.tokenfind.cn/fil/official.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/official.html"/>
     </url>
     <url>
         <loc>https://www.tokenfind.cn/aggregator.html</loc>
         <lastmod>2026-05-12</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.tokenfind.cn/aggregator.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/en/aggregator.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://www.tokenfind.cn/ja/aggregator.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://www.tokenfind.cn/ko/aggregator.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.tokenfind.cn/es/aggregator.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.tokenfind.cn/fr/aggregator.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.tokenfind.cn/de/aggregator.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.tokenfind.cn/ru/aggregator.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.tokenfind.cn/ar/aggregator.html"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://www.tokenfind.cn/vi/aggregator.html"/>
+        <xhtml:link rel="alternate" hreflang="th" href="https://www.tokenfind.cn/th/aggregator.html"/>
+        <xhtml:link rel="alternate" hreflang="id" href="https://www.tokenfind.cn/id/aggregator.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://www.tokenfind.cn/ms/aggregator.html"/>
+        <xhtml:link rel="alternate" hreflang="fil" href="https://www.tokenfind.cn/fil/aggregator.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/aggregator.html"/>
     </url>
     <url>
         <loc>https://www.tokenfind.cn/china.html</loc>
         <lastmod>2026-05-12</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.tokenfind.cn/china.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/en/china.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://www.tokenfind.cn/ja/china.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://www.tokenfind.cn/ko/china.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.tokenfind.cn/es/china.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.tokenfind.cn/fr/china.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.tokenfind.cn/de/china.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.tokenfind.cn/ru/china.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.tokenfind.cn/ar/china.html"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://www.tokenfind.cn/vi/china.html"/>
+        <xhtml:link rel="alternate" hreflang="th" href="https://www.tokenfind.cn/th/china.html"/>
+        <xhtml:link rel="alternate" hreflang="id" href="https://www.tokenfind.cn/id/china.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://www.tokenfind.cn/ms/china.html"/>
+        <xhtml:link rel="alternate" hreflang="fil" href="https://www.tokenfind.cn/fil/china.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/china.html"/>
     </url>
     <url>
         <loc>https://www.tokenfind.cn/about.html</loc>
         <lastmod>2026-05-12</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.tokenfind.cn/about.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/en/about.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://www.tokenfind.cn/ja/about.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://www.tokenfind.cn/ko/about.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.tokenfind.cn/es/about.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.tokenfind.cn/fr/about.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.tokenfind.cn/de/about.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.tokenfind.cn/ru/about.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.tokenfind.cn/ar/about.html"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://www.tokenfind.cn/vi/about.html"/>
+        <xhtml:link rel="alternate" hreflang="th" href="https://www.tokenfind.cn/th/about.html"/>
+        <xhtml:link rel="alternate" hreflang="id" href="https://www.tokenfind.cn/id/about.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://www.tokenfind.cn/ms/about.html"/>
+        <xhtml:link rel="alternate" hreflang="fil" href="https://www.tokenfind.cn/fil/about.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/about.html"/>
     </url>
     <url>
         <loc>https://www.tokenfind.cn/contact.html</loc>
         <lastmod>2026-05-12</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.tokenfind.cn/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/en/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://www.tokenfind.cn/ja/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://www.tokenfind.cn/ko/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.tokenfind.cn/es/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.tokenfind.cn/fr/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.tokenfind.cn/de/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.tokenfind.cn/ru/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.tokenfind.cn/ar/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://www.tokenfind.cn/vi/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="th" href="https://www.tokenfind.cn/th/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="id" href="https://www.tokenfind.cn/id/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://www.tokenfind.cn/ms/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="fil" href="https://www.tokenfind.cn/fil/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/contact.html"/>
     </url>
     <url>
         <loc>https://www.tokenfind.cn/business.html</loc>
         <lastmod>2026-05-12</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.tokenfind.cn/business.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/en/business.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://www.tokenfind.cn/ja/business.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://www.tokenfind.cn/ko/business.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.tokenfind.cn/es/business.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.tokenfind.cn/fr/business.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.tokenfind.cn/de/business.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.tokenfind.cn/ru/business.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.tokenfind.cn/ar/business.html"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://www.tokenfind.cn/vi/business.html"/>
+        <xhtml:link rel="alternate" hreflang="th" href="https://www.tokenfind.cn/th/business.html"/>
+        <xhtml:link rel="alternate" hreflang="id" href="https://www.tokenfind.cn/id/business.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://www.tokenfind.cn/ms/business.html"/>
+        <xhtml:link rel="alternate" hreflang="fil" href="https://www.tokenfind.cn/fil/business.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/business.html"/>
     </url>
     <url>
         <loc>https://www.tokenfind.cn/submit.html</loc>
         <lastmod>2026-05-12</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.tokenfind.cn/submit.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/en/submit.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://www.tokenfind.cn/ja/submit.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://www.tokenfind.cn/ko/submit.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.tokenfind.cn/es/submit.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.tokenfind.cn/fr/submit.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.tokenfind.cn/de/submit.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.tokenfind.cn/ru/submit.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.tokenfind.cn/ar/submit.html"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://www.tokenfind.cn/vi/submit.html"/>
+        <xhtml:link rel="alternate" hreflang="th" href="https://www.tokenfind.cn/th/submit.html"/>
+        <xhtml:link rel="alternate" hreflang="id" href="https://www.tokenfind.cn/id/submit.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://www.tokenfind.cn/ms/submit.html"/>
+        <xhtml:link rel="alternate" hreflang="fil" href="https://www.tokenfind.cn/fil/submit.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/submit.html"/>
     </url>
     <url>
         <loc>https://www.tokenfind.cn/privacy.html</loc>
         <lastmod>2026-05-12</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.tokenfind.cn/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/en/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://www.tokenfind.cn/ja/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://www.tokenfind.cn/ko/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.tokenfind.cn/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.tokenfind.cn/fr/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.tokenfind.cn/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.tokenfind.cn/ru/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.tokenfind.cn/ar/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://www.tokenfind.cn/vi/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="th" href="https://www.tokenfind.cn/th/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="id" href="https://www.tokenfind.cn/id/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://www.tokenfind.cn/ms/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="fil" href="https://www.tokenfind.cn/fil/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/privacy.html"/>
     </url>
     <url>
         <loc>https://www.tokenfind.cn/terms.html</loc>
         <lastmod>2026-05-12</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.tokenfind.cn/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/en/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://www.tokenfind.cn/ja/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://www.tokenfind.cn/ko/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.tokenfind.cn/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.tokenfind.cn/fr/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.tokenfind.cn/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.tokenfind.cn/ru/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.tokenfind.cn/ar/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://www.tokenfind.cn/vi/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="th" href="https://www.tokenfind.cn/th/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="id" href="https://www.tokenfind.cn/id/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://www.tokenfind.cn/ms/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="fil" href="https://www.tokenfind.cn/fil/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/terms.html"/>
     </url>
     <url>
         <loc>https://www.tokenfind.cn/disclaimer.html</loc>
         <lastmod>2026-05-12</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://www.tokenfind.cn/disclaimer.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/en/disclaimer.html"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://www.tokenfind.cn/ja/disclaimer.html"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://www.tokenfind.cn/ko/disclaimer.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://www.tokenfind.cn/es/disclaimer.html"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.tokenfind.cn/fr/disclaimer.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://www.tokenfind.cn/de/disclaimer.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://www.tokenfind.cn/ru/disclaimer.html"/>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://www.tokenfind.cn/ar/disclaimer.html"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://www.tokenfind.cn/vi/disclaimer.html"/>
+        <xhtml:link rel="alternate" hreflang="th" href="https://www.tokenfind.cn/th/disclaimer.html"/>
+        <xhtml:link rel="alternate" hreflang="id" href="https://www.tokenfind.cn/id/disclaimer.html"/>
+        <xhtml:link rel="alternate" hreflang="ms" href="https://www.tokenfind.cn/ms/disclaimer.html"/>
+        <xhtml:link rel="alternate" hreflang="fil" href="https://www.tokenfind.cn/fil/disclaimer.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/disclaimer.html"/>
     </url>
     <url>
         <loc>https://www.tokenfind.cn/platform/360智脑.html</loc>

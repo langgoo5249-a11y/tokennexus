@@ -943,6 +943,9 @@ platforms.forEach(platform => {
         </script>
     </main>
 
+    <!-- 多语言切换组件 -->
+    <script src="/js/i18n.js"></script>
+
     <div class="action-bar">
         <a href="${platform.url}" target="_blank" rel="noopener" class="btn btn-primary">
             访问 ${platform.name} 官网
