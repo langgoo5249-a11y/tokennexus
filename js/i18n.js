@@ -795,4 +795,10 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-document.addEventListener('DOMContentLoaded', () => { I18N.init(); });
+// 立即初始化（如果DOM已加载）或在DOMContentLoaded时初始化
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => { I18N.init(); });
+} else {
+    // DOM已加载，立即初始化
+    I18N.init();
+}
