@@ -662,21 +662,21 @@ const I18N = {
     },
 
     init() {
-        this.loadLanguage();
-        this.createLanguageSelector();
-        if (this.currentLang !== 'zh') {
-            this.translatePage(this.currentLang);
+        I18N.loadLanguage();
+        I18N.createLanguageSelector();
+        if (I18N.currentLang !== 'zh') {
+            this.translatePage(I18N.currentLang);
         }
     },
 
     loadLanguage() {
         const saved = localStorage.getItem('i18n_lang');
-        if (saved && this.languages[saved]) this.currentLang = saved;
+        if (saved && I18N.languages[saved]) I18N.currentLang = saved;
     },
 
     saveLanguage(lang) {
         localStorage.setItem('i18n_lang', lang);
-        this.currentLang = lang;
+        I18N.currentLang = lang;
     },
 
     createLanguageSelector() {
@@ -688,11 +688,11 @@ const I18N = {
                     <circle cx="12" cy="12" r="10"/>
                     <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
                 </svg>
-                <span class="i18n-current-lang">${this.languages[this.currentLang].native}</span>
+                <span class="i18n-current-lang">${I18N.languages[I18N.currentLang].native}</span>
             </button>
             <div class="i18n-dropdown" id="i18nDropdown">
-                ${Object.entries(this.languages).map(([code, lang]) => `
-                    <button class="i18n-option ${code === this.currentLang ? 'active' : ''}" 
+                ${Object.entries(I18N.languages).map(([code, lang]) => `
+                    <button class="i18n-option ${code === I18N.currentLang ? 'active' : ''}" 
                             onclick="I18N.setLanguage('${code}')" data-lang="${code}">
                         <span class="lang-native">${lang.native}</span>
                         <span class="lang-name">${lang.name}</span>
@@ -711,19 +711,19 @@ const I18N = {
     },
 
     setLanguage(lang) {
-        if (lang === this.currentLang) { this.toggleDropdown(); return; }
-        if (lang === 'zh') { this.saveLanguage('zh'); location.reload(); return; }
-        this.saveLanguage(lang);
-        document.querySelector('.i18n-current-lang').textContent = this.languages[lang].native;
+        if (lang === I18N.currentLang) { I18N.toggleDropdown(); return; }
+        if (lang === 'zh') { I18N.saveLanguage('zh'); location.reload(); return; }
+        I18N.saveLanguage(lang);
+        document.querySelector('.i18n-current-lang').textContent = I18N.languages[lang].native;
         document.querySelectorAll('.i18n-option').forEach(opt => {
             opt.classList.toggle('active', opt.dataset.lang === lang);
         });
-        this.translatePage(lang);
-        this.toggleDropdown();
+        I18N.translatePage(lang);
+        I18N.toggleDropdown();
     },
 
     translatePage(lang) {
-        const dict = this.translations[lang];
+        const dict = I18N.translations[lang];
         console.log('[I18N] translatePage called, lang:', lang, 'dict keys:', dict ? Object.keys(dict).length : 'null');
         if (!dict) return;
 
