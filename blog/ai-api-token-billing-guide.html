@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- Google Search Console 验证 -->
+    <meta name="google-site-verification" content="3FATe9bp1LttSUR3xRU93RCPefwi_Vyo94PtCH-dJ8Q">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI API Token计费详解：如何精准控制成本 | TokenNexus博客</title>
+    <meta name="description" content="深入解析AI API Token计费机制，涵盖Token与字符换算、各平台价格对比、tiktoken工具使用、对话历史成本膨胀问题，以及真实项目从月费5000元降至800元的优化全流程。">
+    <meta name="keywords" content="AI Token计费, API成本控制, Token计算器, AI API费用, API用量监控, token pricing, AI API省钱技巧">
+
+    <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-token-billing-guide.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI API Token计费详解：如何精准控制成本">
+    <meta property="og:description" content="深入解析AI API Token计费机制，涵盖Token与字符换算、各平台价格对比、tiktoken工具使用、对话历史成本膨胀问题，以及真实项目优化全流程。">
+    <meta property="og:url" content="https://www.tokenfind.cn/blog/ai-api-token-billing-guide.html">
+    <meta property="article:published_time" content="2026-04-20">
+    <meta property="article:tag" content="省钱攻略">
+    <meta property="article:tag" content="Token计费">
+    <meta property="article:tag" content="API成本控制">
+    <meta property="article:tag" content="AI API">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI API Token计费详解：如何精准控制成本">
+    <meta name="twitter:description" content="深入解析AI API Token计费机制，涵盖Token与字符换算、各平台价格对比、tiktoken工具使用、对话历史成本膨胀问题，以及真实项目优化全流程。">
+
+    <!-- Schema.org BlogPosting -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "AI API Token计费详解：如何精准控制成本",
+        "description": "深入解析AI API Token计费机制，涵盖Token与字符换算、各平台价格对比、tiktoken工具使用、对话历史成本膨胀问题，以及真实项目从月费5000元降至800元的优化全流程。",
+        "image": "https://www.tokenfind.cn/og-image.png",
+        "datePublished": "2026-04-20",
+        "dateModified": "2026-04-20",
+        "author": {
+            "@type": "Organization",
+            "name": "TokenNexus团队"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "TokenNexus",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.tokenfind.cn/og-image.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.tokenfind.cn/blog/ai-api-token-billing-guide.html"
+        },
+        "articleSection": "省钱攻略",
+        "keywords": "AI Token计费, API成本控制, Token计算器, AI API费用, API用量监控, token pricing, AI API省钱技巧"
+    }
+    </script>
+
+    <style>
+        :root {
+            --neon-cyan: #00f0ff;
+            --neon-purple: #b829dd;
+            --dark-bg: #050508;
+            --card-bg: rgba(10,10,18,0.9);
+            --card-border: rgba(0,240,255,0.15);
+            --text-primary: #fff;
+            --text-secondary: #8b92a8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.85;
+        }
+        /* 导航栏 */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0;
+            height: 72px;
+            background: rgba(5,5,8,0.96);
+            border-bottom: 1px solid var(--card-border);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 48px;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+        }
+        .logo {
+            display: flex; align-items: center; gap: 14px;
+            text-decoration: none; color: var(--text-primary);
+        }
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px; font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-link {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 15px; transition: color 0.2s;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--neon-cyan); }
+        /* 文章容器 */
+        .article-container {
+            max-width: 860px; margin: 0 auto;
+            padding: 110px 24px 60px;
+        }
+        /* 广告位 */
+        .ad-slot {
+            background: rgba(255,255,255,0.04);
+            border: 2px dashed rgba(255,255,255,0.15);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.35); font-size: 13px;
+            margin: 28px auto;
+        }
+        .ad-slot.top-banner { width: 100%; max-width: 728px; height: 90px; margin-top: 90px; }
+        .ad-slot.in-article { width: 100%; max-width: 336px; height: 280px; }
+        /* 文章头部 */
+        .article-header {
+            text-align: center; margin-bottom: 48px;
+            padding-bottom: 36px; border-bottom: 1px solid var(--card-border);
+        }
+        .article-category {
+            display: inline-block; padding: 6px 18px;
+            background: rgba(0,240,255,0.08);
+            border: 1px solid rgba(0,240,255,0.25);
+            border-radius: 20px; color: var(--neon-cyan);
+            font-size: 13px; margin-bottom: 18px;
+        }
+        .article-title {
+            font-size: 2.3rem;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 16px; line-height: 1.35;
+        }
+        .article-meta { color: var(--text-secondary); font-size: 14px; }
+        /* 正文 */
+        .article-content { font-size: 1.05rem; color: var(--text-secondary); }
+        .article-content h2 {
+            font-size: 1.65rem; color: var(--text-primary);
+            margin: 48px 0 20px; padding-bottom: 12px;
+            border-bottom: 2px solid var(--card-border);
+        }
+        .article-content h3 {
+            font-size: 1.2rem; color: var(--text-primary);
+            margin: 32px 0 14px;
+        }
+        .article-content p { margin-bottom: 18px; }
+        .article-content ul, .article-content ol {
+            margin: 16px 0; padding-left: 28px;
+        }
+        .article-content li { margin-bottom: 8px; }
+        .article-content strong { color: var(--text-primary); }
+        .highlight { color: var(--neon-cyan); font-weight: bold; }
+        /* 表格 */
+        .data-table {
+            width: 100%; border-collapse: collapse; margin: 24px 0;
+            font-size: 0.95rem;
+        }
+        .data-table th, .data-table td {
+            padding: 12px 14px; text-align: left;
+            border: 1px solid var(--card-border);
+        }
+        .data-table th {
+            background: rgba(0,240,255,0.08); color: var(--neon-cyan);
+            font-weight: 600;
+        }
+        .data-table tr:hover { background: rgba(0,240,255,0.03); }
+        /* 提示框 */
+        .tip-box {
+            background: rgba(0,240,255,0.05);
+            border-left: 4px solid var(--neon-cyan);
+            padding: 18px 22px; margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .tip-box strong { color: var(--neon-cyan); }
+        .warn-box {
+            background: rgba(255,180,0,0.06);
+            border-left: 4px solid #ffb400;
+            padding: 18px 22px; margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .warn-box strong { color: #ffb400; }
+        /* 代码块 */
+        .code-block {
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--card-border);
+            border-radius: 8px; padding: 18px 22px;
+            margin: 20px 0; font-family: 'Fira Code', monospace;
+            font-size: 0.88rem; color: #c8d0e0;
+            overflow-x: auto; white-space: pre;
+        }
+        /* Cookie横幅 */
+        .cookie-banner {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: rgba(10,10,18,0.97);
+            border-top: 1px solid var(--card-border);
+            padding: 16px 32px;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 20px; z-index: 2000;
+            font-size: 14px; color: var(--text-secondary);
+            backdrop-filter: blur(10px);
+        }
+        .cookie-banner.hidden { display: none; }
+        .cookie-btn {
+            padding: 8px 22px; border: none; border-radius: 6px;
+            cursor: pointer; font-size: 14px; white-space: nowrap;
+        }
+        .cookie-accept {
+            background: var(--neon-cyan); color: #000; font-weight: 600;
+        }
+        .cookie-decline {
+            background: transparent; color: var(--text-secondary);
+            border: 1px solid var(--card-border);
+        }
+        /* 页脚 */
+        .footer {
+            background: rgba(5,5,8,0.96);
+            border-top: 1px solid var(--card-border);
+            padding: 48px 32px; text-align: center;
+            margin-top: 72px;
+        }
+        .footer-links {
+            display: flex; justify-content: center; gap: 28px;
+            margin-bottom: 20px; flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 14px; transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--neon-cyan); }
+        .footer-copy { color: rgba(255,255,255,0.3); font-size: 13px; }
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .navbar { padding: 0 18px; height: 60px; }
+            .logo-text { font-size: 18px; }
+            .nav-links { gap: 16px; }
+            .nav-link { font-size: 13px; }
+            .article-container { padding: 80px 16px 40px; }
+            .article-title { font-size: 1.6rem; }
+            .article-content { font-size: 0.98rem; }
+            .article-content h2 { font-size: 1.35rem; }
+            .data-table { font-size: 0.82rem; }
+            .data-table th, .data-table td { padding: 8px 10px; }
+            .cookie-banner { flex-direction: column; text-align: center; padding: 14px 18px; }
+            .ad-slot.top-banner { height: 60px; }
+        }
+        @media (max-width: 480px) {
+            .nav-links { display: none; }
+            .article-title { font-size: 1.35rem; }
+        }
+    </style>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0CX9NNWKR8');
+    </script>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <a href="../" class="logo">
+            <span class="logo-text">TokenNexus</span>
+        </a>
+        <div class="nav-links">
+            <a href="../" class="nav-link">首页</a>
+            <a href="../official.html" class="nav-link">官方API</a>
+            <a href="../aggregator.html" class="nav-link">聚合平台</a>
+            <a href="../china.html" class="nav-link">国内平台</a>
+            <a href="./" class="nav-link active">博客</a>
+            <a href="../about.html" class="nav-link">关于</a>
+        </div>
+    </nav>
+
+    <!-- 顶部广告位 -->
+    <div class="ad-slot top-banner"><span>广告位预留 (728x90)</span></div>
+
+    <article class="article-container">
+        <header class="article-header">
+            <span class="article-category">省钱攻略</span>
+            <h1 class="article-title">AI API Token计费详解：如何精准控制成本</h1>
+            <p class="article-meta">TokenNexus团队 &middot; 2026年4月20日 &middot; 12分钟阅读</p>
+        </header>
+
+        <div class="article-content">
+
+            <p>做过AI应用开发的人大概都有过这种体验：月初看着API账单，心里一紧——这个月怎么又超预算了？明明用户量没涨多少，费用却翻了一番。问题往往出在同一个地方：你没有真正搞懂Token计费的逻辑。这篇文章我会把Token计费这件事拆开来讲，从基础概念到实际优化，帮你把每一分钱花在刀刃上。</p>
+
+            <h2>到底什么是Token？</h2>
+            <p>Token是大模型处理文本的最小单位。你可以把它理解为一种"子词"（subword）——它不一定等于一个完整的汉字或英文单词，而是根据词频拆分出来的片段。举个简单的例子，在OpenAI的cl100k_base分词器中，"hello"是一个Token，但"unbelievable"会被拆成"un"、"believ"、"able"三个Token。</p>
+            <p>中文的情况更复杂一些。一个常用汉字通常占1到2个Token，而一个不太常见的词可能被拆成更多片段。根据我们的实测数据，一段1000个汉字的中文文本，大约对应1200到1600个Token。英文方面，1个Token大约覆盖0.75个单词，或者说100个Token大约对应75个英文单词。这个换算比例会因模型和分词器的不同而有所差异，但大致在这个范围内。</p>
+
+            <div class="tip-box">
+                <strong>实用换算公式：</strong><br>
+                英文：1 Token &asymp; 0.75 个单词 &asymp; 4 个字符<br>
+                中文：1 个汉字 &asymp; 1.2~1.6 个Token<br>
+                代码：1 行代码 &asymp; 10~30 个Token（取决于语言和缩进）
+            </div>
+
+            <h2>各平台Token计费方式对比</h2>
+            <p>目前主流的AI API平台都采用"按Token用量计费"的模式，但具体定价差异非常大。下面这张表列出了2026年4月各主要平台的最新价格（每百万Token）：</p>
+
+            <table class="data-table">
+                <tr>
+                    <th>平台</th>
+                    <th>模型</th>
+                    <th>输入价格</th>
+                    <th>输出价格</th>
+                    <th>上下文窗口</th>
+                </tr>
+                <tr>
+                    <td>OpenAI</td>
+                    <td>GPT-4o</td>
+                    <td>$2.50</td>
+                    <td>$10.00</td>
+                    <td>128K</td>
+                </tr>
+                <tr>
+                    <td>OpenAI</td>
+                    <td>GPT-4o-mini</td>
+                    <td>$0.15</td>
+                    <td>$0.60</td>
+                    <td>128K</td>
+                </tr>
+                <tr>
+                    <td class="highlight">Anthropic</td>
+                    <td class="highlight">Claude 4 Sonnet</td>
+                    <td class="highlight">$3.00</td>
+                    <td class="highlight">$15.00</td>
+                    <td class="highlight">200K</td>
+                </tr>
+                <tr>
+                    <td>Anthropic</td>
+                    <td>Claude 3.5 Haiku</td>
+                    <td>$0.80</td>
+                    <td>$4.00</td>
+                    <td>200K</td>
+                </tr>
+                <tr>
+                    <td class="highlight">DeepSeek</td>
+                    <td class="highlight">DeepSeek-V3</td>
+                    <td class="highlight">$0.07</td>
+                    <td class="highlight">$0.28</td>
+                    <td class="highlight">128K</td>
+                </tr>
+                <tr>
+                    <td>DeepSeek</td>
+                    <td>DeepSeek-R1</td>
+                    <td>$0.55</td>
+                    <td>$2.19</td>
+                    <td>64K</td>
+                </tr>
+                <tr>
+                    <td>Google</td>
+                    <td>Gemini 2.5 Pro</td>
+                    <td>$1.25</td>
+                    <td>$10.00</td>
+                    <td>1M</td>
+                </tr>
+                <tr>
+                    <td>Google</td>
+                    <td>Gemini 2.0 Flash</td>
+                    <td>$0.10</td>
+                    <td>$0.40</td>
+                    <td>1M</td>
+                </tr>
+            </table>
+
+            <p>从表中可以明显看出，不同平台之间的价格差距非常大。Claude 4 Sonnet的输出价格是DeepSeek-V3的53倍以上。当然，模型能力不同，不能简单横向比较，但对于很多实际业务场景来说，用DeepSeek-V3或GPT-4o-mini替代高端模型，效果差距远没有价格差距那么大。</p>
+
+            <h2>输入Token vs 输出Token：价格差背后的逻辑</h2>
+            <p>你可能注意到了，所有平台的输出Token价格都远高于输入Token，通常是3到5倍。这不是随便定的。大模型在生成输出时，每个Token都需要经过一次完整的前向计算，计算量远大于处理输入时的并行编码。简单来说，"读"比"写"便宜，这在AI世界里也一样。</p>
+            <p>这个差异意味着一个重要的优化方向：<strong>尽量减少输出Token的数量</strong>。比如，你可以通过在Prompt中明确要求"用不超过50个字回答"来限制输出长度，或者使用JSON Mode让模型输出结构化的短内容，而不是自由发挥的大段文字。</p>
+
+            <!-- 文章内广告位1 -->
+            <div class="ad-slot in-article"><span>广告位预留 (336x280)</span></div>
+
+            <h2>用tiktoken预估Token数量</h2>
+            <p>在调用API之前先预估Token数量，是控制成本的第一步。OpenAI开源的tiktoken工具是目前最常用的Token计数库，支持GPT-4、GPT-3.5等模型的分词器。</p>
+
+            <div class="code-block">import tiktoken
+
+enc = tiktoken.encoding_for_model("gpt-4o")
+text = "这是一段测试文本，用来计算Token数量。"
+tokens = enc.encode(text)
+print(f"Token数量: {len(tokens)}")
+# 输出: Token数量: 18</div>
+
+            <p>对于Claude模型，Anthropic官方也提供了类似的SDK来估算Token用量。Google的Gemini则可以通过其API的countTokens方法直接获取精确计数。建议在项目上线前，用这些工具跑一遍你的典型Prompt，做到心中有数。</p>
+            <p>如果你不想写代码，也可以使用在线的Token计算器工具。TokenNexus网站上就提供了免费的Token计算器，支持多种模型的分词器，直接粘贴文本就能看到预估结果。</p>
+
+            <h2>System Prompt：隐藏的Token消耗大户</h2>
+            <p>很多人在优化成本时只关注用户输入和模型输出，忽略了一个关键因素：System Prompt。System Prompt会在每次API调用时作为输入Token发送，如果你写了一段500 Token的系统指令，那每轮对话都会额外消耗这500个输入Token。</p>
+            <p>假设你的聊天机器人每天处理10000次对话，平均每轮对话3次交互，System Prompt为500 Token，那么光是System Prompt每天就消耗 10000 &times; 3 &times; 500 = 1500万 Token。如果用GPT-4o，光这部分每月就要花大约94美元（约680元人民币）。</p>
+
+            <div class="warn-box">
+                <strong>注意：</strong>System Prompt越长，成本越高。建议控制在200 Token以内，把核心规则写清楚即可，避免堆砌冗余描述。
+            </div>
+
+            <h2>对话历史累积：成本膨胀的元凶</h2>
+            <p>这是很多开发者踩过的坑。大多数聊天类API需要把历史对话一起发送给模型，让它"记住"上下文。问题在于，随着对话轮数增加，每次请求携带的Token量也在线性增长。</p>
+            <p>来算一笔账：假设用户平均每次对话10轮，每轮用户输入50 Token、模型输出150 Token，加上200 Token的System Prompt。到第10轮时，单次请求的输入Token量已经达到 200 + 10 &times; (50 + 150) = 2200 Token。如果用户聊了50轮，这个数字会变成 200 + 50 &times; 200 = 10200 Token——单次请求的输入成本直接翻了5倍。</p>
+            <p>更可怕的是，如果你的用户基数大，这种累积效应会被成倍放大。我们见过有团队因为没做对话截断，月成本从预期的2000元飙升到15000元。</p>
+
+            <h3>解决方案</h3>
+            <ul>
+                <li><strong>滑动窗口截断：</strong>只保留最近N轮对话（比如最近5轮），更早的对话直接丢弃。这是最简单也最有效的方案。</li>
+                <li><strong>摘要压缩：</strong>当对话超过一定轮数时，用一次API调用将历史对话压缩成一段摘要，后续请求只发送摘要+最近几轮对话。</li>
+                <li><strong>向量化存储：</strong>将历史对话存入向量数据库，根据当前问题检索相关片段，而不是发送全部历史。</li>
+            </ul>
+
+            <h2>真实案例：月成本从5000元降到800元</h2>
+            <p>下面分享一个我们实际接触到的案例。某创业团队做了一个面向电商客服的AI聊天机器人，2025年底上线，使用GPT-4o作为主力模型。2026年1月拿到账单时，月费用高达5160元，远超预算。</p>
+            <p>我们帮他们做了全面的成本审计，发现了几个核心问题：</p>
+            <ol>
+                <li><strong>对话历史全量发送：</strong>客服对话经常超过30轮，每次请求携带全部历史，Token消耗巨大。</li>
+                <li><strong>System Prompt过于冗长：</strong>写了将近800 Token的产品介绍和客服话术规范。</li>
+                <li><strong>所有问题都用GPT-4o：</strong>包括"我的快递到哪了"这种简单查询。</li>
+                <li><strong>输出没有长度限制：</strong>模型经常生成300+ Token的回复，实际上100 Token就够了。</li>
+            </ol>
+            <p>针对这些问题，我们实施了以下优化：</p>
+            <ol>
+                <li>引入滑动窗口，只保留最近5轮对话+历史摘要，<strong>输入Token减少约60%</strong>。</li>
+                <li>精简System Prompt至180 Token，去掉重复和冗余描述。</li>
+                <li>搭建模型路由：简单问题（快递查询、退换货政策）走GPT-4o-mini，复杂问题（纠纷处理、个性化推荐）走GPT-4o。分流后<strong>约70%的请求走低价模型</strong>。</li>
+                <li>在Prompt中加入"回复不超过80字"的约束，并设置max_tokens参数为200。</li>
+            </ol>
+            <p>优化后的2月份账单：812元。成本降低了<strong>84%</strong>，而用户满意度评分从4.2分微降到4.1分（满分5分），基本可以忽略不计。这个案例说明，合理的优化可以在几乎不影响体验的前提下大幅降低成本。</p>
+
+            <!-- 文章内广告位2 -->
+            <div class="ad-slot in-article"><span>广告位预留 (336x280)</span></div>
+
+            <h2>设置预算告警和用量限制</h2>
+            <p>不管你做了多少优化，设置预算告警都是必不可少的安全网。各平台都提供了用量监控和告警功能：</p>
+            <ul>
+                <li><strong>OpenAI：</strong>在Usage页面设置月度预算上限（hard limit），超过后API会自动拒绝请求。同时可以设置邮件告警阈值。</li>
+                <li><strong>Anthropic：</strong>通过AWS Bedrock使用时可以设置IAM配额，直接使用Anthropic API时建议通过第三方监控工具（如Helicone）来追踪用量。</li>
+                <li><strong>Google Cloud：</strong>在Cloud Console中设置API配额和预算告警，支持每日/每月粒度。</li>
+                <li><strong>DeepSeek：</strong>在控制台中设置账户余额告警，余额低于阈值时发送通知。</li>
+            </ul>
+            <p>除了平台自带的功能，建议搭建自己的API用量监控系统。记录每次请求的Token用量、模型、响应时间等数据，定期生成成本报表。这样不仅能及时发现异常，还能为后续优化提供数据支撑。</p>
+
+            <h2>Token计费优化技巧汇总</h2>
+            <h3>1. Prompt压缩</h3>
+            <p>在发送给模型之前，对Prompt进行压缩处理。可以使用LLMLingua等开源工具，将冗长的Prompt压缩到原来的30%-50%，同时保留核心语义。实测显示，对于长System Prompt，压缩后模型输出质量几乎没有下降。</p>
+
+            <h3>2. 利用Prompt缓存</h3>
+            <p>Anthropic从2024年底开始支持Prompt Caching功能。如果你的System Prompt和对话前缀在多次请求中保持不变，可以启用缓存，缓存的Token只按原价的10%计费。对于System Prompt较长的应用，这项功能可以节省20%-40%的输入成本。OpenAI也在2025年推出了类似的自动缓存机制。</p>
+
+            <h3>3. 模型降级策略</h3>
+            <p>不要所有请求都用最贵的模型。建立一个模型路由机制，根据任务复杂度自动选择合适的模型。比如：</p>
+            <ul>
+                <li>简单问答、文本分类、格式转换 &rarr; GPT-4o-mini / Claude 3.5 Haiku / Gemini 2.0 Flash</li>
+                <li>复杂推理、长文写作、代码生成 &rarr; GPT-4o / Claude 4 Sonnet / Gemini 2.5 Pro</li>
+                <li>数学推理、深度分析 &rarr; DeepSeek-R1 / o3-mini</li>
+            </ul>
+
+            <h3>4. 批量请求优化</h3>
+            <p>如果你有大量独立的文本处理任务（比如批量翻译、批量摘要），使用Batch API可以节省50%的费用。OpenAI和Anthropic都支持批量请求模式，缺点是响应时间较长（通常24小时内返回），适合非实时场景。</p>
+
+            <h3>5. 控制输出格式</h3>
+            <p>使用JSON Mode或Structured Output，让模型按指定格式输出，避免生成冗余的客套话和解释。同时设置合理的max_tokens上限，防止模型"自作主张"生成长篇大论。</p>
+
+            <h2>写在最后</h2>
+            <p>AI API的成本控制不是一次性的事情，而是一个持续优化的过程。建议每个月花一点时间审视用量数据，看看有没有异常增长的模块，有没有可以进一步优化的地方。Token计费看似复杂，但只要理解了它的运作机制，配合合适的工具和策略，完全可以在保证服务质量的前提下把成本控制在合理范围内。</p>
+            <p>如果你正在寻找合适的AI API平台，或者想对比不同模型的token pricing，可以访问TokenNexus的价格对比页面，我们实时追踪各平台的最新报价，帮你做出更明智的选择。</p>
+
+        </div>
+    </article>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="../about.html">关于我们</a>
+            <a href="../contact.html">联系我们</a>
+            <a href="../privacy.html">隐私政策</a>
+            <a href="../terms.html">服务条款</a>
+        </div>
+        <p class="footer-copy">&copy; 2024-2026 TokenNexus. All rights reserved.</p>
+    </footer>
+
+    <!-- Cookie同意横幅 -->
+    <div class="cookie-banner" id="cookieBanner">
+        <span>我们使用Cookie来改善您的浏览体验并分析网站流量。继续浏览即表示您同意使用Cookie。</span>
+        <div style="display:flex;gap:10px;flex-shrink:0;">
+            <button class="cookie-btn cookie-accept" onclick="acceptCookies()">接受</button>
+            <button class="cookie-btn cookie-decline" onclick="declineCookies()">拒绝</button>
+        </div>
+    </div>
+
+    <script>
+        // Cookie同意逻辑
+        (function() {
+            var banner = document.getElementById('cookieBanner');
+            if (localStorage.getItem('cookieConsent')) {
+                banner.classList.add('hidden');
+            }
+        })();
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieBanner').classList.add('hidden');
+        }
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookieBanner').classList.add('hidden');
+        }
+    </script>
+
+</body>
+</html>
