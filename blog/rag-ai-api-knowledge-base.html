@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- Google Search Console 验证 -->
+    <meta name="google-site-verification" content="3FATe9bp1LttSUR3xRU93RCPefwi_Vyo94PtCH-dJ8Q">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG与AI API结合：构建私有知识库的完整指南 | TokenNexus博客</title>
+    <meta name="description" content="深入解析RAG检索增强生成技术，如何结合AI API构建私有知识库。涵盖向量数据库选择、Embedding模型部署、RAG工作流程详解，附Python实战代码。">
+    <meta name="keywords" content="RAG,AI API私有知识库,向量数据库,Embedding,AI知识库,LangChain,RAG检索增强">
+    <meta name="author" content="TokenNexus团队">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.tokenfind.cn/blog/rag-ai-api-knowledge-base.html">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0CX9NNWKR8');
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="TokenNexus">
+    <meta property="og:title" content="RAG与AI API结合：构建私有知识库的完整指南">
+    <meta property="og:description" content="深入解析RAG检索增强生成技术，如何结合AI API构建私有知识库。涵盖向量数据库选择、Embedding模型部署、RAG工作流程详解。">
+    <meta property="og:url" content="https://www.tokenfind.cn/blog/rag-ai-api-knowledge-base.html">
+    <meta property="og:image" content="https://www.tokenfind.cn/og-image.png">
+    <meta property="article:published_time" content="2026-03-10T10:00:00+08:00">
+    <meta property="article:modified_time" content="2026-03-10T10:00:00+08:00">
+    <meta property="article:author" content="TokenNexus团队">
+    <meta property="article:section" content="技术教程">
+    <meta property="article:tag" content="RAG">
+    <meta property="article:tag" content="AI API私有知识库">
+    <meta property="article:tag" content="向量数据库">
+    <meta property="article:tag" content="Embedding">
+    <meta property="article:tag" content="LangChain">
+    <meta property="article:tag" content="RAG检索增强">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RAG与AI API结合：构建私有知识库的完整指南">
+    <meta name="twitter:description" content="深入解析RAG检索增强生成技术，如何结合AI API构建私有知识库。">
+    <meta name="twitter:image" content="https://www.tokenfind.cn/og-image.png">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "RAG与AI API结合：构建私有知识库的完整指南",
+        "description": "深入解析RAG检索增强生成技术，如何结合AI API构建私有知识库。涵盖向量数据库选择、Embedding模型部署、RAG工作流程详解，附Python实战代码。",
+        "image": "https://www.tokenfind.cn/og-image.png",
+        "author": {
+            "@type": "Organization",
+            "name": "TokenNexus团队"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "TokenNexus",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.tokenfind.cn/favicon.svg"
+            }
+        },
+        "datePublished": "2026-03-10",
+        "dateModified": "2026-03-10",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.tokenfind.cn/blog/rag-ai-api-knowledge-base.html"
+        },
+        "articleSection": "技术教程",
+        "keywords": ["RAG", "AI API私有知识库", "向量数据库", "Embedding", "AI知识库", "LangChain", "RAG检索增强"]
+    }
+    </script>
+
+    <style>
+        :root {
+            --neon-cyan: #00f0ff;
+            --neon-purple: #b829dd;
+            --dark-bg: #050508;
+            --card-bg: #0a0a12;
+            --border-color: rgba(0, 240, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Noto Sans SC', 'Rajdhani', sans-serif;
+            line-height: 1.8;
+        }
+
+        /* Cookie Consent Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 18, 0.98);
+            border-top: 1px solid var(--neon-cyan);
+            padding: 20px;
+            z-index: 9999;
+            display: none;
+            backdrop-filter: blur(20px);
+        }
+
+        .cookie-banner.show {
+            display: block;
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 300px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .cookie-btn {
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-family: inherit;
+        }
+
+        .cookie-btn.accept {
+            background: var(--neon-cyan);
+            color: #000;
+        }
+
+        .cookie-btn.reject {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .cookie-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(5, 5, 8, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+            color: var(--neon-cyan);
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-cyan);
+        }
+
+        .nav-links a.active {
+            color: var(--neon-cyan);
+        }
+
+        /* Article Layout */
+        .article-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 40px;
+        }
+
+        /* Ad Banner Top */
+        .ad-banner-top {
+            width: 100%;
+            max-width: 728px;
+            height: 90px;
+            margin: 0 auto 40px;
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px dashed rgba(0, 240, 255, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+        }
+
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .article-category {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--neon-cyan);
+            margin-bottom: 16px;
+        }
+
+        .article-title {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Article Content */
+        .article-content {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .article-content h2 {
+            font-size: 1.6rem;
+            color: #fff;
+            margin: 48px 0 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--neon-cyan);
+            display: inline-block;
+        }
+
+        .article-content h3 {
+            font-size: 1.3rem;
+            color: var(--neon-cyan);
+            margin: 32px 0 16px;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 24px;
+        }
+
+        .article-content li {
+            margin-bottom: 12px;
+        }
+
+        .article-content strong {
+            color: var(--neon-cyan);
+        }
+
+        .article-content a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .article-content a:hover {
+            border-bottom-color: var(--neon-cyan);
+        }
+
+        /* Code Block */
+        .code-block {
+            background: #0d0d15;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .code-block code {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .code-block .keyword {
+            color: #ff79c6;
+        }
+
+        .code-block .string {
+            color: #f1fa8c;
+        }
+
+        .code-block .comment {
+            color: #6272a4;
+        }
+
+        .code-block .function {
+            color: #50fa7b;
+        }
+
+        .code-block .import {
+            color: #8be9fd;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: rgba(0, 240, 255, 0.05);
+            border-left: 4px solid var(--neon-cyan);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .info-box.warning {
+            background: rgba(255, 152, 0, 0.05);
+            border-left-color: #ff9800;
+        }
+
+        .info-box.success {
+            background: rgba(0, 200, 100, 0.05);
+            border-left-color: #00c864;
+        }
+
+        /* Ad In-Article */
+        .ad-in-article {
+            width: 100%;
+            max-width: 336px;
+            height: 280px;
+            margin: 32px auto;
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px dashed rgba(0, 240, 255, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+            clear: both;
+        }
+
+        /* Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table th {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--neon-cyan);
+            padding: 16px;
+            text-align: left;
+            border-bottom: 2px solid var(--neon-cyan);
+        }
+
+        .comparison-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-table tr:hover {
+            background: rgba(0, 240, 255, 0.03);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(5, 5, 8, 0.95);
+            border-top: 1px solid var(--border-color);
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-cyan);
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+
+            .article-title {
+                font-size: 1.6rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.3rem;
+            }
+
+            .ad-banner-top, .ad-in-article {
+                max-width: 100%;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .comparison-table {
+                font-size: 0.85rem;
+            }
+
+            .comparison-table th, .comparison-table td {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 12px 0;
+                gap: 12px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .article-wrapper {
+                padding-top: 140px;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .code-block {
+                font-size: 0.8rem;
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cookie Consent Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                我们使用Cookie来提升您的浏览体验。访问即表示您同意我们的
+                <a href="../privacy.html" style="color: var(--neon-cyan);">隐私政策</a>。
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn accept" onclick="acceptCookies()">同意</button>
+                <button class="cookie-btn reject" onclick="rejectCookies()">仅必要</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                document.getElementById('cookieBanner').classList.add('show');
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieBanner').classList.remove('show');
+            gtag('consent', 'update', 'analytics_storage', 'granted');
+        }
+
+        function rejectCookies() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            document.getElementById('cookieBanner').classList.remove('show');
+            gtag('consent', 'update', 'analytics_storage', 'denied');
+        }
+
+        checkCookieConsent();
+    </script>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">&#x2726;</span>
+                <span class="logo-text">TokenNexus</span>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">首页</a>
+                <a href="../official.html">官方API</a>
+                <a href="../aggregator.html">聚合平台</a>
+                <a href="../china.html">国内平台</a>
+                <a href="./" class="active">博客</a>
+                <a href="../about.html">关于我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="article-wrapper">
+        <!-- Top Ad Banner -->
+        <div class="ad-banner-top">
+            广告位 728x90
+        </div>
+
+        <article class="article-container">
+            <header class="article-header">
+                <span class="article-category">技术教程</span>
+                <h1 class="article-title">RAG与AI API结合：构建私有知识库的完整指南</h1>
+                <div class="article-meta">
+                    <span>作者：TokenNexus团队</span>
+                    <span>发布日期：2026-03-10</span>
+                    <span>阅读时间：约12分钟</span>
+                </div>
+            </header>
+
+            <div class="article-content">
+                <p>随着大语言模型的快速发展，越来越多的企业开始关注如何将AI能力与自身业务数据结合。RAG（Retrieval-Augmented Generation，检索增强生成）技术的出现，正好解决了这个痛点。今天我们就来深入聊聊RAG与AI API结合构建私有知识库的那些事儿。</p>
+
+                <h2>什么是RAG？</h2>
+                <p>RAG，中文全称是"检索增强生成"，是一种将信息检索系统与大语言模型相结合的技术架构。简单来说，RAG就是让AI在回答问题之前，先去"查阅"相关的参考资料，然后基于这些资料给出答案。</p>
+
+                <p>很多人可能会问：现在的AI模型不是已经非常强大了？为什么还需要RAG？这就要说到RAG诞生的背景了。2023年，Meta AI的研究团队首次提出RAG架构，旨在解决大模型在实际应用中面临的几个核心问题：</p>
+
+                <ul>
+                    <li><strong>幻觉问题</strong>：AI模型有时候会"一本正经地胡说八道"，编造一些听起来合理但实际不存在的信息。通过RAG，AI可以引用真实文档来支撑回答。</li>
+                    <li><strong>知识更新滞后</strong>：训练数据总有截止日期，企业内部最新的产品文档、政策文件等内容无法被模型知晓。RAG可以实时接入最新数据源。</li>
+                    <li><strong>成本控制</strong>：微调大模型的代价高昂，而RAG只需维护向量数据库，成本仅为微调的零头。</li>
+                    <li><strong>数据安全</strong>：对于涉及商业机密或敏感信息的场景，私有化部署的知识库是必需的。</li>
+                </ul>
+
+                <h2>RAG工作流程详解</h2>
+                <p>一个完整的RAG系统包含以下几个核心环节：</p>
+
+                <h3>1. 文档处理（Document Processing）</h3>
+                <p>这是RAG的起点。企业需要将各种格式的原始文档——PDF、Word、Markdown、HTML等——进行解析和清洗。常见的处理步骤包括：去除特殊字符、识别章节结构、提取关键元数据等。</p>
+
+                <p>对于中文文档，还需要特别处理中文分词和段落划分的问题。推荐使用成熟的文档解析库如LangChain的Document Loaders，或者国产方案FastGPT、Dify等平台内置的解析引擎。</p>
+
+                <h3>2. Embedding向量化</h3>
+                <p>文档经过处理后，下一步就是将文本转换为向量。这个过程叫做Embedding，或者叫向量化。简单理解，就是把"人类能看懂的文章"翻译成"计算机能理解的多维坐标"。</p>
+
+                <p>在这个多维空间中，语义相近的内容会聚集在一起。比如，"如何申请退款"和"退款流程说明"会有很相似的向量表示，这样在检索时就能找到语义相关的内容，而不是简单的关键词匹配。</p>
+
+                <div class="code-block">
+                    <code><span class="comment"># Python代码示例：使用OpenAI Embedding</span>
+<span class="import">from</span> openai <span class="import">import</span> OpenAI
+
+client = OpenAI(api_key=<span class="string">"your-api-key"</span>)
+
+<span class="function">def</span> <span class="function">get_embedding</span>(text: str, model: str = <span class="string">"text-embedding-ada-002"</span>):
+    response = client.embeddings.create(
+        input=text,
+        model=model
+    )
+    <span class="function">return</span> response.data[<span class="string">0</span>].embedding
+
+<span class="comment"># 示例：对一段文本进行向量化</span>
+text = <span class="string">"RAG是一种将检索与生成相结合的技术"</span>
+vector = get_embedding(text)
+print(<span class="string">f"向量维度: {len(vector)}"</span>)
+</code>
+                </div>
+
+                <h3>3. 向量数据库存储</h3>
+                <p>向量数据库是RAG系统的"大脑"，负责存储和检索海量向量数据。与传统关系型数据库不同，向量数据库擅长进行"相似性搜索"——即找到与查询向量最接近的Top-K个结果。</p>
+
+                <!-- First In-Article Ad -->
+                <div class="ad-in-article">
+                    广告位 336x280
+                </div>
+
+                <p>主流的向量数据库包括ChromaDB（轻量级首选）、Pinecone（云原生托管）、Milvus（大规模部署）、Weaviate（多功能向量引擎）等。选择时需要考虑数据规模、部署方式、预算等因素。</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>数据库</th>
+                            <th>类型</th>
+                            <th>优势</th>
+                            <th>适用场景</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ChromaDB</td>
+                            <td>开源/本地</td>
+                            <td>轻量级、易部署</td>
+                            <td>个人项目、小规模应用</td>
+                        </tr>
+                        <tr>
+                            <td>Pinecone</td>
+                            <td>云服务</td>
+                            <td>免运维、自动扩缩容</td>
+                            <td>企业级应用、Production环境</td>
+                        </tr>
+                        <tr>
+                            <td>Milvus</td>
+                            <td>开源/云</td>
+                            <td>支持十亿级向量</td>
+                            <td>超大规模检索场景</td>
+                        </tr>
+                        <tr>
+                            <td>Weaviate</td>
+                            <td>开源/云</td>
+                            <td>内置向量化模型</td>
+                            <td>快速原型开发</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>4. 检索与增强</h3>
+                <p>当用户提出问题时，系统会先将问题本身向量化，然后在向量数据库中进行相似度搜索。检索到的相关文档片段（通常称为"context"或"chunks"）会被拼接成Prompt，一起发送给大语言模型。</p>
+
+                <p>这个环节有几个关键参数需要注意：</p>
+                <ul>
+                    <li><strong>召回数量（top_k）</strong>：通常设置为3-5条，过多会引入噪声，过少可能遗漏关键信息。</li>
+                    <li><strong>相似度阈值</strong>：用于过滤低相关性的检索结果，建议设置在0.5-0.7之间。</li>
+                    <li><strong>块大小（chunk_size）</strong>：需要根据文档特点调整，过长会稀释关键信息，过短可能丢失上下文。</li>
+                </ul>
+
+                <h3>5. 生成与输出</h3>
+                <p>最后，大语言模型会基于用户问题和检索到的上下文，生成最终答案。一个设计良好的RAG系统，还会在回答中标注参考来源，方便用户溯源和验证。</p>
+
+                <div class="code-block">
+                    <code><span class="comment"># 完整的RAG流程示例</span>
+<span class="import">from</span> openai <span class="import">import</span> OpenAI
+<span class="import">import</span> chromadb
+
+client = OpenAI(api_key=<span class="string">"your-api-key"</span>)
+chroma_client = chromadb.Client()
+
+<span class="comment"># 创建向量集合</span>
+collection = chroma_client.create_collection(<span class="string">"knowledge_base"</span>)
+
+<span class="comment"># 添加文档</span>
+documents = [
+    <span class="string">"退货政策：自收到商品之日起7天内可申请退货"</span>,
+    <span class="string">"退款说明：退款将在3-5个工作日内原路返回"</span>,
+    <span class="string">"客服工作时间：工作日9:00-18:00"</span>
+]
+
+<span class="function">for</span> i, doc <span class="function">in</span> enumerate(documents):
+    vector = get_embedding(doc)
+    collection.add(
+        ids=[<span class="string">f"doc_{i}"</span>],
+        embeddings=[vector],
+        documents=[doc]
+    )
+
+<span class="comment"># 检索相关文档</span>
+query = <span class="string">"我的订单什么时候能收到退款？"</span>
+query_vector = get_embedding(query)
+results = collection.query(
+    query_embeddings=[query_vector],
+    n_results=<span class="string">2</span>
+)
+
+<span class="comment"># 构建Prompt并生成回答</span>
+context = <span class="string">"\n"</span>.join(results[<span class="string">"documents"</span>][<span class="string">0</span>])
+prompt = <span class="string">f"根据以下信息回答问题：\n\n{context}\n\n问题：{query}"</span>
+
+response = client.chat.completions.create(
+    model=<span class="string">"gpt-4o"</span>,
+    messages=[{<span class="string">"role"</span>: <span class="string">"user"</span>, <span class="string">"content"</span>: prompt}]
+)
+
+print(response.choices[<span class="string">0</span>].message.content)
+</code>
+                </div>
+
+                <h2>Embedding模型选择指南</h2>
+                <p>Embedding模型的质量直接决定了RAG系统的检索效果。目前市场上主流的选择包括：</p>
+
+                <p><strong>OpenAI Ada-002</strong>：依然是行业标杆，1536维向量，支持100多种语言，在MTEB benchmark上表现稳定。缺点是需要付费且有地区限制。</p>
+
+                <p><strong>BGE（BAAI General Embedding）</strong>：国产之光，来自北京智源人工智能研究院。支持中英双语，在中文理解上甚至优于OpenAI方案。且完全开源可商用。</p>
+
+                <p><strong>M3E</strong>：幂指数团队开源的中文Embedding模型，参数量小、推理速度快，适合资源受限的场景。</p>
+
+                <!-- Second In-Article Ad -->
+                <div class="ad-in-article">
+                    广告位 336x280
+                </div>
+
+                <h2>LangChain：RAG开发框架首选</h2>
+                <p>LangChain是目前最流行的RAG开发框架，它将RAG的各个环节封装成模块化的组件，开发者可以像搭积木一样快速构建完整的RAG应用。</p>
+
+                <div class="info-box">
+                    <strong>技术选型建议：</strong>如果你是初次接触RAG，推荐从LangChain+ChromaDB+OpenAI的组合开始。上手简单、文档丰富，遇到问题也容易找到解决方案。
+                </div>
+
+                <h2>实战案例：企业知识库问答系统</h2>
+                <p>某中型电商公司曾经面临这样的困境：客服团队每天要处理大量重复性咨询，比如退货流程、物流查询、优惠券使用等。人工回复不仅效率低下，而且难以保证回答的一致性。</p>
+
+                <p>接入RAG系统后，他们将产品手册、FAQ、客服话术等文档全部向量化，构建了私有知识库。现在用户提问时，AI会自动检索相关文档，结合企业特定的政策和话术，给出准确且专业的一致性回复。</p>
+
+                <p>实际效果数据显示：</p>
+                <ul>
+                    <li>客服响应时间从平均3分钟缩短到10秒</li>
+                    <li>用户满意度从72%提升至89%</li>
+                    <li>人工客服工作量减少60%</li>
+                    <li>退款相关投诉下降45%</li>
+                </ul>
+
+                <h2>常见问题与优化技巧</h2>
+
+                <h3>Q1：检索结果不理想怎么办？</h3>
+                <p>这通常涉及几个方面：首先检查Embedding模型是否与文档语言匹配；其次调整chunk_size参数，尝试不同的分割策略；还可以尝试混合检索（结合关键词+向量检索）；最后优化top_k参数和相似度阈值。</p>
+
+                <h3>Q2：如何提升检索速度？</h3>
+                <p>可以考虑以下优化：使用更轻量的Embedding模型、对向量数据库建立索引（如HNSW、IVF）、实施缓存策略、对文档进行预处理减少总量。</p>
+
+                <h3>Q3：怎样评估RAG系统效果？</h3>
+                <p>推荐使用RAGAS框架，它从相关性、忠诚度、答案质量三个维度评估系统表现。同时建议定期进行人工抽检，建立评估数据集持续优化。</p>
+
+                <div class="info-box warning">
+                    <strong>注意：</strong>RAG系统并非万能。对于需要精确数值的场景（如计算、历史事件日期等），建议在Prompt中明确要求模型引用原文，或结合规则引擎进行校验。
+                </div>
+
+                <h2>性能优化建议</h2>
+                <p>想让RAG跑得又快又稳？以下几个方向值得关注：</p>
+
+                <ul>
+                    <li><strong>查询改写</strong>：在检索前对用户问题进行改写，消除口语化表达和歧义。</li>
+                    <li><strong>重排序（Reranker）</strong>：初筛后使用更精确的模型对结果重排序，提升Top1准确率。</li>
+                    <li><strong>混合检索</strong>：结合BM25关键词检索和向量检索，取长补短。</li>
+                    <li><strong>流式输出</strong>：对于长回答使用流式生成，用户感知到的响应更快。</li>
+                    <li><strong>异步处理</strong>：文档入库可以异步进行，不影响实时检索体验。</li>
+                </ul>
+
+                <h2>总结</h2>
+                <p>RAG技术为AI应用开辟了新的可能性，它让大语言模型能够"看见"企业专属的知识和数据。通过本文的介绍，相信你对RAG的核心概念、工作流程、技术选型有了更清晰的认识。</p>
+
+                <p>构建私有知识库不是一蹴而就的事情，需要根据实际业务需求不断调优。但只要方向对了，加上持续的迭代优化，就一定能让AI真正成为提升效率的利器。</p>
+
+                <p>如果你在RAG实践过程中遇到具体问题，欢迎在评论区留言交流。我们也会持续更新更多RAG相关的实战案例和技术教程，敬请期待。</p>
+            </div>
+        </article>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="../about.html">关于我们</a>
+                <a href="../contact.html">联系我们</a>
+                <a href="../privacy.html">隐私政策</a>
+                <a href="../terms.html">使用条款</a>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2026 TokenNexus. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
