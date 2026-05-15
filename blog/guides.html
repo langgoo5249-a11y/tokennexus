@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- Google Search Console 验证 -->
+    <meta name="google-site-verification" content="3FATe9bp1LttSUR3xRU93RCPefwi_Vyo94PtCH-dJ8Q">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>攻略 - TokenNexus | AI API使用攻略与教程</title>
+    <meta name="description" content="TokenNexus AI API攻略合集：平台对比、使用教程、省钱攻略、技术教程，帮助你快速上手各类AI API服务。">
+    <meta name="keywords" content="AI API攻略, AI API教程, AI API对比, AI省钱攻略, API使用指南">
+
+    <link rel="canonical" href="https://www.tokenfind.cn/blog/guides.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="攻略 - TokenNexus | AI API使用攻略与教程">
+    <meta property="og:description" content="TokenNexus AI API攻略合集：平台对比、使用教程、省钱攻略、技术教程。">
+    <meta property="og:url" content="https://www.tokenfind.cn/blog/guides.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="攻略 - TokenNexus | AI API使用攻略与教程">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0CX9NNWKR8');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-cyan: #00f0ff;
+            --neon-purple: #b829dd;
+            --dark-bg: #050508;
+            --card-bg: rgba(10, 10, 18, 0.9);
+            --card-border: rgba(0, 240, 255, 0.15);
+            --text-primary: #ffffff;
+            --text-secondary: #8b92a8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans SC', sans-serif; background: var(--dark-bg); color: var(--text-primary); min-height: 100vh; line-height: 1.8; }
+
+        /* 导航栏 */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: rgba(5,5,8,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--card-border); display: flex; align-items: center; justify-content: space-between; padding: 0 60px; z-index: 1000; }
+        .logo { display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--text-primary); }
+        .logo-text { font-family: 'Orbitron', sans-serif; font-size: 28px; font-weight: 700; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-link { color: var(--text-secondary); text-decoration: none; font-size: 16px; transition: color 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--neon-cyan); }
+
+        /* 页面头部 */
+        .page-header { padding: 140px 60px 60px; text-align: center; }
+        .page-header h1 { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px; }
+        .page-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        /* 分类筛选 */
+        .category-filter { display: flex; justify-content: center; gap: 16px; padding: 0 60px 40px; flex-wrap: wrap; }
+        .filter-btn { padding: 10px 24px; background: transparent; border: 1px solid var(--card-border); border-radius: 20px; color: var(--text-secondary); cursor: pointer; font-size: 0.9rem; transition: all 0.3s; font-family: 'Noto Sans SC', sans-serif; }
+        .filter-btn:hover, .filter-btn.active { background: rgba(0,240,255,0.1); border-color: var(--neon-cyan); color: var(--neon-cyan); }
+
+        /* 文章网格 */
+        .guides-grid { max-width: 1200px; margin: 0 auto; padding: 0 60px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
+
+        /* 文章卡片 */
+        .guide-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; overflow: hidden; transition: all 0.3s; }
+        .guide-card:hover { transform: translateY(-4px); border-color: rgba(0,240,255,0.3); box-shadow: 0 8px 32px rgba(0,240,255,0.1); }
+        .guide-card-cover { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 4rem; background: linear-gradient(135deg, rgba(0,240,255,0.05), rgba(184,41,221,0.05)); }
+        .guide-card-body { padding: 24px; }
+        .guide-card-category { display: inline-block; padding: 4px 12px; background: rgba(0,240,255,0.1); border: 1px solid rgba(0,240,255,0.2); border-radius: 12px; font-size: 0.75rem; color: var(--neon-cyan); margin-bottom: 12px; }
+        .guide-card-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 12px; line-height: 1.4; }
+        .guide-card-title a { color: var(--text-primary); text-decoration: none; transition: color 0.3s; }
+        .guide-card-title a:hover { color: var(--neon-cyan); }
+        .guide-card-excerpt { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .guide-card-meta { display: flex; justify-content: space-between; align-items: center; color: var(--text-secondary); font-size: 0.8rem; }
+
+        /* 页脚 */
+        .footer { background: rgba(5,5,8,0.95); border-top: 1px solid var(--card-border); padding: 60px; text-align: center; }
+        .footer-logo { font-family: 'Orbitron', sans-serif; font-size: 24px; font-weight: 700; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px; }
+        .footer-text { color: var(--text-secondary); margin-bottom: 24px; }
+        .footer-links { display: flex; justify-content: center; gap: 32px; }
+        .footer-link { color: var(--text-secondary); text-decoration: none; font-size: 14px; }
+        .footer-link:hover { color: var(--neon-cyan); }
+
+        /* Cookie同意横幅 */
+        .cookie-consent { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(26,26,46,0.95); border-top: 1px solid rgba(0,240,255,0.3); padding: 20px; z-index: 10000; backdrop-filter: blur(10px); }
+        .cookie-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        .cookie-content p { margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+        .cookie-buttons { display: flex; gap: 15px; flex-shrink: 0; }
+        .cookie-btn { padding: 10px 24px; border-radius: 8px; font-size: 0.9rem; cursor: pointer; transition: all 0.3s; text-decoration: none; font-family: 'Noto Sans SC', sans-serif; }
+        .cookie-btn.accept { background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); border: none; color: #fff; }
+        .cookie-btn.more { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 0 20px; }
+            .nav-links { display: none; }
+            .page-header { padding: 120px 20px 40px; }
+            .page-header h1 { font-size: 1.8rem; }
+            .guides-grid { padding: 0 20px 60px; grid-template-columns: 1fr; }
+            .category-filter { padding: 0 20px 30px; }
+            .cookie-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <a href="../" class="logo">
+            <span class="logo-text">TokenNexus</span>
+        </a>
+        <div class="nav-links">
+            <a href="../" class="nav-link">首页</a>
+            <a href="../official.html" class="nav-link">官方平台</a>
+            <a href="../aggregator.html" class="nav-link">聚合平台</a>
+            <a href="../china.html" class="nav-link">国内平台</a>
+            <a href="guides.html" class="nav-link active">攻略</a>
+            <a href="../about.html" class="nav-link">关于</a>
+        </div>
+    </nav>
+
+    <!-- 页面头部 -->
+    <div class="page-header">
+        <h1>📖 AI API 攻略合集</h1>
+        <p>平台对比、使用教程、省钱技巧、技术实践，帮你快速上手各类 AI API 服务</p>
+    </div>
+
+    <!-- 分类筛选 -->
+    <div class="category-filter">
+        <button class="filter-btn active" onclick="filterGuides('all', this)">全部</button>
+        <button class="filter-btn" onclick="filterGuides('平台对比', this)">平台对比</button>
+        <button class="filter-btn" onclick="filterGuides('使用教程', this)">使用教程</button>
+        <button class="filter-btn" onclick="filterGuides('省钱攻略', this)">省钱攻略</button>
+        <button class="filter-btn" onclick="filterGuides('技术教程', this)">技术教程</button>
+        <button class="filter-btn" onclick="filterGuides('行业资讯', this)">行业资讯</button>
+    </div>
+
+    <!-- 文章网格 -->
+    <div class="guides-grid" id="guidesGrid">
+
+        <!-- 1. OpenAI vs DeepSeek -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover">⚔️</div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="openai-vs-deepseek-2026.html">OpenAI vs DeepSeek：2026年性价比全面对比</a></h2>
+                <p class="guide-card-excerpt">深入对比OpenAI和DeepSeek两大AI API平台的性能、价格、稳定性，帮你找到最适合的选择。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-12</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2. 如何获取OpenAI API Key -->
+        <article class="guide-card" data-category="使用教程">
+            <div class="guide-card-cover">🔑</div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">使用教程</span>
+                <h2 class="guide-card-title"><a href="how-to-get-openai-api-key.html">如何获取OpenAI API Key：完整教程（2026版）</a></h2>
+                <p class="guide-card-excerpt">从注册到获取API Key的完整流程，包括常见问题解决、充值方法和安全使用建议。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-10</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3. AI API价格对比 -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover">💰</div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-pricing-guide-2026.html">AI API价格对比：2026年省钱完全指南</a></h2>
+                <p class="guide-card-excerpt">详细对比主流AI API平台的价格体系，教你如何在保证质量的前提下节省50%以上的成本。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-08</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 4. 国内AI大模型API接入指南 -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover">🇨🇳</div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="china-ai-api-guide.html">国内AI大模型API接入指南：阿里云、百度、讯飞对比</a></h2>
+                <p class="guide-card-excerpt">全面对比阿里云百炼、百度千帆、讯飞星火三大国产AI API平台的价格、性能和接入方式。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-05</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 5. AI API集成最佳实践 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover">🛠️</div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="api-integration-best-practices.html">AI API集成最佳实践：错误处理与性能优化</a></h2>
+                <p class="guide-card-excerpt">涵盖重试策略、流式响应、Token监控、Rate Limiting等生产环境必备的API集成技巧。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-01</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 6. 2026年最值得使用的10个AI API平台 -->
+        <article class="guide-card" data-category="行业资讯">
+            <div class="guide-card-cover">📊</div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">行业资讯</span>
+                <h2 class="guide-card-title"><a href="top-10-ai-apis-2026.html">2026年最值得使用的10个AI API平台</a></h2>
+                <p class="guide-card-excerpt">基于性能、价格、稳定性等多维度评测，精选2026年最值得开发者关注的AI API平台。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-04-28</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 7. Claude API完整指南 -->
+        <article class="guide-card" data-category="使用教程">
+            <div class="guide-card-cover">🤖</div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">使用教程</span>
+                <h2 class="guide-card-title"><a href="claude-api-guide-2026.html">Claude API完整指南：从入门到生产部署</a></h2>
+                <p class="guide-card-excerpt">Anthropic Claude API注册、定价、调用示例和生产部署的完整教程，含Claude 4 Sonnet详解。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-04-25</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 8. AI API Token计费详解 -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover">🧮</div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-token-billing-guide.html">AI API Token计费详解：如何精准控制成本</a></h2>
+                <p class="guide-card-excerpt">深入解析Token计费机制，附真实案例：客服机器人月成本从5160元降至812元的优化全过程。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-04-20</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 9. 免费AI API推荐 -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover">🎁</div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="free-ai-api-recommendations-2026.html">免费AI API推荐：2026年最值得尝试的免费额度</a></h2>
+                <p class="guide-card-excerpt">盘点10个提供免费额度的AI API平台，从Google Gemini到Groq，学习和小项目完全够用。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-04-15</span>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-logo">TokenNexus</div>
+        <p class="footer-text">致力于打造最全面的全球 AI Token 导航平台</p>
+        <nav class="footer-links">
+            <a href="../about.html" class="footer-link">关于我们</a>
+            <a href="../contact.html" class="footer-link">联系我们</a>
+            <a href="../privacy.html" class="footer-link">隐私政策</a>
+            <a href="../terms.html" class="footer-link">使用条款</a>
+        </nav>
+        <p style="margin-top: 24px; font-size: 12px; color: var(--text-secondary);">&copy; 2024-2026 TokenNexus. All rights reserved.</p>
+    </footer>
+
+    <!-- Cookie同意横幅 -->
+    <div id="cookie-consent" class="cookie-consent" style="display: none;">
+        <div class="cookie-content">
+            <p>我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的隐私政策。</p>
+            <div class="cookie-buttons">
+                <button onclick="acceptCookies()" class="cookie-btn accept">同意</button>
+                <a href="../privacy.html" class="cookie-btn more">了解更多</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cookie同意功能
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookie-consent').style.display = 'none';
+        }
+        if (!localStorage.getItem('cookieConsent')) {
+            document.getElementById('cookie-consent').style.display = 'block';
+        }
+
+        // 分类筛选功能
+        function filterGuides(category, btn) {
+            // 更新按钮状态
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // 筛选卡片
+            const cards = document.querySelectorAll('.guide-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
