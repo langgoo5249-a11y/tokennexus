@@ -64,7 +64,9 @@
         /* 文章卡片 */
         .guide-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; overflow: hidden; transition: all 0.3s; }
         .guide-card:hover { transform: translateY(-4px); border-color: rgba(0,240,255,0.3); box-shadow: 0 8px 32px rgba(0,240,255,0.1); }
-        .guide-card-cover { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 4rem; background: linear-gradient(135deg, rgba(0,240,255,0.05), rgba(184,41,221,0.05)); }
+        .guide-card-cover { height: 180px; overflow: hidden; position: relative; }
+        .guide-card-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .guide-card:hover .guide-card-cover img { transform: scale(1.05); }
         .guide-card-body { padding: 24px; }
         .guide-card-category { display: inline-block; padding: 4px 12px; background: rgba(0,240,255,0.1); border: 1px solid rgba(0,240,255,0.2); border-radius: 12px; font-size: 0.75rem; color: var(--neon-cyan); margin-bottom: 12px; }
         .guide-card-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 12px; line-height: 1.4; }
@@ -138,7 +140,7 @@
 
         <!-- 1. OpenAI vs DeepSeek -->
         <article class="guide-card" data-category="平台对比">
-            <div class="guide-card-cover">⚔️</div>
+            <div class="guide-card-cover"><img src="images/openai-vs-deepseek.jpg" alt="OpenAI vs DeepSeek对比"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">平台对比</span>
                 <h2 class="guide-card-title"><a href="openai-vs-deepseek-2026.html">OpenAI vs DeepSeek：2026年性价比全面对比</a></h2>
@@ -152,7 +154,7 @@
 
         <!-- 2. 如何获取OpenAI API Key -->
         <article class="guide-card" data-category="使用教程">
-            <div class="guide-card-cover">🔑</div>
+            <div class="guide-card-cover"><img src="images/openai-api-key.jpg" alt="OpenAI API Key教程"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">使用教程</span>
                 <h2 class="guide-card-title"><a href="how-to-get-openai-api-key.html">如何获取OpenAI API Key：完整教程（2026版）</a></h2>
@@ -166,7 +168,7 @@
 
         <!-- 3. AI API价格对比 -->
         <article class="guide-card" data-category="省钱攻略">
-            <div class="guide-card-cover">💰</div>
+            <div class="guide-card-cover"><img src="images/ai-api-pricing.jpg" alt="AI API价格对比"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">省钱攻略</span>
                 <h2 class="guide-card-title"><a href="ai-api-pricing-guide-2026.html">AI API价格对比：2026年省钱完全指南</a></h2>
@@ -180,7 +182,7 @@
 
         <!-- 4. 国内AI大模型API接入指南 -->
         <article class="guide-card" data-category="平台对比">
-            <div class="guide-card-cover">🇨🇳</div>
+            <div class="guide-card-cover"><img src="images/china-ai-api.jpg" alt="国内AI大模型API"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">平台对比</span>
                 <h2 class="guide-card-title"><a href="china-ai-api-guide.html">国内AI大模型API接入指南：阿里云、百度、讯飞对比</a></h2>
@@ -194,7 +196,7 @@
 
         <!-- 5. AI API集成最佳实践 -->
         <article class="guide-card" data-category="技术教程">
-            <div class="guide-card-cover">🛠️</div>
+            <div class="guide-card-cover"><img src="images/api-integration.jpg" alt="AI API集成最佳实践"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">技术教程</span>
                 <h2 class="guide-card-title"><a href="api-integration-best-practices.html">AI API集成最佳实践：错误处理与性能优化</a></h2>
@@ -208,7 +210,7 @@
 
         <!-- 6. 2026年最值得使用的10个AI API平台 -->
         <article class="guide-card" data-category="行业资讯">
-            <div class="guide-card-cover">📊</div>
+            <div class="guide-card-cover"><img src="images/top-ai-apis.jpg" alt="2026年最佳AI API平台"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">行业资讯</span>
                 <h2 class="guide-card-title"><a href="top-10-ai-apis-2026.html">2026年最值得使用的10个AI API平台</a></h2>
@@ -222,7 +224,7 @@
 
         <!-- 7. Claude API完整指南 -->
         <article class="guide-card" data-category="使用教程">
-            <div class="guide-card-cover">🤖</div>
+            <div class="guide-card-cover"><img src="images/claude-api.jpg" alt="Claude API完整指南"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">使用教程</span>
                 <h2 class="guide-card-title"><a href="claude-api-guide-2026.html">Claude API完整指南：从入门到生产部署</a></h2>
@@ -236,7 +238,7 @@
 
         <!-- 8. AI API Token计费详解 -->
         <article class="guide-card" data-category="省钱攻略">
-            <div class="guide-card-cover">🧮</div>
+            <div class="guide-card-cover"><img src="images/token-billing.jpg" alt="AI API Token计费详解"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">省钱攻略</span>
                 <h2 class="guide-card-title"><a href="ai-api-token-billing-guide.html">AI API Token计费详解：如何精准控制成本</a></h2>
@@ -250,7 +252,7 @@
 
         <!-- 9. 免费AI API推荐 -->
         <article class="guide-card" data-category="省钱攻略">
-            <div class="guide-card-cover">🎁</div>
+            <div class="guide-card-cover"><img src="images/free-ai-api.jpg" alt="免费AI API推荐"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">省钱攻略</span>
                 <h2 class="guide-card-title"><a href="free-ai-api-recommendations-2026.html">免费AI API推荐：2026年最值得尝试的免费额度</a></h2>
@@ -264,7 +266,7 @@
 
         <!-- 10. Gemini API完全指南 -->
         <article class="guide-card" data-category="使用教程">
-            <div class="guide-card-cover">🌟</div>
+            <div class="guide-card-cover"><img src="images/gemini-api.jpg" alt="Gemini API完全指南"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">使用教程</span>
                 <h2 class="guide-card-title"><a href="gemini-api-complete-guide.html">Gemini API完全指南：Google最强多模态AI</a></h2>
@@ -278,7 +280,7 @@
 
         <!-- 11. DeepSeek API完全指南 -->
         <article class="guide-card" data-category="使用教程">
-            <div class="guide-card-cover">🔥</div>
+            <div class="guide-card-cover"><img src="images/deepseek-api.jpg" alt="DeepSeek API完全指南"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">使用教程</span>
                 <h2 class="guide-card-title"><a href="deepseek-api-complete-guide.html">DeepSeek API完全指南：极致性价比国产之光</a></h2>
@@ -292,7 +294,7 @@
 
         <!-- 12. OpenRouter完全指南 -->
         <article class="guide-card" data-category="使用教程">
-            <div class="guide-card-cover">🔗</div>
+            <div class="guide-card-cover"><img src="images/openrouter.jpg" alt="OpenRouter完全指南"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">使用教程</span>
                 <h2 class="guide-card-title"><a href="openrouter-complete-guide.html">OpenRouter完全指南：一站式访问400+模型</a></h2>
@@ -306,7 +308,7 @@
 
         <!-- 13. AI提示词工程最佳实践 -->
         <article class="guide-card" data-category="技术教程">
-            <div class="guide-card-cover">💡</div>
+            <div class="guide-card-cover"><img src="images/prompt-engineering.jpg" alt="AI提示词工程最佳实践"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">技术教程</span>
                 <h2 class="guide-card-title"><a href="ai-prompt-engineering-guide.html">AI API提示词工程最佳实践</a></h2>
@@ -320,7 +322,7 @@
 
         <!-- 14. 企业AI API选型指南 -->
         <article class="guide-card" data-category="行业资讯">
-            <div class="guide-card-cover">🏢</div>
+            <div class="guide-card-cover"><img src="images/enterprise-ai.jpg" alt="企业AI API选型指南"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">行业资讯</span>
                 <h2 class="guide-card-title"><a href="enterprise-ai-api-selection-guide.html">企业AI API选型指南：2026年决策手册</a></h2>
@@ -334,7 +336,7 @@
 
         <!-- 15. API安全使用指南 -->
         <article class="guide-card" data-category="技术教程">
-            <div class="guide-card-cover">🔒</div>
+            <div class="guide-card-cover"><img src="images/api-security.jpg" alt="API安全使用指南"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">技术教程</span>
                 <h2 class="guide-card-title"><a href="api-key-security-guide.html">AI API安全使用指南：保护API Key最佳实践</a></h2>
@@ -348,7 +350,7 @@
 
         <!-- 16. RAG与AI API结合 -->
         <article class="guide-card" data-category="技术教程">
-            <div class="guide-card-cover">📚</div>
+            <div class="guide-card-cover"><img src="images/rag-knowledge.jpg" alt="RAG与AI API结合"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">技术教程</span>
                 <h2 class="guide-card-title"><a href="rag-ai-api-knowledge-base.html">RAG与AI API结合：构建私有知识库</a></h2>
@@ -362,7 +364,7 @@
 
         <!-- 17. AI API监控与告警系统搭建 -->
         <article class="guide-card" data-category="技术教程">
-            <div class="guide-card-cover">📊</div>
+            <div class="guide-card-cover"><img src="images/api-monitoring.jpg" alt="AI API监控与告警系统"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">技术教程</span>
                 <h2 class="guide-card-title"><a href="ai-api-monitoring-alerting.html">AI API监控与告警系统搭建</a></h2>
@@ -376,7 +378,7 @@
 
         <!-- 18. AI API异步调用与批处理优化 -->
         <article class="guide-card" data-category="技术教程">
-            <div class="guide-card-cover">⚡</div>
+            <div class="guide-card-cover"><img src="images/async-batch.jpg" alt="AI API异步调用与批处理"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">技术教程</span>
                 <h2 class="guide-card-title"><a href="ai-api-async-batch-processing.html">AI API异步调用与批处理优化</a></h2>
@@ -390,7 +392,7 @@
 
         <!-- 19. 国产大模型API生态全景图 -->
         <article class="guide-card" data-category="行业资讯">
-            <div class="guide-card-cover">🗺️</div>
+            <div class="guide-card-cover"><img src="images/china-llm-ecosystem.jpg" alt="国产大模型API生态全景图"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">行业资讯</span>
                 <h2 class="guide-card-title"><a href="china-llm-ecosystem-2026.html">国产大模型API生态全景图2026</a></h2>
@@ -404,7 +406,7 @@
 
         <!-- 20. AI API缓存策略与成本优化 -->
         <article class="guide-card" data-category="省钱攻略">
-            <div class="guide-card-cover">💾</div>
+            <div class="guide-card-cover"><img src="images/api-caching.jpg" alt="AI API缓存策略与成本优化"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">省钱攻略</span>
                 <h2 class="guide-card-title"><a href="ai-api-caching-strategy.html">AI API缓存策略与成本优化</a></h2>
@@ -418,7 +420,7 @@
 
         <!-- 21. 多模态AI API应用开发指南 -->
         <article class="guide-card" data-category="技术教程">
-            <div class="guide-card-cover">🖼️</div>
+            <div class="guide-card-cover"><img src="images/multimodal-ai.jpg" alt="多模态AI API应用开发"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">技术教程</span>
                 <h2 class="guide-card-title"><a href="multimodal-ai-api-development.html">多模态AI API应用开发指南</a></h2>
@@ -432,7 +434,7 @@
 
         <!-- 22. AI API性能测试方法与实践 -->
         <article class="guide-card" data-category="技术教程">
-            <div class="guide-card-cover">🧪</div>
+            <div class="guide-card-cover"><img src="images/api-performance.jpg" alt="AI API性能测试方法"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">技术教程</span>
                 <h2 class="guide-card-title"><a href="ai-api-performance-testing.html">AI API性能测试方法与实践</a></h2>
@@ -446,7 +448,7 @@
 
         <!-- 23. GPT-4o vs Claude 3.5 Sonnet深度对比 -->
         <article class="guide-card" data-category="平台对比">
-            <div class="guide-card-cover">🥊</div>
+            <div class="guide-card-cover"><img src="images/gpt4o-vs-claude.jpg" alt="GPT-4o vs Claude对比"></div>
             <div class="guide-card-body">
                 <span class="guide-card-category">平台对比</span>
                 <h2 class="guide-card-title"><a href="gpt4o-vs-claude35-sonnet-comparison.html">GPT-4o vs Claude 3.5 Sonnet深度对比</a></h2>
