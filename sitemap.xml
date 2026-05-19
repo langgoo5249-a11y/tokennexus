@@ -96,4 +96,64 @@
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
+    
+    <!-- 平台详情页 - SEO+GEO优化 -->
+    <url>
+        <loc>https://www.tokenfind.cn/platform/ai21-labs-platform.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/platform/ai21-labs-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/platform/ai21-labs-platform.html?lang=en"/>
+        <image:image>
+            <image:loc>https://www.tokenfind.cn/logos/ai21-labs.png</image:loc>
+            <image:title>AI21 Labs Jamba API - 256K上下文企业级大模型</image:title>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://www.tokenfind.cn/platform/writer-ai-platform.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/platform/writer-ai-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/platform/writer-ai-platform.html?lang=en"/>
+        <image:image>
+            <image:loc>https://www.tokenfind.cn/logos/writer-ai.png</image:loc>
+            <image:title>Writer AI Palmyra API - 企业级内容生成平台</image:title>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://www.tokenfind.cn/platform/portkey-ai-platform.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/platform/portkey-ai-platform.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/platform/portkey-ai-platform.html?lang=en"/>
+        <image:image>
+            <image:loc>https://www.tokenfind.cn/logos/portkey-ai.png</image:loc>
+            <image:title>Portkey AI Gateway - 企业级AI网关和可观测性平台</image:title>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://www.tokenfind.cn/platform/stepfun-platform.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/platform/stepfun-platform.html"/>
+        <image:image>
+            <image:loc>https://www.tokenfind.cn/logos/stepfun.png</image:loc>
+            <image:title>阶跃星辰StepFun - 万亿参数国产多模态大模型</image:title>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://www.tokenfind.cn/platform/metaso-platform.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/platform/metaso-platform.html"/>
+        <image:image>
+            <image:loc>https://www.tokenfind.cn/logos/metaso.png</image:loc>
+            <image:title>秘塔AI Metaso - 法律学术专业AI搜索平台</image:title>
+        </image:image>
+    </url>
 </urlset>

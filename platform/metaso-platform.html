@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秘塔AI - 法律与学术专业搜索大模型 | TokenFind</title>
+    <meta name="description" content="秘塔AI提供法律、学术、金融等专业领域的AI搜索和问答服务，基于大模型的深度推理能力，支持长文档分析、案例检索、论文研读等专业场景。上海AI公司，国产合规。">
+    <meta name="keywords" content="秘塔AI, Metaso, 法律AI搜索, 学术AI助手, AI论文研读, 法律大模型, 专业AI搜索, 国产AI搜索, 长文档分析AI, 案例检索AI">
+    
+    <!-- GEO地域优化 -->
+    <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/platform/metaso-platform.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/platform/metaso-platform.html">
+    <meta name="geo.region" content="CN-SH">
+    <meta name="geo.placename" content="上海">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="秘塔AI - 法律与学术专业搜索大模型">
+    <meta property="og:description" content="秘塔AI提供法律、学术、金融等专业领域的AI搜索和问答服务，支持长文档分析、案例检索、论文研读">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.tokenfind.cn/platform/metaso-platform.html">
+    <meta property="og:site_name" content="TokenFind">
+    <meta property="og:image" content="https://www.tokenfind.cn/images/og-metaso.jpg">
+    <meta property="og:locale" content="zh_CN">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="秘塔AI - 法律与学术专业搜索大模型">
+    <meta name="twitter:description" content="秘塔AI提供法律、学术、金融等专业领域的AI搜索和问答服务">
+    <meta name="twitter:image" content="https://www.tokenfind.cn/images/og-metaso.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.tokenfind.cn/platform/metaso-platform.html">
+    
+    <!-- Schema.org 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "秘塔AI Metaso",
+        "applicationCategory": "SearchApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "CNY",
+            "priceValidUntil": "2026-12-31"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.7",
+            "ratingCount": "1256"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "秘塔科技",
+            "location": {
+                "@type": "Place",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "上海",
+                    "addressCountry": "CN"
+                }
+            }
+        },
+        "featureList": "法律AI搜索,学术论文检索,长文档分析,案例检索,专业问答",
+        "softwareVersion": "2.0",
+        "programmingLanguage": ["Python", "JavaScript"]
+    }
+    </script>
+    
+    <!-- 面包屑结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "首页",
+                "item": "https://www.tokenfind.cn/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "国内AI平台",
+                "item": "https://www.tokenfind.cn/china.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "秘塔AI",
+                "item": "https://www.tokenfind.cn/platform/metaso-platform.html"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        :root {
+            --metaso-primary: #3b82f6;
+            --metaso-secondary: #6366f1;
+        }
+        
+        .platform-hero {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .metaso-badge {
+            background: linear-gradient(135deg, var(--metaso-primary), var(--metaso-secondary));
+        }
+        
+        .feature-card:hover {
+            border-color: var(--metaso-primary);
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--metaso-primary), var(--metaso-secondary));
+        }
+        
+        .highlight-box {
+            border-left: 4px solid var(--metaso-primary);
+        }
+        
+        .search-demo {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(99, 102, 241, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        
+        .search-input-demo {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .search-input-demo input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--card-bg);
+            color: var(--text-primary);
+        }
+        
+        .search-result-demo {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 16px;
+            border-left: 3px solid var(--metaso-primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Cookie同意横幅 -->
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-content">
+            <p>我们使用Cookie来改善用户体验，继续浏览表示您同意我们的隐私政策。</p>
+            <div class="cookie-buttons">
+                <button onclick="acceptCookies()" class="btn btn-primary">同意</button>
+                <button onclick="declineCookies()" class="btn btn-secondary">拒绝</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="nav-blur" role="navigation" aria-label="主导航">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <span class="logo-icon">🔍</span>
+                <span>TokenFind</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">首页</a>
+                <a href="/official.html">官方API</a>
+                <a href="/aggregator.html">API聚合</a>
+                <a href="/china.html" class="active">国内通道</a>
+                <a href="/blog/guides.html">攻略</a>
+                <a href="/about.html">关于</a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="切换菜单">☰</button>
+        </div>
+    </nav>
+
+    <!-- 面包屑导航 -->
+    <div class="container">
+        <nav aria-label="面包屑导航">
+            <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="/" itemprop="item"><span itemprop="name">首页</span></a>
+                    <meta itemprop="position" content="1">
+                </li>
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="/china.html" itemprop="item"><span itemprop="name">国内AI平台</span></a>
+                    <meta itemprop="position" content="2">
+                </li>
+                <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+                    <span itemprop="name">秘塔AI</span>
+                    <meta itemprop="position" content="3">
+                </li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Hero区域 -->
+    <header class="platform-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="platform-badge metaso-badge">专业AI搜索</div>
+                <h1>秘塔AI <span class="gradient-text">Metaso</span></h1>
+                <p class="hero-subtitle">法律与学术专业搜索大模型</p>
+                <p class="hero-description">
+                    秘塔AI是国内领先的专业领域AI搜索平台，专注于法律、学术、金融等垂直领域的深度搜索和智能问答。
+                    基于大模型的推理能力，支持长文档分析、案例检索、论文研读等专业场景。
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://metaso.cn" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        访问官网
+                        <span class="btn-icon">→</span>
+                    </a>
+                    <a href="#features" class="btn btn-secondary">了解更多</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">10亿+</div>
+                        <div class="stat-label">法律文献</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">1亿+</div>
+                        <div class="stat-label">学术论文</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">500万+</div>
+                        <div class="stat-label">日活用户</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">4.7</div>
+                        <div class="stat-label">用户评分</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="container">
+        <!-- 公司介绍 -->
+        <section class="content-section" aria-labelledby="company-heading">
+            <h2 id="company-heading">关于秘塔科技</h2>
+            <div class="highlight-box">
+                <p><strong>秘塔科技（Metaso）</strong>成立于2018年，总部位于中国上海，是国内领先的法律科技AI公司。公司专注于将大语言模型技术应用于专业搜索领域，为法律、学术、金融等行业提供智能化的信息检索和知识管理服务。</p>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">🏢</div>
+                    <h3>公司信息</h3>
+                    <ul>
+                        <li><strong>成立时间：</strong>2018年</li>
+                        <li><strong>总部地点：</strong>中国上海</li>
+                        <li><strong>核心产品：</strong>秘塔搜索、秘塔翻译、MetaLaw</li>
+                        <li><strong>员工规模：</strong>150+</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🎯</div>
+                    <h3>核心优势</h3>
+                    <ul>
+                        <li>专业领域深度优化</li>
+                        <li>海量结构化知识库</li>
+                        <li>精准的法律案例检索</li>
+                        <li>学术论文全文分析</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🏆</div>
+                    <h3>融资情况</h3>
+                    <ul>
+                        <li><strong>融资轮次：</strong>B+轮</li>
+                        <li><strong>累计融资：</strong>数亿人民币</li>
+                        <li><strong>投资方：</strong>红杉中国、明势资本等</li>
+                        <li><strong>估值：</strong>独角兽企业</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 核心功能 -->
+        <section id="features" class="content-section" aria-labelledby="features-heading">
+            <h2 id="features-heading">核心功能</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚖️</div>
+                    <h3>法律AI搜索</h3>
+                    <p>覆盖10亿+法律文献，支持法条检索、案例查询、判决分析。智能关联相似案例，提供法律意见参考。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>学术AI助手</h3>
+                    <p>接入1亿+学术论文，支持论文检索、文献综述、研究方法分析。自动提取关键信息，生成学术报告。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>长文档分析</h3>
+                    <p>支持PDF、Word等格式文档上传，自动提取关键信息、生成摘要、回答文档相关问题。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>深度推理搜索</h3>
+                    <p>不同于传统关键词搜索，基于大模型理解用户意图，提供结构化、有依据的答案。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 产品矩阵 -->
+        <section class="content-section" aria-labelledby="products-heading">
+            <h2 id="products-heading">产品矩阵</h2>
+            
+            <div class="models-grid">
+                <article class="model-card featured">
+                    <div class="model-header">
+                        <h3>秘塔AI搜索</h3>
+                        <span class="model-badge">旗舰</span>
+                    </div>
+                    <p class="model-desc">通用AI搜索引擎，支持全网搜索、学术搜索、法律搜索三种模式，提供有依据、可溯源的答案。</p>
+                    <ul class="model-features">
+                        <li>全网信息实时检索</li>
+                        <li>多模式切换（全网/学术/法律）</li>
+                        <li>答案溯源，提供参考链接</li>
+                        <li>支持追问和深度探索</li>
+                    </ul>
+                </article>
+                
+                <article class="model-card">
+                    <div class="model-header">
+                        <h3>MetaLaw</h3>
+                        <span class="model-badge">法律专业</span>
+                    </div>
+                    <p class="model-desc">面向法律从业者的AI助手，支持案例检索、法条查询、合同审查、法律文书生成。</p>
+                    <ul class="model-features">
+                        <li>智能案例检索与分析</li>
+                        <li>合同风险审查</li>
+                        <li>法律文书自动生成</li>
+                        <li>法规更新提醒</li>
+                    </ul>
+                </article>
+                
+                <article class="model-card">
+                    <div class="model-header">
+                        <h3>秘塔翻译</h3>
+                        <span class="model-badge">学术翻译</span>
+                    </div>
+                    <p class="model-desc">专注于学术和法律领域的AI翻译工具，支持PDF全文翻译，保持专业术语准确性。</p>
+                    <ul class="model-features">
+                        <li>PDF全文翻译</li>
+                        <li>专业术语库</li>
+                        <li>多语言支持</li>
+                        <li>格式保留翻译</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- 搜索演示 -->
+        <section class="content-section" aria-labelledby="demo-heading">
+            <h2 id="demo-heading">搜索体验</h2>
+            <p>秘塔AI搜索与传统搜索引擎的区别：</p>
+            
+            <div class="search-demo">
+                <div class="search-input-demo">
+                    <input type="text" value="劳动合同法第38条解除劳动合同的情形" readonly>
+                    <button class="btn btn-primary">搜索</button>
+                </div>
+                <div class="search-result-demo">
+                    <h4>AI总结答案</h4>
+                    <p>根据《劳动合同法》第38条，劳动者可以解除劳动合同的情形包括：</p>
+                    <ol>
+                        <li>未按照劳动合同约定提供劳动保护或劳动条件</li>
+                        <li>未及时足额支付劳动报酬</li>
+                        <li>未依法为劳动者缴纳社会保险费</li>
+                        <li>用人单位的规章制度违反法律、法规的规定，损害劳动者权益</li>
+                    </ol>
+                    <p><small>📚 参考：劳动合同法第38条 | 相关案例：2,156个</small></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 适用场景 -->
+        <section class="content-section" aria-labelledby="usecase-heading">
+            <h2 id="usecase-heading">适用场景</h2>
+            
+            <div class="usecase-grid">
+                <div class="usecase-card">
+                    <div class="usecase-icon">⚖️</div>
+                    <h3>法律实务</h3>
+                    <p>律师、法务人员用于案例检索、法条查询、合同审查、诉讼策略分析，提升法律研究效率。</p>
+                </div>
+                <div class="usecase-card">
+                    <div class="usecase-icon">🎓</div>
+                    <h3>学术研究</h3>
+                    <p>研究人员用于文献检索、论文研读、研究综述、方法学分析，加速学术研究进程。</p>
+                </div>
+                <div class="usecase-card">
+                    <div class="usecase-icon">💼</div>
+                    <h3>企业合规</h3>
+                    <p>企业法务部门用于合规审查、政策解读、风险评估、合同管理，降低企业法律风险。</p>
+                </div>
+                <div class="usecase-card">
+                    <div class="usecase-icon">📰</div>
+                    <h3>媒体调研</h3>
+                    <p>记者、编辑用于背景调查、资料核实、深度报道，提供可靠的信息来源和事实核查。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 价格方案 -->
+        <section class="content-section" aria-labelledby="pricing-heading">
+            <h2 id="pricing-heading">服务定价</h2>
+            <p>秘塔AI提供灵活的定价方案：</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-tier">
+                    <div class="pricing-header">
+                        <h3>免费版</h3>
+                        <div class="pricing-price">¥0</div>
+                        <div class="pricing-period">基础功能</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>每日100次搜索</li>
+                        <li>基础法律/学术搜索</li>
+                        <li>3个文档上传/月</li>
+                        <li>标准响应速度</li>
+                    </ul>
+                    <a href="https://metaso.cn" target="_blank" class="btn btn-secondary">免费使用</a>
+                </div>
+                
+                <div class="pricing-tier featured">
+                    <div class="pricing-header">
+                        <span class="popular-badge">推荐</span>
+                        <h3>专业版</h3>
+                        <div class="pricing-price">¥29<span>/月</span></div>
+                        <div class="pricing-period">或 ¥299/年</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>无限次搜索</li>
+                        <li>高级法律/学术搜索</li>
+                        <li>100个文档上传/月</li>
+                        <li>优先响应速度</li>
+                        <li>API访问权限</li>
+                    </ul>
+                    <a href="https://metaso.cn" target="_blank" class="btn btn-primary">立即订阅</a>
+                </div>
+                
+                <div class="pricing-tier">
+                    <div class="pricing-header">
+                        <h3>企业版</h3>
+                        <div class="pricing-price">定制</div>
+                        <div class="pricing-period">私有化部署</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>私有化知识库</li>
+                        <li>专属模型定制</li>
+                        <li>SSO企业集成</li>
+                        <li>专属客户成功经理</li>
+                        <li>SLA服务保障</li>
+                    </ul>
+                    <a href="mailto:business@metaso.cn" class="btn btn-secondary">联系销售</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- API接入 -->
+        <section class="content-section" aria-labelledby="api-heading">
+            <h2 id="api-heading">API接入</h2>
+            <p>秘塔AI提供API接口，支持程序化访问：</p>
+            
+            <div class="code-block">
+                <div class="code-header">
+                    <span>Python</span>
+                    <button class="copy-btn" onclick="copyCode(this)" aria-label="复制代码">复制</button>
+                </div>
+                <pre><code>import requests
+
+# 设置API密钥
+API_KEY = "your-metaso-api-key"
+API_URL = "https://api.metaso.cn/v1/search"
+
+# 准备请求数据
+headers = {
+    "Authorization": f"Bearer {API_KEY}",
+    "Content-Type": "application/json"
+}
+
+data = {
+    "query": "劳动合同法第38条",
+    "mode": "legal",  # legal/academic/web
+    "top_k": 10
+}
+
+# 发送请求
+response = requests.post(API_URL, headers=headers, json=data)
+result = response.json()
+
+# 输出结果
+print(result['answer'])
+print(f"参考资料: {len(result['references'])}条")</code></pre>
+            </div>
+        </section>
+
+        <!-- 相关推荐 -->
+        <section class="content-section" aria-labelledby="related-heading">
+            <h2 id="related-heading">相关推荐</h2>
+            <div class="related-grid">
+                <a href="/platform/通义千问api.html" class="related-card">
+                    <span class="related-icon">🌐</span>
+                    <span>通义千问API</span>
+                </a>
+                <a href="/platform/kimi-api.html" class="related-card">
+                    <span class="related-icon">🌙</span>
+                    <span>Kimi API</span>
+                </a>
+                <a href="/platform/stepfun-platform.html" class="related-card">
+                    <span class="related-icon">⭐</span>
+                    <span>阶跃星辰</span>
+                </a>
+                <a href="/platform/智谱glm-api.html" class="related-card">
+                    <span class="related-icon">🧠</span>
+                    <span>智谱GLM API</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer-blur">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>TokenFind</h3>
+                    <p>专业的AI API导航平台，帮助开发者快速找到合适的AI服务。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <a href="/about.html">关于我们</a>
+                    <a href="/contact.html">联系我们</a>
+                    <a href="/privacy.html">隐私政策</a>
+                    <a href="/terms.html">使用条款</a>
+                </div>
+                <div class="footer-links">
+                    <h4>平台分类</h4>
+                    <a href="/official.html">官方API</a>
+                    <a href="/aggregator.html">API聚合</a>
+                    <a href="/china.html">国内通道</a>
+                    <a href="/blog/guides.html">使用攻略</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TokenFind. All rights reserved. | <a href="https://beian.miit.gov.cn" target="_blank">沪ICP备XXXXXXXX号</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 脚本 -->
+    <script>
+        // Cookie管理
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+        
+        function declineCookies() {
+            localStorage.setItem('cookiesAccepted', 'false');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+        
+        // 检查Cookie同意状态
+        if (!localStorage.getItem('cookiesAccepted')) {
+            document.getElementById('cookie-banner').style.display = 'block';
+        }
+        
+        // 移动菜单切换
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+        
+        // 代码复制功能
+        function copyCode(btn) {
+            const codeBlock = btn.closest('.code-block').querySelector('code');
+            const text = codeBlock.innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = '已复制!';
+                setTimeout(() => btn.textContent = originalText, 2000);
+            });
+        }
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+    
+    <!-- 百度统计 -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?your-baidu-id";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</body>
+</html>
