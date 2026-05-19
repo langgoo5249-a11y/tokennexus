@@ -9,19 +9,6 @@
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/en/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://www.tokenfind.cn/ja/"/>
-        <xhtml:link rel="alternate" hreflang="ko" href="https://www.tokenfind.cn/ko/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://www.tokenfind.cn/es/"/>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://www.tokenfind.cn/fr/"/>
-        <xhtml:link rel="alternate" hreflang="de" href="https://www.tokenfind.cn/de/"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://www.tokenfind.cn/ru/"/>
-        <xhtml:link rel="alternate" hreflang="ar" href="https://www.tokenfind.cn/ar/"/>
-        <xhtml:link rel="alternate" hreflang="vi" href="https://www.tokenfind.cn/vi/"/>
-        <xhtml:link rel="alternate" hreflang="th" href="https://www.tokenfind.cn/th/"/>
-        <xhtml:link rel="alternate" hreflang="id" href="https://www.tokenfind.cn/id/"/>
-        <xhtml:link rel="alternate" hreflang="ms" href="https://www.tokenfind.cn/ms/"/>
-        <xhtml:link rel="alternate" hreflang="fil" href="https://www.tokenfind.cn/fil/"/>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/"/>
         <image:image>
             <image:loc>https://www.tokenfind.cn/images/og-image.png</image:loc>
@@ -104,7 +91,6 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/platform/ai21-labs-platform.html"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/platform/ai21-labs-platform.html?lang=en"/>
         <image:image>
             <image:loc>https://www.tokenfind.cn/logos/ai21-labs.png</image:loc>
             <image:title>AI21 Labs Jamba API - 256K上下文企业级大模型</image:title>
@@ -116,7 +102,6 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/platform/writer-ai-platform.html"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/platform/writer-ai-platform.html?lang=en"/>
         <image:image>
             <image:loc>https://www.tokenfind.cn/logos/writer-ai.png</image:loc>
             <image:title>Writer AI Palmyra API - 企业级内容生成平台</image:title>
@@ -128,7 +113,6 @@
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/platform/portkey-ai-platform.html"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.tokenfind.cn/platform/portkey-ai-platform.html?lang=en"/>
         <image:image>
             <image:loc>https://www.tokenfind.cn/logos/portkey-ai.png</image:loc>
             <image:title>Portkey AI Gateway - 企业级AI网关和可观测性平台</image:title>
