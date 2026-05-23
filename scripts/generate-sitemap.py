@@ -10,6 +10,7 @@ TODAY = datetime.now().strftime("%Y-%m-%d")
 # 博客文章列表（排除index.html和guides.html本身）
 blog_articles = [
     "ai-api-async-batch-processing.html",
+    "ai-api-budget-roi-planning-2026.html",
     "ai-api-caching-optimization-2026.html",
     "ai-api-caching-strategy.html",
     "ai-api-embedding-vector-search-guide.html",
@@ -17,6 +18,7 @@ blog_articles = [
     "ai-api-fine-tuning-guide.html",
     "ai-api-function-calling-guide.html",
     "ai-api-long-context-optimization.html",
+    "ai-api-migration-guide-2026.html",
     "ai-api-monitoring-alerting.html",
     "ai-api-performance-testing.html",
     "ai-api-pricing-comparison-guide-2025.html",
