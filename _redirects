@@ -8,7 +8,9 @@
 # 域名重定向
 # ============================================
 
-# 将根域名重定向到www子域名（SEO最佳实践）
+# ============================================
+# 根域名 → www 子域名重定向（SEO最佳实践）
+# ============================================
 https://tokenfind.cn/* https://www.tokenfind.cn/:splat 301
 
 # 将pages.dev域名301重定向到主域名
@@ -73,8 +75,8 @@ https://tokennexus.skillxm.cn/* https://www.tokenfind.cn/:splat 301
 /ai-prompt-engineering-guide /blog/ai-prompt-engineering-guide 301
 
 # ============================================
-# 404 处理 - 必须放在最后
-# 注意：根页面（/about, /privacy, /terms等）不需要重定向
-# CF Pages 自动将 /about → about.html 以200状态码服务
+# 404 处理
+# Cloudflare Pages 会自动为不存在的路由返回 404.html
+# 无需手动 catch-all，否则会阻止 Pages Functions（API 端点）的正常工作
 # ============================================
-/* /404.html 404
+# 不需要添加 /* /404.html 404 - CF Pages 原生支持
