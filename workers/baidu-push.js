@@ -2,7 +2,7 @@
 // 每天北京时间09:00自动推送网站所有链接到百度搜索引擎
 
 const SITE = 'https://www.tokenfind.cn';
-const BAIDU_TOKEN = 'zJsDaj5ibt8ZlVgz';
+const BAIDU_TOKEN = typeof env !== 'undefined' && env.BAIDU_TOKEN ? env.BAIDU_TOKEN : 'zJsDaj5ibt8ZlVgz';
 const BAIDU_API = `http://data.zz.baidu.com/urls?site=${SITE}&token=${BAIDU_TOKEN}`;
 
 const PLATFORM_SLUGS = [

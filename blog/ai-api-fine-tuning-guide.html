@@ -546,6 +546,16 @@
                 min-height: 90px;
             }
         }
+    
+        /* Cookie同意横幅 */
+        .cookie-consent { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(26,26,46,0.95); border-top: 1px solid rgba(0,240,255,0.3); padding: 20px; z-index: 10000; backdrop-filter: blur(10px); }
+        .cookie-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        .cookie-content p { margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+        .cookie-buttons { display: flex; gap: 15px; flex-shrink: 0; }
+        .cookie-btn { padding: 10px 24px; border-radius: 8px; font-size: 0.9rem; cursor: pointer; transition: all 0.3s; text-decoration: none; font-family: 'Noto Sans SC', sans-serif; }
+        .cookie-btn.accept { background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); border: none; color: #fff; }
+        .cookie-btn.more { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; }
+        @media (max-width: 768px) { .cookie-content { flex-direction: column; text-align: center; } }
     </style>
 </head>
 <body>
@@ -933,6 +943,27 @@ print(response.choices[0].message.content)</code></pre>
 
         // Check on page load
         checkCookieConsent();
+    </script>
+
+    <!-- Cookie同意横幅 -->
+    <div id="cookie-consent" class="cookie-consent" style="display: none;">
+        <div class="cookie-content">
+            <p>我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的隐私政策。</p>
+            <div class="cookie-buttons">
+                <button onclick="acceptCookies()" class="cookie-btn accept">同意</button>
+                <a href="../privacy.html" class="cookie-btn more">了解更多</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Cookie同意功能
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookie-consent').style.display = 'none';
+        }
+        if (!localStorage.getItem('cookieConsent')) {
+            document.getElementById('cookie-consent').style.display = 'block';
+        }
     </script>
 </body>
 </html>
