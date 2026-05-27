@@ -1,5 +1,8 @@
 # TokenNexus Cloudflare Pages 重定向配置
 # 更新日期: 2026-05-27
+#
+# 注意：Cloudflare Pages 会自动将 /about → about.html（不需要手动重定向）
+# 添加自引用的301重定向会导致 redirect loop！
 
 # ============================================
 # 域名重定向
@@ -16,12 +19,10 @@ https://tokennexus.pages.dev/* https://www.tokenfind.cn/:splat 301
 https://tokennexus.skillxm.cn/* https://www.tokenfind.cn/:splat 301
 
 # ============================================
-# 博客文章 URL 重定向
-# 处理从根级别访问博客文章的情况（旧链接/外部链接）
-# 将 /article-name 重定向到 /blog/article-name.html
+# 博客文章 URL 重定向（根级别 → /blog/ 目录）
+# 外部链接可能指向根级文章路径，需要301重定向
 # ============================================
 
-# 博客文章重定向（根级别 → /blog/ 目录）
 /how-to-get-openai-api-key /blog/how-to-get-openai-api-key 301
 /openai-vs-deepseek-2026 /blog/openai-vs-deepseek-2026 301
 /ai-api-pricing-guide-2026 /blog/ai-api-pricing-guide-2026 301
@@ -72,21 +73,8 @@ https://tokennexus.skillxm.cn/* https://www.tokenfind.cn/:splat 301
 /ai-prompt-engineering-guide /blog/ai-prompt-engineering-guide 301
 
 # ============================================
-# 根页面 clean URL 支持（无.html后缀）
-# ============================================
-/about /about 301
-/contact /contact 301
-/privacy /privacy 301
-/terms /terms 301
-/submit /submit 301
-/business /business 301
-/disclaimer /disclaimer 301
-/official /official 301
-/aggregator /aggregator 301
-/china /china 301
-/blog /blog/index 301
-
-# ============================================
 # 404 处理 - 必须放在最后
+# 注意：根页面（/about, /privacy, /terms等）不需要重定向
+# CF Pages 自动将 /about → about.html 以200状态码服务
 # ============================================
 /* /404.html 404
