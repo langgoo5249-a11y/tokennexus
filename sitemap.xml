@@ -368,13 +368,13 @@
 
     <!-- 平台详情页 (270个) -->
     <url>
-        <loc>https://www.tokenfind.cn/platform/360智脑</loc>
+        <loc>https://www.tokenfind.cn/platform/360%E6%99%BA%E8%84%91</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/360智脑api</loc>
+        <loc>https://www.tokenfind.cn/platform/360%E6%99%BA%E8%84%91api</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
@@ -482,7 +482,7 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/api易</loc>
+        <loc>https://www.tokenfind.cn/platform/api%E6%98%93</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
@@ -512,7 +512,7 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/baseten-更新</loc>
+        <loc>https://www.tokenfind.cn/platform/baseten-%E6%9B%B4%E6%96%B0</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
@@ -1262,7 +1262,7 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/replicate-更新</loc>
+        <loc>https://www.tokenfind.cn/platform/replicate-%E6%9B%B4%E6%96%B0</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
@@ -1412,7 +1412,7 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/uiuiapi聚合平台</loc>
+        <loc>https://www.tokenfind.cn/platform/uiuiapi%E8%81%9A%E5%90%88%E5%B9%B3%E5%8F%B0</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
@@ -1496,493 +1496,493 @@
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/七牛云ai</loc>
+        <loc>https://www.tokenfind.cn/platform/%E4%B8%83%E7%89%9B%E4%BA%91ai</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/中国科技云ai</loc>
+        <loc>https://www.tokenfind.cn/platform/%E4%B8%AD%E5%9B%BD%E7%A7%91%E6%8A%80%E4%BA%91ai</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/书生-internlm</loc>
+        <loc>https://www.tokenfind.cn/platform/%E4%B9%A6%E7%94%9F-internlm</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/云从科技从容</loc>
+        <loc>https://www.tokenfind.cn/platform/%E4%BA%91%E4%BB%8E%E7%A7%91%E6%8A%80%E4%BB%8E%E5%AE%B9</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/云知声山海</loc>
+        <loc>https://www.tokenfind.cn/platform/%E4%BA%91%E7%9F%A5%E5%A3%B0%E5%B1%B1%E6%B5%B7</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/京东言犀大模型</loc>
+        <loc>https://www.tokenfind.cn/platform/%E4%BA%AC%E4%B8%9C%E8%A8%80%E7%8A%80%E5%A4%A7%E6%A8%A1%E5%9E%8B</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/便携ai聚合api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E4%BE%BF%E6%90%BAai%E8%81%9A%E5%90%88api</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/出门问问序列猴子</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%87%BA%E9%97%A8%E9%97%AE%E9%97%AE%E5%BA%8F%E5%88%97%E7%8C%B4%E5%AD%90</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/华为云盘古</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%8D%8E%E4%B8%BA%E4%BA%91%E7%9B%98%E5%8F%A4</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/华为盘古大模型</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%8D%8E%E4%B8%BA%E7%9B%98%E5%8F%A4%E5%A4%A7%E6%A8%A1%E5%9E%8B</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/即梦ai</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%8D%B3%E6%A2%A6ai</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/商汤日日新</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%95%86%E6%B1%A4%E6%97%A5%E6%97%A5%E6%96%B0</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/商汤日日新api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%95%86%E6%B1%A4%E6%97%A5%E6%97%A5%E6%96%B0api</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/商汤科技</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%95%86%E6%B1%A4%E7%A7%91%E6%8A%80</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/壁仞科技</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%A3%81%E4%BB%9E%E7%A7%91%E6%8A%80</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/天工ai</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%A4%A9%E5%B7%A5ai</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/天数智芯</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%A4%A9%E6%95%B0%E6%99%BA%E8%8A%AF</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/字节豆包</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%AD%97%E8%8A%82%E8%B1%86%E5%8C%85</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/小米-mimo</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%B0%8F%E7%B1%B3-mimo</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/小红书ai</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%B0%8F%E7%BA%A2%E4%B9%A6ai</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/幂简集成</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%B9%82%E7%AE%80%E9%9B%86%E6%88%90</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/循环智能</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%BE%AA%E7%8E%AF%E6%99%BA%E8%83%BD</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/心流-xinliu</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%BF%83%E6%B5%81-xinliu</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/快手万擎</loc>
+        <loc>https://www.tokenfind.cn/platform/%E5%BF%AB%E6%89%8B%E4%B8%87%E6%93%8E</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/思必驰dfm</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%80%9D%E5%BF%85%E9%A9%B0dfm</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/思必驰dui</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%80%9D%E5%BF%85%E9%A9%B0dui</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/拓尔思</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%8B%93%E5%B0%94%E6%80%9D</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/拓尔思拓天大模型</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%8B%93%E5%B0%94%E6%80%9D%E6%8B%93%E5%A4%A9%E5%A4%A7%E6%A8%A1%E5%9E%8B</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/摩尔线程</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%91%A9%E5%B0%94%E7%BA%BF%E7%A8%8B</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/文心一格</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%96%87%E5%BF%83%E4%B8%80%E6%A0%BC</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/文心一言api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%96%87%E5%BF%83%E4%B8%80%E8%A8%80api</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/无问芯穹</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%97%A0%E9%97%AE%E8%8A%AF%E7%A9%B9</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/昆仑万维天工</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%98%86%E4%BB%91%E4%B8%87%E7%BB%B4%E5%A4%A9%E5%B7%A5</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/昆仑万维天工ai</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%98%86%E4%BB%91%E4%B8%87%E7%BB%B4%E5%A4%A9%E5%B7%A5ai</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/星环科技</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%98%9F%E7%8E%AF%E7%A7%91%E6%8A%80</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/星链4s-api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%98%9F%E9%93%BE4s-api</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/智谱-glm</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%99%BA%E8%B0%B1-glm</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/智谱ai</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%99%BA%E8%B0%B1ai</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/智谱glm-api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%99%BA%E8%B0%B1glm-api</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/月之暗面-kimi</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%9C%88%E4%B9%8B%E6%9A%97%E9%9D%A2-kimi</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/月之暗面api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%9C%88%E4%B9%8B%E6%9A%97%E9%9D%A2api</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/沐曦intellilux</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%B2%90%E6%9B%A6intellilux</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/海光信息</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%B5%B7%E5%85%89%E4%BF%A1%E6%81%AF</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/海天瑞声</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%B5%B7%E5%A4%A9%E7%91%9E%E5%A3%B0</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/深度求索api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%B7%B1%E5%BA%A6%E6%B1%82%E7%B4%A2api</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/澜舟科技孟子</loc>
+        <loc>https://www.tokenfind.cn/platform/%E6%BE%9C%E8%88%9F%E7%A7%91%E6%8A%80%E5%AD%9F%E5%AD%90</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/火山引擎豆包api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%81%AB%E5%B1%B1%E5%BC%95%E6%93%8E%E8%B1%86%E5%8C%85api</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/燧原科技</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%87%A7%E5%8E%9F%E7%A7%91%E6%8A%80</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/白山云ai</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%99%BD%E5%B1%B1%E4%BA%91ai</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/百川智能</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%99%BE%E5%B7%9D%E6%99%BA%E8%83%BD</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/百川智能api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%99%BE%E5%B7%9D%E6%99%BA%E8%83%BDapi</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/百应科技</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%99%BE%E5%BA%94%E7%A7%91%E6%8A%80</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/百度千帆</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%99%BE%E5%BA%A6%E5%8D%83%E5%B8%86</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/知乎知海图ai</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%9F%A5%E4%B9%8E%E7%9F%A5%E6%B5%B7%E5%9B%BEai</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/硅基流动-siliconflow</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%A1%85%E5%9F%BA%E6%B5%81%E5%8A%A8-siliconflow</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/神马中转api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%A5%9E%E9%A9%AC%E4%B8%AD%E8%BD%ACapi</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/竹间智能</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%AB%B9%E9%97%B4%E6%99%BA%E8%83%BD</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/第四范式</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%AC%AC%E5%9B%9B%E8%8C%83%E5%BC%8F</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/第四范式式说</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%AC%AC%E5%9B%9B%E8%8C%83%E5%BC%8F%E5%BC%8F%E8%AF%B4</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/简易api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%AE%80%E6%98%93api</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/网易七鱼</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%BD%91%E6%98%93%E4%B8%83%E9%B1%BC</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/网易伏羲</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%BD%91%E6%98%93%E4%BC%8F%E7%BE%B2</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/网易有道子曰</loc>
+        <loc>https://www.tokenfind.cn/platform/%E7%BD%91%E6%98%93%E6%9C%89%E9%81%93%E5%AD%90%E6%9B%B0</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/老张api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E8%80%81%E5%BC%A0api</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/腾讯混元</loc>
+        <loc>https://www.tokenfind.cn/platform/%E8%85%BE%E8%AE%AF%E6%B7%B7%E5%85%83</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/腾讯混元图像</loc>
+        <loc>https://www.tokenfind.cn/platform/%E8%85%BE%E8%AE%AF%E6%B7%B7%E5%85%83%E5%9B%BE%E5%83%8F</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/蚂蚁百灵</loc>
+        <loc>https://www.tokenfind.cn/platform/%E8%9A%82%E8%9A%81%E7%99%BE%E7%81%B5</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/讯飞星火</loc>
+        <loc>https://www.tokenfind.cn/platform/%E8%AE%AF%E9%A3%9E%E6%98%9F%E7%81%AB</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/讯飞星火api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E8%AE%AF%E9%A3%9E%E6%98%9F%E7%81%ABapi</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/诗云api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E8%AF%97%E4%BA%91api</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/达观数据</loc>
+        <loc>https://www.tokenfind.cn/platform/%E8%BE%BE%E8%A7%82%E6%95%B0%E6%8D%AE</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/达观数据曹植</loc>
+        <loc>https://www.tokenfind.cn/platform/%E8%BE%BE%E8%A7%82%E6%95%B0%E6%8D%AE%E6%9B%B9%E6%A4%8D</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/追一科技aiforce</loc>
+        <loc>https://www.tokenfind.cn/platform/%E8%BF%BD%E4%B8%80%E7%A7%91%E6%8A%80aiforce</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/通义万相</loc>
+        <loc>https://www.tokenfind.cn/platform/%E9%80%9A%E4%B9%89%E4%B8%87%E7%9B%B8</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/通义千问api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E9%80%9A%E4%B9%89%E5%8D%83%E9%97%AEapi</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/金山办公-wps-ai</loc>
+        <loc>https://www.tokenfind.cn/platform/%E9%87%91%E5%B1%B1%E5%8A%9E%E5%85%AC-wps-ai</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/阶跃星辰</loc>
+        <loc>https://www.tokenfind.cn/platform/%E9%98%B6%E8%B7%83%E6%98%9F%E8%BE%B0</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/阶跃星辰api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E9%98%B6%E8%B7%83%E6%98%9F%E8%BE%B0api</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/阿里云百炼</loc>
+        <loc>https://www.tokenfind.cn/platform/%E9%98%BF%E9%87%8C%E4%BA%91%E7%99%BE%E7%82%BC</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/零一万物</loc>
+        <loc>https://www.tokenfind.cn/platform/%E9%9B%B6%E4%B8%80%E4%B8%87%E7%89%A9</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/零一万物api</loc>
+        <loc>https://www.tokenfind.cn/platform/%E9%9B%B6%E4%B8%80%E4%B8%87%E7%89%A9api</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.tokenfind.cn/platform/魔搭社区-modelscope</loc>
+        <loc>https://www.tokenfind.cn/platform/%E9%AD%94%E6%90%AD%E7%A4%BE%E5%8C%BA-modelscope</loc>
         <lastmod>2026-05-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
