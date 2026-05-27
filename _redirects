@@ -1,14 +1,92 @@
+# TokenNexus Cloudflare Pages 重定向配置
+# 更新日期: 2026-05-27
+
+# ============================================
+# 域名重定向
+# ============================================
+
 # 将根域名重定向到www子域名（SEO最佳实践）
 https://tokenfind.cn/* https://www.tokenfind.cn/:splat 301
 
-# 将pages.dev域名301重定向到主域名tokenfind.cn
+# 将pages.dev域名301重定向到主域名
 https://tokennexus-*.pages.dev/* https://www.tokenfind.cn/:splat 301
 https://tokennexus.pages.dev/* https://www.tokenfind.cn/:splat 301
 
 # 将旧域名301重定向到新域名
 https://tokennexus.skillxm.cn/* https://www.tokenfind.cn/:splat 301
 
-# Cloudflare Pages 重定向配置
+# ============================================
+# 博客文章 URL 重定向
+# 处理从根级别访问博客文章的情况（旧链接/外部链接）
+# 将 /article-name 重定向到 /blog/article-name.html
+# ============================================
 
-# 404 处理 - 所有未匹配的路径返回404页面
+# 博客文章重定向（根级别 → /blog/ 目录）
+/how-to-get-openai-api-key /blog/how-to-get-openai-api-key.html 301
+/openai-vs-deepseek-2026 /blog/openai-vs-deepseek-2026.html 301
+/ai-api-pricing-guide-2026 /blog/ai-api-pricing-guide-2026.html 301
+/top-10-ai-apis-2026 /blog/top-10-ai-apis-2026.html 301
+/claude-api-guide-2026 /blog/claude-api-guide-2026.html 301
+/ai-api-token-billing-guide /blog/ai-api-token-billing-guide.html 301
+/free-ai-api-recommendations-2026 /blog/free-ai-api-recommendations-2026.html 301
+/api-integration-best-practices /blog/api-integration-best-practices.html 301
+/ai-api-pricing-comparison-guide-2025 /blog/ai-api-pricing-comparison-guide-2025.html 301
+/deepseek-api-complete-guide /blog/deepseek-api-complete-guide.html 301
+/gemini-api-complete-guide /blog/gemini-api-complete-guide.html 301
+/guides /blog/guides.html 301
+/openrouter-complete-guide /blog/openrouter-complete-guide.html 301
+/free-ai-api-guide-2026 /blog/free-ai-api-guide-2026.html 301
+/enterprise-ai-api-selection-guide /blog/enterprise-ai-api-selection-guide.html 301
+/multimodal-ai-api-development /blog/multimodal-ai-api-development.html 301
+/china-ai-api-guide /blog/china-ai-api-guide.html 301
+/china-api-transit-platform-guide /blog/china-api-transit-platform-guide.html 301
+/china-llm-ecosystem-2026 /blog/china-llm-ecosystem-2026.html 301
+/gpt4o-vs-claude35-sonnet-comparison /blog/gpt4o-vs-claude35-sonnet-comparison.html 301
+/api-key-security-guide /blog/api-key-security-guide.html 301
+/rag-ai-api-knowledge-base /blog/rag-ai-api-knowledge-base.html 301
+/ai-image-generation-api-comparison-2026 /blog/ai-image-generation-api-comparison-2026.html 301
+/ai-video-generation-api-comparison-2026 /blog/ai-video-generation-api-comparison-2026.html 301
+/ai-tts-api-comparison-2026 /blog/ai-tts-api-comparison-2026.html 301
+/ai-model-routing-guide-2026 /blog/ai-model-routing-guide-2026.html 301
+/ai-api-streaming-optimization-2026 /blog/ai-api-streaming-optimization-2026.html 301
+/ai-api-security-guide-2026 /blog/ai-api-security-guide-2026.html 301
+/ai-api-migration-guide-2026 /blog/ai-api-migration-guide-2026.html 301
+/ai-api-compliance-gdpr-guide-2026 /blog/ai-api-compliance-gdpr-guide-2026.html 301
+/ai-api-budget-roi-planning-2026 /blog/ai-api-budget-roi-planning-2026.html 301
+/ai-api-gateway-design-2026 /blog/ai-api-gateway-design-2026.html 301
+/ai-api-multi-tenant-architecture-2026 /blog/ai-api-multi-tenant-architecture-2026.html 301
+/ai-api-testing-cicd-guide-2026 /blog/ai-api-testing-cicd-guide-2026.html 301
+/ai-api-streaming-sse-guide /blog/ai-api-streaming-sse-guide.html 301
+/ai-api-rate-limit-strategies /blog/ai-api-rate-limit-strategies.html 301
+/ai-api-proxy-relay-guide /blog/ai-api-proxy-relay-guide.html 301
+/ai-api-caching-strategy /blog/ai-api-caching-strategy.html 301
+/ai-api-caching-optimization-2026 /blog/ai-api-caching-optimization-2026.html 301
+/ai-api-async-batch-processing /blog/ai-api-async-batch-processing.html 301
+/ai-api-error-codes-troubleshooting /blog/ai-api-error-codes-troubleshooting.html 301
+/ai-api-function-calling-guide /blog/ai-api-function-calling-guide.html 301
+/ai-api-fine-tuning-guide /blog/ai-api-fine-tuning-guide.html 301
+/ai-api-embedding-vector-search-guide /blog/ai-api-embedding-vector-search-guide.html 301
+/ai-api-long-context-optimization /blog/ai-api-long-context-optimization.html 301
+/ai-api-monitoring-alerting /blog/ai-api-monitoring-alerting.html 301
+/ai-api-performance-testing /blog/ai-api-performance-testing.html 301
+/ai-prompt-engineering-guide /blog/ai-prompt-engineering-guide.html 301
+
+# ============================================
+# 根页面 clean URL 支持（无.html后缀）
+# ============================================
+/about /about.html 301
+/contact /contact.html 301
+/privacy /privacy.html 301
+/terms /terms.html 301
+/submit /submit.html 301
+/business /business.html 301
+/disclaimer /disclaimer.html 301
+/official /official.html 301
+/aggregator /aggregator.html 301
+/china /china.html 301
+/blog /blog/index.html 301
+
+# ============================================
+# 404 处理 - 必须放在最后
+# ============================================
 /* /404.html 404
