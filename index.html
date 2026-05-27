@@ -2317,57 +2317,10 @@
                 <p style="font-size: 12px; color: var(--text-secondary);">
                     &copy; 2024-2026 TokenNexus. All rights reserved.
                 </p>
-                <!-- 不蒜子访问统计（初始基数328） -->
-                <div class="visit-counter">
-                    <span class="visit-icon">👁️</span>
-                    <span class="visit-text">本站访问量：</span>
-                    <span id="busuanzi_value_site_pv" class="visit-count">328</span>
-                    <span class="visit-unit">次</span>
-                </div>
+
             </div>
         </div>
     </footer>
-
-    <!-- 不蒜子统计脚本 - 使用HTTPS -->
-    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <!-- 初始化访问基数 -->
-    <script>
-    (function() {
-        // 访问基数：从328开始，后续访问量在此基础上累加
-        var basePV = 328;
-        var pvElement = document.getElementById('busuanzi_value_site_pv');
-        
-        if (pvElement) {
-            // 记录不蒜子的初始值（加载前为0）
-            var busuanziBase = 0;
-            var baseRecorded = false;
-            
-            // 监听不蒜子返回值
-            var observer = new MutationObserver(function(mutations) {
-                var busuanziVal = parseInt(pvElement.textContent) || 0;
-                
-                // 记录不蒜子第一次返回的真实值作为基准
-                if (!baseRecorded && busuanziVal > 0) {
-                    busuanziBase = busuanziVal;
-                    baseRecorded = true;
-                }
-                
-                // 显示值 = 基数 + (不蒜子当前值 - 不蒜子初始值)
-                if (baseRecorded) {
-                    var display = basePV + (busuanziVal - busuanziBase);
-                    pvElement.textContent = display.toLocaleString();
-                } else {
-                    // 不蒜子还没加载完，先显示基数
-                    pvElement.textContent = basePV.toLocaleString();
-                }
-            });
-            observer.observe(pvElement, { childList: true, characterData: true });
-            
-            // 初始显示基数
-            pvElement.textContent = basePV.toLocaleString();
-        }
-    })();
-    </script>
 
     <!-- Cookie Consent Banner -->
     <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Cookie同意" style="display: none;">
