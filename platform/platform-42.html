@@ -164,6 +164,35 @@
       gtag('js', new Date());
       gtag('config', 'G-0CX9NNWKR8');
     </script>
+
+    <!-- Cookie Consent GA4 Protection - blocks GA4 until user accepts -->
+    <script>
+    (function() {
+      // Override gtag temporarily until consent
+      var _gtq = window.dataLayer = window.dataLayer || [];
+      var _ogs = window.gtag;
+      window.gtag = function(){_gtq.push(arguments);};
+      if (document.cookie.indexOf('cookieConsent=accepted') !== -1) {
+        // Already consented - load GA4
+        _ogs = window.gtag;
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-0CX9NNWKR8');
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8';
+        document.head.appendChild(s);
+      }
+      // Listen for consent event from index page
+      document.addEventListener('cookieConsentAccepted', function() {
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-0CX9NNWKR8');
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8';
+        document.head.appendChild(s);
+      });
+    })();
+    </script>
 </head>
 <body>
     <nav class="navbar"><a href="/" class="logo"><svg viewBox="0 0 100 100" width="40" height="40"><polygon fill="none" stroke="#00f0ff" stroke-width="3" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"/><text x="50" y="58" text-anchor="middle" fill="#00f0ff" font-size="35" font-weight="bold">T</text></svg><span class="logo-text">TokenNexus</span></a><div class="nav-links"><a href="/" class="nav-link">首页</a><a href="/official.html" class="nav-link">官方平台</a><a href="/aggregator.html" class="nav-link">聚合平台</a><a href="/china.html" class="nav-link">国内平台</a></div></nav>

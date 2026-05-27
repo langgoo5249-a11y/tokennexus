@@ -20,7 +20,6 @@
     <!-- 分面搜索支持 -->
     <meta name="audience" content="Global">
     <meta name="coverage" content="Worldwide">
-    <meta name="robots" content="index, follow">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -249,6 +248,78 @@
                     "@type": "Answer",
                     "text": "选择AI API平台时需要考虑：模型支持（是否覆盖所需模型）、价格体系（按量计费还是包月）、可用率（服务稳定性）、延迟（响应速度）、支付方式（是否支持国内支付）、用户评价等因素。TokenNexus提供多维度对比帮助你选择。"
                 }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Organization Schema for GEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TokenNexus",
+        "alternateName": "全球AI Token导航",
+        "url": "https://www.tokenfind.cn/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.tokenfind.cn/favicon.svg",
+            "width": 512,
+            "height": 512
+        },
+        "description": "全球最全的AI Token导航平台，收录280+国内外AI API服务商",
+        "foundingDate": "2024",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+86-400-000-0000",
+            "contactType": "customer service",
+            "email": "support@tokenfind.cn",
+            "availableLanguage": ["Chinese", "English"]
+        },
+        "sameAs": [
+            "https://github.com/jm6-lang/tokennexus"
+        ]
+    }
+    </script>
+
+    <!-- SiteNavigationElement Schema for GEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SiteNavigationElement",
+        "name": "TokenNexus Main Navigation",
+        "description": "网站主导航菜单",
+        "url": "https://www.tokenfind.cn/",
+        "hasPart": [
+            {
+                "@type": "SiteNavigationElement",
+                "name": "官方平台",
+                "url": "https://www.tokenfind.cn/official"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "name": "聚合平台",
+                "url": "https://www.tokenfind.cn/aggregator"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "name": "国内平台",
+                "url": "https://www.tokenfind.cn/china"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "name": "攻略",
+                "url": "https://www.tokenfind.cn/blog/guides"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "name": "博客",
+                "url": "https://www.tokenfind.cn/blog/"
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "name": "关于我们",
+                "url": "https://www.tokenfind.cn/about"
             }
         ]
     }
@@ -2090,16 +2161,6 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4710405779358793" crossorigin="anonymous"></script>
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0CX9NNWKR8');
-    </script>
 </head>
 <body>
     <!-- 科技感背景元素 -->
@@ -2997,6 +3058,24 @@
         function acceptCookies() {
             CookieManager.set('cookieConsent', 'accepted', 365);
             document.getElementById('cookieBanner').style.display = 'none';
+            // 用户同意后动态加载 Google Analytics 4
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', 'G-0CX9NNWKR8');
+            var gaScript = document.createElement('script');
+            gaScript.async = true;
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8';
+            document.head.appendChild(gaScript);
+            // 用户同意后动态加载 Google AdSense
+            var adScript = document.createElement('script');
+            adScript.async = true;
+            adScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4710405779358793';
+            adScript.crossOrigin = 'anonymous';
+            document.head.appendChild(adScript);
+            // 通知其他页面Cookie已被同意
+            document.dispatchEvent(new CustomEvent('cookieConsentAccepted'));
         }
 
         // ==================== 初始化 ====================

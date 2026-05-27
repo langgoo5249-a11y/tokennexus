@@ -1456,6 +1456,35 @@
       gtag('js', new Date());
       gtag('config', 'G-0CX9NNWKR8');
     </script>
+
+    <!-- Cookie Consent GA4 Protection - blocks GA4 until user accepts -->
+    <script>
+    (function() {
+      // Override gtag temporarily until consent
+      var _gtq = window.dataLayer = window.dataLayer || [];
+      var _ogs = window.gtag;
+      window.gtag = function(){_gtq.push(arguments);};
+      if (document.cookie.indexOf('cookieConsent=accepted') !== -1) {
+        // Already consented - load GA4
+        _ogs = window.gtag;
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-0CX9NNWKR8');
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8';
+        document.head.appendChild(s);
+      }
+      // Listen for consent event from index page
+      document.addEventListener('cookieConsentAccepted', function() {
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-0CX9NNWKR8');
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8';
+        document.head.appendChild(s);
+      });
+    })();
+    </script>
 </head>
 <body>
     <!-- Navigation -->
