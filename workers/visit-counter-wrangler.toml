@@ -1,0 +1,7 @@
+name = "tokennexus-visit-counter"
+main = "visit-counter.js"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "VISIT_KV"
+id = "10d7dc12fee24ccbb85eae45378eb93c"
