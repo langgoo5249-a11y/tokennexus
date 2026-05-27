@@ -2296,6 +2296,7 @@
                         <a href="https://biaoji.skillxm.cn" target="_blank" class="friend-link">号码标记清除</a>
                         <a href="https://docs.skillxm.cn" target="_blank" class="friend-link">免费资源分享</a>
                         <a href="https://xinxicha.skillxm.cn" target="_blank" class="friend-link">信息差获取</a>
+                        <a href="https://524900.xyz/" target="_blank" class="friend-link">免费API聚合站</a>
                     </div>
                 </div>
             </div>
@@ -2316,11 +2317,11 @@
                 <p style="font-size: 12px; color: var(--text-secondary);">
                     &copy; 2024-2026 TokenNexus. All rights reserved.
                 </p>
-                <!-- 不蒜子访问统计 -->
+                <!-- 不蒜子访问统计（初始基数328） -->
                 <div class="visit-counter">
                     <span class="visit-icon">👁️</span>
                     <span class="visit-text">本站访问量：</span>
-                    <span id="busuanzi_value_site_pv" class="visit-count">-</span>
+                    <span id="busuanzi_value_site_pv" class="visit-count">328</span>
                     <span class="visit-unit">次</span>
                 </div>
             </div>
@@ -2329,6 +2330,29 @@
 
     <!-- 不蒜子统计脚本 -->
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <!-- 初始化访问基数 -->
+    <script>
+    (function() {
+        // 设置初始访问基数 328
+        var initPV = 328;
+        var pvElement = document.getElementById('busuanzi_value_site_pv');
+        
+        // 监听不蒜子加载完成
+        if (pvElement) {
+            // 如果不蒜子返回的值小于初始值，使用初始值
+            var observer = new MutationObserver(function(mutations) {
+                var currentValue = parseInt(pvElement.textContent) || 0;
+                if (currentValue < initPV) {
+                    pvElement.textContent = initPV;
+                }
+            });
+            observer.observe(pvElement, { childList: true, characterData: true });
+            
+            // 设置初始显示值
+            pvElement.textContent = initPV;
+        }
+    })();
+    </script>
 
     <!-- Cookie Consent Banner -->
     <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Cookie同意" style="display: none;">
