@@ -97,6 +97,14 @@ Crawl-delay: 1
 # AI 搜索引擎爬虫
 # ============================================
 
+# Cloudflare AI 爬虫
+User-agent: CloudflareBrowserRenderingCrawler
+Allow: /
+
+# 字节跳动/百度搜索爬虫
+User-agent: Bytespider
+Allow: /
+
 # ChatGPT / OpenAI 爬虫
 User-agent: ChatGPT-User
 Allow: /
@@ -170,6 +178,162 @@ Allow: /
 
 # Brave Search 爬虫
 User-agent: BraveBot
+Allow: /
+
+# Firecrawl 爬虫
+User-agent: FirecrawlAgent
+Allow: /
+
+# ScrapeGraph AI 爬虫
+User-agent: ScrapeGraphAI
+Allow: /
+
+# Diffbot 爬虫
+User-agent: Diffbot
+Allow: /
+
+# Imagesift 爬虫
+User-agent: ImagesiftBot
+Allow: /
+
+# Omgili 爬虫
+User-agent: Omgili
+Allow: /
+
+# Webzio 爬虫
+User-agent: Webzio
+Allow: /
+
+# Turnitin 爬虫
+User-agent: TurnitinBot
+Allow: /
+
+# iask.ai 爬虫
+User-agent: iaskspider
+Allow: /
+
+# Komodia 爬虫
+User-agent: KomodiaBot
+Allow: /
+
+# Meta AI 爬虫 (补充)
+User-agent: MetaAI
+Allow: /
+
+# ByteDance 爬虫 (补充)
+User-agent: ByteSpider
+Allow: /
+
+# ByteDance 图片爬虫
+User-agent: ByteDance-Image
+Allow: /
+
+# Toutiao 爬虫
+User-agent: ToutiaoSpider
+Allow: /
+
+# Douyin 爬虫
+User-agent: DouyinBot
+Allow: /
+
+# Sogou 图片爬虫
+User-agent: Sogou Pic Spider
+Allow: /
+
+# Sogou 视频爬虫
+User-agent: Sogou Video Spider
+Allow: /
+
+# 360 图片爬虫
+User-agent: 360Spider-Image
+Allow: /
+
+# 360 视频爬虫
+User-agent: 360Spider-Video
+Allow: /
+
+# JikeSpider
+User-agent: JikeSpider
+Allow: /
+
+# Huawei 爬虫
+User-agent: HuaweiSymantecSpider
+Allow: /
+
+# Yodao 爬虫
+User-agent: YodaoBot
+Allow: /
+
+# EasouSpider
+User-agent: EasouSpider
+Allow: /
+
+# HaoSou 爬虫
+User-agent: HaoSouSpider
+Allow: /
+
+# Sosospider
+User-agent: Sosospider
+Allow: /
+
+# Yahoo 爬虫
+User-agent: Yahoo! Slurp
+Allow: /
+
+# AOL 爬虫
+User-agent: AOLbot
+Allow: /
+
+# Ask Jeeves 爬虫
+User-agent: Ask Jeeves
+Allow: /
+
+# Teoma 爬虫
+User-agent: Teoma
+Allow: /
+
+# Gigabot 爬虫
+User-agent: Gigabot
+Allow: /
+
+# Scrubby 爬虫
+User-agent: Scrubby
+Allow: /
+
+# Robozilla 爬虫
+User-agent: Robozilla
+Allow: /
+
+# Nutch 爬虫
+User-agent: Nutch
+Allow: /
+
+# Java 爬虫
+User-agent: Java
+Allow: /
+
+# libwww-perl 爬虫
+User-agent: libwww-perl
+Allow: /
+
+# Python urllib 爬虫
+User-agent: Python-urllib
+Allow: /
+
+# PHP 爬虫
+User-agent: PHP
+Allow: /
+
+# Go-http-client 爬虫
+User-agent: Go-http-client
+Allow: /
+
+# curl 爬虫
+User-agent: curl
+Allow: /
+
+# Wget 爬虫
+User-agent: Wget
 Allow: /
 
 # ============================================
