@@ -2333,23 +2333,38 @@
     <!-- 初始化访问基数 -->
     <script>
     (function() {
-        // 设置初始访问基数 328
-        var initPV = 328;
+        // 访问基数：从328开始，后续访问量在此基础上累加
+        var basePV = 328;
         var pvElement = document.getElementById('busuanzi_value_site_pv');
         
-        // 监听不蒜子加载完成
         if (pvElement) {
-            // 如果不蒜子返回的值小于初始值，使用初始值
+            // 记录不蒜子的初始值（加载前为0）
+            var busuanziBase = 0;
+            var baseRecorded = false;
+            
+            // 监听不蒜子返回值
             var observer = new MutationObserver(function(mutations) {
-                var currentValue = parseInt(pvElement.textContent) || 0;
-                if (currentValue < initPV) {
-                    pvElement.textContent = initPV;
+                var busuanziVal = parseInt(pvElement.textContent) || 0;
+                
+                // 记录不蒜子第一次返回的真实值作为基准
+                if (!baseRecorded && busuanziVal > 0) {
+                    busuanziBase = busuanziVal;
+                    baseRecorded = true;
+                }
+                
+                // 显示值 = 基数 + (不蒜子当前值 - 不蒜子初始值)
+                if (baseRecorded) {
+                    var display = basePV + (busuanziVal - busuanziBase);
+                    pvElement.textContent = display.toLocaleString();
+                } else {
+                    // 不蒜子还没加载完，先显示基数
+                    pvElement.textContent = basePV.toLocaleString();
                 }
             });
             observer.observe(pvElement, { childList: true, characterData: true });
             
-            // 设置初始显示值
-            pvElement.textContent = initPV;
+            // 初始显示基数
+            pvElement.textContent = basePV.toLocaleString();
         }
     })();
     </script>
