@@ -433,8 +433,9 @@ User-agent: archive.org_bot
 Allow: /
 
 # ============================================
-# 禁止访问的目录
+# 禁止访问的目录（适用于所有爬虫）
 # ============================================
+User-agent: *
 Disallow: /admin/
 Disallow: /_next/
 Disallow: /api/admin/
