@@ -1,16 +1,9 @@
 # TokenNexus 机器人访问协议
 # robots.txt for tokenfind.cn
-# 更新日期: 2026-05-25
+# 更新日期: 2026-05-28
 
 # ============================================
-# 通用规则 - 允许所有爬虫访问
-# ============================================
-User-agent: *
-Allow: /
-Crawl-delay: 1
-
-# ============================================
-# 常规搜索引擎爬虫
+# 核心搜索引擎爬虫
 # ============================================
 
 # Google 爬虫
@@ -35,9 +28,6 @@ Crawl-delay: 1
 User-agent: BingPreview
 Allow: /
 
-User-agent: MicrosoftPreview
-Allow: /
-
 # 百度爬虫
 User-agent: Baiduspider
 Allow: /
@@ -51,47 +41,6 @@ Allow: /
 
 User-agent: Baiduspider-news
 Allow: /
-
-# 搜狗爬虫
-User-agent: Sogou spider
-Allow: /
-Crawl-delay: 2
-
-User-agent: Sogou web spider
-Allow: /
-
-# 360 爬虫
-User-agent: 360Spider
-Allow: /
-Crawl-delay: 2
-
-User-agent: HaosouSpider
-Allow: /
-
-# 神马爬虫
-User-agent: Yisouspider
-Allow: /
-Crawl-delay: 2
-
-# Yandex 爬虫
-User-agent: YandexBot
-Allow: /
-Crawl-delay: 1
-
-# DuckDuckGo 爬虫
-User-agent: DuckDuckBot
-Allow: /
-Crawl-delay: 1
-
-# Naver 爬虫 (韩国)
-User-agent: Yeti
-Allow: /
-Crawl-delay: 1
-
-# Seznam 爬虫 (捷克)
-User-agent: SeznamBot
-Allow: /
-Crawl-delay: 1
 
 # ============================================
 # AI 搜索引擎爬虫
@@ -112,13 +61,7 @@ Allow: /
 User-agent: GPTBot
 Allow: /
 
-User-agent: OAI-SearchBot
-Allow: /
-
 # Claude / Anthropic 爬虫
-User-agent: ClaudeBot
-Allow: /
-
 User-agent: Claude-Web
 Allow: /
 
@@ -126,316 +69,16 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-# Google AI 爬虫 (Gemini)
-User-agent: Google-Extended
-Allow: /
-
-User-agent: GoogleOther
-Allow: /
-
-# Bing AI 爬虫 (Copilot)
-User-agent: Bing-Preview
-Allow: /
-
-# Apple AI 爬虫
-User-agent: Applebot
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-# Meta AI 爬虫
-User-agent: Meta-ExternalAgent
-Allow: /
-
-User-agent: Meta-ExternalFetcher
-Allow: /
-
-# Amazon AI 爬虫
-User-agent: Amazonbot
-Allow: /
-
-# Anthropic 爬虫
-User-agent: anthropic-ai
-Allow: /
-
-# Cohere AI 爬虫
-User-agent: cohere-ai
-Allow: /
-
-# Common Crawl (被许多 AI 使用)
-User-agent: CCBot
-Allow: /
-Crawl-delay: 10
-
-# You.com 爬虫
-User-agent: YouBot
-Allow: /
-
-# Neeva 爬虫
-User-agent: Neevabot
-Allow: /
-
-# Brave Search 爬虫
-User-agent: BraveBot
-Allow: /
-
-# Firecrawl 爬虫
-User-agent: FirecrawlAgent
-Allow: /
-
-# ScrapeGraph AI 爬虫
-User-agent: ScrapeGraphAI
-Allow: /
-
-# Diffbot 爬虫
-User-agent: Diffbot
-Allow: /
-
-# Imagesift 爬虫
-User-agent: ImagesiftBot
-Allow: /
-
-# Omgili 爬虫
-User-agent: Omgili
-Allow: /
-
-# Webzio 爬虫
-User-agent: Webzio
-Allow: /
-
-# Turnitin 爬虫
-User-agent: TurnitinBot
-Allow: /
-
-# iask.ai 爬虫
-User-agent: iaskspider
-Allow: /
-
-# Komodia 爬虫
-User-agent: KomodiaBot
-Allow: /
-
-# Meta AI 爬虫 (补充)
-User-agent: MetaAI
-Allow: /
-
-# ByteDance 爬虫 (补充)
-User-agent: ByteSpider
-Allow: /
-
-# ByteDance 图片爬虫
-User-agent: ByteDance-Image
-Allow: /
-
-# Toutiao 爬虫
-User-agent: ToutiaoSpider
-Allow: /
-
-# Douyin 爬虫
-User-agent: DouyinBot
-Allow: /
-
-# Sogou 图片爬虫
-User-agent: Sogou Pic Spider
-Allow: /
-
-# Sogou 视频爬虫
-User-agent: Sogou Video Spider
-Allow: /
-
-# 360 图片爬虫
-User-agent: 360Spider-Image
-Allow: /
-
-# 360 视频爬虫
-User-agent: 360Spider-Video
-Allow: /
-
-# JikeSpider
-User-agent: JikeSpider
-Allow: /
-
-# Huawei 爬虫
-User-agent: HuaweiSymantecSpider
-Allow: /
-
-# Yodao 爬虫
-User-agent: YodaoBot
-Allow: /
-
-# EasouSpider
-User-agent: EasouSpider
-Allow: /
-
-# HaoSou 爬虫
-User-agent: HaoSouSpider
-Allow: /
-
-# Sosospider
-User-agent: Sosospider
-Allow: /
-
-# Yahoo 爬虫
-User-agent: Yahoo! Slurp
-Allow: /
-
-# AOL 爬虫
-User-agent: AOLbot
-Allow: /
-
-# Ask Jeeves 爬虫
-User-agent: Ask Jeeves
-Allow: /
-
-# Teoma 爬虫
-User-agent: Teoma
-Allow: /
-
-# Gigabot 爬虫
-User-agent: Gigabot
-Allow: /
-
-# Scrubby 爬虫
-User-agent: Scrubby
-Allow: /
-
-# Robozilla 爬虫
-User-agent: Robozilla
-Allow: /
-
-# Nutch 爬虫
-User-agent: Nutch
-Allow: /
-
-# Java 爬虫
-User-agent: Java
-Allow: /
-
-# libwww-perl 爬虫
-User-agent: libwww-perl
-Allow: /
-
-# Python urllib 爬虫
-User-agent: Python-urllib
-Allow: /
-
-# PHP 爬虫
-User-agent: PHP
-Allow: /
-
-# Go-http-client 爬虫
-User-agent: Go-http-client
-Allow: /
-
-# curl 爬虫
-User-agent: curl
-Allow: /
-
-# Wget 爬虫
-User-agent: Wget
-Allow: /
-
 # ============================================
-# 社交媒体爬虫
+# 通用规则 - 允许所有其他爬虫访问
 # ============================================
-
-# Facebook
-User-agent: facebookexternalhit
+User-agent: *
 Allow: /
-
-User-agent: Facebot
-Allow: /
-
-# Twitter/X
-User-agent: Twitterbot
-Allow: /
-
-# LinkedIn
-User-agent: LinkedInBot
-Allow: /
-
-# Pinterest
-User-agent: Pinterestbot
-Allow: /
-
-# WhatsApp
-User-agent: WhatsApp
-Allow: /
-
-# Telegram
-User-agent: TelegramBot
-Allow: /
-
-# Slack
-User-agent: Slackbot
-Allow: /
-
-# Discord
-User-agent: Discordbot
-Allow: /
-
-# ============================================
-# SEO/分析工具爬虫
-# ============================================
-
-# Ahrefs
-User-agent: AhrefsBot
-Allow: /
-Crawl-delay: 10
-
-# SEMrush
-User-agent: SemrushBot
-Allow: /
-Crawl-delay: 10
-
-User-agent: SemrushBot-BA
-Allow: /
-
-User-agent: SemrushBot-SI
-Allow: /
-
-User-agent: SemrushBot-SWA
-Allow: /
-
-User-agent: SemrushBot-CT
-Allow: /
-
-User-agent: SemrushBot-BM
-Allow: /
-
-# Moz
-User-agent: Moz dotbot
-Allow: /
-
-User-agent: Rogerbot
-Allow: /
-
-# Screaming Frog
-User-agent: Screaming Frog SEO Spider
-Allow: /
-
-# Majestic
-User-agent: MJ12bot
-Allow: /
-Crawl-delay: 10
-
-# ============================================
-# 其他爬虫
-# ============================================
-
-# Internet Archive
-User-agent: ia_archiver
-Allow: /
-
-# Wayback Machine
-User-agent: archive.org_bot
-Allow: /
+Crawl-delay: 1
 
 # ============================================
 # 禁止访问的目录（适用于所有爬虫）
 # ============================================
-User-agent: *
 Disallow: /admin/
 Disallow: /_next/
 Disallow: /api/admin/
