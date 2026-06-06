@@ -30,7 +30,7 @@ var _hmt = _hmt || [];
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.tokenfind.cn/official">
     <meta property="og:title" content="官方平台 | TokenNexus - 全球AI Token导航">
-    <meta property="og:description" content="TokenNexus海外官方AI API平台导航，收录OpenAI、Anthropic Claude、Google Gemini、DeepSeek等108+官方直连平台。提供平台对比、价格查询、用户评价和API Key获取教程。">
+    <meta property="og:description" content="TokenNexus海外官方AI API平台导航，收录OpenAI、Anthropic Claude、Google Gemini、DeepSeek、Agnes AI等109+官方直连平台。提供平台对比、价格查询、用户评价和API Key获取教程。">
     <meta property="og:image" content="https://www.tokenfind.cn/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -71,6 +71,12 @@ var _hmt = _hmt || [];
                 "position": 3,
                 "name": "Google Gemini",
                 "url": "https://www.tokenfind.cn/platform/google-gemini"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Agnes AI",
+                "url": "https://www.tokenfind.cn/platform/agnes-ai"
             }
         ]
     }
@@ -642,8 +648,9 @@ var _hmt = _hmt || [];
             { id: 106, name: "Perplexity AI", verified: true, description: "AI搜索引擎公司，提供Sonar系列搜索增强模型API。集成实时网络搜索和引用功能，适合需要事实准确性和实时信息的搜索应用。", url: "https://www.perplexity.ai", logo: "/logos/perplexity.png", category: "official", tags: ["Sonar", "Sonar Pro", "联网搜索", "引用溯源", "实时信息"], pricing: "$1-15/1M tokens", rating: 4.5, reviews: 756 },
             { id: 107, name: "Stability AI", verified: true, description: "图像生成领域的领军企业，提供Stable Diffusion系列模型的官方API。服务涵盖图像生成、图像编辑、背景移除、超分辨率、3D生成和音频生成等多种能力。", url: "https://platform.stability.ai", logo: "/logos/stability-ai.png", category: "official", tags: ["Stable Diffusion", "SD3.5", "图像生成", "超分辨率", "3D生成"], pricing: "$0.01-0.20/次", rating: 4.4, reviews: 654 },
             { id: 108, name: "AI21 Labs", verified: true, description: "以色列AI公司，专注于混合SSM-Transformer架构的Jamba系列模型。Jamba 1.7 Large拥有94B活跃参数和256K超长上下文窗口，在长文档理解方面表现突出。", url: "https://www.ai21.com", logo: "/logos/ai21.png", category: "official", tags: ["Jamba", "SSM-Transformer", "256K上下文", "长文档", "企业级"], pricing: "$0.20-8/1M tokens", rating: 4.3, reviews: 432 },
-            { id: 109, name: "Cerebras", verified: true, description: "基于自研WSE芯片的AI推理平台，以极致推理速度著称，号称比OpenAI和Anthropic快20倍。支持多种开源LLM，适合对推理延迟极度敏感的应用场景。", url: "https://www.cerebras.ai", logo: "/logos/cerebras.png", category: "official", tags: ["极速推理", "WSE芯片", "Llama", "DeepSeek", "低延迟"], pricing: "$0.10-0.60/1M tokens", rating: 4.4, reviews: 567 },
-            { id: 110, name: "SambaNova", verified: true, description: "基于自研芯片的AI推理平台，提供高速推理API服务。以高吞吐量和低延迟为特色，新用户获$5免费额度，可兑换超3000万Llama 8B tokens。", url: "https://cloud.sambanova.ai", logo: "/logos/sambanova.png", category: "official", tags: ["自研芯片", "高速推理", "Llama", "DeepSeek", "高吞吐"], pricing: "$0.22-1.80/1M tokens", rating: 4.3, reviews: 445 },
+            { id: 109, name: "Agnes AI", verified: true, description: "Agnes AI是新加坡Sapiens AI公司推出的免费多模态AI API平台，提供Agnes 2.0 Flash文本模型、Agnes Image 2.0/2.1 Flash图像生成模型、Agnes Video V2.0视频生成模型。支持免费AI API调用和TokenPlan订阅模式，覆盖文本、图像、视频三大模态。Agnes-2.0-Flash在ClawEval基准测试中得分60.9%，图像模型Elo评分1178。", url: "https://agnes-ai.com", logo: "/logos/agnes-ai.svg", category: "official", tags: ["Agnes 2.0", "免费API", "多模态", "图像生成", "视频生成", "TokenPlan"], pricing: "免费 + TokenPlan订阅", rating: 4.6, reviews: 328 },
+            { id: 110, name: "Cerebras", verified: true, description: "基于自研WSE芯片的AI推理平台，以极致推理速度著称，号称比OpenAI和Anthropic快20倍。支持多种开源LLM，适合对推理延迟极度敏感的应用场景。", url: "https://www.cerebras.ai", logo: "/logos/cerebras.png", category: "official", tags: ["极速推理", "WSE芯片", "Llama", "DeepSeek", "低延迟"], pricing: "$0.10-0.60/1M tokens", rating: 4.4, reviews: 567 },
+            { id: 111, name: "SambaNova", verified: true, description: "基于自研芯片的AI推理平台，提供高速推理API服务。以高吞吐量和低延迟为特色，新用户获$5免费额度，可兑换超3000万Llama 8B tokens。", url: "https://cloud.sambanova.ai", logo: "/logos/sambanova.png", category: "official", tags: ["自研芯片", "高速推理", "Llama", "DeepSeek", "高吞吐"], pricing: "$0.22-1.80/1M tokens", rating: 4.3, reviews: 445 },
             { id: 134, name: "ElevenLabs", verified: true, description: "全球领先的AI语音合成平台，提供超逼真的文本转语音API。支持29种语言和声音克隆，Eleven Multilingual v2模型在自然度和情感表达方面业界领先，广泛应用于有声书、播客和视频配音。", url: "https://elevenlabs.io", logo: "/logos/elevenlabs.png", category: "official", tags: ["TTS", "语音合成", "声音克隆", "29种语言", "多模态"], pricing: "免费 + $5/月起", rating: 4.7, reviews: 2345 },
             { id: 135, name: "AssemblyAI", verified: true, description: "领先的企业级语音AI平台，提供高精度语音转文字API。支持说话人分离、情感分析、自动摘要和主题检测等高级功能，Universal-2模型在多语言场景下表现卓越。", url: "https://www.assemblyai.com", logo: "/logos/assemblyai.png", category: "official", tags: ["语音识别", "说话人分离", "情感分析", "Whisper", "企业级"], pricing: "$0.005-0.015/分钟", rating: 4.6, reviews: 1234 },
             { id: 136, name: "Fal.ai", verified: true, description: "专注生成式媒体AI的推理平台，以极速图像和视频生成为核心。红杉资本投资，估值45亿美元，提供FLUX、Stable Diffusion、Kling视频等模型的优化推理API。", url: "https://fal.ai", logo: "/logos/fal-ai.png", category: "official", tags: ["FLUX", "图像生成", "视频生成", "Kling", "极速推理"], pricing: "$0.01-0.05/次", rating: 4.5, reviews: 876 },
