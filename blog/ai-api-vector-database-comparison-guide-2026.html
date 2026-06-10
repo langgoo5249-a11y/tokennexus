@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?aa6a94065c3983b2407d20b92e8d1fd9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI API向量数据库选型指南 | TokenNexus AI API攻略</title>
+    <meta name="description" content="深度对比Pinecone、Milvus、Weaviate三大向量数据库，详解选型决策树、性能调优、成本控制策略，附Python完整代码示例。">
+    <meta name="keywords" content="向量数据库选型、Pinecone vs Milvus、AI向量数据库、向量检索对比、RAG向量存储、embedding向量数据库、Weaviate对比、向量数据库性能对比">
+    <meta name="author" content="TokenNexus Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-vector-database-comparison-guide-2026.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI API向量数据库选型指南">
+    <meta property="og:description" content="深度对比Pinecone、Milvus、Weaviate三大向量数据库，详解选型决策树、性能调优、成本控制策略，附Python完整代码示例。">
+    <meta property="og:url" content="https://www.tokenfind.cn/blog/ai-api-vector-database-comparison-guide-2026.html">
+    <meta property="og:image" content="https://www.tokenfind.cn/blog/images/ai-api-vector-database-comparison-guide-2026.jpg">
+    <meta property="og:site_name" content="TokenNexus">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"AI API向量数据库选型指南","description":"深度对比Pinecone、Milvus、Weaviate三大向量数据库，详解选型决策树、性能调优、成本控制策略，附Python完整代码示例。","url":"https://www.tokenfind.cn/blog/ai-api-vector-database-comparison-guide-2026.html","datePublished":"2026-06-10","dateModified":"2026-06-10","author":{"@type":"Organization","name":"TokenNexus"},"publisher":{"@type":"Organization","name":"TokenNexus","logo":{"@type":"ImageObject","url":"https://www.tokenfind.cn/favicon.svg"}},"mainEntityOfPage":"https://www.tokenfind.cn/blog/ai-api-vector-database-comparison-guide-2026.html"}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.tokenfind.cn/"},{"@type":"ListItem","position":2,"name":"攻略","item":"https://www.tokenfind.cn/blog/guides"},{"@type":"ListItem","position":3,"name":"向量数据库选型","item":"https://www.tokenfind.cn/blog/ai-api-vector-database-comparison-guide-2026.html"}]}
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0CX9NNWKR8');
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--neon-cyan:#00f0ff;--neon-purple:#b829dd;--dark-bg:#050508;--card-bg:rgba(10,10,18,0.9);--card-border:rgba(0,240,255,0.15);--text-primary:#fff;--text-secondary:#8b92a8}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',sans-serif;background:var(--dark-bg);color:var(--text-primary);min-height:100vh;line-height:1.8}
+        .navbar{position:fixed;top:0;left:0;right:0;height:80px;background:rgba(5,5,8,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--card-border);display:flex;align-items:center;justify-content:space-between;padding:0 60px;z-index:1000}
+        .logo{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--text-primary)}
+        .logo-text{font-family:'Orbitron',sans-serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .nav-links{display:flex;gap:32px}
+        .nav-link{color:var(--text-secondary);text-decoration:none;font-size:16px;transition:color .3s}
+        .nav-link:hover,.nav-link.active{color:var(--neon-cyan)}
+        .article-container{max-width:800px;margin:0 auto;padding:120px 60px 80px}
+        .article-meta{display:flex;gap:16px;align-items:center;margin-bottom:24px;flex-wrap:wrap}
+        .article-tag{padding:4px 12px;background:rgba(0,240,255,0.1);border:1px solid rgba(0,240,255,0.2);border-radius:12px;font-size:0.75rem;color:var(--neon-cyan)}
+        .article-date{color:var(--text-secondary);font-size:0.85rem}
+        .article-title{font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:700;line-height:1.3;margin-bottom:24px;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .article-subtitle{font-size:1.1rem;color:var(--text-secondary);margin-bottom:40px;line-height:1.6}
+        .article-content{font-size:1rem;line-height:2;color:var(--text-secondary)}
+        .article-content h2{font-family:'Orbitron',sans-serif;font-size:1.3rem;color:var(--neon-cyan);margin:40px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--card-border)}
+        .article-content h3{font-size:1.1rem;color:var(--text-primary);margin:24px 0 12px}
+        .article-content p{margin-bottom:16px}
+        .article-content ul,.article-content ol{margin:0 0 16px 24px}
+        .article-content li{margin-bottom:8px}
+        .article-content strong{color:var(--text-primary)}
+        .article-content code{background:rgba(0,240,255,0.08);padding:2px 8px;border-radius:4px;font-size:0.9rem;color:var(--neon-cyan)}
+        .article-content pre{background:rgba(0,0,0,0.4);border:1px solid var(--card-border);border-radius:12px;padding:20px;margin:16px 0;overflow-x:auto;font-size:0.85rem;line-height:1.6}
+        .article-content pre code{background:none;padding:0;color:var(--text-secondary)}
+        .article-content table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.9rem}
+        .article-content th{background:rgba(0,240,255,0.08);color:var(--neon-cyan);padding:12px 16px;text-align:left;border-bottom:1px solid var(--card-border)}
+        .article-content td{padding:10px 16px;border-bottom:1px solid rgba(0,240,255,0.06)}
+        .article-content tr:hover{background:rgba(0,240,255,0.03)}
+        .article-content blockquote{border-left:3px solid var(--neon-cyan);padding:12px 20px;margin:16px 0;background:rgba(0,240,255,0.03);border-radius:0 8px 8px 0}
+        .highlight-box{background:linear-gradient(135deg,rgba(0,240,255,0.08),rgba(184,41,221,0.08));border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:20px;margin:20px 0}
+        .warning-box{background:rgba(255,100,100,0.08);border:1px solid rgba(255,100,100,0.2);border-radius:12px;padding:20px;margin:20px 0}
+        .warning-box h4{color:#ff6b6b;margin-bottom:8px}
+        .tip-box{background:rgba(0,240,255,0.05);border:1px solid var(--card-border);border-radius:12px;padding:16px;margin:16px 0}
+        .tip-box h4{color:var(--neon-cyan);margin-bottom:8px;font-size:0.95rem}
+        .decision-tree{background:rgba(0,0,0,0.3);border:1px solid var(--card-border);border-radius:12px;padding:20px;margin:20px 0}
+        .decision-tree pre{background:transparent;border:none;padding:0;margin:0}
+        .cta-box{background:linear-gradient(135deg,rgba(0,240,255,0.05),rgba(184,41,221,0.05));border:1px solid var(--card-border);border-radius:16px;padding:24px;margin:40px 0;text-align:center}
+        .cta-box h3{font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--neon-cyan);margin-bottom:12px}
+        .cta-box p{color:var(--text-secondary);margin-bottom:16px;font-size:0.9rem}
+        .cta-box a{display:inline-block;padding:10px 24px;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));color:#000;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.9rem}
+        .footer{background:rgba(5,5,8,0.95);border-top:1px solid var(--card-border);padding:40px 60px;text-align:center;margin-top:60px}
+        .footer-links{display:flex;justify-content:center;gap:32px;margin-bottom:16px}
+        .footer-link{color:var(--text-secondary);text-decoration:none;font-size:14px}
+        .footer-link:hover{color:var(--neon-cyan)}
+        @media(max-width:768px){.navbar{padding:0 20px}.nav-links{display:none}.article-container{padding:100px 20px 60px}.article-title{font-size:1.5rem}}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../" class="logo"><span class="logo-text">TokenNexus</span></a>
+        <div class="nav-links">
+            <a href="../" class="nav-link">首页</a>
+            <a href="../official.html" class="nav-link">官方平台</a>
+            <a href="../aggregator.html" class="nav-link">聚合平台</a>
+            <a href="../china.html" class="nav-link">国内平台</a>
+            <a href="guides.html" class="nav-link active">攻略</a>
+        </div>
+    </nav>
+    <article class="article-container">
+        <div class="article-meta">
+            <span class="article-tag">技术教程</span>
+            <span class="article-date">2026-06-10</span>
+        </div>
+        <h1 class="article-title">AI API向量数据库选型指南</h1>
+        <p class="article-subtitle">从RAG翻车到完美选型，手把手教你选对向量数据库</p>
+        
+        <div class="article-content">
+            <h2>我是怎么被向量检索坑了3天的</h2>
+            
+            <p>去年做企业知识库RAG项目，用的是某云厂商的向量数据库。测试阶段一切正常，上线第一天就傻眼了——<strong>100个用户同时查询，响应时间从0.1秒飙到8秒</strong>。</p>
+            
+            <p>我开始怀疑人生：明明测试数据才1万条，上线也就10万条，怎么就慢成这样？后来请了懂行的朋友来看，他看了一眼索引配置就笑了："你这HNSW参数设置的是默认的m=16，ef=100，数据量大了肯定完蛋。"</p>
+
+            <p>换了Milvus，调整了参数，QPS从15直接拉到800+。这才明白——<strong>向量数据库不是装上就能用的，选型和调优太重要了</strong>。</p>
+
+            <div class="warning-box">
+                <h4>血的教训</h4>
+                <p>选向量数据库不能只看功能，性能和运维成本才是决定你项目成败的关键。</p>
+            </div>
+
+            <h2>向量数据库核心原理</h2>
+
+            <p>在说选型之前，先搞懂向量数据库是怎么工作的。</p>
+
+            <h3>向量是什么</h3>
+
+            <p>简单理解，向量就是把文字、图片、音频等数据转成一串数字。比如用OpenAI的text-embedding-3-small模型，一句话能转成1536维的向量：</p>
+
+<pre><code>import openai
+
+# 一段文字 → 1536维向量
+response = openai.embeddings.create(
+    model="text-embedding-3-small",
+    input="向量数据库是AI时代的基础设施"
+)
+vector = response.data[0].embedding
+print(f"向量维度: {len(vector)}")  # 输出: 1536
+print(f"向量示例: {vector[:5]}...")  # 输出: [0.012, -0.034, 0.089, ...]</code></pre>
+
+            <h3>相似度计算：余弦相似度 vs 点积</h3>
+
+            <p>向量检索的核心是比较"距离"。两个向量越接近，语义越相似。</p>
+
+            <ul>
+                <li><strong>余弦相似度</strong>：衡量方向相似，取值-1到1，越接近1越相似</li>
+                <li><strong>点积</strong>：综合考虑方向和长度，对短向量友好</li>
+            </ul>
+
+            <div class="tip-box">
+                <h4>选哪个？</h4>
+                <p>大多数场景用余弦相似度就够了。如果你的向量已经做了归一化，点积和余弦等价。</p>
+            </div>
+
+            <h3>ANN近似最近邻：快就一个字</h3>
+
+            <p>如果用暴力搜索，100万条向量要比较100万次，耗时巨大。ANN（近似最近邻）算法通过建立索引，把搜索复杂度降到对数级别。</p>
+
+            <p>常见的ANN算法：</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>算法</th>
+                        <th>特点</th>
+                        <th>适用场景</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>HNSW</strong></td>
+                        <td>速度快，内存占用高</td>
+                        <td>追求极致QPS，数据量1000万以下</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IVF</strong></td>
+                        <td>内存友好，精度可控</td>
+                        <td>超大规模数据，内存受限</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PQ</strong></td>
+                        <td>压缩率高，有精度损失</td>
+                        <td>超大规模数据，成本敏感</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HNSW + IVF</strong></td>
+                        <td>两者兼顾，配置复杂</td>
+                        <td>超大规模+高性能需求</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>三大主流向量数据库横评</h2>
+
+            <h3>Pinecone：零运维的云原生方案</h3>
+
+            <p><strong>定位</strong>：PaaS级服务，让你专注业务而非运维。</p>
+
+            <p><strong>核心优势</strong>：</p>
+            <ul>
+                <li>完全托管，零运维负担</li>
+                <li>Serverless起步，按量付费</li>
+                <li>Sota API设计，集成简单</li>
+                <li>支持元数据过滤</li>
+            </ul>
+
+            <p><strong>定价</strong>：</p>
+            <ul>
+                <li>Serverless：$0.025/1K向量/天（起步$70/月）</li>
+                <li>Starter：$70/100万向量/天</li>
+                <li>Query费用另算</li>
+            </ul>
+
+<pre><code># Pinecone 快速上手
+import pinecone
+
+pinecone.init(api_key="your-api-key", environment="us-east-1")
+index = pinecone.Index("my-rag-index")
+
+# 插入向量
+index.upsert([
+    ("doc1", [0.1, 0.2, ...], {"text": "文档内容", "source": "manual"}),
+    ("doc2", [0.3, 0.4, ...], {"text": "另一篇文档", "source": "auto"})
+])
+
+# 查询
+results = index.query(
+    vector=[0.1, 0.2, ...],
+    top_k=5,
+    filter={"source": {"$eq": "manual"}}
+)
+print(results)</code></pre>
+
+            <h3>Milvus：开源高性能的扛把子</h3>
+
+            <p><strong>定位</strong>：企业级开源方案，适合需要深度定制和自托管的场景。</p>
+
+            <p><strong>核心优势</strong>：</p>
+            <ul>
+                <li>完全开源，代码可控</li>
+                <li>支持混合标量过滤</li>
+                <li>水平扩展能力强</li>
+                <li>社区活跃，更新频繁</li>
+            </ul>
+
+            <p><strong>部署选项</strong>：</p>
+            <ul>
+                <li>Milvus Lite：单机版，开发测试用</li>
+                <li>Milvus Standalone：单节点生产</li>
+                <li>Milvus Cluster：分布式集群</li>
+                <li>Zilliz Cloud：官方托管版</li>
+            </ul>
+
+<pre><code># Milvus 快速上手
+from pymilvus import MilvusClient
+
+client = MilvusClient(uri="./milvus_demo.db")
+
+# 创建集合
+client.create_collection(
+    collection_name="rag_knowledge",
+    dimension=1536,
+    metric_type="COSINE"
+)
+
+# 插入数据
+client.insert(
+    collection_name="rag_knowledge",
+    data=[
+        {"id": 1, "vector": [0.1, 0.2, ...], "text": "文档内容"},
+        {"id": 2, "vector": [0.3, 0.4, ...], "text": "另一篇文档"}
+    ]
+)
+
+# 查询
+results = client.search(
+    collection_name="rag_knowledge",
+    data=[[0.1, 0.2, ...]],
+    limit=5
+)</code></pre>
+
+            <h3>Weaviate：多模态原生的全能选手</h3>
+
+            <p><strong>定位</strong>：开源+云服务混合，支持多模态向量（文本、图像、视频、音频）。</p>
+
+            <p><strong>核心优势</strong>：</p>
+            <ul>
+                <li>多模态原生：内置embedding模型</li>
+                <li>GraphQL + REST双API</li>
+                <li>混合搜索：向量+关键词</li>
+                <li>支持实时向量化</li>
+            </ul>
+
+<pre><code># Weaviate 快速上手
+import weaviate
+
+client = weaviate.Client("http://localhost:8080")
+
+# 添加类（Schema）
+article_class = {
+    "class": "Article",
+    "vectorizer": "text2vec-openai",
+    "moduleConfig": {
+        "text2vec-openai": {"vectorizeClassName": False}
+    }
+}
+client.schema.create_class(article_class)
+
+# 添加对象
+client.data_object.create(
+    class_name="Article",
+    data_object={"title": "向量数据库选型指南", "content": "..."}
+)
+
+# 查询
+results = client.query.get("Article", ["title", "content"]).with_near_text({
+    "concepts": ["向量数据库选型"]
+}).with_limit(5).do()</code></pre>
+
+            <h2>五维对比表</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>维度</th>
+                        <th>Pinecone</th>
+                        <th>Milvus</th>
+                        <th>Weaviate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>部署方式</strong></td>
+                        <td>仅云服务</td>
+                        <td>自托管+云</td>
+                        <td>自托管+云</td>
+                    </tr>
+                    <tr>
+                        <td><strong>开源协议</strong></td>
+                        <td>闭源</td>
+                        <td>Apache 2.0</td>
+                        <td>BSD-3-Clause</td>
+                    </tr>
+                    <tr>
+                        <td><strong>QPS能力</strong></td>
+                        <td>高</td>
+                        <td>极高</td>
+                        <td>中高</td>
+                    </tr>
+                    <tr>
+                        <td><strong>数据规模</strong></td>
+                        <td>支持数亿</td>
+                        <td>支持数十亿</td>
+                        <td>支持数亿</td>
+                    </tr>
+                    <tr>
+                        <td><strong>多模态</strong></td>
+                        <td>仅文本（API层）</td>
+                        <td>通过插件</td>
+                        <td>原生支持</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Serverless</strong></td>
+                        <td>支持</td>
+                        <td>不支持</td>
+                        <td>不支持</td>
+                    </tr>
+                    <tr>
+                        <td><strong>混合搜索</strong></td>
+                        <td>支持</td>
+                        <td>支持</td>
+                        <td>原生支持</td>
+                    </tr>
+                    <tr>
+                        <td><strong>成本（100万向量/月）</strong></td>
+                        <td>~$70</td>
+                        <td>~$30（云服务器）</td>
+                        <td>~$35（云服务器）</td>
+                    </tr>
+                    <tr>
+                        <td><strong>学习曲线</strong></td>
+                        <td>低</td>
+                        <td>中高</td>
+                        <td>中</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>选型决策树</h2>
+
+            <p>根据我的踩坑经验，总结了一个决策树：</p>
+
+            <div class="decision-tree">
+<pre><code>你的数据量是多少？
+│
+├─ < 100万向量
+│   ├─ 需要快速上线，不想运维
+│   │   └─ → Weaviate (Docker一键部署) 或 Supabase pgvector
+│   │
+│   ├─ 有多模态需求（图片+文字）
+│   │   └─ → Weaviate（内置向量化）
+│   │
+│   └─ 预算有限，技术能力强
+│       └─ → Milvus Lite + SQLite（免费）
+│
+├─ 100万 ~ 10亿向量
+│   ├─ 需要高并发（QPS>1000）
+│   │   └─ → Milvus Cluster
+│   │
+│   ├─ 追求极致性价比
+│   │   └─ → Milvus + Zilliz Cloud（按量付费）
+│   │
+│   └─ 不想运维，但能接受等待
+│       └─ → Pinecone Serverless
+│
+└─ > 10亿向量
+    └─ → Milvus + Kubernetes + GPU节点
+        （或考虑专用向量搜索引擎如SPTAG、FAISS）</code></pre>
+            </div>
+
+            <h3>场景化推荐</h3>
+
+            <ul>
+                <li><strong>初创公司快速验证</strong>：Pinecone Serverless or Weaviate Docker</li>
+                <li><strong>中大型企业RAG系统</strong>：Milvus Cluster + Zilliz Cloud</li>
+                <li><strong>电商/内容平台多模态搜索</strong>：Weaviate</li>
+                <li><strong>技术团队强，需要完全可控</strong>：Milvus自托管</li>
+            </ul>
+
+            <h2>Embedding + 向量存储完整代码</h2>
+
+            <p>下面是一套完整的RAG向量化方案，使用OpenAI的embedding模型：</p>
+
+            <h3>方案1：OpenAI + Milvus</h3>
+
+<pre><code>pip install openai pymilvus transformers langchain-text-splitters
+
+import openai
+from pymilvus import MilvusClient
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+# 配置
+EMBEDDING_MODEL = "text-embedding-3-small"
+MILVUS_URI = "./rag_knowledge.db"
+COLLECTION_NAME = "knowledge_base"
+
+class RAGVectorStore:
+    def __init__(self):
+        self.client = MilvusClient(uri=MILVUS_URI)
+        self.embed_client = openai.OpenAI()
+        
+        # 创建集合
+        if not self.client.has_collection(COLLECTION_NAME):
+            self.client.create_collection(
+                collection_name=COLLECTION_NAME,
+                dimension=1536,  # text-embedding-3-small 输出维度
+                metric_type="COSINE"
+            )
+    
+    def get_embedding(self, text: str) -> list:
+        """获取文本的向量表示"""
+        response = self.embed_client.embeddings.create(
+            model=EMBEDDING_MODEL,
+            input=text
+        )
+        return response.data[0].embedding
+    
+    def chunk_and_index(self, documents: list[dict], chunk_size=500, chunk_overlap=50):
+        """分块并索引文档"""
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=chunk_size,
+            chunk_overlap=chunk_overlap,
+            separators=["\n\n", "\n", "。", "！", "？", "，", " "]
+        )
+        
+        vectors = []
+        for doc in documents:
+            chunks = text_splitter.split_text(doc["content"])
+            for i, chunk in enumerate(chunks):
+                vectors.append({
+                    "id": f"{doc['id']}_{i}",
+                    "vector": self.get_embedding(chunk),
+                    "text": chunk,
+                    "metadata": doc.get("metadata", {})
+                })
+        
+        # 批量插入
+        self.client.insert(
+            collection_name=COLLECTION_NAME,
+            data=vectors
+        )
+        print(f"已索引 {len(vectors)} 个文本块")
+    
+    def search(self, query: str, top_k=5) -> list:
+        """向量检索"""
+        query_vector = self.get_embedding(query)
+        results = self.client.search(
+            collection_name=COLLECTION_NAME,
+            data=[query_vector],
+            limit=top_k
+        )
+        return [(r["entity"]["text"], r["distance"]) for r in results[0]]
+
+# 使用示例
+rag = RAGVectorStore()
+
+# 索引文档
+docs = [
+    {"id": "doc1", "content": "向量数据库是存储和检索向量表示的技术...", "metadata": {"source": "wiki"}},
+    {"id": "doc2", "content": "Milvus是一个开源的向量数据库...", "metadata": {"source": "docs"}}
+]
+rag.chunk_and_index(docs)
+
+# 检索
+results = rag.search("什么是向量数据库")
+for text, score in results:
+    print(f"[{score:.4f}] {text[:100]}...")</code></pre>
+
+            <h3>方案2：OpenAI + Weaviate</h3>
+
+<pre><code>pip install weaviate-client openai
+
+import weaviate
+from weaviate.embedded import EmbeddedOptions
+
+class WeaviateRAG:
+    def __init__(self):
+        self.client = weaviate.Client(
+            embedded_options=EmbeddedOptions()
+        )
+    
+    def setup_schema(self, class_name="Document"):
+        """创建Schema"""
+        self.client.schema.create_class({
+            "class": class_name,
+            "vectorizer": "text2vec-openai",
+            "moduleConfig": {
+                "text2vec-openai": {"vectorizeClassName": False}
+            },
+            "properties": [
+                {"name": "content", "dataType": ["text"]},
+                {"name": "source", "dataType": ["text"]}
+            ]
+        })
+        self.class_name = class_name
+    
+    def add_documents(self, documents: list):
+        """添加文档"""
+        with self.client.batch as batch:
+            for doc in documents:
+                batch.add_data_object(
+                    class_name=self.class_name,
+                    data_object={
+                        "content": doc["content"],
+                        "source": doc.get("source", "unknown")
+                    }
+                )
+        print(f"已添加 {len(documents)} 个文档")
+    
+    def search(self, query: str, limit=5):
+        """混合检索"""
+        result = self.client.query.get(
+            self.class_name, ["content", "source"]
+        ).with_near_text({
+            "concepts": [query]
+        }).with_limit(limit).do()
+        
+        return [(obj["content"], obj.get("_additional", {}).get("distance", 0)) 
+                for obj in result["data"]["Get"][self.class_name]]
+
+# 使用
+rag = WeaviateRAG()
+rag.setup_schema()
+rag.add_documents([
+    {"content": "向量数据库核心原理...", "source": "wiki"},
+    {"content": "Pinecone vs Milvus对比...", "source": "blog"}
+])
+results = rag.search("向量数据库选型")
+print(results)</code></pre>
+
+            <h2>向量数据库调优实战</h2>
+
+            <h3>分块策略（Chunking）</h3>
+
+            <p>分块大小直接影响检索质量：</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>场景</th>
+                        <th>推荐chunk_size</th>
+                        <th>overlap</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>短问答（FAQ）</td>
+                        <td>100-200</td>
+                        <td>20-30</td>
+                    </tr>
+                    <tr>
+                        <td>文档摘要</td>
+                        <td>300-500</td>
+                        <td>50-100</td>
+                    </tr>
+                    <tr>
+                        <td>技术文档/代码</td>
+                        <td>500-800</td>
+                        <td>100-150</td>
+                    </tr>
+                    <tr>
+                        <td>长篇文章</td>
+                        <td>800-1500</td>
+                        <td>150-300</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tip-box">
+                <h4>实战经验</h4>
+                <p>chunk_size不是越大越好。太大了噪声多，太小了上下文不完整。建议先跑一批测试集，找最优值。</p>
+            </div>
+
+            <h3>TopK参数选择</h3>
+
+            <p>topK控制召回数量，但要和后续的重排序（rerank）配合：</p>
+
+            <ul>
+                <li><strong>RAG直接生成</strong>：topK=3~5就够了</li>
+                <li><strong>RAG+重排序</strong>：topK=20~50，让rerank模型精筛</li>
+                <li><strong>聚类/分类</strong>：可能需要topK=100+</li>
+            </ul>
+
+            <h3>HNSW参数调优</h3>
+
+<pre><code># Milvus HNSW参数调整示例
+client.create_collection(
+    collection_name="my_collection",
+    dimension=1536,
+    metric_type="COSINE",
+    index_params={
+        "index_type": "HNSW",
+        "params": {"M": 32, "efConstruction": 200},  # 关键参数
+        "metric_type": "COSINE"
+    }
+)
+
+# 参数说明：
+# M: 节点连接数，越大精度越高，内存占用越大
+#   - 小数据(<100万): M=16-32
+#   - 中数据(100万-1亿): M=32-64
+#   - 大数据(>1亿): M=64-128
+
+# efConstruction: 构建索引时的搜索范围，越大精度越高，构建越慢
+#   - 推荐值: 100-400
+#   - 精度敏感场景: 256-512</code></pre>
+
+            <h2>成本控制策略</h2>
+
+            <h3>向量维度选择</h3>
+
+            <p>维度越高精度越好，但成本也越高：</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Embedding模型</th>
+                        <th>维度</th>
+                        <th>适用场景</th>
+                        <th>存储因子</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>text-embedding-3-small</td>
+                        <td>1536（可缩减到384）</td>
+                        <td>通用场景</td>
+                        <td>1x</td>
+                    </tr>
+                    <tr>
+                        <td>text-embedding-3-large</td>
+                        <td>3072（可缩减到256）</td>
+                        <td>高精度需求</td>
+                        <td>2x</td>
+                    </tr>
+                    <tr>
+                        <td>text-embedding-ada-002</td>
+                        <td>1536（固定）</td>
+                        <td>向后兼容</td>
+                        <td>1x</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <p><strong>维度缩减技巧</strong>：</p>
+                <p>text-embedding-3-small支持指定维度：</p>
+<pre><code># 生成1536维向量后缩减到384维
+response = openai.embeddings.create(
+    model="text-embedding-3-small",
+    input="文本",
+    dimensions=384  # 直接指定，API自动处理
+)
+# 存储的是384维，精度略有下降但存储/检索速度快4倍</code></pre>
+            </div>
+
+            <h3>Quantization压缩</h3>
+
+            <p>对于超大规模数据，可以使用量化压缩：</p>
+
+            <ul>
+                <li><strong>INT8量化</strong>：float32转int8，压缩75%，精度损失<2%</li>
+                <li><strong>Binary量化</strong>：转01，压缩32倍，但精度损失较大</li>
+                <li><strong>Product Quantization (PQ)</strong>：分段量化，平衡精度和压缩</li>
+            </ul>
+
+<pre><code># Milvus量化配置
+client.create_collection(
+    collection_name="my_collection",
+    dimension=1536,
+    index_params={
+        "index_type": "HNSW",
+        "params": {"M": 16, "efConstruction": 128},
+    },
+    # 启用量化
+    "quantization_type": "SCALAR"  # 启用标量量化
+)</code></pre>
+
+            <h3>成本估算公式</h3>
+
+<pre><code>def estimate_monthly_cost(
+    num_vectors: int,
+    dimension: int = 1536,
+    qps: int = 100,
+    db_choice: str = "milvus"
+) -> dict:
+    """估算月成本"""
+    
+    # 存储成本（按向量数估算）
+    storage_per_vector_bytes = dimension * 4  # float32
+    if db_choice == "milvus":
+        storage_cost = num_vectors * storage_per_vector_bytes / (1024**3) * 0.1  # 云盘$0.1/GB/月
+    else:  # pinecone
+        storage_cost = num_vectors / 1_000_000 * 70  # $70/百万向量/月
+    
+    # 查询成本（按QPS估算）
+    queries_per_month = qps * 30 * 24 * 3600
+    if db_choice == "pinecone":
+        query_cost = queries_per_month / 1_000_000 * 0.20  # $0.20/千次查询
+    else:
+        query_cost = qps * 0.1 * 30  # 估算云服务器成本
+    
+    return {
+        "storage_cost": round(storage_cost, 2),
+        "query_cost": round(query_cost, 2),
+        "total": round(storage_cost + query_cost, 2)
+    }
+
+# 示例：1000万向量，QPS=100
+cost = estimate_monthly_cost(10_000_000, qps=100, db_choice="milvus")
+print(f"Milvus月成本: ${cost['total']}")
+# storage_cost: $60, query_cost: $300, total: $360</code></pre>
+
+            <h2>总结：选型关键点</h2>
+
+            <ol>
+                <li><strong>数据量决定方案</strong>：100万以下用轻量方案，100万以上必须上集群版</li>
+                <li><strong>运维能力是关键</strong>：不想运维选Pinecone/Weaviate云版，想省钱选Milvus自托管</li>
+                <li><strong>多模态需求单独考虑</strong>：Weaviate在图片+文字场景有优势</li>
+                <li><strong>调优比选型更重要</strong>：同样的数据库，调优前后性能可能差10倍</li>
+                <li><strong>成本要算清楚</strong>：存储+查询双维度估算，别只看单价</li>
+            </ol>
+
+            <p>选对了向量数据库，RAG应用就成功了一半。剩下的就是工程优化和数据质量的问题了。</p>
+
+        </div>
+
+        <div class="cta-box">
+            <h3>发现更多AI API工具</h3>
+            <p>TokenNexus收录向量数据库、Embedding模型等AI基础设施对比，帮助你构建更高效的AI应用。</p>
+            <a href="../">立即探索</a>
+        </div>
+    </article>
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="../" class="footer-link">首页</a>
+            <a href="guides.html" class="footer-link">攻略</a>
+            <a href="../about.html" class="footer-link">关于</a>
+            <a href="../privacy.html" class="footer-link">隐私政策</a>
+        </div>
+        <p style="color:var(--text-secondary);font-size:13px">&copy; 2024-2026 TokenNexus. All rights reserved.</p>
+    </footer>
+</body>
+</html>
