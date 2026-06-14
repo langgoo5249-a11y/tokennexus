@@ -14,8 +14,8 @@ var _hmt = _hmt || [];
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{platform.name}} - TokenNexus平台详情 | AI API中转站评测</title>
-    <meta name="description" content="{{platform.name}}详细介绍：支持{{platform.models.join('、')}}等模型，倍率{{platform.priceMultiplier}}，{{platform.paymentMethods.join('、')}}支付，30天可用率{{platform.uptime30d}}%，平均延迟{{platform.avgLatency}}ms。{{platform.longDescription.substring(0,80)}}...">
+    <title>{{platform.name}} - 价格/评测/接入教程 | TokenNexus AI API导航</title>
+    <meta name="description" content="{{platform.name}} API 平台详情：支持{{platform.models.join('、')}}等模型，倍率{{platform.priceMultiplier}}，{{platform.paymentMethods.join('、')}}支付，30天可用率{{platform.uptime30d}}%，平均延迟{{platform.avgLatency}}ms。查看完整价格对比、用户评测和API接入教程。">
     <meta name="keywords" content="{{platform.name}},{{platform.models.join(',')}},AI API,中转站,{{platform.tags.join(',')}},价格对比,评测">
     
     <!-- Open Graph -->
@@ -531,6 +531,111 @@ var _hmt = _hmt || [];
             background: rgba(0, 240, 255, 0.1);
         }
 
+        /* FAQ 模块样式（GEO优化核心） */
+        .faq-section {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+        .faq-section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            border-color: rgba(0, 240, 255, 0.3);
+        }
+        .faq-item summary {
+            padding: 20px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item summary::after {
+            content: '+';
+            font-size: 22px;
+            color: var(--neon-cyan);
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+        .faq-item[open] summary::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+        .faq-item[open] {
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.05);
+        }
+        .faq-answer {
+            padding: 0 24px 20px 24px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        .faq-answer p {
+            margin: 0;
+        }
+
+        /* 相关平台推荐 */
+        .related-platforms {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            padding: 0 40px;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .related-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 24px;
+            text-decoration: none;
+            color: var(--text-primary);
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .related-card:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        .related-icon {
+            font-size: 28px;
+        }
+
         /* 页脚 */
         .footer {
             padding: 40px 60px;
@@ -808,6 +913,54 @@ var _hmt = _hmt || [];
             </div>
         </div>
 
+        <!-- FAQ 常见问题模块（GEO优化核心） -->
+        <section class="faq-section" id="faq">
+            <h2 class="faq-section-title">关于 {{platform.name}} 的常见问题</h2>
+            <div class="faq-list">
+                <details class="faq-item" open>
+                    <summary>{{platform.name}} 适合什么开发场景？</summary>
+                    <div class="faq-answer">
+                        <p>{{platform.name}} 适合文本生成、代码辅助、多模态理解、Agent开发等场景，具体取决于平台支持的模型类型和特性。可通过TokenNexus查看该平台的详细模型覆盖信息。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>{{platform.name}} 最新价格是多少？</summary>
+                    <div class="faq-answer">
+                        <p>{{platform.name}} 按模型定价，倍率{{platform.priceMultiplier}}。支持{{platform.paymentMethods.join('、')}}等多种支付方式。具体价格请访问TokenNexus查看实时价格对比。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>{{platform.name}} 支持哪些模型？</summary>
+                    <div class="faq-answer">
+                        <p>{{platform.name}} 支持{{platform.models.join('、')}}等模型，覆盖文本生成、代码补全、图像生成、语音处理等场景。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>如何注册和使用 {{platform.name}}？</summary>
+                    <div class="faq-answer">
+                        <p>访问{{platform.name}}官网注册账号，获取API Key后即可调用。TokenNexus提供详细的API接入教程和开发者指南，帮助你快速上手。</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>{{platform.name}} 与同类平台相比有哪些优势？</summary>
+                    <div class="faq-answer">
+                        <p>{{platform.name}} 的30天可用率为{{platform.uptime30d}}%，平均延迟{{platform.avgLatency}}ms。与其他平台相比，其在价格、稳定性、模型覆盖等方面的表现各有特点，建议通过TokenNexus对比工具综合评估。</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- 相关平台推荐 -->
+        <section class="related-platforms">
+            <h2 class="faq-section-title">同类平台推荐</h2>
+            <div class="related-grid">
+                <a href="/{{platform.category}}.html" class="related-card">
+                    <span class="related-icon">📋</span>
+                    <span>查看更多 {{platform.category === 'official' ? '海外官方' : platform.category === 'aggregator' ? '聚合中转' : '国内'}} 平台</span>
+                </a>
+            </div>
+        </section>
+
         <!-- 页脚 -->
         <footer class="footer">
             <div class="footer-links">
@@ -841,18 +994,74 @@ var _hmt = _hmt || [];
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "{{platform.name}}",
-        "applicationCategory": "AI API Platform",
+        "applicationCategory": "AIApplication",
         "operatingSystem": "Web",
+        "description": "{{platform.shortDescription}}",
+        "url": "https://www.tokenfind.cn/platform/{{platform.slug}}.html",
         "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "description": "按tokens计费"
         },
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "{{platform.rating}}",
-            "reviewCount": "{{platform.reviewCount}}"
+            "bestRating": "5",
+            "ratingCount": "{{platform.reviewCount}}"
+        },
+        "keywords": "{{platform.models.join(',')}},{{platform.tags.join(',')}}",
+        "provider": {
+            "@type": "Organization",
+            "name": "{{platform.name}}"
         }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "{{platform.name}} 适合什么开发场景？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{{platform.name}} 适合文本生成、代码辅助、多模态理解、Agent开发等场景，具体取决于平台支持的模型类型和特性。可通过TokenNexus查看该平台的详细模型覆盖信息。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "{{platform.name}} 最新价格是多少？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{{platform.name}} 按模型定价，倍率{{platform.priceMultiplier}}。支持{{platform.paymentMethods.join('、')}}等多种支付方式。具体价格请访问TokenNexus查看实时价格对比。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "{{platform.name}} 支持哪些模型？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{{platform.name}} 支持{{platform.models.join('、')}}等模型，覆盖文本生成、代码补全、图像生成、语音处理等场景。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "如何注册和使用 {{platform.name}}？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "访问{{platform.name}}官网注册账号，获取API Key后即可调用。TokenNexus提供详细的API接入教程和开发者指南。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "{{platform.name}} 与同类平台相比有哪些优势？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "{{platform.name}} 的30天可用率为{{platform.uptime30d}}%，平均延迟{{platform.avgLatency}}ms。与其他平台相比，其在价格、稳定性、模型覆盖等方面的表现各有特点，建议通过TokenNexus对比工具综合评估。"
+                }
+            }
+        ]
     }
     </script>
 </body>

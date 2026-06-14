@@ -1,6 +1,7 @@
 # TokenNexus 机器人访问协议
 # robots.txt for tokenfind.cn
-# 更新日期: 2026-05-28
+# 更新日期: 2026-06-14 (SEO + GEO优化版)
+# ============================================================
 
 # ============================================
 # 核心搜索引擎爬虫
@@ -42,17 +43,28 @@ Allow: /
 User-agent: Baiduspider-news
 Allow: /
 
+# 搜狗爬虫
+User-agent: Sogou web spider
+Allow: /
+Crawl-delay: 2
+
+# 360爬虫
+User-agent: 360Spider
+Allow: /
+Crawl-delay: 2
+
 # ============================================
-# AI 搜索引擎爬虫
+# AI 搜索引擎爬虫 (GEO优化关键)
 # ============================================
 
 # Cloudflare AI 爬虫
 User-agent: CloudflareBrowserRenderingCrawler
 Allow: /
 
-# 字节跳动/百度搜索爬虫
+# 字节跳动爬虫
 User-agent: Bytespider
 Allow: /
+Crawl-delay: 2
 
 # ChatGPT / OpenAI 爬虫
 User-agent: ChatGPT-User
@@ -65,8 +77,23 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+User-agent: anthropic-ai
+Allow: /
+
 # Perplexity 爬虫
 User-agent: PerplexityBot
+Allow: /
+
+# Google AI (Gemini) 爬虫
+User-agent: Google-Extended
+Allow: /
+
+# Meta AI 爬虫
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Cohere 爬虫
+User-agent: cohere-ai
 Allow: /
 
 # ============================================
@@ -77,7 +104,7 @@ Allow: /
 Crawl-delay: 1
 
 # ============================================
-# 禁止访问的目录（适用于所有爬虫）
+# 禁止访问的路径
 # ============================================
 Disallow: /admin/
 Disallow: /_next/
@@ -85,6 +112,7 @@ Disallow: /api/admin/
 Disallow: /private/
 Disallow: /temp/
 Disallow: /test/
+Disallow: /functions/
 
 # ============================================
 # Sitemap 位置
