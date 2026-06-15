@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?aa6a94065c3983b2407d20b92e8d1fd9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI API生产部署避坑指南：扩缩容、高可用、监控告警全攻略(2026) | TokenNexus AI API攻略</title>
+    <meta name="description" content="AI API生产部署实战指南，从Docker容器化到K8s部署，分享日活1万到100万的架构演进经验，详解API Gateway选型、自动扩缩容、蓝绿部署、Prometheus监控等生产级最佳实践，附真实踩坑复盘。">
+    <meta name="keywords" content="AI API生产部署、AI服务扩缩容、API服务器架构、AI高并发处理、AI API负载均衡、API部署最佳实践、AI服务监控告警">
+    <meta name="author" content="TokenNexus Team">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-production-deployment-scaling-guide-2026.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI API生产部署避坑指南：扩缩容、高可用、监控告警全攻略(2026)">
+    <meta property="og:description" content="AI API生产部署实战指南，从Docker容器化到K8s部署，详解API Gateway选型、自动扩缩容、蓝绿部署、Prometheus监控等生产级最佳实践。">
+    <meta property="og:url" content="https://www.tokenfind.cn/blog/ai-api-production-deployment-scaling-guide-2026.html">
+    <meta property="og:image" content="https://www.tokenfind.cn/blog/images/ai-api-production-deployment-scaling-guide-2026.jpg">
+    <meta property="og:site_name" content="TokenNexus">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"AI API生产部署避坑指南：扩缩容、高可用、监控告警全攻略(2026)","description":"AI API生产部署实战指南，从Docker容器化到K8s部署，详解API Gateway选型、自动扩缩容、蓝绿部署、Prometheus监控等生产级最佳实践","url":"https://www.tokenfind.cn/blog/ai-api-production-deployment-scaling-guide-2026.html","datePublished":"2026-06-13","dateModified":"2026-06-13","author":{"@type":"Organization","name":"TokenNexus"},"publisher":{"@type":"Organization","name":"TokenNexus","logo":{"@type":"ImageObject","url":"https://www.tokenfind.cn/favicon.svg"}},"mainEntityOfPage":"https://www.tokenfind.cn/blog/ai-api-production-deployment-scaling-guide-2026.html"}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.tokenfind.cn/"},{"@type":"ListItem","position":2,"name":"攻略","item":"https://www.tokenfind.cn/blog/guides"},{"@type":"ListItem","position":3,"name":"AI生产部署","item":"https://www.tokenfind.cn/blog/ai-api-production-deployment-scaling-guide-2026.html"}]}
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0CX9NNWKR8');
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--neon-cyan:#00f0ff;--neon-purple:#b829dd;--dark-bg:#050508;--card-bg:rgba(10,10,18,0.9);--card-border:rgba(0,240,255,0.15);--text-primary:#fff;--text-secondary:#8b92a8}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Noto Sans SC',sans-serif;background:var(--dark-bg);color:var(--text-primary);min-height:100vh;line-height:1.8}
+        .navbar{position:fixed;top:0;left:0;right:0;height:80px;background:rgba(5,5,8,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--card-border);display:flex;align-items:center;justify-content:space-between;padding:0 60px;z-index:1000}
+        .logo{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--text-primary)}
+        .logo-text{font-family:'Orbitron',sans-serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .nav-links{display:flex;gap:32px}
+        .nav-link{color:var(--text-secondary);text-decoration:none;font-size:16px;transition:color .3s}
+        .nav-link:hover,.nav-link.active{color:var(--neon-cyan)}
+        .article-container{max-width:800px;margin:0 auto;padding:120px 60px 80px}
+        .article-meta{display:flex;gap:16px;align-items:center;margin-bottom:24px;flex-wrap:wrap}
+        .article-tag{padding:4px 12px;background:rgba(0,240,255,0.1);border:1px solid rgba(0,240,255,0.2);border-radius:12px;font-size:0.75rem;color:var(--neon-cyan)}
+        .article-date{color:var(--text-secondary);font-size:0.85rem}
+        .article-title{font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:700;line-height:1.3;margin-bottom:24px;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .article-subtitle{font-size:1.1rem;color:var(--text-secondary);margin-bottom:40px;line-height:1.6}
+        .article-content{font-size:1rem;line-height:2;color:var(--text-secondary)}
+        .article-content h2{font-family:'Orbitron',sans-serif;font-size:1.3rem;color:var(--neon-cyan);margin:40px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--card-border)}
+        .article-content h3{font-size:1.1rem;color:var(--text-primary);margin:24px 0 12px}
+        .article-content p{margin-bottom:16px}
+        .article-content ul,.article-content ol{margin:0 0 16px 24px}
+        .article-content li{margin-bottom:8px}
+        .article-content strong{color:var(--text-primary)}
+        .article-content code{background:rgba(0,240,255,0.08);padding:2px 8px;border-radius:4px;font-size:0.9rem;color:var(--neon-cyan)}
+        .article-content pre{background:rgba(0,0,0,0.4);border:1px solid var(--card-border);border-radius:12px;padding:20px;margin:16px 0;overflow-x:auto;font-size:0.85rem;line-height:1.6}
+        .article-content pre code{background:none;padding:0;color:var(--text-secondary)}
+        .article-content table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.9rem}
+        .article-content th{background:rgba(0,240,255,0.08);color:var(--neon-cyan);padding:12px 16px;text-align:left;border-bottom:1px solid var(--card-border)}
+        .article-content td{padding:10px 16px;border-bottom:1px solid rgba(0,240,255,0.06)}
+        .article-content tr:hover{background:rgba(0,240,255,0.03)}
+        .article-content blockquote{border-left:3px solid var(--neon-cyan);padding:12px 20px;margin:16px 0;background:rgba(0,240,255,0.03);border-radius:0 8px 8px 0}
+        .highlight-box{background:linear-gradient(135deg,rgba(0,240,255,0.08),rgba(184,41,221,0.05));border:1px solid var(--card-border);border-radius:12px;padding:20px;margin:20px 0}
+        .warning-box{background:rgba(255,100,50,0.08);border:1px solid rgba(255,100,50,0.2);border-radius:12px;padding:20px;margin:20px 0}
+        .warning-box h4{color:#ff6b35;margin-bottom:8px}
+        .timeline{position:relative;padding-left:30px;margin:20px 0}
+        .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--card-border)}
+        .timeline-item{position:relative;margin-bottom:24px}
+        .timeline-item::before{content:'';position:absolute;left:-34px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--neon-cyan)}
+        .cta-box{background:linear-gradient(135deg,rgba(0,240,255,0.05),rgba(184,41,221,0.05));border:1px solid var(--card-border);border-radius:16px;padding:24px;margin:40px 0;text-align:center}
+        .cta-box h3{font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--neon-cyan);margin-bottom:12px}
+        .cta-box p{color:var(--text-secondary);margin-bottom:16px;font-size:0.9rem}
+        .cta-box a{display:inline-block;padding:10px 24px;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));color:#000;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.9rem}
+        .footer{background:rgba(5,5,8,0.95);border-top:1px solid var(--card-border);padding:40px 60px;text-align:center;margin-top:60px}
+        .footer-links{display:flex;justify-content:center;gap:32px;margin-bottom:16px}
+        .footer-link{color:var(--text-secondary);text-decoration:none;font-size:14px}
+        .footer-link:hover{color:var(--neon-cyan)}
+        @media(max-width:768px){.navbar{padding:0 20px}.nav-links{display:none}.article-container{padding:100px 20px 60px}.article-title{font-size:1.5rem}}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../" class="logo"><span class="logo-text">TokenNexus</span></a>
+        <div class="nav-links">
+            <a href="../" class="nav-link">首页</a>
+            <a href="../official.html" class="nav-link">官方平台</a>
+            <a href="../aggregator.html" class="nav-link">聚合平台</a>
+            <a href="../china.html" class="nav-link">国内平台</a>
+            <a href="guides.html" class="nav-link active">攻略</a>
+        </div>
+    </nav>
+    <article class="article-container">
+        <div class="article-meta">
+            <span class="article-tag">技术教程</span>
+            <span class="article-date">2026-06-13</span>
+        </div>
+        <h1 class="article-title">AI API生产部署避坑指南：扩缩容、高可用、监控告警全攻略</h1>
+        <p class="article-subtitle">本地Demo跑得飞起？一上线就崩？用户从100涨到10000服务直接挂了？这篇帮你全部解决</p>
+        
+        <div class="article-content">
+            <h2>血泪开场：我的AI服务上线即事故</h2>
+            
+            <p>去年双十一前，老板说"用户量马上要爆发，你把服务准备好"。我当时拍胸脯保证：没问题，Demo跑得好好的。</p>
+            
+            <p>结果呢？11月11日凌晨0点，流量洪峰一来，服务直接被按在地上摩擦。响应时间从100ms飙升到30秒，然后超时，然后崩溃，然后...</p>
+            
+            <p>凌晨3点，我和运维两个人对着屏幕发呆。整整2小时后才恢复服务。第二天写复盘报告，手都在抖。</p>
+            
+            <p>这篇指南，就是用我的血泪教训换来的。看完能让你避开我踩过的所有坑。</p>
+
+            <h2>API Gateway选型：Nginx vs Kong vs APISIX vs Traefik</h2>
+            
+            <p>AI服务的第一道门就是API Gateway。选错了，后面全是坑。直接给结论：</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Gateway</th>
+                        <th>适用场景</th>
+                        <th>配置复杂度</th>
+                        <th>性能</th>
+                        <th>推荐指数</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nginx</td>
+                        <td>简单反向代理、低流量场景</td>
+                        <td>低</td>
+                        <td>极高</td>
+                        <td>★★☆</td>
+                    </tr>
+                    <tr>
+                        <td>Kong</td>
+                        <td>需要插件生态、管理界面</td>
+                        <td>中</td>
+                        <td>中</td>
+                        <td>★★★</td>
+                    </tr>
+                    <tr>
+                        <td>APISIX</td>
+                        <td>高性能需求、Kubernetes原生</td>
+                        <td>中</td>
+                        <td>高</td>
+                        <td>★★★★</td>
+                    </tr>
+                    <tr>
+                        <td>Traefik</td>
+                        <td>容器环境、自动服务发现</td>
+                        <td>低</td>
+                        <td>中</td>
+                        <td>★★★</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <p><strong>务实建议：</strong>日活10万以下，Kong足够；10万-100万，APISIX；百万级以上，建议自研或混合方案。</p>
+            </div>
+
+            <h2>Docker容器化：完整Dockerfile和docker-compose</h2>
+            
+            <p>先把服务容器化再说后面的K8s部署。AI服务有特殊性：GPU依赖、模型加载、大内存需求。</p>
+
+            <pre><code># Dockerfile
+FROM nvidia/cuda:12.1.0-runtime-ubuntu22.04
+
+# 设置环境变量
+ENV PYTHONUNBUFFERED=1
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 安装Python和基础依赖
+RUN apt-get update && apt-get install -y \
+    python3.11 \
+    python3.11-dev \
+    python3-pip \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# 设置Python版本
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1
+RUN update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
+
+# 创建工作目录
+WORKDIR /app
+
+# 复制依赖文件
+COPY requirements.txt .
+
+# 预装依赖（利用Docker缓存）
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 复制应用代码
+COPY . .
+
+# 健康检查
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
+
+# 运行用户
+RUN useradd -m -u 1000 appuser
+USER appuser
+
+# 暴露端口
+EXPOSE 8000
+
+# 启动命令
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4"]</code></pre>
+
+            <pre><code># requirements.txt
+uvicorn[standard]==0.27.0
+fastapi==0.109.0
+torch==2.2.0
+transformers==4.37.0
+pydantic==2.5.3
+redis==5.0.1
+httpx==0.26.0
+python-jose[cryptography]==3.3.0
+</code></pre>
+
+            <pre><code># docker-compose.yml
+version: '3.8'
+
+services:
+  ai-api:
+    build: .
+    image: your-registry.com/ai-api:v1.2.0
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          memory: 16G
+          cpus: '4'
+        reservations:
+          memory: 8G
+          cpus: '2'
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - LOG_LEVEL=info
+      - WORKERS=4
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models:ro
+      - ./logs:/app/logs
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./certs:/etc/nginx/certs:ro
+    depends_on:
+      - ai-api
+    restart: unless-stopped
+
+volumes:
+  redis-data:</code></pre>
+
+            <h2>Kubernetes部署：HPA自动扩缩容+资源限制</h2>
+            
+            <p>上了规模就必须用K8s。核心配置：HPA（Horizontal Pod Autoscaler）+ Pod资源限制 + 多副本部署。</p>
+
+            <pre><code># ai-api-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-api
+  labels:
+    app: ai-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ai-api
+  template:
+    metadata:
+      labels:
+        app: ai-api
+    spec:
+      containers:
+      - name: ai-api
+        image: your-registry.com/ai-api:v1.2.0
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            memory: "4Gi"
+            cpu: "1000m"
+            nvidia.com/gpu: "1"
+          limits:
+            memory: "8Gi"
+            cpu: "2000m"
+            nvidia.com/gpu: "1"
+        env:
+        - name: REDIS_HOST
+          value: "redis-master"
+        - name: REDIS_PORT
+          value: "6379"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 60
+          periodSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+      nodeSelector:
+        gpu: "true"
+      tolerations:
+      - key: "nvidia.com/gpu"
+        operator: "Exists"
+        effect: "NoSchedule"</code></pre>
+
+            <pre><code># ai-api-hpa.yaml
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ai-api-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: ai-api
+  minReplicas: 2
+  maxReplicas: 20
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+  - type: Pods
+    pods:
+      metric:
+        name: http_requests_per_second
+      target:
+        type: AverageValue
+        averageValue: "100"
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Percent
+        value: 10
+        periodSeconds: 60
+    scaleUp:
+      stabilizationWindowSeconds: 0
+      policies:
+      - type: Percent
+        value: 100
+        periodSeconds: 15
+      selectPolicy: Max</code></pre>
+
+            <h2>日活1万到100万：架构演进路线图</h2>
+            
+            <p>这是我的真实演进路径，每个阶段踩的坑都不一样：</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>阶段一：日活1万（单机时代）</h3>
+                    <p>单台4核8G机器，Docker跑起来，Nginx做反向代理。白天OK，晚上AI模型推理慢点，用户能接受。</p>
+                    <p><strong>踩坑：</strong>凌晨流量低但模型还在显存里占着资源，内存不够用了。</p>
+                    <p><strong>解决方案：</strong>用Redis做简单缓存，减少模型冷启动。</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>阶段二：日活10万（多副本时代）</h3>
+                    <p>上了K8s，3个Pod副本。流量来了自动扩容，还挺稳。</p>
+                    <p><strong>踩坑：</strong>GPU卡只有一张，扩容的是CPU Pod，AI推理全打到那一张卡上，延迟爆炸。</p>
+                    <p><strong>解决方案：</strong>给Pod加GPU资源限制，HPA加自定义指标。</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>阶段三：日活50万（多级缓存时代）</h3>
+                    <p>单靠扩Pod扛不住了，上了多级缓存架构。</p>
+                    <pre><code># 缓存架构
+用户请求
+    ↓
+CDN边缘节点（静态资源、热门结果）
+    ↓
+API Gateway本地缓存（Redis Cluster）
+    ↓
+应用层本地缓存（LRU，内存）
+    ↓
+AI模型推理（最终兜底）</code></pre>
+                    <p><strong>踩坑：</strong>缓存命中率低，80%的请求还是打到模型。</p>
+                    <p><strong>解决方案：</strong>优化缓存key设计，对相似prompt做向量化相似度匹配。</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>阶段四：日活100万+（微服务拆分时代）</h3>
+                    <p>把AI服务拆成：API网关层、路由层、模型推理层、缓存层。</p>
+                    <p><strong>踩坑：</strong>拆分后网络延迟增加了15ms。</p>
+                    <p><strong>解决方案：</strong>同机房部署、gRPC替代HTTP、使用Unix Socket。</p>
+                </div>
+            </div>
+
+            <h2>多级缓存方案：Redis+本地内存+CDN</h2>
+            
+            <p>AI推理的响应时间 = 模型推理时间 + 网络延迟 + 等待队列时间。缓存能砍掉前两项。</p>
+
+            <pre><code># cache_manager.py
+import hashlib
+import json
+import redis
+import pickle
+from functools import wraps
+from typing import Optional, Any
+
+class MultilevelCache:
+    """多级缓存管理器"""
+    
+    def __init__(self, redis_host: str, redis_port: int, local_cache_size: int = 1000):
+        self.redis = redis.Redis(host=redis_host, port=redis_port, decode_responses=False)
+        self.local_cache = {}  # LRU本地缓存
+        self.local_cache_size = local_cache_size
+        self.hit_count = {"l1": 0, "l2": 0, "miss": 0}
+    
+    def _make_key(self, prompt: str, params: dict) -> str:
+        """生成缓存key"""
+        content = json.dumps({"prompt": prompt, "params": params}, sort_keys=True)
+        return f"ai:cache:{hashlib.sha256(content.encode()).hexdigest()}"
+    
+    def get(self, prompt: str, params: dict) -> Optional[Any]:
+        """三级缓存读取"""
+        key = self._make_key(prompt, params)
+        
+        # L1: 本地内存缓存
+        if key in self.local_cache:
+            self.hit_count["l1"] += 1
+            return pickle.loads(self.local_cache[key])
+        
+        # L2: Redis缓存
+        cached = self.redis.get(key)
+        if cached:
+            self.hit_count["l2"] += 1
+            # 回填L1
+            self._fill_l1(key, cached)
+            return pickle.loads(cached)
+        
+        self.hit_count["miss"] += 1
+        return None
+    
+    def set(self, prompt: str, params: dict, value: Any, ttl: int = 3600):
+        """写缓存"""
+        key = self._make_key(prompt, params)
+        value_bytes = pickle.dumps(value)
+        
+        # 同时写L1和L2
+        self._fill_l1(key, value_bytes)
+        self.redis.setex(key, ttl, value_bytes)
+    
+    def _fill_l1(self, key: str, value: bytes):
+        """回填本地缓存（LRU淘汰）"""
+        if len(self.local_cache) >= self.local_cache_size:
+            # 删除最老的条目
+            oldest_key = next(iter(self.local_cache))
+            del self.local_cache[oldest_key]
+        self.local_cache[key] = value
+    
+    def get_stats(self) -> dict:
+        """获取缓存命中率统计"""
+        total = sum(self.hit_count.values())
+        if total == 0:
+            return {"hit_rate": 0, **self.hit_count}
+        hit_rate = (self.hit_count["l1"] + self.hit_count["l2"]) / total
+        return {"hit_rate": f"{hit_rate:.2%}", **self.hit_count}
+
+# 使用示例
+cache = MultilevelCache("redis-master", 6379)
+
+@app.post("/generate")
+async def generate(request: GenerateRequest):
+    # 先查缓存
+    cached_result = cache.get(request.prompt, request.params)
+    if cached_result:
+        return {"result": cached_result, "cache_hit": True}
+    
+    # 没有缓存，走AI推理
+    result = await ai_model.generate(request.prompt, **request.params)
+    
+    # 结果写入缓存
+    cache.set(request.prompt, request.params, result)
+    
+    return {"result": result, "cache_hit": False}</code></pre>
+
+            <h2>蓝绿部署与金丝雀发布：安全更新AI模型</h2>
+            
+            <p>更新AI模型比更新普通服务风险更高。模型换了，输出格式可能变，延迟特性可能变，全量更新分分钟出事。</p>
+
+            <pre><code># 蓝绿部署策略（docker-compose实现）
+# docker-compose.blue.yml（当前版本）
+services:
+  ai-api:
+    image: your-registry.com/ai-api:v1.0.0
+    
+# docker-compose.green.yml（新版本）
+services:
+  ai-api:
+    image: your-registry.com/ai-api:v1.1.0
+
+# 切换脚本
+#!/bin/bash
+# deploy.sh
+
+CURRENT_COLOR=$(docker-compose ps -q ai-api | xargs docker inspect --format='{{index .Config.Labels "color"}}')
+
+if [ "$CURRENT_COLOR" == "blue" ]; then
+    NEW_COLOR="green"
+    OLD_COLOR="blue"
+else
+    NEW_COLOR="blue"
+    OLD_COLOR="green"
+fi
+
+# 启动新版本
+docker-compose -f docker-compose.$NEW_COLOR.yml up -d
+
+# 健康检查
+sleep 30
+if curl -f http://localhost:8000/health; then
+    # 切换流量
+    docker-compose -f docker-compose.$NEW_COLOR.yml up -d --scale ai-api=3
+    docker-compose -f docker-compose.$OLD_COLOR.yml down
+    echo "部署成功：新版本 $NEW_COLOR"
+else
+    # 回滚
+    docker-compose -f docker-compose.$NEW_COLOR.yml down
+    echo "部署失败：已回滚到 $OLD_COLOR"
+    exit 1
+fi</code></pre>
+
+            <h2>Prometheus + Grafana监控大盘</h2>
+            
+            <p>AI服务的监控指标和普通服务不一样。GPU利用率、Token消耗、模型推理延迟...这些才是关键。</p>
+
+            <pre><code># prometheus.yml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'ai-api'
+    kubernetes_sd_configs:
+    - role: pod
+    relabel_configs:
+    - source_labels: [__meta_kubernetes_pod_name]
+      regex: ai-api-.*
+      action: keep
+    - source_labels: [__meta_kubernetes_pod_container_port_number]
+      regex: "8000"
+      action: keep
+      target_label: __param_target
+    - source_labels: [__param_target]
+      target_label: instance
+    metrics_path: /metrics</code></pre>
+
+            <pre><code># AI服务核心指标（/metrics端点暴露）
+
+# 自定义Prometheus指标
+from prometheus_client import Counter, Histogram, Gauge
+
+# 请求计数
+REQUEST_COUNT = Counter(
+    'ai_api_requests_total',
+    'Total API requests',
+    ['endpoint', 'method', 'status']
+)
+
+# 请求延迟
+REQUEST_LATENCY = Histogram(
+    'ai_api_request_duration_seconds',
+    'Request latency',
+    ['endpoint'],
+    buckets=[0.1, 0.25, 0.5, 1.0, 2.5, 5.0, 10.0]
+)
+
+# GPU利用率
+GPU_UTILIZATION = Gauge(
+    'ai_gpu_utilization_percent',
+    'GPU utilization percentage',
+    ['gpu_id']
+)
+
+# Token消耗
+TOKEN_USAGE = Counter(
+    'ai_tokens_usage_total',
+    'Total tokens consumed',
+    ['model', 'type']  # type: input/output
+)
+
+# 模型推理延迟
+MODEL_INFERENCE_LATENCY = Histogram(
+    'ai_model_inference_duration_seconds',
+    'Model inference latency',
+    ['model'],
+    buckets=[0.5, 1.0, 2.0, 5.0, 10.0, 30.0]
+)
+
+# 使用示例
+@app.middleware("http")
+async def metrics_middleware(request: Request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    duration = time.time() - start_time
+    
+    REQUEST_COUNT.labels(
+        endpoint=request.url.path,
+        method=request.method,
+        status=response.status_code
+    ).inc()
+    
+    REQUEST_LATENCY.labels(endpoint=request.url.path).observe(duration)
+    
+    return response</code></pre>
+
+            <h2>API限流方案：令牌桶 vs 滑动窗口</h2>
+            
+            <p>AI API的成本按Token计，所以限流必须精准。多用户共享配额，限流太松会超预算，太紧影响用户体验。</p>
+
+            <pre><code># rate_limiter.py
+import time
+import asyncio
+from typing import Dict
+from collections import deque
+
+class TokenBucket:
+    """令牌桶限流器"""
+    
+    def __init__(self, rate: float, capacity: int):
+        self.rate = rate  # 每秒补充的令牌数
+        self.capacity = capacity  # 桶容量
+        self.tokens = capacity
+        self.last_update = time.time()
+    
+    def consume(self, tokens: int = 1) -> bool:
+        """尝试消费tokens"""
+        now = time.time()
+        
+        # 补充令牌
+        elapsed = now - self.last_update
+        self.tokens = min(self.capacity, self.tokens + elapsed * self.rate)
+        self.last_update = now
+        
+        if self.tokens >= tokens:
+            self.tokens -= tokens
+            return True
+        return False
+
+class SlidingWindow:
+    """滑动窗口限流器"""
+    
+    def __init__(self, max_requests: int, window_size: int):
+        self.max_requests = max_requests
+        self.window_size = window_size  # 秒
+        self.requests = deque()
+    
+    def is_allowed(self) -> bool:
+        """检查请求是否允许"""
+        now = time.time()
+        
+        # 清理过期请求
+        cutoff = now - self.window_size
+        while self.requests and self.requests[0] < cutoff:
+            self.requests.popleft()
+        
+        if len(self.requests) < self.max_requests:
+            self.requests.append(now)
+            return True
+        return False
+
+class DistributedRateLimiter:
+    """分布式限流器（基于Redis）"""
+    
+    def __init__(self, redis_client):
+        self.redis = redis_client
+    
+    async def check_rate_limit(self, user_id: str, limit: int, window: int) -> tuple[bool, int]:
+        """
+        检查限流，返回 (是否允许, 剩余请求数)
+        使用Redis ZSET实现滑动窗口
+        """
+        key = f"ratelimit:{user_id}"
+        now = time.time()
+        window_start = now - window
+        
+        pipe = self.redis.pipeline()
+        
+        # 删除窗口外的记录
+        pipe.zremrangebyscore(key, 0, window_start)
+        
+        # 统计当前窗口内请求数
+        pipe.zcard(key)
+        
+        # 添加当前请求
+        pipe.zadd(key, {str(now): now})
+        
+        # 设置过期时间
+        pipe.expire(key, window)
+        
+        results = await pipe.execute()
+        current_count = results[1]
+        
+        if current_count < limit:
+            remaining = limit - current_count - 1
+            return True, remaining
+        return False, 0
+
+# FastAPI依赖注入
+async def rate_limit_dependency(
+    request: Request,
+    redis: Redis = Depends(get_redis)
+):
+    user_id = request.state.user_id
+    limiter = DistributedRateLimiter(redis)
+    
+    allowed, remaining = await limiter.check_rate_limit(
+        user_id=user_id,
+        limit=100,  # 每分钟100次
+        window=60
+    )
+    
+    if not allowed:
+        raise HTTPException(
+            status_code=429,
+            detail="请求过于频繁，请稍后再试"
+        )
+    
+    return remaining
+
+@app.post("/generate")
+async def generate(
+    request: GenerateRequest,
+    remaining: int = Depends(rate_limit_dependency)
+):
+    return {"result": "...", "remaining_quota": remaining}</code></pre>
+
+            <h2>凌晨3点的故障复盘</h2>
+            
+            <p>分享一次真实的故障排查过程，希望能给你启发。</p>
+
+            <div class="warning-box">
+                <h4>事故时间线</h4>
+                <p><strong>00:00</strong> - 双十一活动开始，流量激增</p>
+                <p><strong>00:03</strong> - 监控系统告警：错误率上升</p>
+                <p><strong>00:08</strong> - 服务开始大量超时</p>
+                <p><strong>00:15</strong> - 第一个Pod OOM重启</p>
+                <p><strong>00:45</strong> - 尝试紧急扩容，但GPU资源不足</p>
+                <p><strong>02:00</strong> - 服务基本恢复</p>
+                <p><strong>03:00</strong> - 正式恢复稳定</p>
+            </div>
+
+            <h3>根因分析</h3>
+            
+            <p>事后复盘，发现三个问题叠加：</p>
+            
+            <ol>
+                <li><strong>HPA扩容太慢</strong>：GPU资源需要调度，从触发扩容到Pod就绪花了8分钟，洪峰早过去了</li>
+                <li><strong>没有熔断机制</strong>：下游AI模型响应变慢时，请求堆积导致内存溢出</li>
+                <li><strong>限流阈值设置错误</strong>：以为限流能兜底，结果限流本身就是瓶颈</li>
+            </ol>
+
+            <h3>改进措施</h3>
+            
+            <pre><code># 1. 预热Pod：活动前主动扩容
+kubectl scale deployment ai-api --replicas=10
+
+# 2. 添加熔断器
+from circuitbreaker import circuit
+
+@circuit(failure_threshold=5, recovery_timeout=30)
+async def call_ai_model(prompt: str):
+    # 熔断器会监控失败率，超过阈值自动熔断
+    return await model.generate(prompt)
+
+# 3. 限流兜底策略
+async def generate_with_fallback(
+    request: GenerateRequest,
+    rate_limiter: DistributedRateLimiter
+):
+    # 优先走缓存
+    cached = await cache.get(request.prompt)
+    if cached:
+        return cached
+    
+    # 检查限流
+    allowed, remaining = await rate_limiter.check(
+        user_id=request.user_id,
+        limit=50,
+        window=60
+    )
+    
+    if not allowed:
+        # 限流触发时，返回降级结果
+        return {"result": "服务繁忙，请稍后再试", "degraded": True}
+    
+    # 正常调用AI
+    return await call_ai_model(request.prompt)</code></pre>
+
+            <h2>写在最后</h2>
+            
+            <p>AI服务上线是个系统工程：Gateway选型、容器化、弹性伸缩、多级缓存、灰度发布、监控告警...每个环节都可能翻车。</p>
+            
+            <p>但只要做好充分准备，上线其实没那么可怕。关键是提前演练、设置好监控、有完善的回滚方案。</p>
+            
+            <p>如果你正在评估AI API平台，想找一个稳定的生产级服务，可以去 <a href="../">TokenNexus</a> 看看各平台的SLA承诺和稳定性表现。</p>
+
+            <div class="cta-box">
+                <h3>探索更多AI API平台</h3>
+                <p>TokenNexus收录330+国内外AI API平台，帮你找到最适合生产环境的稳定服务</p>
+                <a href="../">立即探索</a>
+            </div>
+        </div>
+    </article>
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="../" class="footer-link">首页</a>
+            <a href="guides.html" class="footer-link">攻略</a>
+            <a href="../about.html" class="footer-link">关于</a>
+            <a href="../privacy.html" class="footer-link">隐私政策</a>
+        </div>
+        <p style="color:var(--text-secondary);font-size:13px">&copy; 2024-2026 TokenNexus. All rights reserved.</p>
+    </footer>
+</body>
+</html>
