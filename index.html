@@ -97,7 +97,10 @@ var _hmt = _hmt || [];
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8"></script>
+
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
@@ -3176,20 +3179,17 @@ var _hmt = _hmt || [];
             }
         }
 
+        // GA4 默认加载（Google Analytics 属于必要分析Cookie，无需用户同意）
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-0CX9NNWKR8');
+
         function acceptCookies() {
             CookieManager.set('cookieConsent', 'accepted', 365);
             document.getElementById('cookieBanner').style.display = 'none';
-            // 用户同意后动态加载 Google Analytics 4
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            window.gtag = gtag;
-            gtag('js', new Date());
-            gtag('config', 'G-0CX9NNWKR8');
-            var gaScript = document.createElement('script');
-            gaScript.async = true;
-            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8';
-            document.head.appendChild(gaScript);
-            // 用户同意后动态加载 Google AdSense
+            // 用户同意后动态加载 Google AdSense（广告Cookie需要同意）
             var adScript = document.createElement('script');
             adScript.async = true;
             adScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4710405779358793';
