@@ -1413,6 +1413,48 @@ var _hmt = _hmt || [];
             font-size: 10px;
             color: #000;
         }
+        .badge-trust {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+        .badge-verified {
+            background: rgba(0, 240, 255, 0.15);
+            color: #00f0ff;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+        }
+        .badge-enterprise {
+            background: rgba(184, 41, 221, 0.15);
+            color: #b829dd;
+            border: 1px solid rgba(184, 41, 221, 0.3);
+        }
+        .badge-active {
+            background: rgba(34, 197, 94, 0.15);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        .data-source-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+        .data-source-tag::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+        }
 
         .platform-description {
             font-size: 14px;
@@ -2550,6 +2592,7 @@ var _hmt = _hmt || [];
                     <a href="/about" class="footer-link">关于我们</a>
                     <a href="/contact" class="footer-link">联系我们</a>
                     <a href="/business" class="footer-link">商务合作</a>
+                    <a href="/verification" class="footer-link">审核标准</a>
                     <a href="/disclaimer" class="footer-link">免责申明</a>
                     <a href="/privacy" class="footer-link">隐私政策</a>
                     <a href="/submit" class="footer-link">提交收录</a>
@@ -2560,6 +2603,9 @@ var _hmt = _hmt || [];
                 <p style="font-size: 12px; color: var(--text-secondary);">
                     &copy; 2024-2026 TokenNexus. All rights reserved.
                 </p>
+                <p style="font-size: 11px; color: var(--text-secondary); margin-top: 8px;">
+                    TokenNexus 是独立第三方平台，与所列 AI API 服务商无直接隶属关系 | 数据仅供参考
+                </p>
 
             </div>
         </div>
@@ -2568,8 +2614,17 @@ var _hmt = _hmt || [];
     <!-- Cookie Consent Banner -->
     <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Cookie同意" style="display: none;">
         <div class="cookie-content">
-            <p>我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。Google等第三方供应商使用Cookie来根据您之前访问我们网站和其他网站的记录提供广告。继续使用本网站即表示您同意我们的<a href="/privacy">隐私政策</a>和<a href="/terms">服务条款</a>。</p>
-            <button onclick="acceptCookies()" class="cookie-btn">同意</button>
+            <p><strong>我们使用 Cookie 来改善您的体验</strong></p>
+            <div style="margin: 12px 0; font-size: 13px; color: var(--text-secondary);">
+                <div>必要 Cookie：网站正常运行所必需（已启用）</div>
+                <div>分析 Cookie：帮助我们了解网站使用情况（Google Analytics）</div>
+                <div>广告 Cookie：用于展示相关广告（Google AdSense）</div>
+            </div>
+            <p style="font-size: 12px;">继续使用本网站即表示您同意我们的 <a href="/privacy">隐私政策</a>。您可以随时在隐私政策页面了解更多详情。</p>
+            <div style="display: flex; gap: 12px; margin-top: 12px;">
+                <button onclick="acceptCookies()" class="cookie-btn">同意全部</button>
+                <button onclick="acceptEssentialOnly()" class="cookie-btn" style="background: transparent; border: 1px solid var(--text-secondary);">仅必要 Cookie</button>
+            </div>
         </div>
     </div>
 
@@ -2741,16 +2796,16 @@ var _hmt = _hmt || [];
         // ==================== 平台数据 ====================
         const platforms = [
             // ===== 海外官方平台 =====
-            { id: 1, name: "OpenAI", verified: true, description: "OpenAI 是全球领先的人工智能研究实验室和API服务提供商，提供GPT-4o、GPT-4 Turbo、o1、o3等最先进的大语言模型。OpenAI API支持文本生成、代码编写、图像理解、语音处理等多模态能力，是全球开发者首选的AI API平台。其ChatGPT产品已服务超过2亿用户，API服务覆盖180多个国家和地区。", url: "https://openai.com/api", logo: "/logos/openai.svg", category: "official", tags: ["GPT-4o", "o1", "o3", "ChatGPT", "多模态", "代码生成"], pricing: "$0.002-15/1M tokens", rating: 4.9, reviews: 2847, detailUrl: "/platform/openai.html" },
-            { id: 2, name: "Anthropic Claude", verified: true, description: "Anthropic是由前OpenAI核心成员创立的AI安全公司，专注于构建安全、可靠、可解释的AI系统。Claude系列模型以200K超长上下文、出色的推理能力和严格的安全对齐著称。Claude 4 Sonnet在复杂推理、代码生成和多语言任务上表现卓越，是企业级AI应用的首选平台。", url: "https://claude.ai/api", logo: "/logos/anthropic-claude.png", category: "official", tags: ["Claude 4", "安全可靠", "长上下文", "企业级", "推理能力"], pricing: "$0.25-15/1M tokens", rating: 4.8, reviews: 1923, detailUrl: "/platform/anthropic-claude.html" },
-            { id: 3, name: "Google Gemini", verified: true, description: "Google Gemini是Google DeepMind开发的新一代多模态AI模型，支持Gemini 2.0 Pro、Gemini 1.5 Flash等版本。Gemini原生支持文本、图像、音频、视频等多模态输入输出，具备200万token超长上下文窗口。Google AI Studio提供免费开发环境，Vertex AI提供企业级部署方案，是Google生态开发者的最佳选择。", url: "https://ai.google.dev", logo: "/logos/google-gemini.png", category: "official", tags: ["Gemini 2.0", "多模态", "Google生态", "200万上下文", "免费额度"], pricing: "$0.0125-3.5/1M tokens", rating: 4.7, reviews: 1456, detailUrl: "/platform/google-gemini.html" },
-            { id: 4, name: "xAI Grok", verified: true, description: "xAI是Elon Musk创立的人工智能公司，Grok是其旗舰大语言模型产品。Grok-3具备实时访问X(Twitter)平台数据的能力，能够获取最新信息和实时新闻。Grok以幽默风趣的对话风格和强大的推理能力著称，是追求实时信息和个性化交互的开发者首选。", url: "https://console.x.ai", logo: "/logos/xai-grok.png", category: "official", tags: ["Grok 3", "实时信息", "X平台集成", "推理能力"], pricing: "$0.20-3/1M tokens", rating: 4.5, reviews: 892, detailUrl: "/platform/xai-grok.html" },
-            { id: 5, name: "DeepSeek", verified: true, description: "DeepSeek(深度求索)是中国领先的AI大模型公司，以极致性价比著称。DeepSeek-V3在多项基准测试中媲美GPT-4，DeepSeek-R1推理模型在数学和代码任务上表现卓越。API价格仅为OpenAI的1/10，是预算敏感型开发者和企业降本增效的最佳选择。支持128K上下文，提供完善的中文支持。", url: "https://platform.deepseek.com", logo: "/logos/deepseek.png", category: "official", tags: ["DeepSeek V3", "DeepSeek R1", "低价", "高性价比", "中文优化"], pricing: "$0.0013-0.27/1M tokens", rating: 4.9, reviews: 2156, detailUrl: "/platform/deepseek.html" },
-            { id: 6, name: "Meta Llama", verified: true, description: "Meta Llama是全球最受欢迎的开源大模型系列，Llama 4 Scout和Llama 4 Maverick提供业界领先的性能。Llama模型支持商业使用，开发者可自由部署、微调和分发。Meta提供完整的模型权重和训练代码，是学术研究、企业定制和开源项目开发的首选平台。", url: "https://llama.meta.com", logo: "/logos/meta-llama.svg", category: "official", tags: ["Llama 4", "开源", "Meta生态", "可微调", "商业可用"], pricing: "$0.05-0.24/1M tokens", rating: 4.6, reviews: 1234, detailUrl: "/platform/meta-llama.html" },
-            { id: 7, name: "Mistral AI", verified: true, description: "Mistral AI是欧洲领先的开源AI公司，提供Mistral Large、Codestral、Pixtral等高性能模型。Mistral模型以Apache 2.0许可证开源，支持商业部署和定制化开发。Codestral专注于代码生成，Pixtral支持多模态理解。Mistral提供本地部署和云端API两种服务模式，是欧洲AI生态的核心力量。", url: "https://mistral.ai", logo: "/logos/mistral-ai.png", category: "official", tags: ["Mistral Large", "Codestral", "Pixtral", "开源", "欧洲"], pricing: "$0.24-8/1M tokens", rating: 4.4, reviews: 678, detailUrl: "/platform/mistral-ai.html" },
-            { id: 8, name: "Cohere", verified: true, description: "Cohere是专注于企业级NLP解决方案的AI公司，提供Command R+、Embed v4等模型。Cohere在RAG(检索增强生成)和企业知识库构建方面具有独特优势，Embed模型在向量嵌入领域表现卓越。支持103+语言，提供私有化部署选项，是企业构建AI应用和知识管理系统的理想选择。", url: "https://cohere.com", logo: "/logos/cohere.png", category: "official", tags: ["Command R+", "RAG优化", "Embeddings", "企业级", "多语言"], pricing: "$0.50-15/1M tokens", rating: 4.5, reviews: 567, detailUrl: "/platform/cohere.html" },
-            { id: 9, name: "Perplexity", verified: true, description: "Perplexity是新一代AI搜索引擎和API服务提供商，将大语言模型与实时网络搜索深度结合。Sonar系列API提供搜索增强的对话能力，能够获取最新信息并提供引用来源。Perplexity Pro用户可无限使用高级模型，API服务适合需要实时信息和可验证答案的应用场景。", url: "https://perplexity.ai", logo: "/logos/perplexity-api.png", category: "official", tags: ["搜索增强", "实时信息", "Sonar", "引用来源", "AI搜索"], pricing: "$2-20/1M tokens", rating: 4.5, reviews: 876, detailUrl: "/platform/perplexity.html" },
-            { id: 10, name: "AWS Bedrock", verified: true, description: "AWS Bedrock是亚马逊云科技的企业级AI服务，提供Claude、Llama、Titan、Stable Diffusion等103+基础模型的统一API访问。支持模型微调、私有化部署和向量数据库集成。具备AWS企业级安全认证、SLA保障和全球基础设施支持，是大型企业构建AI应用的首选平台。", url: "https://aws.amazon.com/bedrock", logo: "/logos/aws-bedrock.png", category: "official", tags: ["AWS集成", "Claude", "企业级", "模型微调", "私有部署"], pricing: "$0.25-15/1M tokens", rating: 4.6, reviews: 2345, detailUrl: "/platform/aws-bedrock.html" },
+            { id: 1, name: "OpenAI", verified: true, trust: { verified: true, enterprise: true, active: true }, description: "OpenAI 是全球领先的人工智能研究实验室和API服务提供商，提供GPT-4o、GPT-4 Turbo、o1、o3等最先进的大语言模型。OpenAI API支持文本生成、代码编写、图像理解、语音处理等多模态能力，是全球开发者首选的AI API平台。其ChatGPT产品已服务超过2亿用户，API服务覆盖180多个国家和地区。", url: "https://openai.com/api", logo: "/logos/openai.svg", category: "official", tags: ["GPT-4o", "o1", "o3", "ChatGPT", "多模态", "代码生成"], pricing: "$0.002-15/1M tokens", rating: 4.9, reviews: 2847, detailUrl: "/platform/openai.html" },
+            { id: 2, name: "Anthropic Claude", verified: true, trust: { verified: true, enterprise: true, active: true }, description: "Anthropic是由前OpenAI核心成员创立的AI安全公司，专注于构建安全、可靠、可解释的AI系统。Claude系列模型以200K超长上下文、出色的推理能力和严格的安全对齐著称。Claude 4 Sonnet在复杂推理、代码生成和多语言任务上表现卓越，是企业级AI应用的首选平台。", url: "https://claude.ai/api", logo: "/logos/anthropic-claude.png", category: "official", tags: ["Claude 4", "安全可靠", "长上下文", "企业级", "推理能力"], pricing: "$0.25-15/1M tokens", rating: 4.8, reviews: 1923, detailUrl: "/platform/anthropic-claude.html" },
+            { id: 3, name: "Google Gemini", verified: true, trust: { verified: true, enterprise: true, active: true }, description: "Google Gemini是Google DeepMind开发的新一代多模态AI模型，支持Gemini 2.0 Pro、Gemini 1.5 Flash等版本。Gemini原生支持文本、图像、音频、视频等多模态输入输出，具备200万token超长上下文窗口。Google AI Studio提供免费开发环境，Vertex AI提供企业级部署方案，是Google生态开发者的最佳选择。", url: "https://ai.google.dev", logo: "/logos/google-gemini.png", category: "official", tags: ["Gemini 2.0", "多模态", "Google生态", "200万上下文", "免费额度"], pricing: "$0.0125-3.5/1M tokens", rating: 4.7, reviews: 1456, detailUrl: "/platform/google-gemini.html" },
+            { id: 4, name: "xAI Grok", verified: true, trust: { verified: true, enterprise: true, active: true }, description: "xAI是Elon Musk创立的人工智能公司，Grok是其旗舰大语言模型产品。Grok-3具备实时访问X(Twitter)平台数据的能力，能够获取最新信息和实时新闻。Grok以幽默风趣的对话风格和强大的推理能力著称，是追求实时信息和个性化交互的开发者首选。", url: "https://console.x.ai", logo: "/logos/xai-grok.png", category: "official", tags: ["Grok 3", "实时信息", "X平台集成", "推理能力"], pricing: "$0.20-3/1M tokens", rating: 4.5, reviews: 892, detailUrl: "/platform/xai-grok.html" },
+            { id: 5, name: "DeepSeek", verified: true, trust: { verified: true, enterprise: true, active: true }, description: "DeepSeek(深度求索)是中国领先的AI大模型公司，以极致性价比著称。DeepSeek-V3在多项基准测试中媲美GPT-4，DeepSeek-R1推理模型在数学和代码任务上表现卓越。API价格仅为OpenAI的1/10，是预算敏感型开发者和企业降本增效的最佳选择。支持128K上下文，提供完善的中文支持。", url: "https://platform.deepseek.com", logo: "/logos/deepseek.png", category: "official", tags: ["DeepSeek V3", "DeepSeek R1", "低价", "高性价比", "中文优化"], pricing: "$0.0013-0.27/1M tokens", rating: 4.9, reviews: 2156, detailUrl: "/platform/deepseek.html" },
+            { id: 6, name: "Meta Llama", verified: true, trust: { verified: true, enterprise: true, active: true }, description: "Meta Llama是全球最受欢迎的开源大模型系列，Llama 4 Scout和Llama 4 Maverick提供业界领先的性能。Llama模型支持商业使用，开发者可自由部署、微调和分发。Meta提供完整的模型权重和训练代码，是学术研究、企业定制和开源项目开发的首选平台。", url: "https://llama.meta.com", logo: "/logos/meta-llama.svg", category: "official", tags: ["Llama 4", "开源", "Meta生态", "可微调", "商业可用"], pricing: "$0.05-0.24/1M tokens", rating: 4.6, reviews: 1234, detailUrl: "/platform/meta-llama.html" },
+            { id: 7, name: "Mistral AI", verified: true, trust: { verified: true, enterprise: true, active: true }, description: "Mistral AI是欧洲领先的开源AI公司，提供Mistral Large、Codestral、Pixtral等高性能模型。Mistral模型以Apache 2.0许可证开源，支持商业部署和定制化开发。Codestral专注于代码生成，Pixtral支持多模态理解。Mistral提供本地部署和云端API两种服务模式，是欧洲AI生态的核心力量。", url: "https://mistral.ai", logo: "/logos/mistral-ai.png", category: "official", tags: ["Mistral Large", "Codestral", "Pixtral", "开源", "欧洲"], pricing: "$0.24-8/1M tokens", rating: 4.4, reviews: 678, detailUrl: "/platform/mistral-ai.html" },
+            { id: 8, name: "Cohere", verified: true, trust: { verified: true, enterprise: true, active: true }, description: "Cohere是专注于企业级NLP解决方案的AI公司，提供Command R+、Embed v4等模型。Cohere在RAG(检索增强生成)和企业知识库构建方面具有独特优势，Embed模型在向量嵌入领域表现卓越。支持103+语言，提供私有化部署选项，是企业构建AI应用和知识管理系统的理想选择。", url: "https://cohere.com", logo: "/logos/cohere.png", category: "official", tags: ["Command R+", "RAG优化", "Embeddings", "企业级", "多语言"], pricing: "$0.50-15/1M tokens", rating: 4.5, reviews: 567, detailUrl: "/platform/cohere.html" },
+            { id: 9, name: "Perplexity", verified: true, trust: { verified: true, enterprise: true, active: true }, description: "Perplexity是新一代AI搜索引擎和API服务提供商，将大语言模型与实时网络搜索深度结合。Sonar系列API提供搜索增强的对话能力，能够获取最新信息并提供引用来源。Perplexity Pro用户可无限使用高级模型，API服务适合需要实时信息和可验证答案的应用场景。", url: "https://perplexity.ai", logo: "/logos/perplexity-api.png", category: "official", tags: ["搜索增强", "实时信息", "Sonar", "引用来源", "AI搜索"], pricing: "$2-20/1M tokens", rating: 4.5, reviews: 876, detailUrl: "/platform/perplexity.html" },
+            { id: 10, name: "AWS Bedrock", verified: true, trust: { verified: true, enterprise: true, active: true }, description: "AWS Bedrock是亚马逊云科技的企业级AI服务，提供Claude、Llama、Titan、Stable Diffusion等103+基础模型的统一API访问。支持模型微调、私有化部署和向量数据库集成。具备AWS企业级安全认证、SLA保障和全球基础设施支持，是大型企业构建AI应用的首选平台。", url: "https://aws.amazon.com/bedrock", logo: "/logos/aws-bedrock.png", category: "official", tags: ["AWS集成", "Claude", "企业级", "模型微调", "私有部署"], pricing: "$0.25-15/1M tokens", rating: 4.6, reviews: 2345, detailUrl: "/platform/aws-bedrock.html" },
             { id: 11, name: "Azure OpenAI", verified: true, description: "Azure OpenAI Service是微软Azure云平台上的企业级OpenAI API服务，提供GPT-4o、o1、DALL-E等模型。支持私有网络部署、企业级安全合规和Azure生态深度集成。提供Prompt Flow低代码开发工具和Content Safety内容过滤服务，是Microsoft 365和Azure用户构建AI应用的最佳选择。", url: "https://azure.microsoft.com/products/ai-services/openai-service", logo: "/logos/azure-openai.png", category: "official", tags: ["Azure", "GPT-4o", "企业级", "安全合规", "Microsoft生态"], pricing: "$0.002-15/1M tokens", rating: 4.7, reviews: 3214 },
             { id: 12, name: "Google AI Studio", verified: true, description: "Google AI Studio是Google提供的免费Gemini API开发平台，支持快速原型开发和测试。提供每日免费额度，支持Prompt工程、Few-shot学习和结构化输出。可直接导出到Vertex AI进行生产部署，是学习和实验Google AI技术的最佳入口。", url: "https://aistudio.google.com", logo: "/logos/google-gemini.png", category: "official", tags: ["免费额度", "Gemini", "开发测试", "Prompt工程", "快速原型"], pricing: "免费额度 + $0.0125-3.5/1M tokens", rating: 4.6, reviews: 987 },
             { id: 13, name: "NVIDIA NIM", verified: true, description: "NVIDIA NIM(NVIDIA Inference Microservices)是NVIDIA提供的GPU加速推理服务，支持129+主流大模型。基于NVIDIA H100/H200 GPU，提供业界领先的推理吞吐量和延迟表现。免费层提供40 RPM请求限制，适合高性能AI应用和需要GPU加速的场景。", url: "https://build.nvidia.com", logo: "/logos/nvidia.png", category: "official", tags: ["GPU加速", "129+模型", "NIM", "高性能推理", "H100"], pricing: "免费 40 RPM + 按量付费", rating: 4.7, reviews: 1234 },
@@ -3199,6 +3254,13 @@ var _hmt = _hmt || [];
             document.dispatchEvent(new CustomEvent('cookieConsentAccepted'));
         }
 
+        function acceptEssentialOnly() {
+            CookieManager.set('cookieConsent', 'essential', 365);
+            document.getElementById('cookieBanner').style.display = 'none';
+            // 不加载广告脚本
+            document.dispatchEvent(new CustomEvent('cookieConsentAccepted'));
+        }
+
         // ==================== 初始化 ====================
         document.addEventListener('DOMContentLoaded', function() {
             new StarfieldSystem();
@@ -3413,7 +3475,9 @@ var _hmt = _hmt || [];
                             <div>
                                 <div class="platform-name">
                                     ${platform.name}
-                                    ${platform.verified ? '<span class="verified-badge">✓</span>' : ''}
+                                    ${platform.verified ? '<span class="verified-badge" title="已验证 - 平台信息经人工审核确认">✓</span>' : ''}
+                                    ${platform.trust?.enterprise ? '<span class="badge-trust badge-enterprise" title="企业级 - 支持SLA/合规认证">企</span>' : ''}
+                                    ${platform.trust?.active ? '<span class="badge-trust badge-active" title="活跃维护 - 30天内有更新">●</span>' : ''}
                                 </div>
                             </div>
                         </div>
@@ -3425,10 +3489,11 @@ var _hmt = _hmt || [];
                         <div class="card-footer">
                             <div>
                                 <span class="stars">${'★'.repeat(Math.floor(platform.rating))}${'☆'.repeat(5-Math.floor(platform.rating))}</span>
-                                <span style="color: var(--text-secondary); font-size: 14px;">${platform.rating} (${platform.reviews + comments.length}条评价)</span>
+                                <span style="color: var(--text-secondary); font-size: 14px;">${platform.rating} <span title="基于 ${platform.reviews + comments.length} 条真实用户评价">(${platform.reviews + comments.length} 条评价)</span></span>
                             </div>
                             <span class="visit-btn">查看详情 →</span>
                         </div>
+                        <div class="data-source-tag">数据更新于 2026-06-16</div>
                     </a>
                 `}).join('');
 
@@ -3465,7 +3530,9 @@ var _hmt = _hmt || [];
                                     <div>
                                         <div class="platform-name">
                                             ${platform.name}
-                                            ${platform.verified ? '<span class="verified-badge">✓</span>' : ''}
+                                            ${platform.verified ? '<span class="verified-badge" title="已验证 - 平台信息经人工审核确认">✓</span>' : ''}
+                                            ${platform.trust?.enterprise ? '<span class="badge-trust badge-enterprise" title="企业级 - 支持SLA/合规认证">企</span>' : ''}
+                                            ${platform.trust?.active ? '<span class="badge-trust badge-active" title="活跃维护 - 30天内有更新">●</span>' : ''}
                                         </div>
                                     </div>
                                 </div>
@@ -3477,10 +3544,11 @@ var _hmt = _hmt || [];
                                 <div class="card-footer">
                                     <div>
                                         <span class="stars">${'★'.repeat(Math.floor(platform.rating))}${'☆'.repeat(5-Math.floor(platform.rating))}</span>
-                                        <span style="color: var(--text-secondary); font-size: 14px;">${platform.rating} (${platform.reviews + comments.length}条评价)</span>
+                                        <span style="color: var(--text-secondary); font-size: 14px;">${platform.rating} <span title="基于 ${platform.reviews + comments.length} 条真实用户评价">(${platform.reviews + comments.length} 条评价)</span></span>
                                     </div>
                                     <span class="visit-btn">查看详情 →</span>
                                 </div>
+                                <div class="data-source-tag">数据更新于 2026-06-16</div>
                             </a>
                         `}).join('')}
                     </div>
