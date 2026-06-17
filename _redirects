@@ -1,18 +1,19 @@
 # TokenNexus Cloudflare Pages 重定向配置
 # 更新日期: 2026-06-17
 #
-# 注意：Cloudflare Pages 会自动将 /about → about.html（不需要手动重定向）
-# 添加自引用的301重定向会导致 redirect loop！
+# 重要：Cloudflare Pages 会自动处理 clean URL（/about → about.html）
+# 不要在 _redirects 中添加自引用重定向，会导致 redirect loop！
+# 域名重定向只应在根域名（tokenfind.cn）上生效
 
 # ============================================
-# 关键文件：禁止重定向（必须放在最前面，优先级最高）
+# 关键文件：禁止重定向（必须放在最前面）
 # ============================================
 /ads.txt /ads.txt 200
 /robots.txt /robots.txt 200
 /sitemap.xml /sitemap.xml 200
 
 # ============================================
-# 域名重定向
+# 域名重定向：仅根域名 → www
 # ============================================
 
 # 将根域名重定向到www子域名（SEO最佳实践）
@@ -24,29 +25,3 @@ https://tokennexus.pages.dev/* https://www.tokenfind.cn/:splat 301
 
 # 将旧域名301重定向到新域名
 https://tokennexus.skillxm.cn/* https://www.tokenfind.cn/:splat 301
-
-# ============================================
-# 博客文章 URL 重定向
-# 处理从根级别访问博客文章的情况（旧链接/外部链接）
-# ============================================
-/blog/ai-api-free-platforms-2026 https://www.tokenfind.cn/blog/ai-api-free-platforms-2026.html 301
-/blog/ai-api-error-code-guide https://www.tokenfind.cn/blog/ai-api-error-code-guide.html 301
-/blog/ai-api-observability-monitoring https://www.tokenfind.cn/blog/ai-api-observability-monitoring.html 301
-/blog/ai-api-ab-testing-guide https://www.tokenfind.cn/blog/ai-api-ab-testing-guide.html 301
-/blog/ai-api-schema-design-guide https://www.tokenfind.cn/blog/ai-api-schema-design-guide.html 301
-/blog/ai-api-resilience-patterns https://www.tokenfind.cn/blog/ai-api-resilience-patterns.html 301
-/blog/ai-api-token-pricing-guide https://www.tokenfind.cn/blog/ai-api-token-pricing-guide.html 301
-/blog/ai-api-vector-database-guide https://www.tokenfind.cn/blog/ai-api-vector-database-guide.html 301
-/blog/ai-api-enterprise-procurement https://www.tokenfind.cn/blog/ai-api-enterprise-procurement.html 301
-/blog/ai-api-content-safety-guide https://www.tokenfind.cn/blog/ai-api-content-safety-guide.html 301
-/blog/ai-api-streaming-guide https://www.tokenfind.cn/blog/ai-api-streaming-guide.html 301
-/blog/ai-api-context-window-guide https://www.tokenfind.cn/blog/ai-api-context-window-guide.html 301
-
-# ============================================
-# 页面 URL 重定向（处理旧链接）
-# ============================================
-/official https://www.tokenfind.cn/official.html 301
-/aggregator https://www.tokenfind.cn/aggregator.html 301
-/china https://www.tokenfind.cn/china.html 301
-/about https://www.tokenfind.cn/about.html 301
-/blog/guides https://www.tokenfind.cn/blog/guides.html 301
