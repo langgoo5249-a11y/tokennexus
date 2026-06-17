@@ -804,11 +804,11 @@ var _hmt = _hmt || [];
 
         .hero h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 80px;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: 4px;
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
             text-shadow: 0 0 40px rgba(0,240,255,0.3);
         }
 
@@ -825,11 +825,11 @@ var _hmt = _hmt || [];
         }
 
         .hero-subtitle {
-            font-size: 20px;
+            font-size: 18px;
             color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto 60px;
-            line-height: 1.8;
+            max-width: 640px;
+            margin: 0 auto 48px;
+            line-height: 1.7;
         }
 
         .hero-stats {
@@ -941,8 +941,8 @@ var _hmt = _hmt || [];
         }
         .feature-card h3 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 20px;
-            margin-bottom: 15px;
+            font-size: 18px;
+            margin-bottom: 12px;
             color: var(--text-primary);
         }
         .feature-card p {
@@ -1257,7 +1257,7 @@ var _hmt = _hmt || [];
 
         .section-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
             letter-spacing: 2px;
             padding-left: 20px;
@@ -1303,15 +1303,16 @@ var _hmt = _hmt || [];
         .platform-card {
             background: linear-gradient(135deg, var(--card-bg) 0%, rgba(20,25,35,0.8) 100%);
             border: 1px solid var(--card-border);
-            padding: 28px;
+            padding: 24px;
             transition: all 0.4s ease;
             clip-path: polygon(5% 0, 100% 0, 100% 90%, 95% 100%, 0 100%, 0 10%);
             height: 100%;
-            min-height: 320px;
+            min-height: 300px;
             display: flex;
             flex-direction: column;
             position: relative;
             overflow: hidden;
+            border-radius: 4px;
         }
 
         /* 卡片角落装饰 */
@@ -1395,11 +1396,11 @@ var _hmt = _hmt || [];
 
         .platform-name {
             font-family: 'Orbitron', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 17px;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             line-height: 1.3;
         }
 
@@ -1459,14 +1460,14 @@ var _hmt = _hmt || [];
         .platform-description {
             font-size: 14px;
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.7;
             margin-bottom: 16px;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
             /* 固定高度确保所有卡片一致 */
-            height: 67.2px; /* 14px * 1.6 * 3 = 67.2px */
+            height: 71.4px; /* 14px * 1.7 * 3 = 71.4px */
             flex-shrink: 0;
         }
 
@@ -2304,8 +2305,8 @@ var _hmt = _hmt || [];
 
             .hero { padding: 100px 20px 60px; min-height: auto; }
             .hero::before { width: 300px; height: 300px; }
-            .hero h1 { font-size: 36px; letter-spacing: 2px; }
-            .hero-subtitle { font-size: 16px; margin-bottom: 40px; }
+            .hero h1 { font-size: 32px; letter-spacing: 2px; }
+            .hero-subtitle { font-size: 15px; margin-bottom: 32px; }
             .hero-stats { gap: 12px; flex-wrap: wrap; }
             .stat-item { padding: 16px 20px; min-width: 100px; }
             .stat-number { font-size: 28px; }
@@ -2345,7 +2346,7 @@ var _hmt = _hmt || [];
             .platform-card::before, .platform-card::after { width: 30px; height: 30px; }
             .platform-logo { width: 48px; height: 48px; }
             .platform-name { font-size: 16px; }
-            .platform-description { font-size: 13px; height: 62.4px; /* 13px * 1.6 * 3 */ }
+            .platform-description { font-size: 13px; line-height: 1.7; height: 66.3px; /* 13px * 1.7 * 3 */ }
             .card-header { min-height: 68px; }
             .section-title { font-size: 22px; }
             .section-subtitle { font-size: 14px; }
