@@ -2169,6 +2169,114 @@ var _hmt = _hmt || [];
             .cookie-content { flex-direction: column; text-align: center; }
         }
 
+        /* 小程序悬浮按钮 */
+        .mp-float-btn {
+            position: fixed;
+            bottom: 90px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #07C160, #06AD56);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(7, 193, 96, 0.4);
+            z-index: 9998;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: mp-pulse 2s ease-in-out infinite;
+        }
+        .mp-float-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(7, 193, 96, 0.6);
+        }
+        .mp-float-btn svg { width: 28px; height: 28px; fill: #fff; }
+        @keyframes mp-pulse {
+            0%, 100% { box-shadow: 0 4px 16px rgba(7, 193, 96, 0.4); }
+            50% { box-shadow: 0 4px 24px rgba(7, 193, 96, 0.7); }
+        }
+
+        /* 小程序弹窗 */
+        .mp-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .mp-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .mp-modal {
+            background: var(--card-bg, #0a0a12);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            max-width: 360px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+        .mp-modal-overlay.active .mp-modal {
+            transform: scale(1);
+        }
+        .mp-modal-close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: var(--text-secondary, #888);
+            font-size: 24px;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px;
+            transition: color 0.2s;
+        }
+        .mp-modal-close:hover { color: #fff; }
+        .mp-modal h3 {
+            color: #fff;
+            font-size: 18px;
+            margin: 0 0 8px;
+            font-weight: 600;
+        }
+        .mp-modal p {
+            color: var(--text-secondary, #888);
+            font-size: 14px;
+            margin: 0 0 20px;
+            line-height: 1.5;
+        }
+        .mp-modal img {
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            margin: 0 auto 16px;
+            display: block;
+            border: 2px solid rgba(0, 240, 255, 0.15);
+        }
+        .mp-modal .mp-tip {
+            color: var(--neon-cyan, #00f0ff);
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .mp-float-btn { bottom: 80px; right: 16px; width: 48px; height: 48px; }
+            .mp-float-btn svg { width: 24px; height: 24px; }
+            .mp-modal { padding: 24px; }
+            .mp-modal img { width: 180px; height: 180px; }
+        }
+
         /* 移动端 */
         @media (max-width: 768px) {
             .navbar { padding: 0 20px; height: 70px; }
@@ -4024,5 +4132,69 @@ var _hmt = _hmt || [];
         </script>
         <!-- 多语言切换组件 -->
         <script src="/js/i18n.js"></script>
+
+        <!-- 小程序悬浮按钮 -->
+        <button class="mp-float-btn" id="mpFloatBtn" onclick="toggleMpModal()" title="微信小程序" aria-label="打开微信小程序二维码">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm3.836 4.127c-3.678 0-6.66 2.583-6.66 5.772 0 3.188 2.982 5.771 6.66 5.771.726 0 1.424-.107 2.078-.303a.717.717 0 0 1 .59.082l1.563.913a.27.27 0 0 0 .137.045c.132 0 .24-.11.24-.245 0-.06-.024-.118-.04-.176l-.32-1.217a.486.486 0 0 1 .176-.547C21.863 19.475 22.895 17.7 22.895 15.89c0-3.189-2.983-5.772-6.661-5.772h.001zm-2.915 3.412c.528 0 .956.435.956.97a.963.963 0 0 1-.956.97.963.963 0 0 1-.956-.97c0-.535.428-.97.956-.97zm5.829 0c.528 0 .956.435.956.97a.963.963 0 0 1-.956.97.963.963 0 0 1-.956-.97c0-.535.428-.97.956-.97z"/></svg>
+        </button>
+
+        <!-- 小程序弹窗 -->
+        <div class="mp-modal-overlay" id="mpModal">
+            <div class="mp-modal">
+                <button class="mp-modal-close" onclick="closeMpModal()" aria-label="关闭">&times;</button>
+                <h3>微信小程序</h3>
+                <p>扫码关注 TokenNexus 小程序<br>获取更多 AI API 资讯与工具</p>
+                <img src="/images/miniprogram-qrcode.jpg" alt="TokenNexus 微信小程序码" loading="lazy">
+                <div class="mp-tip">打开微信扫一扫，即可访问</div>
+            </div>
+        </div>
+
+        <script>
+        (function() {
+            var MP_MODAL_KEY = 'mpModalDismissed';
+            var MP_INTERVAL = 24 * 60 * 60 * 1000; // 24小时
+
+            function shouldShowAutoPopup() {
+                try {
+                    var dismissed = localStorage.getItem(MP_MODAL_KEY);
+                    if (!dismissed) return true;
+                    var elapsed = Date.now() - parseInt(dismissed, 10);
+                    return elapsed >= MP_INTERVAL;
+                } catch(e) { return true; }
+            }
+
+            function setDismissed() {
+                try { localStorage.setItem(MP_MODAL_KEY, Date.now().toString()); } catch(e) {}
+            }
+
+            // 页面加载后延迟3秒自动弹出
+            if (shouldShowAutoPopup()) {
+                setTimeout(function() {
+                    var overlay = document.getElementById('mpModal');
+                    if (overlay) overlay.classList.add('active');
+                }, 3000);
+            }
+
+            window.toggleMpModal = function() {
+                var overlay = document.getElementById('mpModal');
+                if (overlay) overlay.classList.toggle('active');
+            };
+
+            window.closeMpModal = function() {
+                var overlay = document.getElementById('mpModal');
+                if (overlay) overlay.classList.remove('active');
+                setDismissed();
+            };
+
+            // 点击遮罩关闭
+            document.addEventListener('click', function(e) {
+                var overlay = document.getElementById('mpModal');
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    setDismissed();
+                }
+            });
+        })();
+        </script>
 </body>
 </html>
