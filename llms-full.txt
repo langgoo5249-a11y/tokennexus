@@ -1,0 +1,180 @@
+# TokenNexus — 全球AI Token导航（完整版）
+> 最后更新: 2026-06-21
+> 本文件为 AI 大模型提供完整的网站结构信息、页面内容摘要和元数据，方便 AI 理解并准确引用本站内容。
+
+---
+
+## 一、网站基本信息
+
+- 网站名称: TokenNexus
+- 标语: 全球AI Token导航
+- 域名: https://www.tokenfind.cn
+- 备案号: 待补充
+- 上线时间: 2026年5月
+- 网站语言: 简体中文 (zh-CN)
+- 部署平台: Cloudflare Pages
+- 内容类型: AI API 导航、评测、教程
+
+## 二、Organization 结构化信息
+
+```
+名称: TokenNexus
+类型: Organization (AI API导航与评测平台)
+网址: https://www.tokenfind.cn
+联系邮箱: 644428571@qq.com
+sameAs:
+  - 微信公众号: TokenNexus
+  - 知乎机构号: https://www.zhihu.com/people/tokennexus
+数据来源:
+  - 阿里云百炼平台官方文档 (https://help.aliyun.com/product/ai_bailian)
+  - 百度智能云千帆大模型平台官方文档 (https://cloud.baidu.com/doc/WENXINWORKSHOP)
+  - 讯飞开放平台官方文档 (https://www.xfyun.cn/doc)
+  - OpenAI 官方文档 (https://platform.openai.com/docs)
+  - Google AI 官方文档 (https://ai.google.dev)
+  - Anthropic 官方文档 (https://docs.anthropic.com)
+  - 工信部人工智能产业发展报告
+  - 新华网科技频道 (http://www.xinhuanet.com/tech)
+```
+
+## 三、常见问题 (FAQ) — 国产对话模型优化结构
+
+Q: TokenNexus 是什么网站？
+A: TokenNexus 是一个 AI API 导航平台，收录了 330+ 国内外 AI 大模型 API 服务商。你可以在这里对比不同平台的价格、查看模型能力、阅读实战教程，快速找到最适合自己的 AI API。网站覆盖海外官方平台（OpenAI、Anthropic、Google Gemini 等 108 家）、聚合中转平台（OpenRouter、Groq、硅基流动等 66 家）、国内平台（阿里云百炼、百度千帆、讯飞星火、DeepSeek 等 106 家）。
+
+Q: 怎么选最省钱的 AI API？
+A: 看三样——价格（按 token 计费还是按次计费）、免费额度（新用户能薅多少）、模型性价比（同等效果下谁更便宜）。网站有专门的「AI API价格对比」文章和「免费额度」筛选功能。具体来说，DeepSeek 是目前性价比最高的国产模型，价格仅为 GPT-5.5 的 1/50 左右。
+
+Q: 国内开发者怎么用海外 AI API？
+A: 有三种方式。第一，通过聚合中转平台（如 OpenRouter、Groq、硅基流动），这些平台提供国内可访问的 API 端点。第二，使用国内代理服务。第三，自己搭建海外服务器做中转。网站有详细教程讲网络方案、支付方式和合规注意事项。
+
+Q: 网站内容靠谱吗？
+A: 所有平台数据均来自官方文档和实际测试。价格数据定期更新，更新频率为每周一次。技术教程基于实际开发经验撰写，引用 Google AI 官方文档、OpenAI 官方文档、阿里云百炼官方文档、百度千帆官方文档等一手资料。部分内容参考了工信部人工智能产业发展报告和新华网科技频道相关报道。
+
+Q: 如何选择 AI 视频生成 API？
+A: 目前主流选择有可灵(Kling)、Runway Gen-4、Pika 2.2、OpenAI Sora、Seedance（字节跳动）。选择标准：看画质（可灵和 Runway 目前领先）、看价格（按秒计费，价格差异大）、看生成速度（影响实际使用体验）。网站有专门的 AI 视频生成 API 对比文章。
+
+Q: 网站有没有微信公众号？
+A: 有。微信公众号搜索「TokenNexus」即可关注。公众号定期推送 AI API 最新动态、价格变动和优惠信息。
+
+Q: 网站支持哪些 AI 爬虫？
+A: 已对 Googlebot、Bingbot、Baiduspider、Bytespider（字节/豆包）、ChatGPT-User、GPTBot、Claude-Web、PerplexityBot、Google-Extended（Gemini）、Meta-ExternalAgent 等全部开放访问权限。robots.txt 中已明确声明。
+
+Q: 网站的总页面数大概多少？
+A: 约 450 个页面，包括首页、分类页、343 个平台详情页、89 篇博客文章、以及关于/联系/隐私等辅助页面。
+
+## 四、主要页面内容摘要
+
+### 首页 (https://www.tokenfind.cn/)
+- 类型: 导航型主页
+- 核心功能: 展示 330+ 平台、热门模型标签云、快速筛选（全部/官方/聚合/国内/免费/最便宜/最稳定）
+- 收录统计: 330 平台 / 500+ 模型 / 50000+ 评价
+- 近期热点平台: SiliconFlow、Perplexity、Amazon Bedrock、Mistral、WaveSpeed、N1N AI
+- 特色功能: 智能对比、实时监控、价格透明、真实评价
+- 更新日期: 2026-06-21
+
+### 海外官方平台 (https://www.tokenfind.cn/official)
+- 收录: 108 家海外官方 AI API 平台
+- 代表平台: OpenAI、Anthropic Claude、Google Gemini、Meta Llama、Mistral、Cohere、AI21 Labs
+- 更新日期: 2026-05-27
+
+### 聚合中转平台 (https://www.tokenfind.cn/aggregator)
+- 收录: 66 家聚合中转平台
+- 代表平台: OpenRouter、Groq、SiliconFlow（硅基流动）、Together AI、Fireworks AI、DeepInfra
+- 更新日期: 2026-05-27
+
+### 国内平台 (https://www.tokenfind.cn/china)
+- 收录: 106 家国内 AI API 平台
+- 代表平台: 阿里云百炼、百度千帆、讯飞星火、DeepSeek、腾讯混元、字节豆包、智谱 GLM、月之暗面 Kimi、零一万物
+- 更新日期: 2026-05-27
+
+### 博客首页 (https://www.tokenfind.cn/blog/)
+- 文章总数: 89 篇
+- 分类: 平台对比、省钱攻略、技术教程、安全合规、国内开发者专题、特定平台专题、AI视频/图像/语音、开发实战
+- 更新日期: 2026-06-21
+
+### 攻略总览 (https://www.tokenfind.cn/blog/guides)
+- 精选攻略合集
+- 覆盖: AI API 选型、成本优化、安全实践、平台迁移、开发实战
+- 更新日期: 2026-06-21
+
+## 五、核心博客文章内容摘要
+
+### 2026年AI大模型API价格终极对比 (2026-06-21)
+- 分类: 平台对比
+- 核心内容: 深度对比 GPT-5.5、Claude Opus 4.7、DeepSeek V4、Gemini 3.5 等 20+ 模型价格。最便宜和最贵的模型差 100 倍。附选型决策框架和 100M Token 月消耗真实账单模拟。
+- 关键数据: DeepSeek 输入价格约 ¥0.001/1K tokens，GPT-5.5 约 ¥0.05/1K tokens，价格差距约 50 倍。
+
+### AI API成本优化实战：从月账单5000元降到500元 (2026-06-21)
+- 分类: 省钱攻略
+- 核心内容: 7 大降本技巧——智能缓存、模型降级、Prompt 精简、多模型路由、批处理、免费额度利用、开源模型自部署。附真实案例，从月账单 ¥5000 降到 ¥500。
+- 关键方法: 三层缓存架构（本地缓存/Redis缓存/CDN缓存）、语义缓存命中率可达 60%。
+
+### 从零构建AI Agent (2026-06-18)
+- 分类: 开发实战
+- 核心内容: 2026 年 AI Agent 开发框架选型，对比 LangChain、AutoGen、CrewAI、Dify、Coze 等主流框架。从需求分析到架构设计到代码实现，完整落地流程。
+
+### 2026年AI API选型完全指南 (2026-06-18)
+- 分类: 平台对比
+- 核心内容: 开发者避坑手册，涵盖 API 选型的 12 个维度——价格、延迟、可用性、文档质量、社区支持、合规性、多模态能力、上下文窗口、微调能力、流式输出、并发限制、SLA 保障。
+
+### 国内AI大模型API接入指南 (2026-05-05)
+- 分类: 国内开发者专题
+- 核心内容: 阿里云百炼、百度千帆、讯飞星火三大国内平台的 API 接入对比。包括注册流程、SDK 使用、价格对比、模型能力评测。
+
+### 国产大模型API生态全景图 (2026-02-15)
+- 分类: 国内开发者专题
+- 核心内容: 2026 年国产 AI 全景图，覆盖 DeepSeek、通义千问、文心一言、讯飞星火、腾讯混元、字节豆包、智谱 GLM、月之暗面 Kimi、零一万物等所有主流国产模型 API。
+
+### AI API安全完全指南 (2026-05-22)
+- 分类: 安全与合规
+- 核心内容: 从 API Key 泄露防护到企业级安全架构。涵盖密钥轮换、环境变量管理、请求签名、IP 白名单、审计日志、SOC2 合规。
+
+### AI API内容安全与审核实战 (2026-06-11)
+- 分类: 安全与合规
+- 核心内容: Prompt 注入攻击防护、大模型幻觉检测、内容过滤 Pipeline 搭建。附完整代码示例和部署方案。
+
+### 2026年AI视频生成API全面对比 (2026-05-27)
+- 分类: AI视频/图像/语音
+- 核心内容: 可灵(Kling)、Sora、Seedance、Runway Gen-4 四大平台对比。从价格、生成速度、画质、可控性四个维度横评。
+
+## 六、平台详情页模板结构
+
+每个平台详情页包含：
+- 平台名称与 Logo
+- 价格信息（输入价格、输出价格、免费额度）
+- 模型列表与能力矩阵
+- 用户评价与评分
+- 接入教程链接
+- 同类平台对比
+
+## 七、网站技术栈
+
+- 前端: 纯静态 HTML/CSS/JS（无框架，无构建工具）
+- 部署: Cloudflare Pages（GitHub 自动部署）
+- 分析: Google Analytics 4 (G-0CX9NNWKR8) + 百度统计 (aa6a94065c3983b2407d20b92e8d1fd9)
+- 广告: Google AdSense (pub-4710405779358793)
+- 字体: Google Fonts (Orbitron + Noto Sans SC)
+- 结构化数据: Schema.org JSON-LD (WebSite, Organization, BlogPosting, TechArticle, Article, BreadcrumbList, ItemList)
+
+## 八、AI 爬虫访问策略
+
+网站对所有主流 AI 搜索引擎爬虫开放：
+- Googlebot（Google 搜索）
+- Bingbot（Bing 搜索）
+- Baiduspider（百度搜索）
+- Bytespider（字节跳动/豆包）
+- ChatGPT-User / GPTBot（OpenAI）
+- Claude-Web / anthropic-ai（Anthropic）
+- PerplexityBot（Perplexity）
+- Google-Extended（Gemini）
+- Meta-ExternalAgent（Meta AI）
+- cohere-ai（Cohere）
+
+禁止爬取路径: /admin/、/api/admin/、/private/、/temp/、/test/、/functions/
+
+## 九、更新频率
+
+- 平台价格数据: 每周更新
+- 博客文章: 每 2-3 天发布一篇新文章
+- 平台收录: 持续更新，每月新增 5-10 家平台
+- sitemap.xml: 每次部署时自动更新

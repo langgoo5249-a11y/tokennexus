@@ -118,6 +118,17 @@ for page in ['about.html', 'contact.html', 'business.html', 'submit.html', 'priv
     xml_lines.append('        <priority>0.6</priority>')
     xml_lines.append('    </url>')
 
+# AI 模型发现文件 (llms.txt)
+xml_lines.append('')
+xml_lines.append('    <!-- AI 模型发现文件 -->')
+for txt_file in ['llms.txt', 'llms-full.txt']:
+    xml_lines.append('    <url>')
+    xml_lines.append(f'        <loc>{BASE_URL}/{txt_file}</loc>')
+    xml_lines.append(f'        <lastmod>{TODAY}</lastmod>')
+    xml_lines.append('        <changefreq>weekly</changefreq>')
+    xml_lines.append('        <priority>0.8</priority>')
+    xml_lines.append('    </url>')
+
 # 攻略文章
 xml_lines.append('')
 xml_lines.append(f'    <!-- 攻略文章 ({len(blog_articles)}篇) -->')
