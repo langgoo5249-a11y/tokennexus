@@ -9,6 +9,8 @@ TODAY = datetime.now().strftime("%Y-%m-%d")
 
 # 博客文章列表（排除index.html和guides.html本身）
 blog_articles = [
+    "ai-api-pricing-comparison-2026-guide.html",
+    "ai-api-cost-optimization-practical-guide.html",
     "ai-api-async-batch-processing.html",
     "ai-api-budget-roi-planning-2026.html",
     "ai-api-caching-optimization-2026.html",
