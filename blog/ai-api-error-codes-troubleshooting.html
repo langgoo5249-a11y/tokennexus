@@ -14,17 +14,21 @@ var _hmt = _hmt || [];
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="baiduspider" content="index, follow, max-snippet:-1">
     <meta name="google-site-verification" content="3FATe9bp1LttSUR3xRU93RCPefwi_Vyo94PtCH-dJ8Q">
     <title>AI API错误码大全与故障排查：OpenAI、Claude、国内平台踩坑实录 | TokenNexus</title>
     <meta name="description" content="全面整理OpenAI、Anthropic Claude、通义千问、文心一言等AI API常见错误码及排查方案。附真实故障案例、Python重试与降级代码、监控告警建议。">
     <meta name="keywords" content="AI API错误码,OpenAI 429错误,OpenAI rate limit,API错误处理,Claude API错误,AI API故障排查,API重试策略,context_length_exceeded,AI API超时处理">
-    <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting">
+    <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting.html">
 
     <!-- Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:title" content="AI API错误码大全与故障排查：OpenAI、Claude、国内平台踩坑实录">
     <meta property="og:description" content="全面整理OpenAI、Anthropic Claude、通义千问、文心一言等AI API常见错误码及排查方案。附真实故障案例、Python重试与降级代码、监控告警建议。">
-    <meta property="og:url" content="https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting">
+    <meta property="og:url" content="https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting.html">
     <meta property="og:site_name" content="TokenNexus">
     <meta property="og:image" content="https://www.tokenfind.cn/blog/images/api-monitoring.jpg">
     <meta property="article:published_time" content="2026-05-14T08:00:00+08:00">
@@ -51,9 +55,16 @@ var _hmt = _hmt || [];
         "description": "全面整理OpenAI、Anthropic Claude、通义千问、文心一言等AI API常见错误码及排查方案。附真实故障案例、Python重试与降级代码、监控告警建议。",
         "image": "https://www.tokenfind.cn/blog/images/api-monitoring.jpg",
         "author": {
-            "@type": "Organization",
+            "@type": "Person",
             "name": "TokenNexus团队",
-            "url": "https://www.tokenfind.cn/about.html"
+            "description": "TokenNexus技术团队专注于AI API评测与开发者生态建设，拥有3年以上大模型应用开发经验。",
+            "url": "https://www.tokenfind.cn/about.html",
+            "jobTitle": "AI API评测工程师",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "TokenNexus",
+                "url": "https://www.tokenfind.cn/"
+            }
         },
         "publisher": {
             "@type": "Organization",
@@ -67,10 +78,37 @@ var _hmt = _hmt || [];
         "dateModified": "2026-05-14T08:00:00+08:00",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting"
+            "@id": "https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting.html"
         },
         "articleSection": "技术教程",
         "keywords": ["AI API错误码", "OpenAI 429错误", "OpenAI rate limit", "API错误处理", "Claude API错误", "AI API故障排查", "API重试策略", "context_length_exceeded", "AI API超时处理"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "首页",
+                "item": "https://www.tokenfind.cn/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "攻略",
+                "item": "https://www.tokenfind.cn/blog/guides.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "文章",
+                "item": "https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting.html"
+            }
+        ]
     }
     </script>
 

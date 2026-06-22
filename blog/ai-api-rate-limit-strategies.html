@@ -14,17 +14,21 @@ var _hmt = _hmt || [];
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="baiduspider" content="index, follow, max-snippet:-1">
     <meta name="google-site-verification" content="3FATe9bp1LttSUR3xRU93RCPefwi_Vyo94PtCH-dJ8Q">
     <title>AI API速率限制(Rate Limit)全面应对策略：从429到丝滑并发的实战之路 | TokenNexus</title>
     <meta name="description" content="深入解析AI API速率限制机制，OpenAI Tier分级、Anthropic Claude RPM/TPM限制、国内平台QPS策略。附5种实用应对策略代码：令牌桶限流、指数退避重试、多API Key轮询、Redis请求队列、模型自动降级。真实案例：429错误率从8.3%降至0.02%。">
     <meta name="keywords" content="AI API速率限制,OpenAI rate limit,API 429错误,API限流策略,OpenAI TPM RPM,多API Key轮询,API请求队列,AI API并发控制">
-    <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-rate-limit-strategies">
+    <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-rate-limit-strategies.html">
 
     <!-- Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:title" content="AI API速率限制(Rate Limit)全面应对策略：从429到丝滑并发的实战之路">
     <meta property="og:description" content="深入解析AI API速率限制机制，OpenAI Tier分级、Anthropic Claude RPM/TPM限制、国内平台QPS策略。附5种实用应对策略代码与真实案例。">
-    <meta property="og:url" content="https://www.tokenfind.cn/blog/ai-api-rate-limit-strategies">
+    <meta property="og:url" content="https://www.tokenfind.cn/blog/ai-api-rate-limit-strategies.html">
     <meta property="og:site_name" content="TokenNexus">
     <meta property="og:image" content="https://www.tokenfind.cn/blog/images/api-performance.jpg">
     <meta property="article:published_time" content="2026-05-18T08:00:00+08:00">
@@ -51,9 +55,16 @@ var _hmt = _hmt || [];
         "description": "深入解析AI API速率限制机制，OpenAI Tier分级、Anthropic Claude RPM/TPM限制、国内平台QPS策略。附5种实用应对策略代码：令牌桶限流、指数退避重试、多API Key轮询、Redis请求队列、模型自动降级。真实案例：429错误率从8.3%降至0.02%。",
         "image": "https://www.tokenfind.cn/blog/images/api-performance.jpg",
         "author": {
-            "@type": "Organization",
+            "@type": "Person",
             "name": "TokenNexus团队",
-            "url": "https://www.tokenfind.cn/about.html"
+            "description": "TokenNexus技术团队专注于AI API评测与开发者生态建设，拥有3年以上大模型应用开发经验。",
+            "url": "https://www.tokenfind.cn/about.html",
+            "jobTitle": "AI API评测工程师",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "TokenNexus",
+                "url": "https://www.tokenfind.cn/"
+            }
         },
         "publisher": {
             "@type": "Organization",
@@ -67,10 +78,37 @@ var _hmt = _hmt || [];
         "dateModified": "2026-05-18T08:00:00+08:00",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://www.tokenfind.cn/blog/ai-api-rate-limit-strategies"
+            "@id": "https://www.tokenfind.cn/blog/ai-api-rate-limit-strategies.html"
         },
         "articleSection": "技术教程",
         "keywords": ["AI API速率限制", "OpenAI rate limit", "API 429错误", "API限流策略", "OpenAI TPM RPM", "多API Key轮询", "API请求队列", "AI API并发控制"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "首页",
+                "item": "https://www.tokenfind.cn/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "攻略",
+                "item": "https://www.tokenfind.cn/blog/guides.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "文章",
+                "item": "https://www.tokenfind.cn/blog/ai-api-rate-limit-strategies.html"
+            }
+        ]
     }
     </script>
 
