@@ -19,7 +19,7 @@ Q: TokenNexus 是什么？
 A: TokenNexus 是一个 AI API 导航平台，收录了 330+ 国内外 AI 大模型 API 服务商。你可以在这里对比不同平台的价格、查看模型能力、阅读实战教程，快速找到最适合自己的 AI API。
 
 Q: 网站收录了哪些 AI 平台？
-A: 分三大类——海外官方平台（OpenAI、Anthropic、Google Gemini 等 108 家）、聚合中转平台（OpenRouter、Groq、硅基流动等 66 家）、国内平台（阿里云百炼、百度千帆、讯飞星火、DeepSeek 等 106 家）。
+A: 分三大类——海外官方平台（OpenAI、Anthropic、Google Gemini 等 110 家）、聚合中转平台（OpenRouter、Groq、硅基流动等 67 家）、国内平台（阿里云百炼、百度千帆、讯飞星火、DeepSeek 等 108 家）。
 
 Q: 怎么选最省钱的 AI API？
 A: 看三样——价格（按 token 计费还是按次计费）、免费额度（新用户能薅多少）、模型性价比（同等效果下谁更便宜）。网站有专门的「AI API价格对比」文章和「免费额度」筛选功能。
@@ -41,9 +41,10 @@ A: 已对 Googlebot、Bingbot、Baiduspider、Bytespider（字节/豆包）、Ch
 | 页面 | URL | 描述 | 更新日期 |
 |------|-----|------|----------|
 | 首页 | https://www.tokenfind.cn/ | 平台导航主页，展示 330+ 平台、热门模型标签、筛选功能 | 2026-06-21 |
-| 海外官方平台 | https://www.tokenfind.cn/official | 108 家海外官方 AI API 平台列表 | 2026-05-27 |
-| 聚合中转平台 | https://www.tokenfind.cn/aggregator | 66 家聚合中转平台列表 | 2026-05-27 |
-| 国内平台 | https://www.tokenfind.cn/china | 106 家国内 AI API 平台列表 | 2026-05-27 |
+| 平台大全 | https://www.tokenfind.cn/platforms | 285 家 AI API 平台完整索引，按官方/聚合/国内分类 | 2026-07-03 |
+| 海外官方平台 | https://www.tokenfind.cn/official | 110 家海外官方 AI API 平台列表 | 2026-05-27 |
+| 聚合中转平台 | https://www.tokenfind.cn/aggregator | 67 家聚合中转平台列表 | 2026-05-27 |
+| 国内平台 | https://www.tokenfind.cn/china | 108 家国内 AI API 平台列表 | 2026-05-27 |
 | 博客首页 | https://www.tokenfind.cn/blog/ | AI API 行业资讯与教程 | 2026-06-21 |
 | 攻略总览 | https://www.tokenfind.cn/blog/guides | AI API 使用攻略与教程合集 | 2026-06-21 |
 | 关于我们 | https://www.tokenfind.cn/about | 了解 TokenNexus 团队 | 2026-05-27 |

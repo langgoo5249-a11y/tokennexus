@@ -20,9 +20,12 @@ var _hmt = _hmt || [];
     <meta name="baiduspider" content="index, follow, max-snippet:-1">
     <meta name="google-site-verification" content="3FATe9bp1LttSUR3xRU93RCPefwi_Vyo94PtCH-dJ8Q">
     <title>AI API缓存优化实战：三层架构让成本降75% | TokenNexus</title>
+    <meta name="author" content="TokenNexus团队">
     <meta name="description" content="详解AI API三层缓存架构：Prompt Prefix缓存、Exact-match缓存、Semantic缓存。真实案例：月费用从$47,000降至$11,800，降幅75%。Prompt Caching可降低延迟最高80%，输入token成本降低90%。">
     <meta name="keywords" content="AI API缓存, Prompt Caching, 语义缓存, API成本优化, 大模型缓存策略, Exact-match缓存, Semantic缓存, Redis缓存">
     <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-caching-optimization-2026">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/blog/ai-api-caching-optimization-2026">
+    <link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/blog/ai-api-caching-optimization-2026">
     
     <!-- GEO优化标签 -->
     <meta name="geo.region" content="CN">
@@ -50,72 +53,7 @@ var _hmt = _hmt || [];
     <meta name="twitter:description" content="详解AI API三层缓存架构，真实案例月费用从$47,000降至$11,800。Prompt Caching可降低延迟最高80%。">
     <meta name="twitter:image" content="https://www.tokenfind.cn/blog/images/api-caching.jpg">
     
-    <!-- Schema.org TechArticle结构化数据 -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "TechArticle",
-        "headline": "AI API缓存优化实战：三层架构让成本降75%",
-        "description": "详解AI API三层缓存架构：Prompt Prefix缓存、Exact-match缓存、Semantic缓存。真实案例月费用从$47,000降至$11,800，降幅75%。",
-        "image": "https://www.tokenfind.cn/blog/images/api-caching.jpg",
-        "author": {
-            "@type": "Person",
-            "name": "TokenNexus团队",
-            "description": "TokenNexus技术团队专注于AI API评测与开发者生态建设，拥有3年以上大模型应用开发经验。",
-            "url": "https://www.tokenfind.cn/about.html",
-            "jobTitle": "AI API评测工程师",
-            "worksFor": {
-                "@type": "Organization",
-                "name": "TokenNexus",
-                "url": "https://www.tokenfind.cn/"
-            }
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "TokenNexus",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.tokenfind.cn/favicon.svg"
-            }
-        },
-        "datePublished": "2026-05-20T08:00:00+08:00",
-        "dateModified": "2026-05-20T08:00:00+08:00",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://www.tokenfind.cn/blog/ai-api-caching-optimization-2026"
-        },
-        "articleSection": "省钱攻略",
-        "proficiencyLevel": "Intermediate",
-        "keywords": ["AI API缓存", "Prompt Caching", "语义缓存", "API成本优化", "大模型缓存策略", "Exact-match缓存", "Semantic缓存"]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "首页",
-                "item": "https://www.tokenfind.cn/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "攻略",
-                "item": "https://www.tokenfind.cn/blog/guides.html"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "文章",
-                "item": "https://www.tokenfind.cn/blog/ai-api-caching-optimization-2026.html"
-            }
-        ]
-    }
-    </script>
+    <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
     
     <!-- GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8"></script>
@@ -241,30 +179,6 @@ var _hmt = _hmt || [];
         .cookie-btn.more { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; }
         @media (max-width: 768px) { .cookie-content { flex-direction: column; text-align: center; } }
     </style>
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "AI API缓存优化实战：三层架构让成本降75%",
-        "description": "详解AI API三层缓存架构，真实案例月费用从$47,000降至$11,800。Prompt Caching可降低延迟最高80%，输入token成本降低90%。",
-        "image": "https://www.tokenfind.cn/blog/images/api-caching.jpg",
-        "url": "https://www.tokenfind.cn/blog/ai-api-caching-optimization-2026",
-        "datePublished": "2026-05-20T08:00:00+08:00",
-        "dateModified": "2026-05-20T08:00:00+08:00",
-        "author": {
-            "@type": "Organization",
-            "name": "TokenNexus"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "TokenNexus",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.tokenfind.cn/favicon.svg"
-            }
-        }
-    }
-    </script>
 
     <!-- Cookie Consent GA4 Protection - blocks GA4 until user accepts -->
     <script>
@@ -294,7 +208,93 @@ var _hmt = _hmt || [];
       });
     })();
     </script>
-</head>
+    <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
+        <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
+        <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BlogPosting",
+            "headline": "AI API缓存优化实战：三层架构让成本降75%",
+            "description": "详解AI API三层缓存架构：Prompt Prefix缓存、Exact-match缓存、Semantic缓存。真实案例：月费用从$47,000降至$11,800，降幅75%。Prompt Caching可降低延迟最高80%，输入token成本降低90%。",
+            "image": "https://www.tokenfind.cn/blog/images/api-caching.jpg",
+            "url": "https://www.tokenfind.cn/blog/ai-api-caching-optimization-2026",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.tokenfind.cn/blog/ai-api-caching-optimization-2026"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "TokenNexus团队",
+                "description": "TokenNexus团队，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
+                "url": "https://www.tokenfind.cn/about",
+                "jobTitle": "AI API内容编辑",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "TokenNexus",
+                    "url": "https://www.tokenfind.cn/"
+                }
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "TokenNexus",
+                "url": "https://www.tokenfind.cn/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.tokenfind.cn/images/logo.png"
+                }
+            },
+            "datePublished": "2026-05-20T08:00:00+08:00",
+            "dateModified": "2026-05-20T08:00:00+08:00",
+            "articleSection": "AI API",
+            "keywords": [
+                "AI API缓存",
+                "Prompt Caching",
+                "语义缓存",
+                "API成本优化",
+                "大模型缓存策略",
+                "Exact-match缓存",
+                "Semantic缓存",
+                "Redis缓存"
+            ],
+            "inLanguage": "zh-CN",
+            "speakable": {
+                "@type": "SpeakableSpecification",
+                "cssSelector": [
+                    ".article-content h2",
+                    ".article-content p"
+                ]
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "首页",
+                    "item": "https://www.tokenfind.cn/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "攻略",
+                    "item": "https://www.tokenfind.cn/blog/guides"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "AI API缓存优化实战：三层架构让成本降75%",
+                    "item": "https://www.tokenfind.cn/blog/ai-api-caching-optimization-2026"
+                }
+            ]
+        }
+    ]
+}
+    </script>
+    </head>
 <body>
     <nav class="navbar">
         <a href="../index.html" class="logo">

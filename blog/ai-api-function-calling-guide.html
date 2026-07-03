@@ -27,6 +27,8 @@ var _hmt = _hmt || [];
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-function-calling-guide">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/blog/ai-api-function-calling-guide">
+    <link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/blog/ai-api-function-calling-guide">
 
     <!-- Open Graph -->
     <meta property="og:type" content="article">
@@ -50,71 +52,7 @@ var _hmt = _hmt || [];
     <meta name="twitter:title" content="AI API Function Calling与工具调用完全指南：从入门到实战">
     <meta name="twitter:description" content="深入讲解AI Function Calling与Tool Use技术，涵盖OpenAI和Claude的工具调用实现与完整实战案例。">
 
-    <!-- Schema.org BlogPosting Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "AI API Function Calling与工具调用完全指南：从入门到实战",
-        "description": "深入讲解AI Function Calling与Tool Use技术，涵盖OpenAI和Claude的工具调用实现、完整Python实战案例、并行函数调用技巧，助你构建AI Agent智能助手。",
-        "image": "https://www.tokenfind.cn/og-image.png",
-        "datePublished": "2026-05-16T10:00:00+08:00",
-        "dateModified": "2026-05-16T10:00:00+08:00",
-        "author": {
-            "@type": "Person",
-            "name": "TokenNexus团队",
-            "description": "TokenNexus技术团队专注于AI API评测与开发者生态建设，拥有3年以上大模型应用开发经验。",
-            "url": "https://www.tokenfind.cn/about.html",
-            "jobTitle": "AI API评测工程师",
-            "worksFor": {
-                "@type": "Organization",
-                "name": "TokenNexus",
-                "url": "https://www.tokenfind.cn/"
-            }
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "TokenNexus",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.tokenfind.cn/favicon.svg"
-            }
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://www.tokenfind.cn/blog/ai-api-function-calling-guide"
-        },
-        "articleSection": "技术教程",
-        "keywords": ["AI Function Calling", "OpenAI工具调用", "Claude Tool Use", "AI Agent开发", "Function Calling教程", "AI API函数调用", "智能助手开发", "AI Agent工具链"]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "首页",
-                "item": "https://www.tokenfind.cn/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "攻略",
-                "item": "https://www.tokenfind.cn/blog/guides.html"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "文章",
-                "item": "https://www.tokenfind.cn/blog/ai-api-function-calling-guide.html"
-            }
-        ]
-    }
-    </script>
+    <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
 
     <style>
         :root {
@@ -655,267 +593,93 @@ var _hmt = _hmt || [];
     </script>
 
     <!-- FAQ Structured Data for GEO -->
+
+    <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
+        <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
     <script type="application/ld+json">
     {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@graph": [
         {
-            "@type": "Question",
-            "name": "第二步：OpenAI版本Python代码
-
-            import openai
-import json
-from openai import OpenAI
-
-client = OpenAI(api_key=\"your-api-key\")
-
-# 定义工具
-tools = [
-    {
-        \"type\": \"function\",
-        \"function\": {
-            \"name\": \"get_weather\",
-            \"description\": \"查询指定城市的实时天气信息\",
-            \"parameters\": {
-                \"type\": \"object\",
-                \"properties\": {
-                    \"city\": {\"type\": \"string\", \"description\": \"城市名称\"},
-                    \"unit\": {\"type\": \"string\", \"enum\": [\"celsius\", \"fahrenheit\"]}
-                },
-                \"required\": [\"city\"]
-            }
-        }
-    },
-    {
-        \"type\": \"function\",
-        \"function\": {
-            \"name\": \"search_flights\",
-            \"description\": \"搜索航班信息\",
-            \"parameters\": {
-                \"type\": \"object\",
-                \"properties\": {
-                    \"origin\": {\"type\": \"string\", \"description\": \"出发城市\"},
-                    \"destination\": {\"type\": \"string\", \"description\": \"目的城市\"},
-                    \"date\": {\"type\": \"string\", \"description\": \"出发日期 YYYY-MM-DD\"},
-                    \"passengers\": {\"type\": \"integer\", \"description\": \"乘客人数\"}
-                },
-                \"required\": [\"origin\", \"destination\", \"date\"]
-            }
-        }
-    }
-]
-
-# 模拟工具函数
-def get_weather(city, unit=\"celsius\"):
-    # 实际项目中这里调用真实天气API
-    return json.dumps({
-        \"city\": city,
-        \"temperature\": 25 if unit == \"celsius\" else 77,
-        \"humidity\": 65,
-        \"condition\": \"晴转多云\",
-        \"forecast\": [\"晴\", \"多云\", \"小雨\"]
-    })
-
-def search_flights(origin, destination, date, passengers=1):
-    # 实际项目中这里调用真实航班API
-    return json.dumps({
-        \"flights\": [
-            {\"flight_no\": \"CA1234\", \"time\": \"08:00-10:30\", \"price\": 890, \"seats\": 12},
-            {\"flight_no\": \"MU5678\", \"time\": \"14:00-16:20\", \"price\": 650, \"seats\": 5}
-        ]
-    })
-
-# 工具路由映射
-available_functions = {
-    \"get_weather\": get_weather,
-    \"search_flights\": search_flights,
-}
-
-def run_assistant(user_message):
-    messages = [
-        {\"role\": \"system\", \"content\": \"你是一个智能助手，可以查询天气和搜索航班。请用中文回答。\"},
-        {\"role\": \"user\", \"content\": user_message}
-    ]
-
-    # 第一轮：模型判断是否需要调用工具
-    response = client.chat.completions.create(
-        model=\"gpt-4o\",
-        messages=messages,
-        tools=tools,
-        tool_choice=\"auto\"
-    )
-
-    message = response.choices[0].message
-
-    # 如果模型决定调用工具
-    if message.tool_calls:
-        messages.append(message)
-
-        for tool_call in message.tool_calls:
-            func_name = tool_call.function.name
-            func_args = json.loads(tool_call.function.arguments)
-
-            # 执行对应的函数
-            func = available_functions[func_name]
-            result = func(**func_args)
-
-            # 把结果回传给模型
-            messages.append({
-                \"role\": \"tool\",
-                \"tool_call_id\": tool_call.id,
-                \"content\": result
-            })
-
-        # 第二轮：模型基于工具结果生成最终回答
-        final = client.chat.completions.create(
-            model=\"gpt-4o\",
-            messages=messages,
-            tools=tools
-        )
-        return final.choices[0].message.content
-
-    return message.content
-
-# 测试
-print(run_assistant(\"帮我查一下上海明天的天气，再看看上海到北京5月20号有什么航班\"))
-
-            第三步：Claude版本Python代码
-
-            import anthropic
-import json
-
-client = anthropic.Anthropic(api_key=\"your-api-key\")
-
-# Claude的工具定义格式不同
-tools = [
-    {
-        \"name\": \"get_weather\",
-        \"description\": \"查询指定城市的实时天气信息\",
-        \"input_schema\": {
-            \"type\": \"object\",
-            \"properties\": {
-                \"city\": {\"type\": \"string\", \"description\": \"城市名称\"},
-                \"unit\": {\"type\": \"string\", \"enum\": [\"celsius\", \"fahrenheit\"]}
+            "@type": "BlogPosting",
+            "headline": "AI API Function Calling与工具调用完全指南：从入门到实战",
+            "description": "深入讲解AI Function Calling与Tool Use技术，涵盖OpenAI和Claude的工具调用实现、完整Python实战案例、并行函数调用技巧，助你构建AI Agent智能助手。",
+            "image": "https://www.tokenfind.cn/images/logo.png",
+            "url": "https://www.tokenfind.cn/blog/ai-api-function-calling-guide",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.tokenfind.cn/blog/ai-api-function-calling-guide"
             },
-            \"required\": [\"city\"]
-        }
-    },
-    {
-        \"name\": \"search_flights\",
-        \"description\": \"搜索航班信息\",
-        \"input_schema\": {
-            \"type\": \"object\",
-            \"properties\": {
-                \"origin\": {\"type\": \"string\", \"description\": \"出发城市\"},
-                \"destination\": {\"type\": \"string\", \"description\": \"目的城市\"},
-                \"date\": {\"type\": \"string\", \"description\": \"出发日期 YYYY-MM-DD\"},
-                \"passengers\": {\"type\": \"integer\", \"description\": \"乘客人数\"}
+            "author": {
+                "@type": "Person",
+                "name": "TokenNexus团队",
+                "description": "TokenNexus团队，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
+                "url": "https://www.tokenfind.cn/about",
+                "jobTitle": "AI API内容编辑",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "TokenNexus",
+                    "url": "https://www.tokenfind.cn/"
+                }
             },
-            \"required\": [\"origin\", \"destination\", \"date\"]
-        }
-    }
-]
-
-def get_weather(city, unit=\"celsius\"):
-    return json.dumps({
-        \"city\": city, \"temperature\": 25,
-        \"humidity\": 65, \"condition\": \"晴转多云\"
-    })
-
-def search_flights(origin, destination, date, passengers=1):
-    return json.dumps({
-        \"flights\": [
-            {\"flight_no\": \"CA1234\", \"time\": \"08:00-10:30\", \"price\": 890},
-            {\"flight_no\": \"MU5678\", \"time\": \"14:00-16:20\", \"price\": 650}
-        ]
-    })
-
-available_functions = {
-    \"get_weather\": get_weather,
-    \"search_flights\": search_flights,
-}
-
-def run_assistant(user_message):
-    messages = [{\"role\": \"user\", \"content\": user_message}]
-
-    response = client.messages.create(
-        model=\"claude-sonnet-4-20250514\",
-        max_tokens=1024,
-        system=\"你是一个智能助手，可以查询天气和搜索航班。请用中文回答。\",
-        tools=tools,
-        tool_choice={\"type\": \"auto\"},
-        messages=messages
-    )
-
-    # 处理工具调用
-    while response.stop_reason == \"tool_use\":
-        # 收集所有工具调用结果
-        tool_results = []
-        for content_block in response.content:
-            if content_block.type == \"tool_use\":
-                func = available_functions[content_block.name]
-                result = func(**content_block.input)
-                tool_results.append({
-                    \"type\": \"tool_result\",
-                    \"tool_use_id\": content_block.id,
-                    \"content\": result
-                })
-
-        # 构建新的messages
-        messages.append({\"role\": \"assistant\", \"content\": response.content})
-        messages.append({\"role\": \"user\", \"content\": tool_results})
-
-        response = client.messages.create(
-            model=\"claude-sonnet-4-20250514\",
-            max_tokens=1024,
-            system=\"你是一个智能助手，可以查询天气和搜索航班。请用中文回答。\",
-            tools=tools,
-            tool_choice={\"type\": \"auto\"},
-            messages=messages
-        )
-
-    return response.content[0].text
-
-# 测试
-print(run_assistant(\"帮我查一下上海明天的天气，再看看上海到北京5月20号有什么航班\"))
-
-            两个版本的核心流程是一样的：定义工具 - 发送请求 - 检查是否有工具调用 - 执行函数 - 回传结果 - 获取最终回答。区别主要在API格式上，Claude用content block的方式组织工具调用，OpenAI用tool_calls数组。
-
-            
-            
-                广告位预留 (336x280)
-            
-
-            真实案例：电商智能客服的Function Calling实践
-
-            说个我亲身经历的项目。去年底给一家中型电商做智能客服，他们每天的客服工单大概3000多，人工处理压力很大。我们用Function Calling方案接入了三个内部API：订单查询、退款处理、物流追踪。
-
-            工具定义大概是这样的：
-
-            
-                query_order：根据订单号或手机号查询订单状态、商品信息、收货地址
-                process_refund：发起退款申请，自动判断是否符合退款政策（购买时间、商品状态等）
-                track_logistics：输入订单号或快递单号，返回物流节点信息
-            
-
-            上线跑了三个月的数据：67%的常见咨询（查快递到哪了、退款进度、订单信息确认）被AI直接处理，人工客服只需要处理那些涉及投诉、特殊售后和需要人工判断的复杂case。客服团队从原来的40人缩减到28人，但服务质量评分反而从4.2提升到了4.6——因为AI不会带着情绪上班，也不会因为忙了一天就敷衍了事。
-
-            这里有个关键设计：退款接口我们做了权限分级。AI只能处理金额在500元以下、购买不超过30天的标准退款申请。超出范围的自动转人工。这个\"知道什么时候该放手\"的能力，比\"能处理多少问题\"更重要。
-
-            高级技巧：并行调用、工具管理与错误处理
-
-            并行函数调用",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "这是gpt-4o和Claude 3.5之后才有的能力，效果非常明显。比如用户问\"北京和上海的天气分别怎么样\"，模型会同时返回两个get_weather调用，你的代码并行执行，然后把两个结果一起回传。比串行调用快了一倍。"
+            "publisher": {
+                "@type": "Organization",
+                "name": "TokenNexus",
+                "url": "https://www.tokenfind.cn/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.tokenfind.cn/images/logo.png"
+                }
+            },
+            "datePublished": "2026-05-16T10:00:00+08:00",
+            "dateModified": "2026-05-16T10:00:00+08:00",
+            "articleSection": "技术教程",
+            "keywords": [
+                "AI Function Calling",
+                "OpenAI工具调用",
+                "Claude Tool Use",
+                "AI Agent开发",
+                "Function Calling教程",
+                "AI API函数调用",
+                "智能助手开发",
+                "AI Agent工具链"
+            ],
+            "inLanguage": "zh-CN",
+            "speakable": {
+                "@type": "SpeakableSpecification",
+                "cssSelector": [
+                    ".article-content h2",
+                    ".article-content p"
+                ]
             }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "首页",
+                    "item": "https://www.tokenfind.cn/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "攻略",
+                    "item": "https://www.tokenfind.cn/blog/guides"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "AI API Function Calling与工具调用完全指南：从入门到实战",
+                    "item": "https://www.tokenfind.cn/blog/ai-api-function-calling-guide"
+                }
+            ]
         }
     ]
 }
     </script>
-
-<body>
+    <body>
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="nav-container">

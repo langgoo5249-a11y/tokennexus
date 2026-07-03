@@ -44,60 +44,6 @@ var _hmt = _hmt || [];
     <meta name="twitter:description" content="详细解析AI API常见错误码的原因与解决方案，附真实踩坑案例和代码示例。">
     <meta name="twitter:image" content="https://www.tokenfind.cn/blog/images/api-error-codes-guide.jpg">
     
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "AI API错误码完全排查指南：从429限流到500超时的实战解决方案",
-        "description": "详细解析OpenAI、Claude、Gemini等AI API常见错误码的原因与解决方案，附真实踩坑案例和代码示例",
-        "image": "https://www.tokenfind.cn/blog/images/api-error-codes-guide.jpg",
-        "url": "https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting-2026",
-        "mainEntityOfPage": "https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting-2026",
-        "author": {
-            "@type": "Person",
-            "name": "TokenNexus团队",
-            "description": "TokenNexus技术团队专注于AI API评测与开发者生态建设，拥有3年以上大模型应用开发经验。",
-            "url": "https://www.tokenfind.cn/about.html",
-            "jobTitle": "AI API评测工程师",
-            "worksFor": {
-                "@type": "Organization",
-                "name": "TokenNexus",
-                "url": "https://www.tokenfind.cn/"
-            }
-        },
-        "publisher": {"@type": "Organization", "name": "TokenNexus", "logo": {"@type": "ImageObject", "url": "https://www.tokenfind.cn/favicon.svg"}},
-        "datePublished": "2026-05-31",
-        "dateModified": "2026-05-31"
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "首页",
-                "item": "https://www.tokenfind.cn/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "攻略",
-                "item": "https://www.tokenfind.cn/blog/guides.html"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "文章",
-                "item": "https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting-2026.html"
-            }
-        ]
-    }
-    </script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root { --neon-cyan: #00f0ff; --neon-purple: #b829dd; --dark-bg: #050508; --card-bg: rgba(10, 10, 18, 0.9); --card-border: rgba(0, 240, 255, 0.15); --text-primary: #ffffff; --text-secondary: #8b92a8; }
@@ -173,7 +119,95 @@ var _hmt = _hmt || [];
         
         @media (max-width: 768px) { .navbar { padding: 0 20px; } .nav-links { display: none; } .article-container { padding: 100px 20px 40px; } .article-title { font-size: 1.6rem; } .article-content { font-size: 0.95rem; } }
     </style>
-</head>
+    <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
+        <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
+        <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
+        <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BlogPosting",
+            "headline": "AI API错误码完全排查指南：从429限流到500超时的实战解决方案博客",
+            "description": "详细解析OpenAI、Claude、Gemini等AI API常见错误码（429限流、500超时、401认证失败等）的原因与解决方案，附真实踩坑案例、错误码速查表和Python/Node.js代码示例。",
+            "image": "https://www.tokenfind.cn/blog/images/api-error-codes-guide.jpg",
+            "url": "https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting-2026",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting-2026"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "TokenNexus团队",
+                "description": "TokenNexus团队，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
+                "url": "https://www.tokenfind.cn/about",
+                "jobTitle": "AI API内容编辑",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "TokenNexus",
+                    "url": "https://www.tokenfind.cn/"
+                }
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "TokenNexus",
+                "url": "https://www.tokenfind.cn/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.tokenfind.cn/images/logo.png"
+                }
+            },
+            "datePublished": "2026-05-31",
+            "dateModified": "2026-05-31",
+            "articleSection": "开发实战",
+            "keywords": [
+                "OpenAI API错误码",
+                "Claude API报错",
+                "AI API 429错误",
+                "API rate limit解决",
+                "AI API超时处理",
+                "AI API调试",
+                "API错误排查",
+                "rate limit exceeded",
+                "API timeout"
+            ],
+            "inLanguage": "zh-CN",
+            "speakable": {
+                "@type": "SpeakableSpecification",
+                "cssSelector": [
+                    ".article-content h2",
+                    ".article-content p"
+                ]
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "首页",
+                    "item": "https://www.tokenfind.cn/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "攻略",
+                    "item": "https://www.tokenfind.cn/blog/guides"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "AI API错误码完全排查指南：从429限流到500超时的实战解决方案博客",
+                    "item": "https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting-2026"
+                }
+            ]
+        }
+    ]
+}
+    </script>
+    </head>
 <body>
     <nav class="navbar">
         <a href="/" class="logo">
