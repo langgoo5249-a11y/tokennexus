@@ -568,11 +568,11 @@ var _hmt = _hmt || [];
             </header>
 
             <div class="article-content">
-                <p>6月29号晚上，我的技术群里炸了。DeepSeek官方发了一封邮件，宣布V4正式版7月中旬上线，同时引入"峰谷定价"——每天上午9点到12点、下午2点到6点定义为高峰时段，API价格直接翻倍。群里的反应两极分化：有人说"涨价了要跑路"，也有人说"低谷价格没变，错峰用更香"。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">6月29号晚上，我的技术群里炸了。DeepSeek官方发了一封邮件，宣布V4正式版7月中旬上线，同时引入"峰谷定价"——每天上午9点到12点、下午2点到6点定义为高峰时段，API价格直接翻倍。群里的反应两极分化：有人说"涨价了要跑路"，也有人说"低谷价格没变，错峰用更香"。</p>
 
-                <p>这其实只是6月AI API市场三件大事中的一件。整个6月，Claude Fable 5以10美元/百万Token的输入价格刷新了"最贵公开模型"纪录，Gemini 3.5 Flash降价40%成了性价比黑马，Anthropic悄悄退役了Claude 4 Opus和Sonnet 4。这些变化叠加在一起，意味着2026下半年的大模型API选型逻辑需要重新梳理。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这其实只是6月AI API市场三件大事中的一件。整个6月，Claude Fable 5以10美元/百万Token的输入价格刷新了"最贵公开模型"纪录，Gemini 3.5 Flash降价40%成了性价比黑马，Anthropic悄悄退役了Claude 4 Opus和Sonnet 4。这些变化叠加在一起，意味着2026下半年的大模型API选型逻辑需要重新梳理。</p>
 
-                <p>这篇文章不堆数据表格，而是从一个实际开发者的视角，拆解这三件事对你到底意味着什么，以及迁移时有哪些坑必须避开。如果你想直接对比各平台的最新价格，可以去 <a href="https://www.tokenfind.cn">TokenNexus AI API导航平台</a> 查看，我们收录了330+个平台的实时定价信息。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这篇文章不堆数据表格，而是从一个实际开发者的视角，拆解这三件事对你到底意味着什么，以及迁移时有哪些坑必须避开。如果你想直接对比各平台的最新价格，可以去 <a href="https://www.tokenfind.cn">TokenNexus AI API导航平台</a> 查看，我们收录了330+个平台的实时定价信息。</p>
 
                 <!-- 文章内广告位1 -->
                 <div class="ad-container ad-rectangle">
@@ -581,7 +581,7 @@ var _hmt = _hmt || [];
 
                 <h2>第一件事：DeepSeek峰谷定价，到底涨了多少</h2>
 
-                <p>先说清楚事实。DeepSeek V4 Pro和V4 Flash的"平时价格"和现在完全一样，变的只是高峰时段。我拉了官方公布的价格表，换算成人民币：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先说清楚事实。DeepSeek V4 Pro和V4 Flash的"平时价格"和现在完全一样，变的只是高峰时段。我拉了官方公布的价格表，换算成人民币：</p>
 
                 <table class="data-table">
                     <tr>
@@ -628,23 +628,23 @@ var _hmt = _hmt || [];
                     </tr>
                 </table>
 
-                <p>高峰时段翻倍，听着吓人，但你要注意一个细节：<strong>缓存命中的价格涨幅几乎可以忽略</strong>。V4 Pro缓存命中输入从0.025元涨到0.05元，百万Token也就多花两分五厘。真正受影响的是缓存未命中的输入和输出——高峰时段这两项翻倍，对于跑批处理任务或者实时对话场景的成本影响是实打实的。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">高峰时段翻倍，听着吓人，但你要注意一个细节：<strong>缓存命中的价格涨幅几乎可以忽略</strong>。V4 Pro缓存命中输入从0.025元涨到0.05元，百万Token也就多花两分五厘。真正受影响的是缓存未命中的输入和输出——高峰时段这两项翻倍，对于跑批处理任务或者实时对话场景的成本影响是实打实的。</p>
 
-                <p>我算了一笔账。假设你的应用日均消耗500万Token（70%输入30%输出），其中30%在高峰时段调用。平时月费大约380元，引入峰谷定价后涨到约490元，增幅约29%。不算灾难，但如果你能<strong>把高峰时段的调用削掉50%</strong>，月费反而能降到320元以下。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我算了一笔账。假设你的应用日均消耗500万Token（70%输入30%输出），其中30%在高峰时段调用。平时月费大约380元，引入峰谷定价后涨到约490元，增幅约29%。不算灾难，但如果你能<strong>把高峰时段的调用削掉50%</strong>，月费反而能降到320元以下。</p>
 
                 <div class="highlight-box">
-                    <p><strong>实操建议：</strong> 批处理任务（文档摘要、数据清洗、批量翻译）尽量安排在晚上8点到次日早上9点之间跑。实时对话类应用没有错峰空间，但可以把system prompt做长做稳定，让缓存命中率拉到80%以上——缓存命中的价格涨幅只有两分五厘，几乎免费。更多缓存优化技巧可以参考我们的<a href="https://www.tokenfind.cn/blog/ai-api-caching-strategy.html">AI API缓存策略实战指南</a>。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>实操建议：</strong> 批处理任务（文档摘要、数据清洗、批量翻译）尽量安排在晚上8点到次日早上9点之间跑。实时对话类应用没有错峰空间，但可以把system prompt做长做稳定，让缓存命中率拉到80%以上——缓存命中的价格涨幅只有两分五厘，几乎免费。更多缓存优化技巧可以参考我们的<a href="https://www.tokenfind.cn/blog/ai-api-caching-strategy.html">AI API缓存策略实战指南</a>。</p>
                 </div>
 
                 <h2>第二件事：Claude Fable 5，贵到离谱但有人买单</h2>
 
-                <p>6月9日，Anthropic发布了Claude Fable 5，定价10美元/百万Token输入、50美元/百万Token输出。这是迄今为止最贵的公开API模型——输入价格是GPT-5.5的两倍，输出价格是Claude Opus 4.7的两倍。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">6月9日，Anthropic发布了Claude Fable 5，定价10美元/百万Token输入、50美元/百万Token输出。这是迄今为止最贵的公开API模型——输入价格是GPT-5.5的两倍，输出价格是Claude Opus 4.7的两倍。</p>
 
-                <p>但Fable 5确实强。在SWE-bench Verified基准测试上拿到了95%的通过率，在AIBench代码生成评测中是唯一拿到满分（30/30）的模型。代价是单次评测花费7.97美元——而DeepSeek V4 Flash通过24/30（80%），花费只有0.053美元。两者总成本差了152倍。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">但Fable 5确实强。在SWE-bench Verified基准测试上拿到了95%的通过率，在AIBench代码生成评测中是唯一拿到满分（30/30）的模型。代价是单次评测花费7.97美元——而DeepSeek V4 Flash通过24/30（80%），花费只有0.053美元。两者总成本差了152倍。</p>
 
-                <p>这里有个坑很多人踩了：Fable 5在处理不了的请求时会静默回退到Opus 4.8，但你付的仍然是Fable 5的价格。据早期用户的报告，大约5%的查询会发生这种回退。也就是说，你有5%的请求花了最贵的钱，拿到的却是不是最优的结果。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这里有个坑很多人踩了：Fable 5在处理不了的请求时会静默回退到Opus 4.8，但你付的仍然是Fable 5的价格。据早期用户的报告，大约5%的查询会发生这种回退。也就是说，你有5%的请求花了最贵的钱，拿到的却是不是最优的结果。</p>
 
-                <p>我的建议是：<strong>Fable 5只适合极端复杂的任务</strong>——比如金融合规审查、法律文书分析、复杂的多步代码重构。日常开发用Claude Sonnet 4.6或Opus 4.7完全够了。如果你确实需要Fable 5的能力，务必在代码里加一层逻辑，检测API返回的模型标识，发现回退后自动降级计费或者重试。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我的建议是：<strong>Fable 5只适合极端复杂的任务</strong>——比如金融合规审查、法律文书分析、复杂的多步代码重构。日常开发用Claude Sonnet 4.6或Opus 4.7完全够了。如果你确实需要Fable 5的能力，务必在代码里加一层逻辑，检测API返回的模型标识，发现回退后自动降级计费或者重试。</p>
 
                 <!-- 文章内广告位2 -->
                 <div class="ad-container ad-rectangle">
@@ -653,29 +653,29 @@ var _hmt = _hmt || [];
 
                 <h2>第三件事：Gemini 3.5 Flash降价40%，被低估的性价比之王</h2>
 
-                <p>6月2日，Google把Gemini 3.5 Flash的API价格下调了40%。调整后输入1.50美元/百万Token，输出9.00美元/百万Token。这个价格放在2026年的市场里是什么水平？输出价格只有Claude Sonnet 4.6的60%，是GPT-5.5的30%。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">6月2日，Google把Gemini 3.5 Flash的API价格下调了40%。调整后输入1.50美元/百万Token，输出9.00美元/百万Token。这个价格放在2026年的市场里是什么水平？输出价格只有Claude Sonnet 4.6的60%，是GPT-5.5的30%。</p>
 
-                <p>更关键的是，Gemini 3.5 Flash有200万Token的上下文窗口，是目前商业模型中最大的之一。对于处理长文档、代码库分析这类场景，大上下文窗口意味着你可以一次性塞进去更多内容，减少多轮调用的次数和成本。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">更关键的是，Gemini 3.5 Flash有200万Token的上下文窗口，是目前商业模型中最大的之一。对于处理长文档、代码库分析这类场景，大上下文窗口意味着你可以一次性塞进去更多内容，减少多轮调用的次数和成本。</p>
 
-                <p>Google还提供了几个省钱杠杆：缓存输入只要0.15美元/百万Token（正常输入的十分之一），Batch API再打五折（输入0.75美元、输出4.50美元）。如果你的任务不要求实时响应（比如离线翻译、批量内容审核），用Batch API能再砍掉一半成本。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Google还提供了几个省钱杠杆：缓存输入只要0.15美元/百万Token（正常输入的十分之一），Batch API再打五折（输入0.75美元、输出4.50美元）。如果你的任务不要求实时响应（比如离线翻译、批量内容审核），用Batch API能再砍掉一半成本。</p>
 
-                <p>一位做法律科技的开发者告诉我，他们把合同审查流程从GPT-5.5迁移到Gemini 3.5 Flash + Batch API后，月费从2200美元降到了340美元，审查准确率从91%降到89%——2个百分点的下降在他们可接受范围内，但省了85%的钱。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">一位做法律科技的开发者告诉我，他们把合同审查流程从GPT-5.5迁移到Gemini 3.5 Flash + Batch API后，月费从2200美元降到了340美元，审查准确率从91%降到89%——2个百分点的下降在他们可接受范围内，但省了85%的钱。</p>
 
                 <h2>迁移避坑清单：四件事必须提前做</h2>
 
-                <p>综合这三件大事，我梳理了2026下半年做AI API迁移时最容易踩的四个坑：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">综合这三件大事，我梳理了2026下半年做AI API迁移时最容易踩的四个坑：</p>
 
-                <p><strong>坑一：Claude 4 Opus和Sonnet 4已被退役。</strong> 6月15日Anthropic正式下线了这两个模型。如果你的代码里还硬编码了模型ID（比如claude-4-opus-20250514），调用会直接报错。迁移目标应该是Opus 4.7或Sonnet 4.6，API接口完全兼容，但注意Opus 4.7换了新tokenizer，同样文本会多消耗约35%的Token——你的实际账单可能比表面价格高出三分之一。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>坑一：Claude 4 Opus和Sonnet 4已被退役。</strong> 6月15日Anthropic正式下线了这两个模型。如果你的代码里还硬编码了模型ID（比如claude-4-opus-20250514），调用会直接报错。迁移目标应该是Opus 4.7或Sonnet 4.6，API接口完全兼容，但注意Opus 4.7换了新tokenizer，同样文本会多消耗约35%的Token——你的实际账单可能比表面价格高出三分之一。</p>
 
-                <p><strong>坑二：DeepSeek高峰时段不只是涨价。</strong> 根据官方说法，峰谷定价的核心目的是"合理分配算力资源"。这意味着高峰时段不仅贵，还可能更慢、更容易触发限流。如果你的应用对延迟敏感（比如实时对话），要么准备备用模型做降级，要么调整高峰时段的请求策略。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>坑二：DeepSeek高峰时段不只是涨价。</strong> 根据官方说法，峰谷定价的核心目的是"合理分配算力资源"。这意味着高峰时段不仅贵，还可能更慢、更容易触发限流。如果你的应用对延迟敏感（比如实时对话），要么准备备用模型做降级，要么调整高峰时段的请求策略。</p>
 
-                <p><strong>坑三：Gemini Batch API不是即时的。</strong> Batch API的折扣很诱人，但响应时间可能延迟数小时。如果你的业务需要实时返回结果，Batch API不适用。判断标准很简单：你的用户能等多久？能等几小时就用Batch，不能等就用标准API + 缓存。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>坑三：Gemini Batch API不是即时的。</strong> Batch API的折扣很诱人，但响应时间可能延迟数小时。如果你的业务需要实时返回结果，Batch API不适用。判断标准很简单：你的用户能等多久？能等几小时就用Batch，不能等就用标准API + 缓存。</p>
 
-                <p><strong>坑四：不要只看单价，要看总成本。</strong> 我见过太多团队只对比每百万Token的单价，忽略了缓存命中率、Token膨胀率、回退成本这些隐形成本。Claude Opus 4.7的标价和上一代一样，但因为新tokenizer导致Token膨胀35%，实际成本悄悄涨了三分之一。Fable 5的5%静默回退也是同样的道理——表面单价已经很贵了，回退还会再拉高一截。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>坑四：不要只看单价，要看总成本。</strong> 我见过太多团队只对比每百万Token的单价，忽略了缓存命中率、Token膨胀率、回退成本这些隐形成本。Claude Opus 4.7的标价和上一代一样，但因为新tokenizer导致Token膨胀35%，实际成本悄悄涨了三分之一。Fable 5的5%静默回退也是同样的道理——表面单价已经很贵了，回退还会再拉高一截。</p>
 
                 <h2>我的2026下半年API组合策略</h2>
 
-                <p>最后分享一下我个人的选型思路，不一定适合所有人，但可以作为参考：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最后分享一下我个人的选型思路，不一定适合所有人，但可以作为参考：</p>
 
                 <ul>
                     <li><strong>日常问答和简单任务</strong>：DeepSeek V4 Flash，错峰调用 + 高缓存命中率，月费控制在百元以内</li>
@@ -685,15 +685,15 @@ var _hmt = _hmt || [];
                     <li><strong>Fable 5</strong>：仅在法律/金融等容错率极低的场景使用，且必须加回退检测逻辑</li>
                 </ul>
 
-                <p>这套组合的核心思路是：<strong>把贵的模型用在刀刃上，把便宜的模型用在大量重复任务上</strong>。2026年6月的这波变动本质上是市场在分层——DeepSeek用峰谷定价把低价档做了进一步细分，Google用降价抢占中档市场，Anthropic用Fable 5把高端天花板又拉高了一截。对开发者来说，选型不再是"选一个模型"的问题，而是"为不同任务搭一套组合"的问题。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这套组合的核心思路是：<strong>把贵的模型用在刀刃上，把便宜的模型用在大量重复任务上</strong>。2026年6月的这波变动本质上是市场在分层——DeepSeek用峰谷定价把低价档做了进一步细分，Google用降价抢占中档市场，Anthropic用Fable 5把高端天花板又拉高了一截。对开发者来说，选型不再是"选一个模型"的问题，而是"为不同任务搭一套组合"的问题。</p>
 
-                <p>如果你正在做迁移决策，建议先去 <a href="https://www.tokenfind.cn">TokenNexus</a> 上对比一下各平台的最新价格和用户评价。我们的<a href="https://www.tokenfind.cn/blog/ai-api-pricing-comparison-2026-guide.html">2026年AI大模型API价格终极对比</a>文章也有一份更详细的价格表和100M Token月消耗模拟，可以配合本文一起看。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你正在做迁移决策，建议先去 <a href="https://www.tokenfind.cn">TokenNexus</a> 上对比一下各平台的最新价格和用户评价。我们的<a href="https://www.tokenfind.cn/blog/ai-api-pricing-comparison-2026-guide.html">2026年AI大模型API价格终极对比</a>文章也有一份更详细的价格表和100M Token月消耗模拟，可以配合本文一起看。</p>
 
                 <h2>写在最后</h2>
 
-                <p>6月这一个月发生的事，比过去半年加起来都多。DeepSeek峰谷定价、Claude Fable 5天价上市、Gemini降价40%、Claude 4系列退役——每一件都在改变选型逻辑。但万变不离其宗：搞清楚你的任务需要什么级别的模型，然后为每个级别找到最合适的平台。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">6月这一个月发生的事，比过去半年加起来都多。DeepSeek峰谷定价、Claude Fable 5天价上市、Gemini降价40%、Claude 4系列退役——每一件都在改变选型逻辑。但万变不离其宗：搞清楚你的任务需要什么级别的模型，然后为每个级别找到最合适的平台。</p>
 
-                <p>不要因为DeepSeek"涨价了"就恐慌性迁移，也不要因为Fable 5"最强"就无脑上。算清楚总成本，做好任务分级，2026下半年的API账单完全可以控制在你满意的范围内。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不要因为DeepSeek"涨价了"就恐慌性迁移，也不要因为Fable 5"最强"就无脑上。算清楚总成本，做好任务分级，2026下半年的API账单完全可以控制在你满意的范围内。</p>
 
                 <div class="tags">
                     <span class="tag">DeepSeek V4峰谷定价</span>
@@ -705,7 +705,31 @@ var _hmt = _hmt || [];
                     <span class="tag">国产大模型API选型</span>
                 </div>
             </div>
-        </article>
+        
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-pricing-comparison-2026-guide">2026年AI大模型API价格终极对比：GPT-5.5、Claude、DeepSeek、Gemini怎么选最省钱</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深度对比2026年主流AI大模型API价格，包括GPT-5.5、Claude Opus 4.7、DeepSeek V4、Gemini 3.5等20+模型，用真实...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-platform-selection-guide-2026">2026年AI API平台选型完全指南：开发者避坑手册与性价比终极对比</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年AI API平台选型完全指南。覆盖OpenAI、Claude、DeepSeek、Gemini等20+主流平台真实对比，含价格、延迟、稳定性、中文能力、...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-selection-guide-2026">2026年AI API选型完全指南：从需求分析到平台对比博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">详解2026年AI API选型策略，包含OpenAI、Claude、DeepSeek等主流平台对比，真实性能测试数据，以及选型决策框架。帮助开发者找到最适合的A...</p>
+                </article>
+
+            </div>
+        </section>
+
+    </article>
     </main>
 
     <!-- 页脚 -->

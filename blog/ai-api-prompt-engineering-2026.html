@@ -241,30 +241,30 @@ var _hmt = _hmt || [];
         </header>
         
         <div class="article-content">
-            <p>说实话，我刚开始用AI API那会儿，Prompt写得那叫一个烂。那时候我觉得，反正模型够聪明，随便写两句它应该能懂吧？结果呢，一个情感分析的任务，我调了十几遍，准确率死活上不去，API账单倒是蹭蹭往上涨。一个月下来，光这一个功能就烧了我$340，效果还稀烂。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">说实话，我刚开始用AI API那会儿，Prompt写得那叫一个烂。那时候我觉得，反正模型够聪明，随便写两句它应该能懂吧？结果呢，一个情感分析的任务，我调了十几遍，准确率死活上不去，API账单倒是蹭蹭往上涨。一个月下来，光这一个功能就烧了我$340，效果还稀烂。</p>
             
-            <p>转机出现在去年3月。我接了一个电商评论分析的项目，客户要求从10万条评论里提取用户痛点。我一开始用的是最 naive 的做法：直接把评论扔给GPT-4，让它"分析一下这条评论"。结果你猜怎么着？平均每条评论要消耗800多个token，准确率才67%，而且经常漏掉关键信息。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">转机出现在去年3月。我接了一个电商评论分析的项目，客户要求从10万条评论里提取用户痛点。我一开始用的是最 naive 的做法：直接把评论扔给GPT-4，让它"分析一下这条评论"。结果你猜怎么着？平均每条评论要消耗800多个token，准确率才67%，而且经常漏掉关键信息。</p>
             
             <div class="warning-box">
                 <div class="warning-box-title">我当时的惨痛教训</div>
-                <p>那个项目我做了两周，API成本直接飙到$1200。更气人的是，客户验收时说准确率不够，要求返工。我那时候才真正意识到：<strong>Prompt不是随便写的，它直接决定了你的成本和效果</strong>。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">那个项目我做了两周，API成本直接飙到$1200。更气人的是，客户验收时说准确率不够，要求返工。我那时候才真正意识到：<strong>Prompt不是随便写的，它直接决定了你的成本和效果</strong>。</p>
             </div>
             
-            <p>后来我开始系统学习Prompt工程，研究各种优化技巧。三个月后，同样是那个情感分析任务，我用优化后的Prompt重新跑了一遍：<strong>token消耗降到320，准确率提升到91.3%，成本直接降了60%</strong>。客户后来还介绍了两个新客户给我。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">后来我开始系统学习Prompt工程，研究各种优化技巧。三个月后，同样是那个情感分析任务，我用优化后的Prompt重新跑了一遍：<strong>token消耗降到320，准确率提升到91.3%，成本直接降了60%</strong>。客户后来还介绍了两个新客户给我。</p>
             
-            <p>今天这篇文章，我就把这一年多踩过的坑、总结的经验，毫无保留地分享给你。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">今天这篇文章，我就把这一年多踩过的坑、总结的经验，毫无保留地分享给你。</p>
             
             <div class="ad-placeholder in-article">广告位预留</div>
             
             <h2>一、Prompt为什么重要？三个维度告诉你</h2>
             
-            <p>很多人低估了Prompt的价值，觉得它不过是"跟AI说话的句子"。但在我看来，<strong>Prompt是AI应用的核心竞争力</strong>。它同时影响三个关键指标：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">很多人低估了Prompt的价值，觉得它不过是"跟AI说话的句子"。但在我看来，<strong>Prompt是AI应用的核心竞争力</strong>。它同时影响三个关键指标：</p>
             
             <h3>1.1 成本维度：一个字值多少钱？</h3>
             
-            <p>AI API的计费方式是按token算的。Prompt越长、输出越多，费用就越高。但这里有个很多人没意识到的点：<strong>糟糕的Prompt会让模型产生大量无效输出</strong>。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI API的计费方式是按token算的。Prompt越长、输出越多，费用就越高。但这里有个很多人没意识到的点：<strong>糟糕的Prompt会让模型产生大量无效输出</strong>。</p>
             
-            <p>我做过一个统计：同样的文本摘要任务，优化前后的token消耗对比：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我做过一个统计：同样的文本摘要任务，优化前后的token消耗对比：</p>
             
             <table class="data-table">
                 <tr><th>指标</th><th>优化前</th><th>优化后</th><th>变化</th></tr>
@@ -274,35 +274,35 @@ var _hmt = _hmt || [];
                 <tr><td>月调用量（10万次）</td><td>$420</td><td>$160</td><td>节省$260</td></tr>
             </table>
             
-            <p>看到了吗？仅仅是优化Prompt，一个月就能省260美元。对于调用量大的应用，这个数字会更夸张。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">看到了吗？仅仅是优化Prompt，一个月就能省260美元。对于调用量大的应用，这个数字会更夸张。</p>
             
             <h3>1.2 质量维度：准确率就是金钱</h3>
             
-            <p>Prompt质量直接影响模型输出的准确性。在我的电商评论分析项目中，优化Prompt前后的准确率变化：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Prompt质量直接影响模型输出的准确性。在我的电商评论分析项目中，优化Prompt前后的准确率变化：</p>
             
             <ul>
                 <li><strong>优化前</strong>：67%准确率，需要人工复核每一条结果</li>
                 <li><strong>优化后</strong>：91.3%准确率，只有极端情况需要人工介入</li>
             </ul>
             
-            <p>这意味着什么？意味着我可以把人工复核的成本砍掉80%。原本需要3个人全职做审核，现在只需要一个人兼职抽查。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这意味着什么？意味着我可以把人工复核的成本砍掉80%。原本需要3个人全职做审核，现在只需要一个人兼职抽查。</p>
             
             <h3>1.3 延迟维度：用户体验的关键</h3>
             
-            <p>输出token越多，API响应时间就越长。在我的测试中，一个设计良好的Prompt能把平均响应时间从4.2秒降到1.8秒。对于实时性要求高的应用（比如客服机器人），这直接决定了用户体验。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">输出token越多，API响应时间就越长。在我的测试中，一个设计良好的Prompt能把平均响应时间从4.2秒降到1.8秒。对于实时性要求高的应用（比如客服机器人），这直接决定了用户体验。</p>
             
             <div class="tip-box">
                 <div class="tip-box-title">核心观点</div>
-                <p>Prompt工程不是"锦上添花"，而是AI应用的<strong>基础设施投资</strong>。前期投入时间优化Prompt，后期在成本、质量、性能上都能获得指数级回报。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Prompt工程不是"锦上添花"，而是AI应用的<strong>基础设施投资</strong>。前期投入时间优化Prompt，后期在成本、质量、性能上都能获得指数级回报。</p>
             </div>
             
             <h2>二、六大Prompt优化技巧（附真实案例）</h2>
             
-            <p>接下来我要分享的六个技巧，都是我实战中验证过的。每个技巧都会配真实案例和数据对比。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">接下来我要分享的六个技巧，都是我实战中验证过的。每个技巧都会配真实案例和数据对比。</p>
             
             <h3>技巧一：角色设定（Role Prompting）</h3>
             
-            <p>这是最简单也最有效的技巧。给模型设定一个明确的角色，它的输出质量会显著提升。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这是最简单也最有效的技巧。给模型设定一个明确的角色，它的输出质量会显著提升。</p>
             
             <div class="comparison-box">
                 <div class="comparison-item before">
@@ -315,7 +315,7 @@ var _hmt = _hmt || [];
                 </div>
             </div>
             
-            <p>效果对比（基于GPT-4o测试，各100次调用）：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">效果对比（基于GPT-4o测试，各100次调用）：</p>
             
             <table class="data-table">
                 <tr><th>指标</th><th>无角色设定</th><th>有角色设定</th><th>提升</th></tr>
@@ -326,14 +326,14 @@ var _hmt = _hmt || [];
             
             <div class="tip-box">
                 <div class="tip-box-title">我的经验</div>
-                <p>角色设定要具体，不要泛泛地说"你是专家"。最好包含领域、经验年限、擅长方向。比如"你是有10年经验的儿科医生"比"你是医生"效果好得多。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">角色设定要具体，不要泛泛地说"你是专家"。最好包含领域、经验年限、擅长方向。比如"你是有10年经验的儿科医生"比"你是医生"效果好得多。</p>
             </div>
             
             <h3>技巧二：Few-shot Prompting（少样本提示）</h3>
             
-            <p>Few-shot是指在Prompt里给模型几个示例，让它"照猫画虎"。这是提升特定任务准确率的神器。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Few-shot是指在Prompt里给模型几个示例，让它"照猫画虎"。这是提升特定任务准确率的神器。</p>
             
-            <p>我去年做了一个实体识别项目，需要从用户评论中提取产品名称和问题类型。一开始用零样本（zero-shot），准确率只有58%。加了3个示例后，准确率直接飙到89%。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我去年做了一个实体识别项目，需要从用户评论中提取产品名称和问题类型。一开始用零样本（zero-shot），准确率只有58%。加了3个示例后，准确率直接飙到89%。</p>
             
             <div class="code-block">
                 <pre><code>请从以下评论中提取实体，按JSON格式输出：
@@ -354,7 +354,7 @@ var _hmt = _hmt || [];
 评论："华为Mate 60的信号比苹果好太多了，就是发热有点严重"</code></pre>
             </div>
             
-            <p>Few-shot的关键在于示例的质量：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Few-shot的关键在于示例的质量：</p>
             
             <ul>
                 <li><strong>覆盖边界情况</strong>：示例要包含各种可能的输入类型</li>
@@ -371,15 +371,15 @@ var _hmt = _hmt || [];
                 <tr><td>10-shot</td><td>92%</td><td>980</td><td>较差</td></tr>
             </table>
             
-            <p>从数据可以看出，3-shot是性价比最高的选择。准确率已经接近5-shot，但token成本低了27%。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">从数据可以看出，3-shot是性价比最高的选择。准确率已经接近5-shot，但token成本低了27%。</p>
             
             <div class="ad-placeholder in-article">广告位预留</div>
             
             <h3>技巧三：Chain of Thought（思维链提示）</h3>
             
-            <p>CoT（Chain of Thought）是Prompt工程中最强大的技巧之一。它让模型"一步步思考"，而不是直接给出答案。对于复杂推理任务，CoT能把准确率提升30%以上。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">CoT（Chain of Thought）是Prompt工程中最强大的技巧之一。它让模型"一步步思考"，而不是直接给出答案。对于复杂推理任务，CoT能把准确率提升30%以上。</p>
             
-            <p>我在做数学题解答功能时，深刻体会到了CoT的威力：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我在做数学题解答功能时，深刻体会到了CoT的威力：</p>
             
             <div class="comparison-box">
                 <div class="comparison-item before">
@@ -398,7 +398,7 @@ var _hmt = _hmt || [];
                 </div>
             </div>
             
-            <p>CoT特别适合以下场景：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">CoT特别适合以下场景：</p>
             
             <ul>
                 <li><strong>数学计算</strong>：多步骤的算术题</li>
@@ -409,14 +409,14 @@ var _hmt = _hmt || [];
             
             <div class="success-box">
                 <div class="success-box-title">进阶技巧：Self-Consistency</div>
-                <p>对于关键任务，可以让模型用CoT生成多个答案，然后投票选出最常见的那个。我在一个医疗问答项目中用了这个方法，准确率从78%提升到了94%。代价是成本增加3-5倍，适合对准确性要求极高的场景。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于关键任务，可以让模型用CoT生成多个答案，然后投票选出最常见的那个。我在一个医疗问答项目中用了这个方法，准确率从78%提升到了94%。代价是成本增加3-5倍，适合对准确性要求极高的场景。</p>
             </div>
             
             <h3>技巧四：输出格式控制</h3>
             
-            <p>明确指定输出格式，能大幅减少解析错误和重复调用。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">明确指定输出格式，能大幅减少解析错误和重复调用。</p>
             
-            <p>我早期做数据提取时，模型经常输出一些"废话"，比如"以下是提取结果："这种前缀，或者格式不统一的JSON。后来我学会了在Prompt里强制指定格式：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我早期做数据提取时，模型经常输出一些"废话"，比如"以下是提取结果："这种前缀，或者格式不统一的JSON。后来我学会了在Prompt里强制指定格式：</p>
             
             <div class="code-block">
                 <pre><code>请从文本中提取信息，并严格按照以下JSON格式输出，不要有任何其他内容：
@@ -434,7 +434,7 @@ var _hmt = _hmt || [];
 3. 确保JSON格式合法，可以被直接解析</code></pre>
             </div>
             
-            <p>效果对比：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">效果对比：</p>
             
             <table class="data-table">
                 <tr><th>指标</th><th>无格式控制</th><th>有格式控制</th><th>提升</th></tr>
@@ -445,27 +445,27 @@ var _hmt = _hmt || [];
             
             <h3>技巧五：长度控制与截断策略</h3>
             
-            <p>控制输出长度是降低成本的直接手段。我总结了几个实用的长度控制技巧：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">控制输出长度是降低成本的直接手段。我总结了几个实用的长度控制技巧：</p>
             
             <div class="step-box">
                 <div class="step-number">1</div>
                 <div class="step-title">明确字数限制</div>
-                <p>在Prompt里明确说明字数要求，比如"用50字以内总结"、"输出不超过3个要点"。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在Prompt里明确说明字数要求，比如"用50字以内总结"、"输出不超过3个要点"。</p>
             </div>
             
             <div class="step-box">
                 <div class="step-number">2</div>
                 <div class="step-title">使用max_tokens参数</div>
-                <p>API调用时设置max_tokens上限。但要注意，设置太低可能导致输出被截断。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">API调用时设置max_tokens上限。但要注意，设置太低可能导致输出被截断。</p>
             </div>
             
             <div class="step-box">
                 <div class="step-number">3</div>
                 <div class="step-title">要求结构化输出</div>
-                <p>用表格、列表、JSON等格式限制输出结构，自然就能控制长度。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">用表格、列表、JSON等格式限制输出结构，自然就能控制长度。</p>
             </div>
             
-            <p>我在一个新闻摘要项目中测试了不同长度限制的效果：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我在一个新闻摘要项目中测试了不同长度限制的效果：</p>
             
             <table class="data-table">
                 <tr><th>长度限制</th><th>平均输出token</th><th>信息完整度评分</th><th>单次成本</th></tr>
@@ -475,13 +475,13 @@ var _hmt = _hmt || [];
                 <tr><td>50字以内</td><td>52</td><td>5.3/10</td><td>$0.0005</td></tr>
             </table>
             
-            <p>从数据看，200字以内是性价比最佳点。成本降低了56%，但信息完整度只下降了3.5%。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">从数据看，200字以内是性价比最佳点。成本降低了56%，但信息完整度只下降了3.5%。</p>
             
             <h3>技巧六：负面提示（Negative Prompting）</h3>
             
-            <p>告诉模型"不要做什么"，往往比"要做什么"更有效。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">告诉模型"不要做什么"，往往比"要做什么"更有效。</p>
             
-            <p>我在做内容审核功能时发现，明确列出禁止内容类型，比泛泛地说"请审核内容"效果好得多：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我在做内容审核功能时发现，明确列出禁止内容类型，比泛泛地说"请审核内容"效果好得多：</p>
             
             <div class="code-block">
                 <pre><code>请判断以下评论是否违规。以下情况视为违规：
@@ -498,7 +498,7 @@ var _hmt = _hmt || [];
 评论内容："这款手机拍照真垃圾，完全不如华为"</code></pre>
             </div>
             
-            <p>负面提示的关键是<strong>具体</strong>。不要说"不要输出垃圾内容"，而要明确"不要包含XXX、YYY、ZZZ"。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">负面提示的关键是<strong>具体</strong>。不要说"不要输出垃圾内容"，而要明确"不要包含XXX、YYY、ZZZ"。</p>
             
             <table class="data-table">
                 <tr><th>审核方式</th><th>准确率</th><th>误判率</th><th>漏判率</th></tr>
@@ -511,11 +511,11 @@ var _hmt = _hmt || [];
             
             <h2>三、Prompt测试与迭代方法论</h2>
             
-            <p>优化Prompt不是一蹴而就的，需要系统化的测试和迭代。我总结了一套"Prompt迭代五步法"：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">优化Prompt不是一蹴而就的，需要系统化的测试和迭代。我总结了一套"Prompt迭代五步法"：</p>
             
             <h3>步骤1：建立测试集</h3>
             
-            <p>在动手优化之前，先准备100-500个测试样本。这些样本要覆盖：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在动手优化之前，先准备100-500个测试样本。这些样本要覆盖：</p>
             
             <ul>
                 <li><strong>典型场景</strong>：最常见的输入类型（占60%）</li>
@@ -523,11 +523,11 @@ var _hmt = _hmt || [];
                 <li><strong>错误案例</strong>：之前模型处理失败的案例（占15%）</li>
             </ul>
             
-            <p>我通常会把测试集保存在一个CSV文件里，包含输入、期望输出、实际输出、评分等字段。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我通常会把测试集保存在一个CSV文件里，包含输入、期望输出、实际输出、评分等字段。</p>
             
             <h3>步骤2：设定评估指标</h3>
             
-            <p>不同的任务需要不同的评估指标。常见的指标包括：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不同的任务需要不同的评估指标。常见的指标包括：</p>
             
             <table class="data-table">
                 <tr><th>任务类型</th><th>主要指标</th><th>次要指标</th></tr>
@@ -539,9 +539,9 @@ var _hmt = _hmt || [];
             
             <h3>步骤3：A/B测试</h3>
             
-            <p>每次只修改一个变量，对比效果。比如先测试有角色设定vs无角色设定，确定有效后再测试Few-shot的数量。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">每次只修改一个变量，对比效果。比如先测试有角色设定vs无角色设定，确定有效后再测试Few-shot的数量。</p>
             
-            <p>我常用的A/B测试流程：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我常用的A/B测试流程：</p>
             
             <div class="code-block">
                 <pre><code># 伪代码示例
@@ -567,7 +567,7 @@ def ab_test(prompt_a, prompt_b, test_cases):
             
             <h3>步骤4：记录与版本管理</h3>
             
-            <p>把每次Prompt的改动都记录下来，包括：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">把每次Prompt的改动都记录下来，包括：</p>
             
             <ul>
                 <li>Prompt版本号</li>
@@ -576,13 +576,13 @@ def ab_test(prompt_a, prompt_b, test_cases):
                 <li>修改日期和负责人</li>
             </ul>
             
-            <p>我一般用Git管理Prompt，每个版本一个文件，方便回溯。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我一般用Git管理Prompt，每个版本一个文件，方便回溯。</p>
             
             <h3>步骤5：持续监控与迭代</h3>
             
-            <p>Prompt优化不是一次性的。模型会更新，业务需求会变化，Prompt也需要持续迭代。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Prompt优化不是一次性的。模型会更新，业务需求会变化，Prompt也需要持续迭代。</p>
             
-            <p>建议设置以下监控指标：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">建议设置以下监控指标：</p>
             
             <ul>
                 <li><strong>线上准确率</strong>：每天抽样检查100条结果</li>
@@ -593,7 +593,7 @@ def ab_test(prompt_a, prompt_b, test_cases):
             
             <div class="tip-box">
                 <div class="tip-box-title">我的迭代频率建议</div>
-                <p>• 新功能上线前：至少迭代3-5轮<br>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">• 新功能上线前：至少迭代3-5轮<br>
                 • 上线后第一个月：每周回顾一次数据<br>
                 • 稳定运行期：每月优化一次<br>
                 • 模型版本更新后：必须重新测试</p>
@@ -601,11 +601,11 @@ def ab_test(prompt_a, prompt_b, test_cases):
             
             <h2>四、各平台Prompt差异：OpenAI/Claude/DeepSeek</h2>
             
-            <p>不同平台的模型对Prompt的"偏好"是不一样的。我总结了三个主流平台的差异：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不同平台的模型对Prompt的"偏好"是不一样的。我总结了三个主流平台的差异：</p>
             
             <h3>OpenAI GPT系列</h3>
             
-            <p>GPT-4o和GPT-4o-mini对Prompt的遵循度很高，但也有一些特点：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">GPT-4o和GPT-4o-mini对Prompt的遵循度很高，但也有一些特点：</p>
             
             <ul>
                 <li><strong>对system message敏感</strong>：把角色设定放在system message里比放在user message里效果更好</li>
@@ -628,7 +628,7 @@ response = client.chat.completions.create(
             
             <h3>Anthropic Claude系列</h3>
             
-            <p>Claude 3.5 Sonnet在理解复杂Prompt方面很强，但也有一些需要注意的地方：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Claude 3.5 Sonnet在理解复杂Prompt方面很强，但也有一些需要注意的地方：</p>
             
             <ul>
                 <li><strong>更擅长长上下文</strong>：Few-shot可以放更多示例</li>
@@ -664,7 +664,7 @@ response = client.messages.create(
             
             <h3>DeepSeek</h3>
             
-            <p>DeepSeek V3和R1对中文Prompt的支持很好，性价比极高：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">DeepSeek V3和R1对中文Prompt的支持很好，性价比极高：</p>
             
             <ul>
                 <li><strong>中文理解能力强</strong>：直接用中文写Prompt，不需要翻译成英文</li>
@@ -681,14 +681,14 @@ response = client.messages.create(
             
             <div class="warning-box">
                 <div class="warning-box-title">平台迁移注意事项</div>
-                <p>不同平台的tokenizer不一样，同样的Prompt在不同平台的token数可能差20-30%。迁移时一定要重新计算成本，并测试输出质量。我遇到过从GPT-4o迁移到DeepSeek后，虽然API成本降了，但Prompt需要调整才能达到同样的准确率。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不同平台的tokenizer不一样，同样的Prompt在不同平台的token数可能差20-30%。迁移时一定要重新计算成本，并测试输出质量。我遇到过从GPT-4o迁移到DeepSeek后，虽然API成本降了，但Prompt需要调整才能达到同样的准确率。</p>
             </div>
             
             <div class="ad-placeholder in-article">广告位预留</div>
             
             <h2>五、优化前后对比数据汇总</h2>
             
-            <p>为了让大家更直观地看到Prompt优化的效果，我把前面提到的案例数据汇总成一张表：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">为了让大家更直观地看到Prompt优化的效果，我把前面提到的案例数据汇总成一张表：</p>
             
             <table class="data-table">
                 <tr><th>优化项目</th><th>优化前</th><th>优化后</th><th>成本节省</th><th>准确率提升</th></tr>
@@ -700,7 +700,7 @@ response = client.messages.create(
                 <tr><td>产品描述生成</td><td>156 tokens</td><td>98 tokens</td><td>37.2%</td><td>+40.3%</td></tr>
             </table>
             
-            <p>这些数字背后，是无数个熬夜调Prompt的夜晚。但看到成本降下来、准确率升上去的那一刻，一切都值了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这些数字背后，是无数个熬夜调Prompt的夜晚。但看到成本降下来、准确率升上去的那一刻，一切都值了。</p>
             
             <h2>六、常见问题FAQ</h2>
             
@@ -731,11 +731,11 @@ response = client.messages.create(
             
             <h2>七、结论：Prompt工程的核心要点</h2>
             
-            <p>写这篇文章的时候，我回顾了自己这一年多的Prompt工程实践。从最初的"随便写两句"到现在的系统化优化，我最大的感悟是：<strong>Prompt工程是一门科学，也是一门艺术</strong>。</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">写这篇文章的时候，我回顾了自己这一年多的Prompt工程实践。从最初的"随便写两句"到现在的系统化优化，我最大的感悟是：<strong>Prompt工程是一门科学，也是一门艺术</strong>。</strong></p>
             
-            <p>科学在于它需要数据驱动、系统测试、持续迭代；艺术在于它需要理解模型行为、把握语言细微差别、创造性地解决问题。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">科学在于它需要数据驱动、系统测试、持续迭代；艺术在于它需要理解模型行为、把握语言细微差别、创造性地解决问题。</p>
             
-            <p>最后总结一下核心要点：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最后总结一下核心要点：</p>
             
             <ol>
                 <li><strong>角色设定是基础</strong>：给模型一个明确的身份，输出质量立竿见影</li>
@@ -747,11 +747,11 @@ response = client.messages.create(
                 <li><strong>平台差异要注意</strong>：不同模型的"脾气"不一样，Prompt需要针对性调整</li>
             </ol>
             
-            <p>Prompt优化没有终点，只有不断的精进。希望这篇文章能帮你少走弯路，早日实现"一句话降本60%"的目标。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Prompt优化没有终点，只有不断的精进。希望这篇文章能帮你少走弯路，早日实现"一句话降本60%"的目标。</p>
             
             <div class="tip-box">
                 <div class="tip-box-title">延伸阅读</div>
-                <p>• <a href="/blog/ai-api-cost-optimization-2026">AI API成本控制实战：月账单从$5000降到$800</a><br>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">• <a href="/blog/ai-api-cost-optimization-2026">AI API成本控制实战：月账单从$5000降到$800</a><br>
                 • <a href="/blog/ai-api-free-tier-guide-2026">2026年AI API免费额度完全攻略：如何薅到$200+免费试用</a><br>
                 • <a href="/blog/ai-api-selection-complete-guide-2026">2026年AI API选型完全指南：从需求分析到平台对比</a></p>
             </div>
@@ -759,6 +759,30 @@ response = client.messages.create(
             <hr style="border: none; border-top: 1px solid var(--card-border); margin: 40px 0;">
             <p style="font-size: 0.85rem; color: var(--text-secondary);">本文数据基于TokenNexus团队2025-2026年的实际项目测试。不同场景下的效果可能有所差异，建议结合自身业务进行验证。</p>
         </div>
+    
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-prompt-engineering-guide">AI提示词工程完全指南：Prompt Engineering技巧与实战</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入了解AI提示词工程最佳实践，从零样本提示到结构化设计，涵盖ChatGPT、Claude、Gemini等平台的提示词技巧与AI提示词模板。</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-cost-optimization-2026">AI API成本控制实战攻略：我是如何把月账单从2000降到300的博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">详解AI API成本优化实战技巧，包含缓存策略、模型降级、批量处理等7大降本方法，真实案例分享，帮助开发者降低AI API使用成本80%以上。</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-caching-strategy">AI API缓存策略与成本优化：降低80%调用成本的实战指南</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入解析AI API缓存策略，通过语义缓存、Redis缓存等技术实现API成本优化。真实案例分享：客服系统通过API响应缓存降低82%调用成本。</p>
+                </article>
+
+            </div>
+        </section>
+
     </article>
     
     <footer class="footer">

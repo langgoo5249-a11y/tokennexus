@@ -186,24 +186,24 @@ var _hmt = _hmt || [];
         <div class="article-content">
             <h2>我是怎么被向量检索坑了3天的</h2>
             
-            <p>去年做企业知识库RAG项目，用的是某云厂商的向量数据库。测试阶段一切正常，上线第一天就傻眼了——<strong>100个用户同时查询，响应时间从0.1秒飙到8秒</strong>。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年做企业知识库RAG项目，用的是某云厂商的向量数据库。测试阶段一切正常，上线第一天就傻眼了——<strong>100个用户同时查询，响应时间从0.1秒飙到8秒</strong>。</p>
             
-            <p>我开始怀疑人生：明明测试数据才1万条，上线也就10万条，怎么就慢成这样？后来请了懂行的朋友来看，他看了一眼索引配置就笑了："你这HNSW参数设置的是默认的m=16，ef=100，数据量大了肯定完蛋。"</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我开始怀疑人生：明明测试数据才1万条，上线也就10万条，怎么就慢成这样？后来请了懂行的朋友来看，他看了一眼索引配置就笑了："你这HNSW参数设置的是默认的m=16，ef=100，数据量大了肯定完蛋。"</p>
 
-            <p>换了Milvus，调整了参数，QPS从15直接拉到800+。这才明白——<strong>向量数据库不是装上就能用的，选型和调优太重要了</strong>。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">换了Milvus，调整了参数，QPS从15直接拉到800+。这才明白——<strong>向量数据库不是装上就能用的，选型和调优太重要了</strong>。</p>
 
             <div class="warning-box">
                 <h4>血的教训</h4>
-                <p>选向量数据库不能只看功能，性能和运维成本才是决定你项目成败的关键。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">选向量数据库不能只看功能，性能和运维成本才是决定你项目成败的关键。</p>
             </div>
 
             <h2>向量数据库核心原理</h2>
 
-            <p>在说选型之前，先搞懂向量数据库是怎么工作的。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在说选型之前，先搞懂向量数据库是怎么工作的。</p>
 
             <h3>向量是什么</h3>
 
-            <p>简单理解，向量就是把文字、图片、音频等数据转成一串数字。比如用OpenAI的text-embedding-3-small模型，一句话能转成1536维的向量：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">简单理解，向量就是把文字、图片、音频等数据转成一串数字。比如用OpenAI的text-embedding-3-small模型，一句话能转成1536维的向量：</p>
 
 <pre><code>import openai
 
@@ -218,7 +218,7 @@ print(f"向量示例: {vector[:5]}...")  # 输出: [0.012, -0.034, 0.089, ...]</
 
             <h3>相似度计算：余弦相似度 vs 点积</h3>
 
-            <p>向量检索的核心是比较"距离"。两个向量越接近，语义越相似。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">向量检索的核心是比较"距离"。两个向量越接近，语义越相似。</p>
 
             <ul>
                 <li><strong>余弦相似度</strong>：衡量方向相似，取值-1到1，越接近1越相似</li>
@@ -227,14 +227,14 @@ print(f"向量示例: {vector[:5]}...")  # 输出: [0.012, -0.034, 0.089, ...]</
 
             <div class="tip-box">
                 <h4>选哪个？</h4>
-                <p>大多数场景用余弦相似度就够了。如果你的向量已经做了归一化，点积和余弦等价。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">大多数场景用余弦相似度就够了。如果你的向量已经做了归一化，点积和余弦等价。</p>
             </div>
 
             <h3>ANN近似最近邻：快就一个字</h3>
 
-            <p>如果用暴力搜索，100万条向量要比较100万次，耗时巨大。ANN（近似最近邻）算法通过建立索引，把搜索复杂度降到对数级别。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果用暴力搜索，100万条向量要比较100万次，耗时巨大。ANN（近似最近邻）算法通过建立索引，把搜索复杂度降到对数级别。</p>
 
-            <p>常见的ANN算法：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">常见的ANN算法：</p>
 
             <table>
                 <thead>
@@ -272,9 +272,9 @@ print(f"向量示例: {vector[:5]}...")  # 输出: [0.012, -0.034, 0.089, ...]</
 
             <h3>Pinecone：零运维的云原生方案</h3>
 
-            <p><strong>定位</strong>：PaaS级服务，让你专注业务而非运维。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>定位</strong>：PaaS级服务，让你专注业务而非运维。</p>
 
-            <p><strong>核心优势</strong>：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>核心优势</strong>：</p>
             <ul>
                 <li>完全托管，零运维负担</li>
                 <li>Serverless起步，按量付费</li>
@@ -282,7 +282,7 @@ print(f"向量示例: {vector[:5]}...")  # 输出: [0.012, -0.034, 0.089, ...]</
                 <li>支持元数据过滤</li>
             </ul>
 
-            <p><strong>定价</strong>：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>定价</strong>：</p>
             <ul>
                 <li>Serverless：$0.025/1K向量/天（起步$70/月）</li>
                 <li>Starter：$70/100万向量/天</li>
@@ -311,9 +311,9 @@ print(results)</code></pre>
 
             <h3>Milvus：开源高性能的扛把子</h3>
 
-            <p><strong>定位</strong>：企业级开源方案，适合需要深度定制和自托管的场景。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>定位</strong>：企业级开源方案，适合需要深度定制和自托管的场景。</p>
 
-            <p><strong>核心优势</strong>：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>核心优势</strong>：</p>
             <ul>
                 <li>完全开源，代码可控</li>
                 <li>支持混合标量过滤</li>
@@ -321,7 +321,7 @@ print(results)</code></pre>
                 <li>社区活跃，更新频繁</li>
             </ul>
 
-            <p><strong>部署选项</strong>：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>部署选项</strong>：</p>
             <ul>
                 <li>Milvus Lite：单机版，开发测试用</li>
                 <li>Milvus Standalone：单节点生产</li>
@@ -359,9 +359,9 @@ results = client.search(
 
             <h3>Weaviate：多模态原生的全能选手</h3>
 
-            <p><strong>定位</strong>：开源+云服务混合，支持多模态向量（文本、图像、视频、音频）。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>定位</strong>：开源+云服务混合，支持多模态向量（文本、图像、视频、音频）。</p>
 
-            <p><strong>核心优势</strong>：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>核心优势</strong>：</p>
             <ul>
                 <li>多模态原生：内置embedding模型</li>
                 <li>GraphQL + REST双API</li>
@@ -466,7 +466,7 @@ results = client.query.get("Article", ["title", "content"]).with_near_text({
 
             <h2>选型决策树</h2>
 
-            <p>根据我的踩坑经验，总结了一个决策树：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">根据我的踩坑经验，总结了一个决策树：</p>
 
             <div class="decision-tree">
 <pre><code>你的数据量是多少？
@@ -507,7 +507,7 @@ results = client.query.get("Article", ["title", "content"]).with_near_text({
 
             <h2>Embedding + 向量存储完整代码</h2>
 
-            <p>下面是一套完整的RAG向量化方案，使用OpenAI的embedding模型：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">下面是一套完整的RAG向量化方案，使用OpenAI的embedding模型：</p>
 
             <h3>方案1：OpenAI + Milvus</h3>
 
@@ -660,7 +660,7 @@ print(results)</code></pre>
 
             <h3>分块策略（Chunking）</h3>
 
-            <p>分块大小直接影响检索质量：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">分块大小直接影响检索质量：</p>
 
             <table>
                 <thead>
@@ -696,12 +696,12 @@ print(results)</code></pre>
 
             <div class="tip-box">
                 <h4>实战经验</h4>
-                <p>chunk_size不是越大越好。太大了噪声多，太小了上下文不完整。建议先跑一批测试集，找最优值。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">chunk_size不是越大越好。太大了噪声多，太小了上下文不完整。建议先跑一批测试集，找最优值。</p>
             </div>
 
             <h3>TopK参数选择</h3>
 
-            <p>topK控制召回数量，但要和后续的重排序（rerank）配合：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">topK控制召回数量，但要和后续的重排序（rerank）配合：</p>
 
             <ul>
                 <li><strong>RAG直接生成</strong>：topK=3~5就够了</li>
@@ -737,7 +737,7 @@ client.create_collection(
 
             <h3>向量维度选择</h3>
 
-            <p>维度越高精度越好，但成本也越高：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">维度越高精度越好，但成本也越高：</p>
 
             <table>
                 <thead>
@@ -771,8 +771,8 @@ client.create_collection(
             </table>
 
             <div class="highlight-box">
-                <p><strong>维度缩减技巧</strong>：</p>
-                <p>text-embedding-3-small支持指定维度：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>维度缩减技巧</strong>：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">text-embedding-3-small支持指定维度：</p>
 <pre><code># 生成1536维向量后缩减到384维
 response = openai.embeddings.create(
     model="text-embedding-3-small",
@@ -784,7 +784,7 @@ response = openai.embeddings.create(
 
             <h3>Quantization压缩</h3>
 
-            <p>对于超大规模数据，可以使用量化压缩：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于超大规模数据，可以使用量化压缩：</p>
 
             <ul>
                 <li><strong>INT8量化</strong>：float32转int8，压缩75%，精度损失<2%</li>
@@ -849,15 +849,39 @@ print(f"Milvus月成本: ${cost['total']}")
                 <li><strong>成本要算清楚</strong>：存储+查询双维度估算，别只看单价</li>
             </ol>
 
-            <p>选对了向量数据库，RAG应用就成功了一半。剩下的就是工程优化和数据质量的问题了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">选对了向量数据库，RAG应用就成功了一半。剩下的就是工程优化和数据质量的问题了。</p>
 
         </div>
 
         <div class="cta-box">
             <h3>发现更多AI API工具</h3>
-            <p>TokenNexus收录向量数据库、Embedding模型等AI基础设施对比，帮助你构建更高效的AI应用。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">TokenNexus收录向量数据库、Embedding模型等AI基础设施对比，帮助你构建更高效的AI应用。</p>
             <a href="../">立即探索</a>
         </div>
+    
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-embedding-rag-knowledge-base-guide-2026">从零搭建企业级RAG知识库：Embedding选型到上线的完整踩坑记录博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">一位AI工程师的企业级RAG知识库搭建实战记录。涵盖Embedding模型选型对比、向量数据库选型、RAG系统架构设计、优化技巧与真实项目踩坑经验，含法律事务所...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/rag-ai-api-knowledge-base">RAG与AI API结合：构建私有知识库的完整指南博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入解析RAG检索增强生成技术，如何结合AI API构建私有知识库。涵盖向量数据库选择、Embedding模型部署、RAG工作流程详解，附Python实战代码。...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-embedding-vector-search-guide">AI API Embedding与向量搜索实战指南：从原理到生产落地</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">从零理解Embedding原理，对比OpenAI、通义千问、Cohere等主流Embedding模型，手把手用Python+FAISS构建语义搜索引擎，含向量数...</p>
+                </article>
+
+            </div>
+        </section>
+
     </article>
     <footer class="footer">
         <div class="footer-links">

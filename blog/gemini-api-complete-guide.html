@@ -47,7 +47,7 @@ var _hmt = _hmt || [];
     <meta property="og:url" content="https://www.tokenfind.cn/blog/gemini-api-complete-guide">
     <meta property="og:image" content="https://www.tokenfind.cn/og-image.png">
     <meta property="article:published_time" content="2026-04-10">
-    <meta property="article:modified_time" content="2026-04-10">
+    <meta property="article:modified_time" content="2026-07-03T08:00:00+08:00">
     <meta property="article:author" content="TokenNexus团队">
     <meta property="article:section" content="使用教程">
     <meta property="article:tag" content="Gemini API">
@@ -548,7 +548,7 @@ var _hmt = _hmt || [];
                 }
             },
             "datePublished": "2026-04-10",
-            "dateModified": "2026-04-10",
+            "dateModified": "2026-07-03T08:00:00+08:00",
             "articleSection": "使用教程",
             "keywords": [
                 "Gemini API",
@@ -599,7 +599,7 @@ var _hmt = _hmt || [];
 <body>
     <!-- Cookie同意横幅 -->
     <div class="cookie-banner" id="cookieBanner">
-        <p>我们使用Cookie来提升您的浏览体验。访问即表示您同意我们的 <a href="../privacy.html">隐私政策</a>。</p>
+        <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们使用Cookie来提升您的浏览体验。访问即表示您同意我们的 <a href="../privacy.html">隐私政策</a>。</p>
         <div class="cookie-buttons">
             <button class="cookie-btn decline" onclick="declineCookies()">拒绝</button>
             <button class="cookie-btn accept" onclick="acceptCookies()">接受</button>
@@ -650,82 +650,82 @@ var _hmt = _hmt || [];
 
         <!-- 文章内容 -->
         <article class="article-content">
-            <p>如果你正在寻找一个既能处理超长文本、又能看懂图片和视频的AI模型，Gemini API 绝对值得你认真了解一下。Google在2024年推出的Gemini系列模型，经过多次迭代，在2026年已经发展出Gemini 2.0系列，不仅在性能上大幅提升，价格也变得更加亲民。今天这篇文章，我会带你从零开始，全面掌握 Gemini API 的使用方法。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你正在寻找一个既能处理超长文本、又能看懂图片和视频的AI模型，Gemini API 绝对值得你认真了解一下。Google在2024年推出的Gemini系列模型，经过多次迭代，在2026年已经发展出Gemini 2.0系列，不仅在性能上大幅提升，价格也变得更加亲民。今天这篇文章，我会带你从零开始，全面掌握 Gemini API 的使用方法。</p>
 
             <h2>Gemini系列模型概览</h2>
 
-            <p>Google的Gemini模型家族目前主要包括三个主力型号，每个型号都有其独特的定位和适用场景。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Google的Gemini模型家族目前主要包括三个主力型号，每个型号都有其独特的定位和适用场景。</p>
 
             <div class="feature-grid">
                 <div class="feature-card">
                     <h4>Gemini 2.0 Flash</h4>
-                    <p>最新一代高速模型，响应时间缩短40%，非常适合实时对话和需要快速响应的应用场景。输入价格仅为0.1美元/百万token。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最新一代高速模型，响应时间缩短40%，非常适合实时对话和需要快速响应的应用场景。输入价格仅为0.1美元/百万token。</p>
                 </div>
                 <div class="feature-card">
                     <h4>Gemini 1.5 Pro</h4>
-                    <p>旗舰级中端模型，在性能和成本之间取得良好平衡。支持100万token上下文窗口，适合复杂的多轮对话任务。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">旗舰级中端模型，在性能和成本之间取得良好平衡。支持100万token上下文窗口，适合复杂的多轮对话任务。</p>
                 </div>
                 <div class="feature-card">
                     <h4>Gemini 1.5 Flash</h4>
-                    <p>轻量级高速模型，针对快速响应场景优化。价格极具竞争力，是很多入门用户的首选。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">轻量级高速模型，针对快速响应场景优化。价格极具竞争力，是很多入门用户的首选。</p>
                 </div>
             </div>
 
-            <p>特别值得一提的是，Gemini 1.5 Pro 曾经支持高达200万token的上下文窗口，这在当时是业界首创。即使是2026年的今天，能够一次性处理如此大量信息的模型依然屈指可数。这意味着你可以把一整本书、一年的聊天记录、或者上百页的法律文档一次性丢给AI处理，而不需要做复杂的切分和拼接。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">特别值得一提的是，Gemini 1.5 Pro 曾经支持高达200万token的上下文窗口，这在当时是业界首创。即使是2026年的今天，能够一次性处理如此大量信息的模型依然屈指可数。这意味着你可以把一整本书、一年的聊天记录、或者上百页的法律文档一次性丢给AI处理，而不需要做复杂的切分和拼接。</p>
 
             <h2>Gemini的独特优势</h2>
 
             <h3>200万token超长上下文</h3>
-            <p>说到上下文窗口，这可能是Gemini最让人印象深刻的能力之一。200万token意味着你可以一次性输入约150万英文单词或者50万中文汉字。换算成实际场景，这相当于：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">说到上下文窗口，这可能是Gemini最让人印象深刻的能力之一。200万token意味着你可以一次性输入约150万英文单词或者50万中文汉字。换算成实际场景，这相当于：</p>
             <ul>
                 <li>一整部《战争与和平》（约58万词）加上相关背景研究资料</li>
                 <li>一个中型代码仓库的完整代码</li>
                 <li>一整年的客户支持对话记录</li>
                 <li>数百份简历的批量筛选</li>
             </ul>
-            <p>在实际测试中，Google AI团队展示了用Gemini 1.5 Pro 完整分析《奥德赛》全诗的能力，模型不仅准确回答了关于情节的细节问题，还能联系不同章节的内容进行综合分析。这种能力对于需要处理大量文档的企业来说简直是福音。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在实际测试中，Google AI团队展示了用Gemini 1.5 Pro 完整分析《奥德赛》全诗的能力，模型不仅准确回答了关于情节的细节问题，还能联系不同章节的内容进行综合分析。这种能力对于需要处理大量文档的企业来说简直是福音。</p>
 
             <h3>真正的多模态能力</h3>
-            <p>Gemini从一开始就是为多模态设计的，不是后来才加上的"图片识别"功能。它可以原生理解：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Gemini从一开始就是为多模态设计的，不是后来才加上的"图片识别"功能。它可以原生理解：</p>
             <ul>
                 <li><strong>文本</strong>：支持超过100种语言的输入输出</li>
                 <li><strong>图片</strong>：不只是识别，还能理解图表、分析数据、描述场景</li>
                 <li><strong>音频</strong>：直接处理音频文件，提取关键信息</li>
                 <li><strong>视频</strong>：分析视频内容，理解帧与帧之间的关联</li>
             </ul>
-            <p>举个实际例子，如果你有一份包含数据图表的PDF报告，Gemini可以直接读取并用自然语言回答你关于数据趋势的问题。你甚至可以上传一段会议录音，让它总结关键要点和待办事项。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">举个实际例子，如果你有一份包含数据图表的PDF报告，Gemini可以直接读取并用自然语言回答你关于数据趋势的问题。你甚至可以上传一段会议录音，让它总结关键要点和待办事项。</p>
 
             <blockquote>
-                <p>根据Google在2025年第四季度发布的技术报告，Gemini 2.0在多模态理解基准测试中取得了SOTA（State of the Art）成绩，在MMMU（多学科多模态理解）测试中得分达到89.3%，领先GPT-4o约5个百分点。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">根据Google在2025年第四季度发布的技术报告，Gemini 2.0在多模态理解基准测试中取得了SOTA（State of the Art）成绩，在MMMU（多学科多模态理解）测试中得分达到89.3%，领先GPT-4o约5个百分点。</p>
             </blockquote>
 
             <h2>如何注册Google AI Studio获取API Key</h2>
 
-            <p>获取Gemini API Key的流程相当简单，整个过程大约需要5分钟。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">获取Gemini API Key的流程相当简单，整个过程大约需要5分钟。</p>
 
             <h3>第一步：创建Google账号</h3>
-            <p>如果你还没有Google账号，需要先注册一个。已有的Gmail用户可以直接使用。Google AI Studio地址是：ai.google.dev</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你还没有Google账号，需要先注册一个。已有的Gmail用户可以直接使用。Google AI Studio地址是：ai.google.dev</p>
 
             <h3>第二步：访问Google AI Studio</h3>
-            <p>打开浏览器，访问 Google AI Studio。首次访问需要接受服务条款和隐私政策。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">打开浏览器，访问 Google AI Studio。首次访问需要接受服务条款和隐私政策。</p>
 
             <h3>第三步：获取API Key</h3>
-            <p>登录后在左侧菜单找到"API Key"选项，点击"Create API Key"按钮。系统会自动生成一个Key，建议给它起一个描述性的名字，方便后续管理。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">登录后在左侧菜单找到"API Key"选项，点击"Create API Key"按钮。系统会自动生成一个Key，建议给它起一个描述性的名字，方便后续管理。</p>
 
             <h3>免费额度说明</h3>
-            <p>这是很多人关心的问题。Google为Gemini API提供了慷慨的免费额度：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这是很多人关心的问题。Google为Gemini API提供了慷慨的免费额度：</p>
             <ul>
                 <li>Gemini 1.5 Flash：每分钟60次请求，每天1500次请求</li>
                 <li>Gemini 1.5 Pro：每分钟50次请求，每天500次请求</li>
                 <li>Gemini 2.0 Flash：每分钟15次请求，免费层包含约100万token</li>
             </ul>
-            <p>对于个人开发者和小规模项目来说，这个免费额度通常够用。但如果你是企业用户或者有大规模调用需求，就需要关注后面的定价部分了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于个人开发者和小规模项目来说，这个免费额度通常够用。但如果你是企业用户或者有大规模调用需求，就需要关注后面的定价部分了。</p>
 
             <div class="ad-placeholder ad-inline">广告位 336x280</div>
 
             <h2>Gemini API定价详解</h2>
 
-            <p>理解API定价对于控制成本非常重要。Gemini API采用按token计费的方式，输入和输出分别计费。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">理解API定价对于控制成本非常重要。Gemini API采用按token计费的方式，输入和输出分别计费。</p>
 
             <div class="table-wrapper">
                 <table>
@@ -766,11 +766,11 @@ var _hmt = _hmt || [];
                 </table>
             </div>
 
-            <p>做个简单的成本对比：一个典型的客服对话（约1000个输入token + 500个输出token），使用Gemini 1.5 Flash的成本约为0.015美元，大约人民币0.1元。如果使用Claude 3.5 Sonnet，相同对话的成本约为0.024美元。看起来差距不大，但如果你的日均调用量达到百万次，成本差异就会变得相当可观。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">做个简单的成本对比：一个典型的客服对话（约1000个输入token + 500个输出token），使用Gemini 1.5 Flash的成本约为0.015美元，大约人民币0.1元。如果使用Claude 3.5 Sonnet，相同对话的成本约为0.024美元。看起来差距不大，但如果你的日均调用量达到百万次，成本差异就会变得相当可观。</p>
 
             <h2>与GPT-4、Claude的横向对比</h2>
 
-            <p>很多人在选择AI模型时会纠结于Gemini、GPT-4和Claude之间。我从几个关键维度做个对比：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">很多人在选择AI模型时会纠结于Gemini、GPT-4和Claude之间。我从几个关键维度做个对比：</p>
 
             <div class="table-wrapper">
                 <table>
@@ -823,11 +823,11 @@ var _hmt = _hmt || [];
                 </table>
             </div>
 
-            <p>从这个对比可以看出，Gemini在价格和长上下文方面有明显优势。如果你的应用场景涉及大量文档处理、长对话维持或者多模态输入，Gemini的性价比会更高。但如果你更看重代码生成质量或者创意写作，GPT-4和Claude也是不错的选择。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">从这个对比可以看出，Gemini在价格和长上下文方面有明显优势。如果你的应用场景涉及大量文档处理、长对话维持或者多模态输入，Gemini的性价比会更高。但如果你更看重代码生成质量或者创意写作，GPT-4和Claude也是不错的选择。</p>
 
             <h2>Python调用实战教程</h2>
 
-            <p>下面进入实战环节。我会展示几种常见的Python调用方式，从简单到复杂。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">下面进入实战环节。我会展示几种常见的Python调用方式，从简单到复杂。</p>
 
             <h3>基础文本对话</h3>
 
@@ -942,10 +942,10 @@ summaries = []
             <h2>适用场景分析</h2>
 
             <h3>长文档分析与知识提取</h3>
-            <p>Gemini的超长上下文让它特别适合处理长文档。常见的应用包括：法律合同审查、学术论文总结、财务报告分析、代码仓库理解等。想象一下，你不需要把一份1000页的法律文档拆分成几十个小块再逐个处理，直接丢给Gemini，它就能给出连贯、准确的分析。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Gemini的超长上下文让它特别适合处理长文档。常见的应用包括：法律合同审查、学术论文总结、财务报告分析、代码仓库理解等。想象一下，你不需要把一份1000页的法律文档拆分成几十个小块再逐个处理，直接丢给Gemini，它就能给出连贯、准确的分析。</p>
 
             <h3>多模态企业应用</h3>
-            <p>对于需要处理多种数据类型的企业，Gemini的多模态能力非常实用。比如：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于需要处理多种数据类型的企业，Gemini的多模态能力非常实用。比如：</p>
             <ul>
                 <li><strong>内容审核平台</strong>：同时分析文本、图片和视频内容</li>
                 <li><strong>智能客服</strong>：理解用户发送的截图、票据、文档</li>
@@ -954,11 +954,11 @@ summaries = []
             </ul>
 
             <h3>实时对话系统</h3>
-            <p>Gemini 2.0 Flash的低延迟特性使其适合构建实时对话应用。配合流式输出（streaming），可以实现类似ChatGPT的即时响应体验。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Gemini 2.0 Flash的低延迟特性使其适合构建实时对话应用。配合流式输出（streaming），可以实现类似ChatGPT的即时响应体验。</p>
 
             <h2>Vertex AI与Google AI Studio的区别</h2>
 
-            <p>很多开发者在刚开始接触Gemini时，会在Vertex AI和Google AI Studio之间感到困惑。简单来说：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">很多开发者在刚开始接触Gemini时，会在Vertex AI和Google AI Studio之间感到困惑。简单来说：</p>
 
             <div class="table-wrapper">
                 <table>
@@ -1004,7 +1004,7 @@ summaries = []
                 </table>
             </div>
 
-            <p>对于大多数个人开发者和小型项目，我建议从 Google AI Studio 开始。它上手简单，文档清晰，而且免费额度足够你完成开发和测试。只有当你需要企业级功能（如模型微调、SLA保障、与现有Google Cloud基础设施集成）时，才需要考虑迁移到 Vertex AI。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于大多数个人开发者和小型项目，我建议从 Google AI Studio 开始。它上手简单，文档清晰，而且免费额度足够你完成开发和测试。只有当你需要企业级功能（如模型微调、SLA保障、与现有Google Cloud基础设施集成）时，才需要考虑迁移到 Vertex AI。</p>
 
             <h2>常见问题解答</h2>
 
@@ -1035,12 +1035,36 @@ summaries = []
 
             <h2>总结</h2>
 
-            <p>Gemini API 凭借其超长上下文、原生多模态能力和有竞争力的价格，已经成为AI开发者的重要选择之一。无论你是个人开发者想要尝试最新的AI技术，还是企业用户需要构建生产级的AI应用，Gemini都值得你认真考虑。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Gemini API 凭借其超长上下文、原生多模态能力和有竞争力的价格，已经成为AI开发者的重要选择之一。无论你是个人开发者想要尝试最新的AI技术，还是企业用户需要构建生产级的AI应用，Gemini都值得你认真考虑。</p>
 
-            <p>建议从 Google AI Studio 开始，利用免费额度熟悉API的使用方式。一旦你的应用进入生产阶段，可以根据需要考虑迁移到 Vertex AI 以获得更好的扩展性和企业级支持。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">建议从 Google AI Studio 开始，利用免费额度熟悉API的使用方式。一旦你的应用进入生产阶段，可以根据需要考虑迁移到 Vertex AI 以获得更好的扩展性和企业级支持。</p>
 
-            <p>如果你觉得这篇文章有帮助，欢迎收藏和分享。有什么问题或者使用心得，也欢迎在评论区交流。</p>
-        </article>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你觉得这篇文章有帮助，欢迎收藏和分享。有什么问题或者使用心得，也欢迎在评论区交流。</p>
+        
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/claude-api-guide-2026">Claude API完整指南：从入门到生产部署（2026版）博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年最全面的Claude API接入教程。涵盖Claude 4 Sonnet、Claude 4 Opus模型介绍，API Key获取、定价体系、200K长...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/deepseek-api-complete-guide">DeepSeek API完全指南：极致性价比国产之光</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深度解析DeepSeek API：从注册到生产部署，包含V3/R1双模型对比、价格分析、500万tokens免费额度、Python/cURL调用示例，附真实省钱...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-long-context-optimization">AI API长上下文(Long Context)优化实战：从20万到200万token的进化之路博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入解析AI长上下文技术，对比Gemini 200万token、Claude 200K、GPT-4o等主流平台能力。包含5个实战优化技巧、Python代码示例和...</p>
+                </article>
+
+            </div>
+        </section>
+
+    </article>
 
         <!-- 底部广告位 -->
         <div class="ad-placeholder ad-top" style="margin-top: 48px;">广告位 728x90</div>
@@ -1071,7 +1095,7 @@ summaries = []
             </div>
         </div>
         <div class="footer-bottom">
-            <p>2024-2026 TokenNexus. All rights reserved.</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2024-2026 TokenNexus. All rights reserved.</p>
         </div>
     </footer>
 

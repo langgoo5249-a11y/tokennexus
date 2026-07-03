@@ -35,7 +35,7 @@ var _hmt = _hmt || [];
     <meta property="og:description" content="深入解析AI API Token计费机制，涵盖Token与字符换算、各平台价格对比、tiktoken工具使用、对话历史成本膨胀问题，以及真实项目优化全流程。">
     <meta property="og:url" content="https://www.tokenfind.cn/blog/ai-api-token-billing-guide">
     <meta property="article:published_time" content="2026-04-20">
-    <meta property="article:modified_time" content="2026-04-20">
+    <meta property="article:modified_time" content="2026-07-03T08:00:00+08:00">
     <meta property="article:tag" content="省钱攻略">
     <meta property="article:tag" content="Token计费">
     <meta property="article:tag" content="API成本控制">
@@ -330,7 +330,7 @@ var _hmt = _hmt || [];
                 }
             },
             "datePublished": "2026-04-20",
-            "dateModified": "2026-04-20",
+            "dateModified": "2026-07-03T08:00:00+08:00",
             "articleSection": "AI API",
             "keywords": [
                 "AI Token计费",
@@ -406,11 +406,11 @@ var _hmt = _hmt || [];
 
         <div class="article-content">
 
-            <p>做过AI应用开发的人大概都有过这种体验：月初看着API账单，心里一紧——这个月怎么又超预算了？明明用户量没涨多少，费用却翻了一番。问题往往出在同一个地方：你没有真正搞懂Token计费的逻辑。这篇文章我会把Token计费这件事拆开来讲，从基础概念到实际优化，帮你把每一分钱花在刀刃上。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">做过AI应用开发的人大概都有过这种体验：月初看着API账单，心里一紧——这个月怎么又超预算了？明明用户量没涨多少，费用却翻了一番。问题往往出在同一个地方：你没有真正搞懂Token计费的逻辑。这篇文章我会把Token计费这件事拆开来讲，从基础概念到实际优化，帮你把每一分钱花在刀刃上。</p>
 
             <h2>到底什么是Token？</h2>
-            <p>Token是大模型处理文本的最小单位。你可以把它理解为一种"子词"（subword）——它不一定等于一个完整的汉字或英文单词，而是根据词频拆分出来的片段。举个简单的例子，在OpenAI的cl100k_base分词器中，"hello"是一个Token，但"unbelievable"会被拆成"un"、"believ"、"able"三个Token。</p>
-            <p>中文的情况更复杂一些。一个常用汉字通常占1到2个Token，而一个不太常见的词可能被拆成更多片段。根据我们的实测数据，一段1000个汉字的中文文本，大约对应1200到1600个Token。英文方面，1个Token大约覆盖0.75个单词，或者说100个Token大约对应75个英文单词。这个换算比例会因模型和分词器的不同而有所差异，但大致在这个范围内。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Token是大模型处理文本的最小单位。你可以把它理解为一种"子词"（subword）——它不一定等于一个完整的汉字或英文单词，而是根据词频拆分出来的片段。举个简单的例子，在OpenAI的cl100k_base分词器中，"hello"是一个Token，但"unbelievable"会被拆成"un"、"believ"、"able"三个Token。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">中文的情况更复杂一些。一个常用汉字通常占1到2个Token，而一个不太常见的词可能被拆成更多片段。根据我们的实测数据，一段1000个汉字的中文文本，大约对应1200到1600个Token。英文方面，1个Token大约覆盖0.75个单词，或者说100个Token大约对应75个英文单词。这个换算比例会因模型和分词器的不同而有所差异，但大致在这个范围内。</p>
 
             <div class="tip-box">
                 <strong>实用换算公式：</strong><br>
@@ -420,7 +420,7 @@ var _hmt = _hmt || [];
             </div>
 
             <h2>各平台Token计费方式对比</h2>
-            <p>目前主流的AI API平台都采用"按Token用量计费"的模式，但具体定价差异非常大。下面这张表列出了2026年4月各主要平台的最新价格（每百万Token）：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">目前主流的AI API平台都采用"按Token用量计费"的模式，但具体定价差异非常大。下面这张表列出了2026年4月各主要平台的最新价格（每百万Token）：</p>
 
             <table class="data-table">
                 <tr>
@@ -488,17 +488,17 @@ var _hmt = _hmt || [];
                 </tr>
             </table>
 
-            <p>从表中可以明显看出，不同平台之间的价格差距非常大。Claude 4 Sonnet的输出价格是DeepSeek-V3的53倍以上。当然，模型能力不同，不能简单横向比较，但对于很多实际业务场景来说，用DeepSeek-V3或GPT-4o-mini替代高端模型，效果差距远没有价格差距那么大。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">从表中可以明显看出，不同平台之间的价格差距非常大。Claude 4 Sonnet的输出价格是DeepSeek-V3的53倍以上。当然，模型能力不同，不能简单横向比较，但对于很多实际业务场景来说，用DeepSeek-V3或GPT-4o-mini替代高端模型，效果差距远没有价格差距那么大。</p>
 
             <h2>输入Token vs 输出Token：价格差背后的逻辑</h2>
-            <p>你可能注意到了，所有平台的输出Token价格都远高于输入Token，通常是3到5倍。这不是随便定的。大模型在生成输出时，每个Token都需要经过一次完整的前向计算，计算量远大于处理输入时的并行编码。简单来说，"读"比"写"便宜，这在AI世界里也一样。</p>
-            <p>这个差异意味着一个重要的优化方向：<strong>尽量减少输出Token的数量</strong>。比如，你可以通过在Prompt中明确要求"用不超过50个字回答"来限制输出长度，或者使用JSON Mode让模型输出结构化的短内容，而不是自由发挥的大段文字。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">你可能注意到了，所有平台的输出Token价格都远高于输入Token，通常是3到5倍。这不是随便定的。大模型在生成输出时，每个Token都需要经过一次完整的前向计算，计算量远大于处理输入时的并行编码。简单来说，"读"比"写"便宜，这在AI世界里也一样。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这个差异意味着一个重要的优化方向：<strong>尽量减少输出Token的数量</strong>。比如，你可以通过在Prompt中明确要求"用不超过50个字回答"来限制输出长度，或者使用JSON Mode让模型输出结构化的短内容，而不是自由发挥的大段文字。</p>
 
             <!-- 文章内广告位1 -->
             <div class="ad-slot in-article"><span>广告位预留 (336x280)</span></div>
 
             <h2>用tiktoken预估Token数量</h2>
-            <p>在调用API之前先预估Token数量，是控制成本的第一步。OpenAI开源的tiktoken工具是目前最常用的Token计数库，支持GPT-4、GPT-3.5等模型的分词器。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在调用API之前先预估Token数量，是控制成本的第一步。OpenAI开源的tiktoken工具是目前最常用的Token计数库，支持GPT-4、GPT-3.5等模型的分词器。</p>
 
             <div class="code-block">import tiktoken
 
@@ -508,21 +508,21 @@ tokens = enc.encode(text)
 print(f"Token数量: {len(tokens)}")
 # 输出: Token数量: 18</div>
 
-            <p>对于Claude模型，Anthropic官方也提供了类似的SDK来估算Token用量。Google的Gemini则可以通过其API的countTokens方法直接获取精确计数。建议在项目上线前，用这些工具跑一遍你的典型Prompt，做到心中有数。</p>
-            <p>如果你不想写代码，也可以使用在线的Token计算器工具。TokenNexus网站上就提供了免费的Token计算器，支持多种模型的分词器，直接粘贴文本就能看到预估结果。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于Claude模型，Anthropic官方也提供了类似的SDK来估算Token用量。Google的Gemini则可以通过其API的countTokens方法直接获取精确计数。建议在项目上线前，用这些工具跑一遍你的典型Prompt，做到心中有数。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你不想写代码，也可以使用在线的Token计算器工具。TokenNexus网站上就提供了免费的Token计算器，支持多种模型的分词器，直接粘贴文本就能看到预估结果。</p>
 
             <h2>System Prompt：隐藏的Token消耗大户</h2>
-            <p>很多人在优化成本时只关注用户输入和模型输出，忽略了一个关键因素：System Prompt。System Prompt会在每次API调用时作为输入Token发送，如果你写了一段500 Token的系统指令，那每轮对话都会额外消耗这500个输入Token。</p>
-            <p>假设你的聊天机器人每天处理10000次对话，平均每轮对话3次交互，System Prompt为500 Token，那么光是System Prompt每天就消耗 10000 &times; 3 &times; 500 = 1500万 Token。如果用GPT-4o，光这部分每月就要花大约94美元（约680元人民币）。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">很多人在优化成本时只关注用户输入和模型输出，忽略了一个关键因素：System Prompt。System Prompt会在每次API调用时作为输入Token发送，如果你写了一段500 Token的系统指令，那每轮对话都会额外消耗这500个输入Token。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">假设你的聊天机器人每天处理10000次对话，平均每轮对话3次交互，System Prompt为500 Token，那么光是System Prompt每天就消耗 10000 &times; 3 &times; 500 = 1500万 Token。如果用GPT-4o，光这部分每月就要花大约94美元（约680元人民币）。</p>
 
             <div class="warn-box">
                 <strong>注意：</strong>System Prompt越长，成本越高。建议控制在200 Token以内，把核心规则写清楚即可，避免堆砌冗余描述。
             </div>
 
             <h2>对话历史累积：成本膨胀的元凶</h2>
-            <p>这是很多开发者踩过的坑。大多数聊天类API需要把历史对话一起发送给模型，让它"记住"上下文。问题在于，随着对话轮数增加，每次请求携带的Token量也在线性增长。</p>
-            <p>来算一笔账：假设用户平均每次对话10轮，每轮用户输入50 Token、模型输出150 Token，加上200 Token的System Prompt。到第10轮时，单次请求的输入Token量已经达到 200 + 10 &times; (50 + 150) = 2200 Token。如果用户聊了50轮，这个数字会变成 200 + 50 &times; 200 = 10200 Token——单次请求的输入成本直接翻了5倍。</p>
-            <p>更可怕的是，如果你的用户基数大，这种累积效应会被成倍放大。我们见过有团队因为没做对话截断，月成本从预期的2000元飙升到15000元。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这是很多开发者踩过的坑。大多数聊天类API需要把历史对话一起发送给模型，让它"记住"上下文。问题在于，随着对话轮数增加，每次请求携带的Token量也在线性增长。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">来算一笔账：假设用户平均每次对话10轮，每轮用户输入50 Token、模型输出150 Token，加上200 Token的System Prompt。到第10轮时，单次请求的输入Token量已经达到 200 + 10 &times; (50 + 150) = 2200 Token。如果用户聊了50轮，这个数字会变成 200 + 50 &times; 200 = 10200 Token——单次请求的输入成本直接翻了5倍。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">更可怕的是，如果你的用户基数大，这种累积效应会被成倍放大。我们见过有团队因为没做对话截断，月成本从预期的2000元飙升到15000元。</p>
 
             <h3>解决方案</h3>
             <ul>
@@ -532,45 +532,45 @@ print(f"Token数量: {len(tokens)}")
             </ul>
 
             <h2>真实案例：月成本从5000元降到800元</h2>
-            <p>下面分享一个我们实际接触到的案例。某创业团队做了一个面向电商客服的AI聊天机器人，2025年底上线，使用GPT-4o作为主力模型。2026年1月拿到账单时，月费用高达5160元，远超预算。</p>
-            <p>我们帮他们做了全面的成本审计，发现了几个核心问题：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">下面分享一个我们实际接触到的案例。某创业团队做了一个面向电商客服的AI聊天机器人，2025年底上线，使用GPT-4o作为主力模型。2026年1月拿到账单时，月费用高达5160元，远超预算。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们帮他们做了全面的成本审计，发现了几个核心问题：</p>
             <ol>
                 <li><strong>对话历史全量发送：</strong>客服对话经常超过30轮，每次请求携带全部历史，Token消耗巨大。</li>
                 <li><strong>System Prompt过于冗长：</strong>写了将近800 Token的产品介绍和客服话术规范。</li>
                 <li><strong>所有问题都用GPT-4o：</strong>包括"我的快递到哪了"这种简单查询。</li>
                 <li><strong>输出没有长度限制：</strong>模型经常生成300+ Token的回复，实际上100 Token就够了。</li>
             </ol>
-            <p>针对这些问题，我们实施了以下优化：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">针对这些问题，我们实施了以下优化：</p>
             <ol>
                 <li>引入滑动窗口，只保留最近5轮对话+历史摘要，<strong>输入Token减少约60%</strong>。</li>
                 <li>精简System Prompt至180 Token，去掉重复和冗余描述。</li>
                 <li>搭建模型路由：简单问题（快递查询、退换货政策）走GPT-4o-mini，复杂问题（纠纷处理、个性化推荐）走GPT-4o。分流后<strong>约70%的请求走低价模型</strong>。</li>
                 <li>在Prompt中加入"回复不超过80字"的约束，并设置max_tokens参数为200。</li>
             </ol>
-            <p>优化后的2月份账单：812元。成本降低了<strong>84%</strong>，而用户满意度评分从4.2分微降到4.1分（满分5分），基本可以忽略不计。这个案例说明，合理的优化可以在几乎不影响体验的前提下大幅降低成本。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">优化后的2月份账单：812元。成本降低了<strong>84%</strong>，而用户满意度评分从4.2分微降到4.1分（满分5分），基本可以忽略不计。这个案例说明，合理的优化可以在几乎不影响体验的前提下大幅降低成本。</p>
 
             <!-- 文章内广告位2 -->
             <div class="ad-slot in-article"><span>广告位预留 (336x280)</span></div>
 
             <h2>设置预算告警和用量限制</h2>
-            <p>不管你做了多少优化，设置预算告警都是必不可少的安全网。各平台都提供了用量监控和告警功能：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不管你做了多少优化，设置预算告警都是必不可少的安全网。各平台都提供了用量监控和告警功能：</p>
             <ul>
                 <li><strong>OpenAI：</strong>在Usage页面设置月度预算上限（hard limit），超过后API会自动拒绝请求。同时可以设置邮件告警阈值。</li>
                 <li><strong>Anthropic：</strong>通过AWS Bedrock使用时可以设置IAM配额，直接使用Anthropic API时建议通过第三方监控工具（如Helicone）来追踪用量。</li>
                 <li><strong>Google Cloud：</strong>在Cloud Console中设置API配额和预算告警，支持每日/每月粒度。</li>
                 <li><strong>DeepSeek：</strong>在控制台中设置账户余额告警，余额低于阈值时发送通知。</li>
             </ul>
-            <p>除了平台自带的功能，建议搭建自己的API用量监控系统。记录每次请求的Token用量、模型、响应时间等数据，定期生成成本报表。这样不仅能及时发现异常，还能为后续优化提供数据支撑。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">除了平台自带的功能，建议搭建自己的API用量监控系统。记录每次请求的Token用量、模型、响应时间等数据，定期生成成本报表。这样不仅能及时发现异常，还能为后续优化提供数据支撑。</p>
 
             <h2>Token计费优化技巧汇总</h2>
             <h3>1. Prompt压缩</h3>
-            <p>在发送给模型之前，对Prompt进行压缩处理。可以使用LLMLingua等开源工具，将冗长的Prompt压缩到原来的30%-50%，同时保留核心语义。实测显示，对于长System Prompt，压缩后模型输出质量几乎没有下降。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在发送给模型之前，对Prompt进行压缩处理。可以使用LLMLingua等开源工具，将冗长的Prompt压缩到原来的30%-50%，同时保留核心语义。实测显示，对于长System Prompt，压缩后模型输出质量几乎没有下降。</p>
 
             <h3>2. 利用Prompt缓存</h3>
-            <p>Anthropic从2024年底开始支持Prompt Caching功能。如果你的System Prompt和对话前缀在多次请求中保持不变，可以启用缓存，缓存的Token只按原价的10%计费。对于System Prompt较长的应用，这项功能可以节省20%-40%的输入成本。OpenAI也在2025年推出了类似的自动缓存机制。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Anthropic从2024年底开始支持Prompt Caching功能。如果你的System Prompt和对话前缀在多次请求中保持不变，可以启用缓存，缓存的Token只按原价的10%计费。对于System Prompt较长的应用，这项功能可以节省20%-40%的输入成本。OpenAI也在2025年推出了类似的自动缓存机制。</p>
 
             <h3>3. 模型降级策略</h3>
-            <p>不要所有请求都用最贵的模型。建立一个模型路由机制，根据任务复杂度自动选择合适的模型。比如：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不要所有请求都用最贵的模型。建立一个模型路由机制，根据任务复杂度自动选择合适的模型。比如：</p>
             <ul>
                 <li>简单问答、文本分类、格式转换 &rarr; GPT-4o-mini / Claude 3.5 Haiku / Gemini 2.0 Flash</li>
                 <li>复杂推理、长文写作、代码生成 &rarr; GPT-4o / Claude 4 Sonnet / Gemini 2.5 Pro</li>
@@ -578,16 +578,40 @@ print(f"Token数量: {len(tokens)}")
             </ul>
 
             <h3>4. 批量请求优化</h3>
-            <p>如果你有大量独立的文本处理任务（比如批量翻译、批量摘要），使用Batch API可以节省50%的费用。OpenAI和Anthropic都支持批量请求模式，缺点是响应时间较长（通常24小时内返回），适合非实时场景。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你有大量独立的文本处理任务（比如批量翻译、批量摘要），使用Batch API可以节省50%的费用。OpenAI和Anthropic都支持批量请求模式，缺点是响应时间较长（通常24小时内返回），适合非实时场景。</p>
 
             <h3>5. 控制输出格式</h3>
-            <p>使用JSON Mode或Structured Output，让模型按指定格式输出，避免生成冗余的客套话和解释。同时设置合理的max_tokens上限，防止模型"自作主张"生成长篇大论。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">使用JSON Mode或Structured Output，让模型按指定格式输出，避免生成冗余的客套话和解释。同时设置合理的max_tokens上限，防止模型"自作主张"生成长篇大论。</p>
 
             <h2>写在最后</h2>
-            <p>AI API的成本控制不是一次性的事情，而是一个持续优化的过程。建议每个月花一点时间审视用量数据，看看有没有异常增长的模块，有没有可以进一步优化的地方。Token计费看似复杂，但只要理解了它的运作机制，配合合适的工具和策略，完全可以在保证服务质量的前提下把成本控制在合理范围内。</p>
-            <p>如果你正在寻找合适的AI API平台，或者想对比不同模型的token pricing，可以访问TokenNexus的价格对比页面，我们实时追踪各平台的最新报价，帮你做出更明智的选择。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI API的成本控制不是一次性的事情，而是一个持续优化的过程。建议每个月花一点时间审视用量数据，看看有没有异常增长的模块，有没有可以进一步优化的地方。Token计费看似复杂，但只要理解了它的运作机制，配合合适的工具和策略，完全可以在保证服务质量的前提下把成本控制在合理范围内。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你正在寻找合适的AI API平台，或者想对比不同模型的token pricing，可以访问TokenNexus的价格对比页面，我们实时追踪各平台的最新报价，帮你做出更明智的选择。</p>
 
         </div>
+    
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-cost-optimization-guide-2026">我是如何把AI API月账单从8000降到800的：真实成本优化经验分享博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">真实开发者分享AI API成本优化经验，详解Token计费、缓存优化、小模型替代等省钱技巧，教你如何将月账单降低90%。包含DeepSeek、OpenAI、Cl...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-token-pricing-cost-calculation-guide-2026">AI API Token计费原理深度解析 AI API攻略</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入解析AI API Token计算原理，涵盖中英文Token化差异、GPT-4o/Claude/DeepSeek最新定价表、多模态Token计算、Python...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-cost-optimization-2026">AI API成本控制实战攻略：我是如何把月账单从2000降到300的博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">详解AI API成本优化实战技巧，包含缓存策略、模型降级、批量处理等7大降本方法，真实案例分享，帮助开发者降低AI API使用成本80%以上。</p>
+                </article>
+
+            </div>
+        </section>
+
     </article>
 
     <!-- 页脚 -->
@@ -632,7 +656,7 @@ print(f"Token数量: {len(tokens)}")
     <!-- Cookie同意横幅 -->
     <div id="cookie-consent" class="cookie-consent" style="display: none;">
         <div class="cookie-content">
-            <p>我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的隐私政策。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的隐私政策。</p>
             <div class="cookie-buttons">
                 <button onclick="acceptCookies()" class="cookie-btn accept">同意</button>
                 <a href="../privacy.html" class="cookie-btn more">了解更多</a>

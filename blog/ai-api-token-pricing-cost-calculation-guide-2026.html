@@ -184,9 +184,9 @@ var _hmt = _hmt || [];
         <div class="article-content">
             <h2>我是怎么被Token坑了$8的</h2>
             
-            <p>上个月用ChatGPT API写了一个客服机器人，心想就几百条对话，能花多少钱？结果月底看到账单直接傻眼——<strong>$8.47</strong>。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上个月用ChatGPT API写了一个客服机器人，心想就几百条对话，能花多少钱？结果月底看到账单直接傻眼——<strong>$8.47</strong>。</p>
             
-            <p>我回溯了一下日志，明明对话量很少，每条消息撑死100个词，怎么就烧了这么多？后来才搞明白，原来我用的那个Prompt模板长这样：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我回溯了一下日志，明明对话量很少，每条消息撑死100个词，怎么就烧了这么多？后来才搞明白，原来我用的那个Prompt模板长这样：</p>
             
 <pre><code>你是一个专业的电商客服。请根据以下产品信息回答用户问题。
 
@@ -198,20 +198,20 @@ var _hmt = _hmt || [];
 用户问题是：{user_question}
 请用专业、友好的语气回答，不要超过100字。</code></pre>
 
-            <p>就这个Prompt，每次请求都要完整发送。我以为"1000 Token"是1000个英文单词，实际上一条Prompt就吃了<strong>800多Token</strong>。这才反应过来——Token根本不是按词算的，是按字符/子词切分的。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">就这个Prompt，每次请求都要完整发送。我以为"1000 Token"是1000个英文单词，实际上一条Prompt就吃了<strong>800多Token</strong>。这才反应过来——Token根本不是按词算的，是按字符/子词切分的。</p>
 
             <div class="warning-box">
                 <h4>血泪教训</h4>
-                <p>千万别用"词数"来估算Token消耗。中文尤其坑——一个短句可能就是几十个Token。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">千万别用"词数"来估算Token消耗。中文尤其坑——一个短句可能就是几十个Token。</p>
             </div>
 
             <h2>Token到底是什么鬼？</h2>
 
-            <p>简单说，Token是大模型处理文本的最小单位。模型不认字符，而是把文本切成一串Token来理解。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">简单说，Token是大模型处理文本的最小单位。模型不认字符，而是把文本切成一串Token来理解。</p>
 
             <h3>中英文Token化差异巨大</h3>
 
-            <p>这里有个关键规律：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这里有个关键规律：</p>
             
             <ul>
                 <li><strong>英文</strong>：通常1 Token ≈ 0.75个单词，1000个Token约等于750个英文单词</li>
@@ -220,7 +220,7 @@ var _hmt = _hmt || [];
             </ul>
 
             <div class="highlight-box">
-                <p><strong>实测数据：</strong></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>实测数据：</strong></p>
                 <ul>
                     <li>"Hello, world!" → 6 Tokens</li>
                     <li>"你好，世界！" → 7 Tokens（每个汉字约1.5-2 Token，标点另算）</li>
@@ -228,11 +228,11 @@ var _hmt = _hmt || [];
                 </ul>
             </div>
 
-            <p>所以中文开发者尤其要注意：一个看似简短的Prompt，实际上Token消耗可能远超预期。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">所以中文开发者尤其要注意：一个看似简短的Prompt，实际上Token消耗可能远超预期。</p>
 
             <h3>标点符号和空格也占Token</h3>
 
-            <p>这点很多人忽视。在API眼里，<code>，</code>、<code>。</code>、<code>\n</code>都是独立的Token。格式化越复杂，Token越多。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这点很多人忽视。在API眼里，<code>，</code>、<code>。</code>、<code>\n</code>都是独立的Token。格式化越复杂，Token越多。</p>
 
 <pre><code># 高Token消耗的写法
 "产品列表：\n\n1. 手机\n   - 品牌：XXX\n   - 价格：2999\n\n2. 电脑\n   - 品牌：YYY\n   - 价格：5999"
@@ -242,7 +242,7 @@ var _hmt = _hmt || [];
 
             <h2>2026年主流模型最新定价表</h2>
 
-            <p>我整理了目前最常用的几个模型的最新价格，数据来自各平台官网（截至2026年6月）：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我整理了目前最常用的几个模型的最新价格，数据来自各平台官网（截至2026年6月）：</p>
 
             <table>
                 <thead>
@@ -295,16 +295,16 @@ var _hmt = _hmt || [];
 
             <div class="tip-box">
                 <h4>成本换算小工具</h4>
-                <p>100万Token约等于75万英文单词或50万汉字。写一篇2000字的中文文章，输入大概消耗4-8元。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">100万Token约等于75万英文单词或50万汉字。写一篇2000字的中文文章，输入大概消耗4-8元。</p>
             </div>
 
             <h2>多模态Token怎么算</h2>
 
-            <p>如果你用GPT-4V或者Gemini处理图片、音频，那Token计算就更复杂了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你用GPT-4V或者Gemini处理图片、音频，那Token计算就更复杂了。</p>
 
             <h3>图片Token计算</h3>
 
-            <p>OpenAI的图片Token计算公式是：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI的图片Token计算公式是：</p>
 
 <pre><code># 图片Token计算（简化版）
 # 短边 resize 到 512，长边按比例缩放
@@ -332,11 +332,11 @@ def calc_image_tokens(width, height):
 # 例子：一手机照片 1080x1920
 print(calc_image_tokens(1080, 1920))  # 输出约 850 Tokens</code></pre>
 
-            <p>所以一张普通手机照片，传给GPT-4o Vision大约消耗<strong>800-1000 Token</strong>，比很多文字Prompt都贵。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">所以一张普通手机照片，传给GPT-4o Vision大约消耗<strong>800-1000 Token</strong>，比很多文字Prompt都贵。</p>
 
             <h3>音频Token计算</h3>
 
-            <p>Whisper API的音频处理：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Whisper API的音频处理：</p>
 
             <ul>
                 <li>按分钟计费：$0.006/分钟</li>
@@ -346,15 +346,15 @@ print(calc_image_tokens(1080, 1920))  # 输出约 850 Tokens</code></pre>
 
             <h3>视频帧Token估算</h3>
 
-            <p>视频处理按帧计费，估算公式：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">视频处理按帧计费，估算公式：</p>
 
-            <p><code>视频Token ≈ 帧数 × 单帧Token数 × 采样率系数</code></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><code>视频Token ≈ 帧数 × 单帧Token数 × 采样率系数</code></p>
 
-            <p>一般1秒钟视频（按1fps采样）≈ 100-200 Tokens。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">一般1秒钟视频（按1fps采样）≈ 100-200 Tokens。</p>
 
             <h2>Python Token计算工具</h2>
 
-            <p>与其瞎猜，不如直接用代码算。下面是两个实用的Token计数方案：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">与其瞎猜，不如直接用代码算。下面是两个实用的Token计数方案：</p>
 
             <h3>方案1：tiktoken（英文为主）</h3>
 
@@ -405,7 +405,7 @@ for text in test_cases:
 
             <h3>方案3：直接用API返回的数据</h3>
 
-            <p>最准确的方法是看API返回的usage字段：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最准确的方法是看API返回的usage字段：</p>
 
 <pre><code>import openai
 
@@ -431,7 +431,7 @@ Total Tokens (总计): {usage.total_tokens}
 """)</code></pre>
 
             <div class="highlight-box">
-                <p><strong>重要字段说明：</strong></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>重要字段说明：</strong></p>
                 <ul>
                     <li><code>prompt_tokens</code>：你的输入（Prompt）消耗的Token</li>
                     <li><code>completion_tokens</code>：模型的输出消耗的Token</li>
@@ -441,7 +441,7 @@ Total Tokens (总计): {usage.total_tokens}
 
             <h2>Cache命中：省钱的秘密武器</h2>
 
-            <p>Claude和OpenAI都推出了上下文缓存功能，命中Cache可以大幅降低费用。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Claude和OpenAI都推出了上下文缓存功能，命中Cache可以大幅降低费用。</p>
 
             <h3>OpenAI Cache机制</h3>
 
@@ -484,11 +484,11 @@ completion_tokens_details: {usage.completion_tokens_details}
                 </tbody>
             </table>
 
-            <p>简单说，如果你在Prompt前加一段固定上下文（如产品知识库），首次调用贵一些，后续调用因为Cache命中，实际费用只有原来的<strong>10%-50%</strong>。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">简单说，如果你在Prompt前加一段固定上下文（如产品知识库），首次调用贵一些，后续调用因为Cache命中，实际费用只有原来的<strong>10%-50%</strong>。</p>
 
             <h2>Batch API：50%折扣的正确用法</h2>
 
-            <p>OpenAI和Groq都有Batch API，价格更便宜，但有24小时延迟。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI和Groq都有Batch API，价格更便宜，但有24小时延迟。</p>
 
             <table>
                 <thead>
@@ -541,7 +541,7 @@ print("等待24小时内完成...")</code></pre>
 
             <h2>不同场景Token消耗实测</h2>
 
-            <p>我跑了几个常见场景的实测数据：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我跑了几个常见场景的实测数据：</p>
 
             <table>
                 <thead>
@@ -594,7 +594,7 @@ print("等待24小时内完成...")</code></pre>
 
             <div class="tip-box">
                 <h4>优化建议</h4>
-                <p>从实测数据看：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">从实测数据看：</p>
                 <ul>
                     <li>简单问答场景，用GPT-4o mini能省<strong>15倍</strong>费用</li>
                     <li>输出越长，输出Token费用占比越高</li>
@@ -604,7 +604,7 @@ print("等待24小时内完成...")</code></pre>
 
             <h2>精准成本监控方案</h2>
 
-            <p>最后分享一个我用的成本监控方案，实时追踪每个请求的费用：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最后分享一个我用的成本监控方案，实时追踪每个请求的费用：</p>
 
 <pre><code>class TokenTracker:
     """Token消耗追踪器"""
@@ -662,9 +662,33 @@ tracker.record("gpt-4o-mini", {
 
         <div class="cta-box">
             <h3>发现更便宜的API平台</h3>
-            <p>TokenNexus收录330+国内外AI API平台，支持按价格、功能、地区筛选，找到最适合你预算的选择。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">TokenNexus收录330+国内外AI API平台，支持按价格、功能、地区筛选，找到最适合你预算的选择。</p>
             <a href="../">立即探索</a>
         </div>
+    
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-pricing-comparison-2026-guide">2026年AI大模型API价格终极对比：GPT-5.5、Claude、DeepSeek、Gemini怎么选最省钱</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深度对比2026年主流AI大模型API价格，包括GPT-5.5、Claude Opus 4.7、DeepSeek V4、Gemini 3.5等20+模型，用真实...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-multimodal-gpt4o-gemini-complete-guide-2026">AI API多模态应用实战：GPT-4o Vision与Gemini完整指南(2026) AI API攻略</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入解析AI多模态API调用实战，从GPT-4o Vision图像分析到Gemini原生多模态，对比主流视觉理解API，附完整Python代码示例和视频理解架构...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-ab-testing-model-selection-2026">AI API多模型A/B测试实战：用数据选出最优LLM AI API攻略</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI模型A/B测试完整实战教程，详解GPT-4o vs Claude Sonnet vs DeepSeek V3 vs Gemini Pro多模型对比测试方法，...</p>
+                </article>
+
+            </div>
+        </section>
+
     </article>
     <footer class="footer">
         <div class="footer-links">

@@ -732,11 +732,11 @@ var _hmt = _hmt || [];
         </header>
         
         <div class="article-content">
-            <p>去年年底，我接到一位老朋友的电话。他是一家中型互联网公司的技术负责人，语气里透着焦虑："我们年初规划AI API预算是每月10万，结果上个月账单飙到了50万。老板让我解释，我完全不知道怎么回答。"</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年年底，我接到一位老朋友的电话。他是一家中型互联网公司的技术负责人，语气里透着焦虑："我们年初规划AI API预算是每月10万，结果上个月账单飙到了50万。老板让我解释，我完全不知道怎么回答。"</p>
             
-            <p>这并不是个例。根据我过去几年帮助企业做AI成本优化的经验，<strong>80-85%的企业在AI基础设施上的预算都会超支25%以上</strong>。更糟糕的是，很多团队花了大价钱，却拿不出一份像样的ROI报告来证明这些投入的价值。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这并不是个例。根据我过去几年帮助企业做AI成本优化的经验，<strong>80-85%的企业在AI基础设施上的预算都会超支25%以上</strong>。更糟糕的是，很多团队花了大价钱，却拿不出一份像样的ROI报告来证明这些投入的价值。</p>
             
-            <p>这篇文章，我想把自己在AI API成本预算和ROI规划方面的实战经验分享出来。无论你是技术负责人、产品经理还是创业者，希望这些内容能帮你避开那些我曾经踩过的坑。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这篇文章，我想把自己在AI API成本预算和ROI规划方面的实战经验分享出来。无论你是技术负责人、产品经理还是创业者，希望这些内容能帮你避开那些我曾经踩过的坑。</p>
             
             <!-- 广告位1 -->
             <div class="ad-placeholder in-article">
@@ -745,11 +745,11 @@ var _hmt = _hmt || [];
             
             <h2>一、为什么80%的企业AI预算会超支</h2>
             
-            <p>在深入讨论解决方案之前，我们先来剖析一下预算超支的根本原因。只有理解了问题本质，才能对症下药。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在深入讨论解决方案之前，我们先来剖析一下预算超支的根本原因。只有理解了问题本质，才能对症下药。</p>
             
             <h3>1. 低估了"隐性成本"</h3>
             
-            <p>很多人做预算时只盯着API调用费用，却忽略了大量隐性成本。我见过太多团队，以为每月花2万块调用GPT-4就够了，结果上线后发现：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">很多人做预算时只盯着API调用费用，却忽略了大量隐性成本。我见过太多团队，以为每月花2万块调用GPT-4就够了，结果上线后发现：</p>
             
             <ul>
                 <li>数据预处理和清洗需要额外的计算资源</li>
@@ -760,28 +760,28 @@ var _hmt = _hmt || [];
             
             <h3>2. 模型选择策略失误</h3>
             
-            <p>另一个常见错误是"一刀切"地使用最强大的模型。我见过有团队用GPT-4处理简单的文本分类任务，每百万Token花费$10输出费用，而同样的任务用GPT-4o-mini或DeepSeek-V3，成本可以降到原来的1/20。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">另一个常见错误是"一刀切"地使用最强大的模型。我见过有团队用GPT-4处理简单的文本分类任务，每百万Token花费$10输出费用，而同样的任务用GPT-4o-mini或DeepSeek-V3，成本可以降到原来的1/20。</p>
             
             <h3>3. 缺乏有效的监控和预警机制</h3>
             
-            <p>很多团队直到月底收到账单才知道超支了。没有实时的成本监控，就没有及时止损的机会。我建议至少建立三级预警：达到预算50%时提醒，80%时警告，100%时强制限流。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">很多团队直到月底收到账单才知道超支了。没有实时的成本监控，就没有及时止损的机会。我建议至少建立三级预警：达到预算50%时提醒，80%时警告，100%时强制限流。</p>
             
             <h3>4. 忽视了调优期的成本</h3>
             
-            <p>AI系统通常在上线时表现不佳，需要6-12个月的调优期。这期间你会不断调整Prompt、优化参数、处理边界情况，每一次迭代都意味着额外的API调用。第一月的ROI数据很少具有代表性，不要用上线初期的数据来做长期预测。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI系统通常在上线时表现不佳，需要6-12个月的调优期。这期间你会不断调整Prompt、优化参数、处理边界情况，每一次迭代都意味着额外的API调用。第一月的ROI数据很少具有代表性，不要用上线初期的数据来做长期预测。</p>
             
             <div class="warning-box">
                 <h4>真实教训：某电商公司的预算失控</h4>
-                <p>某电商公司上线AI客服系统，预算按每月处理10万次对话计算，预计费用3万元。上线后用户提问方式五花八门，平均每次对话需要3-5轮交互才能解决问题，实际调用量是预期的4倍。加上测试和调试，第一个月账单接近15万。这就是典型的低估复杂度案例。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">某电商公司上线AI客服系统，预算按每月处理10万次对话计算，预计费用3万元。上线后用户提问方式五花八门，平均每次对话需要3-5轮交互才能解决问题，实际调用量是预期的4倍。加上测试和调试，第一个月账单接近15万。这就是典型的低估复杂度案例。</p>
             </div>
             
             <h2>二、AI API成本预算四步法</h2>
             
-            <p>基于我服务过的数十家企业经验，我总结了一套"预估-监控-预警-优化"的四步预算管理方法。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">基于我服务过的数十家企业经验，我总结了一套"预估-监控-预警-优化"的四步预算管理方法。</p>
             
             <h3>第一步：科学预估</h3>
             
-            <p>不要凭感觉拍脑袋。我建议按以下公式进行预估：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不要凭感觉拍脑袋。我建议按以下公式进行预估：</p>
             
             <div class="formula-box">
                 <h4>月度API成本预估公式</h4>
@@ -790,13 +790,13 @@ var _hmt = _hmt || [];
                 </div>
             </div>
             
-            <p>其中调优系数建议设为0.3-0.5，也就是预留30-50%的缓冲空间用于测试、调试和意外情况。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">其中调优系数建议设为0.3-0.5，也就是预留30-50%的缓冲空间用于测试、调试和意外情况。</p>
             
-            <p>对于中小企业，典型的AI系统初期导入成本（包括API调用、基础设施、人力投入）通常在75万-220万日元之间。这个数据可以作为你做年度预算的参考基准。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于中小企业，典型的AI系统初期导入成本（包括API调用、基础设施、人力投入）通常在75万-220万日元之间。这个数据可以作为你做年度预算的参考基准。</p>
             
             <h3>第二步：实时监控</h3>
             
-            <p>建立监控体系是控制成本的关键。我推荐监控以下核心指标：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">建立监控体系是控制成本的关键。我推荐监控以下核心指标：</p>
             
             <table class="price-table">
                 <thead>
@@ -837,7 +837,7 @@ var _hmt = _hmt || [];
             
             <h3>第三步：分级预警</h3>
             
-            <p>我建议建立三级预警机制：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我建议建立三级预警机制：</p>
             
             <ul>
                 <li><strong>黄色预警（预算50%）</strong>：发送邮件通知相关负责人，开始关注消费趋势</li>
@@ -847,7 +847,7 @@ var _hmt = _hmt || [];
             
             <h3>第四步：持续优化</h3>
             
-            <p>成本优化不是一次性工作，而是持续的过程。我常用的优化策略包括：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">成本优化不是一次性工作，而是持续的过程。我常用的优化策略包括：</p>
             
             <ul>
                 <li>根据任务复杂度动态选择模型，简单任务用轻量模型</li>
@@ -863,11 +863,11 @@ var _hmt = _hmt || [];
             
             <h2>三、AI ROI计算完整框架</h2>
             
-            <p>控制成本只是硬币的一面，另一面是证明价值。很多技术团队不擅长这个，花了钱却说不清楚带来了什么收益。下面是我总结的ROI计算框架。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">控制成本只是硬币的一面，另一面是证明价值。很多技术团队不擅长这个，花了钱却说不清楚带来了什么收益。下面是我总结的ROI计算框架。</p>
             
             <h3>核心计算公式</h3>
             
-            <p>AI投资回报率的标准计算公式是：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI投资回报率的标准计算公式是：</p>
             
             <div class="formula-box">
                 <h4>ROI计算公式</h4>
@@ -876,11 +876,11 @@ var _hmt = _hmt || [];
                 </div>
             </div>
             
-            <p>这个公式看起来简单，但难点在于如何量化"成本削减"和"追加销售额"。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这个公式看起来简单，但难点在于如何量化"成本削减"和"追加销售额"。</p>
             
             <h3>定量指标</h3>
             
-            <p>可以直接用数字衡量的收益包括：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">可以直接用数字衡量的收益包括：</p>
             
             <ul>
                 <li><strong>人力成本节省</strong>：AI替代或辅助人工后减少的工时成本</li>
@@ -891,7 +891,7 @@ var _hmt = _hmt || [];
             
             <h3>定性指标</h3>
             
-            <p>有些价值难以直接量化，但同样重要：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">有些价值难以直接量化，但同样重要：</p>
             
             <ul>
                 <li><strong>用户体验改善</strong>：更快的响应、更准确的服务</li>
@@ -902,12 +902,12 @@ var _hmt = _hmt || [];
             
             <div class="tip-box">
                 <h4>实用建议：如何量化难以量化的收益</h4>
-                <p>对于定性指标，我建议采用"替代成本法"。比如，用户体验改善的价值可以用"需要增加多少客服人员才能达到同等响应速度"来估算。这样可以把定性收益转化为可计算的数字。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于定性指标，我建议采用"替代成本法"。比如，用户体验改善的价值可以用"需要增加多少客服人员才能达到同等响应速度"来估算。这样可以把定性收益转化为可计算的数字。</p>
             </div>
             
             <h2>四、不同规模企业的预算规划模板</h2>
             
-            <p>企业规模不同，AI预算的侧重点也不同。我根据服务过的客户经验，整理了以下参考模板：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">企业规模不同，AI预算的侧重点也不同。我根据服务过的客户经验，整理了以下参考模板：</p>
             
             <table class="price-table">
                 <thead>
@@ -948,32 +948,32 @@ var _hmt = _hmt || [];
             
             <div class="highlight-box">
                 <h4>中小企业初期导入成本参考</h4>
-                <p>根据市场调研数据，中小企业典型的AI系统初期导入成本（含基础设施、API费用、人力投入）在75万-220万日元之间。这个范围涵盖了从简单场景到中等复杂度场景的各种情况。建议在做预算时参考这个区间，并根据自身业务复杂度选择合适的位置。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">根据市场调研数据，中小企业典型的AI系统初期导入成本（含基础设施、API费用、人力投入）在75万-220万日元之间。这个范围涵盖了从简单场景到中等复杂度场景的各种情况。建议在做预算时参考这个区间，并根据自身业务复杂度选择合适的位置。</p>
             </div>
             
             <h2>五、向老板汇报AI价值的技巧</h2>
             
-            <p>作为技术负责人，你不仅要会做，还要会说。以下是我总结的汇报技巧：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">作为技术负责人，你不仅要会做，还要会说。以下是我总结的汇报技巧：</p>
             
             <h3>1. 用业务语言，不用技术术语</h3>
             
-            <p>不要说"我们每月调用了50万次GPT-4 API"，要说"AI系统每月处理了5万次客户咨询，相当于3个全职客服的工作量"。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不要说"我们每月调用了50万次GPT-4 API"，要说"AI系统每月处理了5万次客户咨询，相当于3个全职客服的工作量"。</p>
             
             <h3>2. 展示趋势，不只看单点数据</h3>
             
-            <p>AI系统通常在上线时表现不佳，需要6-12个月的调优期。展示成本下降趋势、准确率提升曲线，比单点数据更有说服力。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI系统通常在上线时表现不佳，需要6-12个月的调优期。展示成本下降趋势、准确率提升曲线，比单点数据更有说服力。</p>
             
             <h3>3. 准备多个场景的ROI对比</h3>
             
-            <p>不要只给一个数字。准备乐观、中性、保守三种场景的ROI预测，展示你对风险的理解和把控能力。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不要只给一个数字。准备乐观、中性、保守三种场景的ROI预测，展示你对风险的理解和把控能力。</p>
             
             <h3>4. 用竞品数据做对标</h3>
             
-            <p>如果能找到行业对标数据，会大大增强说服力。比如"行业平均AI客服成本是每通电话2元，我们做到了1.5元"。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果能找到行业对标数据，会大大增强说服力。比如"行业平均AI客服成本是每通电话2元，我们做到了1.5元"。</p>
             
             <h3>5. 诚实面对问题</h3>
             
-            <p>不要回避成本超支的问题。主动分析原因、提出改进措施，比被追问时被动解释要好得多。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不要回避成本超支的问题。主动分析原因、提出改进措施，比被追问时被动解释要好得多。</p>
             
             <!-- 广告位3 -->
             <div class="ad-placeholder in-article">
@@ -982,7 +982,7 @@ var _hmt = _hmt || [];
             
             <h2>六、常见坑与最佳实践</h2>
             
-            <p>最后，我想分享一些在AI成本管理中常见的坑和对应的最佳实践：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最后，我想分享一些在AI成本管理中常见的坑和对应的最佳实践：</p>
             
             <h3>常见坑</h3>
             
@@ -998,22 +998,22 @@ var _hmt = _hmt || [];
             
             <div class="success-box">
                 <h4>AI API成本管理最佳实践清单</h4>
-                <p>1. 预算预留30-50%缓冲空间，应对调优期和意外情况</p>
-                <p>2. 建立实时监控和三级预警机制</p>
-                <p>3. 根据任务复杂度动态选择模型</p>
-                <p>4. 定期复盘成本数据，识别优化机会</p>
-                <p>5. 建立ROI计算框架，定期向管理层汇报</p>
-                <p>6. 预留安全审计和数据合规预算</p>
-                <p>7. 准备API服务中断的降级方案</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">1. 预算预留30-50%缓冲空间，应对调优期和意外情况</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2. 建立实时监控和三级预警机制</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">3. 根据任务复杂度动态选择模型</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">4. 定期复盘成本数据，识别优化机会</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">5. 建立ROI计算框架，定期向管理层汇报</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">6. 预留安全审计和数据合规预算</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">7. 准备API服务中断的降级方案</p>
             </div>
             
             <h2>七、总结与检查清单</h2>
             
-            <p>AI API成本预算和ROI规划是一个系统工程，需要从预估、监控、预警、优化四个维度建立完整的管理体系。记住，80-85%的企业预算超支不是偶然，而是缺乏科学规划的结果。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI API成本预算和ROI规划是一个系统工程，需要从预估、监控、预警、优化四个维度建立完整的管理体系。记住，80-85%的企业预算超支不是偶然，而是缺乏科学规划的结果。</p>
             
-            <p>回到文章开头那位朋友的故事。后来我帮他梳理了成本结构，发现最大的问题是模型选择策略失误和缺乏监控预警。调整策略后，第二个月成本降到了15万，第三个月稳定在12万左右，同时服务质量还有所提升。更重要的是，他现在能拿出一份清晰的ROI报告，向老板证明AI投入的价值。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">回到文章开头那位朋友的故事。后来我帮他梳理了成本结构，发现最大的问题是模型选择策略失误和缺乏监控预警。调整策略后，第二个月成本降到了15万，第三个月稳定在12万左右，同时服务质量还有所提升。更重要的是，他现在能拿出一份清晰的ROI报告，向老板证明AI投入的价值。</p>
             
-            <p>希望这篇文章能帮你少走弯路。最后送你一份检查清单：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">希望这篇文章能帮你少走弯路。最后送你一份检查清单：</p>
             
             <div class="checklist">
                 <h4>AI API成本预算与ROI规划检查清单</h4>
@@ -1031,8 +1031,32 @@ var _hmt = _hmt || [];
                 </ul>
             </div>
             
-            <p>AI是工具，不是目的。控制成本、证明价值，才能让AI真正成为企业发展的助力，而不是财务报表上的黑洞。祝你的AI之旅，既有技术深度，也有商业智慧。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI是工具，不是目的。控制成本、证明价值，才能让AI真正成为企业发展的助力，而不是财务报表上的黑洞。祝你的AI之旅，既有技术深度，也有商业智慧。</p>
         </div>
+    
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-multi-tenant-architecture-2026">AI API多租户架构实战：企业如何搭建成本可控的AI平台</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入解析企业AI API多租户架构设计，涵盖租户隔离、资源计量、成本分摊三大核心模块。对比LiteLLM、Kong、Portkey等主流方案，提供完整架构图与代...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/enterprise-ai-api-selection-guide">企业AI API选型指南：2026年决策手册</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年企业AI API选型完全指南，涵盖OpenAI、Anthropic、Google、DeepSeek等主流供应商对比，提供成本分析、技术选型和实施建议。...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-migration-guide-2026">AI API迁移完全指南：从OpenAI到DeepSeek/Claude的无缝切换</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">手把手教你从OpenAI迁移到DeepSeek、Claude等替代平台。包含真实成本对比、代码级迁移实战、三种迁移策略详解，帮你节省80%以上API成本。</p>
+                </article>
+
+            </div>
+        </section>
+
     </article>
     
     <!-- 页脚 -->
@@ -1040,29 +1064,29 @@ var _hmt = _hmt || [];
         <div class="footer-content">
             <div class="footer-section">
                 <h3>关于我们</h3>
-                <p>TokenNexus是全球最全的AI Token导航平台，收录280+国内外AI API服务商，为开发者提供专业的平台对比和选型建议。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">TokenNexus是全球最全的AI Token导航平台，收录280+国内外AI API服务商，为开发者提供专业的平台对比和选型建议。</p>
             </div>
             <div class="footer-section">
                 <h3>快速链接</h3>
-                <p><a href="../about.html">关于我们</a> | <a href="../contact.html">联系我们</a></p>
-                <p><a href="../privacy.html">隐私政策</a> | <a href="../terms.html">使用条款</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="../about.html">关于我们</a> | <a href="../contact.html">联系我们</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="../privacy.html">隐私政策</a> | <a href="../terms.html">使用条款</a></p>
             </div>
             <div class="footer-section">
                 <h3>相关文章</h3>
-                <p><a href="ai-api-pricing-guide-2026.html">AI API价格对比指南</a></p>
-                <p><a href="ai-api-caching-optimization-2026.html">AI API缓存优化策略</a></p>
-                <p><a href="enterprise-ai-api-selection-guide.html">企业AI API选型指南</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="ai-api-pricing-guide-2026.html">AI API价格对比指南</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="ai-api-caching-optimization-2026.html">AI API缓存优化策略</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="enterprise-ai-api-selection-guide.html">企业AI API选型指南</a></p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 TokenNexus. All rights reserved.</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">&copy; 2026 TokenNexus. All rights reserved.</p>
         </div>
     </footer>
     
     <!-- Cookie同意横幅 -->
     <div id="cookie-consent" class="cookie-consent" style="display: none;">
         <div class="cookie-content">
-            <p>我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的Cookie政策。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的Cookie政策。</p>
             <div class="cookie-buttons">
                 <button onclick="acceptCookies()" class="cookie-btn accept">同意</button>
                 <a href="../privacy.html" class="cookie-btn more">了解更多</a>

@@ -599,13 +599,13 @@ var _hmt = _hmt || [];
         </header>
 
         <div class="article-content">
-            <p>作为一个在AI领域摸爬滚打三年的开发者，我经历过无数次API选型的纠结。去年帮一家电商公司做智能客服系统时，光是选型就花了两周时间——不是因为选择太少，而是因为市面上的AI API平台实在太多，每个都声称自己是最好的。这篇文章不会给你那种"OpenAI最好"或者"国产模型够用"的简单结论。我会基于真实项目数据，带你走完完整的选型流程，帮你找到真正适合自己业务场景的AI API服务。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">作为一个在AI领域摸爬滚打三年的开发者，我经历过无数次API选型的纠结。去年帮一家电商公司做智能客服系统时，光是选型就花了两周时间——不是因为选择太少，而是因为市面上的AI API平台实在太多，每个都声称自己是最好的。这篇文章不会给你那种"OpenAI最好"或者"国产模型够用"的简单结论。我会基于真实项目数据，带你走完完整的选型流程，帮你找到真正适合自己业务场景的AI API服务。</p>
 
             <h2>一、选型前的需求梳理：别急着看价格</h2>
-            <p>很多开发者的第一反应是直接对比价格表，这种做法往往会导致后期返工。去年我们团队接的一个项目就是典型例子——客户一开始选了最便宜的方案，结果上线后发现响应延迟太高，用户投诉率飙升，最后不得不重新选型，浪费了整整一个月的时间和大量开发成本。选型之前，你需要先搞清楚自己到底需要什么。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">很多开发者的第一反应是直接对比价格表，这种做法往往会导致后期返工。去年我们团队接的一个项目就是典型例子——客户一开始选了最便宜的方案，结果上线后发现响应延迟太高，用户投诉率飙升，最后不得不重新选型，浪费了整整一个月的时间和大量开发成本。选型之前，你需要先搞清楚自己到底需要什么。</p>
 
             <h3>1.1 明确业务场景的技术要求</h3>
-            <p>不同的业务场景对AI模型的需求差异非常大。一个做智能客服的团队和一个做代码生成的团队，选型标准完全不同。下面这张表是我们团队根据过去两年服务过的50多个项目总结出来的场景-需求对照表：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不同的业务场景对AI模型的需求差异非常大。一个做智能客服的团队和一个做代码生成的团队，选型标准完全不同。下面这张表是我们团队根据过去两年服务过的50多个项目总结出来的场景-需求对照表：</p>
 
             <table style="width: 100%; border-collapse: collapse; margin: 25px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden;">
                 <thead>
@@ -646,11 +646,11 @@ var _hmt = _hmt || [];
 
             <div class="tip-box">
                 <div class="tip-box-title">💡 实战经验</div>
-                <p>很多团队在选型时只关注模型能力，忽略了<strong>延迟</strong>和<strong>并发</strong>这两个关键指标。对于面向C端用户的产品，响应延迟超过1秒就会显著影响用户体验。建议在选型阶段就做好压力测试，模拟真实并发场景下的表现。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">很多团队在选型时只关注模型能力，忽略了<strong>延迟</strong>和<strong>并发</strong>这两个关键指标。对于面向C端用户的产品，响应延迟超过1秒就会显著影响用户体验。建议在选型阶段就做好压力测试，模拟真实并发场景下的表现。</p>
             </div>
 
             <h3>1.2 计算真实的成本预算</h3>
-            <p>AI API的成本远不止"每千Token多少钱"这么简单。一个完整的成本模型需要考虑以下因素：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI API的成本远不止"每千Token多少钱"这么简单。一个完整的成本模型需要考虑以下因素：</p>
             <ul>
                 <li><strong>Token费用</strong>：输入Token和输出Token的计费标准（注意很多平台输入输出价格不同）</li>
                 <li><strong>网络成本</strong>：如果使用海外API，需要考虑专线或代理的网络费用</li>
@@ -662,7 +662,7 @@ var _hmt = _hmt || [];
 
             <div class="tip-box">
                 <div class="tip-box-title">💰 成本案例</div>
-                <p>去年我们帮一家日活50万的社交App做AI推荐功能。初期用OpenAI GPT-4o，月Token费用约8万元；切换到DeepSeek-V3后，同等效果下月费用降至1.2万元。但加上专线网络费用（约3000元/月）和多平台适配的开发成本（一次性约5万元），综合来看前6个月DeepSeek方案节省了约35万元。关键在于日均调用量——调用量越大，成本差异越明显。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年我们帮一家日活50万的社交App做AI推荐功能。初期用OpenAI GPT-4o，月Token费用约8万元；切换到DeepSeek-V3后，同等效果下月费用降至1.2万元。但加上专线网络费用（约3000元/月）和多平台适配的开发成本（一次性约5万元），综合来看前6个月DeepSeek方案节省了约35万元。关键在于日均调用量——调用量越大，成本差异越明显。</p>
             </div>
 
             <!-- 文章内广告位 -->
@@ -671,7 +671,7 @@ var _hmt = _hmt || [];
             </div>
 
             <h2>二、主流AI API平台深度对比</h2>
-            <p>2026年的AI API市场已经形成了"海外三巨头 + 国内多强"的格局。下面我们分海外和国内两个维度来做详细对比，所有数据基于我们团队的实际测试和官方公开信息。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年的AI API市场已经形成了"海外三巨头 + 国内多强"的格局。下面我们分海外和国内两个维度来做详细对比，所有数据基于我们团队的实际测试和官方公开信息。</p>
 
             <h3>海外主流平台</h3>
             <table style="width: 100%; border-collapse: collapse; margin: 25px 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden;">
@@ -768,7 +768,7 @@ var _hmt = _hmt || [];
 
             <div class="tip-box">
                 <div class="tip-box-title">💡 价格换算提示</div>
-                <p>对比价格时注意统一单位。海外平台通常以美元计价（$/1M tokens），国内平台以人民币计价（元/1M tokens）。按7.2汇率换算后，DeepSeek-V3的价格大约是GPT-4o的1/15。但价格不是唯一因素——还要考虑网络延迟、数据合规、API稳定性等。建议用实际业务数据做A/B测试，而不是只看标价。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对比价格时注意统一单位。海外平台通常以美元计价（$/1M tokens），国内平台以人民币计价（元/1M tokens）。按7.2汇率换算后，DeepSeek-V3的价格大约是GPT-4o的1/15。但价格不是唯一因素——还要考虑网络延迟、数据合规、API稳定性等。建议用实际业务数据做A/B测试，而不是只看标价。</p>
             </div>
 
             <!-- 文章内广告位 -->
@@ -777,12 +777,12 @@ var _hmt = _hmt || [];
             </div>
 
             <h2>三、选型决策框架：四步锁定最优解</h2>
-            <p>经过大量项目的实践，我们总结出了一套"四步选型法"，适用于绝大多数AI API选型场景。这套方法的核心思想是：<strong>先排除不可选项，再在可选项中找最优解</strong>。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">经过大量项目的实践，我们总结出了一套"四步选型法"，适用于绝大多数AI API选型场景。这套方法的核心思想是：<strong>先排除不可选项，再在可选项中找最优解</strong>。</p>
 
             <div class="step-box">
                 <div class="step-number">1</div>
                 <h3>确定数据合规要求</h3>
-                <p>这是选型的第一道门槛，也是最容易被忽略的。如果你的业务涉及用户隐私数据、金融数据、医疗数据等敏感信息，数据合规就是硬约束条件。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这是选型的第一道门槛，也是最容易被忽略的。如果你的业务涉及用户隐私数据、金融数据、医疗数据等敏感信息，数据合规就是硬约束条件。</p>
                 <ul>
                     <li><strong>数据不出境</strong>：必须选择国内平台（DeepSeek、通义千问、智谱AI等），或使用海外平台的私有化部署方案</li>
                     <li><strong>数据可出境</strong>：海外平台和国内平台均可选择，需要做数据出境安全评估</li>
@@ -790,14 +790,14 @@ var _hmt = _hmt || [];
                 </ul>
                 <div class="tip-box">
                     <div class="tip-box-title">合规提醒</div>
-                    <p>2026年《生成式AI服务管理暂行办法》已全面实施，使用海外AI API处理国内用户数据需要通过安全评估备案。建议优先考虑已完成备案的国内平台。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年《生成式AI服务管理暂行办法》已全面实施，使用海外AI API处理国内用户数据需要通过安全评估备案。建议优先考虑已完成备案的国内平台。</p>
                 </div>
             </div>
 
             <div class="step-box">
                 <div class="step-number">2</div>
                 <h3>评估技术能力匹配度</h3>
-                <p>在合规允许的范围内，接下来要评估各平台的技术能力是否满足你的业务需求。我们建议从以下维度进行评估：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在合规允许的范围内，接下来要评估各平台的技术能力是否满足你的业务需求。我们建议从以下维度进行评估：</p>
                 <ul>
                     <li><strong>模型能力</strong>：在你的具体任务上的表现（不要只看Benchmark，要用自己的测试集）</li>
                     <li><strong>延迟表现</strong>：P50/P95/P99延迟数据，特别是高并发场景下的表现</li>
@@ -807,26 +807,26 @@ var _hmt = _hmt || [];
                 </ul>
                 <div class="tip-box">
                     <div class="tip-box-title">测试建议</div>
-                    <p>准备500-1000条真实业务数据作为测试集，覆盖各种边界情况。用自动化脚本对各平台进行批量测试，记录准确率、延迟、稳定性等指标。这个投入会在后期节省大量时间和成本。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">准备500-1000条真实业务数据作为测试集，覆盖各种边界情况。用自动化脚本对各平台进行批量测试，记录准确率、延迟、稳定性等指标。这个投入会在后期节省大量时间和成本。</p>
                 </div>
             </div>
 
             <div class="step-box">
                 <div class="step-number">3</div>
                 <h3>计算总拥有成本（TCO）</h3>
-                <p>不要只看单次调用的价格，要计算总拥有成本。我们建议用一个简单的公式来估算月度成本：</p>
-                <p><strong>月度TCO = Token费用 + 网络费用 + 运维成本 + 合规成本 + 失败成本</strong></p>
-                <p>其中，失败成本 = 月调用量 x 失败率 x 单次重试成本。很多团队忽略了这一项，但API不稳定导致的隐性成本往往很高。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不要只看单次调用的价格，要计算总拥有成本。我们建议用一个简单的公式来估算月度成本：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>月度TCO = Token费用 + 网络费用 + 运维成本 + 合规成本 + 失败成本</strong></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">其中，失败成本 = 月调用量 x 失败率 x 单次重试成本。很多团队忽略了这一项，但API不稳定导致的隐性成本往往很高。</p>
                 <div class="tip-box">
                     <div class="tip-box-title">成本优化技巧</div>
-                    <p>1) 利用Prompt缓存减少重复输入的Token消耗；2) 对简单任务使用小模型，复杂任务使用大模型，做智能路由；3) 选择支持Batch API的平台，非实时任务用批处理可以节省50%以上费用。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">1) 利用Prompt缓存减少重复输入的Token消耗；2) 对简单任务使用小模型，复杂任务使用大模型，做智能路由；3) 选择支持Batch API的平台，非实时任务用批处理可以节省50%以上费用。</p>
                 </div>
             </div>
 
             <div class="step-box">
                 <div class="step-number">4</div>
                 <h3>小规模验证再扩大</h3>
-                <p>选定方案后，不要直接全面切换。建议按以下步骤逐步推进：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">选定方案后，不要直接全面切换。建议按以下步骤逐步推进：</p>
                 <ol>
                     <li><strong>灰度测试（1-2周）</strong>：用5%-10%的流量接入新平台，监控各项指标</li>
                     <li><strong>问题修复（1周）</strong>：根据灰度测试发现的问题进行优化调整</li>
@@ -835,46 +835,70 @@ var _hmt = _hmt || [];
                 </ol>
                 <div class="tip-box">
                     <div class="tip-box-title">回滚策略</div>
-                    <p>任何时候都要保留回滚到原方案的能力。建议使用抽象层封装API调用，实现"一处修改，多平台切换"。这样即使新方案出问题，也能在几分钟内切回原平台。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">任何时候都要保留回滚到原方案的能力。建议使用抽象层封装API调用，实现"一处修改，多平台切换"。这样即使新方案出问题，也能在几分钟内切回原平台。</p>
                 </div>
             </div>
 
             <h2>四、2026年选型趋势与建议</h2>
-            <p>基于我们团队在2026年上半年的观察和实践，以下几个趋势值得重点关注：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">基于我们团队在2026年上半年的观察和实践，以下几个趋势值得重点关注：</p>
 
             <h3>趋势一：国产模型性价比持续领先</h3>
-            <p>2026年国产模型在多个Benchmark上已经追平甚至超越了GPT-4o级别的模型，而价格仅为后者的1/10到1/15。DeepSeek-V3在代码生成、数学推理等任务上表现尤为突出。对于预算有限但又需要高质量输出的团队，国产模型已经从"够用"变成了"好用"。</p>
-            <p>不过需要注意的是，国产模型在<strong>英文创意写作</strong>、<strong>多语言处理</strong>等方面与GPT-4o和Claude 4仍有差距。如果你的业务主要面向海外用户，海外模型仍然是更稳妥的选择。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年国产模型在多个Benchmark上已经追平甚至超越了GPT-4o级别的模型，而价格仅为后者的1/10到1/15。DeepSeek-V3在代码生成、数学推理等任务上表现尤为突出。对于预算有限但又需要高质量输出的团队，国产模型已经从"够用"变成了"好用"。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不过需要注意的是，国产模型在<strong>英文创意写作</strong>、<strong>多语言处理</strong>等方面与GPT-4o和Claude 4仍有差距。如果你的业务主要面向海外用户，海外模型仍然是更稳妥的选择。</p>
 
             <h3>趋势二：多模型混合策略成为主流</h3>
-            <p>2026年最成熟的选型策略已经不是"选一个平台用到底"，而是<strong>根据任务类型动态路由到不同的模型</strong>。我们称之为"多模型混合策略"：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年最成熟的选型策略已经不是"选一个平台用到底"，而是<strong>根据任务类型动态路由到不同的模型</strong>。我们称之为"多模型混合策略"：</p>
             <ul>
                 <li><strong>简单问答/分类</strong>：路由到豆包-Pro等低成本模型，单次调用成本可低至0.001元</li>
                 <li><strong>复杂推理/创作</strong>：路由到DeepSeek-V3或GPT-4o，确保输出质量</li>
                 <li><strong>代码生成</strong>：路由到DeepSeek-Coder或Claude 4，利用其代码专长</li>
                 <li><strong>长文档处理</strong>：路由到Gemini 2.5 Pro（支持1M上下文）或Kimi</li>
             </ul>
-            <p>通过智能路由，整体成本可以降低60%以上，同时保证各场景的输出质量。我们团队已经开源了一套轻量级的模型路由框架，感兴趣的朋友可以关注后续文章。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">通过智能路由，整体成本可以降低60%以上，同时保证各场景的输出质量。我们团队已经开源了一套轻量级的模型路由框架，感兴趣的朋友可以关注后续文章。</p>
 
             <h3>趋势三：API聚合平台崛起</h3>
-            <p>随着模型数量激增，直接对接各家API的管理成本越来越高。API聚合平台（如OneAPI、New API等）应运而生，提供统一的API接口来调用多个模型。这类平台的核心价值在于：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">随着模型数量激增，直接对接各家API的管理成本越来越高。API聚合平台（如OneAPI、New API等）应运而生，提供统一的API接口来调用多个模型。这类平台的核心价值在于：</p>
             <ul>
                 <li><strong>统一接口</strong>：一套代码对接所有模型，降低开发成本</li>
                 <li><strong>智能路由</strong>：自动选择性价比最高的可用模型</li>
                 <li><strong>负载均衡</strong>：多渠道分流，提高可用性</li>
                 <li><strong>用量统计</strong>：统一的用量监控和成本分析</li>
             </ul>
-            <p>对于中小团队来说，使用聚合平台可以显著降低多模型管理的复杂度。但要注意选择信誉好的聚合商，避免API Key泄露和数据安全风险。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于中小团队来说，使用聚合平台可以显著降低多模型管理的复杂度。但要注意选择信誉好的聚合商，避免API Key泄露和数据安全风险。</p>
 
             <h2>结语：没有最好的，只有最合适的</h2>
-            <p>AI API选型不是一个一次性的决策，而是一个持续优化的过程。模型能力在快速迭代，价格在持续下降，新的平台和工具不断涌现。我建议每季度做一次选型复盘，评估当前方案是否仍然是最优解。</p>
-            <p>最后分享一个我们团队的选型原则：<strong>先用起来，再优化</strong>。不要在选型阶段追求完美，花两周时间纠结不如花两天时间上线、两周时间迭代。AI领域变化太快，今天的"最优解"可能三个月后就不再是了。保持灵活、持续测试、快速迭代，才是选型的正确姿势。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI API选型不是一个一次性的决策，而是一个持续优化的过程。模型能力在快速迭代，价格在持续下降，新的平台和工具不断涌现。我建议每季度做一次选型复盘，评估当前方案是否仍然是最优解。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最后分享一个我们团队的选型原则：<strong>先用起来，再优化</strong>。不要在选型阶段追求完美，花两周时间纠结不如花两天时间上线、两周时间迭代。AI领域变化太快，今天的"最优解"可能三个月后就不再是了。保持灵活、持续测试、快速迭代，才是选型的正确姿势。</p>
 
             <div class="tip-box">
                 <div class="tip-box-title">📚 延伸阅读</div>
-                <p>如果你想深入了解具体平台的对比，可以查看我们的<a href="openai-vs-deepseek-2026.html" style="color: var(--neon-cyan);">OpenAI vs DeepSeek 2026深度对比</a>，或者浏览<a href="./" style="color: var(--neon-cyan);">TokenNexus博客</a>获取更多AI API相关的实战经验。也可以访问我们的<a href="../" style="color: var(--neon-cyan);">AI API导航首页</a>，快速找到适合你的API服务。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你想深入了解具体平台的对比，可以查看我们的<a href="openai-vs-deepseek-2026.html" style="color: var(--neon-cyan);">OpenAI vs DeepSeek 2026深度对比</a>，或者浏览<a href="./" style="color: var(--neon-cyan);">TokenNexus博客</a>获取更多AI API相关的实战经验。也可以访问我们的<a href="../" style="color: var(--neon-cyan);">AI API导航首页</a>，快速找到适合你的API服务。</p>
             </div>
         </div>
+    
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-selection-guide-2026">2026年AI API选型完全指南：从需求分析到平台对比博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">详解2026年AI API选型策略，包含OpenAI、Claude、DeepSeek等主流平台对比，真实性能测试数据，以及选型决策框架。帮助开发者找到最适合的A...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/openai-vs-deepseek-2026">OpenAI vs DeepSeek：2026年性价比全面对比博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入对比OpenAI和DeepSeek两大AI API平台的性能、价格、稳定性。包含2026年最新测试数据、价格对比表和选型建议，帮你找到最适合的AI服务。...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-platform-selection-guide-2026">2026年AI API平台选型完全指南：开发者避坑手册与性价比终极对比</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年AI API平台选型完全指南。覆盖OpenAI、Claude、DeepSeek、Gemini等20+主流平台真实对比，含价格、延迟、稳定性、中文能力、...</p>
+                </article>
+
+            </div>
+        </section>
+
     </article>
 
     <!-- 页脚 -->
@@ -903,7 +927,7 @@ var _hmt = _hmt || [];
     <!-- Cookie同意横幅 -->
     <div id="cookie-consent" class="cookie-consent" style="display: none;">
         <div class="cookie-content">
-            <p>我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的隐私政策。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的隐私政策。</p>
             <div class="cookie-buttons">
                 <button onclick="acceptCookies()" class="cookie-btn accept">同意</button>
                 <a href="../privacy.html" class="cookie-btn more">了解更多</a>

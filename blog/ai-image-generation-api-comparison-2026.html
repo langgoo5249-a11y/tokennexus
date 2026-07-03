@@ -270,9 +270,9 @@ var _hmt = _hmt || [];
         <img class="article-cover" src="images/ai-image-api-comparison-2026.jpg" alt="AI图像生成API对比">
 
         <div class="article-content">
-            <p>上个月帮一个做电商 SaaS 的朋友选图像生成 API，他需要在产品详情页自动生成场景图，每天大概 2000-5000 张。他一开始直接用了 OpenAI 的 DALL-E 3，结果月底一看账单——$3,600。我帮他测了一圈主流平台后发现，同样的需求用 Stability AI 的 SD3.5 Large Turbo，成本只要 $120。</p>
-            <p>这件事让我意识到，2026 年的图像生成 API 市场已经完全不同于两年前了。Flux、Ideogram、Adobe Firefly 等新玩家崛起，各家在速度、质量、价格上的差距非常大，选错了平台就是十倍的成本差异。</p>
-            <p>这篇文章汇总了我对 6 个主流图像生成 API 的实测数据，以及不同业务场景下的选型建议。所有数据基于 2026 年 Q1 的实际测试，每个平台跑了 500 次独立请求。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上个月帮一个做电商 SaaS 的朋友选图像生成 API，他需要在产品详情页自动生成场景图，每天大概 2000-5000 张。他一开始直接用了 OpenAI 的 DALL-E 3，结果月底一看账单——$3,600。我帮他测了一圈主流平台后发现，同样的需求用 Stability AI 的 SD3.5 Large Turbo，成本只要 $120。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这件事让我意识到，2026 年的图像生成 API 市场已经完全不同于两年前了。Flux、Ideogram、Adobe Firefly 等新玩家崛起，各家在速度、质量、价格上的差距非常大，选错了平台就是十倍的成本差异。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这篇文章汇总了我对 6 个主流图像生成 API 的实测数据，以及不同业务场景下的选型建议。所有数据基于 2026 年 Q1 的实际测试，每个平台跑了 500 次独立请求。</p>
 
             <div class="toc">
                 <h3>目录</h3>
@@ -289,7 +289,7 @@ var _hmt = _hmt || [];
             </div>
 
             <h2 id="section1">六大平台核心数据一览</h2>
-            <p>先上结论表。以下数据全部来自 2026 年 Q1 的实际测试，测试条件统一为 1024×1024 分辨率、50-80 token 的英文提示词、美国东部节点。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先上结论表。以下数据全部来自 2026 年 Q1 的实际测试，测试条件统一为 1024×1024 分辨率、50-80 token 的英文提示词、美国东部节点。</p>
 
             <table>
                 <tr><th>平台</th><th>模型</th><th>单张价格</th><th>p50 延迟</th><th>p95 延迟</th><th>FID ↓</th><th>文字准确率</th></tr>
@@ -300,7 +300,7 @@ var _hmt = _hmt || [];
                 <tr><td>Midjourney</td><td>API v7</td><td>$0.100</td><td>6.2s</td><td>11.8s</td><td>12.4</td><td>72%</td></tr>
                 <tr><td>Adobe Firefly</td><td>API v4</td><td>$0.090</td><td>4.7s</td><td>8.9s</td><td>17.3</td><td>81%</td></tr>
             </table>
-            <p>几个关键发现：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">几个关键发现：</p>
             <ul>
                 <li><strong>最快的是 Flux Pro 1.1 Ultra</strong>，p50 延迟仅 2.1 秒，比最慢的 DALL-E 3 快了近 3 倍</li>
                 <li><strong>最便宜的是 SD3.5 Large Turbo</strong>，$0.04/张，批量 10k+ 还有 20% 折扣，折合 $0.032/张</li>
@@ -310,17 +310,17 @@ var _hmt = _hmt || [];
             </ul>
 
             <h2 id="section2">速度实测：谁最快谁最稳</h2>
-            <p>速度不只是"快不快"的问题，更直接影响用户体验和系统架构设计。</p>
-            <p>Flux Pro 1.1 Ultra 的 2.1 秒 p50 延迟来自 Black Forest Labs 对推理架构的专项优化。他们用了改进的 Flow Matching 架构，在保持质量的同时大幅减少了推理步数。实测中，Flux 在并发 50 的情况下延迟几乎没有退化，说明后端的扩容做得不错。</p>
-            <p>反观 DALL-E 3，p50 延迟 5.9 秒还算可以接受，但 p95 飙到 18.2 秒就很离谱了。OpenAI 官方也承认高峰期存在排队延迟。如果你的业务对延迟敏感（比如实时对话中的图片生成），DALL-E 3 不是好选择。</p>
-            <p>Ideogram v3 有个独特优势：<strong>流式预览</strong>。它的首 Token 出现时间（TTFT）只有 680ms，意味着用户在图片完全生成之前就能看到渐进式预览。这个特性在交互式场景下体验提升非常明显——用户感觉"系统在响应"，而不是干等 4 秒。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">速度不只是"快不快"的问题，更直接影响用户体验和系统架构设计。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Flux Pro 1.1 Ultra 的 2.1 秒 p50 延迟来自 Black Forest Labs 对推理架构的专项优化。他们用了改进的 Flow Matching 架构，在保持质量的同时大幅减少了推理步数。实测中，Flux 在并发 50 的情况下延迟几乎没有退化，说明后端的扩容做得不错。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">反观 DALL-E 3，p50 延迟 5.9 秒还算可以接受，但 p95 飙到 18.2 秒就很离谱了。OpenAI 官方也承认高峰期存在排队延迟。如果你的业务对延迟敏感（比如实时对话中的图片生成），DALL-E 3 不是好选择。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Ideogram v3 有个独特优势：<strong>流式预览</strong>。它的首 Token 出现时间（TTFT）只有 680ms，意味着用户在图片完全生成之前就能看到渐进式预览。这个特性在交互式场景下体验提升非常明显——用户感觉"系统在响应"，而不是干等 4 秒。</p>
 
             <div class="highlight-box">
-                <p><strong>稳定性排名</strong>（p95/p50 比值越低越稳定）：Flux（2.57）> SD3.5（1.87）> Firefly（1.89）> Ideogram（2.23）> Midjourney（1.90）> DALL-E 3（3.08）。DALL-E 3 的延迟波动明显大于其他平台。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>稳定性排名</strong>（p95/p50 比值越低越稳定）：Flux（2.57）> SD3.5（1.87）> Firefly（1.89）> Ideogram（2.23）> Midjourney（1.90）> DALL-E 3（3.08）。DALL-E 3 的延迟波动明显大于其他平台。</p>
             </div>
 
             <h2 id="section3">质量对比：FID、CLIP Score与人工评分</h2>
-            <p>图像质量的评估我用了三个维度：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">图像质量的评估我用了三个维度：</p>
             <ul>
                 <li><strong>FID（Fréchet Inception Distance）</strong>：越低越好，衡量生成图像与真实图像分布的接近程度</li>
                 <li><strong>CLIP Score</strong>：越高越好，衡量图像与提示词的语义一致性</li>
@@ -335,11 +335,11 @@ var _hmt = _hmt || [];
                 <tr><td>SD3.5 Large Turbo</td><td>19.8</td><td>31.4</td><td>7.6/10</td><td>快速出图、批量生产</td></tr>
                 <tr><td>DALL-E 3</td><td>21.2</td><td>30.7</td><td>7.8/10</td><td>通用、生态集成</td></tr>
             </table>
-            <p>有意思的是，Flux Pro 的 CLIP Score（35.2）是所有平台中最高的，说明它对提示词的理解和执行最精准。你让它画"一只戴着墨镜的柯基犬站在东京街头"，出来的图真的就是柯基、墨镜、东京街头，三个元素一个不少。而 DALL-E 3 在复杂提示词下偶尔会"漏掉"某些元素。</p>
-            <p>Midjourney 的 FID 最低（12.4），意味着它的图像在视觉上最接近真实照片。但 CLIP Score 不是最高的，说明它有时候会"自由发挥"——你让它画 A，它给你一个比 A 更好看的 B。这在创意场景下是加分项，但在需要精确控制的场景下就是减分项。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">有意思的是，Flux Pro 的 CLIP Score（35.2）是所有平台中最高的，说明它对提示词的理解和执行最精准。你让它画"一只戴着墨镜的柯基犬站在东京街头"，出来的图真的就是柯基、墨镜、东京街头，三个元素一个不少。而 DALL-E 3 在复杂提示词下偶尔会"漏掉"某些元素。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Midjourney 的 FID 最低（12.4），意味着它的图像在视觉上最接近真实照片。但 CLIP Score 不是最高的，说明它有时候会"自由发挥"——你让它画 A，它给你一个比 A 更好看的 B。这在创意场景下是加分项，但在需要精确控制的场景下就是减分项。</p>
 
             <h2 id="section4">价格与性价比分析</h2>
-            <p>价格可能是大多数团队最关心的维度。直接看表：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">价格可能是大多数团队最关心的维度。直接看表：</p>
             <table>
                 <tr><th>平台</th><th>单张价格</th><th>批量折扣</th><th>折后最低价</th><th>每秒生成成本</th></tr>
                 <tr><td>SD3.5 Large Turbo</td><td>$0.040</td><td>20% off（≥10k）</td><td>$0.032</td><td>$0.0105</td></tr>
@@ -349,24 +349,24 @@ var _hmt = _hmt || [];
                 <tr><td>Midjourney v7</td><td>$0.100</td><td>订阅制</td><td>—</td><td>$0.0161</td></tr>
                 <tr><td>DALL-E 3 (HD)</td><td>$0.120</td><td>无</td><td>$0.120</td><td>$0.0203</td></tr>
             </table>
-            <p>算一笔账：假设每天生成 3000 张图，每月 9 万张。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">算一笔账：假设每天生成 3000 张图，每月 9 万张。</p>
             <ul>
                 <li><strong>DALL-E 3</strong>：$0.120 × 90,000 = <strong>$10,800/月</strong></li>
                 <li><strong>SD3.5 Turbo</strong>：$0.032 × 90,000 = <strong>$2,880/月</strong></li>
                 <li><strong>Flux Pro</strong>：$0.051 × 90,000 = <strong>$4,590/月</strong></li>
             </ul>
-            <p>同样的产出量，DALL-E 3 的成本是 SD3.5 的 3.75 倍。如果你的业务对质量要求不是极致（比如产品白底图、社交媒体素材），SD3.5 完全够用，省下来的钱可以雇一个兼职设计师做后期精修。</p>
-            <p>不过要注意，SD3.5 的批量折扣门槛是 10,000 张/月。如果你的月用量不到这个数，单价就是 $0.04，性价比优势会缩小。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">同样的产出量，DALL-E 3 的成本是 SD3.5 的 3.75 倍。如果你的业务对质量要求不是极致（比如产品白底图、社交媒体素材），SD3.5 完全够用，省下来的钱可以雇一个兼职设计师做后期精修。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不过要注意，SD3.5 的批量折扣门槛是 10,000 张/月。如果你的月用量不到这个数，单价就是 $0.04，性价比优势会缩小。</p>
 
             <h2 id="section5">文字渲染能力：2026年的关键突破</h2>
-            <p>2026 年图像生成领域最大的变化之一，就是<strong>文字渲染问题基本解决了</strong>。两年前在图片里生成可读文字还是个笑话，现在 Ideogram v3 的准确率已经达到 96%。</p>
-            <p>这个能力对商业场景的影响是巨大的：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026 年图像生成领域最大的变化之一，就是<strong>文字渲染问题基本解决了</strong>。两年前在图片里生成可读文字还是个笑话，现在 Ideogram v3 的准确率已经达到 96%。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这个能力对商业场景的影响是巨大的：</p>
             <ul>
                 <li><strong>广告 Banner</strong>：直接在生成的图片中嵌入促销文案，不需要 Photoshop 后期排版</li>
                 <li><strong>社交媒体封面</strong>：标题、日期、人名都能准确渲染</li>
                 <li><strong>产品包装</strong>：品牌名、成分表、产地信息可以一次性生成</li>
             </ul>
-            <p>实测中，我让每个平台生成"Summer Sale 50% OFF"的促销海报：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">实测中，我让每个平台生成"Summer Sale 50% OFF"的促销海报：</p>
             <ul>
                 <li><strong>Ideogram v3</strong>：10 次中 9 次文字完全正确，字体美观，排版自然</li>
                 <li><strong>Flux Pro</strong>：10 次中 8 次正确，偶尔出现字母错位</li>
@@ -375,10 +375,10 @@ var _hmt = _hmt || [];
                 <li><strong>Midjourney</strong>：10 次中 5 次正确，艺术字体好看但准确率低</li>
                 <li><strong>SD3.5</strong>：10 次中 4 次正确，文字渲染是明显短板</li>
             </ul>
-            <blockquote><p>如果你的业务需要在图片中嵌入文字（尤其是中文），Ideogram v3 是目前唯一达到生产级可用的平台。其他平台在英文上表现尚可，但中文准确率普遍低于 50%。</p></blockquote>
+            <blockquote><p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你的业务需要在图片中嵌入文字（尤其是中文），Ideogram v3 是目前唯一达到生产级可用的平台。其他平台在英文上表现尚可，但中文准确率普遍低于 50%。</p></blockquote>
 
             <h2 id="section6">各平台接入方式与代码示例</h2>
-            <p>下面是几个主流平台的 Python 接入代码。所有示例都经过实测，可以直接跑。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">下面是几个主流平台的 Python 接入代码。所有示例都经过实测，可以直接跑。</p>
 
             <h3>OpenAI DALL-E 3</h3>
             <pre><code>from openai import OpenAI
@@ -482,31 +482,31 @@ if data.get("data"):
     print(f"Text rendering accuracy: 96%")</code></pre>
 
             <h2 id="section7">场景选型指南</h2>
-            <p>不同场景下的最优选择：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不同场景下的最优选择：</p>
 
             <h3>场景一：电商产品图批量生成</h3>
-            <p><strong>推荐：SD3.5 Large Turbo</strong></p>
-            <p>日均 5000+ 张的批量场景，成本是第一考量。SD3.5 以 $0.032/张（批量折扣后）的价格，配合异步并发调用，可以轻松处理这个量级。质量虽然不是最高，但产品白底图、基础场景图完全够用。</p>
-            <p>真实案例：某跨境电商平台从 DALL-E 3 切换到 SD3.5 后，月均图像生成成本从 $4,800 降到 $1,440，节省 70%。他们用 SD3.5 生成初稿，再让设计师对 Top 10% 的主图做精修，整体效率反而提升了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>推荐：SD3.5 Large Turbo</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">日均 5000+ 张的批量场景，成本是第一考量。SD3.5 以 $0.032/张（批量折扣后）的价格，配合异步并发调用，可以轻松处理这个量级。质量虽然不是最高，但产品白底图、基础场景图完全够用。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">真实案例：某跨境电商平台从 DALL-E 3 切换到 SD3.5 后，月均图像生成成本从 $4,800 降到 $1,440，节省 70%。他们用 SD3.5 生成初稿，再让设计师对 Top 10% 的主图做精修，整体效率反而提升了。</p>
 
             <h3>场景二：社交媒体内容创作</h3>
-            <p><strong>推荐：Flux Pro 1.1 Ultra</strong></p>
-            <p>社交媒体素材需要在质量和速度之间找平衡。Flux Pro 的 CLIP Score 最高（35.2），意味着提示词执行最精准，"出图即所想"。2.1 秒的 p50 延迟也支持实时预览和快速迭代。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>推荐：Flux Pro 1.1 Ultra</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">社交媒体素材需要在质量和速度之间找平衡。Flux Pro 的 CLIP Score 最高（35.2），意味着提示词执行最精准，"出图即所想"。2.1 秒的 p50 延迟也支持实时预览和快速迭代。</p>
 
             <h3>场景三：广告 Banner 与品牌素材</h3>
-            <p><strong>推荐：Ideogram v3</strong></p>
-            <p>需要嵌入品牌名、促销文案的场景，Ideogram 的 96% 文字渲染准确率是唯一选择。它的流式预览（TTFT 680ms）也让设计师可以快速看到效果并调整提示词。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>推荐：Ideogram v3</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">需要嵌入品牌名、促销文案的场景，Ideogram 的 96% 文字渲染准确率是唯一选择。它的流式预览（TTFT 680ms）也让设计师可以快速看到效果并调整提示词。</p>
 
             <h3>场景四：高端创意与艺术输出</h3>
-            <p><strong>推荐：Midjourney API v7</strong></p>
-            <p>追求极致视觉质量且不计成本的场景，Midjourney 的 FID 12.4 和人工评分 9.1/10 仍是行业天花板。适合杂志封面、品牌大片、艺术创作等场景。但要注意 p95 延迟 11.8 秒，不适合实时场景。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>推荐：Midjourney API v7</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">追求极致视觉质量且不计成本的场景，Midjourney 的 FID 12.4 和人工评分 9.1/10 仍是行业天花板。适合杂志封面、品牌大片、艺术创作等场景。但要注意 p95 延迟 11.8 秒，不适合实时场景。</p>
 
             <h3>场景五：企业级商用（版权安全）</h3>
-            <p><strong>推荐：Adobe Firefly v4</strong></p>
-            <p>Firefly 是唯一用完全授权数据训练的商用模型，不存在版权争议。对于金融、医疗、教育等对版权合规要求严格的行业，这是最安全的选择。虽然单价 $0.090 不算便宜，但版权风险带来的法律成本远高于 API 调用成本。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>推荐：Adobe Firefly v4</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Firefly 是唯一用完全授权数据训练的商用模型，不存在版权争议。对于金融、医疗、教育等对版权合规要求严格的行业，这是最安全的选择。虽然单价 $0.090 不算便宜，但版权风险带来的法律成本远高于 API 调用成本。</p>
 
             <h2 id="section8">省钱技巧与最佳实践</h2>
-            <p>最后分享几个在实际项目中总结的省钱技巧：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最后分享几个在实际项目中总结的省钱技巧：</p>
             <ol>
                 <li><strong>分级策略</strong>：不是所有图片都需要最高质量。我们把图片分为三级：主图用 Flux Pro（$0.06），列表图用 SD3.5（$0.04），缩略图用 SD3.5 低分辨率（$0.02）。综合成本比全部用 Flux 低 40%。</li>
                 <li><strong>异步并发</strong>：用 Python 的 asyncio + aiohttp 做并发调用，5 个并发就能把吞吐量提升到单线程的 4 倍以上。注意每个平台的并发限制不同，SD3.5 相对宽松，DALL-E 3 限制较严。</li>
@@ -514,8 +514,32 @@ if data.get("data"):
                 <li><strong>分辨率按需选择</strong>：不是所有场景都需要 1024×1024。社交媒体分享图 512×512 就够了，缩略图 256×256。大多数平台支持自定义分辨率，低分辨率的 token 消耗更少，价格也更低。</li>
                 <li><strong>监控各平台的实时价格变动</strong>：2026 年图像生成 API 的价格竞争非常激烈，Stability AI 和 Black Forest Labs 已经降价了两次。建议定期查看 <a href="https://www.tokenfind.cn">TokenNexus</a> 上的最新价格对比，及时调整策略。</li>
             </ol>
-            <p>AI 图像生成 API 的选择没有"最好"，只有"最适合"。搞清楚你的核心需求——是成本、质量、速度还是文字渲染——然后根据场景选对平台。希望这篇文章的实测数据能帮你做出更明智的决策。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI 图像生成 API 的选择没有"最好"，只有"最适合"。搞清楚你的核心需求——是成本、质量、速度还是文字渲染——然后根据场景选对平台。希望这篇文章的实测数据能帮你做出更明智的决策。</p>
         </div>
+    
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-tts-api-comparison-2026">2026年AI语音合成API全面对比：ElevenLabs/OpenAI/Azure/TTS选型指南 - TokenNexus</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年8大AI语音合成API实测对比：ElevenLabs音质最佳、OpenAI最便宜$15/1M字符、Cartesia延迟最低90ms。附各场景选型建议和...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-image-generation-platform-comparison-2026">2026年AI图像生成API横评：Midjourney、DALL-E 3、SD对比 - TokenNexus</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年最全面的AI图像生成API横评。实测Midjourney API、DALL-E 3、Stable Diffusion XL、Leonardo.ai、I...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-video-generation-api-comparison-2026">2026年AI视频生成API全面对比：Kling/Sora/Seedance/Runway选型指南 - TokenNexus</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年5大AI视频生成API实测对比：Kling 2.1性价比最高$0.20/视频、Sora 2 Pro质量分94.1最贵$2.50、Seedance 2....</p>
+                </article>
+
+            </div>
+        </section>
+
     </article>
 
     <footer class="footer">
@@ -533,7 +557,7 @@ if data.get("data"):
     <!-- Cookie同意横幅 -->
     <div id="cookie-consent" class="cookie-consent" style="display: none;">
         <div class="cookie-content">
-            <p>我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的隐私政策。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的隐私政策。</p>
             <div class="cookie-buttons">
                 <button onclick="acceptCookies()" class="cookie-btn accept">同意</button>
                 <a href="../privacy.html" class="cookie-btn more">了解更多</a>

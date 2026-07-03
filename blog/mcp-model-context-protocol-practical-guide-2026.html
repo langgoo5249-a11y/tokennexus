@@ -688,11 +688,11 @@
     </header>
 
     <div class="intro">
-      <p>如果你还在用硬编码的 Function Calling 把大模型和业务系统缝在一起，那2026年你大概率会落后一个身位。MCP（Model Context Protocol）正在把这件事变成标准化的插件体系。它由 Anthropic 在2024年11月开源，不到一年半 GitHub Stars 就突破 30k，Claude Desktop 在2025年正式支持 MCP 后，整个行业都在加速跟进。</p>
+      <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你还在用硬编码的 Function Calling 把大模型和业务系统缝在一起，那2026年你大概率会落后一个身位。MCP（Model Context Protocol）正在把这件事变成标准化的插件体系。它由 Anthropic 在2024年11月开源，不到一年半 GitHub Stars 就突破 30k，Claude Desktop 在2025年正式支持 MCP 后，整个行业都在加速跟进。</p>
     </div>
 
     <h2 id="what-is-mcp">一、MCP是什么？</h2>
-    <p>MCP 全称 Model Context Protocol，是一个开放协议，用于让 AI 模型安全、标准化地访问外部数据源和工具。你可以把它理解成 "AI 的 USB-C 接口"：一边是 Host（比如 Claude Desktop、Cursor、某个自研 Agent），另一边是 Server（数据库、文件系统、Git 仓库、业务 API）。</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">MCP 全称 Model Context Protocol，是一个开放协议，用于让 AI 模型安全、标准化地访问外部数据源和工具。你可以把它理解成 "AI 的 USB-C 接口"：一边是 Host（比如 Claude Desktop、Cursor、某个自研 Agent），另一边是 Server（数据库、文件系统、Git 仓库、业务 API）。</p>
 
     <div class="arch-diagram">
       <div class="arch-row">
@@ -711,10 +711,10 @@
       </div>
     </div>
 
-    <p>传统的 Function Calling 是模型厂商自己的调用格式，OpenAI 是一套，Anthropic 是一套，Google 又是一套。MCP 要做的是把 "模型怎么发现工具、怎么调用工具、怎么返回结果" 这件事统一掉。对于做 Agent 平台的团队来说，这意味着一次对接，多处复用。</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">传统的 Function Calling 是模型厂商自己的调用格式，OpenAI 是一套，Anthropic 是一套，Google 又是一套。MCP 要做的是把 "模型怎么发现工具、怎么调用工具、怎么返回结果" 这件事统一掉。对于做 Agent 平台的团队来说，这意味着一次对接，多处复用。</p>
 
     <h2 id="core-concepts">二、MCP核心概念</h2>
-    <p>想写好 MCP Server，先搞清楚五个核心原语：</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">想写好 MCP Server，先搞清楚五个核心原语：</p>
     <ul>
       <li><strong>Tools（工具）：</strong>可被模型调用的函数，例如查询数据库、发送邮件、创建 Git 分支。每个 Tool 都要声明 JSON Schema，模型根据描述自己决定调不调用。</li>
       <li><strong>Resources（资源）：</strong>暴露给模型的只读数据，比如数据库表快照、代码文件内容、API 文档。Resources 用 URI 标识，模型可以按需读取。</li>
@@ -724,7 +724,7 @@
     </ul>
 
     <h2 id="mcp-vs-function-calling">三、MCP vs 传统Function Calling</h2>
-    <p>很多工程师问：MCP 和 Function Calling 到底有什么区别？本质上，Function Calling 是 "模型层面的能力"，而 MCP 是 "系统层面的协议"。</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">很多工程师问：MCP 和 Function Calling 到底有什么区别？本质上，Function Calling 是 "模型层面的能力"，而 MCP 是 "系统层面的协议"。</p>
 
     <table>
       <thead>
@@ -764,7 +764,7 @@
     </table>
 
     <h2 id="first-mcp-server">四、第一个MCP Server实战：连接SQLite数据库</h2>
-    <p>下面用 Python 写一个最小可用的 MCP Server，基于官方 <code>mcp</code> SDK，通过 stdio 与 Host 通信。这个例子让 Claude 能直接查询本地 SQLite 数据库。</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">下面用 Python 写一个最小可用的 MCP Server，基于官方 <code>mcp</code> SDK，通过 stdio 与 Host 通信。这个例子让 Claude 能直接查询本地 SQLite 数据库。</p>
 
     <pre><code># requirements.txt
 # mcp[cli]>=1.0.0
@@ -827,10 +827,10 @@ if __name__ == "__main__":
     import asyncio
     asyncio.run(main())</code></pre>
 
-    <p>这段代码的核心是 <code>list_tools</code> 和 <code>call_tool</code>。前者告诉 Host 我能做什么，后者真正执行。注意这里我做了一件非常重要的事：参数化查询。不要拼接 SQL，那是生产事故的温床。</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这段代码的核心是 <code>list_tools</code> 和 <code>call_tool</code>。前者告诉 Host 我能做什么，后者真正执行。注意这里我做了一件非常重要的事：参数化查询。不要拼接 SQL，那是生产事故的温床。</p>
 
     <h2 id="claude-desktop">五、让Claude Desktop使用你的MCP Server</h2>
-    <p>Claude Desktop 在2025年支持 MCP 后，配置本地 Server 只需要修改配置文件。macOS 下路径是 <code>~/Library/Application Support/Claude/claude_desktop_config.json</code>，Windows 在 <code>%APPDATA%/Claude/claude_desktop_config.json</code>。</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Claude Desktop 在2025年支持 MCP 后，配置本地 Server 只需要修改配置文件。macOS 下路径是 <code>~/Library/Application Support/Claude/claude_desktop_config.json</code>，Windows 在 <code>%APPDATA%/Claude/claude_desktop_config.json</code>。</p>
 
     <pre><code>{
   "mcpServers": {
@@ -844,10 +844,10 @@ if __name__ == "__main__":
   }
 }</code></pre>
 
-    <p>配置完重启 Claude Desktop，在输入框右侧会看到工具图标。实测效果：我让 Claude 查 "用户 10086 最近三个月的已完成订单总金额"，模型自动调用 <code>query_orders</code>，把结果汇总成一句人话，整个过程不到5秒。</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">配置完重启 Claude Desktop，在输入框右侧会看到工具图标。实测效果：我让 Claude 查 "用户 10086 最近三个月的已完成订单总金额"，模型自动调用 <code>query_orders</code>，把结果汇总成一句人话，整个过程不到5秒。</p>
 
     <h2 id="enterprise-architecture">六、企业级MCP架构：SSE传输 + OAuth认证 + 权限控制</h2>
-    <p>stdio 适合本地工具，但企业场景基本都是远程服务。MCP 支持 SSE（Server-Sent Events）作为传输层，配合 HTTP 长连接实现双向通信。下面是一个典型的企业架构：</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">stdio 适合本地工具，但企业场景基本都是远程服务。MCP 支持 SSE（Server-Sent Events）作为传输层，配合 HTTP 长连接实现双向通信。下面是一个典型的企业架构：</p>
 
     <pre><code>from mcp.server.sse import SseServerTransport
 from starlette.applications import Starlette
@@ -869,25 +869,25 @@ routes = [
 
 starlette_app = Starlette(routes=routes)</code></pre>
 
-    <p>远程部署必须解决三件事：</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">远程部署必须解决三件事：</p>
     <ul>
       <li><strong>认证：</strong>在 SSE 握手前做 OAuth 2.0 / OIDC 校验，拒绝匿名连接。</li>
       <li><strong>授权：</strong>根据用户身份决定能访问哪些 Roots、能调用哪些 Tools。</li>
       <li><strong>审计：</strong>每一次工具调用都要记录 who/when/what/result，方便事后追溯。</li>
     </ul>
 
-    <p>在为企业选型 AI API 平台时，建议优先考虑对 MCP 有原生支持、且提供稳定国内访问的服务商。我们团队在 <a href="https://www.tokenfind.cn/" target="_blank" rel="noopener">TokenNexus</a> 上做过多轮对接测试，其 API 聚合层对 Claude、GPT 等模型的工具调用兼容性较好，适合作为企业 MCP 项目的底层模型入口。</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在为企业选型 AI API 平台时，建议优先考虑对 MCP 有原生支持、且提供稳定国内访问的服务商。我们团队在 <a href="https://www.tokenfind.cn/" target="_blank" rel="noopener">TokenNexus</a> 上做过多轮对接测试，其 API 聚合层对 Claude、GPT 等模型的工具调用兼容性较好，适合作为企业 MCP 项目的底层模型入口。</p>
 
     <h2 id="case-finance">七、真实案例：金融风控数据库接入MCP</h2>
     <div class="case-card">
       <h3>背景</h3>
-      <p>某金融科技公司的风控团队每天需要处理大量临时查询：查看某用户的授信记录、最近交易异常点、模型评分走势。之前这些查询要通过内部 BI 系统提工单，平均等待 2 小时。</p>
+      <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">某金融科技公司的风控团队每天需要处理大量临时查询：查看某用户的授信记录、最近交易异常点、模型评分走势。之前这些查询要通过内部 BI 系统提工单，平均等待 2 小时。</p>
 
       <h3>方案</h3>
-      <p>团队用 Python 写了一个只读 MCP Server，对接内部风控 PostgreSQL 集群。Server 只暴露 8 个预审核过的查询工具，所有 SQL 都经过参数化，并通过 Roots 限制只能访问脱敏视图。</p>
+      <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">团队用 Python 写了一个只读 MCP Server，对接内部风控 PostgreSQL 集群。Server 只暴露 8 个预审核过的查询工具，所有 SQL 都经过参数化，并通过 Roots 限制只能访问脱敏视图。</p>
 
       <h3>效果</h3>
-      <p>分析师在 Claude Desktop 里用自然语言提问，模型自动选择工具、执行查询、生成解读。平均查询时间从 2 小时降到 15 分钟，效率提升约 8 倍，数据泄露风险反而更低了。</p>
+      <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">分析师在 Claude Desktop 里用自然语言提问，模型自动选择工具、执行查询、生成解读。平均查询时间从 2 小时降到 15 分钟，效率提升约 8 倍，数据泄露风险反而更低了。</p>
       <span class="metric">查询耗时：2h → 15min</span>
       <span class="metric">暴露工具：8个只读</span>
       <span class="metric">数据源：PostgreSQL 脱敏视图</span>
@@ -896,20 +896,20 @@ starlette_app = Starlette(routes=routes)</code></pre>
     <h2 id="case-saas">八、真实案例：SaaS客服Agent读取订单系统</h2>
     <div class="case-card">
       <h3>背景</h3>
-      <p>某 SaaS 公司的客服 Agent 之前依赖 RAG 检索知识库，但遇到 "帮我查订单 12345 为什么退款失败" 这类问题时，只能给出通用流程，无法直接读取订单状态。</p>
+      <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">某 SaaS 公司的客服 Agent 之前依赖 RAG 检索知识库，但遇到 "帮我查订单 12345 为什么退款失败" 这类问题时，只能给出通用流程，无法直接读取订单状态。</p>
 
       <h3>方案</h3>
-      <p>团队开发了订单系统 MCP Server，暴露 <code>get_order</code>、<code>list_refunds</code>、<code>retry_refund</code> 等工具。Server 部署在内网，通过 SSE 暴露给客服 Agent，每个客服账号只能访问自己权限范围内的租户数据。</p>
+      <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">团队开发了订单系统 MCP Server，暴露 <code>get_order</code>、<code>list_refunds</code>、<code>retry_refund</code> 等工具。Server 部署在内网，通过 SSE 暴露给客服 Agent，每个客服账号只能访问自己权限范围内的租户数据。</p>
 
       <h3>效果</h3>
-      <p>客服 Agent 首次响应准确率从 62% 提升到 89%，复杂工单的人工介入率下降 40%。安全隔离通过 OAuth + 行级权限实现，没有因为开放工具而扩大攻击面。</p>
+      <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">客服 Agent 首次响应准确率从 62% 提升到 89%，复杂工单的人工介入率下降 40%。安全隔离通过 OAuth + 行级权限实现，没有因为开放工具而扩大攻击面。</p>
       <span class="metric">准确率：62% → 89%</span>
       <span class="metric">人工介入率：-40%</span>
       <span class="metric">隔离：租户级行权限</span>
     </div>
 
     <h2 id="security-best-practices">九、MCP安全最佳实践</h2>
-    <p>Tool 暴露得越多，风险面就越大。企业级 MCP 必须做好这四件事：</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Tool 暴露得越多，风险面就越大。企业级 MCP 必须做好这四件事：</p>
     <ul>
       <li><strong>输入校验：</strong>所有参数都要做类型、范围、格式校验，坚决拒绝未经验证的输入进入数据库或命令行。</li>
       <li><strong>最小权限：</strong>用数据库只读账号、行级权限、Roots 限制能访问的文件目录，确保 Server 只能做它该做的事。</li>
@@ -917,19 +917,43 @@ starlette_app = Starlette(routes=routes)</code></pre>
       <li><strong>速率限制：</strong>对 Tools 做分级限流，查询类可以宽松，写操作类必须严格，必要时引入人工审批。</li>
     </ul>
 
-    <p>另外，不要把 MCP Server 直接暴露在公网。前面加一层 API Gateway，做 TLS、认证、WAF，和内部服务之间走零信任网络。MCP 是强大，但强大不等于可以裸奔。</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">另外，不要把 MCP Server 直接暴露在公网。前面加一层 API Gateway，做 TLS、认证、WAF，和内部服务之间走零信任网络。MCP 是强大，但强大不等于可以裸奔。</p>
 
     <h2 id="outlook-2026">十、2026年MCP生态展望</h2>
-    <p>2026 年的 MCP 生态正在快速成熟。Anthropic 官方已经维护了文件系统、PostgreSQL、Git、Slack 等官方 Server；社区里第三方 Marketplace 开始出现，像安装浏览器插件一样安装 MCP Server 正在成为现实。</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026 年的 MCP 生态正在快速成熟。Anthropic 官方已经维护了文件系统、PostgreSQL、Git、Slack 等官方 Server；社区里第三方 Marketplace 开始出现，像安装浏览器插件一样安装 MCP Server 正在成为现实。</p>
 
-    <p>更值得关注的是标准化趋势。OpenAI 在2025年底逐步向 MCP 兼容靠拢，多个 Agent 框架已经把 MCP 作为默认集成方式。对开发者来说，这意味着学一次 MCP，未来在 Claude、GPT、Cursor、Windsurf 等环境里都能复用。某团队用 MCP 把数据查询效率提升 5 倍以上，这不是夸张，而是协议标准化后的规模效应。</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">更值得关注的是标准化趋势。OpenAI 在2025年底逐步向 MCP 兼容靠拢，多个 Agent 框架已经把 MCP 作为默认集成方式。对开发者来说，这意味着学一次 MCP，未来在 Claude、GPT、Cursor、Windsurf 等环境里都能复用。某团队用 MCP 把数据查询效率提升 5 倍以上，这不是夸张，而是协议标准化后的规模效应。</p>
 
     <h2 id="conclusion">结语：MCP让大模型从"知道"到"做到"</h2>
-    <p>大模型之前最大的问题不是不够聪明，而是和真实世界之间隔着一层厚厚的胶水代码。Function Calling 打开了这扇门，但每个项目都要重新做一遍门框、门锁、门把手。MCP 把门标准化了，你只需要关心门后面放什么。</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">大模型之前最大的问题不是不够聪明，而是和真实世界之间隔着一层厚厚的胶水代码。Function Calling 打开了这扇门，但每个项目都要重新做一遍门框、门锁、门把手。MCP 把门标准化了，你只需要关心门后面放什么。</p>
 
-    <p>2026 年，如果你在做 AI 应用、Agent 平台、企业知识库，MCP 协议入门教程和 Model Context Protocol 实战都值得你花时间去研究。从写第一个 MCP Server 开始，到 Claude MCP 配置、SSE 远程部署、OAuth 权限体系，这条路已经越来越清晰。大模型连接数据库方案不再是 Demo 专属，而是正在变成生产环境里的基础设施。</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026 年，如果你在做 AI 应用、Agent 平台、企业知识库，MCP 协议入门教程和 Model Context Protocol 实战都值得你花时间去研究。从写第一个 MCP Server 开始，到 Claude MCP 配置、SSE 远程部署、OAuth 权限体系，这条路已经越来越清晰。大模型连接数据库方案不再是 Demo 专属，而是正在变成生产环境里的基础设施。</p>
 
-  </article>
+  
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-multimodal-api-integration-guide-2026">2026年AI多模态API完全指南：从理论到落地，一文搞懂视觉、语音、视频理解博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年AI多模态API完全指南，详解GPT-4o Vision、Claude 3.5 Vision、Gemini 1.5 Pro视觉理解API接入实战，Wh...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-streaming-sse-websocket-implementation-guide-2026">AI API流式输出(Streaming)实战：SSE与WebSocket完整实现指南</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI API流式输出实战完整指南：对比轮询/SSE/WebSocket三种方案，提供OpenAI GPT-4o和Claude Streaming API Pyt...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-long-context-optimization">AI API长上下文(Long Context)优化实战：从20万到200万token的进化之路博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入解析AI长上下文技术，对比Gemini 200万token、Claude 200K、GPT-4o等主流平台能力。包含5个实战优化技巧、Python代码示例和...</p>
+                </article>
+
+            </div>
+        </section>
+
+    </article>
 
   <aside class="sidebar">
     <div class="toc">
@@ -986,13 +1010,13 @@ starlette_app = Starlette(routes=routes)</code></pre>
     </div>
   </div>
   <div class="copyright">
-    <p>© 2026 TokenNexus. 保留所有权利。</p>
+    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">© 2026 TokenNexus. 保留所有权利。</p>
   </div>
 </footer>
 
 <!-- Cookie banner -->
 <div class="cookie-banner" id="cookieBanner">
-  <p>我们使用 Cookie 和类似技术来改善您的浏览体验、分析流量并实现个性化内容。</p>
+  <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们使用 Cookie 和类似技术来改善您的浏览体验、分析流量并实现个性化内容。</p>
   <button class="cookie-btn" onclick="document.getElementById('cookieBanner').style.display='none'">同意并关闭</button>
 </div>
 

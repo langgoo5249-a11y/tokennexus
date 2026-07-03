@@ -270,8 +270,8 @@ var _hmt = _hmt || [];
         <img class="article-cover" src="images/ai-video-api-comparison-2026.jpg" alt="AI视频生成API对比2026">
 
         <div class="article-content">
-            <p>今年年初我们团队接了一个短视频批量生成的项目，客户要求每天产出 500 条 15 秒的营销视频。我一开始想当然地选了 Sora 2 Pro，觉得质量好就行，结果跑了一周账单直接炸了——日均 $1250，一个月下来快四万美元。后来我老老实实把 Kling、Seedance、Runway 全测了一遍，才发现这里面门道太多了。</p>
-            <p>这篇文章就是我把 2026 年 Q1 对五个主流 AI 视频生成 API 的实测数据整理出来，希望能帮到同样在做选型的朋友。每个平台我都跑了至少 200 次生成请求，数据都是实打实的。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">今年年初我们团队接了一个短视频批量生成的项目，客户要求每天产出 500 条 15 秒的营销视频。我一开始想当然地选了 Sora 2 Pro，觉得质量好就行，结果跑了一周账单直接炸了——日均 $1250，一个月下来快四万美元。后来我老老实实把 Kling、Seedance、Runway 全测了一遍，才发现这里面门道太多了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这篇文章就是我把 2026 年 Q1 对五个主流 AI 视频生成 API 的实测数据整理出来，希望能帮到同样在做选型的朋友。每个平台我都跑了至少 200 次生成请求，数据都是实打实的。</p>
 
             <div class="toc">
                 <h3>目录</h3>
@@ -289,7 +289,7 @@ var _hmt = _hmt || [];
             </div>
 
             <h2 id="section1">五大平台核心数据一览</h2>
-            <p>先上硬数据。以下所有结果均来自 2026 年 Q1（1-3 月）的实测，测试环境统一为 5 秒视频、文本到视频（text-to-video）模式、默认参数。质量评分采用盲测方式，由 20 位视频从业者独立打分（满分 100）。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先上硬数据。以下所有结果均来自 2026 年 Q1（1-3 月）的实测，测试环境统一为 5 秒视频、文本到视频（text-to-video）模式、默认参数。质量评分采用盲测方式，由 20 位视频从业者独立打分（满分 100）。</p>
 
             <table>
                 <tr><th>平台</th><th>单价/视频</th><th>质量分</th><th>p50延迟</th><th>稳定性</th><th>最高分辨率</th></tr>
@@ -300,7 +300,7 @@ var _hmt = _hmt || [];
                 <tr><td>Runway Gen-4.5</td><td>$0.40</td><td>84.8</td><td>60.2s</td><td>极高</td><td>1080p</td></tr>
             </table>
 
-            <p>几个第一眼就能看出来的结论：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">几个第一眼就能看出来的结论：</p>
             <ul>
                 <li><strong>Kling 2.1 性价比碾压全场</strong>——$0.20 的价格拿到了 89.8 的质量分，这个数字让我反复确认了三遍测试脚本</li>
                 <li><strong>Sora 2 Pro 质量最高但价格离谱</strong>——$2.50/视频，是 Kling 的 12.5 倍，质量分只高了 4.3 分</li>
@@ -309,7 +309,7 @@ var _hmt = _hmt || [];
             </ul>
 
             <h2 id="section2">质量评分：谁生成的视频最好看</h2>
-            <p>质量评分这块我花了不少心思。单纯看分辨率和帧率不够，还得看运动连贯性、物理合理性、文字渲染准确度这些细节。我们设计了五个测试维度，每个维度 20 分：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">质量评分这块我花了不少心思。单纯看分辨率和帧率不够，还得看运动连贯性、物理合理性、文字渲染准确度这些细节。我们设计了五个测试维度，每个维度 20 分：</p>
 
             <table>
                 <tr><th>维度</th><th>Kling 2.1</th><th>Sora 2 Std</th><th>Sora 2 Pro</th><th>Seedance 2.0</th><th>Runway 4.5</th></tr>
@@ -321,11 +321,11 @@ var _hmt = _hmt || [];
                 <tr><td><strong>总分</strong></td><td><strong>89.8</strong></td><td><strong>81.6</strong></td><td><strong>94.1</strong></td><td><strong>86.9</strong></td><td><strong>84.8</strong></td></tr>
             </table>
 
-            <p>Sora 2 Pro 在每个维度都几乎是最高的，尤其是物理合理性——我们测试了一段"玻璃杯从桌上掉落"的视频，Sora 2 Pro 是唯一一个正确模拟了碎片飞溅轨迹的。但说实话，对于大多数营销短视频来说，Kling 89.8 的质量分已经完全够用了，观众根本看不出 89.8 和 94.1 的区别。</p>
-            <p>有意思的是 Sora 2 Standard 的表现。它比 Pro 便宜 5 倍，但质量分只有 81.6，在运动连贯性上尤其拉胯。我们测试了一段"人物跑步"的视频，Standard 版出现了明显的肢体抖动，而 Pro 版则非常流畅。所以如果你要用 Sora，要么直接上 Pro，要么干脆别用 Standard。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Sora 2 Pro 在每个维度都几乎是最高的，尤其是物理合理性——我们测试了一段"玻璃杯从桌上掉落"的视频，Sora 2 Pro 是唯一一个正确模拟了碎片飞溅轨迹的。但说实话，对于大多数营销短视频来说，Kling 89.8 的质量分已经完全够用了，观众根本看不出 89.8 和 94.1 的区别。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">有意思的是 Sora 2 Standard 的表现。它比 Pro 便宜 5 倍，但质量分只有 81.6，在运动连贯性上尤其拉胯。我们测试了一段"人物跑步"的视频，Standard 版出现了明显的肢体抖动，而 Pro 版则非常流畅。所以如果你要用 Sora，要么直接上 Pro，要么干脆别用 Standard。</p>
 
             <h2 id="section3">延迟与稳定性实测</h2>
-            <p>对于批量生成场景，延迟直接决定了你的吞吐量。我们测了 p50、p95、p99 三个百分位的延迟数据：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于批量生成场景，延迟直接决定了你的吞吐量。我们测了 p50、p95、p99 三个百分位的延迟数据：</p>
 
             <table>
                 <tr><th>平台</th><th>p50</th><th>p95</th><th>p99</th><th>p99/p50</th></tr>
@@ -336,11 +336,11 @@ var _hmt = _hmt || [];
                 <tr><td>Runway Gen-4.5</td><td>60.2s</td><td>112.4s</td><td>132.4s</td><td>2.20</td></tr>
             </table>
 
-            <p>Kling 2.1 不仅便宜，还是最快的——p50 延迟只有 42.3 秒。这意味着同样 8 小时的工作时间，Kling 能生成大约 680 个视频，而 Sora 2 Pro 只能生成约 300 个。吞吐量差距超过一倍。</p>
-            <p>Runway Gen-4.5 的 p99/p50 比值是 2.20，是所有平台中最稳定的。虽然绝对速度不是最快的，但它的延迟波动最小，这对于需要精确预估任务完成时间的生产环境非常重要。我们跑批处理任务的时候，Runway 的预估完成时间准确率在 95% 以上，而 Sora 2 Standard 只有 72%。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Kling 2.1 不仅便宜，还是最快的——p50 延迟只有 42.3 秒。这意味着同样 8 小时的工作时间，Kling 能生成大约 680 个视频，而 Sora 2 Pro 只能生成约 300 个。吞吐量差距超过一倍。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Runway Gen-4.5 的 p99/p50 比值是 2.20，是所有平台中最稳定的。虽然绝对速度不是最快的，但它的延迟波动最小，这对于需要精确预估任务完成时间的生产环境非常重要。我们跑批处理任务的时候，Runway 的预估完成时间准确率在 95% 以上，而 Sora 2 Standard 只有 72%。</p>
 
             <h2 id="section4">价格深度分析与批量成本</h2>
-            <p>价格是选型中最关键的维度之一。先看基础单价，然后我们再算批量场景的实际成本。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">价格是选型中最关键的维度之一。先看基础单价，然后我们再算批量场景的实际成本。</p>
 
             <table>
                 <tr><th>平台</th><th>基础单价</th><th>批量折扣</th><th>1000次/天成本</th><th>10000次/天成本</th></tr>
@@ -351,11 +351,11 @@ var _hmt = _hmt || [];
                 <tr><td>Runway Gen-4.5</td><td>$0.40</td><td>$0.32(1000+)</td><td>$400</td><td>$3,200</td></tr>
             </table>
 
-            <p>Kling 的批量折扣力度最大。1000 次以上单价直接降到 $0.16，比基础价便宜 20%。我们那个每天 500 条视频的项目，如果用 Kling 批量折扣，日成本只要 $80，一个月 $2400。而之前用 Sora 2 Pro 的日成本是 $1250，一个月 $37500。切换后成本降了 93.6%。</p>
-            <p>Sora 两个版本都没有批量折扣，这对大规模使用者来说非常不友好。OpenAI 这方面的策略很明确——Sora 定位高端市场，不跟你拼价格。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Kling 的批量折扣力度最大。1000 次以上单价直接降到 $0.16，比基础价便宜 20%。我们那个每天 500 条视频的项目，如果用 Kling 批量折扣，日成本只要 $80，一个月 $2400。而之前用 Sora 2 Pro 的日成本是 $1250，一个月 $37500。切换后成本降了 93.6%。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Sora 两个版本都没有批量折扣，这对大规模使用者来说非常不友好。OpenAI 这方面的策略很明确——Sora 定位高端市场，不跟你拼价格。</p>
 
             <h2 id="section5">Seedance分辨率陷阱：360p到4K成本差10倍</h2>
-            <p>Seedance 2.0 是唯一一个按分辨率阶梯定价的平台，这个设计有利有弊。我们详细测了一下不同分辨率的实际表现：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Seedance 2.0 是唯一一个按分辨率阶梯定价的平台，这个设计有利有弊。我们详细测了一下不同分辨率的实际表现：</p>
 
             <table>
                 <tr><th>分辨率</th><th>单价</th><th>质量分</th><th>p50延迟</th><th>适用场景</th></tr>
@@ -366,12 +366,12 @@ var _hmt = _hmt || [];
                 <tr><td>4K</td><td>$0.80</td><td>86.9</td><td>78.3s</td><td>专业制作</td></tr>
             </table>
 
-            <p>从 360p 到 4K，价格翻了 10 倍（$0.08 到 $0.80），但质量分只从 72.3 提升到 86.9，提升了不到 15 分。最划算的区间是 720p 到 1080p——价格只多了 57%，质量分提升了 3.2 分。</p>
-            <p>我的建议是：如果不需要 4K，就别上 4K。720p 对于 TikTok、Instagram Reels 这类竖屏短视频已经完全够用了，而且 $0.35 的价格比 Kling 还便宜。但如果你做的是横屏高清内容，1080p 的 $0.55 就比 Kling 的 $0.20 贵了不少。</p>
-            <blockquote><p>踩坑提醒：Seedance 的 360p 质量分只有 72.3，画面有明显噪点，运动模糊严重。千万别为了省钱用 360p 做正式内容，观众一眼就能看出来是 AI 生成的低画质视频。</p></blockquote>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">从 360p 到 4K，价格翻了 10 倍（$0.08 到 $0.80），但质量分只从 72.3 提升到 86.9，提升了不到 15 分。最划算的区间是 720p 到 1080p——价格只多了 57%，质量分提升了 3.2 分。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我的建议是：如果不需要 4K，就别上 4K。720p 对于 TikTok、Instagram Reels 这类竖屏短视频已经完全够用了，而且 $0.35 的价格比 Kling 还便宜。但如果你做的是横屏高清内容，1080p 的 $0.55 就比 Kling 的 $0.20 贵了不少。</p>
+            <blockquote><p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">踩坑提醒：Seedance 的 360p 质量分只有 72.3，画面有明显噪点，运动模糊严重。千万别为了省钱用 360p 做正式内容，观众一眼就能看出来是 AI 生成的低画质视频。</p></blockquote>
 
             <h2 id="section6">并发与限流：生产环境必须关注的坑</h2>
-            <p>批量生成场景下，并发和限流是绕不开的问题。我们测了各平台的并发上限和限流策略：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">批量生成场景下，并发和限流是绕不开的问题。我们测了各平台的并发上限和限流策略：</p>
 
             <table>
                 <tr><th>平台</th><th>默认并发上限</th><th>限流响应码</th><th>限流恢复策略</th><th>可申请提升</th></tr>
@@ -382,11 +382,11 @@ var _hmt = _hmt || [];
                 <tr><td>Runway Gen-4.5</td><td>20</td><td>429</td><td>Retry-After 30s</td><td>可申请至80</td></tr>
             </table>
 
-            <p>Sora 2 的并发限制是最严格的。我们实测并发 20 的时候就开始频繁触发 429 限流，Retry-After 返回 60 秒。这意味着如果你有大量任务要跑，必须自己做好队列管理和退避重试。Sora 2 Pro 更夸张，默认并发只有 5，而且申请提升非常困难，OpenAI 的销售团队对这个几乎不松口。</p>
-            <p>Kling 的并发策略最友好，默认 50 并发，还可以申请到 200。配合它的批量折扣，Kling 是真正为大规模生产场景设计的。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Sora 2 的并发限制是最严格的。我们实测并发 20 的时候就开始频繁触发 429 限流，Retry-After 返回 60 秒。这意味着如果你有大量任务要跑，必须自己做好队列管理和退避重试。Sora 2 Pro 更夸张，默认并发只有 5，而且申请提升非常困难，OpenAI 的销售团队对这个几乎不松口。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Kling 的并发策略最友好，默认 50 并发，还可以申请到 200。配合它的批量折扣，Kling 是真正为大规模生产场景设计的。</p>
 
             <h2 id="section7">各平台接入代码示例</h2>
-            <p>下面是几个平台的 Python 接入示例，都是我实际跑通过的代码。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">下面是几个平台的 Python 接入示例，都是我实际跑通过的代码。</p>
 
             <h3>Kling 2.1 接入</h3>
             <pre><code>import requests
@@ -491,30 +491,30 @@ while True:
     time.sleep(5)</code></pre>
 
             <h2 id="section8">场景选型决策树</h2>
-            <p>根据不同的业务场景，我的选型建议如下：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">根据不同的业务场景，我的选型建议如下：</p>
 
             <h3>场景一：大批量营销短视频（日均 500+）</h3>
-            <p><strong>推荐：Kling 2.1</strong></p>
-            <p>理由很简单：$0.20 的单价 + 批量折扣 $0.16 + 50 并发 + 42 秒延迟。我们实测日产出 500 条 5 秒视频，用 10 个并发线程，8 小时内稳稳完成。月成本 $2400，比 Sora 2 Pro 的 $37500 省了 93.6%。质量分 89.8 对营销视频来说绰绰有余。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>推荐：Kling 2.1</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">理由很简单：$0.20 的单价 + 批量折扣 $0.16 + 50 并发 + 42 秒延迟。我们实测日产出 500 条 5 秒视频，用 10 个并发线程，8 小时内稳稳完成。月成本 $2400，比 Sora 2 Pro 的 $37500 省了 93.6%。质量分 89.8 对营销视频来说绰绰有余。</p>
 
             <h3>场景二：品牌宣传片/高端内容</h3>
-            <p><strong>推荐：Sora 2 Pro</strong></p>
-            <p>如果你做的是品牌 TVC、产品宣传片这类对画质要求极高的内容，Sora 2 Pro 的 94.1 质量分和 4K 输出是值得的。一个月做 10 条高端视频，成本 $250，完全可以接受。关键是别用它做批量。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>推荐：Sora 2 Pro</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你做的是品牌 TVC、产品宣传片这类对画质要求极高的内容，Sora 2 Pro 的 94.1 质量分和 4K 输出是值得的。一个月做 10 条高端视频，成本 $250，完全可以接受。关键是别用它做批量。</p>
 
             <h3>场景三：社交媒体内容（TikTok/Reels）</h3>
-            <p><strong>推荐：Seedance 2.0 (720p)</strong></p>
-            <p>720p 的 $0.35 单价，质量分 82.5，对于竖屏短视频完全够用。而且 Seedance 支持多种分辨率，你可以先用 360p（$0.08）快速出草稿预览，确认效果后再用 720p 正式生成，省下大量试错成本。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>推荐：Seedance 2.0 (720p)</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">720p 的 $0.35 单价，质量分 82.5，对于竖屏短视频完全够用。而且 Seedance 支持多种分辨率，你可以先用 360p（$0.08）快速出草稿预览，确认效果后再用 720p 正式生成，省下大量试错成本。</p>
 
             <h3>场景四：需要稳定交付的生产环境</h3>
-            <p><strong>推荐：Runway Gen-4.5</strong></p>
-            <p>Runway 的 p99/p50 = 2.20 是所有平台中最稳定的。如果你需要精确预估任务完成时间（比如给客户承诺 24 小时交付），Runway 的稳定性会让你少很多麻烦。$0.40 的价格也适中。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>推荐：Runway Gen-4.5</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Runway 的 p99/p50 = 2.20 是所有平台中最稳定的。如果你需要精确预估任务完成时间（比如给客户承诺 24 小时交付），Runway 的稳定性会让你少很多麻烦。$0.40 的价格也适中。</p>
 
             <h3>场景五：预算极其有限的个人项目</h3>
-            <p><strong>推荐：Seedance 2.0 (360p) 或 Kling 2.1</strong></p>
-            <p>Seedance 360p 只要 $0.08/视频，100 个视频才 $8。但质量确实一般，只适合个人学习、测试。如果预算稍微宽裕一点，Kling 的 $0.20 是更好的选择。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>推荐：Seedance 2.0 (360p) 或 Kling 2.1</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Seedance 360p 只要 $0.08/视频，100 个视频才 $8。但质量确实一般，只适合个人学习、测试。如果预算稍微宽裕一点，Kling 的 $0.20 是更好的选择。</p>
 
             <h2 id="section9">省钱实战技巧</h2>
-            <p>最后分享几个我在实际项目中总结的省钱技巧：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最后分享几个我在实际项目中总结的省钱技巧：</p>
             <ol>
                 <li><strong>分层生成策略</strong>：草稿用 Seedance 360p（$0.08），确认后再用 Kling 1080p（$0.20）正式生成。我们实测这样能减少 40% 的正式生成量，因为很多草稿看了就知道不行。</li>
                 <li><strong>善用 Kling 批量折扣</strong>：1000 次以上单价降到 $0.16。如果你有多个项目，可以合并请求来凑批量门槛。</li>
@@ -523,8 +523,32 @@ while True:
                 <li><strong>避开 Sora 的并发陷阱</strong>：如果非要用 Sora，一定要做好请求队列和指数退避。并发超 20 就会 429，Retry-After 60 秒的等待成本很高。</li>
                 <li><strong>关注各平台的价格变动</strong>：2026 年 AI 视频生成市场竞争白热化，价格变动频繁。建议定期查看 <a href="https://www.tokenfind.cn">TokenNexus</a> 上的最新 API 价格对比数据。</li>
             </ol>
-            <p>说到底，AI 视频生成 API 的选型没有标准答案，关键是要搞清楚你的核心诉求是什么。追求极致画质就上 Sora 2 Pro，追求性价比就选 Kling，追求稳定交付就选 Runway，需要灵活分辨率就选 Seedance。希望这篇实测对比能帮你少走一些弯路，别像我一开始那样一个月烧掉三万多美元才醒悟。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">说到底，AI 视频生成 API 的选型没有标准答案，关键是要搞清楚你的核心诉求是什么。追求极致画质就上 Sora 2 Pro，追求性价比就选 Kling，追求稳定交付就选 Runway，需要灵活分辨率就选 Seedance。希望这篇实测对比能帮你少走一些弯路，别像我一开始那样一个月烧掉三万多美元才醒悟。</p>
         </div>
+    
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-tts-api-comparison-2026">2026年AI语音合成API全面对比：ElevenLabs/OpenAI/Azure/TTS选型指南 - TokenNexus</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年8大AI语音合成API实测对比：ElevenLabs音质最佳、OpenAI最便宜$15/1M字符、Cartesia延迟最低90ms。附各场景选型建议和...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-video-generation-api-guide-2026">2026年AI视频生成API选型攻略：可灵、Runway、Pika等主流平台实测对比博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年AI视频生成API全面实测对比，涵盖可灵AI、Runway Gen-4、Pika 2.5、Luma Dream Machine、Sora 2等主流平台...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-image-generation-api-comparison-2026">2026年AI图像生成API全面对比：DALL-E/Flux/SD3.5/Idéogram速度质量价格实测 - TokenNexus</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年6大AI图像生成API实测对比：Flux Pro延迟2.1秒最快、SD3.5仅$0.04/张最便宜、Ideogram文字渲染96%最准。附各场景选型建...</p>
+                </article>
+
+            </div>
+        </section>
+
     </article>
 
     <footer class="footer">
@@ -542,7 +566,7 @@ while True:
     <!-- Cookie同意横幅 -->
     <div id="cookie-consent" class="cookie-consent" style="display: none;">
         <div class="cookie-content">
-            <p>我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的隐私政策。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的隐私政策。</p>
             <div class="cookie-buttons">
                 <button onclick="acceptCookies()" class="cookie-btn accept">同意</button>
                 <a href="../privacy.html" class="cookie-btn more">了解更多</a>

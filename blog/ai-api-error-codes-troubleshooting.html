@@ -677,55 +677,55 @@ var _hmt = _hmt || [];
             </header>
 
             <div class="article-content">
-                <p>凌晨两点，手机响了。客户群里炸了锅——"客服机器人全挂了！""用户投诉排到三百多条了！"我揉着眼睛打开电脑一看，日志里满屏的 <span class="error-code">429 Too Many Requests</span>。这不是第一次了，但这一次，我们花了整整三个小时才恢复服务。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">凌晨两点，手机响了。客户群里炸了锅——"客服机器人全挂了！""用户投诉排到三百多条了！"我揉着眼睛打开电脑一看，日志里满屏的 <span class="error-code">429 Too Many Requests</span>。这不是第一次了，但这一次，我们花了整整三个小时才恢复服务。</p>
 
-                <p>做AI应用开发这两年，我踩过的API错误坑比吃过的米还多。OpenAI的429限流、Claude的overloaded_error、通义千问的奇葩code格式……每个平台都有自己的脾气。今天这篇文章，我把这些错误码整理成一份完整的排查手册，希望能帮你在凌晨两点少掉几根头发。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">做AI应用开发这两年，我踩过的API错误坑比吃过的米还多。OpenAI的429限流、Claude的overloaded_error、通义千问的奇葩code格式……每个平台都有自己的脾气。今天这篇文章，我把这些错误码整理成一份完整的排查手册，希望能帮你在凌晨两点少掉几根头发。</p>
 
                 <h2>一、OpenAI API错误码全解析</h2>
 
-                <p>OpenAI是目前国内开发者用得最多的AI API，它的错误体系相对规范，HTTP状态码 + 错误类型 + 错误消息三层结构。但别被这个"规范"骗了——有些错误码的含义跟你直觉想的不太一样。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI是目前国内开发者用得最多的AI API，它的错误体系相对规范，HTTP状态码 + 错误类型 + 错误消息三层结构。但别被这个"规范"骗了——有些错误码的含义跟你直觉想的不太一样。</p>
 
                 <h3>1.1 429 Rate Limit —— 最常见也最容易被搞砸的错误</h3>
 
-                <p><span class="error-code">429</span> 是OpenAI API里出现频率最高的错误，没有之一。根据我们统计的调用数据，在日均百万级调用的生产环境中，429错误大约占总错误的 <strong>47%</strong>。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><span class="error-code">429</span> 是OpenAI API里出现频率最高的错误，没有之一。根据我们统计的调用数据，在日均百万级调用的生产环境中，429错误大约占总错误的 <strong>47%</strong>。</p>
 
-                <p>OpenAI的rate limit分两种：<strong>TPM（Tokens Per Minute）</strong> 和 <strong>RPM（Requests Per Minute）</strong>。以GPT-4o为例，Tier 1账户的默认限制是 40,000 TPM / 500 RPM，而Tier 5可以到 10,000,000 TPM / 30,000 RPM。注意，这两个限制是独立计算的——你可能RPM没到但TPM先触顶了，尤其是处理长文本的时候。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI的rate limit分两种：<strong>TPM（Tokens Per Minute）</strong> 和 <strong>RPM（Requests Per Minute）</strong>。以GPT-4o为例，Tier 1账户的默认限制是 40,000 TPM / 500 RPM，而Tier 5可以到 10,000,000 TPM / 30,000 RPM。注意，这两个限制是独立计算的——你可能RPM没到但TPM先触顶了，尤其是处理长文本的时候。</p>
 
-                <p><strong>错误原因：</strong>请求频率或Token消耗量超过当前账户等级的限制。常见触发场景包括：突发流量高峰、批量处理任务没有做限速、多线程并发请求没有做令牌桶控制。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>错误原因：</strong>请求频率或Token消耗量超过当前账户等级的限制。常见触发场景包括：突发流量高峰、批量处理任务没有做限速、多线程并发请求没有做令牌桶控制。</p>
 
-                <p><strong>解决方案：</strong>首先检查响应头里的 <code>x-ratelimit-limit-tokens</code>、<code>x-ratelimit-remaining-tokens</code>、<code>x-ratelimit-reset-tokens</code> 这三个字段，搞清楚你到底还剩多少额度。然后根据 <code>Retry-After</code> 头的值来决定等待时间。千万不要硬重试——无脑重试只会让限流更严重。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>解决方案：</strong>首先检查响应头里的 <code>x-ratelimit-limit-tokens</code>、<code>x-ratelimit-remaining-tokens</code>、<code>x-ratelimit-reset-tokens</code> 这三个字段，搞清楚你到底还剩多少额度。然后根据 <code>Retry-After</code> 头的值来决定等待时间。千万不要硬重试——无脑重试只会让限流更严重。</p>
 
-                <p><strong>预防措施：</strong>在客户端实现令牌桶（Token Bucket）或滑动窗口限流；对批量任务做随机抖动（jitter），避免多个请求同时发出；监控 <code>x-ratelimit-remaining</code> 指标，在剩余量低于20%时主动降速。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>预防措施：</strong>在客户端实现令牌桶（Token Bucket）或滑动窗口限流；对批量任务做随机抖动（jitter），避免多个请求同时发出；监控 <code>x-ratelimit-remaining</code> 指标，在剩余量低于20%时主动降速。</p>
 
                 <h3>1.2 500 / 502 / 503 —— 服务器端错误</h3>
 
-                <p>这三个状态码都代表OpenAI服务端出了问题，但含义不同。<span class="error-code">500 Internal Server Error</span> 是服务端抛出的未预期异常；<span class="error-code">502 Bad Gateway</span> 通常是OpenAI的反向代理和后端模型服务之间的通信出了问题；<span class="error-code">503 Service Unavailable</span> 则意味着服务暂时不可用，通常是因为服务器过载。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这三个状态码都代表OpenAI服务端出了问题，但含义不同。<span class="error-code">500 Internal Server Error</span> 是服务端抛出的未预期异常；<span class="error-code">502 Bad Gateway</span> 通常是OpenAI的反向代理和后端模型服务之间的通信出了问题；<span class="error-code">503 Service Unavailable</span> 则意味着服务暂时不可用，通常是因为服务器过载。</p>
 
-                <p>根据我们的监控数据，OpenAI的503错误在美东时间下午2-5点（北京时间凌晨2-5点）出现频率最高，推测跟他们的模型推理集群维护窗口有关。502错误则比较随机，但通常持续时间很短（几秒到几十秒）。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">根据我们的监控数据，OpenAI的503错误在美东时间下午2-5点（北京时间凌晨2-5点）出现频率最高，推测跟他们的模型推理集群维护窗口有关。502错误则比较随机，但通常持续时间很短（几秒到几十秒）。</p>
 
-                <p><strong>解决方案：</strong>对于500错误，先检查你的请求格式是否有问题（比如传了不支持的参数），确认无误后等待重试。502和503都应该做自动重试，配合指数退避策略。如果503持续超过5分钟，建议切换到备用模型或API中转服务。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>解决方案：</strong>对于500错误，先检查你的请求格式是否有问题（比如传了不支持的参数），确认无误后等待重试。502和503都应该做自动重试，配合指数退避策略。如果503持续超过5分钟，建议切换到备用模型或API中转服务。</p>
 
-                <p><strong>预防措施：</strong>永远不要只依赖单一API端点。至少准备一个备用方案——可以是另一个OpenAI API Key（不同账户），也可以是Claude API或国内平台作为降级通道。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>预防措施：</strong>永远不要只依赖单一API端点。至少准备一个备用方案——可以是另一个OpenAI API Key（不同账户），也可以是Claude API或国内平台作为降级通道。</p>
 
                 <h3>1.3 401 Authentication Failed —— 认证失败</h3>
 
-                <p><span class="error-code">401</span> 错误的原因通常很明确：API Key无效、过期或被撤销。但有一个坑很多人踩过——<strong>API Key前面多了一个空格</strong>。没错，就是复制粘贴时不小心带上的一个空格字符，能让你排查半小时。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><span class="error-code">401</span> 错误的原因通常很明确：API Key无效、过期或被撤销。但有一个坑很多人踩过——<strong>API Key前面多了一个空格</strong>。没错，就是复制粘贴时不小心带上的一个空格字符，能让你排查半小时。</p>
 
-                <p>还有一种情况是API Key在OpenAI后台被禁用了（比如触发了风控），这种情况错误消息里会提示"API key has been disabled"。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">还有一种情况是API Key在OpenAI后台被禁用了（比如触发了风控），这种情况错误消息里会提示"API key has been disabled"。</p>
 
-                <p><strong>预防措施：</strong>在配置文件里用环境变量存储API Key，不要硬编码；上线前写个简单的健康检查脚本，定期验证Key的有效性；如果使用多个Key做负载均衡，记得监控每个Key的状态。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>预防措施：</strong>在配置文件里用环境变量存储API Key，不要硬编码；上线前写个简单的健康检查脚本，定期验证Key的有效性；如果使用多个Key做负载均衡，记得监控每个Key的状态。</p>
 
                 <h3>1.4 context_length_exceeded —— 上下文超限</h3>
 
-                <p><span class="error-code">context_length_exceeded</span> 是个让人又爱又恨的错误。爱它是因为这说明你的应用确实在处理大量文本；恨它是因为它的排查成本很高——你得算清楚输入prompt、历史对话、函数定义加起来到底多少token。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><span class="error-code">context_length_exceeded</span> 是个让人又爱又恨的错误。爱它是因为这说明你的应用确实在处理大量文本；恨它是因为它的排查成本很高——你得算清楚输入prompt、历史对话、函数定义加起来到底多少token。</p>
 
-                <p>不同模型的上下文窗口不同：GPT-4o是128K tokens，GPT-4o-mini是128K tokens，o1是200K tokens。但注意，这里的"128K"指的是token数量，不是字符数。英文大致1个token = 4个字符，中文则是1个token大约对应1-2个汉字。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不同模型的上下文窗口不同：GPT-4o是128K tokens，GPT-4o-mini是128K tokens，o1是200K tokens。但注意，这里的"128K"指的是token数量，不是字符数。英文大致1个token = 4个字符，中文则是1个token大约对应1-2个汉字。</p>
 
-                <p><strong>解决方案：</strong>使用tiktoken库精确计算token数；对长文本做摘要或分段处理；清理历史对话中不重要的轮次；使用函数调用时精简函数描述。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>解决方案：</strong>使用tiktoken库精确计算token数；对长文本做摘要或分段处理；清理历史对话中不重要的轮次；使用函数调用时精简函数描述。</p>
 
                 <h2>二、Anthropic Claude API错误码</h2>
 
-                <p>Claude API的错误体系跟OpenAI有些不同，它用的是"错误类型 + 错误消息"的格式，HTTP状态码反而没那么重要。以下是几个高频错误：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Claude API的错误体系跟OpenAI有些不同，它用的是"错误类型 + 错误消息"的格式，HTTP状态码反而没那么重要。以下是几个高频错误：</p>
 
                 <table class="data-table">
                     <tr>
@@ -760,17 +760,17 @@ var _hmt = _hmt || [];
                     </tr>
                 </table>
 
-                <p>特别说一下 <span class="error-code">overloaded_error</span>（529），这是Anthropic特有的状态码，跟503类似但语义更明确——"我太忙了，你等会儿再来"。Claude 3.5 Sonnet刚发布那阵子，这个错误简直家常便饭。根据我们的监控，Claude API的529错误发生率大约在 <strong>0.5%-2%</strong> 之间，高峰期可能飙到5%以上。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">特别说一下 <span class="error-code">overloaded_error</span>（529），这是Anthropic特有的状态码，跟503类似但语义更明确——"我太忙了，你等会儿再来"。Claude 3.5 Sonnet刚发布那阵子，这个错误简直家常便饭。根据我们的监控，Claude API的529错误发生率大约在 <strong>0.5%-2%</strong> 之间，高峰期可能飙到5%以上。</p>
 
-                <p>处理529错误的关键是：重试间隔要足够长（建议至少30秒起步），并且设置合理的最大重试次数（3-5次）。如果连续3次都收到529，果断切换到备用模型。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">处理529错误的关键是：重试间隔要足够长（建议至少30秒起步），并且设置合理的最大重试次数（3-5次）。如果连续3次都收到529，果断切换到备用模型。</p>
 
                 <h2>三、国内平台常见错误</h2>
 
-                <p>国内平台的错误码体系各有特色，不像OpenAI和Claude那样统一。这里挑两个最常用的说说。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">国内平台的错误码体系各有特色，不像OpenAI和Claude那样统一。这里挑两个最常用的说说。</p>
 
                 <h3>3.1 通义千问（DashScope）</h3>
 
-                <p>阿里云DashScope的错误格式是JSON，包含 <code>code</code>、<code>message</code>、<code>request_id</code> 三个字段。常见的有：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">阿里云DashScope的错误格式是JSON，包含 <code>code</code>、<code>message</code>、<code>request_id</code> 三个字段。常见的有：</p>
 
                 <ul>
                     <li><span class="error-code">InvalidParameter</span>：参数不合法，最常见的是model字段写错了（比如写成qwen-turbo而不是qwen-turbo）</li>
@@ -779,32 +779,32 @@ var _hmt = _hmt || [];
                     <li><span class="error-code">Throttling</span>：限流，跟OpenAI的429一个意思</li>
                 </ul>
 
-                <p>通义千问有个比较友好的地方：<code>request_id</code> 可以直接拿去阿里云工单系统查询，排查效率比OpenAI高不少。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">通义千问有个比较友好的地方：<code>request_id</code> 可以直接拿去阿里云工单系统查询，排查效率比OpenAI高不少。</p>
 
                 <h3>3.2 文心一言（千帆平台）</h3>
 
-                <p>百度千帆平台的错误码是纯数字格式，比如 <span class="error-code">336100</span>（参数错误）、<span class="error-code">336101</span>（请求频率超限）、<span class="error-code">336102</span>（Token超限）、<span class="error-code">336107</span>（系统繁忙）。说实话，第一次看到这些数字错误码的时候，我整个人是懵的——谁能记住336100是什么意思？</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">百度千帆平台的错误码是纯数字格式，比如 <span class="error-code">336100</span>（参数错误）、<span class="error-code">336101</span>（请求频率超限）、<span class="error-code">336102</span>（Token超限）、<span class="error-code">336107</span>（系统繁忙）。说实话，第一次看到这些数字错误码的时候，我整个人是懵的——谁能记住336100是什么意思？</p>
 
-                <p>建议在代码里维护一个错误码映射表，把数字翻译成人类可读的描述。另外千帆平台的限流策略比较特殊：它不是按分钟限流，而是按"每秒并发数"限流，默认QPS限制通常是10-50，具体取决于你的套餐等级。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">建议在代码里维护一个错误码映射表，把数字翻译成人类可读的描述。另外千帆平台的限流策略比较特殊：它不是按分钟限流，而是按"每秒并发数"限流，默认QPS限制通常是10-50，具体取决于你的套餐等级。</p>
 
                 <h2>四、真实故障案例</h2>
 
                 <div class="case-study">
                     <h4>案例一：429错误导致客服机器人瘫痪3小时</h4>
-                    <p>去年双十一前夕，某电商团队的智能客服系统突然全面罢工。他们的架构很简单：用户消息进来 → 调用GPT-4o生成回复 → 返回给用户。平时日均5万次调用，运行得好好的。</p>
-                    <p>问题出在双十一预热活动——流量突然涨了6倍，达到30万次/天。他们的代码里有重试逻辑，但没有限流，也没有指数退避。结果就是：流量激增 → 触发429 → 所有请求同时重试 → 429更严重 → 恶性循环。整个系统陷入"重试风暴"，有效请求反而全部被淹没了。</p>
-                    <p>排查过程：先从日志里看到大量429响应，确认是rate limit问题。然后检查OpenAI后台的用量页面，发现TPM已经打满。临时解决方案是把GPT-4o降级到GPT-4o-mini（TPM限额更高），同时加上了令牌桶限流和随机抖动。最终3小时后恢复服务。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年双十一前夕，某电商团队的智能客服系统突然全面罢工。他们的架构很简单：用户消息进来 → 调用GPT-4o生成回复 → 返回给用户。平时日均5万次调用，运行得好好的。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">问题出在双十一预热活动——流量突然涨了6倍，达到30万次/天。他们的代码里有重试逻辑，但没有限流，也没有指数退避。结果就是：流量激增 → 触发429 → 所有请求同时重试 → 429更严重 → 恶性循环。整个系统陷入"重试风暴"，有效请求反而全部被淹没了。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">排查过程：先从日志里看到大量429响应，确认是rate limit问题。然后检查OpenAI后台的用量页面，发现TPM已经打满。临时解决方案是把GPT-4o降级到GPT-4o-mini（TPM限额更高），同时加上了令牌桶限流和随机抖动。最终3小时后恢复服务。</p>
                     <div class="result">
-                        <p><strong>教训总结：</strong>重试不是万能的，没有退避策略的重试就是DDoS自己。限流应该在客户端主动做，而不是等API返回429了才被动应对。建议所有生产环境都加上circuit breaker（断路器）机制。</p>
+                        <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>教训总结：</strong>重试不是万能的，没有退避策略的重试就是DDoS自己。限流应该在客户端主动做，而不是等API返回429了才被动应对。建议所有生产环境都加上circuit breaker（断路器）机制。</p>
                     </div>
                 </div>
 
                 <div class="case-study">
                     <h4>案例二：context_length_exceeded后的Token截断策略</h4>
-                    <p>一位做文档问答的开发者遇到了经典问题：用户上传的PDF文档经过解析后，加上系统提示词和历史对话，轻松突破128K token限制。他一开始的方案很粗暴——从文档开头截断到128K以内。结果用户反馈说"AI只读了文档的前半部分，后面的内容完全不知道"。</p>
-                    <p>后来他换了一套更聪明的策略：先用Embedding模型把文档分段并生成向量索引，然后根据用户的问题做语义检索，只把最相关的段落塞进prompt。这样既控制了token数量，又保证了回答的相关性。Token消耗量从平均80K降到了15K，回答质量反而提升了。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">一位做文档问答的开发者遇到了经典问题：用户上传的PDF文档经过解析后，加上系统提示词和历史对话，轻松突破128K token限制。他一开始的方案很粗暴——从文档开头截断到128K以内。结果用户反馈说"AI只读了文档的前半部分，后面的内容完全不知道"。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">后来他换了一套更聪明的策略：先用Embedding模型把文档分段并生成向量索引，然后根据用户的问题做语义检索，只把最相关的段落塞进prompt。这样既控制了token数量，又保证了回答的相关性。Token消耗量从平均80K降到了15K，回答质量反而提升了。</p>
                     <div class="result">
-                        <p><strong>关键经验：</strong>遇到context_length_exceeded，不要简单粗暴地截断。优先考虑RAG（检索增强生成）方案，用语义检索替代全文输入。如果确实需要全文处理，考虑使用200K上下文的模型（如Claude 3.5 Sonnet或GPT-4o）。</p>
+                        <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>关键经验：</strong>遇到context_length_exceeded，不要简单粗暴地截断。优先考虑RAG（检索增强生成）方案，用语义检索替代全文输入。如果确实需要全文处理，考虑使用200K上下文的模型（如Claude 3.5 Sonnet或GPT-4o）。</p>
                     </div>
                 </div>
 
@@ -815,7 +815,7 @@ var _hmt = _hmt || [];
 
                 <h2>五、通用故障排查流程</h2>
 
-                <p>不管你用的是哪个平台的API，遇到错误时都可以按这个流程来排查：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不管你用的是哪个平台的API，遇到错误时都可以按这个流程来排查：</p>
 
                 <div class="flow-step" data-step="1">
                     <strong>查看HTTP状态码和错误类型</strong> —— 状态码决定了大方向：4xx是客户端问题，5xx是服务端问题。先别急着重试，搞清楚到底是谁的锅。
@@ -843,7 +843,7 @@ var _hmt = _hmt || [];
 
                 <h2>六、Python错误处理最佳实践</h2>
 
-                <p>下面这段代码是我们团队在生产环境跑了半年多的错误处理框架，包含了重试、指数退避、降级策略和断路器机制：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">下面这段代码是我们团队在生产环境跑了半年多的错误处理框架，包含了重试、指数退避、降级策略和断路器机制：</p>
 
                 <div class="code-block">
 <pre><span class="keyword">import</span> time
@@ -1000,12 +1000,12 @@ result = ai_api_call(
                 </div>
 
                 <div class="highlight-box">
-                    <p><strong>这段代码的核心设计思路：</strong>指数退避确保重试间隔越来越长，避免"重试风暴"；随机抖动让多个并发请求的退避时间错开；断路器在连续失败时自动熔断，防止拖垮整个系统；降级函数保证在主API不可用时用户依然能得到响应。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>这段代码的核心设计思路：</strong>指数退避确保重试间隔越来越长，避免"重试风暴"；随机抖动让多个并发请求的退避时间错开；断路器在连续失败时自动熔断，防止拖垮整个系统；降级函数保证在主API不可用时用户依然能得到响应。</p>
                 </div>
 
                 <h2>七、监控告警建议</h2>
 
-                <p>光有错误处理代码还不够，你还需要一套监控体系来及时发现问题。以下是我们在生产环境验证过的监控方案：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">光有错误处理代码还不够，你还需要一套监控体系来及时发现问题。以下是我们在生产环境验证过的监控方案：</p>
 
                 <h3>7.1 必须监控的指标</h3>
 
@@ -1019,7 +1019,7 @@ result = ai_api_call(
 
                 <h3>7.2 告警渠道建议</h3>
 
-                <p>根据严重程度分级通知：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">根据严重程度分级通知：</p>
 
                 <ul>
                     <li><strong>P0（紧急）</strong>：断路器打开、API完全不可用 → 电话 + 短信 + 即时通讯工具</li>
@@ -1029,13 +1029,13 @@ result = ai_api_call(
 
                 <h3>7.3 日志规范</h3>
 
-                <p>每次API调用都应该记录结构化日志，至少包含以下字段：请求ID、模型名称、HTTP状态码、错误类型、响应时间、Token消耗量、是否触发重试、是否触发降级。这些日志是你排查问题的第一手资料，别偷懒。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">每次API调用都应该记录结构化日志，至少包含以下字段：请求ID、模型名称、HTTP状态码、错误类型、响应时间、Token消耗量、是否触发重试、是否触发降级。这些日志是你排查问题的第一手资料，别偷懒。</p>
 
                 <h2>八、写在最后</h2>
 
-                <p>做AI应用开发，跟API错误码打交道是逃不掉的日常。与其每次出错都手忙脚乱，不如提前把错误处理框架搭好、监控告警配好、降级方案准备好。就像开车要系安全带一样——你可能99%的时间都用不上它，但那1%的时候，它能救命。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">做AI应用开发，跟API错误码打交道是逃不掉的日常。与其每次出错都手忙脚乱，不如提前把错误处理框架搭好、监控告警配好、降级方案准备好。就像开车要系安全带一样——你可能99%的时间都用不上它，但那1%的时候，它能救命。</p>
 
-                <p>我们团队踩过的坑总结起来就一句话：<strong>永远不要假设API是100%可用的</strong>。做好容错，做好降级，做好监控，你就能在凌晨两点安心睡觉，而不是对着满屏的429抓头发。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们团队踩过的坑总结起来就一句话：<strong>永远不要假设API是100%可用的</strong>。做好容错，做好降级，做好监控，你就能在凌晨两点安心睡觉，而不是对着满屏的429抓头发。</p>
 
                 <div class="tags">
                     <span class="tag">AI API错误码</span>
@@ -1051,7 +1051,31 @@ result = ai_api_call(
                     <span class="tag">断路器模式</span>
                 </div>
             </div>
-        </article>
+        
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-error-codes-troubleshooting-handbook-2026">AI API错误码排查手册2026：从429限流到500超时的实战指南 AI API攻略</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI API错误码排查完全手册，详解OpenAI、Claude、DeepSeek、Gemini等平台的429限流、500超时、401认证失败等常见错误码，附Py...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-error-codes-troubleshooting-2026">AI API错误码完全排查指南：从429限流到500超时的实战解决方案博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">详细解析OpenAI、Claude、Gemini等AI API常见错误码（429限流、500超时、401认证失败等）的原因与解决方案，附真实踩坑案例、错误码速查...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-rate-limit-strategies">AI API速率限制(Rate Limit)全面应对策略：从429到丝滑并发的实战之路</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入解析AI API速率限制机制，OpenAI Tier分级、Anthropic Claude RPM/TPM限制、国内平台QPS策略。附5种实用应对策略代码：...</p>
+                </article>
+
+            </div>
+        </section>
+
+    </article>
     </main>
 
     <!-- 页脚 -->
@@ -1086,7 +1110,7 @@ result = ai_api_call(
     <!-- Cookie同意横幅 -->
     <div id="cookie-consent" class="cookie-consent" style="display: none;">
         <div class="cookie-content">
-            <p>我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的隐私政策。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的隐私政策。</p>
             <div class="cookie-buttons">
                 <button onclick="acceptCookies()" class="cookie-btn accept">同意</button>
                 <a href="../privacy.html" class="cookie-btn more">了解更多</a>

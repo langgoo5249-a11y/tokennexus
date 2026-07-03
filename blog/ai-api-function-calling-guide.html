@@ -716,19 +716,19 @@ var _hmt = _hmt || [];
         </header>
 
         <article class="article-content">
-            <p>去年帮一个客户做智能客服项目的时候，我第一次真正体会到Function Calling的威力。之前用纯提示词工程搞了两个月，效果始终上不去，换了Function Calling方案后，准确率直接从60%拉到了92%。今天就把这段时间踩过的坑和积累的经验整理出来，希望能帮到正在做AI Agent开发的朋友。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年帮一个客户做智能客服项目的时候，我第一次真正体会到Function Calling的威力。之前用纯提示词工程搞了两个月，效果始终上不去，换了Function Calling方案后，准确率直接从60%拉到了92%。今天就把这段时间踩过的坑和积累的经验整理出来，希望能帮到正在做AI Agent开发的朋友。</p>
 
             <h2>什么是Function Calling，为什么它是AI Agent的基础能力</h2>
 
-            <p>说白了，<strong>Function Calling</strong>（也叫Tool Use）就是让大模型能够"调用外部工具"。光靠模型自身的知识是不够的，它不知道你数据库里有什么订单、不知道今天的天气、不知道航班动态。Function Calling解决的就是这个问题——模型判断需要调用哪个工具，你的代码负责实际执行，然后把结果喂回给模型，模型再基于真实数据生成回答。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">说白了，<strong>Function Calling</strong>（也叫Tool Use）就是让大模型能够"调用外部工具"。光靠模型自身的知识是不够的，它不知道你数据库里有什么订单、不知道今天的天气、不知道航班动态。Function Calling解决的就是这个问题——模型判断需要调用哪个工具，你的代码负责实际执行，然后把结果喂回给模型，模型再基于真实数据生成回答。</p>
 
-            <p>这就是AI Agent的核心循环：<strong>感知 - 决策 - 行动 - 观察</strong>。模型感知用户意图，决策要调用什么工具，代码执行行动，结果作为观察反馈给模型。没有Function Calling，AI Agent就是个只会说话的聊天机器人，没法跟真实世界交互。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这就是AI Agent的核心循环：<strong>感知 - 决策 - 行动 - 观察</strong>。模型感知用户意图，决策要调用什么工具，代码执行行动，结果作为观察反馈给模型。没有Function Calling，AI Agent就是个只会说话的聊天机器人，没法跟真实世界交互。</p>
 
-            <p>OpenAI在2023年6月首次推出Function Calling功能，当时只支持gpt-3.5-turbo和gpt-4-0613两个模型。到2024年7月，随着gpt-4o的发布，并行函数调用成为标配。到2026年，tool_choice参数已经非常成熟，支持"auto"、"required"、"none"以及指定具体函数等多种模式，基本上覆盖了所有业务场景。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI在2023年6月首次推出Function Calling功能，当时只支持gpt-3.5-turbo和gpt-4-0613两个模型。到2024年7月，随着gpt-4o的发布，并行函数调用成为标配。到2026年，tool_choice参数已经非常成熟，支持"auto"、"required"、"none"以及指定具体函数等多种模式，基本上覆盖了所有业务场景。</p>
 
             <h2>OpenAI Function Calling演进详解</h2>
 
-            <p>我经历了整个演进过程，简单梳理一下关键节点：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我经历了整个演进过程，简单梳理一下关键节点：</p>
 
             <ul>
                 <li><strong>2023年6月</strong>：首次发布，支持在请求中声明functions，模型返回function_call，开发者手动执行并回传结果</li>
@@ -738,7 +738,7 @@ var _hmt = _hmt || [];
                 <li><strong>2026年</strong>：structured outputs与function calling深度整合，工具参数可以严格按JSON Schema校验输出</li>
             </ul>
 
-            <p>关于tool_choice参数，这是很多人容易搞混的地方，我单独说一下：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">关于tool_choice参数，这是很多人容易搞混的地方，我单独说一下：</p>
 
             <pre><code># tool_choice 各选项含义
 # "auto"（默认）：模型自行判断是否需要调用工具
@@ -746,11 +746,11 @@ var _hmt = _hmt || [];
 # "required"：强制必须调用至少一个工具
 # {"type": "function", "function": {"name": "get_weather"}}：强制调用指定函数</code></pre>
 
-            <p>实际开发中，"auto"用得最多。"required"适合你确定用户请求必须走工具链的场景，比如"查一下北京明天的天气"，这种不查就没法回答的情况。"none"则适合你想让模型基于已有上下文做总结或推理的时候。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">实际开发中，"auto"用得最多。"required"适合你确定用户请求必须走工具链的场景，比如"查一下北京明天的天气"，这种不查就没法回答的情况。"none"则适合你想让模型基于已有上下文做总结或推理的时候。</p>
 
             <h2>Anthropic Claude的Tool Use实现方式</h2>
 
-            <p>Anthropic那边叫<strong>Tool Use</strong>，思路跟OpenAI类似但API设计上有一些差异。我两个平台都用过，说说实际体验上的区别：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Anthropic那边叫<strong>Tool Use</strong>，思路跟OpenAI类似但API设计上有一些差异。我两个平台都用过，说说实际体验上的区别：</p>
 
             <table class="comparison-table">
                 <thead>
@@ -794,15 +794,15 @@ var _hmt = _hmt || [];
                 </tbody>
             </table>
 
-            <p>说实话，两个平台的差异主要在API格式上，核心逻辑是一样的。如果你要做跨平台适配，建议写一层抽象，把工具定义和调用流程统一封装。后面我会给一个双版本的代码示例。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">说实话，两个平台的差异主要在API格式上，核心逻辑是一样的。如果你要做跨平台适配，建议写一层抽象，把工具定义和调用流程统一封装。后面我会给一个双版本的代码示例。</p>
 
             <h2>实战案例：构建"天气查询+航班搜索"智能助手</h2>
 
-            <p>光说理论没意思，直接上代码。我们构建一个能查天气和搜航班的助手，这是Function Calling最经典的入门场景。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">光说理论没意思，直接上代码。我们构建一个能查天气和搜航班的助手，这是Function Calling最经典的入门场景。</p>
 
             <h3>第一步：定义Tools Schema</h3>
 
-            <p>不管用哪个平台，第一步都是告诉模型你有哪些工具可以用。JSON Schema定义要尽量清晰，description写得好不好直接影响模型能不能正确选择工具。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不管用哪个平台，第一步都是告诉模型你有哪些工具可以用。JSON Schema定义要尽量清晰，description写得好不好直接影响模型能不能正确选择工具。</p>
 
             <pre><code># tools_schema.json
 {
@@ -863,7 +863,7 @@ var _hmt = _hmt || [];
 
             <div class="tip-box">
                 <div class="tip-box-title">经验分享</div>
-                <p>description字段是关键。模型靠这个判断什么时候该用哪个工具。我见过很多人写得特别简略，比如"查天气"，结果模型在用户说"今天心情不好"的时候也去调天气接口。写得越具体、越明确，误调用率越低。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">description字段是关键。模型靠这个判断什么时候该用哪个工具。我见过很多人写得特别简略，比如"查天气"，结果模型在用户说"今天心情不好"的时候也去调天气接口。写得越具体、越明确，误调用率越低。</p>
             </div>
 
             <h3>第二步：OpenAI版本Python代码</h3>
@@ -1084,7 +1084,7 @@ def run_assistant(user_message):
 # 测试
 print(run_assistant("帮我查一下上海明天的天气，再看看上海到北京5月20号有什么航班"))</code></pre>
 
-            <p>两个版本的核心流程是一样的：<strong>定义工具 - 发送请求 - 检查是否有工具调用 - 执行函数 - 回传结果 - 获取最终回答</strong>。区别主要在API格式上，Claude用content block的方式组织工具调用，OpenAI用tool_calls数组。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">两个版本的核心流程是一样的：<strong>定义工具 - 发送请求 - 检查是否有工具调用 - 执行函数 - 回传结果 - 获取最终回答</strong>。区别主要在API格式上，Claude用content block的方式组织工具调用，OpenAI用tool_calls数组。</p>
 
             <!-- 广告位1 -->
             <div class="ad-placeholder-inline">
@@ -1093,9 +1093,9 @@ print(run_assistant("帮我查一下上海明天的天气，再看看上海到�
 
             <h2>真实案例：电商智能客服的Function Calling实践</h2>
 
-            <p>说个我亲身经历的项目。去年底给一家中型电商做智能客服，他们每天的客服工单大概3000多，人工处理压力很大。我们用Function Calling方案接入了三个内部API：订单查询、退款处理、物流追踪。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">说个我亲身经历的项目。去年底给一家中型电商做智能客服，他们每天的客服工单大概3000多，人工处理压力很大。我们用Function Calling方案接入了三个内部API：订单查询、退款处理、物流追踪。</p>
 
-            <p>工具定义大概是这样的：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">工具定义大概是这样的：</p>
 
             <ul>
                 <li><strong>query_order</strong>：根据订单号或手机号查询订单状态、商品信息、收货地址</li>
@@ -1103,17 +1103,17 @@ print(run_assistant("帮我查一下上海明天的天气，再看看上海到�
                 <li><strong>track_logistics</strong>：输入订单号或快递单号，返回物流节点信息</li>
             </ul>
 
-            <p>上线跑了三个月的数据：67%的常见咨询（查快递到哪了、退款进度、订单信息确认）被AI直接处理，人工客服只需要处理那些涉及投诉、特殊售后和需要人工判断的复杂case。客服团队从原来的40人缩减到28人，但服务质量评分反而从4.2提升到了4.6——因为AI不会带着情绪上班，也不会因为忙了一天就敷衍了事。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上线跑了三个月的数据：67%的常见咨询（查快递到哪了、退款进度、订单信息确认）被AI直接处理，人工客服只需要处理那些涉及投诉、特殊售后和需要人工判断的复杂case。客服团队从原来的40人缩减到28人，但服务质量评分反而从4.2提升到了4.6——因为AI不会带着情绪上班，也不会因为忙了一天就敷衍了事。</p>
 
-            <p>这里有个关键设计：退款接口我们做了权限分级。AI只能处理金额在500元以下、购买不超过30天的标准退款申请。超出范围的自动转人工。这个"知道什么时候该放手"的能力，比"能处理多少问题"更重要。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这里有个关键设计：退款接口我们做了权限分级。AI只能处理金额在500元以下、购买不超过30天的标准退款申请。超出范围的自动转人工。这个"知道什么时候该放手"的能力，比"能处理多少问题"更重要。</p>
 
             <h2>高级技巧：并行调用、工具管理与错误处理</h2>
 
             <h3>并行函数调用</h3>
 
-            <p>这是gpt-4o和Claude 3.5之后才有的能力，效果非常明显。比如用户问"北京和上海的天气分别怎么样"，模型会同时返回两个get_weather调用，你的代码并行执行，然后把两个结果一起回传。比串行调用快了一倍。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这是gpt-4o和Claude 3.5之后才有的能力，效果非常明显。比如用户问"北京和上海的天气分别怎么样"，模型会同时返回两个get_weather调用，你的代码并行执行，然后把两个结果一起回传。比串行调用快了一倍。</p>
 
-            <p>代码层面的处理也不复杂，关键是检查返回中是否有多个tool_calls：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">代码层面的处理也不复杂，关键是检查返回中是否有多个tool_calls：</p>
 
             <pre><code># OpenAI并行调用处理
 if message.tool_calls:
@@ -1131,13 +1131,13 @@ if message.tool_calls:
 
             <h3>多轮对话中的工具管理</h3>
 
-            <p>多轮对话场景下有个容易踩的坑：工具定义要每轮都传，但不是每轮都需要调用工具。如果用户在第二轮只是说"好的谢谢"，模型不应该再去调任何接口。这时候tool_choice="auto"就很重要，让模型自己判断。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">多轮对话场景下有个容易踩的坑：工具定义要每轮都传，但不是每轮都需要调用工具。如果用户在第二轮只是说"好的谢谢"，模型不应该再去调任何接口。这时候tool_choice="auto"就很重要，让模型自己判断。</p>
 
-            <p>另外，多轮对话中messages会越来越长，要注意token消耗。我的做法是保留最近5轮对话，更早的做摘要压缩。工具调用的中间结果（function返回值）也可以在最终回答生成后清理掉，只保留最终回答。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">另外，多轮对话中messages会越来越长，要注意token消耗。我的做法是保留最近5轮对话，更早的做摘要压缩。工具调用的中间结果（function返回值）也可以在最终回答生成后清理掉，只保留最终回答。</p>
 
             <h3>错误处理</h3>
 
-            <p>这是很多人写demo的时候不考虑、上生产就翻车的地方。几个必须处理的异常：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这是很多人写demo的时候不考虑、上生产就翻车的地方。几个必须处理的异常：</p>
 
             <ol>
                 <li><strong>函数执行超时</strong>：给每个函数调用加timeout，超过5秒直接返回错误信息给模型，让模型告诉用户"查询超时，请稍后重试"</li>
@@ -1159,12 +1159,12 @@ def safe_call(func, args, timeout=5):
 
             <div class="tip-box warning">
                 <div class="tip-box-title">重要提醒</div>
-                <p>永远不要把函数执行错误直接暴露给用户。模型收到错误信息后可以生成友好的回复，但原始的stack trace或API错误码不应该出现在最终输出中。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">永远不要把函数执行错误直接暴露给用户。模型收到错误信息后可以生成友好的回复，但原始的stack trace或API错误码不应该出现在最终输出中。</p>
             </div>
 
             <h2>Function Calling vs 提示词工程：什么时候用哪个</h2>
 
-            <p>这两个不是替代关系，而是互补的。我总结了一个简单的判断标准：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这两个不是替代关系，而是互补的。我总结了一个简单的判断标准：</p>
 
             <table class="comparison-table">
                 <thead>
@@ -1208,13 +1208,13 @@ def safe_call(func, args, timeout=5):
                 </tbody>
             </table>
 
-            <p>简单记：凡是需要"真实数据"或"执行操作"的，用Function Calling；纯文本层面的理解和生成，用提示词工程就够了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">简单记：凡是需要"真实数据"或"执行操作"的，用Function Calling；纯文本层面的理解和生成，用提示词工程就够了。</p>
 
             <h2>常见问题与排查指南</h2>
 
             <h3>JSON Schema定义错误</h3>
 
-            <p>这是最常见的坑。模型对JSON Schema的解析比你想的严格。几个高频问题：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这是最常见的坑。模型对JSON Schema的解析比你想的严格。几个高频问题：</p>
 
             <ul>
                 <li><strong>enum值写了中文但没加引号</strong>：enum必须是字符串数组，["celsius", "fahrenheit"]，不能写错类型</li>
@@ -1225,7 +1225,7 @@ def safe_call(func, args, timeout=5):
 
             <h3>函数执行超时</h3>
 
-            <p>如果你的工具函数涉及网络请求（调第三方API、查数据库），超时是迟早会遇到的问题。建议：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你的工具函数涉及网络请求（调第三方API、查数据库），超时是迟早会遇到的问题。建议：</p>
 
             <ol>
                 <li>所有外部调用设置超时时间，建议3-5秒</li>
@@ -1235,9 +1235,9 @@ def safe_call(func, args, timeout=5):
 
             <h3>循环调用防护</h3>
 
-            <p>这个坑比较隐蔽。模型有时候会陷入循环：调工具A -> 得到结果 -> 又调工具A -> 又得到类似结果...无限循环下去，token烧完为止。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这个坑比较隐蔽。模型有时候会陷入循环：调工具A -> 得到结果 -> 又调工具A -> 又得到类似结果...无限循环下去，token烧完为止。</p>
 
-            <p>解决方案很简单：设置最大工具调用轮次。一般2-3轮就足够了，超过就直接让模型基于已有信息回答。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">解决方案很简单：设置最大工具调用轮次。一般2-3轮就足够了，超过就直接让模型基于已有信息回答。</p>
 
             <pre><code>MAX_TOOL_ROUNDS = 3
 
@@ -1269,19 +1269,43 @@ def run_assistant_safe(user_message):
 
             <div class="tip-box">
                 <div class="tip-box-title">补充建议</div>
-                <p>除了最大轮次限制，还可以在system prompt里明确告诉模型"每个工具最多调用一次，不要重复调用相同工具"。这能从源头上减少大部分循环调用的情况。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">除了最大轮次限制，还可以在system prompt里明确告诉模型"每个工具最多调用一次，不要重复调用相同工具"。这能从源头上减少大部分循环调用的情况。</p>
             </div>
 
             <h2>写在最后</h2>
 
-            <p>Function Calling是AI从"聊天机器人"进化到"智能助手"的关键一步。如果你在做AI Agent开发或者想给产品加上AI能力，这项技术基本是绕不过去的。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Function Calling是AI从"聊天机器人"进化到"智能助手"的关键一步。如果你在做AI Agent开发或者想给产品加上AI能力，这项技术基本是绕不过去的。</p>
 
-            <p>我的建议是先从一个简单的场景开始——比如查天气或者查数据库——把整个流程跑通，然后再逐步加工具、加复杂度。不要一上来就搞十几个工具的复杂系统，调试起来会非常痛苦。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我的建议是先从一个简单的场景开始——比如查天气或者查数据库——把整个流程跑通，然后再逐步加工具、加复杂度。不要一上来就搞十几个工具的复杂系统，调试起来会非常痛苦。</p>
 
-            <p>另外，工具的description真的值得花时间打磨。我见过太多项目因为description写得不好，导致模型频繁选错工具，最后开发团队还以为是模型能力不行。其实很多时候是输入端的问题。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">另外，工具的description真的值得花时间打磨。我见过太多项目因为description写得不好，导致模型频繁选错工具，最后开发团队还以为是模型能力不行。其实很多时候是输入端的问题。</p>
 
-            <p>有什么问题欢迎交流，这块踩过的坑确实不少，希望能帮大家少走一些弯路。</p>
-        </article>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">有什么问题欢迎交流，这块踩过的坑确实不少，希望能帮大家少走一些弯路。</p>
+        
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-agent-function-calling-guide-2026">2026年AI Agent开发实战：Function Calling从入门到生产级应用博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">从ChatBot到AI Agent的进化之路。详解Function Calling原理，OpenAI与Anthropic Tool Use实战代码对比，Lang...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-agent-development-guide-2026">从零构建AI Agent：2026年最实用的开发框架选型与落地实战</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">从零构建AI Agent完整指南。覆盖LangChain、LlamaIndex、AutoGPT、Dify等主流框架对比，含ReAct、CoT、Tool Use模...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-schema-design-function-calling-guide-2026">AI API Schema设计实战：从踩坑到精通 AI API攻略</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入讲解Function Calling Schema设计实战，涵盖JSON Schema核心关键字技巧、OpenAI vs Anthropic vs Gemi...</p>
+                </article>
+
+            </div>
+        </section>
+
+    </article>
 
         <!-- 底部广告位 -->
         <div class="ad-placeholder-bottom">
@@ -1294,31 +1318,31 @@ def run_assistant_safe(user_message):
         <div class="footer-content">
             <div class="footer-section">
                 <h3>关于我们</h3>
-                <p>TokenNexus是全球最全的AI Token导航平台，收录280+国内外AI API服务商，为开发者提供全面的API选型参考。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">TokenNexus是全球最全的AI Token导航平台，收录280+国内外AI API服务商，为开发者提供全面的API选型参考。</p>
             </div>
             <div class="footer-section">
                 <h3>快速链接</h3>
-                <p><a href="../about.html">关于我们</a></p>
-                <p><a href="../contact.html">联系我们</a></p>
-                <p><a href="../privacy.html">隐私政策</a></p>
-                <p><a href="../terms.html">使用条款</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="../about.html">关于我们</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="../contact.html">联系我们</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="../privacy.html">隐私政策</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="../terms.html">使用条款</a></p>
             </div>
             <div class="footer-section">
                 <h3>资源</h3>
-                <p><a href="./">博客文章</a></p>
-                <p><a href="../official.html">海外官方API</a></p>
-                <p><a href="../aggregator.html">聚合中转平台</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="./">博客文章</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="../official.html">海外官方API</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="../aggregator.html">聚合中转平台</a></p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 TokenNexus. All rights reserved.</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">&copy; 2026 TokenNexus. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Cookie同意横幅 -->
     <div id="cookie-consent" class="cookie-consent">
         <div class="cookie-content">
-            <p>我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的Cookie政策。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的Cookie政策。</p>
             <div class="cookie-buttons">
                 <button onclick="acceptCookies()" class="cookie-btn accept">同意</button>
                 <a href="../privacy.html" class="cookie-btn more">了解更多</a>

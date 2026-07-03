@@ -182,19 +182,19 @@ var _hmt = _hmt || [];
         <div class="article-content">
             <h2>踩坑开场：我的AI内容审核系统翻车记</h2>
             
-            <p>去年做了一个内容审核系统，最开始只支持文本。用户反馈"能不能加图片审核"，我心想不就是调个API嘛，3天搞定。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年做了一个内容审核系统，最开始只支持文本。用户反馈"能不能加图片审核"，我心想不就是调个API嘛，3天搞定。</p>
             
-            <p>结果呢？图片审核上了，视频理解需求来了，音频审核也排上日程了。最后整个架构变成一团乱麻：图片走GPT-4o Vision，视频走自研抽帧+图像分析，音频走Whisir拼Claude...每次加新功能都像在打补丁。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">结果呢？图片审核上了，视频理解需求来了，音频审核也排上日程了。最后整个架构变成一团乱麻：图片走GPT-4o Vision，视频走自研抽帧+图像分析，音频走Whisir拼Claude...每次加新功能都像在打补丁。</p>
             
-            <p>这绝对不是个例。我见过太多团队踩这个坑。今天就把多模态API的正确打开方式讲清楚，让你少走弯路。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这绝对不是个例。我见过太多团队踩这个坑。今天就把多模态API的正确打开方式讲清楚，让你少走弯路。</p>
 
             <h2>多模态API的本质：为什么大模型能同时处理文本、图像、音频、视频</h2>
             
-            <p>很多人以为多模态是"把图片发给模型，模型返回结果"。其实底层逻辑完全不同。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">很多人以为多模态是"把图片发给模型，模型返回结果"。其实底层逻辑完全不同。</p>
             
-            <p><strong>核心原理：统一Token化</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>核心原理：统一Token化</strong></p>
             
-            <p>不管输入是文本、图像还是音频，最终都会被转换成一种叫Token的东西。大模型只认识Token，所以它能"同时"处理各种类型的输入。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不管输入是文本、图像还是音频，最终都会被转换成一种叫Token的东西。大模型只认识Token，所以它能"同时"处理各种类型的输入。</p>
             
             <ul>
                 <li><strong>文本Token</strong>：按词/子词切分，"深度学习"可能变成[深, 度, 学, 习]四个token</li>
@@ -204,12 +204,12 @@ var _hmt = _hmt || [];
             </ul>
 
             <div class="highlight-box">
-                <p><strong>实战经验：</strong>理解Token化这个概念超级重要。图片压缩、帧采样、视频截断，这些操作本质上都是在控制Token数量，从而控制成本和延迟。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>实战经验：</strong>理解Token化这个概念超级重要。图片压缩、帧采样、视频截断，这些操作本质上都是在控制Token数量，从而控制成本和延迟。</p>
             </div>
 
             <h2>主流多模态API横向对比</h2>
             
-            <p>2026年的多模态API市场，已经形成了清晰的竞争格局。我来给你做个务实对比：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年的多模态API市场，已经形成了清晰的竞争格局。我来给你做个务实对比：</p>
             
             <table>
                 <thead>
@@ -258,11 +258,11 @@ var _hmt = _hmt || [];
                 </tbody>
             </table>
 
-            <p>如果你的业务主要在国内，<a href="../china.html">可以看看国内平台的多模态API</a>，价格通常是OpenAI的1/10，而且中文理解更强。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你的业务主要在国内，<a href="../china.html">可以看看国内平台的多模态API</a>，价格通常是OpenAI的1/10，而且中文理解更强。</p>
 
             <h2>GPT-4o Vision图像分析：完整Python代码</h2>
             
-            <p>先从最常用的GPT-4o Vision开始。核心就三步：图片转base64、构造消息、调用API。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先从最常用的GPT-4o Vision开始。核心就三步：图片转base64、构造消息、调用API。</p>
 
             <pre><code>import base64
 import requests
@@ -329,7 +329,7 @@ print(result['choices'][0]['message']['content'])</code></pre>
 
             <h3>高级Prompt示例：结构化输出</h3>
             
-            <p>实际项目中，光返回一段文字不够用。你可能需要JSON格式的结构化数据。试试这样：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">实际项目中，光返回一段文字不够用。你可能需要JSON格式的结构化数据。试试这样：</p>
 
             <pre><code>def analyze_product_for_ecommerce(image_path, api_key):
     """电商产品图片结构化分析"""
@@ -352,7 +352,7 @@ print(result['choices'][0]['message']['content'])</code></pre>
 
             <h2>Gemini Pro图像理解：支持多图对比分析</h2>
             
-            <p>Gemini的强项是原生多模态，一张图能处理的信息量更大，而且支持多图对比。这里给出完整实现：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Gemini的强项是原生多模态，一张图能处理的信息量更大，而且支持多图对比。这里给出完整实现：</p>
 
             <pre><code>import os
 import json
@@ -408,8 +408,8 @@ def monitor_competitor_change(competitor_imgs):
 
             <div class="warning-box">
                 <h4>大坑预警：图片尺寸与Token限制</h4>
-                <p>我第一次用Gemini处理用户上传的产品图，直接崩了。一张8K分辨率的原图过来，Token直接爆表。</p>
-                <p><strong>解决方案：上传前压缩到合理尺寸</strong></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我第一次用Gemini处理用户上传的产品图，直接崩了。一张8K分辨率的原图过来，Token直接爆表。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>解决方案：上传前压缩到合理尺寸</strong></p>
                 <pre><code>from PIL import Image
 
 def preprocess_image_for_api(image_path, max_dimension=2048):
@@ -438,9 +438,9 @@ def preprocess_image_for_api(image_path, max_dimension=2048):
 
             <h2>视频理解方案：帧采样+关键帧+时间序列</h2>
             
-            <p>视频是最复杂的输入形式。直接传视频给模型？GPT-4o最多支持1分钟视频，Gemini能处理更长的，但成本会爆炸。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">视频是最复杂的输入形式。直接传视频给模型？GPT-4o最多支持1分钟视频，Gemini能处理更长的，但成本会爆炸。</p>
             
-            <p><strong>工业级方案：分层处理</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>工业级方案：分层处理</strong></p>
             
             <ol>
                 <li><strong>帧采样</strong>：按固定间隔提取帧（如每秒1帧）</li>
@@ -511,7 +511,7 @@ def video_to_frame_analysis(video_path, api_key):
 
             <h2>多模态AI Pipeline架构</h2>
             
-            <p>想让系统支持文本、图像、视频、音频统一处理？推荐这个分层架构：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">想让系统支持文本、图像、视频、音频统一处理？推荐这个分层架构：</p>
             
             <pre><code>                    ┌─────────────────┐
                     │   输入路由器    │
@@ -571,7 +571,7 @@ pipeline = router.route(input_data)  # 返回 "image_pipeline"</code></pre>
 
             <h2>多模态成本优化实战</h2>
             
-            <p>多模态贵在哪里？Token。你每上传一张图片，就在烧钱。来看我的优化经验：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">多模态贵在哪里？Token。你每上传一张图片，就在烧钱。来看我的优化经验：</p>
 
             <h3>图片压缩策略</h3>
             
@@ -637,16 +637,40 @@ pipeline = router.route(input_data)  # 返回 "image_pipeline"</code></pre>
 
             <h2>写在最后</h2>
             
-            <p>多模态API已经是AI应用的主流配置，但真正用好它需要理解底层逻辑：Token化决定了成本，模型能力决定了上限，Pipeline设计决定了扩展性。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">多模态API已经是AI应用的主流配置，但真正用好它需要理解底层逻辑：Token化决定了成本，模型能力决定了上限，Pipeline设计决定了扩展性。</p>
             
-            <p>如果你还在纠结选哪个平台，可以去 <a href="../">TokenNexus</a> 看看完整的多模态API对比，包括GPT-4o Vision、Gemini、Claude 3.5 Sonnet等主流平台的实时价格和功能对比。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你还在纠结选哪个平台，可以去 <a href="../">TokenNexus</a> 看看完整的多模态API对比，包括GPT-4o Vision、Gemini、Claude 3.5 Sonnet等主流平台的实时价格和功能对比。</p>
 
             <div class="cta-box">
                 <h3>多模态API平台对比</h3>
-                <p>想找到最适合你的多模态AI平台？TokenNexus收录了330+国内外AI API，支持按功能、价格、延迟等多维度筛选对比</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">想找到最适合你的多模态AI平台？TokenNexus收录了330+国内外AI API，支持按功能、价格、延迟等多维度筛选对比</p>
                 <a href="../">立即对比多模态API</a>
             </div>
         </div>
+    
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-multimodal-guide-2026">AI API多模态能力实战：图文音视频一站式开发完全指南</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年AI多模态API实战指南：GPT-4V、Claude Vision、Gemini图像理解API对比，Whisper语音识别、ElevenLabs语音合...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-token-pricing-cost-calculation-guide-2026">AI API Token计费原理深度解析 AI API攻略</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入解析AI API Token计算原理，涵盖中英文Token化差异、GPT-4o/Claude/DeepSeek最新定价表、多模态Token计算、Python...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-multimodal-api-integration-guide-2026">2026年AI多模态API完全指南：从理论到落地，一文搞懂视觉、语音、视频理解博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年AI多模态API完全指南，详解GPT-4o Vision、Claude 3.5 Vision、Gemini 1.5 Pro视觉理解API接入实战，Wh...</p>
+                </article>
+
+            </div>
+        </section>
+
     </article>
     <footer class="footer">
         <div class="footer-links">

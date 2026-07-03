@@ -672,17 +672,17 @@ var _hmt = _hmt || [];
 
             <h2>什么是流式响应？为什么它对用户体验至关重要</h2>
 
-            <p>用过ChatGPT的人都知道那个"打字机效果"——回答不是一次性蹦出来的，而是逐字逐句地显示。这个效果背后用的就是<strong>流式响应</strong>（Streaming），具体来说就是基于SSE（Server-Sent Events）协议实现的。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">用过ChatGPT的人都知道那个"打字机效果"——回答不是一次性蹦出来的，而是逐字逐句地显示。这个效果背后用的就是<strong>流式响应</strong>（Streaming），具体来说就是基于SSE（Server-Sent Events）协议实现的。</p>
 
-            <p>传统的HTTP请求是"一问一答"模式：客户端发请求，服务端处理完所有内容后一次性返回。对于AI大模型来说，生成一段几百字的回答可能需要8到15秒，用户在这段时间里只能对着一个loading动画发呆。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">传统的HTTP请求是"一问一答"模式：客户端发请求，服务端处理完所有内容后一次性返回。对于AI大模型来说，生成一段几百字的回答可能需要8到15秒，用户在这段时间里只能对着一个loading动画发呆。</p>
 
-            <p>流式响应改变了这个模式。服务端不是等所有内容生成完再返回，而是<strong>边生成边推送</strong>。每生成几个token（通常是一个词或几个字符），就立即通过SSE通道发送给客户端。用户几乎在发出提问的瞬间就能看到AI开始"思考"并输出内容。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">流式响应改变了这个模式。服务端不是等所有内容生成完再返回，而是<strong>边生成边推送</strong>。每生成几个token（通常是一个词或几个字符），就立即通过SSE通道发送给客户端。用户几乎在发出提问的瞬间就能看到AI开始"思考"并输出内容。</p>
 
-            <p>这不是什么锦上添花的功能，而是直接影响用户留存的核心体验。想想看，如果你问AI一个问题，盯着空白屏幕等12秒，你大概率会关掉页面。但如果0.3秒就开始有文字流出来，你的注意力就被抓住了，甚至会主动等待完整回答。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这不是什么锦上添花的功能，而是直接影响用户留存的核心体验。想想看，如果你问AI一个问题，盯着空白屏幕等12秒，你大概率会关掉页面。但如果0.3秒就开始有文字流出来，你的注意力就被抓住了，甚至会主动等待完整回答。</p>
 
             <h2>流式 vs 非流式：数据说话</h2>
 
-            <p>光说体验好不够，我们来看具体数据。我之前对GPT-4o做过一组对比测试，同一个prompt，分别用流式和非流式调用，各跑50次取平均值：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">光说体验好不够，我们来看具体数据。我之前对GPT-4o做过一组对比测试，同一个prompt，分别用流式和非流式调用，各跑50次取平均值：</p>
 
             <table>
                 <thead>
@@ -721,13 +721,13 @@ var _hmt = _hmt || [];
                 </tbody>
             </table>
 
-            <p>关键指标是<strong>TTFT（Time To First Token，首字延迟）</strong>。非流式模式下，用户要等整个推理完成才能看到第一个字；流式模式下，模型刚吐出第一个token，前端就能渲染。从8-15秒降到0.3-0.8秒，这是两个数量级的体验差距。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">关键指标是<strong>TTFT（Time To First Token，首字延迟）</strong>。非流式模式下，用户要等整个推理完成才能看到第一个字；流式模式下，模型刚吐出第一个token，前端就能渲染。从8-15秒降到0.3-0.8秒，这是两个数量级的体验差距。</p>
 
-            <p>值得注意的是，流式调用的总耗时并不比非流式短，甚至可能因为网络传输开销略长一点。但用户根本不在乎总耗时——他们在乎的是"我发出去之后多久能看到东西"。这就是流式响应的核心价值：用感知体验的巨大提升，换取几乎为零的额外成本。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">值得注意的是，流式调用的总耗时并不比非流式短，甚至可能因为网络传输开销略长一点。但用户根本不在乎总耗时——他们在乎的是"我发出去之后多久能看到东西"。这就是流式响应的核心价值：用感知体验的巨大提升，换取几乎为零的额外成本。</p>
 
             <h2>OpenAI API 流式调用详解</h2>
 
-            <p>OpenAI的流式接口设计得比较简洁，核心就是在请求体里加一个 <code>stream: true</code> 参数。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI的流式接口设计得比较简洁，核心就是在请求体里加一个 <code>stream: true</code> 参数。</p>
 
             <div class="code-block">
                 <div class="code-header">
@@ -749,7 +749,7 @@ stream = client.chat.completions.create(
         print(chunk.choices[<span class="number">0</span>].delta.content, end=<span class="string">""</span>, flush=<span class="keyword">True</span>)</code></pre>
             </div>
 
-            <p>如果你不用SDK，直接用HTTP请求，返回的数据格式是这样的：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你不用SDK，直接用HTTP请求，返回的数据格式是这样的：</p>
 
             <div class="code-block">
                 <div class="code-header">
@@ -766,13 +766,13 @@ data: {<span class="string">"id"</span>:<span class="string">"chatcmpl-xxx"</spa
 data: [DONE]</code></pre>
             </div>
 
-            <p>每个SSE消息以 <code>data: </code> 开头，两条消息之间用空行分隔。最后一条固定是 <code>data: [DONE]</code>，表示流结束。每个chunk里的 <code>delta.content</code> 就是这一帧新增的文本片段，你需要把它们拼接起来得到完整回答。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">每个SSE消息以 <code>data: </code> 开头，两条消息之间用空行分隔。最后一条固定是 <code>data: [DONE]</code>，表示流结束。每个chunk里的 <code>delta.content</code> 就是这一帧新增的文本片段，你需要把它们拼接起来得到完整回答。</p>
 
-            <p>第一个chunk通常只包含 <code>delta.role</code>，没有content，用来告诉你模型的角色。从第二个chunk开始才有实际内容。最后一个有内容的chunk会带上 <code>finish_reason: "stop"</code>。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">第一个chunk通常只包含 <code>delta.role</code>，没有content，用来告诉你模型的角色。从第二个chunk开始才有实际内容。最后一个有内容的chunk会带上 <code>finish_reason: "stop"</code>。</p>
 
             <h2>Anthropic Claude API 流式调用</h2>
 
-            <p>Claude的流式接口跟OpenAI类似，但event类型更丰富一些。它用的是自己的event stream格式，不是标准SSE，但处理逻辑大同小异。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Claude的流式接口跟OpenAI类似，但event类型更丰富一些。它用的是自己的event stream格式，不是标准SSE，但处理逻辑大同小异。</p>
 
             <div class="code-block">
                 <div class="code-header">
@@ -791,7 +791,7 @@ client = anthropic.Anthropic(api_key=<span class="string">"sk-ant-your-key"</spa
         print(text, end=<span class="string">""</span>, flush=<span class="keyword">True</span>)</code></pre>
             </div>
 
-            <p>Claude的流式事件类型比OpenAI多，完整的事件流大概是这样的：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Claude的流式事件类型比OpenAI多，完整的事件流大概是这样的：</p>
 
             <table>
                 <thead>
@@ -828,15 +828,15 @@ client = anthropic.Anthropic(api_key=<span class="string">"sk-ant-your-key"</spa
                 </tbody>
             </table>
 
-            <p>实际开发中，你主要关注 <code>content_block_delta</code> 事件，它的 <code>delta.text</code> 字段就是新增的文本。如果你用官方SDK的 <code>stream.text_stream</code>，这些细节已经被封装好了，直接遍历就行。但如果自己做HTTP请求转发，就需要手动解析这些event类型。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">实际开发中，你主要关注 <code>content_block_delta</code> 事件，它的 <code>delta.text</code> 字段就是新增的文本。如果你用官方SDK的 <code>stream.text_stream</code>，这些细节已经被封装好了，直接遍历就行。但如果自己做HTTP请求转发，就需要手动解析这些event类型。</p>
 
             <h2>前端实现：处理SSE流式数据</h2>
 
-            <p>前端处理SSE主要有两种方式：原生 <code>EventSource</code> 和 <code>fetch + ReadableStream</code>。我两种都用过，各有适用场景。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">前端处理SSE主要有两种方式：原生 <code>EventSource</code> 和 <code>fetch + ReadableStream</code>。我两种都用过，各有适用场景。</p>
 
             <h3>方式一：fetch + ReadableStream（推荐）</h3>
 
-            <p>为什么推荐这个？因为EventSource只支持GET请求，而大多数AI API需要POST。而且fetch方式更灵活，可以自定义header、处理错误等。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">为什么推荐这个？因为EventSource只支持GET请求，而大多数AI API需要POST。而且fetch方式更灵活，可以自定义header、处理错误等。</p>
 
             <div class="code-block">
                 <div class="code-header">
@@ -897,11 +897,11 @@ client = anthropic.Anthropic(api_key=<span class="string">"sk-ant-your-key"</spa
 }</code></pre>
             </div>
 
-            <p>这里有个容易踩的坑：<strong>buffer的处理</strong>。TCP是流式传输，一次read回来的数据可能包含多个完整的SSE消息，也可能只包含半个。所以必须用buffer把不完整的部分存起来，等下一次read再拼接。我见过不少人直接split然后遍历，结果偶尔丢数据，就是这个原因。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这里有个容易踩的坑：<strong>buffer的处理</strong>。TCP是流式传输，一次read回来的数据可能包含多个完整的SSE消息，也可能只包含半个。所以必须用buffer把不完整的部分存起来，等下一次read再拼接。我见过不少人直接split然后遍历，结果偶尔丢数据，就是这个原因。</p>
 
             <h3>方式二：EventSource（简单场景）</h3>
 
-            <p>如果你的后端支持GET请求返回SSE，用EventSource会更简单：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你的后端支持GET请求返回SSE，用EventSource会更简单：</p>
 
             <div class="code-block">
                 <div class="code-header">
@@ -927,11 +927,11 @@ source.onerror = <span class="keyword">function</span>() {
 };</code></pre>
             </div>
 
-            <p>EventSource的好处是浏览器原生支持自动重连，代码也更简洁。但限制也明显：只支持GET、不能自定义请求头（没法传Authorization）、不支持POST body。所以实际做AI聊天流式实现时，大多数情况还是得用fetch。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">EventSource的好处是浏览器原生支持自动重连，代码也更简洁。但限制也明显：只支持GET、不能自定义请求头（没法传Authorization）、不支持POST body。所以实际做AI聊天流式实现时，大多数情况还是得用fetch。</p>
 
             <h2>后端实现：FastAPI 流式转发</h2>
 
-            <p>在实际项目中，前端通常不会直接调OpenAI的API（API Key不能暴露在浏览器端），而是通过自己的后端做一层转发。用FastAPI实现SSE流式转发非常优雅。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在实际项目中，前端通常不会直接调OpenAI的API（API Key不能暴露在浏览器端），而是通过自己的后端做一层转发。用FastAPI实现SSE流式转发非常优雅。</p>
 
             <div class="code-block">
                 <div class="code-header">
@@ -978,7 +978,7 @@ client = OpenAI(api_key=<span class="string">"sk-your-key"</span>)
     )</code></pre>
             </div>
 
-            <p>这段代码有几个关键点值得注意：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这段代码有几个关键点值得注意：</p>
 
             <ul>
                 <li><code>StreamingResponse</code> 配合 async generator，FastAPI会自动处理异步迭代</li>
@@ -987,7 +987,7 @@ client = OpenAI(api_key=<span class="string">"sk-your-key"</span>)
                 <li><code>ensure_ascii=False</code> 确保中文不会被转义成unicode编码</li>
             </ul>
 
-            <p>如果你要转发Claude的流式响应，逻辑类似，只是解析event类型的方式不同：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你要转发Claude的流式响应，逻辑类似，只是解析event类型的方式不同：</p>
 
             <div class="code-block">
                 <div class="code-header">
@@ -1022,9 +1022,9 @@ client = OpenAI(api_key=<span class="string">"sk-your-key"</span>)
 
             <h2>真实案例：在线教育平台的流式改造</h2>
 
-            <p>回到开头提到的那个在线教育项目。这是一个面向K12学生的AI答疑平台，学生拍题上传，AI给出解题思路。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">回到开头提到的那个在线教育项目。这是一个面向K12学生的AI答疑平台，学生拍题上传，AI给出解题思路。</p>
 
-            <p>第一版上线用的是非流式调用，数据很"真实"：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">第一版上线用的是非流式调用，数据很"真实"：</p>
 
             <ul>
                 <li>平均等待时间：12秒（GPT-4o处理数学题比较慢）</li>
@@ -1033,7 +1033,7 @@ client = OpenAI(api_key=<span class="string">"sk-your-key"</span>)
                 <li>客服投诉"AI没反应"的工单：每天200+</li>
             </ul>
 
-            <p>改完流式输出后的数据：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">改完流式输出后的数据：</p>
 
             <ul>
                 <li>首字延迟：0.5秒以内</li>
@@ -1042,19 +1042,19 @@ client = OpenAI(api_key=<span class="string">"sk-your-key"</span>)
                 <li>"AI没反应"的工单：基本归零</li>
             </ul>
 
-            <p>留存率提升23%，对于一个DAU 5万左右的产品来说，这意味着每个月多留住上万名活跃用户。技术改造本身只花了两周，投入产出比极高。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">留存率提升23%，对于一个DAU 5万左右的产品来说，这意味着每个月多留住上万名活跃用户。技术改造本身只花了两周，投入产出比极高。</p>
 
-            <p>有意思的是，我们还在流式输出过程中加了一个"正在思考"的动画效果——在第一个token到达之前显示一个跳动的光标，token到达后切换为打字效果。这个小细节让用户感知的等待时间进一步缩短，因为视觉上有东西在动，用户就不会觉得"卡了"。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">有意思的是，我们还在流式输出过程中加了一个"正在思考"的动画效果——在第一个token到达之前显示一个跳动的光标，token到达后切换为打字效果。这个小细节让用户感知的等待时间进一步缩短，因为视觉上有东西在动，用户就不会觉得"卡了"。</p>
 
             <h2>常见坑点：生产环境踩过的那些坑</h2>
 
-            <p>流式响应在开发环境跑得好好的，一上生产就各种问题。这里把我和团队踩过的坑总结一下。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">流式响应在开发环境跑得好好的，一上生产就各种问题。这里把我和团队踩过的坑总结一下。</p>
 
             <h3>坑一：Nginx缓冲导致流式失效</h3>
 
-            <p>这是最常见的坑，没有之一。Nginx默认会开启 <code>proxy_buffering</code>，它会把上游的响应先缓存到内存里，攒够一定大小再发给客户端。结果就是：你的FastAPI明明在逐块输出，但前端要等好几秒才能收到第一批数据，完全失去了流式的意义。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这是最常见的坑，没有之一。Nginx默认会开启 <code>proxy_buffering</code>，它会把上游的响应先缓存到内存里，攒够一定大小再发给客户端。结果就是：你的FastAPI明明在逐块输出，但前端要等好几秒才能收到第一批数据，完全失去了流式的意义。</p>
 
-            <p>解决方案是在Nginx配置里关闭缓冲：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">解决方案是在Nginx配置里关闭缓冲：</p>
 
             <div class="code-block">
                 <div class="code-header">
@@ -1069,11 +1069,11 @@ client = OpenAI(api_key=<span class="string">"sk-your-key"</span>)
 }</code></pre>
             </div>
 
-            <p>另外，FastAPI端也可以通过设置 <code>X-Accel-Buffering: no</code> 响应头来告诉Nginx不要缓冲（前面代码里已经加了）。两种方式都加上最保险。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">另外，FastAPI端也可以通过设置 <code>X-Accel-Buffering: no</code> 响应头来告诉Nginx不要缓冲（前面代码里已经加了）。两种方式都加上最保险。</p>
 
             <h3>坑二：超时断连</h3>
 
-            <p>AI生成长文本时，一个请求可能持续30秒甚至更久。很多中间件和客户端都有默认超时设置：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI生成长文本时，一个请求可能持续30秒甚至更久。很多中间件和客户端都有默认超时设置：</p>
 
             <ul>
                 <li><strong>Nginx</strong>：默认 <code>proxy_read_timeout 60s</code>，一般够用，但生成长文本时要调大</li>
@@ -1081,19 +1081,19 @@ client = OpenAI(api_key=<span class="string">"sk-your-key"</span>)
                 <li><strong>云函数/Serverless</strong>：AWS Lambda默认30秒超时，Vercel Serverless Functions免费版10秒，都不够用</li>
             </ul>
 
-            <p>我的建议是：Nginx的 <code>proxy_read_timeout</code> 设为120秒，后端做好心跳保活。如果用Serverless部署，考虑用WebSocket方案替代SSE，或者换成长连接的服务器部署。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我的建议是：Nginx的 <code>proxy_read_timeout</code> 设为120秒，后端做好心跳保活。如果用Serverless部署，考虑用WebSocket方案替代SSE，或者换成长连接的服务器部署。</p>
 
             <h3>坑三：编码问题</h3>
 
-            <p>中文内容在流式传输时偶尔会出现乱码，尤其是多字节UTF-8字符被截断的情况。比如一个中文字符占3个字节，TCP分片时可能把3个字节拆成两次传输，第一次读出来就是乱码。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">中文内容在流式传输时偶尔会出现乱码，尤其是多字节UTF-8字符被截断的情况。比如一个中文字符占3个字节，TCP分片时可能把3个字节拆成两次传输，第一次读出来就是乱码。</p>
 
-            <p>解决方案是用 <code>TextDecoder</code> 的 <code>{ stream: true }</code> 选项（前面前端代码里已经用了），它会正确处理不完整的UTF-8序列。Python端确保用 <code>ensure_ascii=False</code> 输出JSON。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">解决方案是用 <code>TextDecoder</code> 的 <code>{ stream: true }</code> 选项（前面前端代码里已经用了），它会正确处理不完整的UTF-8序列。Python端确保用 <code>ensure_ascii=False</code> 输出JSON。</p>
 
             <h3>坑四：错误处理不完善</h3>
 
-            <p>流式传输过程中如果出错了（比如API Key过期、速率限制），错误信息可能混在SSE流中间返回。前端需要能识别这种情况并给用户友好的提示，而不是让页面卡在"加载中"。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">流式传输过程中如果出错了（比如API Key过期、速率限制），错误信息可能混在SSE流中间返回。前端需要能识别这种情况并给用户友好的提示，而不是让页面卡在"加载中"。</p>
 
-            <p>我的做法是在后端加一个错误事件的约定：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我的做法是在后端加一个错误事件的约定：</p>
 
             <div class="code-block">
                 <div class="code-header">
@@ -1121,17 +1121,17 @@ client = OpenAI(api_key=<span class="string">"sk-your-key"</span>)
 
             <h2>流式响应的Token计费说明</h2>
 
-            <p>很多人有个疑问：流式调用会不会多扣Token？答案是不会。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">很多人有个疑问：流式调用会不会多扣Token？答案是不会。</p>
 
-            <p>OpenAI和Anthropic的计费都是基于实际使用的Token数量（input tokens + output tokens），跟是否流式无关。流式只是改变了数据的传输方式，模型生成的Token总数是一样的。你可以在流式响应的最后一个 <code>message_delta</code>（Claude）或usage字段（OpenAI）里看到完整的Token使用量。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI和Anthropic的计费都是基于实际使用的Token数量（input tokens + output tokens），跟是否流式无关。流式只是改变了数据的传输方式，模型生成的Token总数是一样的。你可以在流式响应的最后一个 <code>message_delta</code>（Claude）或usage字段（OpenAI）里看到完整的Token使用量。</p>
 
-            <p>不过有一个细微差别：流式调用在传输过程中，如果用户中途取消了请求（比如关闭页面），模型可能已经生成了一部分Token但还没传完。这部分已生成的Token会计费。所以从成本角度来说，流式并不会更贵，但如果用户频繁取消长回答，可能会有少量"浪费"的Token。实际影响很小，不用太担心。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不过有一个细微差别：流式调用在传输过程中，如果用户中途取消了请求（比如关闭页面），模型可能已经生成了一部分Token但还没传完。这部分已生成的Token会计费。所以从成本角度来说，流式并不会更贵，但如果用户频繁取消长回答，可能会有少量"浪费"的Token。实际影响很小，不用太担心。</p>
 
             <h2>写在最后</h2>
 
-            <p>流式响应从技术实现上来说并不复杂，但它对用户体验的影响是巨大的。如果你的产品里有AI对话功能，还在用非流式调用，我强烈建议尽快改过来。首字延迟从十几秒降到不到1秒，这个体验差距用户是能明显感知到的。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">流式响应从技术实现上来说并不复杂，但它对用户体验的影响是巨大的。如果你的产品里有AI对话功能，还在用非流式调用，我强烈建议尽快改过来。首字延迟从十几秒降到不到1秒，这个体验差距用户是能明显感知到的。</p>
 
-            <p>最后总结一下关键要点：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最后总结一下关键要点：</p>
 
             <ul>
                 <li>流式响应的核心价值是降低TTFT（首字延迟），不是降低总耗时</li>
@@ -1142,7 +1142,7 @@ client = OpenAI(api_key=<span class="string">"sk-your-key"</span>)
                 <li>做好错误处理和超时配置，生产环境比开发环境脆弱得多</li>
             </ul>
 
-            <p>希望这篇文章能帮你少走一些弯路。如果你在实现过程中遇到什么问题，欢迎交流。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">希望这篇文章能帮你少走一些弯路。如果你在实现过程中遇到什么问题，欢迎交流。</p>
 
             <div class="tags">
                 <span>AI API流式响应</span>
@@ -1154,7 +1154,31 @@ client = OpenAI(api_key=<span class="string">"sk-your-key"</span>)
                 <span>前端SSE处理</span>
                 <span>AI聊天流式实现</span>
             </div>
-        </article>
+        
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-streaming-sse-websocket-implementation-guide-2026">AI API流式输出(Streaming)实战：SSE与WebSocket完整实现指南</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI API流式输出实战完整指南：对比轮询/SSE/WebSocket三种方案，提供OpenAI GPT-4o和Claude Streaming API Pyt...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-function-calling-guide">AI API Function Calling与工具调用完全指南：从入门到实战</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入讲解AI Function Calling与Tool Use技术，涵盖OpenAI和Claude的工具调用实现、完整Python实战案例、并行函数调用技巧，...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-schema-design-function-calling-guide-2026">AI API Schema设计实战：从踩坑到精通 AI API攻略</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入讲解Function Calling Schema设计实战，涵盖JSON Schema核心关键字技巧、OpenAI vs Anthropic vs Gemi...</p>
+                </article>
+
+            </div>
+        </section>
+
+    </article>
     </div>
 
     <!-- Footer -->
@@ -1206,7 +1230,7 @@ client = OpenAI(api_key=<span class="string">"sk-your-key"</span>)
     <!-- Cookie同意横幅 -->
     <div id="cookie-consent" class="cookie-consent" style="display: none;">
         <div class="cookie-content">
-            <p>我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的隐私政策。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的隐私政策。</p>
             <div class="cookie-buttons">
                 <button onclick="acceptCookies()" class="cookie-btn accept">同意</button>
                 <a href="../privacy.html" class="cookie-btn more">了解更多</a>

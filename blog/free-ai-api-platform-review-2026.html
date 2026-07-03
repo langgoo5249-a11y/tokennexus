@@ -191,11 +191,11 @@ var _hmt = _hmt || [];
 
         <div class="article-content">
             <h2>为什么要做这次横评</h2>
-            <p>2026年的AI API市场变化太大了。去年还免费的额度今年砍了，去年收费的平台今年反而送起了免费token。独立开发者、学生、创业团队，这些群体最关心的就是：<strong>到底能不能零成本把AI产品做出来？</strong></p>
-            <p>我选了6个目前提供免费额度的平台，用同一个prompt跑了50次测试，记录响应时间、成功率、输出质量。不是看官方文档抄数据，是实打实跑出来的结果。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年的AI API市场变化太大了。去年还免费的额度今年砍了，去年收费的平台今年反而送起了免费token。独立开发者、学生、创业团队，这些群体最关心的就是：<strong>到底能不能零成本把AI产品做出来？</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我选了6个目前提供免费额度的平台，用同一个prompt跑了50次测试，记录响应时间、成功率、输出质量。不是看官方文档抄数据，是实打实跑出来的结果。</p>
 
             <h2>测试方法说明</h2>
-            <p>先交代一下测试条件，免得有人说我不公平：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先交代一下测试条件，免得有人说我不公平：</p>
             <ul>
                 <li>测试Prompt：一段200字的中文简历，要求AI优化并给出建议</li>
                 <li>每个平台跑50次请求，取中位数</li>
@@ -207,46 +207,46 @@ var _hmt = _hmt || [];
             <h2>六大平台逐一实测</h2>
 
             <h3>1. GitHub Models</h3>
-            <p>GitHub Models是微软把一堆大模型搬到了GitHub Marketplace上，开发者可以直接用GitHub Token调用。这个平台2025年上线后一直在迭代，到2026年已经支持了不少主流模型。</p>
-            <p><strong>免费额度：</strong>每月5000次请求，每天上限200次。支持GPT-4o-mini、Llama 3.3 70B、Mistral Large、Phi-4等模型。</p>
-            <p><strong>速率限制：</strong>每分钟10次请求，每次最多4096 tokens输出。</p>
-            <p><strong>实测体验：</strong>响应速度中规中矩，GPT-4o-mini平均2.1秒返回结果。Llama 3.3 70B稍慢，3.4秒。优点是接入简单，有GitHub账号就能用，不需要额外注册。缺点是模型选择不算多，而且没有embedding模型。</p>
-            <p><strong>隐藏限制：</strong>需要GitHub账号且通过验证；部分模型在某些地区访问不稳定；超出免费额度后不会自动扣费，直接报错。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">GitHub Models是微软把一堆大模型搬到了GitHub Marketplace上，开发者可以直接用GitHub Token调用。这个平台2025年上线后一直在迭代，到2026年已经支持了不少主流模型。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>免费额度：</strong>每月5000次请求，每天上限200次。支持GPT-4o-mini、Llama 3.3 70B、Mistral Large、Phi-4等模型。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>速率限制：</strong>每分钟10次请求，每次最多4096 tokens输出。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>实测体验：</strong>响应速度中规中矩，GPT-4o-mini平均2.1秒返回结果。Llama 3.3 70B稍慢，3.4秒。优点是接入简单，有GitHub账号就能用，不需要额外注册。缺点是模型选择不算多，而且没有embedding模型。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>隐藏限制：</strong>需要GitHub账号且通过验证；部分模型在某些地区访问不稳定；超出免费额度后不会自动扣费，直接报错。</p>
 
             <h3>2. Groq Cloud</h3>
-            <p>Groq以推理速度著称，他们的LPU（语言处理单元）芯片确实快得离谱。免费层给的额度也相当大方。</p>
-            <p><strong>免费额度：</strong>每天14400 tokens限制（按输入+输出计算），支持Llama 3.3 70B、Llama 3.1 8B、Mixtral 8x7B、Gemma 2 9B等开源模型。</p>
-            <p><strong>速率限制：</strong>每分钟30次请求，每秒5次。</p>
-            <p><strong>实测体验：</strong>速度是真的快。Llama 3.3 70B平均0.8秒返回，8B模型更快，0.3秒就出结果。50次测试全部成功，零失败率。输出质量方面，70B模型处理中文简历优化完全够用，逻辑清晰、建议具体。</p>
-            <p><strong>隐藏限制：</strong>每天的token额度看着多，但如果你用70B模型跑长文本，大概30-40次请求就耗完了。不支持OpenAI系列的闭源模型。国内直连偶尔会超时，建议走海外VPS。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Groq以推理速度著称，他们的LPU（语言处理单元）芯片确实快得离谱。免费层给的额度也相当大方。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>免费额度：</strong>每天14400 tokens限制（按输入+输出计算），支持Llama 3.3 70B、Llama 3.1 8B、Mixtral 8x7B、Gemma 2 9B等开源模型。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>速率限制：</strong>每分钟30次请求，每秒5次。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>实测体验：</strong>速度是真的快。Llama 3.3 70B平均0.8秒返回，8B模型更快，0.3秒就出结果。50次测试全部成功，零失败率。输出质量方面，70B模型处理中文简历优化完全够用，逻辑清晰、建议具体。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>隐藏限制：</strong>每天的token额度看着多，但如果你用70B模型跑长文本，大概30-40次请求就耗完了。不支持OpenAI系列的闭源模型。国内直连偶尔会超时，建议走海外VPS。</p>
 
             <h3>3. Google AI Studio</h3>
-            <p>Google家的免费额度一直是最慷慨的，Gemini系列模型的免费层几乎可以当主力用。</p>
-            <p><strong>免费额度：</strong>Gemini 2.5 Flash每天1500次请求（每次限制输出8192 tokens）；Gemini 2.5 Pro每天50次请求。还有免费的embedding和图片生成额度。</p>
-            <p><strong>速率限制：</strong>Flash每分钟15次，Pro每分钟2次。</p>
-            <p><strong>实测体验：</strong>Gemini 2.5 Flash平均1.5秒返回，速度不错。中文理解能力很强，简历优化建议很到位，甚至会根据不同行业给出差异化建议。Pro版本更慢一些，2.8秒，但输出质量明显更高。</p>
-            <p><strong>隐藏限制：</strong>需要Google账号，部分地区需要科学上网；免费层的数据可能被用于模型训练（虽然Google说可以关闭）；Pro版本每天50次真的不够用，做产品只能当辅助。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Google家的免费额度一直是最慷慨的，Gemini系列模型的免费层几乎可以当主力用。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>免费额度：</strong>Gemini 2.5 Flash每天1500次请求（每次限制输出8192 tokens）；Gemini 2.5 Pro每天50次请求。还有免费的embedding和图片生成额度。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>速率限制：</strong>Flash每分钟15次，Pro每分钟2次。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>实测体验：</strong>Gemini 2.5 Flash平均1.5秒返回，速度不错。中文理解能力很强，简历优化建议很到位，甚至会根据不同行业给出差异化建议。Pro版本更慢一些，2.8秒，但输出质量明显更高。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>隐藏限制：</strong>需要Google账号，部分地区需要科学上网；免费层的数据可能被用于模型训练（虽然Google说可以关闭）；Pro版本每天50次真的不够用，做产品只能当辅助。</p>
 
             <h3>4. Cerebras</h3>
-            <p>Cerebras做的是AI推理芯片，他们的Cloud平台主打一个"快"字。免费层虽然模型不多，但速度体验确实震撼。</p>
-            <p><strong>免费额度：</strong>每天10000次请求，支持Llama 3.3 70B和Llama 3.1 8B。</p>
-            <p><strong>速率限制：</strong>每分钟30次请求。</p>
-            <p><strong>实测体验：</strong>速度炸裂。70B模型平均0.6秒返回，是我测试中最快的。8B模型0.2秒，几乎感觉不到延迟。50次测试全部成功。不过输出质量和其他平台的同模型差不多，毕竟模型一样，只是推理速度快。</p>
-            <p><strong>隐藏限制：</strong>只支持两个模型，选择面太窄；平台还比较新，文档和SDK不够完善；注册需要海外手机号验证。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Cerebras做的是AI推理芯片，他们的Cloud平台主打一个"快"字。免费层虽然模型不多，但速度体验确实震撼。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>免费额度：</strong>每天10000次请求，支持Llama 3.3 70B和Llama 3.1 8B。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>速率限制：</strong>每分钟30次请求。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>实测体验：</strong>速度炸裂。70B模型平均0.6秒返回，是我测试中最快的。8B模型0.2秒，几乎感觉不到延迟。50次测试全部成功。不过输出质量和其他平台的同模型差不多，毕竟模型一样，只是推理速度快。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>隐藏限制：</strong>只支持两个模型，选择面太窄；平台还比较新，文档和SDK不够完善；注册需要海外手机号验证。</p>
 
             <h3>5. Agnes AI</h3>
-            <p>Agnes AI是一个相对小众但很良心的平台，主打多模型聚合调用，免费层支持不少闭源模型。</p>
-            <p><strong>免费额度：</strong>注册送10000 tokens，每天签到再送2000 tokens。支持GPT-4o-mini、Claude 3.5 Haiku、Gemini Flash、DeepSeek V3等模型。</p>
-            <p><strong>速率限制：</strong>每分钟5次请求。</p>
-            <p><strong>实测体验：</strong>最大的优势是能免费调用多个闭源模型。GPT-4o-mini平均2.3秒，Claude 3.5 Haiku平均1.8秒。输出质量方面，Claude Haiku在中文写作优化上表现最好，建议更具体、更有针对性。</p>
-            <p><strong>隐藏限制：</strong>速率限制比较严，每分钟5次很容易触发；签到送token的机制意味着你不能稳定依赖它做产品；平台规模小，稳定性有待观察。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Agnes AI是一个相对小众但很良心的平台，主打多模型聚合调用，免费层支持不少闭源模型。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>免费额度：</strong>注册送10000 tokens，每天签到再送2000 tokens。支持GPT-4o-mini、Claude 3.5 Haiku、Gemini Flash、DeepSeek V3等模型。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>速率限制：</strong>每分钟5次请求。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>实测体验：</strong>最大的优势是能免费调用多个闭源模型。GPT-4o-mini平均2.3秒，Claude 3.5 Haiku平均1.8秒。输出质量方面，Claude Haiku在中文写作优化上表现最好，建议更具体、更有针对性。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>隐藏限制：</strong>速率限制比较严，每分钟5次很容易触发；签到送token的机制意味着你不能稳定依赖它做产品；平台规模小，稳定性有待观察。</p>
 
             <h3>6. Cloudflare Workers AI</h3>
-            <p>Cloudflare把AI推理集成到了边缘计算网络里，免费层可以直接在Workers里调用模型，部署起来极其方便。</p>
-            <p><strong>免费额度：</strong>每天10000次神经元运算（Neurons），支持Llama 3.1 8B、Mistral 7B、BGE embedding等模型。</p>
-            <p><strong>速率限制：</strong>每分钟50次请求。</p>
-            <p><strong>实测体验：</strong>部署体验是最好的，几行代码就能在Cloudflare Workers里跑AI推理。响应速度也不错，平均1.2秒。但模型都是小参数的，8B模型处理简单任务还行，复杂任务质量明显不如70B模型。</p>
-            <p><strong>隐藏限制：</strong>"神经元运算"的计费方式比较绕，不同模型消耗不同；只支持小模型，复杂任务效果一般；免费层不能用于商业用途。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Cloudflare把AI推理集成到了边缘计算网络里，免费层可以直接在Workers里调用模型，部署起来极其方便。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>免费额度：</strong>每天10000次神经元运算（Neurons），支持Llama 3.1 8B、Mistral 7B、BGE embedding等模型。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>速率限制：</strong>每分钟50次请求。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>实测体验：</strong>部署体验是最好的，几行代码就能在Cloudflare Workers里跑AI推理。响应速度也不错，平均1.2秒。但模型都是小参数的，8B模型处理简单任务还行，复杂任务质量明显不如70B模型。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>隐藏限制：</strong>"神经元运算"的计费方式比较绕，不同模型消耗不同；只支持小模型，复杂任务效果一般；免费层不能用于商业用途。</p>
 
             <h2>六大平台核心数据对比</h2>
             <table>
@@ -313,61 +313,61 @@ var _hmt = _hmt || [];
             </table>
 
             <h2>那些"免费"的隐藏坑</h2>
-            <p>测完之后，我发现免费API的水比想象中深。这几个坑你必须知道：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">测完之后，我发现免费API的水比想象中深。这几个坑你必须知道：</p>
 
-            <p><strong>1. 信用卡绑定问题</strong></p>
-            <p>有些平台注册时不需要信用卡，但用到一定量就要求绑定。GitHub Models和Google AI Studio目前不需要，这点比较友好。Cerebras注册需要海外手机号，对国内开发者不太方便。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>1. 信用卡绑定问题</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">有些平台注册时不需要信用卡，但用到一定量就要求绑定。GitHub Models和Google AI Studio目前不需要，这点比较友好。Cerebras注册需要海外手机号，对国内开发者不太方便。</p>
 
-            <p><strong>2. 地域限制</strong></p>
-            <p>国内直连的话，Google AI Studio和Cerebras基本无法访问。Groq偶尔超时。GitHub Models和Cloudflare在国内相对稳定。Agnes AI有亚洲节点，延迟尚可。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>2. 地域限制</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">国内直连的话，Google AI Studio和Cerebras基本无法访问。Groq偶尔超时。GitHub Models和Cloudflare在国内相对稳定。Agnes AI有亚洲节点，延迟尚可。</p>
 
-            <p><strong>3. 用量上限的真相</strong></p>
-            <p>官方说的"免费额度"和实际能用的量往往有差距。比如Groq的14400 tokens/天，用70B模型跑长文本，实际大概只能跑30多次。Google的1500次/天看着多，但Pro版本只有50次，Flash版本输出限制8192 tokens，长文本直接截断。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>3. 用量上限的真相</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">官方说的"免费额度"和实际能用的量往往有差距。比如Groq的14400 tokens/天，用70B模型跑长文本，实际大概只能跑30多次。Google的1500次/天看着多，但Pro版本只有50次，Flash版本输出限制8192 tokens，长文本直接截断。</p>
 
-            <p><strong>4. 数据隐私</strong></p>
-            <p>免费层的数据处理政策各不相同。Google AI Studio免费层的数据默认可能用于模型训练。GitHub Models的数据政策相对透明。其他平台建议仔细阅读隐私条款，特别是如果你在处理用户敏感数据。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>4. 数据隐私</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">免费层的数据处理政策各不相同。Google AI Studio免费层的数据默认可能用于模型训练。GitHub Models的数据政策相对透明。其他平台建议仔细阅读隐私条款，特别是如果你在处理用户敏感数据。</p>
 
             <div class="warning-box">
                 <strong>重要提醒：</strong>免费API不适合直接用于生产环境。速率限制、额度波动、服务稳定性都是隐患。建议用免费层做开发和测试，上线后切换到付费方案或通过TokenNexus找到可靠的API服务商。
             </div>
 
             <h2>不同场景的推荐方案</h2>
-            <p>根据我的实测经验，给不同需求的开发者一些具体建议：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">根据我的实测经验，给不同需求的开发者一些具体建议：</p>
 
-            <p><strong>场景一：个人项目原型验证</strong></p>
-            <p>推荐 <strong>Google AI Studio (Gemini 2.5 Flash)</strong>。每天1500次免费请求，中文能力强，API兼容OpenAI格式，接入成本几乎为零。我那个朋友的简历优化工具最后就是用这个跑起来的，一分钱没花。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>场景一：个人项目原型验证</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">推荐 <strong>Google AI Studio (Gemini 2.5 Flash)</strong>。每天1500次免费请求，中文能力强，API兼容OpenAI格式，接入成本几乎为零。我那个朋友的简历优化工具最后就是用这个跑起来的，一分钱没花。</p>
 
-            <p><strong>场景二：需要极致速度的实时应用</strong></p>
-            <p>推荐 <strong>Groq Cloud</strong> 或 <strong>Cerebras</strong>。0.6-0.8秒的响应速度在实时对话场景里体验差距非常明显。不过要注意token消耗，适合短文本高频调用的场景。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>场景二：需要极致速度的实时应用</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">推荐 <strong>Groq Cloud</strong> 或 <strong>Cerebras</strong>。0.6-0.8秒的响应速度在实时对话场景里体验差距非常明显。不过要注意token消耗，适合短文本高频调用的场景。</p>
 
-            <p><strong>场景三：想对比多个模型效果</strong></p>
-            <p>推荐 <strong>Agnes AI</strong>。一个平台就能调GPT、Claude、Gemini、DeepSeek，省去了到处注册账号的麻烦。虽然速率限制严了点，但做A/B测试足够了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>场景三：想对比多个模型效果</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">推荐 <strong>Agnes AI</strong>。一个平台就能调GPT、Claude、Gemini、DeepSeek，省去了到处注册账号的麻烦。虽然速率限制严了点，但做A/B测试足够了。</p>
 
-            <p><strong>场景四：边缘部署+AI推理</strong></p>
-            <p>推荐 <strong>Cloudflare Workers AI</strong>。如果你已经在用Cloudflare，直接在Workers里调用AI模型，不需要额外部署服务器，全球边缘节点延迟极低。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>场景四：边缘部署+AI推理</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">推荐 <strong>Cloudflare Workers AI</strong>。如果你已经在用Cloudflare，直接在Workers里调用AI模型，不需要额外部署服务器，全球边缘节点延迟极低。</p>
 
-            <p><strong>场景五：已有GitHub生态的开发者</strong></p>
-            <p>推荐 <strong>GitHub Models</strong>。如果你在用GitHub Actions或Copilot，直接用GitHub Token调用模型，零额外配置。适合CI/CD中集成AI检查。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>场景五：已有GitHub生态的开发者</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">推荐 <strong>GitHub Models</strong>。如果你在用GitHub Actions或Copilot，直接用GitHub Token调用模型，零额外配置。适合CI/CD中集成AI检查。</p>
 
             <h2>我的免费组合方案</h2>
-            <p>实际开发中，我建议不要把鸡蛋放在一个篮子里。我的做法是：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">实际开发中，我建议不要把鸡蛋放在一个篮子里。我的做法是：</p>
             <ul>
                 <li>主力用 <strong>Google AI Studio</strong> 的Gemini Flash处理大部分请求</li>
                 <li>速度敏感的接口走 <strong>Groq</strong> 的Llama 70B</li>
                 <li>需要对比模型效果时用 <strong>Agnes AI</strong></li>
                 <li>写一个简单的路由层，根据请求类型自动分发</li>
             </ul>
-            <p>这样组合下来，日均处理几百个请求完全没问题，而且全部免费。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这样组合下来，日均处理几百个请求完全没问题，而且全部免费。</p>
 
             <h2>什么时候该考虑付费</h2>
-            <p>免费API能帮你从0到1验证想法，但从1到100就需要付费了。几个信号告诉你该考虑付费方案：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">免费API能帮你从0到1验证想法，但从1到100就需要付费了。几个信号告诉你该考虑付费方案：</p>
             <ul>
                 <li>日请求量稳定超过免费额度的50%（意味着很快会不够用）</li>
                 <li>用户开始抱怨响应慢或不稳定</li>
                 <li>需要更大参数的模型（如GPT-4o、Claude 3.5 Sonnet）</li>
                 <li>需要SLA保障和优先技术支持</li>
             </ul>
-            <p>付费方案的选择就多了，从官方直连到聚合中转，价格和服务各不相同。建议到 <a href="https://www.tokenfind.cn/" style="color:var(--neon-cyan)">TokenNexus</a> 上对比一下各平台的价格和评价，找到性价比最高的方案。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">付费方案的选择就多了，从官方直连到聚合中转，价格和服务各不相同。建议到 <a href="https://www.tokenfind.cn/" style="color:var(--neon-cyan)">TokenNexus</a> 上对比一下各平台的价格和评价，找到性价比最高的方案。</p>
 
             <blockquote>
                 说白了，免费API就是给你试错用的。别指望靠免费额度撑起一个正式产品，但它足够帮你验证想法、跑通流程、拿到第一批用户反馈。等产品有了收入，再考虑升级到付费方案也不迟。
@@ -376,9 +376,33 @@ var _hmt = _hmt || [];
 
         <div class="cta-box">
             <h3>发现更多AI API平台</h3>
-            <p>TokenNexus收录330+国内外AI API平台，帮你找到最适合的服务</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">TokenNexus收录330+国内外AI API平台，帮你找到最适合的服务</p>
             <a href="../">立即探索</a>
         </div>
+    
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/free-ai-api-recommendations-2026">免费AI API推荐：2026年最值得尝试的免费额度博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年最全免费AI API推荐，涵盖Google Gemini、Groq、OpenRouter、百度千帆、阿里云百炼等10大平台免费额度详解，附带对比表格和...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/gemini-api-complete-guide">Gemini API完全指南：Google最强多模态AI（2026版）博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年最全面的Gemini API接入指南。涵盖Gemini 2.0、Gemini 1.5 Pro、Gemini 1.5 Flash模型介绍，200万tok...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/free-ai-api-guide-2026">2026年AI API免费额度完全指南：14个平台薅羊毛攻略博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年最全AI API免费额度攻略，详解14个平台的免费额度、速率限制和使用技巧。Google Gemini 2.5 Flash每天1440次免费请求，Op...</p>
+                </article>
+
+            </div>
+        </section>
+
     </article>
     <footer class="footer">
         <div class="footer-links">

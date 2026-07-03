@@ -808,35 +808,35 @@ var _hmt = _hmt || [];
         </header>
         
         <div class="article-content">
-            <p>说实话，三个月前我还在为每个月几千美元的OpenAI账单发愁。那时候我们团队做的是一个智能客服产品，日均调用量大概在50万tokens左右，用GPT-4o跑下来一个月要花将近4000美元。老板每次看到账单都要皱眉头，我也压力山大。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">说实话，三个月前我还在为每个月几千美元的OpenAI账单发愁。那时候我们团队做的是一个智能客服产品，日均调用量大概在50万tokens左右，用GPT-4o跑下来一个月要花将近4000美元。老板每次看到账单都要皱眉头，我也压力山大。</p>
             
-            <p>后来一个偶然的机会，我在技术社区看到有人分享DeepSeek的使用体验，说价格只有OpenAI的十分之一。抱着试试看的心态，我把一部分流量切了过去。结果第一个月下来，成本直接降到了800美元——<strong>省了整整80%</strong>。更让我意外的是，用户满意度居然还提升了几个百分点，因为DeepSeek对中文的理解确实更到位。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">后来一个偶然的机会，我在技术社区看到有人分享DeepSeek的使用体验，说价格只有OpenAI的十分之一。抱着试试看的心态，我把一部分流量切了过去。结果第一个月下来，成本直接降到了800美元——<strong>省了整整80%</strong>。更让我意外的是，用户满意度居然还提升了几个百分点，因为DeepSeek对中文的理解确实更到位。</p>
             
-            <p>这次成功的迁移经历让我意识到，很多团队可能都面临着同样的困境：想换平台但不知道怎么换、怕踩坑、怕出问题。所以今天这篇文章，我就把我们的迁移经验完整分享出来，希望能帮到有同样需求的朋友。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这次成功的迁移经历让我意识到，很多团队可能都面临着同样的困境：想换平台但不知道怎么换、怕踩坑、怕出问题。所以今天这篇文章，我就把我们的迁移经验完整分享出来，希望能帮到有同样需求的朋友。</p>
             
             <h2>为什么要迁移？三大核心动因</h2>
             
-            <p>在深入技术细节之前，我们先聊聊迁移的动机。根据我这几年和大量开发者交流的经验，大家选择从OpenAI迁移到其他平台，主要出于以下三个原因：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在深入技术细节之前，我们先聊聊迁移的动机。根据我这几年和大量开发者交流的经验，大家选择从OpenAI迁移到其他平台，主要出于以下三个原因：</p>
             
             <h3>1. 成本压力：账单越来越难扛</h3>
             
-            <p>这是最直接的原因。OpenAI的定价在业内一直不算便宜，尤其是GPT-4系列。虽然OpenAI也推出了Batch API提供50%折扣，Prompt Caching功能最高可以节省75%的成本，两者叠加甚至能省下95%，但这些优惠都有使用场景的限制。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这是最直接的原因。OpenAI的定价在业内一直不算便宜，尤其是GPT-4系列。虽然OpenAI也推出了Batch API提供50%折扣，Prompt Caching功能最高可以节省75%的成本，两者叠加甚至能省下95%，但这些优惠都有使用场景的限制。</p>
             
-            <p>对于需要实时响应的应用来说，Batch API的24小时延迟根本没法接受。而Prompt Caching虽然好用，但要求你的请求必须共享相同的前缀，这在很多业务场景下并不容易实现。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于需要实时响应的应用来说，Batch API的24小时延迟根本没法接受。而Prompt Caching虽然好用，但要求你的请求必须共享相同的前缀，这在很多业务场景下并不容易实现。</p>
             
             <h3>2. 稳定性焦虑：服务中断的阴影</h3>
             
-            <p>OpenAI的服务稳定性其实已经相当不错了，但对于国内用户来说，网络访问始终是个问题。高峰期偶尔会出现连接超时、响应变慢的情况。如果你的业务对实时性要求很高，这种不确定性就会成为隐患。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI的服务稳定性其实已经相当不错了，但对于国内用户来说，网络访问始终是个问题。高峰期偶尔会出现连接超时、响应变慢的情况。如果你的业务对实时性要求很高，这种不确定性就会成为隐患。</p>
             
-            <p>多平台部署可以有效分散风险。当一家服务商出现问题时，你可以快速切换到备用平台，保证业务连续性。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">多平台部署可以有效分散风险。当一家服务商出现问题时，你可以快速切换到备用平台，保证业务连续性。</p>
             
             <h3>3. 合规性考量：数据安全和监管要求</h3>
             
-            <p>对于一些对数据安全有特殊要求的企业来说，使用海外API可能存在合规风险。国内平台在数据存储、处理方面更容易满足监管要求，这也是很多企业选择迁移的重要原因之一。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于一些对数据安全有特殊要求的企业来说，使用海外API可能存在合规风险。国内平台在数据存储、处理方面更容易满足监管要求，这也是很多企业选择迁移的重要原因之一。</p>
             
             <h2>主流平台迁移对比：选对目标很重要</h2>
             
-            <p>决定迁移之后，第一个问题就是：迁到哪里去？我整理了目前主流的几个替代平台的对比数据：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">决定迁移之后，第一个问题就是：迁到哪里去？我整理了目前主流的几个替代平台的对比数据：</p>
             
             <table class="price-table">
                 <thead>
@@ -882,16 +882,16 @@ var _hmt = _hmt || [];
             
             <div class="highlight-box">
                 <h4>关键发现</h4>
-                <p>DeepSeek V4的价格仅为OpenAI的1/10左右，但性能已经非常接近。根据官方数据，DeepSeek V4在SWE-bench Verified测试中达到81%的通过率，这个成绩已经相当亮眼。更重要的是，DeepSeek支持OpenAI SDK格式原生兼容，迁移成本极低。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">DeepSeek V4的价格仅为OpenAI的1/10左右，但性能已经非常接近。根据官方数据，DeepSeek V4在SWE-bench Verified测试中达到81%的通过率，这个成绩已经相当亮眼。更重要的是，DeepSeek支持OpenAI SDK格式原生兼容，迁移成本极低。</p>
             </div>
             
-            <p>这里需要特别说明一下<strong>OpenAI兼容性</strong>这个概念。所谓"OpenAI兼容API"，指的是其他平台采用了和OpenAI相同的API接口规范。这意味着你只需要更改base_url和API key，几乎不需要修改其他代码就能完成迁移。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这里需要特别说明一下<strong>OpenAI兼容性</strong>这个概念。所谓"OpenAI兼容API"，指的是其他平台采用了和OpenAI相同的API接口规范。这意味着你只需要更改base_url和API key，几乎不需要修改其他代码就能完成迁移。</p>
             
-            <p>目前DeepSeek V4、Groq等平台都支持这种原生兼容。以DeepSeek为例，它的base_url就是<code>https://api.deepseek.com</code>，你只需要把OpenAI的endpoint换成这个地址，其他参数基本不用动。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">目前DeepSeek V4、Groq等平台都支持这种原生兼容。以DeepSeek为例，它的base_url就是<code>https://api.deepseek.com</code>，你只需要把OpenAI的endpoint换成这个地址，其他参数基本不用动。</p>
             
             <h2>迁移前准备工作：别急着动手</h2>
             
-            <p>在正式开始迁移之前，有几件准备工作必须做好。磨刀不误砍柴工，前期准备越充分，后期踩坑的概率就越小。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在正式开始迁移之前，有几件准备工作必须做好。磨刀不误砍柴工，前期准备越充分，后期踩坑的概率就越小。</p>
             
             <h3>评估清单</h3>
             
@@ -913,51 +913,51 @@ var _hmt = _hmt || [];
             
             <div class="warning-box">
                 <h4>注意事项</h4>
-                <p>如果你的应用依赖GPT-5.4的特定功能（比如Computer Use、Codex插件等），在迁移前务必确认目标平台是否支持。GPT-5.4作为目前最强大的全能型选手，拥有最丰富的插件和集成生态，某些高级功能在其他平台上可能暂时无法使用。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你的应用依赖GPT-5.4的特定功能（比如Computer Use、Codex插件等），在迁移前务必确认目标平台是否支持。GPT-5.4作为目前最强大的全能型选手，拥有最丰富的插件和集成生态，某些高级功能在其他平台上可能暂时无法使用。</p>
             </div>
             
             <h2>三种迁移策略：找到最适合你的方案</h2>
             
-            <p>根据团队的技术实力、业务特点和风险承受能力，我总结了三种常见的迁移策略：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">根据团队的技术实力、业务特点和风险承受能力，我总结了三种常见的迁移策略：</p>
             
             <h3>策略一：完全迁移</h3>
             
-            <p>适合场景：对成本敏感、业务相对简单、对模型能力要求不是特别高。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">适合场景：对成本敏感、业务相对简单、对模型能力要求不是特别高。</p>
             
-            <p>做法很简单：把所有流量一次性切换到新平台。优点是迁移周期短、成本节省立竿见影；缺点是风险较高，一旦出现问题影响面很大。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">做法很简单：把所有流量一次性切换到新平台。优点是迁移周期短、成本节省立竿见影；缺点是风险较高，一旦出现问题影响面很大。</p>
             
-            <p>建议在完全迁移之前，至少进行为期两周的灰度测试，确保新平台能够稳定承载全部流量。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">建议在完全迁移之前，至少进行为期两周的灰度测试，确保新平台能够稳定承载全部流量。</p>
             
             <h3>策略二：混合模式</h3>
             
-            <p>适合场景：不同业务场景对模型能力要求差异较大。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">适合场景：不同业务场景对模型能力要求差异较大。</p>
             
-            <p>做法是根据任务类型选择不同的模型。比如，简单的客服问答用DeepSeek处理，复杂的代码生成用GPT-5.4，需要长文档分析的用Claude 4.6。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">做法是根据任务类型选择不同的模型。比如，简单的客服问答用DeepSeek处理，复杂的代码生成用GPT-5.4，需要长文档分析的用Claude 4.6。</p>
             
-            <p>这种策略的好处是可以充分利用各平台的优势，实现成本和性能的最优平衡。Claude 4.6在许多任务上确实能提供更好的价值，特别是在长文本处理和安全敏感场景。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这种策略的好处是可以充分利用各平台的优势，实现成本和性能的最优平衡。Claude 4.6在许多任务上确实能提供更好的价值，特别是在长文本处理和安全敏感场景。</p>
             
             <h3>策略三：渐进式迁移</h3>
             
-            <p>适合场景：业务关键、风险承受能力低、需要保证服务连续性。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">适合场景：业务关键、风险承受能力低、需要保证服务连续性。</p>
             
-            <p>做法是分阶段、分流量进行迁移。第一阶段可以只迁移10%的流量，观察一周没问题后再逐步扩大比例，直到全部迁移完成。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">做法是分阶段、分流量进行迁移。第一阶段可以只迁移10%的流量，观察一周没问题后再逐步扩大比例，直到全部迁移完成。</p>
             
-            <p>这种方式最稳妥，但周期较长。如果你的业务对稳定性要求很高，我强烈推荐这种方式。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这种方式最稳妥，但周期较长。如果你的业务对稳定性要求很高，我强烈推荐这种方式。</p>
             
             <div class="tip-box">
                 <h4>我的建议</h4>
-                <p>对于大多数团队，我推荐从"混合模式"开始。先用新平台处理一部分非核心业务，熟悉了之后再逐步扩大使用范围。这样既能快速看到成本节省的效果，又能把风险控制在可接受范围内。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于大多数团队，我推荐从"混合模式"开始。先用新平台处理一部分非核心业务，熟悉了之后再逐步扩大使用范围。这样既能快速看到成本节省的效果，又能把风险控制在可接受范围内。</p>
             </div>
             
             <h2>代码级迁移实战：改几行代码就搞定</h2>
             
-            <p>说了这么多理论，接下来进入最实用的部分：代码怎么改？</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">说了这么多理论，接下来进入最实用的部分：代码怎么改？</p>
             
-            <p>好消息是，如果你使用的是OpenAI官方SDK，迁移到DeepSeek或其他OpenAI兼容API平台非常简单。基本上只需要改两个地方：base_url和API key。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">好消息是，如果你使用的是OpenAI官方SDK，迁移到DeepSeek或其他OpenAI兼容API平台非常简单。基本上只需要改两个地方：base_url和API key。</p>
             
             <h3>Python代码示例</h3>
             
-            <p>先看看原来的OpenAI调用代码：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先看看原来的OpenAI调用代码：</p>
             
             <div class="code-block">
                 <div class="code-title">原来的OpenAI代码</div>
@@ -978,7 +978,7 @@ response = client.chat.completions.create(
 print(response.choices[0].message.content)</code></pre>
             </div>
             
-            <p>迁移到DeepSeek，只需要这样改：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">迁移到DeepSeek，只需要这样改：</p>
             
             <div class="code-block">
                 <div class="code-title">迁移到DeepSeek后的代码</div>
@@ -1000,11 +1000,11 @@ response = client.chat.completions.create(
 print(response.choices[0].message.content)</code></pre>
             </div>
             
-            <p>看到了吗？核心改动就两行代码：添加<code>base_url</code>参数，修改<code>model</code>名称。其他所有代码都可以保持不变。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">看到了吗？核心改动就两行代码：添加<code>base_url</code>参数，修改<code>model</code>名称。其他所有代码都可以保持不变。</p>
             
             <h3>使用环境变量管理密钥</h3>
             
-            <p>在实际项目中，我建议使用环境变量来管理API密钥，这样切换平台会更加灵活：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在实际项目中，我建议使用环境变量来管理API密钥，这样切换平台会更加灵活：</p>
             
             <div class="code-block">
                 <div class="code-title">推荐的环境变量配置方式</div>
@@ -1028,11 +1028,11 @@ current_provider = os.getenv("AI_PROVIDER", "openai")
 model = MODEL_MAPPING.get(current_provider, "gpt-4o")</code></pre>
             </div>
             
-            <p>这样配置之后，切换平台只需要修改环境变量，完全不用动代码。在Docker或Kubernetes环境中，这可以通过配置文件轻松实现。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这样配置之后，切换平台只需要修改环境变量，完全不用动代码。在Docker或Kubernetes环境中，这可以通过配置文件轻松实现。</p>
             
             <h3>Groq平台的迁移</h3>
             
-            <p>Groq是另一个值得关注的平台，它支持Llama 4、Mixtral、Gemma等开源模型，而且完全兼容OpenAI SDK。Groq最大的优势是推理速度极快，可以达到每秒500+tokens，是普通GPU推理的5-10倍。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Groq是另一个值得关注的平台，它支持Llama 4、Mixtral、Gemma等开源模型，而且完全兼容OpenAI SDK。Groq最大的优势是推理速度极快，可以达到每秒500+tokens，是普通GPU推理的5-10倍。</p>
             
             <div class="code-block">
                 <div class="code-title">迁移到Groq</div>
@@ -1053,7 +1053,7 @@ response = client.chat.completions.create(
             
             <h2>迁移后验证与监控：确保万无一失</h2>
             
-            <p>迁移完成并不意味着工作结束，后续的验证和监控同样重要。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">迁移完成并不意味着工作结束，后续的验证和监控同样重要。</p>
             
             <h3>功能验证清单</h3>
             
@@ -1067,7 +1067,7 @@ response = client.chat.completions.create(
             
             <h3>监控指标设置</h3>
             
-            <p>建议重点监控以下指标：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">建议重点监控以下指标：</p>
             
             <ul>
                 <li><strong>API成功率</strong>：目标应该保持在99%以上</li>
@@ -1079,24 +1079,24 @@ response = client.chat.completions.create(
             
             <div class="success-box">
                 <h4>我们的实际效果</h4>
-                <p>迁移到DeepSeek后，我们的API成功率从99.2%提升到99.6%，平均响应时间从800ms降低到500ms左右，月度成本节省超过80%。最重要的是，用户满意度不降反升，主要是因为中文回复质量更好了。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">迁移到DeepSeek后，我们的API成功率从99.2%提升到99.6%，平均响应时间从800ms降低到500ms左右，月度成本节省超过80%。最重要的是，用户满意度不降反升，主要是因为中文回复质量更好了。</p>
             </div>
             
             <h2>常见坑与最佳实践：前人栽树后人乘凉</h2>
             
-            <p>最后，分享几个我们在迁移过程中踩过的坑，希望能帮你少走弯路。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最后，分享几个我们在迁移过程中踩过的坑，希望能帮你少走弯路。</p>
             
             <h3>坑一：模型名称不一致</h3>
             
-            <p>不同平台的模型命名规则不同。OpenAI用<code>gpt-4o</code>，DeepSeek用<code>deepseek-chat</code>或<code>deepseek-v4-pro</code>，Groq用<code>llama-3.3-70b-versatile</code>。迁移时一定要确认目标平台的正确模型名称，否则会报错。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不同平台的模型命名规则不同。OpenAI用<code>gpt-4o</code>，DeepSeek用<code>deepseek-chat</code>或<code>deepseek-v4-pro</code>，Groq用<code>llama-3.3-70b-versatile</code>。迁移时一定要确认目标平台的正确模型名称，否则会报错。</p>
             
             <h3>坑二：上下文窗口差异</h3>
             
-            <p>不同模型的最大上下文长度不同。GPT-5.4支持100万tokens，DeepSeek V4支持100万tokens，但某些小模型可能只支持几千tokens。如果你的应用需要处理长文本，务必确认目标模型的上下文窗口限制。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不同模型的最大上下文长度不同。GPT-5.4支持100万tokens，DeepSeek V4支持100万tokens，但某些小模型可能只支持几千tokens。如果你的应用需要处理长文本，务必确认目标模型的上下文窗口限制。</p>
             
             <h3>坑三：速率限制差异</h3>
             
-            <p>每个平台的速率限制策略不同。OpenAI按RPM（每分钟请求数）和TPM（每分钟tokens数）双重限制，DeepSeek的限制相对宽松一些。迁移后要重新评估你的并发策略，避免触发限流。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">每个平台的速率限制策略不同。OpenAI按RPM（每分钟请求数）和TPM（每分钟tokens数）双重限制，DeepSeek的限制相对宽松一些。迁移后要重新评估你的并发策略，避免触发限流。</p>
             
             <h3>最佳实践总结</h3>
             
@@ -1114,12 +1114,36 @@ response = client.chat.completions.create(
             
             <h2>写在最后</h2>
             
-            <p>从OpenAI迁移到其他平台，听起来是个大工程，但实际操作起来并没有想象中那么复杂。关键是要选对目标平台、做好充分准备、采用合适的迁移策略。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">从OpenAI迁移到其他平台，听起来是个大工程，但实际操作起来并没有想象中那么复杂。关键是要选对目标平台、做好充分准备、采用合适的迁移策略。</p>
             
-            <p>对于我们团队来说，这次迁移不仅省下了80%的成本，还意外获得了更好的中文处理能力。如果你也在为API成本发愁，不妨大胆尝试一下。毕竟，DeepSeek还提供500万tokens的免费额度，足够你充分测试了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于我们团队来说，这次迁移不仅省下了80%的成本，还意外获得了更好的中文处理能力。如果你也在为API成本发愁，不妨大胆尝试一下。毕竟，DeepSeek还提供500万tokens的免费额度，足够你充分测试了。</p>
             
-            <p>希望这篇指南对你有帮助。如果在迁移过程中遇到什么问题，欢迎留言交流，我会尽量回复。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">希望这篇指南对你有帮助。如果在迁移过程中遇到什么问题，欢迎留言交流，我会尽量回复。</p>
         </div>
+    
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-pricing-comparison-guide-2025">2026年AI API价格全面对比：开发者省钱实战指南</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年最新AI API价格对比分析，涵盖OpenAI、Claude、DeepSeek、Gemini等主流平台。真实数据+省钱技巧，帮你降低50%以上API成...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-pricing-guide-2026">AI API价格对比：2026年省钱完全指南博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">详细对比主流AI API平台的价格体系，教你如何在保证质量的前提下节省50%以上的成本。包含OpenAI、DeepSeek、Claude等平台的价格分析。</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-cost-optimization-2026">AI API成本控制实战攻略：我是如何把月账单从2000降到300的博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">详解AI API成本优化实战技巧，包含缓存策略、模型降级、批量处理等7大降本方法，真实案例分享，帮助开发者降低AI API使用成本80%以上。</p>
+                </article>
+
+            </div>
+        </section>
+
     </article>
     
     <!-- 页脚 -->
@@ -1127,7 +1151,7 @@ response = client.chat.completions.create(
         <div class="footer-content">
             <div class="footer-section">
                 <h3>关于我们</h3>
-                <p>TokenNexus是全球最全的AI Token导航平台，收录280+国内外AI API服务商。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">TokenNexus是全球最全的AI Token导航平台，收录280+国内外AI API服务商。</p>
             </div>
             <div class="footer-section">
                 <h3>快速链接</h3>
@@ -1145,14 +1169,14 @@ response = client.chat.completions.create(
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 TokenNexus. All rights reserved.</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">&copy; 2026 TokenNexus. All rights reserved.</p>
         </div>
     </footer>
     
     <!-- Cookie同意横幅 -->
     <div id="cookie-consent" class="cookie-consent">
         <div class="cookie-content">
-            <p>我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的Cookie政策。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的Cookie政策。</p>
             <div class="cookie-buttons">
                 <button onclick="acceptCookies()" class="cookie-btn accept">同意</button>
                 <a href="../privacy.html" class="cookie-btn more">了解更多</a>

@@ -303,24 +303,24 @@ var _hmt = _hmt || [];
         </header>
 
         <div class="article-content">
-            <p>去年底我们团队做年度复盘的时候，财务拿过来一张报表，上面写着：AI API年度支出超预算47%。我当时整个人愣住了——明明年初规划的时候算得好好的，怎么就超了这么多？后来仔细一查才发现，问题出在一个我们一直忽略的地方：所有请求，不管简单还是复杂，全部打到了GPT-4o上。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年底我们团队做年度复盘的时候，财务拿过来一张报表，上面写着：AI API年度支出超预算47%。我当时整个人愣住了——明明年初规划的时候算得好好的，怎么就超了这么多？后来仔细一查才发现，问题出在一个我们一直忽略的地方：所有请求，不管简单还是复杂，全部打到了GPT-4o上。</p>
 
-            <p>这件事直接逼着我们开始研究AI模型路由。折腾了将近三个月，从零搭建了一套多模型智能调度系统，最终把API成本砍掉了70%。这篇文章就是这三个月的完整记录，希望对你有参考价值。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这件事直接逼着我们开始研究AI模型路由。折腾了将近三个月，从零搭建了一套多模型智能调度系统，最终把API成本砍掉了70%。这篇文章就是这三个月的完整记录，希望对你有参考价值。</p>
 
             <div class="ad-placeholder in-article"><span>广告位预留 (336x280)</span></div>
 
             <h2>一、80%的企业都在为API多花钱</h2>
 
-            <p>先说一个让我挺震惊的数据。根据2026年初几份行业调研报告的综合统计，<span class="highlight">80-85%的企业AI基础设施预算超支25%以上</span>。注意，不是"有些超支"，而是绝大多数企业都在超支，而且超支幅度至少四分之一。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先说一个让我挺震惊的数据。根据2026年初几份行业调研报告的综合统计，<span class="highlight">80-85%的企业AI基础设施预算超支25%以上</span>。注意，不是"有些超支"，而是绝大多数企业都在超支，而且超支幅度至少四分之一。</p>
 
-            <p>超支的原因其实很集中，排在前三的分别是：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">超支的原因其实很集中，排在前三的分别是：</p>
             <ol>
                 <li><strong>模型选择一刀切</strong>——所有请求都用最贵的模型，简单任务也在烧高端算力</li>
                 <li><strong>没有请求分级机制</strong>——客服问答和代码生成用同一个模型、同一个优先级</li>
                 <li><strong>缺乏降级和容灾策略</strong>——一个供应商挂了，整个业务跟着停摆</li>
             </ol>
 
-            <p>我们当时三条全中。尤其是第一条，一个"帮我翻译一句话"的请求，跟"分析这份200页的技术文档"走的是同一个GPT-4o端点，价格差了几十倍，但我们对这件事毫无感知。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们当时三条全中。尤其是第一条，一个"帮我翻译一句话"的请求，跟"分析这份200页的技术文档"走的是同一个GPT-4o端点，价格差了几十倍，但我们对这件事毫无感知。</p>
 
             <div class="highlight-box">
                 <strong>关键认知</strong><br>
@@ -329,10 +329,10 @@ var _hmt = _hmt || [];
 
             <h2>二、智能路由到底在干什么</h2>
 
-            <p>说白了，智能路由就是在用户请求和AI模型之间加了一层"调度中枢"。它的工作流程可以拆解为三个步骤：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">说白了，智能路由就是在用户请求和AI模型之间加了一层"调度中枢"。它的工作流程可以拆解为三个步骤：</p>
 
             <h3>1. 特征提取：理解每个请求的"长相"</h3>
-            <p>路由系统拿到一个请求后，不会直接转发，而是先分析这个请求的一系列特征。具体包括：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">路由系统拿到一个请求后，不会直接转发，而是先分析这个请求的一系列特征。具体包括：</p>
             <ul>
                 <li><strong>消息长度</strong>——短文本（几百token以内）vs 长文本（几千甚至上万token）</li>
                 <li><strong>是否包含代码或数学公式</strong>——这类任务通常需要推理能力更强的模型</li>
@@ -343,10 +343,10 @@ var _hmt = _hmt || [];
             </ul>
 
             <h3>2. 路由引擎：根据规则做决策</h3>
-            <p>特征提取完之后，路由引擎根据预设的策略来决定这个请求该发给哪个模型。策略可以很简单（随机分配），也可以很复杂（综合延迟、成本、用量余量等多个维度打分）。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">特征提取完之后，路由引擎根据预设的策略来决定这个请求该发给哪个模型。策略可以很简单（随机分配），也可以很复杂（综合延迟、成本、用量余量等多个维度打分）。</p>
 
             <h3>3. 模型池：多供应商多模型兜底</h3>
-            <p>模型池里配置了多个供应商的多个模型。比如同时接入OpenAI的GPT-4o-mini、Anthropic的Claude Haiku、DeepSeek-V3、Google的Gemini Flash等。路由引擎从池子里挑一个最合适的来处理请求。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">模型池里配置了多个供应商的多个模型。比如同时接入OpenAI的GPT-4o-mini、Anthropic的Claude Haiku、DeepSeek-V3、Google的Gemini Flash等。路由引擎从池子里挑一个最合适的来处理请求。</p>
 
             <div class="tip-box">
                 <strong>实际效果</strong><br>
@@ -357,7 +357,7 @@ var _hmt = _hmt || [];
 
             <h2>三、主流路由方案对比</h2>
 
-            <p>市面上做AI模型路由的工具和平台已经不少了，我们调研了一圈，最终重点关注了以下五个方案：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">市面上做AI模型路由的工具和平台已经不少了，我们调研了一圈，最终重点关注了以下五个方案：</p>
 
             <table class="price-table">
                 <thead>
@@ -402,16 +402,16 @@ var _hmt = _hmt || [];
                 </tbody>
             </table>
 
-            <p>特别说一下Microsoft Foundry Model Router，这是微软在<span class="highlight">2026年2月</span>发布的新服务。它的核心能力是实时分析prompt的内容和特征，然后自动转发到最合适的模型上。如果你本身就在用Azure OpenAI，这个方案几乎是零成本接入。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">特别说一下Microsoft Foundry Model Router，这是微软在<span class="highlight">2026年2月</span>发布的新服务。它的核心能力是实时分析prompt的内容和特征，然后自动转发到最合适的模型上。如果你本身就在用Azure OpenAI，这个方案几乎是零成本接入。</p>
 
-            <p>我们最终选了LiteLLM作为基础，配合自研的路由策略层。原因很简单：LiteLLM开源免费，Python生态好，团队改起来方便，而且社区迭代速度很快。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们最终选了LiteLLM作为基础，配合自研的路由策略层。原因很简单：LiteLLM开源免费，Python生态好，团队改起来方便，而且社区迭代速度很快。</p>
 
             <h2>四、手把手搭建路由系统</h2>
 
-            <p>下面分享一下我们路由系统的整体架构和核心代码。不是什么高深的东西，但确实管用。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">下面分享一下我们路由系统的整体架构和核心代码。不是什么高深的东西，但确实管用。</p>
 
             <h3>系统架构</h3>
-            <p>架构分四层：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">架构分四层：</p>
             <ol>
                 <li><strong>接入层</strong>——对外暴露统一的OpenAI兼容API，业务侧零改动</li>
                 <li><strong>特征提取层</strong>——解析请求内容，提取路由所需的特征向量</li>
@@ -478,26 +478,26 @@ router_settings:
 
             <h2>五、路由策略详解</h2>
 
-            <p>路由策略是整个系统的灵魂。我们调研和实际测试了五种主流策略，各有适用场景：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">路由策略是整个系统的灵魂。我们调研和实际测试了五种主流策略，各有适用场景：</p>
 
             <h3>1. Simple Shuffle（简单随机分配）</h3>
-            <p>最简单的策略，把请求随机分配到模型池中的任意一个模型。适合刚上线时做A/B测试，收集各模型在不同任务上的基线数据。优点是实现简单，缺点是完全不考虑成本和质量。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最简单的策略，把请求随机分配到模型池中的任意一个模型。适合刚上线时做A/B测试，收集各模型在不同任务上的基线数据。优点是实现简单，缺点是完全不考虑成本和质量。</p>
 
             <h3>2. Least-Busy（最少繁忙优先）</h3>
-            <p>把请求发给当前并发数最少的模型。这个策略的核心目标是<strong>降低整体延迟</strong>，适合对响应速度要求高的实时场景，比如在线客服、聊天机器人。当一个模型因为请求排队导致延迟飙升时，自动把新请求分流到空闲的模型上。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">把请求发给当前并发数最少的模型。这个策略的核心目标是<strong>降低整体延迟</strong>，适合对响应速度要求高的实时场景，比如在线客服、聊天机器人。当一个模型因为请求排队导致延迟飙升时，自动把新请求分流到空闲的模型上。</p>
 
             <h3>3. Latency-Based Routing（延迟优先，EWMA算法）</h3>
-            <p>这是least-busy的进阶版。不是看当前并发数，而是用<span class="highlight">EWMA（指数加权移动平均）</span>算法追踪每个模型的历史延迟。EWMA的好处是对突发延迟有平滑效果，不会因为一次慢响应就放弃一个模型。计算公式大概是：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这是least-busy的进阶版。不是看当前并发数，而是用<span class="highlight">EWMA（指数加权移动平均）</span>算法追踪每个模型的历史延迟。EWMA的好处是对突发延迟有平滑效果，不会因为一次慢响应就放弃一个模型。计算公式大概是：</p>
             <pre><code># EWMA延迟计算
 alpha = 0.3  # 平滑因子，越小越平滑
 ewma_latency = alpha * current_latency + (1 - alpha) * previous_ewma
 
 # 选择EWMA延迟最低的模型
 best_model = min(models, key=lambda m: m.ewma_latency)</code></pre>
-            <p>我们实测下来，这个策略把P99延迟从原来的3.2秒降到了1.1秒，效果非常明显。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们实测下来，这个策略把P99延迟从原来的3.2秒降到了1.1秒，效果非常明显。</p>
 
             <h3>4. Usage-Based Routing（用量优先，TPM/RPM余量）</h3>
-            <p>这个策略关注的是每个模型的<strong>配额余量</strong>。大多数AI API供应商都有TPM（每分钟token数）和RPM（每分钟请求数）的限制。usage-based-routing会实时监控每个模型的TPM/RPM余量，优先把请求发给余量充足的模型，避免触发限流。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这个策略关注的是每个模型的<strong>配额余量</strong>。大多数AI API供应商都有TPM（每分钟token数）和RPM（每分钟请求数）的限制。usage-based-routing会实时监控每个模型的TPM/RPM余量，优先把请求发给余量充足的模型，避免触发限流。</p>
             <pre><code>def usage_based_select(models):
     scores = []
     for m in models:
@@ -506,10 +506,10 @@ best_model = min(models, key=lambda m: m.ewma_latency)</code></pre>
         score = 0.6 * tpm_headroom + 0.4 * rpm_headroom
         scores.append(score)
     return models[scores.index(max(scores))]</code></pre>
-            <p>这个策略在高峰期特别有用。我们有一次做活动，流量突然翻了5倍，多亏了这个策略，没有触发任何供应商的限流。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这个策略在高峰期特别有用。我们有一次做活动，流量突然翻了5倍，多亏了这个策略，没有触发任何供应商的限流。</p>
 
             <h3>5. Budget Routing（预算路由）</h3>
-            <p>这是最"精打细算"的策略。给每个模型设定月度预算上限，路由引擎在分配请求时会优先消耗预算余量多的模型，确保不超支。当某个模型的预算快用完时，自动把请求切换到更便宜的替代模型上。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这是最"精打细算"的策略。给每个模型设定月度预算上限，路由引擎在分配请求时会优先消耗预算余量多的模型，确保不超支。当某个模型的预算快用完时，自动把请求切换到更便宜的替代模型上。</p>
 
             <div class="warning-box">
                 <strong>注意</strong><br>
@@ -518,7 +518,7 @@ best_model = min(models, key=lambda m: m.ewma_latency)</code></pre>
 
             <h2>六、真实效果数据</h2>
 
-            <p>说了这么多，最关心的肯定是实际效果。以下是我们路由系统上线三个月后的核心数据：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">说了这么多，最关心的肯定是实际效果。以下是我们路由系统上线三个月后的核心数据：</p>
 
             <table class="price-table">
                 <thead>
@@ -572,19 +572,19 @@ best_model = min(models, key=lambda m: m.ewma_latency)</code></pre>
 
             <h2>七、踩坑总结和最佳实践</h2>
 
-            <p>最后分享几个我们踩过的坑，希望能帮你少走弯路。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最后分享几个我们踩过的坑，希望能帮你少走弯路。</p>
 
             <h3>坑1：模型质量评估不能只看benchmark</h3>
-            <p>我们一开始用MMLU、HumanEval这些公开benchmark来评估模型质量，结果发现跟实际业务表现差距很大。比如Claude Haiku在benchmark上分数不如GPT-4o，但在我们的客服场景里，用户满意度几乎一样。后来我们改成了用真实业务数据做评估，每周抽样200条响应让人工标注质量。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们一开始用MMLU、HumanEval这些公开benchmark来评估模型质量，结果发现跟实际业务表现差距很大。比如Claude Haiku在benchmark上分数不如GPT-4o，但在我们的客服场景里，用户满意度几乎一样。后来我们改成了用真实业务数据做评估，每周抽样200条响应让人工标注质量。</p>
 
             <h3>坑2：不要忽略供应商的地域差异</h3>
-            <p>同样是调用OpenAI API，从国内直连和通过中转节点，延迟差了3-5倍。我们后来针对不同地区的用户做了就近接入，国内用户优先走国内供应商（DeepSeek、智谱GLM），海外用户走OpenAI和Anthropic，整体延迟又降了40%。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">同样是调用OpenAI API，从国内直连和通过中转节点，延迟差了3-5倍。我们后来针对不同地区的用户做了就近接入，国内用户优先走国内供应商（DeepSeek、智谱GLM），海外用户走OpenAI和Anthropic，整体延迟又降了40%。</p>
 
             <h3>坑3：路由策略要定期review</h3>
-            <p>模型在迭代，价格在调整，你的路由策略也得跟着变。我们每个月做一次策略review，根据最新的模型表现和价格调整路由权重。比如DeepSeek-V3在2026年3月降价之后，我们立刻提高了它在medium层的权重，又省了一笔。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">模型在迭代，价格在调整，你的路由策略也得跟着变。我们每个月做一次策略review，根据最新的模型表现和价格调整路由权重。比如DeepSeek-V3在2026年3月降价之后，我们立刻提高了它在medium层的权重，又省了一笔。</p>
 
             <h3>坑4：监控和告警是生命线</h3>
-            <p>没有监控的路由系统就是黑盒。我们搭建了完整的监控体系，核心指标包括：每个模型的调用量、延迟分布、错误率、token消耗、实时成本。任何一个指标异常都会触发飞书告警。这套监控帮我们提前发现了好几次潜在问题。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">没有监控的路由系统就是黑盒。我们搭建了完整的监控体系，核心指标包括：每个模型的调用量、延迟分布、错误率、token消耗、实时成本。任何一个指标异常都会触发飞书告警。这套监控帮我们提前发现了好几次潜在问题。</p>
 
             <div class="highlight-box">
                 <strong>总结一下最佳实践</strong>
@@ -600,11 +600,11 @@ best_model = min(models, key=lambda m: m.ewma_latency)</code></pre>
 
             <h2>写在最后</h2>
 
-            <p>AI模型路由这件事，听起来高大上，但本质就是一个"好钢用在刀刃上"的思路。不是每个请求都需要最贵最好的模型，大部分业务场景下，轻量模型已经够用了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI模型路由这件事，听起来高大上，但本质就是一个"好钢用在刀刃上"的思路。不是每个请求都需要最贵最好的模型，大部分业务场景下，轻量模型已经够用了。</p>
 
-            <p>我们从一个"所有请求打GPT-4o"的粗放模式，演进到现在的多模型智能调度，成本降了70%，可用性反而提升了。回头看，这可能是我们2026年做的性价比最高的一次技术投入。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们从一个"所有请求打GPT-4o"的粗放模式，演进到现在的多模型智能调度，成本降了70%，可用性反而提升了。回头看，这可能是我们2026年做的性价比最高的一次技术投入。</p>
 
-            <p>如果你也在为AI API成本发愁，不妨从最简单的路由开始试起。不需要一步到位，先让10%的简单请求走轻量模型，看看效果。相信我，你会回来感谢自己的。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你也在为AI API成本发愁，不妨从最简单的路由开始试起。不需要一步到位，先让10%的简单请求走轻量模型，看看效果。相信我，你会回来感谢自己的。</p>
         </div>
 
         <div class="article-tags">
@@ -620,10 +620,34 @@ best_model = min(models, key=lambda m: m.ewma_latency)</code></pre>
                 <a href="#" class="tag">智能路由</a>
             </div>
         </div>
+    
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-multi-tenant-architecture-2026">AI API多租户架构实战：企业如何搭建成本可控的AI平台</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入解析企业AI API多租户架构设计，涵盖租户隔离、资源计量、成本分摊三大核心模块。对比LiteLLM、Kong、Portkey等主流方案，提供完整架构图与代...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-load-balancing-ha-architecture-2026">AI API负载均衡与高可用架构实战：从单点故障到99.99%可用性的进化之路</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">详解AI API负载均衡与高可用架构设计。覆盖Nginx/HAProxy/Kong网关配置、多模型提供商故障转移、熔断降级策略、全球多活部署、真实案例：某Saa...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-caching-strategy">AI API缓存策略与成本优化：降低80%调用成本的实战指南</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入解析AI API缓存策略，通过语义缓存、Redis缓存等技术实现API成本优化。真实案例分享：客服系统通过API响应缓存降低82%调用成本。</p>
+                </article>
+
+            </div>
+        </section>
+
     </article>
 
     <footer class="footer">
-        <p>&copy; 2024-2026 TokenNexus. All rights reserved.</p>
+        <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">&copy; 2024-2026 TokenNexus. All rights reserved.</p>
         <div>
             <a href="../about.html">关于我们</a>
             <a href="../contact.html">联系方式</a>

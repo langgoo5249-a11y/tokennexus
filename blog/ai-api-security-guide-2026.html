@@ -740,13 +740,13 @@ var _hmt = _hmt || [];
         </header>
         
         <div class="article-content">
-            <p>2024年3月的一个深夜，硅谷某AI创业公司的CTO李明被紧急电话惊醒。他们的OpenAI API Key被硬编码在前端代码中，随项目一起推送到了GitHub公开仓库。等他们发现时，攻击者已经利用这个Key进行了超过72小时的恶意调用，账单累计超过$50,000。更糟的是，由于Key泄露后平均4小时内就会被首次扫描到，他们的损失在短短几小时内就已无法挽回。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2024年3月的一个深夜，硅谷某AI创业公司的CTO李明被紧急电话惊醒。他们的OpenAI API Key被硬编码在前端代码中，随项目一起推送到了GitHub公开仓库。等他们发现时，攻击者已经利用这个Key进行了超过72小时的恶意调用，账单累计超过$50,000。更糟的是，由于Key泄露后平均4小时内就会被首次扫描到，他们的损失在短短几小时内就已无法挽回。</p>
             
-            <p>这不是孤例。作为一名深耕AI API领域多年的技术顾问，我见过太多类似的悲剧。2026年的今天，AI API安全已经从"可选项"变成了"必选项"。这篇文章将基于我亲身参与的企业级AI安全项目经验，为你梳理一套从密钥管理到应急响应的完整防护体系。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这不是孤例。作为一名深耕AI API领域多年的技术顾问，我见过太多类似的悲剧。2026年的今天，AI API安全已经从"可选项"变成了"必选项"。这篇文章将基于我亲身参与的企业级AI安全项目经验，为你梳理一套从密钥管理到应急响应的完整防护体系。</p>
             
             <h2>一、AI API安全的六大风险类型</h2>
             
-            <p>在制定防护策略之前，我们需要先了解AI API面临的主要威胁。以下是我在实际项目中总结的六大风险类型对比：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在制定防护策略之前，我们需要先了解AI API面临的主要威胁。以下是我在实际项目中总结的六大风险类型对比：</p>
             
             <table class="price-table">
                 <thead>
@@ -799,7 +799,7 @@ var _hmt = _hmt || [];
             
             <div class="warning-box">
                 <h4>真实案例：金融机构GDPR违规事件</h4>
-                <p>2024年，某欧洲金融机构因在AI对话日志中未对用户个人信息进行脱敏处理，导致大量敏感数据以明文形式存储在日志系统中。监管机构认定其违反GDPR第32条，处以€2,000,000罚款。这个案例警示我们：AI API安全不仅是技术问题，更是合规问题。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2024年，某欧洲金融机构因在AI对话日志中未对用户个人信息进行脱敏处理，导致大量敏感数据以明文形式存储在日志系统中。监管机构认定其违反GDPR第32条，处以€2,000,000罚款。这个案例警示我们：AI API安全不仅是技术问题，更是合规问题。</p>
             </div>
             
             <!-- 广告位1 -->
@@ -809,11 +809,11 @@ var _hmt = _hmt || [];
             
             <h2>二、API Key安全管理深度方案</h2>
             
-            <p>API Key是访问AI服务的"钥匙"，其安全性直接决定了整个系统的安全基线。我推荐采用三层递进式防护策略：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">API Key是访问AI服务的"钥匙"，其安全性直接决定了整个系统的安全基线。我推荐采用三层递进式防护策略：</p>
             
             <h3>第一层：环境变量管理</h3>
             
-            <p>最基础的安全措施是将API Key从代码中分离，使用环境变量管理。但很多人不知道的是，环境变量的使用也有讲究：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最基础的安全措施是将API Key从代码中分离，使用环境变量管理。但很多人不知道的是，环境变量的使用也有讲究：</p>
             
             <div class="code-block">
                 <code><span class="comment">// 错误做法：在代码中检查Key是否存在，但无后续处理</span>
@@ -832,7 +832,7 @@ var _hmt = _hmt || [];
             
             <h3>第二层：密钥管理服务（Vault）</h3>
             
-            <p>对于生产环境，我强烈建议使用专业的密钥管理服务。以下是主流方案的对比：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于生产环境，我强烈建议使用专业的密钥管理服务。以下是主流方案的对比：</p>
             
             <ul>
                 <li><strong>HashiCorp Vault</strong>：开源方案，支持动态密钥、自动轮换，适合自托管场景</li>
@@ -863,14 +863,14 @@ var _hmt = _hmt || [];
             
             <h3>第三层：动态密钥轮换</h3>
             
-            <p>根据行业最佳实践，API Key应每90天轮换一次。动态轮换不仅能降低泄露风险，还能在发生泄露时快速止损。以下是自动化轮换的实现思路：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">根据行业最佳实践，API Key应每90天轮换一次。动态轮换不仅能降低泄露风险，还能在发生泄露时快速止损。以下是自动化轮换的实现思路：</p>
             
             <div class="tip-box">
                 <h4>密钥轮换最佳实践</h4>
-                <p>1. 新旧Key并行期：新Key启用后，保留旧Key 24-48小时，确保所有服务完成切换</p>
-                <p>2. 灰度发布：先在小范围服务上验证新Key，确认无误后再全面切换</p>
-                <p>3. 自动回滚：如果新Key出现异常，系统应能自动回滚到旧Key</p>
-                <p>4. 审计记录：每次轮换都要记录时间、操作人、原因，便于追溯</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">1. 新旧Key并行期：新Key启用后，保留旧Key 24-48小时，确保所有服务完成切换</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2. 灰度发布：先在小范围服务上验证新Key，确认无误后再全面切换</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">3. 自动回滚：如果新Key出现异常，系统应能自动回滚到旧Key</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">4. 审计记录：每次轮换都要记录时间、操作人、原因，便于追溯</p>
             </div>
             
             <!-- 广告位2 -->
@@ -880,11 +880,11 @@ var _hmt = _hmt || [];
             
             <h2>三、Prompt注入攻击与防护</h2>
             
-            <p>Prompt注入是AI应用特有的安全威胁。攻击者通过精心构造的输入，试图覆盖系统预设的指令，让模型执行非预期的操作。我将其分为两类：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Prompt注入是AI应用特有的安全威胁。攻击者通过精心构造的输入，试图覆盖系统预设的指令，让模型执行非预期的操作。我将其分为两类：</p>
             
             <h3>直接注入（Direct Injection）</h3>
             
-            <p>攻击者直接在用户输入中嵌入恶意指令。例如：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">攻击者直接在用户输入中嵌入恶意指令。例如：</p>
             
             <div class="code-block">
                 <code><span class="comment">// 系统预设指令</span>
@@ -896,7 +896,7 @@ var _hmt = _hmt || [];
             
             <h3>间接注入（Indirect Injection）</h3>
             
-            <p>攻击者将恶意指令嵌入到AI可能处理的外部内容中，如网页、文档、邮件等。这种攻击更隐蔽，危害更大。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">攻击者将恶意指令嵌入到AI可能处理的外部内容中，如网页、文档、邮件等。这种攻击更隐蔽，危害更大。</p>
             
             <h3>防御策略矩阵</h3>
             
@@ -954,7 +954,7 @@ ${userInput}
             
             <h2>四、敏感数据脱敏与合规</h2>
             
-            <p>AI API交互过程中会产生大量日志，其中可能包含用户敏感信息。我在前面提到的金融机构GDPR违规案例，就是因为日志未脱敏导致的。以下是关键合规要求：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI API交互过程中会产生大量日志，其中可能包含用户敏感信息。我在前面提到的金融机构GDPR违规案例，就是因为日志未脱敏导致的。以下是关键合规要求：</p>
             
             <h3>GDPR合规要点</h3>
             
@@ -967,7 +967,7 @@ ${userInput}
             
             <h3>等保2.0相关要求</h3>
             
-            <p>对于国内企业，等保2.0是必过的合规门槛。AI API相关的等保要求主要包括：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对于国内企业，等保2.0是必过的合规门槛。AI API相关的等保要求主要包括：</p>
             
             <ul>
                 <li>身份鉴别：API调用需进行身份认证</li>
@@ -997,11 +997,11 @@ ${userInput}
             
             <h2>五、审计日志与监控实现</h2>
             
-            <p>完善的审计日志是安全运营的基石。根据我的经验，80-85%的企业在AI基础设施上的预算超支25%以上，其中很大一部分是因为缺乏有效的监控和告警机制，导致问题发现滞后、损失扩大。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">完善的审计日志是安全运营的基石。根据我的经验，80-85%的企业在AI基础设施上的预算超支25%以上，其中很大一部分是因为缺乏有效的监控和告警机制，导致问题发现滞后、损失扩大。</p>
             
             <h3>日志记录要素</h3>
             
-            <p>完整的AI API审计日志应包含以下字段：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">完整的AI API审计日志应包含以下字段：</p>
             
             <ul>
                 <li><strong>时间戳</strong>：精确到毫秒，统一使用UTC时间</li>
@@ -1053,9 +1053,9 @@ ${userInput}
             
             <div class="success-box">
                 <h4>监控工具推荐</h4>
-                <p><strong>开源方案</strong>：Grafana + Prometheus + Loki，适合有运维团队的企业</p>
-                <p><strong>云原生方案</strong>：Datadog、New Relic，开箱即用但成本较高</p>
-                <p><strong>轻量方案</strong>：Sentry + 自建告警Webhook，适合中小团队</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>开源方案</strong>：Grafana + Prometheus + Loki，适合有运维团队的企业</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>云原生方案</strong>：Datadog、New Relic，开箱即用但成本较高</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>轻量方案</strong>：Sentry + 自建告警Webhook，适合中小团队</p>
             </div>
             
             <!-- 广告位3 -->
@@ -1065,7 +1065,7 @@ ${userInput}
             
             <h2>六、应急响应流程（密钥泄露处理SLA）</h2>
             
-            <p>即使做了万全准备，安全事件仍可能发生。关键是要有一套标准化的应急响应流程。以下是我在企业项目中总结的SLA标准：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">即使做了万全准备，安全事件仍可能发生。关键是要有一套标准化的应急响应流程。以下是我在企业项目中总结的SLA标准：</p>
             
             <h3>T+0分钟：发现与确认</h3>
             
@@ -1110,12 +1110,12 @@ ${userInput}
             
             <div class="warning-box">
                 <h4>重要提醒：API Key泄露后平均4小时内被首次扫描</h4>
-                <p>根据2024-2025年的安全研究数据，暴露在公网的API Key平均在4小时内就会被自动化扫描工具发现。这意味着你的响应窗口非常有限。建议提前准备好一键吊销脚本和备用Key切换方案，将止损时间压缩到分钟级。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">根据2024-2025年的安全研究数据，暴露在公网的API Key平均在4小时内就会被自动化扫描工具发现。这意味着你的响应窗口非常有限。建议提前准备好一键吊销脚本和备用Key切换方案，将止损时间压缩到分钟级。</p>
             </div>
             
             <h2>七、总结与安全检查清单</h2>
             
-            <p>AI API安全是一个系统工程，需要从密钥管理、Prompt防护、数据脱敏、审计监控到应急响应的全方位布局。回顾我在本文中分享的内容，以下是核心要点：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI API安全是一个系统工程，需要从密钥管理、Prompt防护、数据脱敏、审计监控到应急响应的全方位布局。回顾我在本文中分享的内容，以下是核心要点：</p>
             
             <ul>
                 <li>API Key永远不要硬编码，采用环境变量→Vault→动态轮换的三层防护</li>
@@ -1141,10 +1141,34 @@ ${userInput}
                 </ul>
             </div>
             
-            <p>安全是一场没有终点的马拉松。技术在演进，攻击手段也在升级。希望这篇指南能为你的AI API安全建设提供有价值的参考。如果你在实践中遇到具体问题，欢迎在评论区交流讨论。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">安全是一场没有终点的马拉松。技术在演进，攻击手段也在升级。希望这篇指南能为你的AI API安全建设提供有价值的参考。如果你在实践中遇到具体问题，欢迎在评论区交流讨论。</p>
             
-            <p>最后，我想强调的是：安全投入不是成本，而是对业务连续性的保障。那个因API Key泄露损失$50,000的创业公司，如果当初多花半天时间做好安全防护，这笔学费完全可以避免。愿你的AI之旅，安全且顺利。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最后，我想强调的是：安全投入不是成本，而是对业务连续性的保障。那个因API Key泄露损失$50,000的创业公司，如果当初多花半天时间做好安全防护，这笔学费完全可以避免。愿你的AI之旅，安全且顺利。</p>
         </div>
+    
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-security-key-management-guide-2026">AI API安全实战：我是如何防止API Key泄露并过SOC2审计的博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">分享AI API安全建设的真实经验，涵盖API Key管理、密钥轮换、零信任架构、Prompt Injection防护，以及SOC2和GDPR合规准备。帮助技术...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-compliance-gdpr-guide-2026">AI API合规与数据治理：GDPR/等保2.0下的PII脱敏实战</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2026年AI API合规完全指南：深入解析GDPR与EU AI Act的Article 12悖论、PII确定性令牌化方案、合规日志架构设计。涵盖等保2.0要求...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-prompt-engineering-guide">AI提示词工程完全指南：Prompt Engineering技巧与实战</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入了解AI提示词工程最佳实践，从零样本提示到结构化设计，涵盖ChatGPT、Claude、Gemini等平台的提示词技巧与AI提示词模板。</p>
+                </article>
+
+            </div>
+        </section>
+
     </article>
     
     <!-- 页脚 -->
@@ -1152,29 +1176,29 @@ ${userInput}
         <div class="footer-content">
             <div class="footer-section">
                 <h3>关于我们</h3>
-                <p>TokenNexus是全球最全的AI Token导航平台，收录280+国内外AI API服务商，为开发者提供专业的平台对比和选型建议。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">TokenNexus是全球最全的AI Token导航平台，收录280+国内外AI API服务商，为开发者提供专业的平台对比和选型建议。</p>
             </div>
             <div class="footer-section">
                 <h3>快速链接</h3>
-                <p><a href="../about.html">关于我们</a> | <a href="../contact.html">联系我们</a></p>
-                <p><a href="../privacy.html">隐私政策</a> | <a href="../terms.html">使用条款</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="../about.html">关于我们</a> | <a href="../contact.html">联系我们</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="../privacy.html">隐私政策</a> | <a href="../terms.html">使用条款</a></p>
             </div>
             <div class="footer-section">
                 <h3>相关文章</h3>
-                <p><a href="api-key-security-guide.html">API Key安全基础指南</a></p>
-                <p><a href="ai-api-monitoring-alerting.html">AI API监控与告警</a></p>
-                <p><a href="enterprise-ai-api-selection-guide.html">企业AI API选型指南</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="api-key-security-guide.html">API Key安全基础指南</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="ai-api-monitoring-alerting.html">AI API监控与告警</a></p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><a href="enterprise-ai-api-selection-guide.html">企业AI API选型指南</a></p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 TokenNexus. All rights reserved.</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">&copy; 2026 TokenNexus. All rights reserved.</p>
         </div>
     </footer>
     
     <!-- Cookie同意横幅 -->
     <div id="cookie-consent" class="cookie-consent" style="display: none;">
         <div class="cookie-content">
-            <p>我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的Cookie政策。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的Cookie政策。</p>
             <div class="cookie-buttons">
                 <button onclick="acceptCookies()" class="cookie-btn accept">同意</button>
                 <a href="../privacy.html" class="cookie-btn more">了解更多</a>

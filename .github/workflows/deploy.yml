@@ -26,3 +26,73 @@ jobs:
           directory: .
           branch: main
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Submit changed URLs to IndexNow
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          echo "Submitting changed URLs to IndexNow..."
+          KEY="c2cf787c8e784d5aa145d5fb9b8db1f4"
+          KEY_LOCATION="https://www.tokenfind.cn/c2cf787c8e784d5aa145d5fb9b8db1f4.txt"
+          HOST="www.tokenfind.cn"
+          
+          # 获取最近一次提交中修改的 .html 文件
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD | grep -E '\.(html|txt|xml)$' || true)
+          
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No HTML/TXT/XML files changed, skipping IndexNow submission."
+            exit 0
+          fi
+          
+          # 构建 URL 列表
+          URL_LIST=""
+          COUNT=0
+          for file in $CHANGED_FILES; do
+            # 只处理根目录、blog/、platform/ 下的页面
+            if [[ "$file" =~ ^(blog|platform)/[^/]+\.html$ ]]; then
+              URL="https://${HOST}/${file%.html}"
+            elif [[ "$file" =~ ^[^/]+\.html$ ]]; then
+              URL="https://${HOST}/${file%.html}"
+            elif [[ "$file" == "sitemap.xml" ]] || [[ "$file" == "llms.txt" ]] || [[ "$file" == "llms-full.txt" ]]; then
+              URL="https://${HOST}/${file}"
+            else
+              continue
+            fi
+            
+            URL_LIST="${URL_LIST}\"${URL}\","
+            COUNT=$((COUNT + 1))
+            
+            # IndexNow 每次最多 10,000 个 URL，这里限制 5000 个/次
+            if [ "$COUNT" -ge 5000 ]; then
+              break
+            fi
+          done
+          
+          if [ "$COUNT" -eq 0 ]; then
+            echo "No indexable URLs found in changed files."
+            exit 0
+          fi
+          
+          # 去掉最后一个逗号
+          URL_LIST="${URL_LIST%,}"
+          
+          # 构建 JSON
+          JSON_PAYLOAD=$(printf '{"host":"%s","key":"%s","keyLocation":"%s","urlList":[%s]}' \
+            "$HOST" "$KEY" "$KEY_LOCATION" "$URL_LIST")
+          
+          echo "Submitting $COUNT URLs to IndexNow..."
+          echo "$JSON_PAYLOAD" | head -c 500
+          echo ""
+          
+          # 提交到 Bing / IndexNow
+          STATUS=$(curl -s -o /tmp/indexnow_response.txt -w "%{http_code}" \
+            -X POST "https://www.bing.com/indexnow" \
+            -H "Content-Type: application/json" \
+            -d "$JSON_PAYLOAD")
+          
+          echo "IndexNow response code: $STATUS"
+          cat /tmp/indexnow_response.txt
+          echo ""
+          
+          if [ "$STATUS" != "200" ] && [ "$STATUS" != "202" ]; then
+            echo "IndexNow submission may have failed, but deployment is complete."
+          fi

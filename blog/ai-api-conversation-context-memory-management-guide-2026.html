@@ -230,9 +230,9 @@ var _hmt = _hmt || [];
         <img class="article-cover" src="images/ai-api-conversation-context-memory-management-guide-2026.jpg" alt="AI对话上下文管理指南">
 
         <div class="article-content">
-            <p>做过AI助手类产品的同行肯定遇到过我这个问题：用户聊到第50轮，AI突然"失忆"了，不记得之前讨论的内容。一问才知道，上下文超限了，直接被截断或者报错了。</p>
-            <p>这问题太常见了。GPT-4o上下文窗口128K，看着挺大，但10轮中英文混合对话轻松就能用掉50K tokens。再继续聊，上下文直接原地爆炸。</p>
-            <p>这篇文章是我踩了无数坑后的完整总结，从Session管理到上下文策略，从Token计算到隐私保护，全部是生产环境验证过的方案。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">做过AI助手类产品的同行肯定遇到过我这个问题：用户聊到第50轮，AI突然"失忆"了，不记得之前讨论的内容。一问才知道，上下文超限了，直接被截断或者报错了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这问题太常见了。GPT-4o上下文窗口128K，看着挺大，但10轮中英文混合对话轻松就能用掉50K tokens。再继续聊，上下文直接原地爆炸。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这篇文章是我踩了无数坑后的完整总结，从Session管理到上下文策略，从Token计算到隐私保护，全部是生产环境验证过的方案。</p>
 
             <div class="toc">
                 <h3>目录</h3>
@@ -249,7 +249,7 @@ var _hmt = _hmt || [];
             </div>
 
             <h2 id="section1">Session与Context的本质区别</h2>
-            <p>先把这个两个概念搞清楚，很多人搞混了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先把这个两个概念搞清楚，很多人搞混了。</p>
 
             <table>
                 <tr><th>概念</th><th>定义</th><th>生命周期</th><th>存储位置</th></tr>
@@ -257,7 +257,7 @@ var _hmt = _hmt || [];
                 <tr><td>Context（上下文）</td><td>发送给模型的完整消息历史</td><td>每次请求时动态构建</td><td>内存/显存</td></tr>
             </table>
 
-            <p>举个例子：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">举个例子：</p>
             <ul>
                 <li>用户打开对话框开始聊天，这是<strong>一个新的Session</strong></li>
                 <li>用户发了10条消息，AI回复了10条，这<strong>构成上下文</strong></li>
@@ -265,15 +265,15 @@ var _hmt = _hmt || [];
                 <li>用户第二天打开，<strong>新Session</strong>，但如果保存了历史，<strong>可以恢复上下文</strong></li>
             </ul>
 
-            <p>关键点：<strong>Context是消耗品，有上限（上下文窗口大小）；Session是容器，可以无限长，但Context要精心管理</strong>。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">关键点：<strong>Context是消耗品，有上限（上下文窗口大小）；Session是容器，可以无限长，但Context要精心管理</strong>。</p>
 
             <h2 id="section2">Redis Session管理实战</h2>
-            <p>Session管理方案很多，Redis是最常用的选择。速度快、支持过期、自动清理。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Session管理方案很多，Redis是最常用的选择。速度快、支持过期、自动清理。</p>
 
-            <p>先安装依赖：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先安装依赖：</p>
             <pre><code>pip install redis tiktoken openai anthropic</code></pre>
 
-            <p>核心Session管理代码：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">核心Session管理代码：</p>
 
             <pre><code>import redis
 import json
@@ -412,7 +412,7 @@ messages = session_manager.get_messages(session_id)
 print(f"当前消息数: {len(messages)}")
 print(f"当前token数: {session_manager.count_tokens(messages)}")</code></pre>
 
-            <p>多端同步的关键：同一个user_id可以创建多个device_id的Session，读写时用user_id作为索引就行。实现跨设备继续对话的核心逻辑：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">多端同步的关键：同一个user_id可以创建多个device_id的Session，读写时用user_id作为索引就行。实现跨设备继续对话的核心逻辑：</p>
 
             <pre><code>def sync_across_devices(self, user_id: str, target_device_id: str):
     """
@@ -439,10 +439,10 @@ print(f"当前token数: {session_manager.count_tokens(messages)}")</code></pre>
     return new_session_id</code></pre>
 
             <h2 id="section3">上下文窗口三大策略</h2>
-            <p>当对话历史越来越长，上下文窗口不够用了怎么办？有三大策略：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">当对话历史越来越长，上下文窗口不够用了怎么办？有三大策略：</p>
 
             <h3>策略一：原样保留（Preserve All）</h3>
-            <p>适合场景：对话短（&lt;10轮）、上下文窗口大（&gt;100K）、需要完整历史</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">适合场景：对话短（&lt;10轮）、上下文窗口大（&gt;100K）、需要完整历史</p>
 
             <pre><code>def preserve_all_strategy(messages: List[Dict], max_tokens: int) -> List[Dict]:
     """
@@ -474,7 +474,7 @@ print(f"当前token数: {session_manager.count_tokens(messages)}")</code></pre>
     return truncated</code></pre>
 
             <h3>策略二：摘要压缩（Summarize）</h3>
-            <p>适合场景：中等长度对话（10-30轮）、需要保留关键信息</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">适合场景：中等长度对话（10-30轮）、需要保留关键信息</p>
 
             <pre><code>import asyncio
 from openai import OpenAI
@@ -534,7 +534,7 @@ def count_message_tokens(msg: Dict) -> int:
     return 4 + len(encoding.encode(msg.get("content", "")))</code></pre>
 
             <h3>策略三：滑动窗口（Sliding Window）</h3>
-            <p>适合场景：长对话（&gt;30轮）、只需要最近上下文</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">适合场景：长对话（&gt;30轮）、只需要最近上下文</p>
 
             <pre><code>def sliding_window_strategy(
     messages: List[Dict],
@@ -610,9 +610,9 @@ def build_context(
         return asyncio.run(summarize_messages(session_messages))</code></pre>
 
             <h2 id="section4">Token预算计算方法</h2>
-            <p>上下文管理本质上是Token管理。你得知道什么时候该压缩、压缩多少。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上下文管理本质上是Token管理。你得知道什么时候该压缩、压缩多少。</p>
 
-            <p>Token计算公式：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Token计算公式：</p>
             <pre><code>import tiktoken
 
 def calculate_context_budget(
@@ -650,7 +650,7 @@ budget = calculate_context_budget(
 print(budget)
 # {'system_tokens': 32, 'available_for_messages': 127468, 'max_context_tokens': 128000, ...}</code></pre>
 
-            <p>关键阈值判断：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">关键阈值判断：</p>
 
             <table>
                 <tr><th>上下文占用率</th><th>建议策略</th><th>触发时机</th></tr>
@@ -661,10 +661,10 @@ print(budget)
             </table>
 
             <h2 id="section5">实测数据：10轮对话Token消耗</h2>
-            <p>我用GPT-4o-mini做了实测，模拟真实对话场景：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我用GPT-4o-mini做了实测，模拟真实对话场景：</p>
 
             <div class="highlight-box">
-                <p>测试设置：System prompt约100字，每轮对话用户输入50-150字，AI回复100-300字，10轮混合中英文。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">测试设置：System prompt约100字，每轮对话用户输入50-150字，AI回复100-300字，10轮混合中英文。</p>
             </div>
 
             <table>
@@ -678,14 +678,14 @@ print(budget)
                 <tr><td>100轮</td><td>6,234</td><td>15,782</td><td>~35,000</td><td>27%</td></tr>
             </table>
 
-            <p>看起来128K上下文能聊很久？但这是理想情况。实际生产环境中：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">看起来128K上下文能聊很久？但这是理想情况。实际生产环境中：</p>
             <ul>
                 <li>System prompt通常更复杂（几百到几千tokens）</li>
                 <li>用户会粘贴代码、文档等内容（动不动就10K+ tokens）</li>
                 <li>有时需要注入RAG检索结果（又是几千tokens）</li>
             </ul>
 
-            <p>加上这些变量，50轮对话轻松达到60K+ tokens。<strong>上下文窗口看着大，其实并不够用</strong>。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">加上这些变量，50轮对话轻松达到60K+ tokens。<strong>上下文窗口看着大，其实并不够用</strong>。</p>
 
             <h3>不同模型的成本对比</h3>
             <table>
@@ -696,10 +696,10 @@ print(budget)
                 <tr><td>Claude 3 Opus</td><td>200K</td><td>$0.12</td><td>$1.20</td><td>低</td></tr>
             </table>
 
-            <p>结论：<strong>长对话场景优先用GPT-4o-mini或Claude 3.5 Sonnet</strong>，上下文窗口大，价格便宜，效果不差。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">结论：<strong>长对话场景优先用GPT-4o-mini或Claude 3.5 Sonnet</strong>，上下文窗口大，价格便宜，效果不差。</p>
 
             <h2 id="section6">RAG增强的对话系统</h2>
-            <p>当对话历史已经很长，但用户问的问题需要参考很久以前的内容怎么办？RAG（检索增强生成）就派上用场了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">当对话历史已经很长，但用户问的问题需要参考很久以前的内容怎么办？RAG（检索增强生成）就派上用场了。</p>
 
             <pre><code>import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -813,7 +813,7 @@ rag_context = rag.build_rag_context(
 print(rag_context)</code></pre>
 
             <h2 id="section7">多轮Agent完整框架</h2>
-            <p>把Memory（记忆）、RAG（检索）、Tool（工具）整合起来，就是一个完整的多轮Agent框架。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">把Memory（记忆）、RAG（检索）、Tool（工具）整合起来，就是一个完整的多轮Agent框架。</p>
 
             <pre><code>import asyncio
 from typing import List, Dict, Callable, Optional
@@ -999,7 +999,7 @@ async def run_conversation():
 asyncio.run(run_conversation())</code></pre>
 
             <h2 id="section8">隐私保护与安全</h2>
-            <p>对话历史包含大量用户隐私数据，生产环境必须考虑安全措施。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对话历史包含大量用户隐私数据，生产环境必须考虑安全措施。</p>
 
             <h3>对话历史加密存储</h3>
             <pre><code>from cryptography.fernet import Fernet
@@ -1075,7 +1075,7 @@ class EncryptedSessionManager:
             </ul>
 
             <h2>总结</h2>
-            <p>上下文管理是AI产品的核心技术栈。核心要点：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上下文管理是AI产品的核心技术栈。核心要点：</p>
             <ul>
                 <li><strong>Session是容器，Context是消耗品</strong>，别搞混</li>
                 <li><strong>Redis存储+TTL过期</strong>是Session管理的标配</li>
@@ -1085,16 +1085,40 @@ class EncryptedSessionManager:
                 <li><strong>隐私保护是底线</strong>，加密存储、自动清理、权限隔离</li>
             </ul>
 
-            <p>上下文管理做不好，产品体验直接崩盘。用户聊着聊着AI就失忆了，谁受得了？希望这篇文章能帮你把这个问题彻底解决。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上下文管理做不好，产品体验直接崩盘。用户聊着聊着AI就失忆了，谁受得了？希望这篇文章能帮你把这个问题彻底解决。</p>
 
-            <p>实际开发中遇到具体问题，欢迎来<a href="https://www.tokenfind.cn">TokenNexus</a>交流。我们收录了全球330+ AI API平台，有最新的上下文窗口大小、价格和稳定性数据，帮你选择最适合的模型。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">实际开发中遇到具体问题，欢迎来<a href="https://www.tokenfind.cn">TokenNexus</a>交流。我们收录了全球330+ AI API平台，有最新的上下文窗口大小、价格和稳定性数据，帮你选择最适合的模型。</p>
 
             <div class="cta-box">
                 <h3>发现更多AI API平台</h3>
-                <p>TokenNexus收录330+国内外AI API平台，帮你找到最适合的服务</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">TokenNexus收录330+国内外AI API平台，帮你找到最适合的服务</p>
                 <a href="../">立即探索</a>
             </div>
         </div>
+    
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-token-pricing-cost-calculation-guide-2026">AI API Token计费原理深度解析 AI API攻略</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入解析AI API Token计算原理，涵盖中英文Token化差异、GPT-4o/Claude/DeepSeek最新定价表、多模态Token计算、Python...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-prompt-engineering-guide">AI提示词工程完全指南：Prompt Engineering技巧与实战</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入了解AI提示词工程最佳实践，从零样本提示到结构化设计，涵盖ChatGPT、Claude、Gemini等平台的提示词技巧与AI提示词模板。</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/china-api-transit-platform-guide">国内AI API中转平台完全指南：为什么更适合中国开发者</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">国内开发者使用AI API中转平台的完整指南。解决网络不稳定、支付困难、账号风控等问题。实测对比+真实案例，帮你找到最可靠的中转服务。</p>
+                </article>
+
+            </div>
+        </section>
+
     </article>
 
     <footer class="footer">

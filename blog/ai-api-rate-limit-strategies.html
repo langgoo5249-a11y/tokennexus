@@ -632,17 +632,17 @@ var _hmt = _hmt || [];
             </header>
 
             <div class="article-content">
-                <p>凌晨三点，手机震了。429报警电话准时响起——"AI写作助手又挂了，用户在群里骂娘了。"我迷迷糊糊打开电脑，日志里一片红：<span class="error-code">429 Too Many Requests</span>。这已经是本周第三次了。说真的，如果你做AI应用开发超过三个月，还没被429教育过，那你一定还没上过生产环境。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">凌晨三点，手机震了。429报警电话准时响起——"AI写作助手又挂了，用户在群里骂娘了。"我迷迷糊糊打开电脑，日志里一片红：<span class="error-code">429 Too Many Requests</span>。这已经是本周第三次了。说真的，如果你做AI应用开发超过三个月，还没被429教育过，那你一定还没上过生产环境。</p>
 
-                <p>Rate Limit（速率限制）是每个AI API开发者绕不过去的一道坎。不管你用的是OpenAI、Anthropic Claude还是国内的通义千问、文心一言，只要你调用量上去了，限流就是迟早的事。这篇文章我会把主流平台的限流机制掰开揉碎讲清楚，再给你五套亲测有效的应对策略，最后用一个真实案例告诉你怎么把429错误率从8.3%干到0.02%。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Rate Limit（速率限制）是每个AI API开发者绕不过去的一道坎。不管你用的是OpenAI、Anthropic Claude还是国内的通义千问、文心一言，只要你调用量上去了，限流就是迟早的事。这篇文章我会把主流平台的限流机制掰开揉碎讲清楚，再给你五套亲测有效的应对策略，最后用一个真实案例告诉你怎么把429错误率从8.3%干到0.02%。</p>
 
                 <h2>一、Rate Limit到底是什么？为什么AI厂商非要设限？</h2>
 
-                <p>Rate Limit说白了就是API厂商给你设定的"请求速度上限"。超过这个上限，服务器就会返回 <span class="error-code">429 Too Many Requests</span>，告诉你"慢点，太快了"。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Rate Limit说白了就是API厂商给你设定的"请求速度上限"。超过这个上限，服务器就会返回 <span class="error-code">429 Too Many Requests</span>，告诉你"慢点，太快了"。</p>
 
-                <p>你可能会想：我花钱买的API，凭什么限制我？这问题我当初也想了很久，后来想通了——AI推理是个极其吃资源的活儿。一块A100跑GPT-4o级别的推理，单次请求可能要消耗几十GB显存。如果不对请求做限制，一个用户写个死循环就能把整个推理集群打挂，其他所有人都得跟着遭殃。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">你可能会想：我花钱买的API，凭什么限制我？这问题我当初也想了很久，后来想通了——AI推理是个极其吃资源的活儿。一块A100跑GPT-4o级别的推理，单次请求可能要消耗几十GB显存。如果不对请求做限制，一个用户写个死循环就能把整个推理集群打挂，其他所有人都得跟着遭殃。</p>
 
-                <p>厂商设限的核心原因有三个：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">厂商设限的核心原因有三个：</p>
 
                 <ul>
                     <li><strong>资源公平分配</strong>：GPU算力就那么多，得让所有付费用户都能用上。没有限流的话，大客户的批量任务会直接把小用户的请求挤掉。</li>
@@ -650,15 +650,15 @@ var _hmt = _hmt || [];
                     <li><strong>保障服务稳定性</strong>：AI推理的延迟和吞吐量是强相关的。请求量一爆，延迟就飙升，所有人的体验都会变差。限流本质上是在做"削峰填谷"。</li>
                 </ul>
 
-                <p>理解了这些，你就不会觉得Rate Limit是在"为难"你了。它更像是高速公路上的限速——你觉得烦，但没有它大家都得完蛋。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">理解了这些，你就不会觉得Rate Limit是在"为难"你了。它更像是高速公路上的限速——你觉得烦，但没有它大家都得完蛋。</p>
 
                 <h2>二、主流AI API平台Rate Limit机制详解</h2>
 
-                <p>每个平台的限流策略都不一样，有的按请求数限，有的按Token数限，有的两者都限。下面这张表把主流平台的规则整理清楚了，建议收藏。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">每个平台的限流策略都不一样，有的按请求数限，有的按Token数限，有的两者都限。下面这张表把主流平台的规则整理清楚了，建议收藏。</p>
 
                 <h3>2.1 OpenAI：Tier分级 + RPM/TPM双重限制</h3>
 
-                <p>OpenAI的限流体系是所有平台里最复杂的。它把用户分成六个等级（Free、Tier 1 到 Tier 5），每个等级对应不同的RPM（Requests Per Minute，每分钟请求数）和TPM（Tokens Per Minute，每分钟Token数）上限。而且不同模型的限制还不一样——GPT-4o和GPT-4o-mini的限制就差了十倍。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI的限流体系是所有平台里最复杂的。它把用户分成六个等级（Free、Tier 1 到 Tier 5），每个等级对应不同的RPM（Requests Per Minute，每分钟请求数）和TPM（Tokens Per Minute，每分钟Token数）上限。而且不同模型的限制还不一样——GPT-4o和GPT-4o-mini的限制就差了十倍。</p>
 
                 <table class="data-table">
                     <tr>
@@ -719,13 +719,13 @@ var _hmt = _hmt || [];
                     </tr>
                 </table>
 
-                <p>注意看Tier 1的数据：GPT-4o只有500 RPM和40,000 TPM。什么概念？如果你每个请求平均消耗800个token，那一分钟最多只能处理50个请求就到TPM上限了。对于有并发需求的应用来说，这个限制确实挺紧的。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">注意看Tier 1的数据：GPT-4o只有500 RPM和40,000 TPM。什么概念？如果你每个请求平均消耗800个token，那一分钟最多只能处理50个请求就到TPM上限了。对于有并发需求的应用来说，这个限制确实挺紧的。</p>
 
-                <p>还有一个坑：OpenAI的RPM和TPM是<strong>独立计算</strong>的。你可能RPM只用了60%，但TPM已经100%了——这种情况在处理长文本时特别常见。所以光盯着请求数是不够的，还得关注Token消耗。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">还有一个坑：OpenAI的RPM和TPM是<strong>独立计算</strong>的。你可能RPM只用了60%，但TPM已经100%了——这种情况在处理长文本时特别常见。所以光盯着请求数是不够的，还得关注Token消耗。</p>
 
                 <h3>2.2 Anthropic Claude：简洁但严格的RPM/TPM限制</h3>
 
-                <p>Anthropic的限流策略比OpenAI简单直接，没有Tier分级那一套。但别以为简单就好对付——Claude的限制其实挺严的，尤其是对高频调用场景。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Anthropic的限流策略比OpenAI简单直接，没有Tier分级那一套。但别以为简单就好对付——Claude的限制其实挺严的，尤其是对高频调用场景。</p>
 
                 <table class="data-table">
                     <tr>
@@ -754,11 +754,11 @@ var _hmt = _hmt || [];
                     </tr>
                 </table>
 
-                <p>Claude Opus 4的50 RPM看着就让人头大。如果你有个批量分析任务要跑几百条数据，按这个速度得等好几分钟。不过好消息是，Anthropic提供了批量API（Batch API），可以异步提交大量请求，限制也宽松很多。对于非实时的批处理任务，强烈建议走批量通道。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Claude Opus 4的50 RPM看着就让人头大。如果你有个批量分析任务要跑几百条数据，按这个速度得等好几分钟。不过好消息是，Anthropic提供了批量API（Batch API），可以异步提交大量请求，限制也宽松很多。对于非实时的批处理任务，强烈建议走批量通道。</p>
 
                 <h3>2.3 国内平台：QPS和并发数限制</h3>
 
-                <p>国内平台的限流风格跟海外不太一样，更偏向传统的QPS（每秒请求数）和并发连接数限制。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">国内平台的限流风格跟海外不太一样，更偏向传统的QPS（每秒请求数）和并发连接数限制。</p>
 
                 <table class="data-table">
                     <tr>
@@ -799,11 +799,11 @@ var _hmt = _hmt || [];
                     </tr>
                 </table>
 
-                <p>国内平台有个特点：基础版的限制普遍很低，通义千问免费版只有2 QPS，文心一言只有2个并发。但付费版的提升幅度很大，通义千问企业版可以到500 QPS。所以如果你的业务在国内，算清楚调用量再选套餐，别被免费版那可怜的QPS坑了。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">国内平台有个特点：基础版的限制普遍很低，通义千问免费版只有2 QPS，文心一言只有2个并发。但付费版的提升幅度很大，通义千问企业版可以到500 QPS。所以如果你的业务在国内，算清楚调用量再选套餐，别被免费版那可怜的QPS坑了。</p>
 
                 <h2>三、429错误的深层原因：不只是"请求太快"</h2>
 
-                <p>很多人遇到429的第一反应就是"我请求太快了，加个sleep就行"。这想法太天真了。429的触发原因远比你想的复杂：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">很多人遇到429的第一反应就是"我请求太快了，加个sleep就行"。这想法太天真了。429的触发原因远比你想的复杂：</p>
 
                 <ul>
                     <li><strong>账户等级不够</strong>：你用Tier 1的额度去跑Tier 3级别的调用量，429是必然的。这不是你代码的问题，是你钱包的问题。</li>
@@ -814,16 +814,16 @@ var _hmt = _hmt || [];
                 </ul>
 
                 <div class="highlight-box">
-                    <p><strong>排查建议：</strong>遇到429时，第一时间检查响应头里的 <code>x-ratelimit-limit-tokens</code>、<code>x-ratelimit-remaining-tokens</code>、<code>x-ratelimit-remaining-requests</code> 这几个字段。它们会告诉你到底剩多少额度，是Token先触顶还是请求数先触顶。对症下药，别瞎改。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>排查建议：</strong>遇到429时，第一时间检查响应头里的 <code>x-ratelimit-limit-tokens</code>、<code>x-ratelimit-remaining-tokens</code>、<code>x-ratelimit-remaining-requests</code> 这几个字段。它们会告诉你到底剩多少额度，是Token先触顶还是请求数先触顶。对症下药，别瞎改。</p>
                 </div>
 
                 <h2>四、5种实用应对策略（附代码）</h2>
 
-                <p>理论讲完了，下面是干货。这五套策略从简单到复杂，你可以根据业务规模选择组合使用。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">理论讲完了，下面是干货。这五套策略从简单到复杂，你可以根据业务规模选择组合使用。</p>
 
                 <h3>策略一：令牌桶算法实现请求限流</h3>
 
-                <p>令牌桶（Token Bucket）是最经典的限流算法。原理很简单：想象一个桶，以固定速率往里面放令牌。每次请求需要从桶里取一个令牌，桶空了就等着。好处是允许一定程度的突发流量（桶里有积攒的令牌时），同时长期来看又不会超过平均速率。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">令牌桶（Token Bucket）是最经典的限流算法。原理很简单：想象一个桶，以固定速率往里面放令牌。每次请求需要从桶里取一个令牌，桶空了就等着。好处是允许一定程度的突发流量（桶里有积攒的令牌时），同时长期来看又不会超过平均速率。</p>
 
                 <div class="code-block">
 <pre><span class="keyword">import</span> time
@@ -867,11 +867,11 @@ bucket = TokenBucket(rate=8, capacity=20)
     print(f<span class="string">"请求 {i+1} 已发送"</span>)</pre>
                 </div>
 
-                <p>这个实现是线程安全的，可以在多线程环境下使用。实际使用时，把rate和capacity设置成你当前Tier对应的RPM值的80%左右（留点buffer），这样基本不会触发429。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这个实现是线程安全的，可以在多线程环境下使用。实际使用时，把rate和capacity设置成你当前Tier对应的RPM值的80%左右（留点buffer），这样基本不会触发429。</p>
 
                 <h3>策略二：指数退避重试（带抖动）</h3>
 
-                <p>即使做了限流，429还是可能偶尔出现。这时候就需要重试了，但千万别无脑重试——指数退避加随机抖动才是正确姿势。无脑重试只会让所有客户端同时重试，造成"惊群效应"，反而加剧拥堵。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">即使做了限流，429还是可能偶尔出现。这时候就需要重试了，但千万别无脑重试——指数退避加随机抖动才是正确姿势。无脑重试只会让所有客户端同时重试，造成"惊群效应"，反而加剧拥堵。</p>
 
                 <div class="code-block">
 <pre><span class="keyword">import</span> random
@@ -910,11 +910,11 @@ result = call_with_retry([
 ])</pre>
                 </div>
 
-                <p>关键点在于抖动（jitter）。如果没有抖动，多个并发请求会同时等待相同的时间然后同时重试，形成"冲击波"。加了随机抖动后，重试时间被分散开了，对服务端的压力会小很多。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">关键点在于抖动（jitter）。如果没有抖动，多个并发请求会同时等待相同的时间然后同时重试，形成"冲击波"。加了随机抖动后，重试时间被分散开了，对服务端的压力会小很多。</p>
 
                 <h3>策略三：多API Key轮询分发</h3>
 
-                <p>单个Key的RPM不够用怎么办？买多个Key，轮着用。这是最简单粗暴也最有效的扩容方式。OpenAI官方其实是允许你拥有多个API Key的（只要每个Key对应独立的付费账户）。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">单个Key的RPM不够用怎么办？买多个Key，轮着用。这是最简单粗暴也最有效的扩容方式。OpenAI官方其实是允许你拥有多个API Key的（只要每个Key对应独立的付费账户）。</p>
 
                 <div class="code-block">
 <pre><span class="keyword">import</span> itertools
@@ -963,11 +963,11 @@ response = client.chat.completions.create(
 )</pre>
                 </div>
 
-                <p>这个实现做了两件事：一是轮询分发请求到不同的Key，二是根据响应头动态追踪每个Key的剩余额度，自动跳过快用完的Key。3个Tier 1的Key就能把RPM从500提升到接近1500，效果立竿见影。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这个实现做了两件事：一是轮询分发请求到不同的Key，二是根据响应头动态追踪每个Key的剩余额度，自动跳过快用完的Key。3个Tier 1的Key就能把RPM从500提升到接近1500，效果立竿见影。</p>
 
                 <h3>策略四：请求队列 + 异步处理（Redis方案）</h3>
 
-                <p>当并发量真的很大时，光靠客户端限流就不够了。你需要一个服务端的请求队列来做削峰填谷。Redis是最常用的方案——轻量、快速、支持优先级队列。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">当并发量真的很大时，光靠客户端限流就不够了。你需要一个服务端的请求队列来做削峰填谷。Redis是最常用的方案——轻量、快速、支持优先级队列。</p>
 
                 <div class="code-block">
 <pre><span class="comment"># producer.py - 生产者：将请求推入队列</span>
@@ -1032,11 +1032,11 @@ bucket = TokenBucket(rate=8, capacity=15)  <span class="comment"># 复用前面�
     t.start()</pre>
                 </div>
 
-                <p>这套方案的核心思想是"解耦"。用户请求进来后不用等API返回，而是拿到一个任务ID就立刻响应。前端通过轮询或WebSocket获取结果。这样即使API限流导致处理变慢，用户体验也不会太差——至少不会直接报错。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这套方案的核心思想是"解耦"。用户请求进来后不用等API返回，而是拿到一个任务ID就立刻响应。前端通过轮询或WebSocket获取结果。这样即使API限流导致处理变慢，用户体验也不会太差——至少不会直接报错。</p>
 
                 <h3>策略五：模型降级策略（GPT-4o到GPT-4o-mini自动切换）</h3>
 
-                <p>不是所有请求都需要最强模型。用户问"今天天气怎么样"你用GPT-4o去回答，纯属浪费额度。模型降级策略就是根据请求的重要性和复杂度，自动选择合适的模型。当高配模型触发限流时，自动降级到低配模型继续服务。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不是所有请求都需要最强模型。用户问"今天天气怎么样"你用GPT-4o去回答，纯属浪费额度。模型降级策略就是根据请求的重要性和复杂度，自动选择合适的模型。当高配模型触发限流时，自动降级到低配模型继续服务。</p>
 
                 <div class="code-block">
 <pre><span class="keyword">from</span> openai <span class="keyword">import</span> OpenAI, RateLimitError
@@ -1081,16 +1081,16 @@ result = smart_call([
 ])</pre>
                 </div>
 
-                <p>这个策略的精妙之处在于：它不只是被动降级，还主动根据请求复杂度选择模型。简单翻译、闲聊类的请求直接走GPT-4o-mini，只有真正需要强推理的任务才用GPT-4o。这样既节省了高配模型的额度，又降低了触发限流的概率。GPT-4o-mini的价格只有GPT-4o的十分之一，成本也能大幅下降。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这个策略的精妙之处在于：它不只是被动降级，还主动根据请求复杂度选择模型。简单翻译、闲聊类的请求直接走GPT-4o-mini，只有真正需要强推理的任务才用GPT-4o。这样既节省了高配模型的额度，又降低了触发限流的概率。GPT-4o-mini的价格只有GPT-4o的十分之一，成本也能大幅下降。</p>
 
                 <h2>五、真实案例：某AI写作平台如何把429错误率从8.3%干到0.02%</h2>
 
                 <div class="case-study">
                     <h4>案例背景</h4>
-                    <p>某AI写作辅助平台，日活用户约5万，核心功能是AI续写、AI改写和AI大纲生成。上线初期用的是单个OpenAI API Key（Tier 2），高峰期429错误率高达8.3%，用户投诉量每天上百条。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">某AI写作辅助平台，日活用户约5万，核心功能是AI续写、AI改写和AI大纲生成。上线初期用的是单个OpenAI API Key（Tier 2），高峰期429错误率高达8.3%，用户投诉量每天上百条。</p>
 
                     <h4>问题诊断</h4>
-                    <p>经过分析，发现三个核心问题：一是高峰期（晚8-11点）并发请求集中爆发，RPM瞬间打满；二是AI续写功能每次请求消耗3000-5000 tokens，TPM比RPM先触顶；三是没有任何降级机制，429直接返回错误给用户。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">经过分析，发现三个核心问题：一是高峰期（晚8-11点）并发请求集中爆发，RPM瞬间打满；二是AI续写功能每次请求消耗3000-5000 tokens，TPM比RPM先触顶；三是没有任何降级机制，429直接返回错误给用户。</p>
 
                     <h4>解决方案：三重策略组合</h4>
                     <ul>
@@ -1101,18 +1101,18 @@ result = smart_call([
 
                     <h4>实施效果</h4>
                     <div class="result">
-                        <p><strong>429错误率：8.3% → 0.02%</strong></p>
-                        <p><strong>用户投诉量：日均120条 → 日均不到2条</strong></p>
-                        <p><strong>API成本：下降约35%</strong>（因为大量简单请求被路由到了mini模型）</p>
-                        <p><strong>平均响应时间：从直接报错到稳定3-8秒</strong></p>
+                        <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>429错误率：8.3% → 0.02%</strong></p>
+                        <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>用户投诉量：日均120条 → 日均不到2条</strong></p>
+                        <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>API成本：下降约35%</strong>（因为大量简单请求被路由到了mini模型）</p>
+                        <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>平均响应时间：从直接报错到稳定3-8秒</strong></p>
                     </div>
                 </div>
 
-                <p>这个案例的关键在于：不是单一策略能解决的，而是多管齐下。多Key轮询解决了总量问题，队列解决了峰值问题，降级解决了容错问题。三者配合才能做到真正的"丝滑"。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这个案例的关键在于：不是单一策略能解决的，而是多管齐下。多Key轮询解决了总量问题，队列解决了峰值问题，降级解决了容错问题。三者配合才能做到真正的"丝滑"。</p>
 
                 <h2>六、如何申请提升Rate Limit</h2>
 
-                <p>如果你的调用量确实很大，光靠客户端优化可能不够，得找OpenAI提额。申请流程其实不复杂，但有几个技巧能提高通过率：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你的调用量确实很大，光靠客户端优化可能不够，得找OpenAI提额。申请流程其实不复杂，但有几个技巧能提高通过率：</p>
 
                 <ol>
                     <li><strong>先达到当前Tier的最高消费</strong>：OpenAI看重你的付费意愿。如果你Tier 2但每月才花$60，申请Tier 3大概率被拒。先稳定消费到当前Tier的门槛以上再说。</li>
@@ -1122,11 +1122,11 @@ result = smart_call([
                     <li><strong>被拒了别灰心</strong>：可以过两周再申请，期间保持稳定消费。有些开发者申请三四次才通过，这是正常的。</li>
                 </ol>
 
-                <p>Anthropic那边也有类似的申请流程，在Console的Usage页面可以提交提升限额的请求。国内平台一般直接在控制台购买更高套餐就行，没那么麻烦。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Anthropic那边也有类似的申请流程，在Console的Usage页面可以提交提升限额的请求。国内平台一般直接在控制台购买更高套餐就行，没那么麻烦。</p>
 
                 <h2>七、监控Rate Limit使用率的最佳实践</h2>
 
-                <p>最后说说监控。你不能等429了才发现问题，得提前预警。以下是我们在生产环境用的监控方案：</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最后说说监控。你不能等429了才发现问题，得提前预警。以下是我们在生产环境用的监控方案：</p>
 
                 <ul>
                     <li><strong>实时追踪响应头</strong>：每次API调用后，记录 <code>x-ratelimit-remaining-requests</code> 和 <code>x-ratelimit-remaining-tokens</code>。这两个值就是你的"油表"。</li>
@@ -1137,7 +1137,7 @@ result = smart_call([
                 </ul>
 
                 <div class="highlight-box">
-                    <p><strong>一句话总结：</strong>Rate Limit不是你的敌人，而是你和API厂商之间的"交通规则"。理解规则、遵守规则、在规则内最大化你的利益——这才是一个成熟的AI应用开发者该有的态度。别等到凌晨三点被报警电话叫醒了才开始重视它。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>一句话总结：</strong>Rate Limit不是你的敌人，而是你和API厂商之间的"交通规则"。理解规则、遵守规则、在规则内最大化你的利益——这才是一个成熟的AI应用开发者该有的态度。别等到凌晨三点被报警电话叫醒了才开始重视它。</p>
                 </div>
 
                 <div class="tags">
@@ -1151,7 +1151,31 @@ result = smart_call([
                     <span class="tag">AI API并发控制</span>
                 </div>
             </div>
-        </article>
+        
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-error-codes-troubleshooting">AI API错误码大全与故障排查：OpenAI、Claude、国内平台踩坑实录</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">全面整理OpenAI、Anthropic Claude、通义千问、文心一言等AI API常见错误码及排查方案。附真实故障案例、Python重试与降级代码、监控告...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-error-codes-troubleshooting-handbook-2026">AI API错误码排查手册2026：从429限流到500超时的实战指南 AI API攻略</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI API错误码排查完全手册，详解OpenAI、Claude、DeepSeek、Gemini等平台的429限流、500超时、401认证失败等常见错误码，附Py...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-error-codes-troubleshooting-2026">AI API错误码完全排查指南：从429限流到500超时的实战解决方案博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">详细解析OpenAI、Claude、Gemini等AI API常见错误码（429限流、500超时、401认证失败等）的原因与解决方案，附真实踩坑案例、错误码速查...</p>
+                </article>
+
+            </div>
+        </section>
+
+    </article>
 
         <!-- 文中广告位 -->
         <div class="ad-container ad-rectangle">

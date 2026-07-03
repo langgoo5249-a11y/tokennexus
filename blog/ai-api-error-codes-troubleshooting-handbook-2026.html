@@ -193,40 +193,40 @@ var _hmt = _hmt || [];
 
         <div class="article-content">
             <h2>先搞清楚：AI API错误分两类</h2>
-            <p>所有AI API的错误码都可以归到两大类：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">所有AI API的错误码都可以归到两大类：</p>
             <ul>
                 <li><strong>4xx 客户端错误</strong> —— 你的请求有问题，需要改你的代码</li>
                 <li><strong>5xx 服务端错误</strong> —— 平台那边出问题了，你需要做容错处理</li>
             </ul>
-            <p>这个区分很重要，因为排查方向完全不同。4xx错误你改自己的代码就行，5xx错误你只能等平台修复或者切换到备用通道。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这个区分很重要，因为排查方向完全不同。4xx错误你改自己的代码就行，5xx错误你只能等平台修复或者切换到备用通道。</p>
 
             <h2>4xx客户端错误详解</h2>
 
             <h3>401 认证失败</h3>
-            <p><strong>这是什么：</strong>你的API Key无效、过期或没有传。</p>
-            <p><strong>常见原因：</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>这是什么：</strong>你的API Key无效、过期或没有传。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>常见原因：</strong></p>
             <ul>
                 <li>API Key复制的时候多了空格或少了字符</li>
                 <li>Key已经被撤销或过期了</li>
                 <li>请求头格式不对，比如把 <code>Authorization: Bearer sk-xxx</code> 写成了 <code>Authorization: sk-xxx</code></li>
                 <li>用了A平台的Key去调B平台的接口（别笑，真有人这么干过）</li>
             </ul>
-            <p><strong>排查步骤：</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>排查步骤：</strong></p>
             <ol>
                 <li>先确认API Key是否正确复制，注意前后有没有多余空格</li>
                 <li>到平台后台检查Key的状态，看是否被禁用</li>
                 <li>用curl或Postman单独测试一次，排除代码问题</li>
                 <li>检查请求头格式是否符合平台文档要求</li>
             </ol>
-            <p><strong>预防措施：</strong>把API Key存在环境变量里，不要硬编码到代码中。定期检查Key的有效期，设置过期提醒。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>预防措施：</strong>把API Key存在环境变量里，不要硬编码到代码中。定期检查Key的有效期，设置过期提醒。</p>
 
             <div class="tip-box">
                 <strong>各平台401错误码差异：</strong>OpenAI返回 <code>error.code: "invalid_api_key"</code>；Claude返回 <code>error.type: "authentication_error"</code>；DeepSeek返回 <code>error_code: "invalid_api_key"</code>。格式不同但意思一样，都是Key有问题。
             </div>
 
             <h3>429 速率限制（最常见的坑）</h3>
-            <p><strong>这是什么：</strong>你请求太快了，超出了平台的速率限制。</p>
-            <p>429是我遇到最多的错误，也是排查起来最花时间的。因为不同平台的限流策略差异很大。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>这是什么：</strong>你请求太快了，超出了平台的速率限制。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">429是我遇到最多的错误，也是排查起来最花时间的。因为不同平台的限流策略差异很大。</p>
 
             <table>
                 <thead>
@@ -265,14 +265,14 @@ var _hmt = _hmt || [];
                 </tbody>
             </table>
 
-            <p><strong>排查步骤：</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>排查步骤：</strong></p>
             <ol>
                 <li>查看响应头中的限流信息，大多数平台会返回 <code>X-RateLimit-Remaining</code> 和 <code>X-RateLimit-Reset</code></li>
                 <li>确认是RPM（每分钟请求数）超了还是TPM（每分钟token数）超了</li>
                 <li>检查代码里有没有循环调用没有加延迟</li>
                 <li>如果是并发场景，检查并发数是否超过了限制</li>
             </ol>
-            <p><strong>解决方案：</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>解决方案：</strong></p>
             <ul>
                 <li>实现指数退避重试（后面会给代码）</li>
                 <li>在请求前检查剩余额度，主动等待</li>
@@ -285,8 +285,8 @@ var _hmt = _hmt || [];
             </div>
 
             <h3>400 参数错误</h3>
-            <p><strong>这是什么：</strong>你传的参数有问题，平台无法处理你的请求。</p>
-            <p><strong>常见原因：</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>这是什么：</strong>你传的参数有问题，平台无法处理你的请求。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>常见原因：</strong></p>
             <ul>
                 <li><code>messages</code> 数组格式不对，比如缺少 <code>role</code> 字段</li>
                 <li><code>max_tokens</code> 超出了模型的上限</li>
@@ -294,7 +294,7 @@ var _hmt = _hmt || [];
                 <li>输入内容包含了模型不支持的特殊字符或过长的上下文</li>
                 <li>请求体JSON格式错误（少了逗号、多了逗号）</li>
             </ul>
-            <p><strong>排查步骤：</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>排查步骤：</strong></p>
             <ol>
                 <li>仔细看错误响应里的 <code>message</code> 字段，通常会告诉你哪个参数有问题</li>
                 <li>对照平台文档检查参数格式</li>
@@ -302,21 +302,21 @@ var _hmt = _hmt || [];
             </ol>
 
             <h3>408 请求超时</h3>
-            <p><strong>这是什么：</strong>你的请求发送太慢，平台等不及了。</p>
-            <p>这个错误比较少见，通常出现在网络不稳定或者请求体特别大的情况下。比如你传了一个10MB的图片做视觉理解，网络慢的时候容易触发。</p>
-            <p><strong>解决方案：</strong>增加客户端的超时时间设置，优化网络连接，或者把大文件压缩后再传。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>这是什么：</strong>你的请求发送太慢，平台等不及了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这个错误比较少见，通常出现在网络不稳定或者请求体特别大的情况下。比如你传了一个10MB的图片做视觉理解，网络慢的时候容易触发。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>解决方案：</strong>增加客户端的超时时间设置，优化网络连接，或者把大文件压缩后再传。</p>
 
             <h2>5xx服务端错误详解</h2>
 
             <h3>500 内部服务器错误</h3>
-            <p><strong>这是什么：</strong>平台的服务器挂了。</p>
-            <p>这是最让人头疼的错误，因为你什么都做不了，只能等。但500错误也有不同的情况：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>这是什么：</strong>平台的服务器挂了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这是最让人头疼的错误，因为你什么都做不了，只能等。但500错误也有不同的情况：</p>
             <ul>
                 <li><strong>偶发500：</strong>偶尔出现一次，重试通常能成功。可能是服务器负载不均衡导致的</li>
                 <li><strong>持续500：</strong>连续出现，说明平台在出事故。这时候应该切换到备用通道</li>
                 <li><strong>特定模型500：</strong>只有某个模型报500，其他模型正常。可能是该模型在维护或更新</li>
             </ul>
-            <p><strong>排查步骤：</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>排查步骤：</strong></p>
             <ol>
                 <li>先去平台的状态页看有没有故障公告（OpenAI、Claude、DeepSeek都有状态页）</li>
                 <li>换一个模型试试，看是不是特定模型的问题</li>
@@ -329,24 +329,24 @@ var _hmt = _hmt || [];
             </div>
 
             <h3>502 网关错误</h3>
-            <p><strong>这是什么：</strong>平台的网关/反向代理无法从上游服务获取响应。</p>
-            <p>502通常意味着平台的前端服务器正常，但后端的模型推理服务出了问题。可能的原因：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>这是什么：</strong>平台的网关/反向代理无法从上游服务获取响应。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">502通常意味着平台的前端服务器正常，但后端的模型推理服务出了问题。可能的原因：</p>
             <ul>
                 <li>模型推理服务过载</li>
                 <li>模型服务正在重启或部署</li>
                 <li>网关配置错误（平台侧的问题）</li>
             </ul>
-            <p><strong>处理方式：</strong>和500类似，重试+切换备用通道。502通常是暂时性的，几秒到几分钟后可能恢复。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>处理方式：</strong>和500类似，重试+切换备用通道。502通常是暂时性的，几秒到几分钟后可能恢复。</p>
 
             <h3>503 服务不可用</h3>
-            <p><strong>这是什么：</strong>平台正在维护或者过载了，暂时无法处理请求。</p>
-            <p>503和500的区别在于，503通常是平台已知的状况，响应头里可能会带 <code>Retry-After</code> 告诉你多久后恢复。常见于：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>这是什么：</strong>平台正在维护或者过载了，暂时无法处理请求。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">503和500的区别在于，503通常是平台已知的状况，响应头里可能会带 <code>Retry-After</code> 告诉你多久后恢复。常见于：</p>
             <ul>
                 <li>平台计划内维护</li>
                 <li>突发流量导致服务过载</li>
                 <li>特定区域的节点故障</li>
             </ul>
-            <p><strong>处理方式：</strong>读取 <code>Retry-After</code> 头，等待指定时间后重试。如果是过载导致的，降低请求频率。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>处理方式：</strong>读取 <code>Retry-After</code> 头，等待指定时间后重试。如果是过载导致的，降低请求频率。</p>
 
             <h2>主流平台错误码速查表</h2>
             <table>
@@ -405,10 +405,10 @@ var _hmt = _hmt || [];
                 </tbody>
             </table>
 
-            <p>注意各平台的错误码命名风格不一样。OpenAI用下划线命名（<code>invalid_api_key</code>），Claude也用下划线（<code>authentication_error</code>），Gemini用大写加下划线（<code>API_KEY_INVALID</code>）。写错误处理代码时要适配这些差异。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">注意各平台的错误码命名风格不一样。OpenAI用下划线命名（<code>invalid_api_key</code>），Claude也用下划线（<code>authentication_error</code>），Gemini用大写加下划线（<code>API_KEY_INVALID</code>）。写错误处理代码时要适配这些差异。</p>
 
             <h2>Python错误处理中间件</h2>
-            <p>下面是我实际在用的错误处理中间件，支持自动重试、断路器和多通道故障转移：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">下面是我实际在用的错误处理中间件，支持自动重试、断路器和多通道故障转移：</p>
 
 <pre><code>import time
 import logging
@@ -591,9 +591,9 @@ result = failover.call({
             <h2>重试策略深入讲解</h2>
 
             <h3>指数退避（Exponential Backoff）</h3>
-            <p>指数退避是最基本也最实用的重试策略。核心思想很简单：每次重试的等待时间是上一次的2倍。</p>
-            <p>比如初始等待1秒，那重试序列就是：1s、2s、4s、8s... 这样可以避免在服务端压力大的时候雪崩式重试。</p>
-            <p>但光有指数退避还不够，实际生产中建议加上<strong>抖动（Jitter）</strong>，在退避时间上加一个随机偏移量，防止多个客户端同时重试造成惊群效应。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">指数退避是最基本也最实用的重试策略。核心思想很简单：每次重试的等待时间是上一次的2倍。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">比如初始等待1秒，那重试序列就是：1s、2s、4s、8s... 这样可以避免在服务端压力大的时候雪崩式重试。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">但光有指数退避还不够，实际生产中建议加上<strong>抖动（Jitter）</strong>，在退避时间上加一个随机偏移量，防止多个客户端同时重试造成惊群效应。</p>
 
 <pre><code>import random
 
@@ -606,21 +606,21 @@ def calculate_backoff(attempt: int,
     return backoff + jitter</code></pre>
 
             <h3>断路器模式（Circuit Breaker）</h3>
-            <p>断路器模式借鉴自电路中的保险丝。当连续失败次数达到阈值时，直接"断开"不再请求，避免浪费资源。过一段时间后进入"半开"状态，试探性地发一个请求，如果成功就恢复正常。</p>
-            <p>上面的代码里已经实现了断路器。关键参数：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">断路器模式借鉴自电路中的保险丝。当连续失败次数达到阈值时，直接"断开"不再请求，避免浪费资源。过一段时间后进入"半开"状态，试探性地发一个请求，如果成功就恢复正常。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上面的代码里已经实现了断路器。关键参数：</p>
             <ul>
                 <li><code>failure_threshold</code>：连续失败多少次后熔断（建议5次）</li>
                 <li><code>recovery_timeout</code>：熔断后多久进入半开状态（建议60秒）</li>
             </ul>
 
             <h3>多通道故障转移</h3>
-            <p>这是最稳的方案。同时配置多个AI API服务商，主通道挂了自动切到备用通道。比如主用OpenAI，备用DeepSeek，再备用Claude。只要不是所有平台同时出问题，你的服务就不会中断。</p>
-            <p>成本方面，备用通道平时不产生费用（只有主通道失败时才会调用），性价比很高。你可以在 <a href="https://www.tokenfind.cn/" style="color:var(--neon-cyan)">TokenNexus</a> 上对比各平台的价格和稳定性评分，选择合适的备用通道。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这是最稳的方案。同时配置多个AI API服务商，主通道挂了自动切到备用通道。比如主用OpenAI，备用DeepSeek，再备用Claude。只要不是所有平台同时出问题，你的服务就不会中断。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">成本方面，备用通道平时不产生费用（只有主通道失败时才会调用），性价比很高。你可以在 <a href="https://www.tokenfind.cn/" style="color:var(--neon-cyan)">TokenNexus</a> 上对比各平台的价格和稳定性评分，选择合适的备用通道。</p>
 
             <h2>API监控和告警最佳实践</h2>
-            <p>光有错误处理还不够，你得知道错误什么时候发生、发生频率如何。以下是我推荐的监控方案：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">光有错误处理还不够，你得知道错误什么时候发生、发生频率如何。以下是我推荐的监控方案：</p>
 
-            <p><strong>1. 核心指标监控</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>1. 核心指标监控</strong></p>
             <ul>
                 <li><strong>请求成功率</strong>：低于99%就该告警了</li>
                 <li><strong>平均响应时间</strong>：突然变慢可能是平台在出问题</li>
@@ -628,7 +628,7 @@ def calculate_backoff(attempt: int,
                 <li><strong>各通道的失败率</strong>：帮助判断是否需要切换服务商</li>
             </ul>
 
-            <p><strong>2. 告警策略</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>2. 告警策略</strong></p>
             <ul>
                 <li>5xx错误连续出现3次：立即告警（电话/短信）</li>
                 <li>429错误1分钟内超过10次：普通告警（钉钉/飞书）</li>
@@ -636,8 +636,8 @@ def calculate_backoff(attempt: int,
                 <li>响应时间P99超过10秒：性能告警</li>
             </ul>
 
-            <p><strong>3. 日志规范</strong></p>
-            <p>每次API调用都应该记录：请求时间、平台、模型、状态码、响应时间、token消耗、重试次数。这些数据不仅能帮你排查问题，还能做成本分析。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>3. 日志规范</strong></p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">每次API调用都应该记录：请求时间、平台、模型、状态码、响应时间、token消耗、重试次数。这些数据不仅能帮你排查问题，还能做成本分析。</p>
 
 <pre><code>import logging
 import time
@@ -659,7 +659,7 @@ def log_api_call(platform: str, model: str,
     )</code></pre>
 
             <h2>快速排查清单</h2>
-            <p>最后整理一个快速排查清单，遇到报错时按顺序检查：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最后整理一个快速排查清单，遇到报错时按顺序检查：</p>
             <ol>
                 <li><strong>看状态码</strong>：4xx改你的代码，5xx做容错</li>
                 <li><strong>看错误信息</strong>：平台返回的message字段通常告诉你具体原因</li>
@@ -677,9 +677,33 @@ def log_api_call(platform: str, model: str,
 
         <div class="cta-box">
             <h3>发现更稳定的AI API服务商</h3>
-            <p>TokenNexus收录330+国内外AI API平台，含稳定性评分和用户评价</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">TokenNexus收录330+国内外AI API平台，含稳定性评分和用户评价</p>
             <a href="../">立即探索</a>
         </div>
+    
+        <!-- 相关文章推荐 -->
+        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
+            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
+            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
+                
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-error-codes-troubleshooting-2026">AI API错误码完全排查指南：从429限流到500超时的实战解决方案博客</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">详细解析OpenAI、Claude、Gemini等AI API常见错误码（429限流、500超时、401认证失败等）的原因与解决方案，附真实踩坑案例、错误码速查...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-error-codes-troubleshooting">AI API错误码大全与故障排查：OpenAI、Claude、国内平台踩坑实录</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">全面整理OpenAI、Anthropic Claude、通义千问、文心一言等AI API常见错误码及排查方案。附真实故障案例、Python重试与降级代码、监控告...</p>
+                </article>
+
+                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
+                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-rate-limit-strategies">AI API速率限制(Rate Limit)全面应对策略：从429到丝滑并发的实战之路</a></h4>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入解析AI API速率限制机制，OpenAI Tier分级、Anthropic Claude RPM/TPM限制、国内平台QPS策略。附5种实用应对策略代码：...</p>
+                </article>
+
+            </div>
+        </section>
+
     </article>
     <footer class="footer">
         <div class="footer-links">
