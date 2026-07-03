@@ -182,7 +182,7 @@
             
             <h2>二、主流多模态平台深度对比</h2>
             
-            <p>目前市面上主流的多模态API主要有三家：<a href="/platform/openai.html">OpenAI的GPT-4o系列</a>、<a href="/platform/anthropic-claude.html">Anthropic的Claude 3.5 Vision</a>，以及<a href="/platform/gemini-2-pro.html">Google的Gemini 1.5 Pro</a>。我花了两个月时间，用同一批测试数据对它们做了横向评测，以下是真实结果。</p>
+            <p>目前市面上主流的多模态API主要有三家：<a href="/platform/openai">OpenAI的GPT-4o系列</a>、<a href="/platform/anthropic-claude">Anthropic的Claude 3.5 Vision</a>，以及<a href="/platform/gemini-2-pro">Google的Gemini 1.5 Pro</a>。我花了两个月时间，用同一批测试数据对它们做了横向评测，以下是真实结果。</p>
             
             <h3>2.1 视觉理解能力对比</h3>
             
@@ -203,7 +203,7 @@
             
             <p>语音这块，OpenAI的布局最深。GPT-4o Audio支持端到端的语音输入输出，输入价格$0.015/分钟，输出$0.06/分钟。这意味着你可以直接传一段语音给它，它不仅能转文字，还能理解语义、分析情绪，甚至用语音直接回复你。</p>
             
-            <p>如果只需要语音识别，<a href="/platform/openai.html">OpenAI的Whisper API</a>依然是业界标杆，$0.006/分钟的定价，支持99种语言，在嘈杂环境下的准确率依然能打。我实测过，在会议室有背景噪音的情况下，Whisper的错字率比国内某大厂模型低30%左右。</p>
+            <p>如果只需要语音识别，<a href="/platform/openai">OpenAI的Whisper API</a>依然是业界标杆，$0.006/分钟的定价，支持99种语言，在嘈杂环境下的准确率依然能打。我实测过，在会议室有背景噪音的情况下，Whisper的错字率比国内某大厂模型低30%左右。</p>
             
             <p>Claude和Gemini目前主要还是通过文本接口间接处理语音（先转文字再理解），端到端语音能力不如GPT-4o成熟。但如果你做的是语音转文字+文本分析的分阶段架构，三家差别不大。</p>
             
@@ -486,7 +486,7 @@ response.stream_to_file("reply.mp3")</pre>
             
             <h2>总结</h2>
             
-            <p>多模态API正在从"前沿技术"变成"基础设施"。2026年的今天，<a href="/platform/openai.html">GPT-4o Vision</a>、<a href="/platform/anthropic-claude.html">Claude 3.5 Vision</a>和<a href="/platform/gemini-2-pro.html">Gemini 1.5 Pro</a>三家各有优势，没有绝对的"最好"，只有"最适合"。</p>
+            <p>多模态API正在从"前沿技术"变成"基础设施"。2026年的今天，<a href="/platform/openai">GPT-4o Vision</a>、<a href="/platform/anthropic-claude">Claude 3.5 Vision</a>和<a href="/platform/gemini-2-pro">Gemini 1.5 Pro</a>三家各有优势，没有绝对的"最好"，只有"最适合"。</p>
             
             <p>我的建议是：先用Gemini 1.5 Pro做原型验证（成本最低），跑通业务逻辑后，再根据准确率要求决定是否升级到Claude或GPT-4o。语音识别直接用Whisper，TTS用OpenAI的tts-1，这两块目前没有太多替代方案值得考虑。</p>
             
@@ -497,9 +497,9 @@ response.stream_to_file("reply.mp3")</pre>
             <div class="tip-box">
                 <div class="tip-box-title">延伸阅读</div>
                 <p>• <a href="/blog/ai-api-selection-guide-2026">2026年AI API选型完全指南：从需求分析到平台对比</a><br>
-                • <a href="/platform/openai.html">OpenAI API官方平台详情与价格</a><br>
-                • <a href="/platform/anthropic-claude.html">Anthropic Claude API官方平台详情</a><br>
-                • <a href="/platform/gemini-2-pro.html">Google Gemini API官方平台详情</a><br>
+                • <a href="/platform/openai">OpenAI API官方平台详情与价格</a><br>
+                • <a href="/platform/anthropic-claude">Anthropic Claude API官方平台详情</a><br>
+                • <a href="/platform/gemini-2-pro">Google Gemini API官方平台详情</a><br>
                 • <a href="/official">海外AI API官方平台完整列表</a></p>
             </div>
             

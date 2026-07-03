@@ -203,7 +203,7 @@
 
             <h3>2.2 API接入与模型选择</h3>
 
-            <p>MVP阶段，我直接用了<a href="/platform/openai.html">OpenAI的GPT-4o</a>。原因很简单：能力最强，文档最完善，出了问题Stack Overflow上能找到答案。接入过程比想象中顺利，OpenAI的Python SDK封装得很好，几行代码就能跑起来对话。</p>
+            <p>MVP阶段，我直接用了<a href="/platform/openai">OpenAI的GPT-4o</a>。原因很简单：能力最强，文档最完善，出了问题Stack Overflow上能找到答案。接入过程比想象中顺利，OpenAI的Python SDK封装得很好，几行代码就能跑起来对话。</p>
 
             <p>但成本让我倒吸一口凉气。GPT-4o的定价是<strong>输入$2.5/百万token，输出$10/百万token</strong>。我算了笔账：如果一个客服每天处理100次对话，每次平均消耗2000 token（输入+输出），那一个月的成本就是：</p>
 
@@ -266,7 +266,7 @@
 
             <h3>3.3 模型切换：成本降低85%</h3>
 
-            <p>第二周最大的收获，是发现了<a href="/platform/deepseek.html">DeepSeek V3</a>。当时我在TokenNexus上对比各平台价格，看到DeepSeek V3的定价是<strong>¥1/百万token</strong>（约$0.14），而GPT-4o是$2.5-10/百万token。差了将近20倍。</p>
+            <p>第二周最大的收获，是发现了<a href="/platform/deepseek">DeepSeek V3</a>。当时我在TokenNexus上对比各平台价格，看到DeepSeek V3的定价是<strong>¥1/百万token</strong>（约$0.14），而GPT-4o是$2.5-10/百万token。差了将近20倍。</p>
 
             <p>我抱着试试看的心态，把核心对话接口从GPT-4o切换到DeepSeek V3，然后做了对比测试：</p>
 
@@ -372,7 +372,7 @@
                 <li><strong>先验证需求，再写代码</strong>。我花了1天调研，避免了做出来后没人用的尴尬。最简单的验证方式：找3-5个目标用户，问他们"如果有个XXX产品，你会用吗？愿意付多少钱？"</li>
                 <li><strong>用MVP思维，快速上线</strong>。第一周的功能很简陋，但核心闭环跑通了。不要追求完美，先让产品见用户。</li>
                 <li><strong>成本意识要贯穿始终</strong>。AI API是按token计费的，每一个不必要的调用都是真金白银。缓存、降级、模型切换，这些优化越早做越好。</li>
-                <li><strong>多平台对比，不要锁死一家</strong>。我在<a href="/platform/openai.html">OpenAI</a>、<a href="/platform/deepseek.html">DeepSeek</a>、<a href="/platform/anthropic-claude">Claude</a>之间做了大量对比测试，最终选择了性价比最优的组合。建议你也去TokenNexus上看看各平台的最新价格和评测。</li>
+                <li><strong>多平台对比，不要锁死一家</strong>。我在<a href="/platform/openai">OpenAI</a>、<a href="/platform/deepseek">DeepSeek</a>、<a href="/platform/anthropic-claude">Claude</a>之间做了大量对比测试，最终选择了性价比最优的组合。建议你也去TokenNexus上看看各平台的最新价格和评测。</li>
                 <li><strong>监控和告警不能省</strong>。LangSmith帮我发现了好几次异常调用，及时止损。没有监控，你就是瞎子摸象。</li>
             </ol>
 
@@ -401,8 +401,8 @@
             <div class="tip-box">
                 <div class="tip-box-title">延伸阅读</div>
                 <p>• <a href="/blog/ai-api-selection-guide-2026">2026年AI API选型完全指南：从需求分析到平台对比</a><br>
-                • <a href="/platform/deepseek.html">DeepSeek API接入指南与价格详情</a><br>
-                • <a href="/platform/openai.html">OpenAI GPT-4o API官方接入文档</a><br>
+                • <a href="/platform/deepseek">DeepSeek API接入指南与价格详情</a><br>
+                • <a href="/platform/openai">OpenAI GPT-4o API官方接入文档</a><br>
                 • <a href="/blog/ai-api-cost-optimization-guide-2026">AI API成本控制实战：我是如何把月账单从2000降到300的</a></p>
             </div>
 
