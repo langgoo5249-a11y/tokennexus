@@ -1,180 +1,697 @@
-# TokenNexus — 全球AI Token导航（完整版）
-> 最后更新: 2026-06-21
-> 本文件为 AI 大模型提供完整的网站结构信息、页面内容摘要和元数据，方便 AI 理解并准确引用本站内容。
+# TokenNexus — AI API 导航全站内容索引（llms-full.txt）
+> 本文件为 AI 搜索引擎和大模型优化的完整内容索引，包含每篇文章和平台的摘要信息。
+> 最后更新: 2026-07-03
+>  shorter version: https://www.tokenfind.cn/llms.txt
 
----
-
-## 一、网站基本信息
-
-- 网站名称: TokenNexus
-- 标语: 全球AI Token导航
+## Organization
+- 名称: TokenNexus
 - 域名: https://www.tokenfind.cn
-- 备案号: 待补充
-- 上线时间: 2026年5月
-- 网站语言: 简体中文 (zh-CN)
-- 部署平台: Cloudflare Pages
-- 内容类型: AI API 导航、评测、教程
-
-## 二、Organization 结构化信息
-
-```
-名称: TokenNexus
-类型: Organization (AI API导航与评测平台)
-网址: https://www.tokenfind.cn
-联系邮箱: 644428571@qq.com
-sameAs:
+- 定位: 国内最全的 AI API 导航与评测平台
+- 内容语言: 中文
+- sameAs:
   - 微信公众号: TokenNexus
-  - 知乎机构号: https://www.zhihu.com/people/tokennexus
-数据来源:
-  - 阿里云百炼平台官方文档 (https://help.aliyun.com/product/ai_bailian)
-  - 百度智能云千帆大模型平台官方文档 (https://cloud.baidu.com/doc/WENXINWORKSHOP)
-  - 讯飞开放平台官方文档 (https://www.xfyun.cn/doc)
-  - OpenAI 官方文档 (https://platform.openai.com/docs)
-  - Google AI 官方文档 (https://ai.google.dev)
-  - Anthropic 官方文档 (https://docs.anthropic.com)
-  - 工信部人工智能产业发展报告
-  - 新华网科技频道 (http://www.xinhuanet.com/tech)
-```
+  - 知乎: https://www.zhihu.com/people/tokennexus
+  - 备案号: 待补充
 
-## 三、常见问题 (FAQ) — 国产对话模型优化结构
+## 主要页面
+| 页面 | URL | 描述 | 更新日期 |
+|------|-----|------|----------|
+| 首页 | https://www.tokenfind.cn/ | 平台导航主页，展示 330+ 平台、热门模型标签、筛选功能 | 2026-06-21 |
+| 海外官方平台 | https://www.tokenfind.cn/official | 108 家海外官方 AI API 平台列表 | 2026-05-27 |
+| 聚合中转平台 | https://www.tokenfind.cn/aggregator | 66 家聚合中转平台列表 | 2026-05-27 |
+| 国内平台 | https://www.tokenfind.cn/china | 106 家国内 AI API 平台列表 | 2026-05-27 |
+| 博客首页 | https://www.tokenfind.cn/blog/ | AI API 行业资讯与教程 | 2026-06-21 |
+| 攻略总览 | https://www.tokenfind.cn/blog/guides | AI API 使用攻略与教程合集 | 2026-06-21 |
+| 关于我们 | https://www.tokenfind.cn/about | 了解 TokenNexus 团队 | 2026-05-27 |
+| 联系我们 | https://www.tokenfind.cn/contact | 联系方式 | 2026-05-27 |
+| 商务合作 | https://www.tokenfind.cn/business | 商务合作信息 | 2026-05-27 |
+| 提交收录 | https://www.tokenfind.cn/submit | 提交新平台收录 | 2026-05-27 |
+| 平台审核标准 | https://www.tokenfind.cn/verification | 平台审核与验证标准 | 2026-05-27 |
+| 隐私政策 | https://www.tokenfind.cn/privacy | 隐私政策 | 2026-05-27 |
+| 服务条款 | https://www.tokenfind.cn/terms | 服务条款 | 2026-05-27 |
+| 免责声明 | https://www.tokenfind.cn/disclaimer | 免责声明 | 2026-05-27 |
 
-Q: TokenNexus 是什么网站？
-A: TokenNexus 是一个 AI API 导航平台，收录了 330+ 国内外 AI 大模型 API 服务商。你可以在这里对比不同平台的价格、查看模型能力、阅读实战教程，快速找到最适合自己的 AI API。网站覆盖海外官方平台（OpenAI、Anthropic、Google Gemini 等 108 家）、聚合中转平台（OpenRouter、Groq、硅基流动等 66 家）、国内平台（阿里云百炼、百度千帆、讯飞星火、DeepSeek 等 106 家）。
+## 博客文章摘要
+
+### 平台对比与选型
+
+- **2026年AI大模型API价格终极对比：GPT-5.5、Claude、DeepSeek、Gemini怎么选最省钱**
+  URL: https://www.tokenfind.cn/blog/ai-api-pricing-comparison-2026-guide
+  日期: 2026-06-21T08:00:00+08:00
+  关键词: AI API价格对比,GPT-5.5价格,DeepSeek API价格,Claude API价格,Gemini API价格,大模型API选型,AI API省钱,2026 API定价
+  摘要: 深度对比2026年主流AI大模型API价格，包括GPT-5.5、Claude Opus 4.7、DeepSeek V4、Gemini 3.5等20+模型，用真实数据告诉你最便宜和最贵的模型差100倍，附选型决策框架和100M Token月消耗真实账单模拟。
+
+- **2026年AI API平台选型完全指南：开发者避坑手册与性价比终极对比**
+  URL: https://www.tokenfind.cn/blog/ai-api-platform-selection-guide-2026
+  日期: 2026-06-18
+  关键词: AI API平台选型, AI API对比, OpenAI API价格, Claude API评测, DeepSeek API性价比, AI API免费额度, AI API延迟测试, 大模型API选型, AI API稳定性, API平台推荐
+  摘要: 2026年AI API平台选型完全指南。覆盖OpenAI、Claude、DeepSeek、Gemini等20+主流平台真实对比，含价格、延迟、稳定性、中文能力、免费额度维度。附选型决策树和避坑清单。
+
+- **2026年AI API价格全面对比：开发者省钱实战指南**
+  URL: https://www.tokenfind.cn/blog/ai-api-pricing-comparison-guide-2025
+  日期: 2026-05-20T00:00:00+08:00
+  关键词: AI API价格对比,OpenAI API价格,Claude API价格,DeepSeek API价格,AI API省钱攻略,大模型API价格,AI API中转平台,API成本优化
+  摘要: 2026年最新AI API价格对比分析，涵盖OpenAI、Claude、DeepSeek、Gemini等主流平台。真实数据+省钱技巧，帮你降低50%以上API成本。
+
+- **AI API价格对比：2026年省钱完全指南博客**
+  URL: https://www.tokenfind.cn/blog/ai-api-pricing-guide-2026
+  日期: 2026-05-27
+  关键词: AI API价格, API价格对比, OpenAI价格, DeepSeek价格, Claude价格, 省钱攻略
+  摘要: 详细对比主流AI API平台的价格体系，教你如何在保证质量的前提下节省50%以上的成本。包含OpenAI、DeepSeek、Claude等平台的价格分析。
+
+- **2026年AI API选型完全指南：从需求分析到平台对比的实战经验博客**
+  URL: https://www.tokenfind.cn/blog/ai-api-selection-complete-guide-2026
+  日期: 2026-05-28
+  关键词: AI API选型, API对比, OpenAI, DeepSeek, 通义千问, 智谱AI, API价格, 模型选择
+  摘要: 基于真实项目数据的AI API选型完全指南，涵盖需求梳理、主流平台深度对比、选型决策框架和2026年最新趋势，帮你找到最适合业务场景的AI API服务。
+
+- **2026年AI API选型完全指南：从需求分析到平台对比博客**
+  URL: https://www.tokenfind.cn/blog/ai-api-selection-guide-2026
+  日期: 2026-05-30
+  关键词: AI API选型,OpenAI API选择,Claude API对比,DeepSeek API评测,大模型API选型,AI API平台对比,API选型指南
+  摘要: 详解2026年AI API选型策略，包含OpenAI、Claude、DeepSeek等主流平台对比，真实性能测试数据，以及选型决策框架。帮助开发者找到最适合的AI API服务。
+
+- **2026年AI API聚合平台实测：OpenRouter、Groq、硅基流动哪家更适合你？博客**
+  URL: https://www.tokenfind.cn/blog/ai-aggregator-platform-guide-2026
+  日期: 2026-06-04
+  关键词: AI API聚合平台,OpenRouter评测,Groq API速度,硅基流动使用,API网关选型,AI模型聚合,国内API直连,Together AI,Fireworks AI,七牛云AI,API聚合平台对比
+  摘要: 2026年AI API聚合平台深度实测对比，涵盖OpenRouter、Groq、硅基流动、Together AI、Fireworks AI、七牛云等6大平台。真实速度、价格、稳定性数据，开发者第一人称踩坑经验分享。
+
+- **2026年AI API聚合中转平台深度评测：我实测了15家，只推荐这5家博客**
+  URL: https://www.tokenfind.cn/blog/ai-api-aggregator-review-2026
+  日期: 2026-05-31
+  关键词: AI API聚合平台推荐,中转API哪个好,API中转平台评测,OpenAI中转服务对比,AI API中转,AI API聚合,API代理平台,AI中转站评测
+  摘要: 实测15家AI API聚合中转平台，从价格、延迟、稳定性、模型覆盖四个维度深度对比。包含真实延迟测试数据、价格对比表格，帮你找到最适合的API中转服务。
+
+- **2026年最值得使用的10个AI API平台推荐博客**
+  URL: https://www.tokenfind.cn/blog/top-10-ai-apis-2026
+  日期: 2026-04-28T08:00:00+08:00
+  关键词: AI API平台推荐,最佳AI API,AI接口对比,GPT API,Claude API,Gemini API,AI API评测,AI API 2026
+  摘要: 2026年AI API平台推荐与深度评测。从OpenAI、Claude到DeepSeek、阿里云百炼，全面对比10个主流AI接口的能力、价格和适用场景，帮你找到最佳AI API。
+
+- **企业AI API选型指南：2026年决策手册**
+  URL: https://www.tokenfind.cn/blog/enterprise-ai-api-selection-guide
+  日期: 2026-03-20
+  关键词: 企业AI API选型, AI API采购, AI API企业版, AI API成本对比, AI API供应商, 企业级AI
+  摘要: 2026年企业AI API选型完全指南，涵盖OpenAI、Anthropic、Google、DeepSeek等主流供应商对比，提供成本分析、技术选型和实施建议。
+
+- **GPT-4o vs Claude 3.5 Sonnet深度对比：2026年最强AI模型之争 | TokenFind**
+  URL: https://www.tokenfind.cn/blog/gpt4o-vs-claude35-sonnet-comparison
+  日期: 2026-03-05T08:00:00+08:00
+  摘要: GPT-4o vs Claude 3.5 Sonnet全面对比评测，基于真实基准测试数据、代码生成能力、价格分析，帮你选择最适合的AI模型。含API价格、响应速度、多模态能力详细对比。
+
+- **OpenAI vs DeepSeek：2026年性价比全面对比博客**
+  URL: https://www.tokenfind.cn/blog/openai-vs-deepseek-2026
+  日期: 2026-05-12
+  关键词: OpenAI, DeepSeek, API对比, AI价格, GPT-4, DeepSeek V3, 性价比
+  摘要: 深入对比OpenAI和DeepSeek两大AI API平台的性能、价格、稳定性。包含2026年最新测试数据、价格对比表和选型建议，帮你找到最适合的AI服务。
+
+### 省钱攻略
+
+- **AI API成本优化实战：从月账单5000元降到500元的7个方法**
+  URL: https://www.tokenfind.cn/blog/ai-api-cost-optimization-practical-guide
+  日期: 2026-06-21T08:00:00+08:00
+  关键词: AI API成本优化,API成本控制,大模型API降本,语义缓存,Prompt优化,多模型路由,AI API省钱攻略,API费用优化
+  摘要: 分享真实的AI API成本优化经验，包含智能缓存、模型降级、Prompt精简、多模型路由等7大降本技巧，附真实案例：5人团队月费从31200元降至11800元，智能客服从12万降至4000元。
+
+- **AI API成本控制实战攻略：我是如何把月账单从2000降到300的博客**
+  URL: https://www.tokenfind.cn/blog/ai-api-cost-optimization-2026
+  日期: 2026-05-30
+  关键词: AI API成本控制,API成本优化,降低AI API费用,OpenAI省钱技巧,DeepSeek成本控制,AI API缓存策略,API成本降低
+  摘要: 详解AI API成本优化实战技巧，包含缓存策略、模型降级、批量处理等7大降本方法，真实案例分享，帮助开发者降低AI API使用成本80%以上。
+
+- **我是如何把AI API月账单从8000降到800的：真实成本优化经验分享博客**
+  URL: https://www.tokenfind.cn/blog/ai-api-cost-optimization-guide-2026
+  日期: 2026-06-03
+  关键词: AI API省钱技巧,API成本优化,大模型费用比较,DeepSeek性价比,Token计费详解,API缓存优化,API调用优化,AI API账单优化,大模型成本控制,API聚合平台折扣
+  摘要: 真实开发者分享AI API成本优化经验，详解Token计费、缓存优化、小模型替代等省钱技巧，教你如何将月账单降低90%。包含DeepSeek、OpenAI、Claude等平台费用对比分析。
+
+- **AI API成本控制实战指南：我们如何把月账单从$5000降到$800博客**
+  URL: https://www.tokenfind.cn/blog/ai-api-cost-optimization-strategies-2026
+  日期: 2026-05-28
+  关键词: AI API成本优化, API费用控制, OpenAI成本, LLM降本, API缓存, 模型降级, Token优化
+  摘要: 真实案例分享：我们如何在6个月内将AI API月度成本从5000美元降至800美元，降幅达84%。包含7个具体优化技巧、完整代码示例和数据支撑。
+
+- **AI API缓存优化实战：三层架构让成本降75%**
+  URL: https://www.tokenfind.cn/blog/ai-api-caching-optimization-2026
+  日期: 2026-05-20T08:00:00+08:00
+  关键词: AI API缓存, Prompt Caching, 语义缓存, API成本优化, 大模型缓存策略, Exact-match缓存, Semantic缓存, Redis缓存
+  摘要: 详解AI API三层缓存架构：Prompt Prefix缓存、Exact-match缓存、Semantic缓存。真实案例：月费用从$47,000降至$11,800，降幅75%。Prompt Caching可降低延迟最高80%，输入token成本降低90%。
+
+- **AI API缓存策略与成本优化：降低80%调用成本的实战指南**
+  URL: https://www.tokenfind.cn/blog/ai-api-caching-strategy
+  日期: 2026-02-20T08:00:00+08:00
+  关键词: AI API缓存,API响应缓存,语义缓存,Redis缓存,API成本优化,缓存策略,LLM缓存
+  摘要: 深入解析AI API缓存策略，通过语义缓存、Redis缓存等技术实现API成本优化。真实案例分享：客服系统通过API响应缓存降低82%调用成本。
+
+- **AI模型智能路由实战：多模型调度让API成本降70%**
+  URL: https://www.tokenfind.cn/blog/ai-model-routing-guide-2026
+  日期: 2026-05-15T08:00:00+08:00
+  关键词: AI模型路由, 多模型调度, AI API负载均衡, API成本优化, LLM routing, 模型降级策略, 智能路由, AI API省钱
+  摘要: 从单一模型到智能路由的完整实战记录。详解AI模型路由原理、LiteLLM/Kong/Portkey等方案对比，手把手搭建多模型调度系统，实现API成本降低70%、可用性99.95%。
+
+- **AI API Prompt工程实战：我是如何用一句话让API成本降60%的博客**
+  URL: https://www.tokenfind.cn/blog/ai-api-prompt-engineering-2026
+  日期: 2026-06-01
+  关键词: Prompt优化技巧, AI API提示词工程, 降低API成本Prompt, Few-shot prompting, Chain of Thought提示词, Prompt工程, API成本优化
+  摘要: Prompt优化技巧实战攻略，分享真实案例与数据对比。学习Few-shot prompting、Chain of Thought提示词等高级技巧，有效降低API成本并提升准确率。
+
+- **AI API Token计费详解：如何精准控制成本博客**
+  URL: https://www.tokenfind.cn/blog/ai-api-token-billing-guide
+  日期: 2026-04-20
+  关键词: AI Token计费, API成本控制, Token计算器, AI API费用, API用量监控, token pricing, AI API省钱技巧
+  摘要: 深入解析AI API Token计费机制，涵盖Token与字符换算、各平台价格对比、tiktoken工具使用、对话历史成本膨胀问题，以及真实项目从月费5000元降至800元的优化全流程。
+
+- **2026年AI API免费额度完全攻略：如何薅到$200+免费试用博客**
+  URL: https://www.tokenfind.cn/blog/ai-api-free-tier-guide-2026
+  日期: 2026-05-29
+  关键词: AI API免费额度, OpenAI免费试用, Claude免费API, Gemini免费额度, DeepSeek免费, AI API省钱, 免费AI API, API试用额度
+  摘要: 汇总OpenAI、Claude、Gemini、DeepSeek等15个主流AI API平台的免费额度政策，教你如何最大化利用免费试用，省钱开发AI应用。真实案例分享，含具体领取方法。
+
+- **免费AI API推荐：2026年最值得尝试的免费额度博客**
+  URL: https://www.tokenfind.cn/blog/free-ai-api-recommendations-2026
+  日期: 2026-04-15
+  关键词: 免费AI API,AI免费额度,free AI API,免费GPT API,免费AI接口,AI API试用,free tier AI,Gemini免费,Groq免费,千帆免费额度
+  摘要: 2026年最全免费AI API推荐，涵盖Google Gemini、Groq、OpenRouter、百度千帆、阿里云百炼等10大平台免费额度详解，附带对比表格和选型建议，帮你零成本上手AI开发。
+
+- **2026年AI API免费额度完全指南：14个平台薅羊毛攻略博客**
+  URL: https://www.tokenfind.cn/blog/free-ai-api-guide-2026
+  日期: 2026-05-21
+  关键词: AI API免费额度, 免费AI API, Gemini免费额度, OpenAI免费额度, AI API薅羊毛, free AI API, AI免费接口, AI API free tier, 2026免费AI
+  摘要: 2026年最全AI API免费额度攻略，详解14个平台的免费额度、速率限制和使用技巧。Google Gemini 2.5 Flash每天1440次免费请求，OpenAI、Claude、DeepSeek等平台免费层全面对比，帮你零成本搭建AI应用。
+
+- **免费AI API平台深度横评2026：6大平台实测对比 AI API攻略**
+  URL: https://www.tokenfind.cn/blog/free-ai-api-platform-review-2026
+  日期: 2026-06-07
+  关键词: 免费AI API, AI API免费额度, 免费大模型API, 白嫖AI API, 零成本AI开发, Agnes AI免费, GitHub Models免费, Groq免费
+  摘要: 2026年免费AI API平台深度横评，实测GitHub Models、Groq、Google AI Studio、Cerebras、Agnes AI、Cloudflare Workers AI六大平台的免费额度、速率限制和响应速度，帮你找到最适合零成本AI开发的平台。
+
+- **AI API成本预算与ROI规划：企业如何避免超支并证明价值**
+  URL: https://www.tokenfind.cn/blog/ai-api-budget-roi-planning-2026
+  日期: 2026-05-23
+  关键词: AI API预算, AI ROI计算, 企业AI成本, AI投资回报, API成本规划, AI预算超支, 企业AI规划
+  摘要: 深入解析企业AI API成本预算规划方法，提供完整ROI计算框架，帮助80%超支企业有效控制成本。包含预算四步法、不同规模企业模板、向老板汇报技巧等实战策略。
+
+### 技术教程
+
+- **MCP协议完全实战：用Model Context Protocol让大模型读懂你的数据库和代码库**
+  URL: https://www.tokenfind.cn/blog/mcp-model-context-protocol-practical-guide-2026
+  日期: 2026-06-23T00:00:00+08:00
+  关键词: MCP协议, Model Context Protocol, MCP实战, MCP Server开发, AI工具调用协议, Claude MCP, GPT MCP集成, 大模型上下文协议, MCP数据库连接, MCP安全实践, MCP协议入门教程, Model Context Protocol实战, MCP Server开发指南, Claude MCP配置, 大模型连接数据库方案
+  摘要: 2026年最实用的MCP协议实战指南。从原理到落地，教你用Model Context Protocol让Claude、GPT等大模型安全连接数据库、文件系统、Git仓库。含完整代码示例和企业级安全实践。
+
+- **从零构建AI Agent：2026年最实用的开发框架选型与落地实战**
+  URL: https://www.tokenfind.cn/blog/ai-agent-development-guide-2026
+  日期: 2026-06-18T08:00:00+08:00
+  关键词: AI Agent开发, LangChain教程, LlamaIndex实战, AutoGPT搭建, AI Agent框架对比, ReAct模式, Tool Use, Function Calling, AI智能体开发, Agent工作流
+  摘要: 从零构建AI Agent完整指南。覆盖LangChain、LlamaIndex、AutoGPT、Dify等主流框架对比，含ReAct、CoT、Tool Use模式实战代码。附真实项目案例：智能客服Agent和数据分析Agent开发全流程。
+
+- **2026年AI Agent开发实战：Function Calling从入门到生产级应用博客**
+  URL: https://www.tokenfind.cn/blog/ai-agent-function-calling-guide-2026
+  日期: 2026-06-06
+  关键词: AI Agent开发,Function Calling教程,AI工具调用,OpenAI Assistants API,LangChain Agent,AI自动化,AI Agent框架对比,Tool Use教程
+  摘要: 从ChatBot到AI Agent的进化之路。详解Function Calling原理，OpenAI与Anthropic Tool Use实战代码对比，LangChain Agent框架选择，以及5个生产级踩坑经验与真实项目案例。
+
+- **AI API Function Calling与工具调用完全指南：从入门到实战**
+  URL: https://www.tokenfind.cn/blog/ai-api-function-calling-guide
+  日期: 2026-05-16T10:00:00+08:00
+  关键词: AI Function Calling, OpenAI工具调用, Claude Tool Use, AI Agent开发, Function Calling教程, AI API函数调用, 智能助手开发, AI Agent工具链
+  摘要: 深入讲解AI Function Calling与Tool Use技术，涵盖OpenAI和Claude的工具调用实现、完整Python实战案例、并行函数调用技巧，助你构建AI Agent智能助手。
+
+- **AI API Embedding与向量搜索实战指南：从原理到生产落地**
+  URL: https://www.tokenfind.cn/blog/ai-api-embedding-vector-search-guide
+  日期: 2026-05-18T08:00:00+08:00
+  关键词: AI Embedding教程,OpenAI Embedding API,向量搜索,语义搜索实现,文本向量化,FAISS向量检索,Embedding模型对比,向量数据库选型
+  摘要: 从零理解Embedding原理，对比OpenAI、通义千问、Cohere等主流Embedding模型，手把手用Python+FAISS构建语义搜索引擎，含向量数据库选型与性能优化技巧。
+
+- **AI API流式响应（SSE）实战指南：从原理到前后端完整实现**
+  URL: https://www.tokenfind.cn/blog/ai-api-streaming-sse-guide
+  日期: 2026-05-17T08:00:00+08:00
+  关键词: AI API流式响应,OpenAI streaming,SSE流式输出,ChatGPT流式接口,AI API逐字输出,FastAPI流式转发,前端SSE处理,AI聊天流式实现
+  摘要: 深入讲解AI API流式响应（SSE）原理与实战，涵盖OpenAI streaming、Anthropic Claude流式调用、前端EventSource/fetch ReadableStream处理、FastAPI流式转发，附真实案例与常见坑点排查。
+
+- **AI API流式输出(Streaming)实战：SSE与WebSocket完整实现指南**
+  URL: https://www.tokenfind.cn/blog/ai-api-streaming-sse-websocket-implementation-guide-2026
+  日期: 2026-06-12
+  关键词: AI API流式输出, Streaming API实现, SSE实时推送, WebSocket AI, AI打字机效果, GPT流式响应, Claude流式输出, Server-Sent Events
+  摘要: AI API流式输出实战完整指南：对比轮询/SSE/WebSocket三种方案，提供OpenAI GPT-4o和Claude Streaming API Python代码，讲解前端打字机效果实现、背压处理、生产级架构设计。学会Streaming，体验从10秒等待到即时响应的质变。
+
+- **AI API多模态应用实战：GPT-4o Vision与Gemini完整指南(2026) AI API攻略**
+  URL: https://www.tokenfind.cn/blog/ai-api-multimodal-gpt4o-gemini-complete-guide-2026
+  日期: 2026-06-13
+  关键词: AI多模态API、GPT-4o API、Gemini多模态、图像理解API、视频生成API、AI API多模态调用、多模态模型对比、GPT-4o vision
+  摘要: 深入解析AI多模态API调用实战，从GPT-4o Vision图像分析到Gemini原生多模态，对比主流视觉理解API，附完整Python代码示例和视频理解架构方案，帮你快速掌握AI图像理解API、视频生成API技术选型。
+
+- **AI API多模态能力实战：图文音视频一站式开发完全指南**
+  URL: https://www.tokenfind.cn/blog/ai-api-multimodal-guide-2026
+  日期: 2026-06-01T08:00:00+08:00
+  关键词: AI多模态API,图像理解API,语音识别API,GPT-4V使用,Claude视觉API,Gemini多模态,视频理解API,AI API价格对比
+  摘要: 2026年AI多模态API实战指南：GPT-4V、Claude Vision、Gemini图像理解API对比，Whisper语音识别、ElevenLabs语音合成接入教程，含真实价格数据与性能测试。
+
+- **AI API长上下文(Long Context)优化实战：从20万到200万token的进化之路博客**
+  URL: https://www.tokenfind.cn/blog/ai-api-long-context-optimization
+  日期: 2026-05-19
+  关键词: AI长上下文,Long Context优化,Gemini 200万token,Claude 200K上下文,大模型上下文窗口,上下文压缩,Lost in the Middle,长文本AI处理
+  摘要: 深入解析AI长上下文技术，对比Gemini 200万token、Claude 200K、GPT-4o等主流平台能力。包含5个实战优化技巧、Python代码示例和真实案例分析，助你掌握Long Context优化核心方法。
+
+- **AI API微调(Fine-tuning)入门与成本优化完全指南 | TokenFind**
+  URL: https://www.tokenfind.cn/blog/ai-api-fine-tuning-guide
+  日期: 2026-05-19
+  关键词: AI模型微调, OpenAI Fine-tuning, GPT微调教程, 大模型微调成本, 微调数据准备, LoRA微调, QLoRA, 模型蒸馏, 微调 vs RAG
+  摘要: AI模型微调入门教程：详解OpenAI GPT-4o、GPT-3.5 Turbo微调流程、成本对比与优化策略，包含真实案例与常见失败原因分析。
+
+- **AI API性能调优实战：从3秒延迟到300ms，我的优化全记录博客**
+  URL: https://www.tokenfind.cn/blog/ai-api-performance-tuning-guide-2026
+  日期: 2026-06-05
+  关键词: AI API性能优化,API延迟优化,流式输出配置,AI模型缓存策略,LangSmith监控,API吞吐量提升,AI响应速度优化,模型降级策略,TTFT,TPOT,Redis缓存,连接池
+  摘要: 真实后端工程师分享AI API性能优化经历，详解连接池复用、流式输出、请求合并、本地缓存、CDN边缘缓存、异步处理、模型降级等7大优化手段，附完整监控方案与前后对比数据。
+
+- **AI API性能测试方法与实践：延迟、吞吐量、稳定性全面评测**
+  URL: https://www.tokenfind.cn/blog/ai-api-performance-testing
+  日期: 2026-03-01
+  关键词: AI API性能测试,API延迟测试,API吞吐量测试,API稳定性测试,API响应时间,API压力测试
+  摘要: 深入解析AI API性能测试方法论，涵盖延迟测试、吞吐量测试、稳定性测试等关键指标。附Python代码示例和真实测试数据对比，助你选出最适合的大模型API。
+
+- **AI API异步调用与批处理优化：提升10倍吞吐量**
+  URL: https://www.tokenfind.cn/blog/ai-api-async-batch-processing
+  日期: 2026-02-10T08:00:00+08:00
+  关键词: AI API异步调用,API批处理,asyncio API,并发API调用,API吞吐量优化,Python异步
+  摘要: 深度解析AI API异步调用与批处理优化技巧，通过Python asyncio和aiohttp实现10倍吞吐量提升。包含真实性能对比数据和完整代码示例。
+
+- **AI API容错降级架构实战：让你的服务在API翻车时依然坚挺 AI API攻略**
+  URL: https://www.tokenfind.cn/blog/ai-api-fault-tolerance-resilience-architecture-2026
+  日期: 2026-06-09
+  关键词: AI API容错降级, API熔断模式, API限流兜底, API弹性架构, hystrix-like断路器, API降级策略, AI服务高可用, API隔离舱模式
+  摘要: 深入讲解AI API容错降级架构实战，涵盖三层降级策略（Fail Fast/Fallback/Circuit Breaker）、多API Key轮询与故障转移、指数退避重试装饰器、断路器模式Python实现、隔离舱模式、限流兜底策略，以及压测验证方法。
+
+- **AI API负载均衡与高可用架构实战：从单点故障到99.99%可用性的进化之路**
+  URL: https://www.tokenfind.cn/blog/ai-api-load-balancing-ha-architecture-2026
+  日期: 2026-06-17
+  关键词: AI API负载均衡, API高可用架构, 多模型故障转移, AI网关配置, API熔断降级, 全球多活部署, Nginx负载均衡, Kong网关, AI API可用性, 服务网格
+  摘要: 详解AI API负载均衡与高可用架构设计。覆盖Nginx/HAProxy/Kong网关配置、多模型提供商故障转移、熔断降级策略、全球多活部署、真实案例：某SaaS平台从99.5%到99.99%可用性的架构演进。
+
+- **AI API速率限制(Rate Limit)全面应对策略：从429到丝滑并发的实战之路**
+  URL: https://www.tokenfind.cn/blog/ai-api-rate-limit-strategies
+  日期: 2026-05-18T08:00:00+08:00
+  关键词: AI API速率限制,OpenAI rate limit,API 429错误,API限流策略,OpenAI TPM RPM,多API Key轮询,API请求队列,AI API并发控制
+  摘要: 深入解析AI API速率限制机制，OpenAI Tier分级、Anthropic Claude RPM/TPM限制、国内平台QPS策略。附5种实用应对策略代码：令牌桶限流、指数退避重试、多API Key轮询、Redis请求队列、模型自动降级。真实案例：429错误率从8.3%降至0.02%。
+
+- **AI API错误码完全排查指南：从429限流到500超时的实战解决方案博客**
+  URL: https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting-2026
+  日期: 2026-05-31
+  关键词: OpenAI API错误码, Claude API报错, AI API 429错误, API rate limit解决, AI API超时处理, AI API调试, API错误排查, rate limit exceeded, API timeout
+  摘要: 详细解析OpenAI、Claude、Gemini等AI API常见错误码（429限流、500超时、401认证失败等）的原因与解决方案，附真实踩坑案例、错误码速查表和Python/Node.js代码示例。
+
+- **AI API错误码排查手册2026：从429限流到500超时的实战指南 AI API攻略**
+  URL: https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting-handbook-2026
+  日期: 2026-06-07
+  关键词: AI API错误码, API 429错误, API 500错误, OpenAI错误码, Claude API报错, AI API超时, API rate limit, API故障排查
+  摘要: AI API错误码排查完全手册，详解OpenAI、Claude、DeepSeek、Gemini等平台的429限流、500超时、401认证失败等常见错误码，附Python错误处理中间件代码、重试策略和监控告警方案。
+
+- **AI API错误码大全与故障排查：OpenAI、Claude、国内平台踩坑实录**
+  URL: https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting
+  日期: 2026-05-14T08:00:00+08:00
+  关键词: AI API错误码,OpenAI 429错误,OpenAI rate limit,API错误处理,Claude API错误,AI API故障排查,API重试策略,context_length_exceeded,AI API超时处理
+  摘要: 全面整理OpenAI、Anthropic Claude、通义千问、文心一言等AI API常见错误码及排查方案。附真实故障案例、Python重试与降级代码、监控告警建议。
+
+- **AI API Schema设计实战：从踩坑到精通 AI API攻略**
+  URL: https://www.tokenfind.cn/blog/ai-api-schema-design-function-calling-guide-2026
+  日期: 2026-06-09
+  关键词: Function Calling Schema设计, AI API Schema规范, JSON Schema AI, 工具调用接口设计, OpenAI function参数, Gemini function declaration, AI Schema版本管理
+  摘要: 深入讲解Function Calling Schema设计实战，涵盖JSON Schema核心关键字技巧、OpenAI vs Anthropic vs Gemini格式对比、天气查询/数据库搜索/文件操作三大场景案例、Pydantic集成代码，以及Schema版本管理与调试技巧。
+
+- **AI API版本管理与向后兼容实战：从OpenAI API废弃风波中学到的血泪教训**
+  URL: https://www.tokenfind.cn/blog/ai-api-versioning-compatibility-guide-2026
+  日期: 2026-06-16T08:00:00+08:00
+  关键词: AI API版本管理, OpenAI API废弃, API向后兼容, AI API迁移, API版本路由, Claude API版本, gpt-3.5-turbo替代, AI API升级策略
+  摘要: 从OpenAI废弃gpt-3.5-turbo到Anthropic Claude API版本策略，详解AI API版本管理最佳实践。附API版本路由中间件代码、向后兼容设计模式、废弃迁移Checklist，真实案例：零停机完成3次API大版本迁移。
+
+- **从零搭建企业级RAG知识库：Embedding选型到上线的完整踩坑记录博客**
+  URL: https://www.tokenfind.cn/blog/ai-embedding-rag-knowledge-base-guide-2026
+  日期: 2026-06-06
+  关键词: RAG知识库搭建,Embedding模型对比,向量数据库选型,AI知识库开发,文本向量化教程,Pinecone使用,Milvus部署,RAG优化技巧,混合检索,RAG架构设计
+  摘要: 一位AI工程师的企业级RAG知识库搭建实战记录。涵盖Embedding模型选型对比、向量数据库选型、RAG系统架构设计、优化技巧与真实项目踩坑经验，含法律事务所和SaaS公司落地案例。
+
+- **RAG与AI API结合：构建私有知识库的完整指南博客**
+  URL: https://www.tokenfind.cn/blog/rag-ai-api-knowledge-base
+  日期: 2026-03-10
+  关键词: RAG,AI API私有知识库,向量数据库,Embedding,AI知识库,LangChain,RAG检索增强
+  摘要: 深入解析RAG检索增强生成技术，如何结合AI API构建私有知识库。涵盖向量数据库选择、Embedding模型部署、RAG工作流程详解，附Python实战代码。
+
+- **AI API边缘计算实战：在树莓派和IoT设备上跑通大模型推理的完整方案**
+  URL: https://www.tokenfind.cn/blog/ai-api-edge-computing-iot-guide-2026
+  日期: 2026-06-16T08:00:00+08:00
+  关键词: AI边缘计算, IoT AI应用, 树莓派AI推理, NVIDIA Jetson, Ollama本地部署, 边缘AI API, 工业AI质检, MQTT AI数据处理, 边缘计算大模型
+  摘要: 从树莓派5到NVIDIA Jetson，详解如何在边缘设备上调用AI API实现本地推理。覆盖Ollama本地部署、Cloudflare Workers边缘推理、MQTT+AI实时数据处理、工业质检案例，附完整代码和成本对比。
+
+- **AI API流式输出深度优化：从SSE到WebSocket的完整性能调优指南 - TokenNexus**
+  URL: https://www.tokenfind.cn/blog/ai-api-streaming-optimization-2026
+  日期: 2026-05-27
+  关键词: AI API流式输出, SSE优化, WebSocket AI, 流式API性能, AI API延迟优化, chunked transfer, 流式输出调优, Server-Sent Events
+  摘要: AI API流式输出性能调优实战指南：SSE优化降低80%感知延迟、WebSocket+Token Bucket延迟波动仅±0.1%、10秒无chunk流90%概率失败。附FastAPI亿级调用量演进经验。
+
+- **AI API Schema设计实战：从踩坑到精通 AI API攻略**
+  URL: https://www.tokenfind.cn/blog/ai-api-schema-design-function-calling-guide-2026
+  日期: 2026-06-09
+  关键词: Function Calling Schema设计, AI API Schema规范, JSON Schema AI, 工具调用接口设计, OpenAI function参数, Gemini function declaration, AI Schema版本管理
+  摘要: 深入讲解Function Calling Schema设计实战，涵盖JSON Schema核心关键字技巧、OpenAI vs Anthropic vs Gemini格式对比、天气查询/数据库搜索/文件操作三大场景案例、Pydantic集成代码，以及Schema版本管理与调试技巧。
+
+- **AI API日志与可观测性实战：从摸黑排障到全链路追踪 AI API攻略**
+  URL: https://www.tokenfind.cn/blog/ai-api-observability-logging-guide-2026
+  日期: 2026-06-08
+  关键词: AI API监控,API日志分析,API可观测性,API全链路追踪,API延迟监控,Helicone,LangFuse,OpenAI日志,API调用统计
+  摘要: AI API监控与日志分析实战教程，详解可观测性三大支柱（日志/指标/追踪），手把手教你用Helicone、LangFuse、OpenTelemetry搭建AI API全链路监控系统，含Python中间件代码、Grafana看板配置与告警策略。
+
+- **AI API监控与告警系统搭建：保障生产环境稳定运行 - TokenNexus**
+  URL: https://www.tokenfind.cn/blog/ai-api-monitoring-alerting
+  日期: 2026-02-05
+  关键词: AI API监控,API告警系统,API用量监控,Prometheus监控,Grafana仪表板,API异常告警
+  摘要: 详解AI API监控与告警系统搭建全流程，包含Prometheus+Grafana实战配置、API用量监控方案、多维度告警规则设置，助你构建企业级API稳定性保障体系。
+
+- **AI API自动化测试与CI/CD集成：三层测试金字塔实战 - TokenNexus**
+  URL: https://www.tokenfind.cn/blog/ai-api-testing-cicd-guide-2026
+  日期: 2026-05-26
+  关键词: AI API测试, API自动化测试, CI/CD集成, pytest-mock, 测试金字塔, GitHub Actions, AI API快照测试, API测试成本优化
+  摘要: AI API自动化测试完整指南：三层测试金字塔、pytest-mock、GitHub Actions CI/CD流水线、快照测试、成本优化策略，附Python代码与真实案例，测试效率提升300%
+
+- **AI API对话上下文管理实战：Session管理、上下文窗口优化与Token计算**
+  URL: https://www.tokenfind.cn/blog/ai-api-conversation-context-memory-management-guide-2026
+  日期: 2026-06-12
+  关键词: AI对话上下文管理, API Session管理, AI Memory实现, 上下文窗口优化, ChatGPT历史记录, Claude对话管理, Token上下文限制, 对话摘要
+  摘要: AI API对话上下文管理完整实战指南：Redis Session管理、三种上下文策略对比（保留/摘要/滑动窗口）、Token预算计算、RAG增强对话、多轮Agent框架、隐私保护。学会上下文管理，50轮对话不
+
+- **AI API多模型A/B测试实战：用数据选出最优LLM AI API攻略**
+  URL: https://www.tokenfind.cn/blog/ai-api-ab-testing-model-selection-2026
+  日期: 2026-06-08
+  关键词: AI模型A/B测试,AI API模型切换,多模型对比测试,GPT-4o vs Claude对比,模型效果评估,AI模型选型,API模型路由,LLM评测
+  摘要: AI模型A/B测试完整实战教程，详解GPT-4o vs Claude Sonnet vs DeepSeek V3 vs Gemini Pro多模型对比测试方法，含Python A/B测试框架代码、评估维度分析与智能路由策略。
+
+- **AI API Token计费原理深度解析 AI API攻略**
+  URL: https://www.tokenfind.cn/blog/ai-api-token-pricing-cost-calculation-guide-2026
+  日期: 2026-06-10
+  关键词: AI API Token计算、ChatGPT API费用、Claude API定价、AI Token计费原理、GPT-4o价格、DeepSeek API费用、AI API成本计算、Token怎么算
+  摘要: 深入解析AI API Token计算原理，涵盖中英文Token化差异、GPT-4o/Claude/DeepSeek最新定价表、多模态Token计算、Python工具代码及成本优化技巧。
+
+- **AI API向量数据库选型指南 AI API攻略**
+  URL: https://www.tokenfind.cn/blog/ai-api-vector-database-comparison-guide-2026
+  日期: 2026-06-10
+  关键词: 向量数据库选型、Pinecone vs Milvus、AI向量数据库、向量检索对比、RAG向量存储、embedding向量数据库、Weaviate对比、向量数据库性能对比
+  摘要: 深度对比Pinecone、Milvus、Weaviate三大向量数据库，详解选型决策树、性能调优、成本控制策略，附Python完整代码示例。
+
+- **AI API生产部署避坑指南：扩缩容、高可用、监控告警全攻略(2026) AI API攻略**
+  URL: https://www.tokenfind.cn/blog/ai-api-production-deployment-scaling-guide-2026
+  日期: 2026-06-13
+  关键词: AI API生产部署、AI服务扩缩容、API服务器架构、AI高并发处理、AI API负载均衡、API部署最佳实践、AI服务监控告警
+  摘要: AI API生产部署实战指南，从Docker容器化到K8s部署，分享日活1万到100万的架构演进经验，详解API Gateway选型、自动扩缩容、蓝绿部署、Prometheus监控等生产级最佳实践，附真实踩坑复盘。
+
+- **AI API网关设计与实现：企业级统一接入架构实战 - TokenNexus**
+  URL: https://www.tokenfind.cn/blog/ai-api-gateway-design-2026
+  日期: 2026-05-25
+  关键词: AI API网关, API gateway设计, Kong网关, APISIX, AI API负载均衡, API熔断降级, 企业AI架构, AI API统一管理
+  摘要: 从零搭建企业级AI API网关：Kong vs APISIX性能对比、负载均衡、熔断降级、请求路由、密钥管理完整方案。附Python+Nginx实战代码，真实案例降低API调用成本60%。
+
+- **AI API多租户架构实战：企业如何搭建成本可控的AI平台**
+  URL: https://www.tokenfind.cn/blog/ai-api-multi-tenant-architecture-2026
+  日期: 2026-05-24
+  关键词: AI API多租户, 企业AI平台, 租户隔离, API成本分摊, 多租户架构, LiteLLM, AI网关, 企业AI治理
+  摘要: 深入解析企业AI API多租户架构设计，涵盖租户隔离、资源计量、成本分摊三大核心模块。对比LiteLLM、Kong、Portkey等主流方案，提供完整架构图与代码示例，帮助企业搭建成本可控的AI平台。
+
+- **AI API迁移完全指南：从OpenAI到DeepSeek/Claude的无缝切换**
+  URL: https://www.tokenfind.cn/blog/ai-api-migration-guide-2026
+  日期: 2026-05-20
+  关键词: AI API迁移, OpenAI替代, API切换, 大模型迁移, OpenAI兼容API, DeepSeek迁移, Claude API, 成本优化
+  摘要: 手把手教你从OpenAI迁移到DeepSeek、Claude等替代平台。包含真实成本对比、代码级迁移实战、三种迁移策略详解，帮你节省80%以上API成本。
+
+- **AI提示词工程完全指南：Prompt Engineering技巧与实战**
+  URL: https://www.tokenfind.cn/blog/ai-prompt-engineering-guide
+  日期: 2026-03-25T10:00:00+08:00
+  关键词: AI提示词工程, Prompt Engineering, 提示词技巧, AI提示词模板, ChatGPT提示词, Claude提示词
+  摘要: 深入了解AI提示词工程最佳实践，从零样本提示到结构化设计，涵盖ChatGPT、Claude、Gemini等平台的提示词技巧与AI提示词模板。
+
+- **AI API集成最佳实践：错误处理与性能优化博客**
+  URL: https://www.tokenfind.cn/blog/api-integration-best-practices
+  日期: 2026-05-01T08:00:00+08:00
+  关键词: AI API集成,API错误处理,API重试策略,API流式响应,AI API性能优化,API成本控制,rate limiting
+  摘要: 从API错误处理到流式响应优化，详解AI API集成的核心技巧。包含指数退避重试、Token成本监控、Rate Limiting应对策略和Python实战代码。
+
+- **多模态AI API应用开发指南：图像、音频、视频全栈实践**
+  URL: https://www.tokenfind.cn/blog/multimodal-ai-api-development
+  日期: 2026-02-25T08:00:00+08:00
+  关键词: 多模态AI API,图像识别API,语音识别API,视频分析API,GPT-4V API,Gemini多模态,AI视觉API
+  摘要: 全面解析多模态AI API开发，涵盖GPT-4V API、Gemini多模态、图像识别API、语音识别API、视频分析API等主流平台实战教程与代码示例。
+
+### 安全与合规
+
+- **2026年AI API安全完全指南：从密钥泄露到企业级防护**
+  URL: https://www.tokenfind.cn/blog/ai-api-security-guide-2026
+  日期: 2026-05-22
+  关键词: AI API安全, API Key管理, AI应用安全, Prompt注入防护, 大模型安全, API密钥保护, AI安全合规, 数据脱敏
+  摘要: 2026年AI API安全完全指南：深入解析API Key管理、Prompt注入防护、敏感数据脱敏等企业级安全方案，避免$50,000+损失。涵盖GDPR合规、审计日志、应急响应等实战策略。
+
+- **AI API安全实战：我是如何防止API Key泄露并过SOC2审计的博客**
+  URL: https://www.tokenfind.cn/blog/ai-api-security-key-management-guide-2026
+  日期: 2026-06-05
+  关键词: AI API安全,API Key管理,SOC2合规,数据泄露防护,零信任架构,密钥轮换,AI产品安全审计,Prompt Injection防护,API安全最佳实践,AI安全审计
+  摘要: 分享AI API安全建设的真实经验，涵盖API Key管理、密钥轮换、零信任架构、Prompt Injection防护，以及SOC2和GDPR合规准备。帮助技术团队构建企业级AI安全体系。
+
+- **AI API安全使用指南：保护API Key最佳实践**
+  URL: https://www.tokenfind.cn/blog/api-key-security-guide
+  日期: 2026-03-15
+  关键词: API Key安全, API Key保护, AI API密钥管理, API安全, GitHub API Key泄露
+  摘要: 深入了解AI API Key安全保护的最佳实践，包括GitHub泄露案例分析、安全存储方案、IP白名单设置、用量监控与告警等实用技巧。保护你的API密钥，防止未授权访问和财产损失。
+
+- **AI API数据隐私与合规实战：SOC2/ISO27001/GDPR全解析与落地 checklist**
+  URL: https://www.tokenfind.cn/blog/ai-api-data-privacy-compliance-guide-2026
+  日期: 2026-06-17T10:00:00+08:00
+  关键词: AI API数据隐私, SOC2合规, ISO27001认证, GDPR AI合规, CCPA数据保护, AI API数据安全, PII检测, 数据跨境传输, AI法案合规, 隐私影响评估
+  摘要: 从OpenAI数据泄露事件到欧盟AI法案，详解AI API数据隐私合规全流程。覆盖SOC2 Type II、ISO27001、GDPR、CCPA合规要求，附数据分类矩阵、PII检测代码、跨境传输方案、合规审计Checklist。
+
+- **AI API合规与数据治理：GDPR/等保2.0下的PII脱敏实战**
+  URL: https://www.tokenfind.cn/blog/ai-api-compliance-gdpr-guide-2026
+  日期: 2026-05-24
+  关键词: AI API合规, GDPR合规, PII脱敏, AI数据治理, AI审计日志, 等保2.0, EU AI Act, 数据脱敏技术, AI合规框架
+  摘要: 2026年AI API合规完全指南：深入解析GDPR与EU AI Act的Article 12悖论、PII确定性令牌化方案、合规日志架构设计。涵盖等保2.0要求、对抗鲁棒性测试、公平性量化验证等企业级合规策略。
+
+- **AI API内容安全与审核实战｜Prompt注入防护、幻觉检测、完整过滤Pipeline AI API攻略**
+  URL: https://www.tokenfind.cn/blog/ai-api-content-safety-moderation-hallucination-guide-2026
+  日期: 2026-06-11
+  关键词: AI API内容安全、AI内容审核、Prompt注入防护、AI幻觉检测、AI Moderation API、内容过滤AI、API安全过滤、AI输出审核
+  摘要: AI API内容安全实战指南，讲解Prompt注入防护、幻觉检测、多平台内容审核方案对比，附完整Python过滤Pipeline代码。企业级AI安全架构设计，适合客服机器人、内容平台等场景。
+
+### 国内开发者专题
+
+- **国内AI大模型API接入指南：阿里云百炼、百度千帆、讯飞星火对比博客**
+  URL: https://www.tokenfind.cn/blog/china-ai-api-guide
+  日期: 2026-05-05
+  关键词: 国内AI API,阿里云百炼API,百度千帆API,讯飞星火API,国产大模型接口,AI API价格对比
+  摘要: 2026年国内AI API接入实战指南，详细对比阿里云百炼（通义千问Qwen）、百度千帆（文心一言ERNIE）、讯飞星火Spark三大平台的价格、性能和接入方式，附代码示例和选型建议。
+
+- **国产大模型API生态全景图：2026年最全国产AI指南**
+  URL: https://www.tokenfind.cn/blog/china-llm-ecosystem-2026
+  日期: 2026-02-15T08:00:00+08:00
+  关键词: 国产大模型,国产AI API,通义千问,文心一言,讯飞星火,Kimi API,豆包API,国产大模型对比
+  摘要: 2026年国产大模型API全面对比：通义千问、文心一言、讯飞星火、Kimi API、豆包API深度评测。含免费额度、价格对比、性能实测，企业选型必备指南。
+
+- **国内AI API中转平台完全指南：为什么更适合中国开发者**
+  URL: https://www.tokenfind.cn/blog/china-api-transit-platform-guide
+  日期: 2026-05-20T00:00:00+08:00
+  关键词: AI API中转平台,国内AI API,ChatGPT API国内,Claude API国内,API中转站,AI API代理,国内大模型API,API网络加速
+  摘要: 国内开发者使用AI API中转平台的完整指南。解决网络不稳定、支付困难、账号风控等问题。实测对比+真实案例，帮你找到最可靠的中转服务。
+
+- **国内开发者使用海外AI API完整指南：网络、支付、合规全解析博客**
+  URL: https://www.tokenfind.cn/blog/chinese-developers-overseas-ai-api-guide-2026
+  日期: 2026-05-29
+  关键词: 国内使用OpenAI, 海外AI API访问, OpenAI支付方式, Claude国内使用, Gemini API中国, AI API合规使用, 海外API网络方案
+  摘要: 详解国内开发者如何顺利使用OpenAI、Claude、Gemini等海外AI API服务，包括网络访问方案、支付方式选择、合规注意事项，附真实踩坑经验分享。
+
+- **2026年国产AI编程助手横评：通义灵码、CodeGeeX、文心快码、Trae等七款工具实测博客**
+  URL: https://www.tokenfind.cn/blog/domestic-ai-coding-assistant-review-2026
+  日期: 2026-06-02
+  关键词: 国产AI编程助手,通义灵码评测,CodeGeeX教程,文心快码使用,AI代码补全工具,免费AI编程插件,中文AI编程助手对比,通义灵码,CodeGeeX,文心快码,Trae,讯飞代码助手,腾讯云AI代码助手,Continue.dev
+  摘要: 深度实测通义灵码、CodeGeeX、文心快码、Trae、讯飞代码助手、腾讯云AI代码助手、Continue.dev七款国产AI编程助手。包含真实补全质量评分、项目理解准确率对比、不同开发场景推荐，帮你选到最合适的免费AI编程插件。
+
+- **AI API代理与中转服务指南：国内开发者如何稳定调用OpenAI**
+  URL: https://www.tokenfind.cn/blog/ai-api-proxy-relay-guide
+  日期: 2026-05-15T08:00:00+08:00
+  关键词: AI API代理,OpenAI代理,API中转服务,国内调用OpenAI,Cloudflare Workers代理,AI API反代,OpenAI中转API,API代理搭建教程
+  摘要: 国内开发者调用OpenAI API的完整代理方案指南。涵盖Cloudflare Workers自建代理、Nginx反向代理、第三方中转平台对比，附完整代码示例和真实案例。
+
+### 特定平台专题
+
+- **Claude API完整指南：从入门到生产部署（2026版）博客**
+  URL: https://www.tokenfind.cn/blog/claude-api-guide-2026
+  日期: 2026-04-25
+  关键词: Claude API, Claude API教程, Anthropic API, Claude价格, Claude 4 Sonnet, Claude长上下文, Claude API接入, Claude代码生成, Claude与GPT-4对比
+  摘要: 2026年最全面的Claude API接入教程。涵盖Claude 4 Sonnet、Claude 4 Opus模型介绍，API Key获取、定价体系、200K长上下文实战技巧，以及Python和cURL调用示例。
+
+- **DeepSeek API完全指南：极致性价比国产之光**
+  URL: https://www.tokenfind.cn/blog/deepseek-api-complete-guide
+  日期: 2026-04-05
+  关键词: DeepSeek API, DeepSeek API教程, DeepSeek价格, DeepSeek V3, DeepSeek R1, 国产AI API, DeepSeek接入, AI API推荐
+  摘要: 深度解析DeepSeek API：从注册到生产部署，包含V3/R1双模型对比、价格分析、500万tokens免费额度、Python/cURL调用示例，附真实省钱案例。
+
+- **Gemini API完全指南：Google最强多模态AI（2026版）博客**
+  URL: https://www.tokenfind.cn/blog/gemini-api-complete-guide
+  日期: 2026-04-10
+  关键词: Gemini API, Gemini API教程, Google AI Studio, Gemini 2.0, Gemini多模态, Gemini API价格, Gemini免费额度, Google AI API
+  摘要: 2026年最全面的Gemini API接入指南。涵盖Gemini 2.0、Gemini 1.5 Pro、Gemini 1.5 Flash模型介绍，200万token上下文、多模态能力、API定价及Python实战教程。
+
+- **OpenRouter完全指南：一站式访问400+模型**
+  URL: https://www.tokenfind.cn/blog/openrouter-complete-guide
+  日期: 2026-04-01
+  关键词: OpenRouter API, OpenRouter教程, API聚合平台, 多模型API, 统一API接口, OpenRouter价格
+  摘要: 深入了解OpenRouter API聚合平台，如何一站式访问400+AI模型，掌握智能路由、自动故障转移等核心功能，实现成本优化与灵活切换。
+
+- **如何获取OpenAI API Key：完整教程（2026版）博客**
+  URL: https://www.tokenfind.cn/blog/how-to-get-openai-api-key
+  日期: 2026-05-10
+  关键词: OpenAI API Key, 获取API Key, OpenAI注册, API充值, GPT-4 API
+  摘要: 从注册到获取OpenAI API Key的完整流程，包括常见问题解决、充值方法和安全使用建议。2026年最新版教程，手把手教你获取API Key。
+
+### AI视频/图像/语音
+
+- **2026年AI视频生成API全面对比：Kling/Sora/Seedance/Runway选型指南 - TokenNexus**
+  URL: https://www.tokenfind.cn/blog/ai-video-generation-api-comparison-2026
+  日期: 2026-05-27
+  关键词: AI视频生成API, Kling API, Sora API, Seedance API, Runway API, AI视频API对比, AI视频API价格, 视频生成API选型
+  摘要: 2026年5大AI视频生成API实测对比：Kling 2.1性价比最高$0.20/视频、Sora 2 Pro质量分94.1最贵$2.50、Seedance 2.0分辨率灵活、Runway Gen-4.5最稳定。附选型建议和接入代码。
+
+- **2026年AI视频生成API选型攻略：可灵、Runway、Pika等主流平台实测对比博客**
+  URL: https://www.tokenfind.cn/blog/ai-video-generation-api-guide-2026
+  日期: 2026-06-02
+  关键词: AI视频生成API,可灵API,Runway API价格,Pika视频生成,文生视频API,AI视频制作教程,AI短视频生成工具
+  摘要: 2026年AI视频生成API全面实测对比，涵盖可灵AI、Runway Gen-4、Pika 2.5、Luma Dream Machine、Sora 2等主流平台的价格、生成速度、画质表现，附选型建议和避坑指南。
+
+- **2026年AI图像生成API全面对比：DALL-E/Flux/SD3.5/Idéogram速度质量价格实测 - TokenNexus**
+  URL: https://www.tokenfind.cn/blog/ai-image-generation-api-comparison-2026
+  日期: 2026-05-25
+  关键词: AI图像生成API, DALL-E API, Flux API, Stable Diffusion API, Ideogram API, AI绘图API对比, AI图像API价格, 图像生成API接入教程
+  摘要: 2026年6大AI图像生成API实测对比：Flux Pro延迟2.1秒最快、SD3.5仅$0.04/张最便宜、Ideogram文字渲染96%最准。附各场景选型建议和Python接入代码。
+
+- **2026年AI图像生成API横评：Midjourney、DALL-E 3、SD对比 - TokenNexus**
+  URL: https://www.tokenfind.cn/blog/ai-api-image-generation-platform-comparison-2026
+  日期: 2026-06-22
+  关键词: AI图像生成API, Midjourney API价格, DALL-E 3 API, Stable Diffusion API, Leonardo.ai评测, AI绘画API对比, 图像生成API选型, AI文生图API, 图像生成API商用授权, Ideogram API
+  摘要: 2026年最全面的AI图像生成API横评。实测Midjourney API、DALL-E 3、Stable Diffusion XL、Leonardo.ai、Ideogram、Recraft六大平台，从价格、质量、速度、可控性、商用授权五个维度深度对比，附真实生成效果对比和选型建议。
+
+- **2026年AI语音合成API全面对比：ElevenLabs/OpenAI/Azure/TTS选型指南 - TokenNexus**
+  URL: https://www.tokenfind.cn/blog/ai-tts-api-comparison-2026
+  日期: 2026-05-26
+  关键词: AI语音合成API, TTS API, ElevenLabs API, OpenAI TTS, Azure TTS, 语音合成API对比, TTS API价格, 文本转语音API
+  摘要: 2026年8大AI语音合成API实测对比：ElevenLabs音质最佳、OpenAI最便宜$15/1M字符、Cartesia延迟最低90ms。附各场景选型建议和Python接入代码。
+
+- **我是如何用AI语音API做出日活过万的声音助手：从想法到MVP的完整复盘**
+  URL: https://www.tokenfind.cn/blog/ai-voice-application-development-guide-2026
+  日期: 2026-06-23T08:00:00+08:00
+  关键词: AI语音应用开发, AI语音助手开发, OpenAI Realtime API, ElevenLabs中文语音, AI语音合成实战, 语音识别API选型, AI通话机器人, 语音交互产品设计, AI播客生成, 语音API成本优化
+  摘要: 一个真实AI语音应用项目的完整复盘。从选型ElevenLabs、OpenAI Realtime API到上线的全流程，包含语音转文字、大模型对话、语音合成、低延迟优化、成本控制等实战经验。
+
+### 开发实战
+
+- **AI API产品化实战：从API调用到月收$3万SaaS的完整商业化路径**
+  URL: https://www.tokenfind.cn/blog/ai-api-productization-saas-guide-2026
+  日期: 2026-07-03T08:00:00+08:00
+  关键词: AI API产品化, AI API商业化, AI SaaS创业, AI API变现, AI API商业模式, AI API定价策略, AI API MVP, AI API成本控制, AI产品增长, AI API创业实战
+  摘要: 2026年最实用的AI API产品化指南。从MVP设计、成本定价、用户增长到商业化变现，完整复盘如何用AI API打造月收入3万美元的SaaS产品。含真实案例和可复用的商业化框架。
+
+- **从零到上线：我是如何用3周搭建一个AI产品的完整实战经验博客**
+  URL: https://www.tokenfind.cn/blog/build-ai-product-from-scratch-2026
+  日期: 2026-06-04
+  关键词: AI产品开发教程,从零搭建AI产品,AI客服系统开发,独立开发者AI项目,AI API接入实战,LangChain教程,AI产品成本,Next.js AI项目,FastAPI AI应用,Redis缓存策略
+  摘要: 独立开发者分享3周搭建AI智能客服产品的完整实战经验，包含技术选型、API接入、成本控制、踩坑记录。使用Next.js+FastAPI+PostgreSQL+Redis技术栈，月成本仅35美元。
+
+- **AI API企业级采购与合同谈判攻略｜从月账单$3万到省下40% AI API攻略**
+  URL: https://www.tokenfind.cn/blog/ai-api-enterprise-procurement-contract-negotiation-guide-2026
+  日期: 2026-06-11
+  关键词: AI API企业采购、AI API Enterprise Agreement、AI API合同谈判、AI API定制定价、AI API SLA协议、AI API信用卡替代、企业AI API采购、AI API企业版价格
+  摘要: AI API企业采购实战指南，讲解企业协议EA谈判技巧、主流平台折扣对比、SLA保障条款、采购Checklist。月消耗$5000+即可尝试谈判，年消耗$10万+是主流EA门槛，附真实邮件模板和谈判策略。
+
+- **一个全栈工程师的AI API接入日记：从零到上线的30天真实踩坑记录**
+  URL: https://www.tokenfind.cn/blog/ai-api-integration-diary-fullstack-engineer-2026
+  日期: 2026-06-22T10:00:00+08:00
+  关键词: AI API接入经验, OpenAI API踩坑, DeepSeek API迁移, API Key泄露处理, 429限流解决, AI API账单控制, Prompt注入防护, 全栈工程师AI接入, AI API上线经验, API成本暴涨原因, AI API接入踩坑记录, OpenAI API密钥泄露怎么办, DeepSeek API迁移经验, AI API账单暴涨原因, 429 Too Many Requests解决
+  摘要: 全栈工程师真实AI API接入日记。记录从选型OpenAI到迁移DeepSeek的30天完整历程，包含密钥泄露事故、429限流噩梦、账单暴涨、Prompt注入攻击等真实踩坑经历，以及最终架构方案。
+
+- **我是如何用AI语音API做出日活过万的声音助手：从想法到MVP的完整复盘**
+  URL: https://www.tokenfind.cn/blog/ai-voice-application-development-guide-2026
+  日期: 2026-06-23T08:00:00+08:00
+  关键词: AI语音应用开发, AI语音助手开发, OpenAI Realtime API, ElevenLabs中文语音, AI语音合成实战, 语音识别API选型, AI通话机器人, 语音交互产品设计, AI播客生成, 语音API成本优化
+  摘要: 一个真实AI语音应用项目的完整复盘。从选型ElevenLabs、OpenAI Realtime API到上线的全流程，包含语音转文字、大模型对话、语音合成、低延迟优化、成本控制等实战经验。
+
+## 热门平台摘要
+
+- **OpenAI - GPT-4o API官方评测|价格|使用教程 AI导航**
+  URL: https://www.tokenfind.cn/platform/openai
+  摘要: OpenAI是官方平台，支持GPT-4o、o1、o3等模型，价格$0.002-15/1M tokens，用户评分4.9分。提供OpenAI注册教程、API Key获取、使用指南及替代方案对比。
+
+- **Claude 3.7 Sonnet - Claude 3.7 Sonnet API官方评测|价格|使用教程 AI导航**
+  URL: https://www.tokenfind.cn/platform/claude-3-7-sonnet
+  摘要: Claude 3.7 Sonnet是官方平台，Anthropic混合推理模型，支持扩展思考，代码生成优异，价格$3/百万token，用户评分4.9分。提供Claude 3.7 Sonnet注册教程、API Key获取、使用指南及替代方案对比。
+
+- **DeepSeek - DeepSeek V3 API官方评测|价格|使用教程 AI导航**
+  URL: https://www.tokenfind.cn/platform/deepseek
+  摘要: DeepSeek是官方平台，支持DeepSeek V3、DeepSeek R1、低价等模型，价格$0.0013-0.27/1M tokens，用户评分4.9分。提供DeepSeek注册教程、API Key获取、使用指南及替代方案对比。
+
+- **Gemini 2.5 Pro - Gemini 2.5 Pro API官方评测|价格|使用教程 AI导航**
+  URL: https://www.tokenfind.cn/platform/gemini-2-pro
+  摘要: Gemini 2.5 Pro是官方平台，Google最新多模态大模型，100万token上下文，推理能力卓越，价格$1.25/百万token，用户评分4.8分。提供Gemini 2.5 Pro注册教程、API Key获取、使用指南及替代方案对比。
+
+- **Qwen3 - 通义千问3 API官方评测|价格|使用教程 AI导航**
+  URL: https://www.tokenfind.cn/platform/qwen-3
+  摘要: 通义千问3是国内平台，阿里云最新MoE大模型，支持思考/非思考模式切换，价格免费/付费，用户评分4.7分。提供通义千问3注册教程、API Key获取、使用指南及替代方案对比。
+
+- **字节豆包 - Doubao API评测|价格|使用教程 AI导航**
+  URL: https://www.tokenfind.cn/platform/字节豆包
+  摘要: 字节豆包是国内平台，支持Doubao、火山引擎、字节跳动等模型，价格¥0.003-0.1/1K tokens，用户评分4.5分。提供字节豆包注册教程、API Key获取、使用指南及替代方案对比。
+
+- **智谱 GLM - GLM-4 API评测|价格|使用教程 AI导航**
+  URL: https://www.tokenfind.cn/platform/智谱-glm
+  摘要: 智谱 GLM是国内平台，支持GLM-4、清华技术、多模态等模型，价格¥0.005-0.1/1K tokens，用户评分4.5分。提供智谱 GLM注册教程、API Key获取、使用指南及替代方案对比。
+
+- **月之暗面 Kimi API - 价格、评测与使用指南 AI Token导航**
+  URL: https://www.tokenfind.cn/platform/kimi
+  摘要: 月之暗面Kimi是国内领先的AI助手和API服务提供商，以200万字超长上下文著称。Kimi模型在长文档理解、信息提取和多轮对话方面表现卓越。支持文件上传和网页解析，是学术研究、文档处理和知识问答的理想选择。。查看月之暗面 Kimi API价格、用户评分(4.6/5)、支持模型和详细评测。TokenNexus收录72+AI API平台。
+
+- **OpenRouter - 模型聚合 API官方评测|价格|使用教程 AI导航**
+  URL: https://www.tokenfind.cn/platform/openrouter
+  摘要: OpenRouter是官方平台，支持模型聚合、统一API、100+模型等模型，价格免费 + 按量付费，用户评分4.6分。提供OpenRouter注册教程、API Key获取、使用指南及替代方案对比。
+
+- **硅基流动 SiliconFlow API - 价格、评测与使用指南 AI Token导航**
+  URL: https://www.tokenfind.cn/platform/siliconflow
+  摘要: 硅基流动是国内领先的AI推理平台，提供DeepSeek、Qwen等开源模型的低价API服务。价格比官方低50%以上，支持模型微调和私有化部署。是预算敏感型企业和开源模型爱好者的理想选择。。查看硅基流动 SiliconFlow API价格、用户评分(4.6/5)、支持模型和详细评测。TokenNexus收录72+AI API平台。
+
+## 常见问题 (FAQ)
+
+Q: TokenNexus 是什么？
+A: TokenNexus 是一个 AI API 导航平台，收录了 330+ 国内外 AI 大模型 API 服务商。你可以在这里对比不同平台的价格、查看模型能力、阅读实战教程，快速找到最适合自己的 AI API。
+
+Q: 网站收录了哪些 AI 平台？
+A: 分三大类——海外官方平台（OpenAI、Anthropic、Google Gemini 等 108 家）、聚合中转平台（OpenRouter、Groq、硅基流动等 66 家）、国内平台（阿里云百炼、百度千帆、讯飞星火、DeepSeek 等 106 家）。
 
 Q: 怎么选最省钱的 AI API？
-A: 看三样——价格（按 token 计费还是按次计费）、免费额度（新用户能薅多少）、模型性价比（同等效果下谁更便宜）。网站有专门的「AI API价格对比」文章和「免费额度」筛选功能。具体来说，DeepSeek 是目前性价比最高的国产模型，价格仅为 GPT-5.5 的 1/50 左右。
+A: 看三样——价格（按 token 计费还是按次计费）、免费额度（新用户能薅多少）、模型性价比（同等效果下谁更便宜）。网站有专门的「AI API价格对比」文章和「免费额度」筛选功能。
 
 Q: 国内开发者怎么用海外 AI API？
-A: 有三种方式。第一，通过聚合中转平台（如 OpenRouter、Groq、硅基流动），这些平台提供国内可访问的 API 端点。第二，使用国内代理服务。第三，自己搭建海外服务器做中转。网站有详细教程讲网络方案、支付方式和合规注意事项。
+A: 可以通过聚合中转平台（如 OpenRouter、Groq）或者国内代理服务。网站有详细教程讲网络方案、支付方式和合规注意事项。
 
-Q: 网站内容靠谱吗？
-A: 所有平台数据均来自官方文档和实际测试。价格数据定期更新，更新频率为每周一次。技术教程基于实际开发经验撰写，引用 Google AI 官方文档、OpenAI 官方文档、阿里云百炼官方文档、百度千帆官方文档等一手资料。部分内容参考了工信部人工智能产业发展报告和新华网科技频道相关报道。
+Q: 网站内容靠谱吗？有没有权威来源？
+A: 所有平台数据均来自官方文档和实际测试，价格数据定期更新。技术教程引用 Google AI 官方文档、OpenAI 官方文档、阿里云百炼官方文档、百度千帆官方文档、讯飞开放平台文档等一手资料。部分内容参考了工信部人工智能产业发展报告和新华网科技频道相关报道。
 
 Q: 如何选择 AI 视频生成 API？
-A: 目前主流选择有可灵(Kling)、Runway Gen-4、Pika 2.2、OpenAI Sora、Seedance（字节跳动）。选择标准：看画质（可灵和 Runway 目前领先）、看价格（按秒计费，价格差异大）、看生成速度（影响实际使用体验）。网站有专门的 AI 视频生成 API 对比文章。
+A: 网站有专门的 AI 视频生成 API 对比文章，覆盖可灵(Kling)、Runway、Pika、Sora、Seedance 等主流平台，从价格、生成速度、画质三个维度横评。
 
-Q: 网站有没有微信公众号？
-A: 有。微信公众号搜索「TokenNexus」即可关注。公众号定期推送 AI API 最新动态、价格变动和优惠信息。
+Q: 网站支持哪些 AI 搜索引擎爬虫？
+A: 已对 Googlebot、Bingbot、Baiduspider、Bytespider（字节/豆包）、ChatGPT-User、GPTBot、Claude-Web、PerplexityBot、Google-Extended（Gemini）、Meta-ExternalAgent 等开放全部访问权限。
 
-Q: 网站支持哪些 AI 爬虫？
-A: 已对 Googlebot、Bingbot、Baiduspider、Bytespider（字节/豆包）、ChatGPT-User、GPTBot、Claude-Web、PerplexityBot、Google-Extended（Gemini）、Meta-ExternalAgent 等全部开放访问权限。robots.txt 中已明确声明。
+## 数据来源与权威引用
 
-Q: 网站的总页面数大概多少？
-A: 约 450 个页面，包括首页、分类页、343 个平台详情页、89 篇博客文章、以及关于/联系/隐私等辅助页面。
+本站内容参考以下权威来源：
+- OpenAI、Anthropic、Google AI、DeepSeek 等官方 API 文档
+- 阿里云百炼、百度千帆、讯飞开放平台等国内平台官方文档
+- 工信部《人工智能产业发展报告》及相关政策文件
+- 新华网科技频道 AI 产业报道
+- 各平台公开发布的定价页面与模型卡
 
-## 四、主要页面内容摘要
-
-### 首页 (https://www.tokenfind.cn/)
-- 类型: 导航型主页
-- 核心功能: 展示 330+ 平台、热门模型标签云、快速筛选（全部/官方/聚合/国内/免费/最便宜/最稳定）
-- 收录统计: 330 平台 / 500+ 模型 / 50000+ 评价
-- 近期热点平台: SiliconFlow、Perplexity、Amazon Bedrock、Mistral、WaveSpeed、N1N AI
-- 特色功能: 智能对比、实时监控、价格透明、真实评价
-- 更新日期: 2026-06-21
-
-### 海外官方平台 (https://www.tokenfind.cn/official)
-- 收录: 108 家海外官方 AI API 平台
-- 代表平台: OpenAI、Anthropic Claude、Google Gemini、Meta Llama、Mistral、Cohere、AI21 Labs
-- 更新日期: 2026-05-27
-
-### 聚合中转平台 (https://www.tokenfind.cn/aggregator)
-- 收录: 66 家聚合中转平台
-- 代表平台: OpenRouter、Groq、SiliconFlow（硅基流动）、Together AI、Fireworks AI、DeepInfra
-- 更新日期: 2026-05-27
-
-### 国内平台 (https://www.tokenfind.cn/china)
-- 收录: 106 家国内 AI API 平台
-- 代表平台: 阿里云百炼、百度千帆、讯飞星火、DeepSeek、腾讯混元、字节豆包、智谱 GLM、月之暗面 Kimi、零一万物
-- 更新日期: 2026-05-27
-
-### 博客首页 (https://www.tokenfind.cn/blog/)
-- 文章总数: 89 篇
-- 分类: 平台对比、省钱攻略、技术教程、安全合规、国内开发者专题、特定平台专题、AI视频/图像/语音、开发实战
-- 更新日期: 2026-06-21
-
-### 攻略总览 (https://www.tokenfind.cn/blog/guides)
-- 精选攻略合集
-- 覆盖: AI API 选型、成本优化、安全实践、平台迁移、开发实战
-- 更新日期: 2026-06-21
-
-## 五、核心博客文章内容摘要
-
-### 2026年AI大模型API价格终极对比 (2026-06-21)
-- 分类: 平台对比
-- 核心内容: 深度对比 GPT-5.5、Claude Opus 4.7、DeepSeek V4、Gemini 3.5 等 20+ 模型价格。最便宜和最贵的模型差 100 倍。附选型决策框架和 100M Token 月消耗真实账单模拟。
-- 关键数据: DeepSeek 输入价格约 ¥0.001/1K tokens，GPT-5.5 约 ¥0.05/1K tokens，价格差距约 50 倍。
-
-### AI API成本优化实战：从月账单5000元降到500元 (2026-06-21)
-- 分类: 省钱攻略
-- 核心内容: 7 大降本技巧——智能缓存、模型降级、Prompt 精简、多模型路由、批处理、免费额度利用、开源模型自部署。附真实案例，从月账单 ¥5000 降到 ¥500。
-- 关键方法: 三层缓存架构（本地缓存/Redis缓存/CDN缓存）、语义缓存命中率可达 60%。
-
-### 从零构建AI Agent (2026-06-18)
-- 分类: 开发实战
-- 核心内容: 2026 年 AI Agent 开发框架选型，对比 LangChain、AutoGen、CrewAI、Dify、Coze 等主流框架。从需求分析到架构设计到代码实现，完整落地流程。
-
-### 2026年AI API选型完全指南 (2026-06-18)
-- 分类: 平台对比
-- 核心内容: 开发者避坑手册，涵盖 API 选型的 12 个维度——价格、延迟、可用性、文档质量、社区支持、合规性、多模态能力、上下文窗口、微调能力、流式输出、并发限制、SLA 保障。
-
-### 国内AI大模型API接入指南 (2026-05-05)
-- 分类: 国内开发者专题
-- 核心内容: 阿里云百炼、百度千帆、讯飞星火三大国内平台的 API 接入对比。包括注册流程、SDK 使用、价格对比、模型能力评测。
-
-### 国产大模型API生态全景图 (2026-02-15)
-- 分类: 国内开发者专题
-- 核心内容: 2026 年国产 AI 全景图，覆盖 DeepSeek、通义千问、文心一言、讯飞星火、腾讯混元、字节豆包、智谱 GLM、月之暗面 Kimi、零一万物等所有主流国产模型 API。
-
-### AI API安全完全指南 (2026-05-22)
-- 分类: 安全与合规
-- 核心内容: 从 API Key 泄露防护到企业级安全架构。涵盖密钥轮换、环境变量管理、请求签名、IP 白名单、审计日志、SOC2 合规。
-
-### AI API内容安全与审核实战 (2026-06-11)
-- 分类: 安全与合规
-- 核心内容: Prompt 注入攻击防护、大模型幻觉检测、内容过滤 Pipeline 搭建。附完整代码示例和部署方案。
-
-### 2026年AI视频生成API全面对比 (2026-05-27)
-- 分类: AI视频/图像/语音
-- 核心内容: 可灵(Kling)、Sora、Seedance、Runway Gen-4 四大平台对比。从价格、生成速度、画质、可控性四个维度横评。
-
-## 六、平台详情页模板结构
-
-每个平台详情页包含：
-- 平台名称与 Logo
-- 价格信息（输入价格、输出价格、免费额度）
-- 模型列表与能力矩阵
-- 用户评价与评分
-- 接入教程链接
-- 同类平台对比
-
-## 七、网站技术栈
-
-- 前端: 纯静态 HTML/CSS/JS（无框架，无构建工具）
-- 部署: Cloudflare Pages（GitHub 自动部署）
-- 分析: Google Analytics 4 (G-0CX9NNWKR8) + 百度统计 (aa6a94065c3983b2407d20b92e8d1fd9)
-- 广告: Google AdSense (pub-4710405779358793)
-- 字体: Google Fonts (Orbitron + Noto Sans SC)
-- 结构化数据: Schema.org JSON-LD (WebSite, Organization, BlogPosting, TechArticle, Article, BreadcrumbList, ItemList)
-
-## 八、AI 爬虫访问策略
-
-网站对所有主流 AI 搜索引擎爬虫开放：
-- Googlebot（Google 搜索）
-- Bingbot（Bing 搜索）
-- Baiduspider（百度搜索）
-- Bytespider（字节跳动/豆包）
-- ChatGPT-User / GPTBot（OpenAI）
-- Claude-Web / anthropic-ai（Anthropic）
-- PerplexityBot（Perplexity）
-- Google-Extended（Gemini）
-- Meta-ExternalAgent（Meta AI）
-- cohere-ai（Cohere）
-
-禁止爬取路径: /admin/、/api/admin/、/private/、/temp/、/test/、/functions/
-
-## 九、更新频率
-
-- 平台价格数据: 每周更新
-- 博客文章: 每 2-3 天发布一篇新文章
-- 平台收录: 持续更新，每月新增 5-10 家平台
-- sitemap.xml: 每次部署时自动更新
+---
+本文件遵循 https://www.tokenfind.cn/robots.txt 中的爬虫规则。
+如需完整 URL 列表，请访问 https://www.tokenfind.cn/sitemap.xml
