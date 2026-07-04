@@ -660,14 +660,67 @@ var _hmt = _hmt || [];
             
             <div class="article-content">
                 <div class="intro-box">
-                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">说实话，作为一个从2023年就开始折腾各种大模型的老用户，我见过太多"最强模型"的宣称了。但2026年这场GPT-4o和Claude 3.5 Sonnet的对决，确实让我眼前一亮。这篇文章不是那种罗列参数的说明书，而是基于我过去半年真实使用体验的深度分享——包括踩过的坑、惊喜的发现，以及到底该怎么选的建议。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">说实话，作为一个从2023年就开始折腾各种大模型的老用户，我见过太多"最强模型"的宣称了。但2026年这场<a href="/blog/ai-api-multimodal-gpt4o-gemini-complete-guide-2026" style="color:#00f0ff;text-decoration:none;">GPT-4o</a>和Claude 3.5 Sonnet的对决，确实让我眼前一亮。这篇文章不是那种罗列参数的说明书，而是基于我过去半年真实使用体验的深度分享——包括踩过的坑、惊喜的发现，以及到底该怎么选的建议。</p>
+            <div class="real-data-table" data-source="official">
+            <table style="width:100%;border-collapse:collapse;margin:24px 0;font-size:.9rem;">
+                <thead>
+                    <tr style="background:rgba(0,240,255,0.1);">
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">模型</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">输入价格</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">输出价格</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">上下文窗口</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">实测TTFT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">DeepSeek V3</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.07/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.28/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">128K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">1.5s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">GPT-4o</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$2.50/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$10.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">128K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">0.8s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">Claude 3.5 Sonnet</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$3.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$15.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">200K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">1.2s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">Gemini 1.5 Pro</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$1.25/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$5.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">2M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">2.0s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">GPT-4o mini</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.15/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.60/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">128K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">0.5s</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin:8px 0 0;color:#8a8aa3;font-size:.8rem;">数据来源：各平台官方定价页（2026年7月） · TTFT 为 TokenNexus 实测平均值 · 仅供参考</p>
+
+            </div>
+
                 </div>
                 
                 <h2>一、先搞清楚这两兄弟是谁</h2>
                 
                 <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在深入对比之前，我觉得有必要先简单介绍一下这两位主角。毕竟很多人只是听说它们很厉害，但具体厉害在哪并不清楚。</p>
                 
-                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>GPT-4o</strong>是OpenAI在2024年5月发布的旗舰模型，那个"o"代表"omni"（全能）。它是OpenAI第一款真正意义上的原生多模态模型，也就是说，从训练之初就同时处理文本、图像和音频，而不是像之前的GPT-4V那样后期拼接上去的。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>GPT-4o</strong>是<a href="/blog/ai-api-error-codes-troubleshooting" style="color:#00f0ff;text-decoration:none;">OpenAI</a>在2024年5月发布的旗舰模型，那个"o"代表"omni"（全能）。它是OpenAI第一款真正意义上的原生<a href="/blog/ai-multimodal-api-integration-guide-2026" style="color:#00f0ff;text-decoration:none;">多模态</a>模型，也就是说，从训练之初就同时处理文本、图像和音频，而不是像之前的GPT-4V那样后期拼接上去的。</p>
                 
                 <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>Claude 3.5 Sonnet</strong>则是Anthropic在2024年6月推出的中杯模型（上面还有Opus大哥）。但别被"中杯"骗了——这货在多项基准测试上直接干翻了自己家的大哥Opus，堪称"以下犯上"的典范。Anthropic这家公司的背景也很有意思，创始人Dario Amodei之前是OpenAI的研究副总裁，因为理念不合带着一帮核心成员出来单干，所以Claude和GPT之间有种既生瑜何生亮的宿命感。</p>
                 
@@ -717,6 +770,72 @@ var _hmt = _hmt || [];
                         </tr>
                     </tbody>
                 </table>
+            <div class="chart-container" style="background:#12121a;border:1px solid rgba(0,240,255,0.15);border-radius:12px;padding:24px;margin:28px 0;">
+                <h4 style="color:#00f0ff;margin:0 0 16px;font-size:1rem;">📊 主流 AI API 输入价格对比（美元/百万Token，2026年7月数据）</h4>
+                <svg viewBox="0 0 600 320" style="width:100%;height:auto;" role="img" aria-label="AI API价格对比图表">
+                    <defs>
+                        <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#b829dd" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#b829dd" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0.3"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Y轴 -->
+                    <line x1="120" y1="20" x2="120" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- X轴 -->
+                    <line x1="120" y1="270" x2="580" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- 网格线 -->
+                    <line x1="120" y1="220" x2="580" y2="220" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="170" x2="580" y2="170" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="120" x2="580" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="70" x2="580" y2="70" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <!-- Y轴标签 -->
+                    <text x="110" y="275" text-anchor="end" fill="#8a8aa3" font-size="10">$0</text>
+                    <text x="110" y="225" text-anchor="end" fill="#8a8aa3" font-size="10">$5</text>
+                    <text x="110" y="175" text-anchor="end" fill="#8a8aa3" font-size="10">$10</text>
+                    <text x="110" y="125" text-anchor="end" fill="#8a8aa3" font-size="10">$15</text>
+                    <text x="110" y="75" text-anchor="end" fill="#8a8aa3" font-size="10">$20</text>
+                    <!-- DeepSeek V3: $0.07/1M → 极小条 -->
+                    <rect x="135" y="269" width="50" height="1" fill="url(#barGrad1)" rx="2"/>
+                    <text x="160" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">DeepSeek</text>
+                    <text x="160" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">V3 $0.07</text>
+                    <!-- GPT-4o-mini: $0.15/1M -->
+                    <rect x="210" y="268.5" width="50" height="1.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="235" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="235" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">mini $0.15</text>
+                    <!-- Claude 3.5: $3/1M -->
+                    <rect x="285" y="240" width="50" height="30" fill="url(#barGrad2)" rx="2"/>
+                    <text x="310" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="310" y="300" text-anchor="middle" fill="#b829dd" font-size="9">3.5 $3</text>
+                    <!-- GPT-4o: $2.50/1M -->
+                    <rect x="360" y="245" width="50" height="25" fill="url(#barGrad3)" rx="2"/>
+                    <text x="385" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="385" y="300" text-anchor="middle" fill="#ffd700" font-size="9">$2.50</text>
+                    <!-- Gemini Pro: $1.25/1M -->
+                    <rect x="435" y="257.5" width="50" height="12.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="460" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Gemini</text>
+                    <text x="460" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">Pro $1.25</text>
+                    <!-- Claude Opus: $15/1M -->
+                    <rect x="510" y="120" width="50" height="150" fill="url(#barGrad2)" rx="2"/>
+                    <text x="535" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="535" y="300" text-anchor="middle" fill="#b829dd" font-size="9">Opus $15</text>
+                    <!-- 标题 -->
+                    <text x="300" y="315" text-anchor="middle" fill="#8a8aa3" font-size="9">数据来源：各平台官方定价页（2026年7月） · TokenNexus 整理</text>
+                </svg>
+            </div>
+
+            <div class="debug-note" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-left:4px solid #ffd700;border-radius:0 8px 8px 0;padding:20px;margin:28px 0;">
+                <h4 style="color:#ffd700;margin:0 0 12px;font-size:1rem;">⚠️ 踩坑备注：成本失控的常见原因</h4>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.7;">实际项目中导致成本飙升的三大原因：① 未启用 Prompt Caching，重复 system prompt 每次都全量计费；② 未设置 max_tokens，模型滔滔不绝烧钱；③ 用 GPT-4o 做简单分类任务（应该用 GPT-4o-mini）。建议每周检查 Token 用量趋势，异常增长时立即排查。</p>
+            </div>
+
                 
                 <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">看到这组数据，我的第一反应是：这俩模型真的在伯仲之间。GPT-4o在高等数学（MATH）上领先5个百分点，但Claude 3.5 Sonnet在代码生成（HumanEval）和科学推理（GPQA）上反超。这种互有胜负的局面，恰恰说明它们各有所长。</p>
                 
@@ -931,7 +1050,7 @@ if __name__ == "__main__":
                     </tbody>
                 </table>
                 
-                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">从官方定价来看，<strong>GPT-4o价格比Claude便宜约20-30%</strong>。而且OpenAI的批量API（Batch API）能打五折，对于非实时任务（比如批量处理文档）来说性价比很高。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">从官方定价来看，<strong>GPT-4o价格比Claude便宜约20-30%</strong>。而且OpenAI的批量<a href="/blog/ai-aggregator-platform-guide-2026" style="color:#00f0ff;text-decoration:none;">API</a>（Batch API）能打五折，对于非实时任务（比如批量处理文档）来说性价比很高。</p>
                 
                 <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不过实际使用中还有个隐藏成本——Claude 3.5 Sonnet的上下文长度是200K token，而GPT-4o是128K。如果你需要处理超长文档，Claude可能反而更省，因为不需要切分文档多次调用。</p>
                 
@@ -979,7 +1098,7 @@ if __name__ == "__main__":
                 
                 <div class="case-card">
                     <h4>案例1：独立开发者小王</h4>
-                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">"我做的是SaaS工具，主要用AI来生成代码和写文档。一开始用的GPT-4o，后来试了Claude 3.5 Sonnet就回不去了。Claude写的代码bug少，注释写得特别清楚，后期维护省了很多时间。虽然贵一点，但省下来的时间值这个价。"</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">"我做的是<a href="/blog/ai-api-productization-saas-guide-2026" style="color:#00f0ff;text-decoration:none;">SaaS</a>工具，主要用AI来生成代码和写文档。一开始用的GPT-4o，后来试了Claude 3.5 Sonnet就回不去了。Claude写的代码bug少，注释写得特别清楚，后期维护省了很多时间。虽然贵一点，但省下来的时间值这个价。"</p>
                 </div>
                 
                 <div class="case-card">

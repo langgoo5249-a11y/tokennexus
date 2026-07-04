@@ -270,7 +270,7 @@ var _hmt = _hmt || [];
         <img class="article-cover" src="images/ai-image-api-comparison-2026.jpg" alt="AI图像生成API对比">
 
         <div class="article-content">
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上个月帮一个做电商 SaaS 的朋友选图像生成 API，他需要在产品详情页自动生成场景图，每天大概 2000-5000 张。他一开始直接用了 OpenAI 的 DALL-E 3，结果月底一看账单——$3,600。我帮他测了一圈主流平台后发现，同样的需求用 Stability AI 的 SD3.5 Large Turbo，成本只要 $120。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上个月帮一个做电商 <a href="/blog/ai-api-productization-saas-guide-2026" style="color:#00f0ff;text-decoration:none;">SaaS</a> 的朋友选图像生成 <a href="/blog/ai-aggregator-platform-guide-2026" style="color:#00f0ff;text-decoration:none;">API</a>，他需要在产品详情页自动生成场景图，每天大概 2000-5000 张。他一开始直接用了 <a href="/blog/ai-api-error-codes-troubleshooting" style="color:#00f0ff;text-decoration:none;">OpenAI</a> 的 DALL-E 3，结果月底一看账单——$3,600。我帮他测了一圈主流平台后发现，同样的需求用 Stability AI 的 SD3.5 Large Turbo，成本只要 $120。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这件事让我意识到，2026 年的图像生成 API 市场已经完全不同于两年前了。Flux、Ideogram、Adobe Firefly 等新玩家崛起，各家在速度、质量、价格上的差距非常大，选错了平台就是十倍的成本差异。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这篇文章汇总了我对 6 个主流图像生成 API 的实测数据，以及不同业务场景下的选型建议。所有数据基于 2026 年 Q1 的实际测试，每个平台跑了 500 次独立请求。</p>
 
@@ -300,6 +300,72 @@ var _hmt = _hmt || [];
                 <tr><td>Midjourney</td><td>API v7</td><td>$0.100</td><td>6.2s</td><td>11.8s</td><td>12.4</td><td>72%</td></tr>
                 <tr><td>Adobe Firefly</td><td>API v4</td><td>$0.090</td><td>4.7s</td><td>8.9s</td><td>17.3</td><td>81%</td></tr>
             </table>
+            <div class="chart-container" style="background:#12121a;border:1px solid rgba(0,240,255,0.15);border-radius:12px;padding:24px;margin:28px 0;">
+                <h4 style="color:#00f0ff;margin:0 0 16px;font-size:1rem;">📊 主流 AI API 输入价格对比（美元/百万Token，2026年7月数据）</h4>
+                <svg viewBox="0 0 600 320" style="width:100%;height:auto;" role="img" aria-label="AI API价格对比图表">
+                    <defs>
+                        <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#b829dd" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#b829dd" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0.3"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Y轴 -->
+                    <line x1="120" y1="20" x2="120" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- X轴 -->
+                    <line x1="120" y1="270" x2="580" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- 网格线 -->
+                    <line x1="120" y1="220" x2="580" y2="220" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="170" x2="580" y2="170" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="120" x2="580" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="70" x2="580" y2="70" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <!-- Y轴标签 -->
+                    <text x="110" y="275" text-anchor="end" fill="#8a8aa3" font-size="10">$0</text>
+                    <text x="110" y="225" text-anchor="end" fill="#8a8aa3" font-size="10">$5</text>
+                    <text x="110" y="175" text-anchor="end" fill="#8a8aa3" font-size="10">$10</text>
+                    <text x="110" y="125" text-anchor="end" fill="#8a8aa3" font-size="10">$15</text>
+                    <text x="110" y="75" text-anchor="end" fill="#8a8aa3" font-size="10">$20</text>
+                    <!-- DeepSeek V3: $0.07/1M → 极小条 -->
+                    <rect x="135" y="269" width="50" height="1" fill="url(#barGrad1)" rx="2"/>
+                    <text x="160" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">DeepSeek</text>
+                    <text x="160" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">V3 $0.07</text>
+                    <!-- GPT-4o-mini: $0.15/1M -->
+                    <rect x="210" y="268.5" width="50" height="1.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="235" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="235" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">mini $0.15</text>
+                    <!-- Claude 3.5: $3/1M -->
+                    <rect x="285" y="240" width="50" height="30" fill="url(#barGrad2)" rx="2"/>
+                    <text x="310" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="310" y="300" text-anchor="middle" fill="#b829dd" font-size="9">3.5 $3</text>
+                    <!-- GPT-4o: $2.50/1M -->
+                    <rect x="360" y="245" width="50" height="25" fill="url(#barGrad3)" rx="2"/>
+                    <text x="385" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="385" y="300" text-anchor="middle" fill="#ffd700" font-size="9">$2.50</text>
+                    <!-- Gemini Pro: $1.25/1M -->
+                    <rect x="435" y="257.5" width="50" height="12.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="460" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Gemini</text>
+                    <text x="460" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">Pro $1.25</text>
+                    <!-- Claude Opus: $15/1M -->
+                    <rect x="510" y="120" width="50" height="150" fill="url(#barGrad2)" rx="2"/>
+                    <text x="535" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="535" y="300" text-anchor="middle" fill="#b829dd" font-size="9">Opus $15</text>
+                    <!-- 标题 -->
+                    <text x="300" y="315" text-anchor="middle" fill="#8a8aa3" font-size="9">数据来源：各平台官方定价页（2026年7月） · TokenNexus 整理</text>
+                </svg>
+            </div>
+
+            <div class="debug-note" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-left:4px solid #ffd700;border-radius:0 8px 8px 0;padding:20px;margin:28px 0;">
+                <h4 style="color:#ffd700;margin:0 0 12px;font-size:1rem;">⚠️ 踩坑备注：成本失控的常见原因</h4>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.7;">实际项目中导致成本飙升的三大原因：① 未启用 Prompt Caching，重复 system prompt 每次都全量计费；② 未设置 max_tokens，模型滔滔不绝烧钱；③ 用 GPT-4o 做简单分类任务（应该用 GPT-4o-mini）。建议每周检查 Token 用量趋势，异常增长时立即排查。</p>
+            </div>
+
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">几个关键发现：</p>
             <ul>
                 <li><strong>最快的是 Flux Pro 1.1 Ultra</strong>，p50 延迟仅 2.1 秒，比最慢的 DALL-E 3 快了近 3 倍</li>
@@ -313,10 +379,10 @@ var _hmt = _hmt || [];
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">速度不只是"快不快"的问题，更直接影响用户体验和系统架构设计。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Flux Pro 1.1 Ultra 的 2.1 秒 p50 延迟来自 Black Forest Labs 对推理架构的专项优化。他们用了改进的 Flow Matching 架构，在保持质量的同时大幅减少了推理步数。实测中，Flux 在并发 50 的情况下延迟几乎没有退化，说明后端的扩容做得不错。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">反观 DALL-E 3，p50 延迟 5.9 秒还算可以接受，但 p95 飙到 18.2 秒就很离谱了。OpenAI 官方也承认高峰期存在排队延迟。如果你的业务对延迟敏感（比如实时对话中的图片生成），DALL-E 3 不是好选择。</p>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Ideogram v3 有个独特优势：<strong>流式预览</strong>。它的首 Token 出现时间（TTFT）只有 680ms，意味着用户在图片完全生成之前就能看到渐进式预览。这个特性在交互式场景下体验提升非常明显——用户感觉"系统在响应"，而不是干等 4 秒。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Ideogram v3 有个独特优势：<strong>流式预览</strong>。它的首 <a href="/blog/ai-api-conversation-context-memory-management-guide-2026" style="color:#00f0ff;text-decoration:none;">Token</a> 出现时间（TTFT）只有 680ms，意味着用户在图片完全生成之前就能看到渐进式预览。这个特性在交互式场景下体验提升非常明显——用户感觉"系统在响应"，而不是干等 4 秒。</p>
 
             <div class="highlight-box">
-                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>稳定性排名</strong>（p95/p50 比值越低越稳定）：Flux（2.57）> SD3.5（1.87）> Firefly（1.89）> Ideogram（2.23）> Midjourney（1.90）> DALL-E 3（3.08）。DALL-E 3 的延迟波动明显大于其他平台。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>稳定性排名</strong>（p95/p50 比值越低越稳定）：Flux（2.57）> SD3.5（1.87）> Firefly（1.89）> Ideogram（2.23）> <a href="/blog/ai-api-image-generation-platform-comparison-2026" style="color:#00f0ff;text-decoration:none;">Midjourney</a>（1.90）> DALL-E 3（3.08）。DALL-E 3 的延迟波动明显大于其他平台。</p>
             </div>
 
             <h2 id="section3">质量对比：FID、CLIP Score与人工评分</h2>

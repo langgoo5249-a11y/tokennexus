@@ -53,8 +53,9 @@ A: 已对 Googlebot、Bingbot、Baiduspider、Bytespider（字节/豆包）、Ch
 | 提交收录 | https://www.tokenfind.cn/submit | 提交新平台收录 | 2026-05-27 |
 | 平台审核标准 | https://www.tokenfind.cn/verification | 平台审核与验证标准 | 2026-05-27 |
 | 隐私政策 | https://www.tokenfind.cn/privacy | 隐私政策 | 2026-05-27 |
-| 服务条款 | https://www.tokenfind.cn/terms | 服务条款 | 2026-05-27 |
-| 免责声明 | https://www.tokenfind.cn/disclaimer | 免责声明 | 2026-05-27 |
+| 服务条款 | https://www.tokenfind.cn/terms | 服务条款 | 2026-07-04 |
+| 免责声明 | https://www.tokenfind.cn/disclaimer | 免责声明 | 2026-07-04 |
+| Cookie政策 | https://www.tokenfind.cn/cookie-policy | Cookie政策与Google AdSense说明 | 2026-07-04 |
 
 ## 博客文章 (共 92 篇)
 

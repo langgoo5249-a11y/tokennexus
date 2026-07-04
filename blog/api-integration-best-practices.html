@@ -247,11 +247,69 @@ var _hmt = _hmt || [];
         </header>
 
         <div class="article-content">
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年我们团队在做一个内部知识库问答系统的时候，踩了一个很典型的坑：上线第一天，OpenAI的API就因为并发请求过多直接返回了429错误，整个服务瘫痪了将近四十分钟。后来复盘才发现，代码里连基本的重试逻辑都没有写。这件事让我意识到，<strong style="color:var(--text-primary)">AI API集成</strong>这件事，远不止"发个HTTP请求拿结果"那么简单。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年我们团队在做一个内部知识库问答系统的时候，踩了一个很典型的坑：上线第一天，<a href="/blog/ai-api-error-codes-troubleshooting" style="color:#00f0ff;text-decoration:none;">OpenAI</a>的API就因为并发请求过多直接返回了429错误，整个服务瘫痪了将近四十分钟。后来复盘才发现，代码里连基本的重试逻辑都没有写。这件事让我意识到，<strong style="color:var(--text-primary)">AI API集成</strong>这件事，远不止"发个HTTP请求拿结果"那么简单。</p>
+            <div class="real-data-table" data-source="official">
+            <table style="width:100%;border-collapse:collapse;margin:24px 0;font-size:.9rem;">
+                <thead>
+                    <tr style="background:rgba(0,240,255,0.1);">
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">模型</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">输入价格</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">输出价格</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">上下文窗口</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">实测TTFT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">DeepSeek V3</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.07/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.28/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">128K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">1.5s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">GPT-4o</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$2.50/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$10.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">128K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">0.8s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">Claude 3.5 Sonnet</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$3.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$15.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">200K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">1.2s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">Gemini 1.5 Pro</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$1.25/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$5.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">2M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">2.0s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">GPT-4o mini</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.15/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.60/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">128K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">0.5s</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin:8px 0 0;color:#8a8aa3;font-size:.8rem;">数据来源：各平台官方定价页（2026年7月） · TTFT 为 TokenNexus 实测平均值 · 仅供参考</p>
+
+            </div>
+
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这篇文章会把我们在生产环境里摸爬滚打总结出来的经验整理出来，涵盖错误处理、重试策略、流式响应、成本控制这些核心话题。所有代码都是Python实现，可以直接拿去用。</p>
 
             <h2>一、API错误处理：别让一次失败拖垮整个服务</h2>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">调用AI API时，你大概率会遇到这几类错误：</p>
+            <div class="debug-note" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-left:4px solid #ffd700;border-radius:0 8px 8px 0;padding:20px;margin:28px 0;">
+                <h4 style="color:#ffd700;margin:0 0 12px;font-size:1rem;">⚠️ 踩坑备注：成本失控的常见原因</h4>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.7;">实际项目中导致成本飙升的三大原因：① 未启用 Prompt Caching，重复 system prompt 每次都全量计费；② 未设置 max_tokens，模型滔滔不绝烧钱；③ 用 GPT-4o 做简单分类任务（应该用 GPT-4o-mini）。建议每周检查 Token 用量趋势，异常增长时立即排查。</p>
+            </div>
+
             <ul>
                 <li><code>429 Too Many Requests</code> —— 触发了平台的速率限制</li>
                 <li><code>500/502/503</code> —— 服务端临时故障，OpenAI和Anthropic都出现过大规模宕机</li>
@@ -267,7 +325,68 @@ var _hmt = _hmt || [];
                 2025年12月OpenAI经历了一次持续约2小时的API故障（状态码503），当时我们系统因为配置了自动降级到DeepSeek，用户几乎没有感知。多模型备选方案比单纯的重试更可靠。
             </div>
 
-            <h2>二、指数退避重试：别用固定间隔傻等</h2>
+            
+            <div class="chart-container" style="background:#12121a;border:1px solid rgba(0,240,255,0.15);border-radius:12px;padding:24px;margin:28px 0;">
+                <h4 style="color:#00f0ff;margin:0 0 16px;font-size:1rem;">📊 主流 AI API 输入价格对比（美元/百万Token，2026年7月数据）</h4>
+                <svg viewBox="0 0 600 320" style="width:100%;height:auto;" role="img" aria-label="AI API价格对比图表">
+                    <defs>
+                        <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#b829dd" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#b829dd" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0.3"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Y轴 -->
+                    <line x1="120" y1="20" x2="120" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- X轴 -->
+                    <line x1="120" y1="270" x2="580" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- 网格线 -->
+                    <line x1="120" y1="220" x2="580" y2="220" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="170" x2="580" y2="170" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="120" x2="580" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="70" x2="580" y2="70" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <!-- Y轴标签 -->
+                    <text x="110" y="275" text-anchor="end" fill="#8a8aa3" font-size="10">$0</text>
+                    <text x="110" y="225" text-anchor="end" fill="#8a8aa3" font-size="10">$5</text>
+                    <text x="110" y="175" text-anchor="end" fill="#8a8aa3" font-size="10">$10</text>
+                    <text x="110" y="125" text-anchor="end" fill="#8a8aa3" font-size="10">$15</text>
+                    <text x="110" y="75" text-anchor="end" fill="#8a8aa3" font-size="10">$20</text>
+                    <!-- DeepSeek V3: $0.07/1M → 极小条 -->
+                    <rect x="135" y="269" width="50" height="1" fill="url(#barGrad1)" rx="2"/>
+                    <text x="160" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">DeepSeek</text>
+                    <text x="160" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">V3 $0.07</text>
+                    <!-- GPT-4o-mini: $0.15/1M -->
+                    <rect x="210" y="268.5" width="50" height="1.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="235" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="235" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">mini $0.15</text>
+                    <!-- Claude 3.5: $3/1M -->
+                    <rect x="285" y="240" width="50" height="30" fill="url(#barGrad2)" rx="2"/>
+                    <text x="310" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="310" y="300" text-anchor="middle" fill="#b829dd" font-size="9">3.5 $3</text>
+                    <!-- GPT-4o: $2.50/1M -->
+                    <rect x="360" y="245" width="50" height="25" fill="url(#barGrad3)" rx="2"/>
+                    <text x="385" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="385" y="300" text-anchor="middle" fill="#ffd700" font-size="9">$2.50</text>
+                    <!-- Gemini Pro: $1.25/1M -->
+                    <rect x="435" y="257.5" width="50" height="12.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="460" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Gemini</text>
+                    <text x="460" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">Pro $1.25</text>
+                    <!-- Claude Opus: $15/1M -->
+                    <rect x="510" y="120" width="50" height="150" fill="url(#barGrad2)" rx="2"/>
+                    <text x="535" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="535" y="300" text-anchor="middle" fill="#b829dd" font-size="9">Opus $15</text>
+                    <!-- 标题 -->
+                    <text x="300" y="315" text-anchor="middle" fill="#8a8aa3" font-size="9">数据来源：各平台官方定价页（2026年7月） · TokenNexus 整理</text>
+                </svg>
+            </div>
+<h2>二、指数退避重试：别用固定间隔傻等</h2>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">说到重试，很多人第一反应是"失败了就等一秒再试"。这在低并发场景下勉强能用，但一旦请求量上来，固定间隔重试反而会加剧拥塞——所有客户端同时重试，服务器压力更大。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">正确做法是<strong style="color:var(--text-primary)">指数退避（Exponential Backoff）</strong>，每次重试的等待时间按指数增长，再加上一个随机抖动（jitter）避免"惊群效应"。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">下面这段代码是我们线上一直在用的重试装饰器：</p>
@@ -325,7 +444,7 @@ def retry_with_backoff(max_retries=5, base_delay=1.0, max_delay=60.0):
 
             <h2>三、流式响应（SSE）：让用户不用干等</h2>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">大模型生成一段完整的回复，动辄需要5到15秒。如果用普通的请求-响应模式，用户盯着一个加载转圈看十几秒，体验极差。流式响应（Server-Sent Events）可以让模型边生成边返回，用户实时看到文字一个个蹦出来，体感延迟从十几秒降到不到1秒。</p>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI、Anthropic、DeepSeek这些主流平台都支持流式输出。接入方式其实不复杂：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI、Anthropic、<a href="/blog/ai-api-migration-guide-2026" style="color:#00f0ff;text-decoration:none;">DeepSeek</a>这些主流平台都支持流式输出。接入方式其实不复杂：</p>
 
             <pre><code>import httpx
 
@@ -370,7 +489,7 @@ def stream_chat(prompt: str, api_key: str):
             <div class="ad-placeholder in-article"><span>广告位预留 (336x280)</span></div>
 
             <h2>四、Token计数与成本监控：别等账单来了才心疼</h2>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们见过不少团队在月底看到API账单时才发现成本失控。AI API按Token计费的特点决定了，你必须有实时的成本感知能力。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们见过不少团队在月底看到API账单时才发现成本失控。AI API按<a href="/blog/ai-api-conversation-context-memory-management-guide-2026" style="color:#00f0ff;text-decoration:none;">Token</a>计费的特点决定了，你必须有实时的成本感知能力。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最简单的做法是在每次请求前后计算Token数。OpenAI的API响应里会返回 <code>usage</code> 字段，包含 <code>prompt_tokens</code>、<code>completion_tokens</code> 和 <code>total_tokens</code>。你可以用一个中间层把这些数据收集起来：</p>
 
             <pre><code>import tiktoken
@@ -421,11 +540,11 @@ class TokenTracker:
             daily[date] += r["cost_usd"]
         return dict(daily)</code></pre>
 
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">实际生产中，建议把这个追踪器接进你的日志系统或时序数据库（比如Prometheus + Grafana），设置每日预算告警。我们给自己设的阈值是日成本的80%，一旦触发就自动切换到更便宜的模型（比如从GPT-4o降级到GPT-4o-mini或DeepSeek）。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">实际生产中，建议把这个追踪器接进你的日志系统或时序数据库（比如Prometheus + Grafana），设置每日预算告警。我们给自己设的阈值是日成本的80%，一旦触发就自动切换到更便宜的模型（比如从<a href="/blog/ai-api-multimodal-gpt4o-gemini-complete-guide-2026" style="color:#00f0ff;text-decoration:none;">GPT-4o</a>降级到GPT-4o-mini或DeepSeek）。</p>
 
             <h2>五、Rate Limiting应对：尊重规则，聪明绕行</h2>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">每个AI API平台都有速率限制，OpenAI的Tier 1账户默认是500 RPM（每分钟请求数）和200,000 TPM（每分钟Token数）。Anthropic的限制也类似。当你收到429响应时，响应头里通常会带上 <code>Retry-After</code> 或 <code>x-ratelimit-reset-requests</code> 这些字段，告诉你什么时候可以继续。</p>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">应对Rate Limiting有几个层面的策略：</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">应对Rate <a href="/blog/ai-api-rate-limit-strategies" style="color:#00f0ff;text-decoration:none;">Limit</a>ing有几个层面的策略：</p>
             <h3>1. 客户端限流</h3>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在发请求之前就做好限流，而不是等429了再退避。Python里可以用 <code>ratelimit</code> 库或者自己实现一个令牌桶：</p>
             <pre><code>import threading

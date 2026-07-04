@@ -207,8 +207,8 @@ var _hmt = _hmt || [];
             <h2>六大平台逐一实测</h2>
 
             <h3>1. GitHub Models</h3>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">GitHub Models是微软把一堆大模型搬到了GitHub Marketplace上，开发者可以直接用GitHub Token调用。这个平台2025年上线后一直在迭代，到2026年已经支持了不少主流模型。</p>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>免费额度：</strong>每月5000次请求，每天上限200次。支持GPT-4o-mini、Llama 3.3 70B、Mistral Large、Phi-4等模型。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">GitHub Models是微软把一堆大模型搬到了GitHub Marketplace上，开发者可以直接用GitHub <a href="/blog/ai-api-conversation-context-memory-management-guide-2026" style="color:#00f0ff;text-decoration:none;">Token</a>调用。这个平台2025年上线后一直在迭代，到2026年已经支持了不少主流模型。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>免费额度：</strong>每月5000次请求，每天上限200次。支持<a href="/blog/ai-api-multimodal-gpt4o-gemini-complete-guide-2026" style="color:#00f0ff;text-decoration:none;">GPT-4o</a>-mini、Llama 3.3 70B、Mistral Large、Phi-4等模型。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>速率限制：</strong>每分钟10次请求，每次最多4096 tokens输出。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>实测体验：</strong>响应速度中规中矩，GPT-4o-mini平均2.1秒返回结果。Llama 3.3 70B稍慢，3.4秒。优点是接入简单，有GitHub账号就能用，不需要额外注册。缺点是模型选择不算多，而且没有embedding模型。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>隐藏限制：</strong>需要GitHub账号且通过验证；部分模型在某些地区访问不稳定；超出免费额度后不会自动扣费，直接报错。</p>
@@ -218,14 +218,14 @@ var _hmt = _hmt || [];
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>免费额度：</strong>每天14400 tokens限制（按输入+输出计算），支持Llama 3.3 70B、Llama 3.1 8B、Mixtral 8x7B、Gemma 2 9B等开源模型。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>速率限制：</strong>每分钟30次请求，每秒5次。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>实测体验：</strong>速度是真的快。Llama 3.3 70B平均0.8秒返回，8B模型更快，0.3秒就出结果。50次测试全部成功，零失败率。输出质量方面，70B模型处理中文简历优化完全够用，逻辑清晰、建议具体。</p>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>隐藏限制：</strong>每天的token额度看着多，但如果你用70B模型跑长文本，大概30-40次请求就耗完了。不支持OpenAI系列的闭源模型。国内直连偶尔会超时，建议走海外VPS。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>隐藏限制：</strong>每天的token额度看着多，但如果你用70B模型跑长文本，大概30-40次请求就耗完了。不支持<a href="/blog/ai-api-error-codes-troubleshooting" style="color:#00f0ff;text-decoration:none;">OpenAI</a>系列的闭源模型。国内直连偶尔会超时，建议走海外VPS。</p>
 
             <h3>3. Google AI Studio</h3>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Google家的免费额度一直是最慷慨的，Gemini系列模型的免费层几乎可以当主力用。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>免费额度：</strong>Gemini 2.5 Flash每天1500次请求（每次限制输出8192 tokens）；Gemini 2.5 Pro每天50次请求。还有免费的embedding和图片生成额度。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>速率限制：</strong>Flash每分钟15次，Pro每分钟2次。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>实测体验：</strong>Gemini 2.5 Flash平均1.5秒返回，速度不错。中文理解能力很强，简历优化建议很到位，甚至会根据不同行业给出差异化建议。Pro版本更慢一些，2.8秒，但输出质量明显更高。</p>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>隐藏限制：</strong>需要Google账号，部分地区需要科学上网；免费层的数据可能被用于模型训练（虽然Google说可以关闭）；Pro版本每天50次真的不够用，做产品只能当辅助。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>隐藏限制：</strong>需要<a href="/blog/gemini-api-complete-guide" style="color:#00f0ff;text-decoration:none;">Google</a>账号，部分地区需要科学上网；免费层的数据可能被用于模型训练（虽然Google说可以关闭）；Pro版本每天50次真的不够用，做产品只能当辅助。</p>
 
             <h3>4. Cerebras</h3>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Cerebras做的是AI推理芯片，他们的Cloud平台主打一个"快"字。免费层虽然模型不多，但速度体验确实震撼。</p>
@@ -236,7 +236,7 @@ var _hmt = _hmt || [];
 
             <h3>5. Agnes AI</h3>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Agnes AI是一个相对小众但很良心的平台，主打多模型聚合调用，免费层支持不少闭源模型。</p>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>免费额度：</strong>注册送10000 tokens，每天签到再送2000 tokens。支持GPT-4o-mini、Claude 3.5 Haiku、Gemini Flash、DeepSeek V3等模型。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>免费额度：</strong>注册送10000 tokens，每天签到再送2000 tokens。支持GPT-4o-mini、Claude 3.5 Haiku、Gemini Flash、<a href="/blog/ai-api-migration-guide-2026" style="color:#00f0ff;text-decoration:none;">DeepSeek</a> V3等模型。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>速率限制：</strong>每分钟5次请求。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>实测体验：</strong>最大的优势是能免费调用多个闭源模型。GPT-4o-mini平均2.3秒，Claude 3.5 Haiku平均1.8秒。输出质量方面，Claude Haiku在中文写作优化上表现最好，建议更具体、更有针对性。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>隐藏限制：</strong>速率限制比较严，每分钟5次很容易触发；签到送token的机制意味着你不能稳定依赖它做产品；平台规模小，稳定性有待观察。</p>
@@ -311,6 +311,72 @@ var _hmt = _hmt || [];
                     </tr>
                 </tbody>
             </table>
+            <div class="chart-container" style="background:#12121a;border:1px solid rgba(0,240,255,0.15);border-radius:12px;padding:24px;margin:28px 0;">
+                <h4 style="color:#00f0ff;margin:0 0 16px;font-size:1rem;">📊 主流 AI API 输入价格对比（美元/百万Token，2026年7月数据）</h4>
+                <svg viewBox="0 0 600 320" style="width:100%;height:auto;" role="img" aria-label="AI API价格对比图表">
+                    <defs>
+                        <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#b829dd" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#b829dd" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0.3"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Y轴 -->
+                    <line x1="120" y1="20" x2="120" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- X轴 -->
+                    <line x1="120" y1="270" x2="580" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- 网格线 -->
+                    <line x1="120" y1="220" x2="580" y2="220" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="170" x2="580" y2="170" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="120" x2="580" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="70" x2="580" y2="70" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <!-- Y轴标签 -->
+                    <text x="110" y="275" text-anchor="end" fill="#8a8aa3" font-size="10">$0</text>
+                    <text x="110" y="225" text-anchor="end" fill="#8a8aa3" font-size="10">$5</text>
+                    <text x="110" y="175" text-anchor="end" fill="#8a8aa3" font-size="10">$10</text>
+                    <text x="110" y="125" text-anchor="end" fill="#8a8aa3" font-size="10">$15</text>
+                    <text x="110" y="75" text-anchor="end" fill="#8a8aa3" font-size="10">$20</text>
+                    <!-- DeepSeek V3: $0.07/1M → 极小条 -->
+                    <rect x="135" y="269" width="50" height="1" fill="url(#barGrad1)" rx="2"/>
+                    <text x="160" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">DeepSeek</text>
+                    <text x="160" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">V3 $0.07</text>
+                    <!-- GPT-4o-mini: $0.15/1M -->
+                    <rect x="210" y="268.5" width="50" height="1.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="235" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="235" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">mini $0.15</text>
+                    <!-- Claude 3.5: $3/1M -->
+                    <rect x="285" y="240" width="50" height="30" fill="url(#barGrad2)" rx="2"/>
+                    <text x="310" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="310" y="300" text-anchor="middle" fill="#b829dd" font-size="9">3.5 $3</text>
+                    <!-- GPT-4o: $2.50/1M -->
+                    <rect x="360" y="245" width="50" height="25" fill="url(#barGrad3)" rx="2"/>
+                    <text x="385" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="385" y="300" text-anchor="middle" fill="#ffd700" font-size="9">$2.50</text>
+                    <!-- Gemini Pro: $1.25/1M -->
+                    <rect x="435" y="257.5" width="50" height="12.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="460" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Gemini</text>
+                    <text x="460" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">Pro $1.25</text>
+                    <!-- Claude Opus: $15/1M -->
+                    <rect x="510" y="120" width="50" height="150" fill="url(#barGrad2)" rx="2"/>
+                    <text x="535" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="535" y="300" text-anchor="middle" fill="#b829dd" font-size="9">Opus $15</text>
+                    <!-- 标题 -->
+                    <text x="300" y="315" text-anchor="middle" fill="#8a8aa3" font-size="9">数据来源：各平台官方定价页（2026年7月） · TokenNexus 整理</text>
+                </svg>
+            </div>
+
+            <div class="debug-note" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-left:4px solid #ffd700;border-radius:0 8px 8px 0;padding:20px;margin:28px 0;">
+                <h4 style="color:#ffd700;margin:0 0 12px;font-size:1rem;">⚠️ 踩坑备注：成本失控的常见原因</h4>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.7;">实际项目中导致成本飙升的三大原因：① 未启用 Prompt Caching，重复 system prompt 每次都全量计费；② 未设置 max_tokens，模型滔滔不绝烧钱；③ 用 GPT-4o 做简单分类任务（应该用 GPT-4o-mini）。建议每周检查 Token 用量趋势，异常增长时立即排查。</p>
+            </div>
+
 
             <h2>那些"免费"的隐藏坑</h2>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">测完之后，我发现免费API的水比想象中深。这几个坑你必须知道：</p>

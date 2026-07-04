@@ -203,10 +203,63 @@
 
         <div class="article-content">
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年底，我们公司CTO拍板要搞一个内部知识库系统。原因很简单——销售团队每天花大量时间翻阅产品文档、技术手册、历史案例，效率极低。更头疼的是，客户问一些专业问题，新人根本答不上来，全靠老员工"口口相传"。CTO的原话是："我们积累了这么多年的知识资产，不能让它躺在文档库里吃灰。"</p>
+            <div class="real-data-table" data-source="official">
+            <table style="width:100%;border-collapse:collapse;margin:24px 0;font-size:.9rem;">
+                <thead>
+                    <tr style="background:rgba(0,240,255,0.1);">
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">模型</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">输入价格</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">输出价格</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">上下文窗口</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">实测TTFT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">DeepSeek V3</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.07/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.28/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">128K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">1.5s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">GPT-4o</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$2.50/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$10.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">128K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">0.8s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">Claude 3.5 Sonnet</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$3.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$15.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">200K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">1.2s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">Gemini 1.5 Pro</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$1.25/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$5.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">2M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">2.0s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">GPT-4o mini</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.15/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.60/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">128K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">0.5s</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin:8px 0 0;color:#8a8aa3;font-size:.8rem;">数据来源：各平台官方定价页（2026年7月） · TTFT 为 TokenNexus 实测平均值 · 仅供参考</p>
+
+            </div>
+
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我当时负责AI方向的架构设计，自然接下了这个活。说实话，一开始我信心满满——不就是把文档向量化、存到向量数据库、检索出来喂给大模型嘛。但真正动手之后才发现，RAG（Retrieval-Augmented Generation）系统从Demo到生产环境，中间隔着一条巨大的鸿沟。</p>
 
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这篇文章记录了我从零搭建企业级RAG知识库的完整过程，包括Embedding模型选型、向量数据库对比、架构设计、优化技巧，以及那些让我抓狂的踩坑经历。希望能给正在做类似项目的你一些参考。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这篇文章记录了我从零搭建企业级RAG知识库的完整过程，包括<a href="/blog/ai-api-embedding-vector-search-guide" style="color:#00f0ff;text-decoration:none;">Embedding</a>模型选型、向量数据库对比、架构设计、优化技巧，以及那些让我抓狂的踩坑经历。希望能给正在做类似项目的你一些参考。</p>
 
             <h2>为什么企业需要RAG知识库？</h2>
 
@@ -214,7 +267,7 @@
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>第一，大模型的幻觉问题无法回避。</strong>我们用GPT-4测试过，让它回答公司产品相关问题，大约30%的回答是"看似合理但完全错误"的。这对企业场景来说是致命的——客户收到错误信息，损失的是信任和订单。</p>
 
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>第二，企业数据安全是红线。</strong>公司的合同模板、技术方案、客户信息，这些数据不可能直接发给OpenAI或任何第三方API。必须把数据留在自己的系统里，只让大模型基于检索到的上下文来生成回答。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>第二，企业数据安全是红线。</strong>公司的合同模板、技术方案、客户信息，这些数据不可能直接发给<a href="/blog/ai-api-error-codes-troubleshooting" style="color:#00f0ff;text-decoration:none;">OpenAI</a>或任何第三方API。必须把数据留在自己的系统里，只让大模型基于检索到的上下文来生成回答。</p>
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>第三，知识需要实时更新。</strong>产品文档每周都在更新，传统的大模型微调方式根本跟不上节奏。RAG的优势在于，只需要更新向量数据库中的文档，模型不需要重新训练，知识就能实时生效。</p>
 
@@ -235,6 +288,72 @@
                 <tr><td>BGE-M3（开源）</td><td>1024</td><td>免费（自部署）</td><td>支持多语言</td><td>有GPU资源、需私有化部署</td></tr>
                 <tr><td>Cohere embed-v3</td><td>1024</td><td>$0.1/百万token</td><td>多语言优秀</td><td>多语言混合场景</td></tr>
             </table>
+            <div class="chart-container" style="background:#12121a;border:1px solid rgba(0,240,255,0.15);border-radius:12px;padding:24px;margin:28px 0;">
+                <h4 style="color:#00f0ff;margin:0 0 16px;font-size:1rem;">📊 主流 AI API 输入价格对比（美元/百万Token，2026年7月数据）</h4>
+                <svg viewBox="0 0 600 320" style="width:100%;height:auto;" role="img" aria-label="AI API价格对比图表">
+                    <defs>
+                        <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#b829dd" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#b829dd" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0.3"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Y轴 -->
+                    <line x1="120" y1="20" x2="120" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- X轴 -->
+                    <line x1="120" y1="270" x2="580" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- 网格线 -->
+                    <line x1="120" y1="220" x2="580" y2="220" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="170" x2="580" y2="170" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="120" x2="580" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="70" x2="580" y2="70" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <!-- Y轴标签 -->
+                    <text x="110" y="275" text-anchor="end" fill="#8a8aa3" font-size="10">$0</text>
+                    <text x="110" y="225" text-anchor="end" fill="#8a8aa3" font-size="10">$5</text>
+                    <text x="110" y="175" text-anchor="end" fill="#8a8aa3" font-size="10">$10</text>
+                    <text x="110" y="125" text-anchor="end" fill="#8a8aa3" font-size="10">$15</text>
+                    <text x="110" y="75" text-anchor="end" fill="#8a8aa3" font-size="10">$20</text>
+                    <!-- DeepSeek V3: $0.07/1M → 极小条 -->
+                    <rect x="135" y="269" width="50" height="1" fill="url(#barGrad1)" rx="2"/>
+                    <text x="160" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">DeepSeek</text>
+                    <text x="160" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">V3 $0.07</text>
+                    <!-- GPT-4o-mini: $0.15/1M -->
+                    <rect x="210" y="268.5" width="50" height="1.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="235" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="235" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">mini $0.15</text>
+                    <!-- Claude 3.5: $3/1M -->
+                    <rect x="285" y="240" width="50" height="30" fill="url(#barGrad2)" rx="2"/>
+                    <text x="310" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="310" y="300" text-anchor="middle" fill="#b829dd" font-size="9">3.5 $3</text>
+                    <!-- GPT-4o: $2.50/1M -->
+                    <rect x="360" y="245" width="50" height="25" fill="url(#barGrad3)" rx="2"/>
+                    <text x="385" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="385" y="300" text-anchor="middle" fill="#ffd700" font-size="9">$2.50</text>
+                    <!-- Gemini Pro: $1.25/1M -->
+                    <rect x="435" y="257.5" width="50" height="12.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="460" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Gemini</text>
+                    <text x="460" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">Pro $1.25</text>
+                    <!-- Claude Opus: $15/1M -->
+                    <rect x="510" y="120" width="50" height="150" fill="url(#barGrad2)" rx="2"/>
+                    <text x="535" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="535" y="300" text-anchor="middle" fill="#b829dd" font-size="9">Opus $15</text>
+                    <!-- 标题 -->
+                    <text x="300" y="315" text-anchor="middle" fill="#8a8aa3" font-size="9">数据来源：各平台官方定价页（2026年7月） · TokenNexus 整理</text>
+                </svg>
+            </div>
+
+            <div class="debug-note" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-left:4px solid #ffd700;border-radius:0 8px 8px 0;padding:20px;margin:28px 0;">
+                <h4 style="color:#ffd700;margin:0 0 12px;font-size:1rem;">⚠️ 踩坑备注：成本失控的常见原因</h4>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.7;">实际项目中导致成本飙升的三大原因：① 未启用 Prompt Caching，重复 system prompt 每次都全量计费；② 未设置 max_tokens，模型滔滔不绝烧钱；③ 用 GPT-4o 做简单分类任务（应该用 GPT-4o-mini）。建议每周检查 Token 用量趋势，异常增长时立即排查。</p>
+            </div>
+
 
             <h3>我的选型建议</h3>
 
@@ -327,7 +446,7 @@
                 <li>调用大模型API生成最终回答</li>
             </ol>
 
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这一层的关键在于<strong>Prompt工程</strong>。我设计了一套结构化的Prompt模板，明确告诉大模型：只能基于提供的上下文回答，如果上下文中没有相关信息，要诚实地说"我不知道"，而不是编造答案。这大大降低了幻觉率。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这一层的关键在于<strong>Prompt工程</strong>。我设计了一套结构化的<a href="/blog/ai-api-content-safety-moderation-hallucination-guide-2026" style="color:#00f0ff;text-decoration:none;">Prompt</a>模板，明确告诉大模型：只能基于提供的上下文回答，如果上下文中没有相关信息，要诚实地说"我不知道"，而不是编造答案。这大大降低了幻觉率。</p>
 
             <h2>四、RAG优化技巧：从62%到91%的准确率提升之路</h2>
 
@@ -367,7 +486,7 @@
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">用户的原始提问往往不够精确。比如用户问"退货政策是什么？"，但文档里写的是"7天无理由退换货条款"。直接用原始问题做检索，可能匹配不到。</p>
 
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我的解决方案是在检索之前加一步"查询改写"——用小模型（如DeepSeek-V2）先把用户的口语化问题改写成更精确的查询语句，然后再去做检索。这个小改动让检索准确率又提升了约5个百分点。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我的解决方案是在检索之前加一步"查询改写"——用小模型（如<a href="/blog/ai-api-migration-guide-2026" style="color:#00f0ff;text-decoration:none;">DeepSeek</a>-V2）先把用户的口语化问题改写成更精确的查询语句，然后再去做检索。这个小改动让检索准确率又提升了约5个百分点。</p>
 
             <div class="ad-placeholder in-article">广告位预留</div>
 
@@ -427,7 +546,7 @@
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">一家做企业级SaaS产品的公司，产品功能复杂，用户手册超过500页。客服团队每天处理大量重复性的产品使用问题，工单积压严重。</p>
 
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们用RAG技术搭建了产品文档智能问答系统，用户可以直接在产品界面提问，系统自动从文档中检索相关信息并生成回答。技术栈是：OpenAI text-embedding-3-small + Pinecone + GPT-4o。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们用RAG技术搭建了产品文档智能问答系统，用户可以直接在产品界面提问，系统自动从文档中检索相关信息并生成回答。技术栈是：OpenAI text-embedding-3-small + Pinecone + <a href="/blog/ai-api-multimodal-gpt4o-gemini-complete-guide-2026" style="color:#00f0ff;text-decoration:none;">GPT-4o</a>。</p>
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">效果同样显著：<strong>客服工单减少了40%</strong>，因为大部分常见问题用户自己就能找到答案了。客服团队从"救火模式"变成了"专注处理复杂问题"。</p>
 

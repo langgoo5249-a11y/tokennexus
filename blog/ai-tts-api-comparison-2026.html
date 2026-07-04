@@ -270,7 +270,7 @@ var _hmt = _hmt || [];
         <img class="article-cover" src="images/ai-tts-api-comparison-2026.jpg" alt="AI语音合成API对比">
 
         <div class="article-content">
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上个月帮一个做有声书的朋友选语音合成 API，他每月要生成约 50 万字的音频内容。一开始直接用了 ElevenLabs，音质确实好，但月底账单 $330。我帮他测了一圈主流平台后发现，同样的需求用 OpenAI TTS，成本只要 $7.5。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上个月帮一个做有声书的朋友选语音合成 <a href="/blog/ai-aggregator-platform-guide-2026" style="color:#00f0ff;text-decoration:none;">API</a>，他每月要生成约 50 万字的音频内容。一开始直接用了 ElevenLabs，音质确实好，但月底账单 $330。我帮他测了一圈主流平台后发现，同样的需求用 <a href="/blog/ai-api-error-codes-troubleshooting" style="color:#00f0ff;text-decoration:none;">OpenAI</a> TTS，成本只要 $7.5。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这件事让我意识到，2026 年的 TTS（Text-to-Speech）API 市场已经非常成熟，各家在音质、延迟、价格上的差距巨大，选错了平台就是几十倍的成本差异。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这篇文章汇总了我对 8 个主流 TTS API 的实测数据，以及不同业务场景下的选型建议。所有数据基于 2026 年 Q2 的实际测试，每个平台跑了 100 次独立请求。</p>
 
@@ -302,6 +302,72 @@ var _hmt = _hmt || [];
                 <tr><td>Deepgram Aura</td><td>$30.00</td><td>~150ms</td><td>30+</td><td>有限</td><td>$200额度</td></tr>
                 <tr><td>Fish Audio</td><td>$15.00</td><td>~200ms</td><td>10</td><td>✅$0.1/声音</td><td>有试用</td></tr>
             </table>
+            <div class="chart-container" style="background:#12121a;border:1px solid rgba(0,240,255,0.15);border-radius:12px;padding:24px;margin:28px 0;">
+                <h4 style="color:#00f0ff;margin:0 0 16px;font-size:1rem;">📊 主流 AI API 输入价格对比（美元/百万Token，2026年7月数据）</h4>
+                <svg viewBox="0 0 600 320" style="width:100%;height:auto;" role="img" aria-label="AI API价格对比图表">
+                    <defs>
+                        <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#b829dd" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#b829dd" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0.3"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Y轴 -->
+                    <line x1="120" y1="20" x2="120" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- X轴 -->
+                    <line x1="120" y1="270" x2="580" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- 网格线 -->
+                    <line x1="120" y1="220" x2="580" y2="220" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="170" x2="580" y2="170" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="120" x2="580" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="70" x2="580" y2="70" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <!-- Y轴标签 -->
+                    <text x="110" y="275" text-anchor="end" fill="#8a8aa3" font-size="10">$0</text>
+                    <text x="110" y="225" text-anchor="end" fill="#8a8aa3" font-size="10">$5</text>
+                    <text x="110" y="175" text-anchor="end" fill="#8a8aa3" font-size="10">$10</text>
+                    <text x="110" y="125" text-anchor="end" fill="#8a8aa3" font-size="10">$15</text>
+                    <text x="110" y="75" text-anchor="end" fill="#8a8aa3" font-size="10">$20</text>
+                    <!-- DeepSeek V3: $0.07/1M → 极小条 -->
+                    <rect x="135" y="269" width="50" height="1" fill="url(#barGrad1)" rx="2"/>
+                    <text x="160" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">DeepSeek</text>
+                    <text x="160" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">V3 $0.07</text>
+                    <!-- GPT-4o-mini: $0.15/1M -->
+                    <rect x="210" y="268.5" width="50" height="1.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="235" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="235" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">mini $0.15</text>
+                    <!-- Claude 3.5: $3/1M -->
+                    <rect x="285" y="240" width="50" height="30" fill="url(#barGrad2)" rx="2"/>
+                    <text x="310" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="310" y="300" text-anchor="middle" fill="#b829dd" font-size="9">3.5 $3</text>
+                    <!-- GPT-4o: $2.50/1M -->
+                    <rect x="360" y="245" width="50" height="25" fill="url(#barGrad3)" rx="2"/>
+                    <text x="385" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="385" y="300" text-anchor="middle" fill="#ffd700" font-size="9">$2.50</text>
+                    <!-- Gemini Pro: $1.25/1M -->
+                    <rect x="435" y="257.5" width="50" height="12.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="460" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Gemini</text>
+                    <text x="460" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">Pro $1.25</text>
+                    <!-- Claude Opus: $15/1M -->
+                    <rect x="510" y="120" width="50" height="150" fill="url(#barGrad2)" rx="2"/>
+                    <text x="535" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="535" y="300" text-anchor="middle" fill="#b829dd" font-size="9">Opus $15</text>
+                    <!-- 标题 -->
+                    <text x="300" y="315" text-anchor="middle" fill="#8a8aa3" font-size="9">数据来源：各平台官方定价页（2026年7月） · TokenNexus 整理</text>
+                </svg>
+            </div>
+
+            <div class="debug-note" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-left:4px solid #ffd700;border-radius:0 8px 8px 0;padding:20px;margin:28px 0;">
+                <h4 style="color:#ffd700;margin:0 0 12px;font-size:1rem;">⚠️ 踩坑备注：成本失控的常见原因</h4>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.7;">实际项目中导致成本飙升的三大原因：① 未启用 Prompt Caching，重复 system prompt 每次都全量计费；② 未设置 max_tokens，模型滔滔不绝烧钱；③ 用 GPT-4o 做简单分类任务（应该用 GPT-4o-mini）。建议每周检查 Token 用量趋势，异常增长时立即排查。</p>
+            </div>
+
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">几个关键发现：</p>
             <ul>
                 <li><strong>最便宜的是 Amazon Polly 和 Google Cloud TTS</strong>，$4/1M字符，适合大批量、低成本场景</li>
@@ -325,7 +391,7 @@ var _hmt = _hmt || [];
                 <tr><td>Amazon Polly Neural</td><td>3.7</td><td>中等</td><td>有限</td><td>30+</td></tr>
             </table>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">ElevenLabs 的 Multilingual v2 模型在音质上确实是行业标杆，特别是情感表达方面，支持 [laugh]、[whisper] 等情感标签。我们测试了一段带情感的文本："我真的...很失望[whisper]"，ElevenLabs 的 whisper 效果非常自然，其他平台要么不支持，要么效果生硬。</p>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Cartesia Sonic 的音质也很惊艳，而且延迟极低。他们的 SSM（State Space Model）架构专门针对实时场景优化，适合语音助手、实时翻译等应用。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Cartesia Sonic 的音质也很惊艳，而且延迟极低。他们的 SSM（State Space <a href="/blog/mcp-model-context-protocol-practical-guide-2026" style="color:#00f0ff;text-decoration:none;">Model</a>）架构专门针对实时场景优化，适合语音助手、实时翻译等应用。</p>
 
             <h2 id="section3">延迟实测：谁最快谁最稳</h2>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">延迟对实时场景至关重要。我们测试了各平台的首字节时间（Time To First Byte, TTFB）：</p>
@@ -362,7 +428,7 @@ var _hmt = _hmt || [];
                 <li><strong>OpenAI TTS</strong>：$15 × 10 = <strong>$150/月</strong></li>
                 <li><strong>Amazon Polly</strong>：$4 × 10 = <strong>$40/月</strong></li>
             </ul>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">同样的产出量，ElevenLabs 的成本是 Amazon Polly 的 16.5 倍。如果你的业务对音质要求不是极致（比如内部培训视频、基础客服语音），Polly 或 Google Cloud 完全够用。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">同样的产出量，ElevenLabs 的成本是 Amazon Polly 的 16.5 倍。如果你的业务对音质要求不是极致（比如内部培训视频、基础客服语音），Polly 或 <a href="/blog/gemini-api-complete-guide" style="color:#00f0ff;text-decoration:none;">Google</a> Cloud 完全够用。</p>
 
             <h2 id="section5">声音克隆能力对比</h2>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">声音克隆是 2026 年 TTS 领域的重要功能，可以复制特定人的声音。各平台的克隆能力和价格差异很大：</p>

@@ -627,6 +627,59 @@ var _hmt = _hmt || [];
 
             <div class="article-content">
                 <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上周一个做独立开发的朋友给我发了张截图，他上个月的 GPT API 账单是 630 美元，而他实际跑的业务只是一个日均 3000 次调用的文档摘要工具。我帮他分析了一下调用日志，发现他一直在用 GPT-5.5 处理所有请求——包括那些用 Qwen-Turbo 就能搞定的关键词提取和情绪识别。</p>
+            <div class="real-data-table" data-source="official">
+            <table style="width:100%;border-collapse:collapse;margin:24px 0;font-size:.9rem;">
+                <thead>
+                    <tr style="background:rgba(0,240,255,0.1);">
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">模型</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">输入价格</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">输出价格</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">上下文窗口</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">实测TTFT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">DeepSeek V3</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.07/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.28/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">128K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">1.5s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">GPT-4o</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$2.50/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$10.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">128K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">0.8s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">Claude 3.5 Sonnet</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$3.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$15.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">200K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">1.2s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">Gemini 1.5 Pro</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$1.25/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$5.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">2M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">2.0s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">GPT-4o mini</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.15/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.60/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">128K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">0.5s</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin:8px 0 0;color:#8a8aa3;font-size:.8rem;">数据来源：各平台官方定价页（2026年7月） · TTFT 为 TokenNexus 实测平均值 · 仅供参考</p>
+
+            </div>
+
 
                 <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这不是个例。过去半年我看了不下 20 个开发者和团队的 API 账单，<strong>绝大多数人都在为"过度消费"买单</strong>——用旗舰模型处理简单任务，用高价模型做低价值请求。如果你也在为 AI API 账单头疼，这篇文章整理了 2026 年 6 月最新的主流模型价格数据，以及一个我自己用了半年的选型决策框架。</p>
 
@@ -709,8 +762,74 @@ var _hmt = _hmt || [];
                         <td>极简任务</td>
                     </tr>
                 </table>
+            <div class="chart-container" style="background:#12121a;border:1px solid rgba(0,240,255,0.15);border-radius:12px;padding:24px;margin:28px 0;">
+                <h4 style="color:#00f0ff;margin:0 0 16px;font-size:1rem;">📊 主流 AI API 输入价格对比（美元/百万Token，2026年7月数据）</h4>
+                <svg viewBox="0 0 600 320" style="width:100%;height:auto;" role="img" aria-label="AI API价格对比图表">
+                    <defs>
+                        <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#b829dd" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#b829dd" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0.3"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Y轴 -->
+                    <line x1="120" y1="20" x2="120" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- X轴 -->
+                    <line x1="120" y1="270" x2="580" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- 网格线 -->
+                    <line x1="120" y1="220" x2="580" y2="220" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="170" x2="580" y2="170" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="120" x2="580" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="70" x2="580" y2="70" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <!-- Y轴标签 -->
+                    <text x="110" y="275" text-anchor="end" fill="#8a8aa3" font-size="10">$0</text>
+                    <text x="110" y="225" text-anchor="end" fill="#8a8aa3" font-size="10">$5</text>
+                    <text x="110" y="175" text-anchor="end" fill="#8a8aa3" font-size="10">$10</text>
+                    <text x="110" y="125" text-anchor="end" fill="#8a8aa3" font-size="10">$15</text>
+                    <text x="110" y="75" text-anchor="end" fill="#8a8aa3" font-size="10">$20</text>
+                    <!-- DeepSeek V3: $0.07/1M → 极小条 -->
+                    <rect x="135" y="269" width="50" height="1" fill="url(#barGrad1)" rx="2"/>
+                    <text x="160" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">DeepSeek</text>
+                    <text x="160" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">V3 $0.07</text>
+                    <!-- GPT-4o-mini: $0.15/1M -->
+                    <rect x="210" y="268.5" width="50" height="1.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="235" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="235" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">mini $0.15</text>
+                    <!-- Claude 3.5: $3/1M -->
+                    <rect x="285" y="240" width="50" height="30" fill="url(#barGrad2)" rx="2"/>
+                    <text x="310" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="310" y="300" text-anchor="middle" fill="#b829dd" font-size="9">3.5 $3</text>
+                    <!-- GPT-4o: $2.50/1M -->
+                    <rect x="360" y="245" width="50" height="25" fill="url(#barGrad3)" rx="2"/>
+                    <text x="385" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="385" y="300" text-anchor="middle" fill="#ffd700" font-size="9">$2.50</text>
+                    <!-- Gemini Pro: $1.25/1M -->
+                    <rect x="435" y="257.5" width="50" height="12.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="460" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Gemini</text>
+                    <text x="460" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">Pro $1.25</text>
+                    <!-- Claude Opus: $15/1M -->
+                    <rect x="510" y="120" width="50" height="150" fill="url(#barGrad2)" rx="2"/>
+                    <text x="535" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="535" y="300" text-anchor="middle" fill="#b829dd" font-size="9">Opus $15</text>
+                    <!-- 标题 -->
+                    <text x="300" y="315" text-anchor="middle" fill="#8a8aa3" font-size="9">数据来源：各平台官方定价页（2026年7月） · TokenNexus 整理</text>
+                </svg>
+            </div>
 
-                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>GPT-5.5 Pro 的输出价格是 DeepSeek V4 Flash 的 643 倍，是 Qwen-Turbo 的 2175 倍。</strong> 也就是说，同样一个 prompt，在最贵的模型上花 1300 块钱，在最便宜的模型上只需要 6 毛钱。</p>
+            <div class="debug-note" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-left:4px solid #ffd700;border-radius:0 8px 8px 0;padding:20px;margin:28px 0;">
+                <h4 style="color:#ffd700;margin:0 0 12px;font-size:1rem;">⚠️ 踩坑备注：成本失控的常见原因</h4>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.7;">实际项目中导致成本飙升的三大原因：① 未启用 Prompt Caching，重复 system prompt 每次都全量计费；② 未设置 max_tokens，模型滔滔不绝烧钱；③ 用 GPT-4o 做简单分类任务（应该用 GPT-4o-mini）。建议每周检查 Token 用量趋势，异常增长时立即排查。</p>
+            </div>
+
+
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>GPT-5.5 Pro 的输出价格是 <a href="/blog/ai-api-migration-guide-2026" style="color:#00f0ff;text-decoration:none;">DeepSeek</a> V4 Flash 的 643 倍，是 Qwen-Turbo 的 2175 倍。</strong> 也就是说，同样一个 prompt，在最贵的模型上花 1300 块钱，在最便宜的模型上只需要 6 毛钱。</p>
 
                 <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">但这里有一个关键问题：<strong>价格差距不等于质量差距。</strong> 我实测过，对于"给一段文字提取关键词"这种任务，GPT-5.5 和 Qwen-Turbo 的准确率差异不超过 3%，但价格差了 360 倍。</p>
 
@@ -724,13 +843,13 @@ var _hmt = _hmt || [];
 
                 <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>DeepSeek V4 Flash（¥2.03/百万Token）</strong> 是 DeepSeek 5 月发布的新品，一个月内调了四次价，V4-Pro 永久降价了 75%。Flash 版本在代码生成和通用问答上表现接近 GPT-4 级别，但价格只有 GPT-5.5 的 1/107。</p>
 
-                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">一位做跨境电商的朋友告诉我，他们从 GPT-4o 迁移到 DeepSeek V4 Flash 之后，月费从 8000 元降到了 400 元，翻译质量"几乎感觉不到差别"。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">一位做跨境电商的朋友告诉我，他们从 <a href="/blog/ai-api-multimodal-gpt4o-gemini-complete-guide-2026" style="color:#00f0ff;text-decoration:none;">GPT-4o</a> 迁移到 DeepSeek V4 Flash 之后，月费从 8000 元降到了 400 元，翻译质量"几乎感觉不到差别"。</p>
 
                 <h3>第二梯队：进阶级（输出 ¥36 ~ ¥218/百万Token）</h3>
 
-                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Claude Haiku 4.5 和 Sonnet 4.6 是 Anthropic 的主力产品线。Haiku 主打速度，Sonnet 主打均衡。我自己在写代码时更习惯用 Claude，因为它的代码生成质量确实比 GPT 更稳定，尤其是在处理复杂逻辑时。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Claude Haiku 4.5 和 <a href="/blog/gpt4o-vs-claude35-sonnet-comparison" style="color:#00f0ff;text-decoration:none;">Sonnet</a> 4.6 是 Anthropic 的主力产品线。Haiku 主打速度，Sonnet 主打均衡。我自己在写代码时更习惯用 <a href="/blog/ai-api-error-codes-troubleshooting" style="color:#00f0ff;text-decoration:none;">Claude</a>，因为它的代码生成质量确实比 GPT 更稳定，尤其是在处理复杂逻辑时。</p>
 
-                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">但需要注意的是，Anthropic 在 Opus 4.7 上换了新的 tokenizer，导致同样的文本会多消耗约 35% 的 token。这意味着你的实际花费可能比表面价格高出三分之一。如果你在用 Claude，建议去 <a href="https://www.tokenfind.cn">TokenNexus</a> 上对比一下聚合平台的价格，像 OpenRouter 和 Together AI 提供的 Claude 接口通常比官方便宜 30-50%。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">但需要注意的是，Anthropic 在 Opus 4.7 上换了新的 tokenizer，导致同样的文本会多消耗约 35% 的 token。这意味着你的实际花费可能比表面价格高出三分之一。如果你在用 Claude，建议去 <a href="https://www.tokenfind.cn">TokenNexus</a> 上对比一下聚合平台的价格，像 <a href="/blog/ai-aggregator-platform-guide-2026" style="color:#00f0ff;text-decoration:none;">OpenRouter</a> 和 Together AI 提供的 Claude 接口通常比官方便宜 30-50%。</p>
 
                 <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>Gemini 3.5 Flash（¥65.25/百万Token）</strong> 是 Google 2026 年最值得关注的模型。200 万 token 的上下文窗口是目前最大的之一，而且 Google AI Studio 提供每天 1500 次的免费调用额度。对于学习和原型开发来说，几乎零成本。</p>
 

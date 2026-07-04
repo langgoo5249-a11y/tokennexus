@@ -187,7 +187,7 @@ var _hmt = _hmt || [];
         <div class="article-content">
             <h2>一次惨痛的生产事故</h2>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年11月的一个周五晚上，我们产品的AI摘要功能突然开始返回乱码。用户群里炸了锅，客服那边一单接一单地转过来。</p>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我第一时间登录服务器查日志，结果发现：日志里只有一行 <code>response.ok</code>，没有任何请求细节、没有模型版本、没有token用量、没有响应时间。排查了两个小时，最后才发现是OpenAI那边悄悄更新了API返回格式，我们的解析逻辑直接炸了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我第一时间登录服务器查日志，结果发现：日志里只有一行 <code>response.ok</code>，没有任何请求细节、没有模型版本、没有token用量、没有响应时间。排查了两个小时，最后才发现是<a href="/blog/ai-api-error-codes-troubleshooting" style="color:#00f0ff;text-decoration:none;">OpenAI</a>那边悄悄更新了API返回格式，我们的解析逻辑直接炸了。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">那天晚上我加班到凌晨三点，发誓一定要把AI API的可观测性搞起来。这次事故让我深刻认识到：<strong>调用AI API和调用普通HTTP接口完全不一样，你需要一套专门的监控体系。</strong></p>
 
             <h2>AI API可观测性的三大支柱</h2>
@@ -214,8 +214,8 @@ var _hmt = _hmt || [];
             </ul>
 
             <h3>3. 追踪（Traces）：帮你还原"一次调用的完整链路"</h3>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在AI应用中，一次用户请求可能触发多次API调用——先做意图识别，再检索知识库，最后生成回答。Traces把这些调用串成一条链路，让你一眼看出瓶颈在哪。</p>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">比如你发现某次请求耗时3秒，通过Trace可以拆解出：意图识别用了200ms、向量检索用了800ms、LLM生成用了2000ms。问题一目了然。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在AI应用中，一次用户请求可能触发多次API调用——先做意图识别，再检索<a href="/blog/ai-embedding-rag-knowledge-base-guide-2026" style="color:#00f0ff;text-decoration:none;">知识库</a>，最后生成回答。Traces把这些调用串成一条链路，让你一眼看出瓶颈在哪。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">比如你发现某次请求耗时3秒，通过Trace可以拆解出：意图识别用了200ms、向量检索用了800ms、<a href="/blog/ai-api-ab-testing-model-selection-2026" style="color:#00f0ff;text-decoration:none;">LLM</a>生成用了2000ms。问题一目了然。</p>
 
             <h2>开源监控工具选型</h2>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">市面上已经有不少针对AI API的监控工具，我实际用过三个，说说各自的优缺点。</p>
@@ -246,6 +246,72 @@ var _hmt = _hmt || [];
                     <td>已有可观测性基建的团队</td>
                 </tr>
             </table>
+            <div class="chart-container" style="background:#12121a;border:1px solid rgba(0,240,255,0.15);border-radius:12px;padding:24px;margin:28px 0;">
+                <h4 style="color:#00f0ff;margin:0 0 16px;font-size:1rem;">📊 主流 AI API 输入价格对比（美元/百万Token，2026年7月数据）</h4>
+                <svg viewBox="0 0 600 320" style="width:100%;height:auto;" role="img" aria-label="AI API价格对比图表">
+                    <defs>
+                        <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#b829dd" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#b829dd" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0.3"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Y轴 -->
+                    <line x1="120" y1="20" x2="120" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- X轴 -->
+                    <line x1="120" y1="270" x2="580" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- 网格线 -->
+                    <line x1="120" y1="220" x2="580" y2="220" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="170" x2="580" y2="170" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="120" x2="580" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="70" x2="580" y2="70" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <!-- Y轴标签 -->
+                    <text x="110" y="275" text-anchor="end" fill="#8a8aa3" font-size="10">$0</text>
+                    <text x="110" y="225" text-anchor="end" fill="#8a8aa3" font-size="10">$5</text>
+                    <text x="110" y="175" text-anchor="end" fill="#8a8aa3" font-size="10">$10</text>
+                    <text x="110" y="125" text-anchor="end" fill="#8a8aa3" font-size="10">$15</text>
+                    <text x="110" y="75" text-anchor="end" fill="#8a8aa3" font-size="10">$20</text>
+                    <!-- DeepSeek V3: $0.07/1M → 极小条 -->
+                    <rect x="135" y="269" width="50" height="1" fill="url(#barGrad1)" rx="2"/>
+                    <text x="160" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">DeepSeek</text>
+                    <text x="160" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">V3 $0.07</text>
+                    <!-- GPT-4o-mini: $0.15/1M -->
+                    <rect x="210" y="268.5" width="50" height="1.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="235" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="235" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">mini $0.15</text>
+                    <!-- Claude 3.5: $3/1M -->
+                    <rect x="285" y="240" width="50" height="30" fill="url(#barGrad2)" rx="2"/>
+                    <text x="310" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="310" y="300" text-anchor="middle" fill="#b829dd" font-size="9">3.5 $3</text>
+                    <!-- GPT-4o: $2.50/1M -->
+                    <rect x="360" y="245" width="50" height="25" fill="url(#barGrad3)" rx="2"/>
+                    <text x="385" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="385" y="300" text-anchor="middle" fill="#ffd700" font-size="9">$2.50</text>
+                    <!-- Gemini Pro: $1.25/1M -->
+                    <rect x="435" y="257.5" width="50" height="12.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="460" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Gemini</text>
+                    <text x="460" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">Pro $1.25</text>
+                    <!-- Claude Opus: $15/1M -->
+                    <rect x="510" y="120" width="50" height="150" fill="url(#barGrad2)" rx="2"/>
+                    <text x="535" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="535" y="300" text-anchor="middle" fill="#b829dd" font-size="9">Opus $15</text>
+                    <!-- 标题 -->
+                    <text x="300" y="315" text-anchor="middle" fill="#8a8aa3" font-size="9">数据来源：各平台官方定价页（2026年7月） · TokenNexus 整理</text>
+                </svg>
+            </div>
+
+            <div class="debug-note" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-left:4px solid #ffd700;border-radius:0 8px 8px 0;padding:20px;margin:28px 0;">
+                <h4 style="color:#ffd700;margin:0 0 12px;font-size:1rem;">⚠️ 踩坑备注：成本失控的常见原因</h4>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.7;">实际项目中导致成本飙升的三大原因：① 未启用 Prompt Caching，重复 system prompt 每次都全量计费；② 未设置 max_tokens，模型滔滔不绝烧钱；③ 用 GPT-4o 做简单分类任务（应该用 GPT-4o-mini）。建议每周检查 Token 用量趋势，异常增长时立即排查。</p>
+            </div>
+
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你的团队刚开始搞AI API监控，我建议先用Helicone快速跑起来，后面有需要再迁移到LangFuse或自建OTel方案。别一上来就搞太复杂的架构，先把数据采到再说。</p>
 
@@ -492,7 +558,7 @@ def call_openai(messages, model="gpt-4o", request_id=None, **kwargs):
 }
 </code></pre>
 
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这个看板包含三个核心面板：请求量与错误率趋势、延迟分位数分布、Token消耗趋势。实际使用中我还加了一个"按模型维度的成本排行"面板，每天早上看一眼就能知道钱花在哪了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这个看板包含三个核心面板：请求量与错误率趋势、延迟分位数分布、<a href="/blog/ai-api-conversation-context-memory-management-guide-2026" style="color:#00f0ff;text-decoration:none;">Token</a>消耗趋势。实际使用中我还加了一个"按模型维度的成本排行"面板，每天早上看一眼就能知道钱花在哪了。</p>
 
             <h2>告警策略：别等用户投诉了才知道</h2>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">光有看板不够，你得让系统主动告诉你出问题了。我配置了三类告警规则：</p>
@@ -518,7 +584,7 @@ def call_openai(messages, model="gpt-4o", request_id=None, **kwargs):
     severity: critical
   annotations:
     summary: "AI API错误率超过5%"
-    description: "可能存在上游服务异常或API Key失效"
+    description: "可能存在上游服务异常或API <a href="/blog/ai-api-security-key-management-guide-2026" style="color:#00f0ff;text-decoration:none;">Key</a>失效"
 </code></pre>
 
             <h3>成本异常告警</h3>

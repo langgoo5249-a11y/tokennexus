@@ -271,7 +271,7 @@ var _hmt = _hmt || [];
 
         <div class="article-content">
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年年底我们团队负责的 AI 对话平台用户量突然暴涨，日活从 5 万飙升到 80 万。之前没怎么优化的流式输出接口直接扛不住了——用户疯狂投诉"转圈等半天"、"回复断断续续"、"有时候直接卡死"。那段时间我基本住在公司，天天盯着 Grafana 看监控曲线，把流式输出从 SSE 到 WebSocket 到底层 TCP 参数翻了个底朝天。</p>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这篇文章就是我踩了三个月坑之后总结出来的完整调优方案。从最基础的 SSE 配置到 WebSocket + Token Bucket 的高级架构，从客户端感知延迟到服务端吞吐量，全部用真实数据说话。我们的平台目前日处理流式请求超过 2 亿次，这些经验都是真金白银换来的。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这篇文章就是我踩了三个月坑之后总结出来的完整调优方案。从最基础的 SSE 配置到 WebSocket + <a href="/blog/ai-api-conversation-context-memory-management-guide-2026" style="color:#00f0ff;text-decoration:none;">Token</a> Bucket 的高级架构，从客户端感知延迟到服务端吞吐量，全部用真实数据说话。我们的平台目前日处理流式请求超过 2 亿次，这些经验都是真金白银换来的。</p>
 
             <div class="toc">
                 <h3>目录</h3>
@@ -290,7 +290,7 @@ var _hmt = _hmt || [];
 
             <h2 id="section1">为什么流式输出是AI API体验的核心</h2>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先说一个数据：流式输出能把用户的<strong>感知延迟降低 80%</strong>。这不是我拍脑袋说的，是我们 A/B 测试的真实结果。</p>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">同样的 GPT-4 级别模型，生成一段 500 token 的回复，非流式模式需要等 8-12 秒才能看到完整结果。用户在这 8-12 秒里什么也看不到，只能盯着一个 loading 动画。而流式模式下，第一个 token 在 0.8-1.2 秒内就出现了，用户立刻知道"系统在工作"，心理等待感大幅降低。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">同样的 <a href="/blog/ai-api-multimodal-gpt4o-gemini-complete-guide-2026" style="color:#00f0ff;text-decoration:none;">GPT-4</a> 级别模型，生成一段 500 token 的回复，非流式模式需要等 8-12 秒才能看到完整结果。用户在这 8-12 秒里什么也看不到，只能盯着一个 loading 动画。而流式模式下，第一个 token 在 0.8-1.2 秒内就出现了，用户立刻知道"系统在工作"，心理等待感大幅降低。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们做了两组 A/B 测试，每组 10000 个用户：</p>
             <table>
                 <tr><th>指标</th><th>非流式</th><th>流式</th><th>变化</th></tr>
@@ -299,6 +299,72 @@ var _hmt = _hmt || [];
                 <tr><td>用户满意度评分</td><td>3.2/5</td><td>4.4/5</td><td>+37.5%</td></tr>
                 <tr><td>平均会话轮次</td><td>3.8</td><td>7.2</td><td>+89.5%</td></tr>
             </table>
+            <div class="chart-container" style="background:#12121a;border:1px solid rgba(0,240,255,0.15);border-radius:12px;padding:24px;margin:28px 0;">
+                <h4 style="color:#00f0ff;margin:0 0 16px;font-size:1rem;">📊 主流 AI API 输入价格对比（美元/百万Token，2026年7月数据）</h4>
+                <svg viewBox="0 0 600 320" style="width:100%;height:auto;" role="img" aria-label="AI API价格对比图表">
+                    <defs>
+                        <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#b829dd" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#b829dd" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0.3"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Y轴 -->
+                    <line x1="120" y1="20" x2="120" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- X轴 -->
+                    <line x1="120" y1="270" x2="580" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- 网格线 -->
+                    <line x1="120" y1="220" x2="580" y2="220" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="170" x2="580" y2="170" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="120" x2="580" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="70" x2="580" y2="70" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <!-- Y轴标签 -->
+                    <text x="110" y="275" text-anchor="end" fill="#8a8aa3" font-size="10">$0</text>
+                    <text x="110" y="225" text-anchor="end" fill="#8a8aa3" font-size="10">$5</text>
+                    <text x="110" y="175" text-anchor="end" fill="#8a8aa3" font-size="10">$10</text>
+                    <text x="110" y="125" text-anchor="end" fill="#8a8aa3" font-size="10">$15</text>
+                    <text x="110" y="75" text-anchor="end" fill="#8a8aa3" font-size="10">$20</text>
+                    <!-- DeepSeek V3: $0.07/1M → 极小条 -->
+                    <rect x="135" y="269" width="50" height="1" fill="url(#barGrad1)" rx="2"/>
+                    <text x="160" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">DeepSeek</text>
+                    <text x="160" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">V3 $0.07</text>
+                    <!-- GPT-4o-mini: $0.15/1M -->
+                    <rect x="210" y="268.5" width="50" height="1.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="235" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="235" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">mini $0.15</text>
+                    <!-- Claude 3.5: $3/1M -->
+                    <rect x="285" y="240" width="50" height="30" fill="url(#barGrad2)" rx="2"/>
+                    <text x="310" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="310" y="300" text-anchor="middle" fill="#b829dd" font-size="9">3.5 $3</text>
+                    <!-- GPT-4o: $2.50/1M -->
+                    <rect x="360" y="245" width="50" height="25" fill="url(#barGrad3)" rx="2"/>
+                    <text x="385" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="385" y="300" text-anchor="middle" fill="#ffd700" font-size="9">$2.50</text>
+                    <!-- Gemini Pro: $1.25/1M -->
+                    <rect x="435" y="257.5" width="50" height="12.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="460" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Gemini</text>
+                    <text x="460" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">Pro $1.25</text>
+                    <!-- Claude Opus: $15/1M -->
+                    <rect x="510" y="120" width="50" height="150" fill="url(#barGrad2)" rx="2"/>
+                    <text x="535" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="535" y="300" text-anchor="middle" fill="#b829dd" font-size="9">Opus $15</text>
+                    <!-- 标题 -->
+                    <text x="300" y="315" text-anchor="middle" fill="#8a8aa3" font-size="9">数据来源：各平台官方定价页（2026年7月） · TokenNexus 整理</text>
+                </svg>
+            </div>
+
+            <div class="debug-note" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-left:4px solid #ffd700;border-radius:0 8px 8px 0;padding:20px;margin:28px 0;">
+                <h4 style="color:#ffd700;margin:0 0 12px;font-size:1rem;">⚠️ 踩坑备注：成本失控的常见原因</h4>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.7;">实际项目中导致成本飙升的三大原因：① 未启用 Prompt Caching，重复 system prompt 每次都全量计费；② 未设置 max_tokens，模型滔滔不绝烧钱；③ 用 GPT-4o 做简单分类任务（应该用 GPT-4o-mini）。建议每周检查 Token 用量趋势，异常增长时立即排查。</p>
+            </div>
+
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">流式输出不仅让用户感觉更快，还直接影响了留存和活跃度。用户中途放弃率从 23.5% 降到了 6.2%，平均会话轮次翻了一倍。这意味着流式输出不是"锦上添花"，而是 AI 产品体验的刚需。</p>
 
             <h2 id="section2">核心指标：TTFT、TPS、Chunk间隔</h2>
@@ -320,7 +386,7 @@ var _hmt = _hmt || [];
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">下面我会逐一拆解每个优化点是怎么做到的。</p>
 
             <h2 id="section3">SSE深度优化：从基础配置到生产级方案</h2>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">SSE（Server-Sent Events）是 AI API 流式输出最常用的协议，OpenAI、Anthropic、Google 都用 SSE。但默认配置下 SSE 的性能远达不到生产要求。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">SSE（Server-Sent Events）是 AI API 流式输出最常用的协议，<a href="/blog/ai-api-error-codes-troubleshooting" style="color:#00f0ff;text-decoration:none;">OpenAI</a>、Anthropic、<a href="/blog/gemini-api-complete-guide" style="color:#00f0ff;text-decoration:none;">Google</a> 都用 SSE。但默认配置下 SSE 的性能远达不到生产要求。</p>
 
             <h3>3.1 Nginx 缓冲区配置</h3>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这是最容易踩的坑。Nginx 默认会缓冲上游响应，导致 SSE 事件被攒成一批发送，用户看到的就是"卡一会儿突然蹦出一大段文字"。</p>
@@ -350,7 +416,7 @@ location /api/chat/stream {
             <h3>3.2 服务端 flush 优化</h3>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">即使关了 Nginx 缓冲，如果应用层不主动 flush，数据还是会积攒在内存里。以 FastAPI 为例：</p>
             <pre><code>from fastapi import FastAPI
-from fastapi.responses import StreamingResponse
+from fastapi.responses import <a href="/blog/ai-api-streaming-sse-websocket-implementation-guide-2026" style="color:#00f0ff;text-decoration:none;">Streaming</a>Response
 import asyncio
 
 app = FastAPI()

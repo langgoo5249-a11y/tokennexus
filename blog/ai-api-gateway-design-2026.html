@@ -257,7 +257,7 @@ var _hmt = _hmt || [];
         <img class="article-cover" src="images/ai-api-gateway-2026.jpg" alt="AI API网关架构设计">
 
         <div class="article-content">
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年年底，我们团队接手了一个棘手的问题：公司同时对接了 OpenAI、Anthropic、DeepSeek 和阿里云百炼四家 AI 服务商，散落在各个微服务里的 API Key 超过 30 个，每月账单对不上，某个服务挂了整个流程就卡死。CTO 给了我两周时间，要求统一收口。最终我们用 Apache APISIX 搭了一套 AI API 网关，把所有调用收敛到一个入口，顺带把成本降了 60%。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年年底，我们团队接手了一个棘手的问题：公司同时对接了 OpenAI、Anthropic、<a href="/blog/ai-api-migration-guide-2026" style="color:#00f0ff;text-decoration:none;">DeepSeek</a> 和<a href="/blog/china-ai-api-guide" style="color:#00f0ff;text-decoration:none;">阿里云百炼</a>四家 AI 服务商，散落在各个微服务里的 API Key 超过 30 个，每月账单对不上，某个服务挂了整个流程就卡死。CTO 给了我两周时间，要求统一收口。最终我们用 Apache APISIX 搭了一套 AI API 网关，把所有调用收敛到一个入口，顺带把成本降了 60%。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这篇文章就是这两周踩坑的完整复盘。我会从网关选型、核心模块设计到具体代码实现，把整个过程掰开讲清楚。</p>
 
             <div class="toc">
@@ -296,6 +296,72 @@ var _hmt = _hmt || [];
                 <tr><td>AI 专用功能</td><td>需自定义插件</td><td>有 AI Gateway 插件</td><td>完全自定义</td></tr>
                 <tr><td>学习成本</td><td>中等</td><td>中等</td><td>低（但维护成本高）</td></tr>
             </table>
+            <div class="chart-container" style="background:#12121a;border:1px solid rgba(0,240,255,0.15);border-radius:12px;padding:24px;margin:28px 0;">
+                <h4 style="color:#00f0ff;margin:0 0 16px;font-size:1rem;">📊 主流 AI API 输入价格对比（美元/百万Token，2026年7月数据）</h4>
+                <svg viewBox="0 0 600 320" style="width:100%;height:auto;" role="img" aria-label="AI API价格对比图表">
+                    <defs>
+                        <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#b829dd" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#b829dd" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0.3"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Y轴 -->
+                    <line x1="120" y1="20" x2="120" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- X轴 -->
+                    <line x1="120" y1="270" x2="580" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- 网格线 -->
+                    <line x1="120" y1="220" x2="580" y2="220" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="170" x2="580" y2="170" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="120" x2="580" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="70" x2="580" y2="70" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <!-- Y轴标签 -->
+                    <text x="110" y="275" text-anchor="end" fill="#8a8aa3" font-size="10">$0</text>
+                    <text x="110" y="225" text-anchor="end" fill="#8a8aa3" font-size="10">$5</text>
+                    <text x="110" y="175" text-anchor="end" fill="#8a8aa3" font-size="10">$10</text>
+                    <text x="110" y="125" text-anchor="end" fill="#8a8aa3" font-size="10">$15</text>
+                    <text x="110" y="75" text-anchor="end" fill="#8a8aa3" font-size="10">$20</text>
+                    <!-- DeepSeek V3: $0.07/1M → 极小条 -->
+                    <rect x="135" y="269" width="50" height="1" fill="url(#barGrad1)" rx="2"/>
+                    <text x="160" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">DeepSeek</text>
+                    <text x="160" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">V3 $0.07</text>
+                    <!-- GPT-4o-mini: $0.15/1M -->
+                    <rect x="210" y="268.5" width="50" height="1.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="235" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="235" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">mini $0.15</text>
+                    <!-- Claude 3.5: $3/1M -->
+                    <rect x="285" y="240" width="50" height="30" fill="url(#barGrad2)" rx="2"/>
+                    <text x="310" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="310" y="300" text-anchor="middle" fill="#b829dd" font-size="9">3.5 $3</text>
+                    <!-- GPT-4o: $2.50/1M -->
+                    <rect x="360" y="245" width="50" height="25" fill="url(#barGrad3)" rx="2"/>
+                    <text x="385" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="385" y="300" text-anchor="middle" fill="#ffd700" font-size="9">$2.50</text>
+                    <!-- Gemini Pro: $1.25/1M -->
+                    <rect x="435" y="257.5" width="50" height="12.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="460" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Gemini</text>
+                    <text x="460" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">Pro $1.25</text>
+                    <!-- Claude Opus: $15/1M -->
+                    <rect x="510" y="120" width="50" height="150" fill="url(#barGrad2)" rx="2"/>
+                    <text x="535" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="535" y="300" text-anchor="middle" fill="#b829dd" font-size="9">Opus $15</text>
+                    <!-- 标题 -->
+                    <text x="300" y="315" text-anchor="middle" fill="#8a8aa3" font-size="9">数据来源：各平台官方定价页（2026年7月） · TokenNexus 整理</text>
+                </svg>
+            </div>
+
+            <div class="debug-note" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-left:4px solid #ffd700;border-radius:0 8px 8px 0;padding:20px;margin:28px 0;">
+                <h4 style="color:#ffd700;margin:0 0 12px;font-size:1rem;">⚠️ 踩坑备注：成本失控的常见原因</h4>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.7;">实际项目中导致成本飙升的三大原因：① 未启用 Prompt Caching，重复 system prompt 每次都全量计费；② 未设置 max_tokens，模型滔滔不绝烧钱；③ 用 GPT-4o 做简单分类任务（应该用 GPT-4o-mini）。建议每周检查 Token 用量趋势，异常增长时立即排查。</p>
+            </div>
+
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">数据来源：API7 官方基准测试和 Kong 工程博客公布的 AI 网关对比数据。APISIX 在纯性能上优势明显，P99 延迟只有 Kong 的三分之一，吞吐量高出约 28%。Kong 的优势在于有官方 AI Gateway 插件，开箱即用支持 OpenAI/Anthropic 格式转换。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们选 APISIX 的原因很简单：延迟低、基于 etcd 的配置热更新不需要数据库、Lua 插件开发灵活。团队里有同事之前用过 APISIX，上手快。</p>
             <blockquote><p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你团队规模小（不到 5 个后端开发），或者 AI 调用量不大（日均 < 10 万次），直接用 Kong 的 AI Gateway 插件可能更省事。但如果你对延迟敏感、调用量大，APISIX 是更好的选择。</p></blockquote>
@@ -323,9 +389,9 @@ POST /v1/chat/completions
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI API 的负载均衡跟传统微服务不太一样。传统场景是多个相同实例轮询，但 AI 场景往往是多个<strong>不同</strong>的服务商，性能和价格差异很大。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们设计了三种策略：</p>
             <h3>策略一：成本优先（默认）</h3>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">优先路由到成本最低的服务商，只有当该服务商返回 429 或 5xx 时才切换到备选。比如 DeepSeek V3 的价格是 GPT-4o 的十分之一，非关键业务默认走 DeepSeek。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">优先路由到成本最低的服务商，只有当该服务商返回 429 或 5xx 时才切换到备选。比如 DeepSeek V3 的价格是 <a href="/blog/ai-api-multimodal-gpt4o-gemini-complete-guide-2026" style="color:#00f0ff;text-decoration:none;">GPT-4o</a> 的十分之一，非关键业务默认走 DeepSeek。</p>
             <h3>策略二：质量优先</h3>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对质量要求高的场景（比如合同审查、医疗报告），固定走 GPT-4o 或 Claude Sonnet，只有主服务商完全不可用时才降级到备选模型。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">对质量要求高的场景（比如合同审查、医疗报告），固定走 GPT-4o 或 <a href="/blog/ai-api-error-codes-troubleshooting" style="color:#00f0ff;text-decoration:none;">Claude</a> <a href="/blog/gpt4o-vs-claude35-sonnet-comparison" style="color:#00f0ff;text-decoration:none;">Sonnet</a>，只有主服务商完全不可用时才降级到备选模型。</p>
             <h3>策略三：延迟优先</h3>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">实时交互场景（比如客服对话），根据各服务商的实时延迟动态选择。APISIX 的 <code>proxy-next-upstream</code> 配合自定义 Lua 插件可以实现这个逻辑。</p>
             <pre><code># APISIX 路由配置示例（成本优先策略）

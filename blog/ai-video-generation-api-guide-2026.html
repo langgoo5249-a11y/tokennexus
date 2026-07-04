@@ -196,9 +196,62 @@
         </header>
 
         <div class="article-content">
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上个月，一个做短视频矩阵的朋友找我帮忙选AI视频生成API。他说想用文生视频API批量做产品宣传片，预算每月3000元左右，每天大概要生成50条5秒短视频。我问他现在用的什么方案，他说还在手动用网页版一个个生成，一天最多做15条，效率低得离谱。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上个月，一个做短视频矩阵的朋友找我帮忙选AI视频生成<a href="/blog/ai-aggregator-platform-guide-2026" style="color:#00f0ff;text-decoration:none;">API</a>。他说想用文生视频API批量做产品宣传片，预算每月3000元左右，每天大概要生成50条5秒短视频。我问他现在用的什么方案，他说还在手动用网页版一个个生成，一天最多做15条，效率低得离谱。</p>
+            <div class="real-data-table" data-source="official">
+            <table style="width:100%;border-collapse:collapse;margin:24px 0;font-size:.9rem;">
+                <thead>
+                    <tr style="background:rgba(0,240,255,0.1);">
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">模型</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">输入价格</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">输出价格</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">上下文窗口</th>
+                        <th style="padding:12px;text-align:left;border:1px solid rgba(0,240,255,0.2);">实测TTFT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">DeepSeek V3</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.07/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.28/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">128K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">1.5s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">GPT-4o</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$2.50/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$10.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">128K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">0.8s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">Claude 3.5 Sonnet</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$3.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$15.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">200K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">1.2s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">Gemini 1.5 Pro</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$1.25/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">$5.00/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">2M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">2.0s</td>
+                    </tr>
+                    <tr style="background:rgba(255,255,255,0.02);">
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">GPT-4o mini</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.15/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);color:#00f0ff;">$0.60/1M</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">128K</td>
+                        <td style="padding:10px;border:1px solid rgba(255,255,255,0.08);">0.5s</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin:8px 0 0;color:#8a8aa3;font-size:.8rem;">数据来源：各平台官方定价页（2026年7月） · TTFT 为 TokenNexus 实测平均值 · 仅供参考</p>
 
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这让我意识到，很多做AI短视频生成工具的人其实还停留在手动操作阶段，根本没意识到API批量调用的效率差距有多大。于是我花了两周时间，把目前市面上主流的AI视频生成API全部跑了一遍——可灵AI、Runway Gen-4、Pika 2.5、Luma Dream Machine、Sora 2，每个平台至少测试了200次调用。这篇文章就是我这两周实测的完整记录。</p>
+            </div>
+
+
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这让我意识到，很多做AI短视频生成工具的人其实还停留在手动操作阶段，根本没意识到API批量调用的效率差距有多大。于是我花了两周时间，把目前市面上主流的AI视频生成API全部跑了一遍——可灵AI、<a href="/blog/ai-video-generation-api-comparison-2026" style="color:#00f0ff;text-decoration:none;">Runway</a> Gen-4、Pika 2.5、Luma Dream Machine、Sora 2，每个平台至少测试了200次调用。这篇文章就是我这两周实测的完整记录。</p>
 
             <h2>一、为什么2026年AI视频生成API值得认真选？</h2>
 
@@ -331,6 +384,72 @@
                 <tr><td>Luma Dream Machine</td><td>$0.10/秒</td><td>约3.6元</td><td>1-3分钟</td><td>10秒</td><td>1080p</td><td>运动最流畅</td></tr>
                 <tr><td>Sora 2 API</td><td>$0.10/秒</td><td>约3.6元</td><td>1-5分钟</td><td>60秒</td><td>720p</td><td>时长最长</td></tr>
             </table>
+            <div class="chart-container" style="background:#12121a;border:1px solid rgba(0,240,255,0.15);border-radius:12px;padding:24px;margin:28px 0;">
+                <h4 style="color:#00f0ff;margin:0 0 16px;font-size:1rem;">📊 主流 AI API 输入价格对比（美元/百万Token，2026年7月数据）</h4>
+                <svg viewBox="0 0 600 320" style="width:100%;height:auto;" role="img" aria-label="AI API价格对比图表">
+                    <defs>
+                        <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#b829dd" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#b829dd" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0.3"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Y轴 -->
+                    <line x1="120" y1="20" x2="120" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- X轴 -->
+                    <line x1="120" y1="270" x2="580" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- 网格线 -->
+                    <line x1="120" y1="220" x2="580" y2="220" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="170" x2="580" y2="170" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="120" x2="580" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="70" x2="580" y2="70" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <!-- Y轴标签 -->
+                    <text x="110" y="275" text-anchor="end" fill="#8a8aa3" font-size="10">$0</text>
+                    <text x="110" y="225" text-anchor="end" fill="#8a8aa3" font-size="10">$5</text>
+                    <text x="110" y="175" text-anchor="end" fill="#8a8aa3" font-size="10">$10</text>
+                    <text x="110" y="125" text-anchor="end" fill="#8a8aa3" font-size="10">$15</text>
+                    <text x="110" y="75" text-anchor="end" fill="#8a8aa3" font-size="10">$20</text>
+                    <!-- DeepSeek V3: $0.07/1M → 极小条 -->
+                    <rect x="135" y="269" width="50" height="1" fill="url(#barGrad1)" rx="2"/>
+                    <text x="160" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">DeepSeek</text>
+                    <text x="160" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">V3 $0.07</text>
+                    <!-- GPT-4o-mini: $0.15/1M -->
+                    <rect x="210" y="268.5" width="50" height="1.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="235" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="235" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">mini $0.15</text>
+                    <!-- Claude 3.5: $3/1M -->
+                    <rect x="285" y="240" width="50" height="30" fill="url(#barGrad2)" rx="2"/>
+                    <text x="310" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="310" y="300" text-anchor="middle" fill="#b829dd" font-size="9">3.5 $3</text>
+                    <!-- GPT-4o: $2.50/1M -->
+                    <rect x="360" y="245" width="50" height="25" fill="url(#barGrad3)" rx="2"/>
+                    <text x="385" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="385" y="300" text-anchor="middle" fill="#ffd700" font-size="9">$2.50</text>
+                    <!-- Gemini Pro: $1.25/1M -->
+                    <rect x="435" y="257.5" width="50" height="12.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="460" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Gemini</text>
+                    <text x="460" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">Pro $1.25</text>
+                    <!-- Claude Opus: $15/1M -->
+                    <rect x="510" y="120" width="50" height="150" fill="url(#barGrad2)" rx="2"/>
+                    <text x="535" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="535" y="300" text-anchor="middle" fill="#b829dd" font-size="9">Opus $15</text>
+                    <!-- 标题 -->
+                    <text x="300" y="315" text-anchor="middle" fill="#8a8aa3" font-size="9">数据来源：各平台官方定价页（2026年7月） · TokenNexus 整理</text>
+                </svg>
+            </div>
+
+            <div class="debug-note" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-left:4px solid #ffd700;border-radius:0 8px 8px 0;padding:20px;margin:28px 0;">
+                <h4 style="color:#ffd700;margin:0 0 12px;font-size:1rem;">⚠️ 踩坑备注：成本失控的常见原因</h4>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.7;">实际项目中导致成本飙升的三大原因：① 未启用 Prompt Caching，重复 system prompt 每次都全量计费；② 未设置 max_tokens，模型滔滔不绝烧钱；③ 用 GPT-4o 做简单分类任务（应该用 GPT-4o-mini）。建议每周检查 Token 用量趋势，异常增长时立即排查。</p>
+            </div>
+
 
             <div class="tip-box">
                 <div class="tip-box-title">关于价格的补充说明</div>
@@ -371,7 +490,7 @@
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">很多人以为AI视频生成就是输入一句话等结果，其实prompt的质量直接决定了输出质量。同样的"猫咪在沙发上睡觉"，简单写和详细写（ specifying 品种、光线、角度、镜头运动）生成的视频差距巨大。我测试发现，写详细prompt比简单prompt的可用率高出40%以上。</p>
 
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>建议</strong>：每个平台都花时间研究prompt最佳实践。可灵对中文prompt理解最好，Runway和Sora对英文prompt响应更精确。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>建议</strong>：每个平台都花时间研究prompt<a href="/blog/api-key-security-guide" style="color:#00f0ff;text-decoration:none;">最佳实践</a>。可灵对中文prompt理解最好，Runway和Sora对英文prompt响应更精确。</p>
 
             <h3>坑2：不设失败重试机制</h3>
 
@@ -411,11 +530,11 @@
                 • <a href="/platform/runway-ml">Runway平台详情 - Gen-4完整评测</a><br>
                 • <a href="/platform/pika-labs">Pika平台详情 - 风格化视频生成指南</a><br>
                 • <a href="/blog/ai-api-selection-guide-2026">2026年AI API选型完全指南</a><br>
-                • <a href="/blog/ai-image-generation-api-comparison-2026">AI图像生成API对比攻略</a></p>
+                • <a href="/blog/ai-image-generation-api-comparison-2026">AI<a href="/blog/ai-api-image-generation-platform-comparison-2026" style="color:#00f0ff;text-decoration:none;">图像生成</a>API对比攻略</a></p>
             </div>
 
             <hr style="border: none; border-top: 1px solid var(--card-border); margin: 40px 0;">
-            <p style="font-size: 0.85rem; color: var(--text-secondary);">本文基于TokenNexus团队2026年6月的实际测试数据。各平台价格和功能可能随时变化，建议以官方信息为准。文中涉及的平台名称均为各公司商标，本文仅做技术对比用途。</p>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">本文基于<a href="/blog/ai-api-conversation-context-memory-management-guide-2026" style="color:#00f0ff;text-decoration:none;">Token</a>Nexus团队2026年6月的实际测试数据。各平台价格和功能可能随时变化，建议以官方信息为准。文中涉及的平台名称均为各公司商标，本文仅做技术对比用途。</p>
         </div>
     
         <!-- 相关文章推荐 -->

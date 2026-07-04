@@ -260,8 +260,8 @@ var _hmt = _hmt || [];
         <img class="article-cover" src="images/ai-api-testing-cicd-2026.jpg" alt="AI API自动化测试与CI/CD集成">
 
         <div class="article-content">
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年我们团队上线了一个 AI 客服功能，调用 OpenAI GPT-4o 处理用户咨询。上线第一周一切正常，第二周突然接到大量用户投诉——机器人开始答非所问。排查后发现，OpenAI 在周末更新了一次模型，响应格式微调了几个字段，我们的解析代码直接崩溃。</p>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这件事让我意识到，AI API 的测试不能靠"肉眼验收"。模型更新、响应漂移、限流策略变化，这些在传统 API 中很少见的问题，在 AI 场景下是常态。我们需要一套完整的自动化测试体系，在 CI/CD 流水线里就把这些问题拦住。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年我们团队上线了一个 AI 客服功能，调用 <a href="/blog/ai-api-error-codes-troubleshooting" style="color:#00f0ff;text-decoration:none;">OpenAI</a> <a href="/blog/ai-api-multimodal-gpt4o-gemini-complete-guide-2026" style="color:#00f0ff;text-decoration:none;">GPT-4o</a> 处理用户咨询。上线第一周一切正常，第二周突然接到大量用户投诉——机器人开始答非所问。排查后发现，OpenAI 在周末更新了一次模型，响应格式微调了几个字段，我们的解析代码直接崩溃。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这件事让我意识到，AI <a href="/blog/ai-aggregator-platform-guide-2026" style="color:#00f0ff;text-decoration:none;">API</a> 的测试不能靠"肉眼验收"。模型更新、响应漂移、限流策略变化，这些在传统 API 中很少见的问题，在 AI 场景下是常态。我们需要一套完整的自动化测试体系，在 CI/CD 流水线里就把这些问题拦住。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这篇文章分享我们搭建 AI API 测试体系的全过程，包括三层测试金字塔设计、Mock 策略、快照测试、CI/CD 集成，以及如何在保证测试质量的同时控制成本。</p>
 
             <div class="toc">
@@ -298,6 +298,72 @@ var _hmt = _hmt || [];
                 <tr><td>中层</td><td>集成测试（Mock）</td><td>每次提交</td><td>$0</td><td>20%</td></tr>
                 <tr><td>顶层</td><td>E2E 测试（真实 API）</td><td>每日/发布前</td><td>可控</td><td>10%</td></tr>
             </table>
+            <div class="chart-container" style="background:#12121a;border:1px solid rgba(0,240,255,0.15);border-radius:12px;padding:24px;margin:28px 0;">
+                <h4 style="color:#00f0ff;margin:0 0 16px;font-size:1rem;">📊 主流 AI API 输入价格对比（美元/百万Token，2026年7月数据）</h4>
+                <svg viewBox="0 0 600 320" style="width:100%;height:auto;" role="img" aria-label="AI API价格对比图表">
+                    <defs>
+                        <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#b829dd" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#b829dd" stop-opacity="0.3"/>
+                        </linearGradient>
+                        <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0.3"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Y轴 -->
+                    <line x1="120" y1="20" x2="120" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- X轴 -->
+                    <line x1="120" y1="270" x2="580" y2="270" stroke="#333" stroke-width="1"/>
+                    <!-- 网格线 -->
+                    <line x1="120" y1="220" x2="580" y2="220" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="170" x2="580" y2="170" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="120" x2="580" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <line x1="120" y1="70" x2="580" y2="70" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+                    <!-- Y轴标签 -->
+                    <text x="110" y="275" text-anchor="end" fill="#8a8aa3" font-size="10">$0</text>
+                    <text x="110" y="225" text-anchor="end" fill="#8a8aa3" font-size="10">$5</text>
+                    <text x="110" y="175" text-anchor="end" fill="#8a8aa3" font-size="10">$10</text>
+                    <text x="110" y="125" text-anchor="end" fill="#8a8aa3" font-size="10">$15</text>
+                    <text x="110" y="75" text-anchor="end" fill="#8a8aa3" font-size="10">$20</text>
+                    <!-- DeepSeek V3: $0.07/1M → 极小条 -->
+                    <rect x="135" y="269" width="50" height="1" fill="url(#barGrad1)" rx="2"/>
+                    <text x="160" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">DeepSeek</text>
+                    <text x="160" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">V3 $0.07</text>
+                    <!-- GPT-4o-mini: $0.15/1M -->
+                    <rect x="210" y="268.5" width="50" height="1.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="235" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="235" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">mini $0.15</text>
+                    <!-- Claude 3.5: $3/1M -->
+                    <rect x="285" y="240" width="50" height="30" fill="url(#barGrad2)" rx="2"/>
+                    <text x="310" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="310" y="300" text-anchor="middle" fill="#b829dd" font-size="9">3.5 $3</text>
+                    <!-- GPT-4o: $2.50/1M -->
+                    <rect x="360" y="245" width="50" height="25" fill="url(#barGrad3)" rx="2"/>
+                    <text x="385" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
+                    <text x="385" y="300" text-anchor="middle" fill="#ffd700" font-size="9">$2.50</text>
+                    <!-- Gemini Pro: $1.25/1M -->
+                    <rect x="435" y="257.5" width="50" height="12.5" fill="url(#barGrad1)" rx="2"/>
+                    <text x="460" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Gemini</text>
+                    <text x="460" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">Pro $1.25</text>
+                    <!-- Claude Opus: $15/1M -->
+                    <rect x="510" y="120" width="50" height="150" fill="url(#barGrad2)" rx="2"/>
+                    <text x="535" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
+                    <text x="535" y="300" text-anchor="middle" fill="#b829dd" font-size="9">Opus $15</text>
+                    <!-- 标题 -->
+                    <text x="300" y="315" text-anchor="middle" fill="#8a8aa3" font-size="9">数据来源：各平台官方定价页（2026年7月） · TokenNexus 整理</text>
+                </svg>
+            </div>
+
+            <div class="debug-note" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-left:4px solid #ffd700;border-radius:0 8px 8px 0;padding:20px;margin:28px 0;">
+                <h4 style="color:#ffd700;margin:0 0 12px;font-size:1rem;">⚠️ 踩坑备注：成本失控的常见原因</h4>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.7;">实际项目中导致成本飙升的三大原因：① 未启用 Prompt Caching，重复 system prompt 每次都全量计费；② 未设置 max_tokens，模型滔滔不绝烧钱；③ 用 GPT-4o 做简单分类任务（应该用 GPT-4o-mini）。建议每周检查 Token 用量趋势，异常增长时立即排查。</p>
+            </div>
+
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">核心理念是：<strong>便宜、快速的测试多跑，昂贵、慢速的测试少跑</strong>。单元测试和 Mock 集成测试在每次提交时执行，真实 API 测试只在关键节点触发。</p>
 
             <h2 id="section3">第一层：单元测试（Prompt 与解析器）</h2>
@@ -309,7 +375,7 @@ var _hmt = _hmt || [];
                 <li>重试和错误处理逻辑</li>
             </ul>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这些测试跑得快（毫秒级）、成本低（$0）、稳定性高，应该覆盖核心逻辑的 70% 以上。</p>
-            <pre><code># test_prompts.py - Prompt 构建单元测试
+            <pre><code># test_prompts.py - <a href="/blog/ai-api-content-safety-moderation-hallucination-guide-2026" style="color:#00f0ff;text-decoration:none;">Prompt</a> 构建单元测试
 import pytest
 from myapp.ai import build_prompt, parse_response, estimate_tokens
 
