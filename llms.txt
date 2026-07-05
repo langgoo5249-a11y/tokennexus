@@ -57,7 +57,7 @@ A: 已对 Googlebot、Bingbot、Baiduspider、Bytespider（字节/豆包）、Ch
 | 免责声明 | https://www.tokenfind.cn/disclaimer | 免责声明 | 2026-07-04 |
 | Cookie政策 | https://www.tokenfind.cn/cookie-policy | Cookie政策与Google AdSense说明 | 2026-07-04 |
 
-## 博客文章 (共 92 篇)
+## 博客文章 (共 94 篇)
 
 ### 平台对比与选型
 
@@ -76,6 +76,8 @@ A: 已对 Googlebot、Bingbot、Baiduspider、Bytespider（字节/豆包）、Ch
 
 ### 省钱攻略
 
+- [AI API预算配额管理实战：搭建消费预警系统避免月底账单爆炸](https://www.tokenfind.cn/blog/ai-api-budget-quota-management-2026) | 2026-07-05
+- [AI API本地测试沙盒搭建完全指南：从Mock到A/B测试的实战方案](https://www.tokenfind.cn/blog/ai-api-local-testing-sandbox-2026) | 2026-07-05
 - [AI API成本优化实战：从月账单5000元降到500元的7个方法](https://www.tokenfind.cn/blog/ai-api-cost-optimization-practical-guide) | 2026-06-21
 - [AI API成本控制实战攻略：我是如何把月账单从2000降到300的](https://www.tokenfind.cn/blog/ai-api-cost-optimization-2026) | 2026-05-30
 - [我是如何把AI API月账单从8000降到800的：真实成本优化经验分享](https://www.tokenfind.cn/blog/ai-api-cost-optimization-guide-2026) | 2026-06-03

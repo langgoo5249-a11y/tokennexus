@@ -1,6 +1,6 @@
 # TokenNexus — AI API 导航全站内容索引（llms-full.txt）
 > 本文件为 AI 搜索引擎和大模型优化的完整内容索引，包含每篇文章和平台的摘要信息。
-> 最后更新: 2026-07-03
+> 最后更新: 2026-07-05
 >  shorter version: https://www.tokenfind.cn/llms.txt
 
 ## Organization
@@ -108,6 +108,12 @@
   摘要: 深入对比OpenAI和DeepSeek两大AI API平台的性能、价格、稳定性。包含2026年最新测试数据、价格对比表和选型建议，帮你找到最适合的AI服务。
 
 ### 省钱攻略
+
+- **AI API预算配额管理实战：搭建消费预警系统避免月底账单爆炸**
+  URL: https://www.tokenfind.cn/blog/ai-api-budget-quota-management-2026
+  日期: 2026-07-05T08:00:00+08:00
+  关键词: AI API预算配额管理,AI API消费预警,API月度预算控制,AI API账单监控,OpenAI预算设置,API配额管理系统,AI API成本失控
+  摘要: 详解AI API预算配额管理系统搭建方法，包含消费预警、月度预算控制、API账单监控工具选型与OpenAI/Claude预算设置实战。结合venturaxi 2.5万美元账单事件、Zylo 2026报告等真实案例，教你搭建网关层、平台层、告警层三层防护体系。
 
 - **AI API成本优化实战：从月账单5000元降到500元的7个方法**
   URL: https://www.tokenfind.cn/blog/ai-api-cost-optimization-practical-guide
@@ -588,6 +594,12 @@
   摘要: 一个真实AI语音应用项目的完整复盘。从选型ElevenLabs、OpenAI Realtime API到上线的全流程，包含语音转文字、大模型对话、语音合成、低延迟优化、成本控制等实战经验。
 
 ### 开发实战
+
+- **AI API本地测试沙盒搭建完全指南：从Mock到A/B测试的实战方案**
+  URL: https://www.tokenfind.cn/blog/ai-api-local-testing-sandbox-2026
+  日期: 2026-07-05T08:00:00+08:00
+  关键词: AI API本地测试沙盒,LLM Mock测试,API本地开发环境,Mock Server搭建,模型A/B测试方法,AI API测试工具
+  摘要: 详解AI API本地测试沙盒搭建方法，包含LLM Mock测试、API本地开发环境配置、Mock Server选型、模型A/B测试方法。对比纯Mock、本地LLM、Record/Replay、真实API四种方案，帮助开发者降低测试成本并提升AI应用稳定性。
 
 - **AI API产品化实战：从API调用到月收$3万SaaS的完整商业化路径**
   URL: https://www.tokenfind.cn/blog/ai-api-productization-saas-guide-2026
