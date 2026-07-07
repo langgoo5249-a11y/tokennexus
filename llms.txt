@@ -57,7 +57,11 @@ A: 已对 Googlebot、Bingbot、Baiduspider、Bytespider（字节/豆包）、Ch
 | 免责声明 | https://www.tokenfind.cn/disclaimer | 免责声明 | 2026-07-04 |
 | Cookie政策 | https://www.tokenfind.cn/cookie-policy | Cookie政策与Google AdSense说明 | 2026-07-04 |
 
-## 博客文章 (共 94 篇)
+## 博客文章 (共 95 篇)
+
+### 企业选型
+
+- [AI API私有化部署还是公有云：2026年企业选型决策框架与真实成本分析](https://www.tokenfind.cn/blog/ai-api-private-deployment-vs-public-cloud-2026) | 2026-07-07
 
 ### 平台对比与选型
 

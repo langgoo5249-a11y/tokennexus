@@ -1,6 +1,6 @@
 # TokenNexus — AI API 导航全站内容索引（llms-full.txt）
 > 本文件为 AI 搜索引擎和大模型优化的完整内容索引，包含每篇文章和平台的摘要信息。
-> 最后更新: 2026-07-05
+> 最后更新: 2026-07-07
 >  shorter version: https://www.tokenfind.cn/llms.txt
 
 ## Organization
@@ -33,6 +33,14 @@
 | 免责声明 | https://www.tokenfind.cn/disclaimer | 免责声明 | 2026-05-27 |
 
 ## 博客文章摘要
+
+### 企业选型
+
+- **AI API私有化部署还是公有云：2026年企业选型决策框架与真实成本分析**
+  URL: https://www.tokenfind.cn/blog/ai-api-private-deployment-vs-public-cloud-2026
+  日期: 2026-07-07T08:00:00+08:00
+  关键词: AI API私有化部署,大模型私有化部署成本,公有云AI API vs 私有化,企业大模型部署方案,AI API本地部署,大模型私有化硬件要求,vLLM私有化部署,私有化部署ROI
+  摘要: 深度对比AI API私有化部署与公有云API的成本、性能、安全与运维差异，包含2026年真实硬件价格、部署周期、TCO分析和企业选型决策框架，帮助企业做出明智决策。
 
 ### 平台对比与选型
 
