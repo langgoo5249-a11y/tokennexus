@@ -1,7 +1,6 @@
 {
   "name": "tokennexus",
   "compatibility_flags": [],
-  "pages_build_output_dir": "public",
   "routes": [
     {
       "pattern": "*",

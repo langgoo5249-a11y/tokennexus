@@ -64,7 +64,6 @@ Allow: /
 # 字节跳动爬虫
 User-agent: Bytespider
 Allow: /
-Crawl-delay: 2
 
 # ChatGPT / OpenAI 爬虫
 User-agent: ChatGPT-User
