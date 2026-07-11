@@ -117,3 +117,4 @@ Disallow: /functions/
 # Sitemap 位置
 # ============================================
 Sitemap: https://www.tokenfind.cn/sitemap.xml
+Sitemap: https://www.tokenfind.cn/image-sitemap.xml

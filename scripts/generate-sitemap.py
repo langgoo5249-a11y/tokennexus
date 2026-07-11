@@ -1,73 +1,29 @@
 #!/usr/bin/env python3
 """生成完整的sitemap.xml"""
 
-import os
+import os, re
 from datetime import datetime
 
 BASE_URL = "https://www.tokenfind.cn"
 TODAY = datetime.now().strftime("%Y-%m-%d")
 
-# 博客文章列表（排除index.html和guides.html本身）
-blog_articles = [
-    "ai-api-rate-limit-429-solution-guide-2026.html",
-    "ai-model-release-avalanche-july-2026-developer-guide.html",
-    "ai-api-peak-pricing-migration-guide-2026.html",
-    "ai-api-pricing-comparison-2026-guide.html",
-    "ai-api-cost-optimization-practical-guide.html",
-    "ai-api-async-batch-processing.html",
-    "ai-api-budget-roi-planning-2026.html",
-    "ai-api-caching-optimization-2026.html",
-    "ai-api-caching-strategy.html",
-    "ai-api-compliance-gdpr-guide-2026.html",
-    "ai-api-embedding-vector-search-guide.html",
-    "ai-api-error-codes-troubleshooting.html",
-    "ai-api-fine-tuning-guide.html",
-    "ai-api-function-calling-guide.html",
-    "ai-api-gateway-design-2026.html",
-    "ai-api-long-context-optimization.html",
-    "ai-api-migration-guide-2026.html",
-    "ai-api-monitoring-alerting.html",
-    "ai-api-multi-tenant-architecture-2026.html",
-    "ai-api-performance-testing.html",
-    "ai-api-pricing-comparison-guide-2025.html",
-    "ai-api-pricing-guide-2026.html",
-    "ai-api-proxy-relay-guide.html",
-    "ai-api-rate-limit-strategies.html",
-    "ai-api-security-guide-2026.html",
-    "ai-api-streaming-sse-guide.html",
-    "ai-api-streaming-optimization-2026.html",
-    "ai-api-testing-cicd-guide-2026.html",
-    "ai-api-token-billing-guide.html",
-    "ai-image-generation-api-comparison-2026.html",
-    "ai-model-routing-guide-2026.html",
-    "ai-tts-api-comparison-2026.html",
-    "ai-video-generation-api-comparison-2026.html",
-    "ai-prompt-engineering-guide.html",
-    "api-integration-best-practices.html",
-    "api-key-security-guide.html",
-    "china-ai-api-guide.html",
-    "china-api-transit-platform-guide.html",
-    "china-llm-ecosystem-2026.html",
-    "claude-api-guide-2026.html",
-    "deepseek-api-complete-guide.html",
-    "enterprise-ai-api-selection-guide.html",
-    "free-ai-api-guide-2026.html",
-    "free-ai-api-recommendations-2026.html",
-    "gemini-api-complete-guide.html",
-    "gpt4o-vs-claude35-sonnet-comparison.html",
-    "how-to-get-openai-api-key.html",
-    "multimodal-ai-api-development.html",
-    "openai-vs-deepseek-2026.html",
-    "openrouter-complete-guide.html",
-    "rag-ai-api-knowledge-base.html",
-    "top-10-ai-apis-2026.html",
-]
+# 获取脚本所在目录的父目录（网站根目录）
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+SITE_ROOT = os.path.dirname(SCRIPT_DIR)
+BLOG_DIR = os.path.join(SITE_ROOT, 'blog')
+PLATFORM_DIR = os.path.join(SITE_ROOT, 'platform')
+
+# 自动检测博客文章列表（排除index.html和guides.html）
+blog_articles = []
+if os.path.exists(BLOG_DIR):
+    for f in sorted(os.listdir(BLOG_DIR)):
+        if f.endswith('.html') and f not in ['index.html', 'guides.html']:
+            blog_articles.append(f)
 
 # 获取平台页面列表
-platform_dir = "/workspace/token-nav/platform"
 platform_pages = []
-if os.path.exists(platform_dir):
-    for f in os.listdir(platform_dir):
+if os.path.exists(PLATFORM_DIR):
+    for f in sorted(os.listdir(PLATFORM_DIR)):
         if f.endswith('.html') and not f.startswith('index'):
             platform_pages.append(f)
 
@@ -121,6 +77,31 @@ for page in ['about.html', 'contact.html', 'business.html', 'submit.html', 'priv
     xml_lines.append('        <priority>0.6</priority>')
     xml_lines.append('    </url>')
 
+def get_article_date(article_filename):
+    """从文章HTML中提取发布日期"""
+    article_path = os.path.join(BLOG_DIR, article_filename)
+    if not os.path.exists(article_path):
+        return TODAY
+    try:
+        with open(article_path, 'r', encoding='utf-8') as f:
+            content = f.read(8000)
+        # 尝试多种方式提取日期
+        # 1. article:published_time
+        date_match = re.search(r'article:published_time"\s+content="([^"]+)"', content)
+        if date_match:
+            return date_match.group(1)[:10]
+        # 2. datePublished in JSON-LD
+        date_match = re.search(r'"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})"', content)
+        if date_match:
+            return date_match.group(1)
+        # 3. datetime attribute
+        date_match = re.search(r'datetime="(\d{4}-\d{2}-\d{2})"', content)
+        if date_match:
+            return date_match.group(1)
+    except:
+        pass
+    return TODAY
+
 # AI 模型发现文件 (llms.txt)
 xml_lines.append('')
 xml_lines.append('    <!-- AI 模型发现文件 -->')
@@ -132,13 +113,24 @@ for txt_file in ['llms.txt', 'llms-full.txt']:
     xml_lines.append('        <priority>0.8</priority>')
     xml_lines.append('    </url>')
 
+# Image Sitemap
+xml_lines.append('')
+xml_lines.append('    <!-- Image Sitemap -->')
+xml_lines.append('    <url>')
+xml_lines.append(f'        <loc>{BASE_URL}/image-sitemap.xml</loc>')
+xml_lines.append(f'        <lastmod>{TODAY}</lastmod>')
+xml_lines.append('        <changefreq>weekly</changefreq>')
+xml_lines.append('        <priority>0.7</priority>')
+xml_lines.append('    </url>')
+
 # 攻略文章
 xml_lines.append('')
 xml_lines.append(f'    <!-- 攻略文章 ({len(blog_articles)}篇) -->')
 for article in blog_articles:
+    pub_date = get_article_date(article)
     xml_lines.append('    <url>')
     xml_lines.append(f'        <loc>{BASE_URL}/blog/{article}</loc>')
-    xml_lines.append(f'        <lastmod>{TODAY}</lastmod>')
+    xml_lines.append(f'        <lastmod>{pub_date}</lastmod>')
     xml_lines.append('        <changefreq>weekly</changefreq>')
     xml_lines.append('        <priority>0.8</priority>')
     xml_lines.append('    </url>')
@@ -157,7 +149,7 @@ for platform in platform_pages:
 xml_lines.append('</urlset>')
 
 # 写入文件
-output_path = "/workspace/token-nav/sitemap.xml"
+output_path = os.path.join(SITE_ROOT, "sitemap.xml")
 with open(output_path, 'w', encoding='utf-8') as f:
     f.write('\n'.join(xml_lines))
 
