@@ -30,7 +30,7 @@ var _hmt = _hmt || [];
     <meta name="baiduspider" content="index, follow, max-snippet:-1">
     <meta name="google-site-verification" content="3FATe9bp1LttSUR3xRU93RCPefwi_Vyo94PtCH-dJ8Q">
     <title>DeepSeek V4峰谷定价落地：2026下半年大模型API迁移避坑指南 | TokenNexus</title>
-    <meta name="author" content="TokenNexus团队">
+    <meta name="author" content="林小雪">
     <meta name="description" content="DeepSeek V4峰谷定价落地：2026下半年大模型API迁移避坑指南。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI AP">
     <meta name="keywords" content="DeepSeek V4峰谷定价,大模型API迁移避坑,2026下半年AI API省钱,Claude Fable 5替代方案,Gemini 3.5 Flash降价,AI API峰谷计费,国产大模型API选型">
     <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-peak-pricing-migration-guide-2026">
@@ -46,13 +46,14 @@ var _hmt = _hmt || [];
     <meta property="og:image" content="https://www.tokenfind.cn/blog/images/ai-api-peak-pricing-migration-guide-2026.jpg">
     <meta property="article:published_time" content="2026-06-30T08:00:00+08:00">
     <meta property="article:modified_time" content="2026-06-30T08:00:00+08:00">
-    <meta property="article:author" content="TokenNexus团队">
+    <meta property="article:author" content="林小雪">
     <meta property="article:tag" content="DeepSeek V4峰谷定价">
     <meta property="article:tag" content="大模型API迁移">
     <meta property="article:tag" content="AI API省钱">
     <meta property="article:tag" content="Claude Fable 5">
     
     <!-- Twitter Card -->
+    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="DeepSeek V4峰谷定价落地：2026下半年大模型API迁移避坑指南">
     <meta name="twitter:description" content="DeepSeek V4峰谷定价落地：2026下半年大模型API迁移避坑指南。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI AP">
@@ -466,17 +467,7 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-peak-pricing-migration-guide-2026"
             },
-            "author": {
-                "@type": "Person",
-                "name": "TokenNexus团队",
-                "description": "TokenNexus团队，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
-                "url": "https://www.tokenfind.cn/about",
-                "jobTitle": "AI API内容编辑",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "TokenNexus",
-                    "url": "https://www.tokenfind.cn/"
-                }
+            "author": {"@type": "Person", "name": "林小雪"}
             },
             "publisher": {
                 "@type": "Organization",
@@ -679,7 +670,19 @@ var _hmt = _hmt || [];
                     <span>广告位：336x280</span>
                 </div>
 
-                <h2>第一件事：DeepSeek峰谷定价，到底涨了多少</h2>
+                <!-- 作者信息 -->
+            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
+                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">林</div>
+                <div>
+                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">林小雪 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">AI产品经理 · API成本优化专家</span></div>
+                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">专注AI API商业化与成本优化5年，服务过200+企业客户。擅长Token预算规划、定价策略分析和ROI评估，帮助客户平均降低60% API支出。</p>
+                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
+                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
+                    </div>
+                </div>
+            </div>
+
+<h2>第一件事：DeepSeek峰谷定价，到底涨了多少</h2>
 
                 <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先说清楚事实。DeepSeek V4 Pro和V4 Flash的"平时价格"和现在完全一样，变的只是高峰时段。我拉了官方公布的价格表，换算成人民币：</p>
 

@@ -29,7 +29,7 @@ var _hmt = _hmt || [];
     <title>一个全栈工程师的AI API接入日记：从零到上线的30天真实踩坑记录 | TokenNexus</title>
     <meta name="description" content="一个全栈工程师的AI API接入日记：从零到上线的30天真实踩坑记录。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API 平">
     <meta name="keywords" content="AI API接入经验, OpenAI API踩坑, DeepSeek API迁移, API Key泄露处理, 429限流解决, AI API账单控制, Prompt注入防护, 全栈工程师AI接入, AI API上线经验, API成本暴涨原因, AI API接入踩坑记录, OpenAI API密钥泄露怎么办, DeepSeek API迁移经验, AI API账单暴涨原因, 429 Too Many Requests解决">
-    <meta name="author" content="TokenNexus社区作者">
+    <meta name="author" content="张蕾">
     <meta name="robots" content="index, follow">
 
     <!-- GEO优化标签 -->
@@ -51,7 +51,7 @@ var _hmt = _hmt || [];
     <meta property="og:image" content="https://www.tokenfind.cn/blog/images/ai-api-integration-diary-fullstack-engineer-2026.jpg">
     <meta property="article:published_time" content="2026-06-22T10:00:00+08:00">
     <meta property="article:modified_time" content="2026-06-22T10:00:00+08:00">
-    <meta property="article:author" content="TokenNexus社区作者">
+    <meta property="article:author" content="张蕾">
     <meta property="article:section" content="实战经验">
     <meta property="article:tag" content="AI API接入经验">
     <meta property="article:tag" content="OpenAI API踩坑">
@@ -60,6 +60,7 @@ var _hmt = _hmt || [];
     <meta property="article:tag" content="429限流解决">
 
     <!-- Twitter Card -->
+    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="一个全栈工程师的AI API接入日记：从零到上线的30天真实踩坑记录">
     <meta name="twitter:description" content="一个全栈工程师的AI API接入日记：从零到上线的30天真实踩坑记录。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API 平">
@@ -677,17 +678,7 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-integration-diary-fullstack-engineer-2026"
             },
-            "author": {
-                "@type": "Person",
-                "name": "TokenNexus社区作者",
-                "description": "TokenNexus社区作者，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
-                "url": "https://www.tokenfind.cn/about",
-                "jobTitle": "AI API内容编辑",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "TokenNexus",
-                    "url": "https://www.tokenfind.cn/"
-                }
+            "author": {"@type": "Person", "name": "张蕾"}
             },
             "publisher": {
                 "@type": "Organization",
@@ -1050,7 +1041,19 @@ var _hmt = _hmt || [];
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这次事故让我深刻理解了<strong>OpenAI API密钥泄露怎么办</strong>这个问题的严重性。后来我在<a href="https://www.tokenfind.cn/" target="_blank">TokenNexus</a>的安全专栏里看到，API Key泄露后平均4小时内就会被自动化工具扫描到。我们的Key暴露了72小时，能只损失487刀，已经算运气好了。</p>
 
-            <!-- 广告位1 -->
+            
+<!-- 作者信息 -->
+            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
+                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">张</div>
+                <div>
+                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">张蕾 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">技术内容主编 · AI API生态观察者</span></div>
+                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">5年AI技术内容创作经验，深度体验过200+ AI API平台。擅长技术评测、平台对比和开发者工具推荐，文章被多个技术社区转载。</p>
+                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
+                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
+                    </div>
+                </div>
+            </div>
+<!-- 广告位1 -->
             <div class="ad-placeholder in-article">
                 <span>广告位预留 (336x280)</span>
             </div>

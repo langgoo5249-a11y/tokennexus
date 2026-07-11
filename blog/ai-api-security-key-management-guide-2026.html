@@ -20,7 +20,7 @@ s.parentNode.insertBefore(el, s);
     <title>AI API安全实战：我是如何防止API Key泄露并过SOC2审计的 | TokenNexus博客</title>
     <meta name="description" content="AI API安全实战：我是如何防止API Key泄露并过SOC2审计的。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API ">
     <meta name="keywords" content="AI API安全,API Key管理,SOC2合规,数据泄露防护,零信任架构,密钥轮换,AI产品安全审计,Prompt Injection防护,API安全最佳实践,AI安全审计">
-    <meta name="author" content="TokenNexus团队">
+    <meta name="author" content="王浩然">
 
     <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-security-key-management-guide-2026">
     <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/blog/ai-api-security-key-management-guide-2026">
@@ -34,10 +34,11 @@ s.parentNode.insertBefore(el, s);
     <meta property="og:image" content="https://www.tokenfind.cn/blog/images/ai-api-security-key-management-guide.jpg">
     <meta property="article:published_time" content="2026-06-05">
     <meta property="article:modified_time" content="2026-06-05">
-    <meta property="article:author" content="TokenNexus团队">
+    <meta property="article:author" content="王浩然">
     <meta property="article:section" content="技术教程">
     <meta property="article:tag" content="AI API安全,API Key管理,SOC2合规,零信任架构,密钥轮换">
 
+    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI API安全实战：防止API Key泄露并过SOC2审计">
     <meta name="twitter:description" content="AI API安全实战：我是如何防止API Key泄露并过SOC2审计的。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API ">
@@ -106,17 +107,7 @@ s.parentNode.insertBefore(el, s);
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-security-key-management-guide-2026"
             },
-            "author": {
-                "@type": "Person",
-                "name": "TokenNexus团队",
-                "description": "TokenNexus团队，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
-                "url": "https://www.tokenfind.cn/about",
-                "jobTitle": "AI API内容编辑",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "TokenNexus",
-                    "url": "https://www.tokenfind.cn/"
-                }
+            "author": {"@type": "Person", "name": "王浩然"}
             },
             "publisher": {
                 "@type": "Organization",
@@ -230,7 +221,7 @@ s.parentNode.insertBefore(el, s);
             <div class="article-meta">
                 <div class="author-info">
                     <div class="author-avatar"></div>
-                    <span>TokenNexus团队</span>
+                    <span>王浩然</span>
                 </div>
                 <span>2026-06-05</span>
                 <span>阅读时间：19分钟</span>
@@ -297,7 +288,19 @@ s.parentNode.insertBefore(el, s);
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这件事给我敲响了警钟。过去两年，我带领团队从零开始搭建了一套AI API安全体系，不仅成功防止了类似事件，还在今年3月顺利通过了SOC 2 Type II审计。今天，我想把这段实战经验完整分享出来，希望能帮到正在做AI产品的技术负责人和安全工程师。</p>
 
-            <h2>一、API Key泄露的五个真实场景</h2>
+            <!-- 作者信息 -->
+            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
+                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">王</div>
+                <div>
+                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">王浩然 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">后端工程师 · 安全合规专家</span></div>
+                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">信息安全专业出身，持有CISSP认证，专注AI API安全架构与数据合规。主导过SOC2/ISO27001认证项目，在GDPR/等保合规方面有丰富实战经验。</p>
+                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
+                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
+                    </div>
+                </div>
+            </div>
+
+<h2>一、API Key泄露的五个真实场景</h2>
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在谈解决方案之前，我们必须先理解问题是怎么发生的。API Key泄露从来不是"技术失误"这么简单，背后往往是一整套流程和意识的缺失。以下五个场景，全部来自我亲身经历或同行真实案例。</p>
 

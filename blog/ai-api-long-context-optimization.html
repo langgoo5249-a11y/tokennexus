@@ -29,7 +29,7 @@ var _hmt = _hmt || [];
     <title>AI API长上下文(Long Context)优化实战：从20万到200万token的进化之路 | TokenNexus博客</title>
     <meta name="description" content="AI API长上下文(Long Context)优化实战：从20万到200万token的进化之路。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法、成本控制技巧与部署注意事项，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目成功率。">
     <meta name="keywords" content="AI长上下文,Long Context优化,Gemini 200万token,Claude 200K上下文,大模型上下文窗口,上下文压缩,Lost in the Middle,长文本AI处理">
-    <meta name="author" content="TokenNexus团队">
+    <meta name="author" content="赵思远">
     <meta name="robots" content="index, follow">
 
     <!-- Canonical URL -->
@@ -55,7 +55,7 @@ var _hmt = _hmt || [];
     <meta property="og:image" content="https://www.tokenfind.cn/og-image.png">
     <meta property="article:published_time" content="2026-05-19T10:00:00+08:00">
     <meta property="article:modified_time" content="2026-05-19T10:00:00+08:00">
-    <meta property="article:author" content="TokenNexus团队">
+    <meta property="article:author" content="赵思远">
     <meta property="article:section" content="技术教程">
     <meta property="article:tag" content="AI长上下文">
     <meta property="article:tag" content="Long Context优化">
@@ -66,6 +66,7 @@ var _hmt = _hmt || [];
     <meta property="article:tag" content="Lost in the Middle">
 
     <!-- Twitter Card -->
+    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI API长上下文(Long Context)优化实战：从20万到200万token的进化之路">
     <meta name="twitter:description" content="AI API长上下文(Long Context)优化实战：从20万到200万token的进化之路。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法、成本控制技巧与部署注意事项，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目成功率。">
@@ -606,17 +607,7 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-long-context-optimization"
             },
-            "author": {
-                "@type": "Person",
-                "name": "TokenNexus团队",
-                "description": "TokenNexus团队，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
-                "url": "https://www.tokenfind.cn/about",
-                "jobTitle": "AI API内容编辑",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "TokenNexus",
-                    "url": "https://www.tokenfind.cn/"
-                }
+            "author": {"@type": "Person", "name": "赵思远"}
             },
             "publisher": {
                 "@type": "Organization",
@@ -850,7 +841,19 @@ var _hmt = _hmt || [];
             </div>
 
 
-                <h2>什么是长上下文？为什么它成了竞争焦点</h2>
+                <!-- 作者信息 -->
+            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
+                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">赵</div>
+                <div>
+                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">赵思远 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">AI研究员 · 多模态应用专家</span></div>
+                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">计算机视觉博士，前大厂AI Lab研究员。专注多模态大模型应用开发，在Agent系统、Function Calling和图像生成领域有深入研究。</p>
+                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
+                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
+                    </div>
+                </div>
+            </div>
+
+<h2>什么是长上下文？为什么它成了竞争焦点</h2>
                 <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">简单来说，长上下文(Long Context)指的是大语言模型能够一次性处理的文本长度。早期的GPT-3只有2048个token的上下文窗口，这意味着你塞进去一篇稍微长点的文章，模型就"失忆"了。</p>
 
                 <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">2024年开始，情况发生了质变。<a href="/blog/gemini-api-complete-guide" style="color:#00f0ff;text-decoration:none;">Google</a>在I/O大会上宣布Gemini 1.5 Pro支持100万token上下文，随后更是扩展到200万token——这相当于可以一次性处理超过3000页PDF文档。Anthropic紧随其后，将Claude 3的上下文窗口从100K提升到200K。国内厂商也不甘示弱，阿里通义千问2.5直接宣布支持100万token。</p>

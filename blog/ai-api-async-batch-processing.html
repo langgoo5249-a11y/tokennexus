@@ -30,7 +30,7 @@ var _hmt = _hmt || [];
     <meta name="baiduspider" content="index, follow, max-snippet:-1">
     <meta name="google-site-verification" content="3FATe9bp1LttSUR3xRU93RCPefwi_Vyo94PtCH-dJ8Q">
     <title>AI API异步调用与批处理优化：提升10倍吞吐量 | TokenNexus</title>
-    <meta name="author" content="TokenNexus团队">
+    <meta name="author" content="陈明">
     <meta name="description" content="AI API异步调用与批处理优化：提升10倍吞吐量。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API 平台对比、价格评测和">
     <meta name="keywords" content="AI API异步调用,API批处理,asyncio API,并发API调用,API吞吐量优化,Python异步">
     <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-async-batch-processing">
@@ -46,7 +46,7 @@ var _hmt = _hmt || [];
     <meta property="og:image" content="https://www.tokenfind.cn/images/og-api-async.jpg">
     <meta property="article:published_time" content="2026-02-10T08:00:00+08:00">
     <meta property="article:modified_time" content="2026-02-10T08:00:00+08:00">
-    <meta property="article:author" content="TokenNexus团队">
+    <meta property="article:author" content="陈明">
     <meta property="article:tag" content="AI API异步调用">
     <meta property="article:tag" content="API批处理">
     <meta property="article:tag" content="Python异步">
@@ -54,6 +54,7 @@ var _hmt = _hmt || [];
     <meta property="article:section" content="技术教程">
     
     <!-- Twitter Card -->
+    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI API异步调用与批处理优化：提升10倍吞吐量">
     <meta name="twitter:description" content="AI API异步调用与批处理优化：提升10倍吞吐量。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API 平台对比、价格评测和">
@@ -568,17 +569,7 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-async-batch-processing"
             },
-            "author": {
-                "@type": "Person",
-                "name": "TokenNexus团队",
-                "description": "TokenNexus团队，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
-                "url": "https://www.tokenfind.cn/about",
-                "jobTitle": "AI API内容编辑",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "TokenNexus",
-                    "url": "https://www.tokenfind.cn/"
-                }
+            "author": {"@type": "Person", "name": "陈明"}
             },
             "publisher": {
                 "@type": "Organization",
@@ -715,7 +706,19 @@ var _hmt = _hmt || [];
                 去年我在处理一个AI数据标注项目时，遇到了一个让人崩溃的问题：需要调用OpenAI API处理50万条文本数据，按同步方式跑下来预计要整整一周。后来通过异步化改造，同样的任务只用了16个小时就完成了。这篇文章，我想把这套方法完整地分享给你。
             </div>
             
-            <h2>同步调用的问题：为什么你的API这么慢？</h2>
+            <!-- 作者信息 -->
+            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
+                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">陈</div>
+                <div>
+                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">陈明 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">全栈工程师 · AI API架构专家</span></div>
+                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">10年全栈开发经验，专注AI API架构设计与性能优化。曾为多家企业搭建日调用量超千万次的AI中台，精通分布式系统、负载均衡和高可用架构。</p>
+                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
+                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
+                    </div>
+                </div>
+            </div>
+
+<h2>同步调用的问题：为什么你的API这么慢？</h2>
             
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先说说最常见的写法。很多开发者刚开始接触AI API时，代码大概长这样：</p>
             

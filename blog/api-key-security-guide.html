@@ -29,7 +29,7 @@ var _hmt = _hmt || [];
     <title>AI API安全使用指南：保护API Key最佳实践 | TokenNexus</title>
     <meta name="description" content="AI API安全使用指南：保护API Key最佳实践。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API 平台对比、价格评测">
     <meta name="keywords" content="API Key安全, API Key保护, AI API密钥管理, API安全, GitHub API Key泄露">
-    <meta name="author" content="TokenNexus团队">
+    <meta name="author" content="王浩然">
     <meta name="robots" content="index, follow">
     
     <!-- Canonical URL -->
@@ -46,7 +46,7 @@ var _hmt = _hmt || [];
     <meta property="og:locale" content="zh_CN">
     <meta property="article:published_time" content="2026-03-15T10:00:00+08:00">
     <meta property="article:modified_time" content="2026-07-03T08:00:00+08:00">
-    <meta property="article:author" content="TokenNexus团队">
+    <meta property="article:author" content="王浩然">
     <meta property="article:section" content="技术教程">
     <meta property="article:tag" content="API Key安全">
     <meta property="article:tag" content="API Key保护">
@@ -54,6 +54,7 @@ var _hmt = _hmt || [];
     <meta property="article:tag" content="API安全">
     
     <!-- Twitter Card -->
+    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI API安全使用指南：保护API Key最佳实践">
     <meta name="twitter:description" content="AI API安全使用指南：保护API Key最佳实践。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API 平台对比、价格评测">
@@ -541,17 +542,7 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/api-key-security-guide"
             },
-            "author": {
-                "@type": "Person",
-                "name": "TokenNexus团队",
-                "description": "TokenNexus团队，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
-                "url": "https://www.tokenfind.cn/about",
-                "jobTitle": "AI API内容编辑",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "TokenNexus",
-                    "url": "https://www.tokenfind.cn/"
-                }
+            "author": {"@type": "Person", "name": "王浩然"}
             },
             "publisher": {
                 "@type": "Organization",
@@ -677,7 +668,7 @@ var _hmt = _hmt || [];
             <span class="article-category">技术教程</span>
             <h1 class="article-title">AI API安全使用指南：保护API Key最佳实践</h1>
             <div class="article-meta">
-                <span>&#128100; TokenNexus团队</span>
+                <span>&#128100; 王浩然</span>
                 <span>&#128197; 2026-03-15</span>
                 <span>&#128337; 12分钟阅读</span>
             </div>
@@ -852,7 +843,19 @@ var _hmt = _hmt || [];
                 <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">某产品团队在2025年底上线新功能时，由于新来的实习生不熟悉规范，将包含测试API Key的.env文件推送到了GitHub仓库。虽然5分钟后发现了问题并删除了提交，但Key已经被多个自动化机器人捕获。该团队为此付出了约1.2万元的账单和3天的排查时间。</p>
             </div>
             
-            <!-- 广告位1 -->
+            
+<!-- 作者信息 -->
+            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
+                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">王</div>
+                <div>
+                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">王浩然 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">后端工程师 · 安全合规专家</span></div>
+                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">信息安全专业出身，持有CISSP认证，专注AI API安全架构与数据合规。主导过SOC2/ISO27001认证项目，在GDPR/等保合规方面有丰富实战经验。</p>
+                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
+                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
+                    </div>
+                </div>
+            </div>
+<!-- 广告位1 -->
             <div class="ad-placeholder in-article">
                 <span>广告位预留 (336x280)</span>
             </div>

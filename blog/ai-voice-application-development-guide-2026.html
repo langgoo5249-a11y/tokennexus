@@ -30,7 +30,7 @@ var _hmt = _hmt || [];
     <meta name="baiduspider" content="index, follow, max-snippet:-1">
     <meta name="google-site-verification" content="3FATe9bp1LttSUR3xRU93RCPefwi_Vyo94PtCH-dJ8Q">
     <title>我是如何用AI语音API做出日活过万的声音助手：从想法到MVP的完整复盘 | TokenNexus</title>
-    <meta name="author" content="TokenNexus社区作者">
+    <meta name="author" content="赵思远">
     <meta name="description" content="我是如何用AI语音API做出日活过万的声音助手：从想法到MVP的完整复盘。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API">
     <meta name="keywords" content="AI语音应用开发, AI语音助手开发, OpenAI Realtime API, ElevenLabs中文语音, AI语音合成实战, 语音识别API选型, AI通话机器人, 语音交互产品设计, AI播客生成, 语音API成本优化">
     <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-voice-application-development-guide-2026">
@@ -50,7 +50,7 @@ var _hmt = _hmt || [];
     <meta property="og:image" content="https://www.tokenfind.cn/blog/images/ai-voice-application-development-guide-2026.jpg">
     <meta property="article:published_time" content="2026-06-23T08:00:00+08:00">
     <meta property="article:modified_time" content="2026-06-23T08:00:00+08:00">
-    <meta property="article:author" content="TokenNexus社区作者">
+    <meta property="article:author" content="赵思远">
     <meta property="article:tag" content="AI语音应用开发">
     <meta property="article:tag" content="AI语音助手开发">
     <meta property="article:tag" content="OpenAI Realtime API">
@@ -63,6 +63,7 @@ var _hmt = _hmt || [];
     <meta property="article:tag" content="语音API成本优化">
 
     <!-- Twitter Card -->
+    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="我是如何用AI语音API做出日活过万的声音助手：从想法到MVP的完整复盘">
     <meta name="twitter:description" content="我是如何用AI语音API做出日活过万的声音助手：从想法到MVP的完整复盘。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API">
@@ -236,17 +237,7 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-voice-application-development-guide-2026"
             },
-            "author": {
-                "@type": "Person",
-                "name": "TokenNexus社区作者",
-                "description": "TokenNexus社区作者，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
-                "url": "https://www.tokenfind.cn/about",
-                "jobTitle": "AI API内容编辑",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "TokenNexus",
-                    "url": "https://www.tokenfind.cn/"
-                }
+            "author": {"@type": "Person", "name": "赵思远"}
             },
             "publisher": {
                 "@type": "Organization",
@@ -450,7 +441,19 @@ var _hmt = _hmt || [];
                 </div>
             </div>
 
-            <h2>一、项目背景和需求分析</h2>
+            <!-- 作者信息 -->
+            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
+                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">赵</div>
+                <div>
+                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">赵思远 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">AI研究员 · 多模态应用专家</span></div>
+                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">计算机视觉博士，前大厂AI Lab研究员。专注多模态大模型应用开发，在Agent系统、Function Calling和图像生成领域有深入研究。</p>
+                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
+                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
+                    </div>
+                </div>
+            </div>
+
+<h2>一、项目背景和需求分析</h2>
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最开始，我给自己定了三个原则：不做复杂硬件、不碰合规雷区、先验证再堆功能。目标用户很明确：想练口语但找不到陪练的人、想快速记录语音灵感但懒得打字的人、想做播客但配音成本高的团队。</p>
 

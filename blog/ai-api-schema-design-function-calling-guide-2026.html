@@ -25,7 +25,7 @@ var _hmt = _hmt || [];
     <title>AI API Schema设计实战：从踩坑到精通 | TokenNexus AI API攻略</title>
     <meta name="description" content="AI API Schema设计实战：从踩坑到精通。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法、成本控制技巧与部署注意事项，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目成功率。欢迎访问 TokenNexus 获取更多 AI API 平台对比、">
     <meta name="keywords" content="Function Calling Schema设计, AI API Schema规范, JSON Schema AI, 工具调用接口设计, OpenAI function参数, Gemini function declaration, AI Schema版本管理">
-    <meta name="author" content="TokenNexus Team">
+    <meta name="author" content="张蕾">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-schema-design-function-calling-guide-2026">
     <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/blog/ai-api-schema-design-function-calling-guide-2026">
@@ -39,6 +39,7 @@ var _hmt = _hmt || [];
     <meta property="article:published_time" content="2026-06-09">
     <meta property="article:modified_time" content="2026-06-09">
     <meta property="article:section" content="技术教程">
+    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8"></script>
     <script>
@@ -111,17 +112,7 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-schema-design-function-calling-guide-2026"
             },
-            "author": {
-                "@type": "Person",
-                "name": "TokenNexus Team",
-                "description": "TokenNexus Team，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
-                "url": "https://www.tokenfind.cn/about",
-                "jobTitle": "AI API内容编辑",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "TokenNexus",
-                    "url": "https://www.tokenfind.cn/"
-                }
+            "author": {"@type": "Person", "name": "张蕾"}
             },
             "publisher": {
                 "@type": "Organization",
@@ -296,7 +287,19 @@ var _hmt = _hmt || [];
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">今天就把Schema设计里那些容易踩的坑、能让LLM乖乖听话的技巧，全部整理出来。</p>
 
-            <h2>JSON Schema核心关键字：让LLM精确理解你的意图</h2>
+            <!-- 作者信息 -->
+            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
+                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">张</div>
+                <div>
+                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">张蕾 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">技术内容主编 · AI API生态观察者</span></div>
+                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">5年AI技术内容创作经验，深度体验过200+ AI API平台。擅长技术评测、平台对比和开发者工具推荐，文章被多个技术社区转载。</p>
+                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
+                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
+                    </div>
+                </div>
+            </div>
+
+<h2>JSON Schema核心关键字：让LLM精确理解你的意图</h2>
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Function Calling的本质是让LLM理解"我需要什么参数"，而JSON Schema就是你和LLM之间的契约文档。下面这几个关键字，我踩了无数坑才总结出<a href="/blog/api-key-security-guide" style="color:#00f0ff;text-decoration:none;">最佳实践</a>。</p>
 

@@ -31,7 +31,7 @@ var _hmt = _hmt || [];
     <meta name="bingbot" content="index, follow">
     <meta name="baiduspider" content="index, follow, max-snippet:-1">
     <title>AI API集成最佳实践：错误处理与性能优化 | TokenNexus博客</title>
-    <meta name="author" content="TokenNexus">
+    <meta name="author" content="陈明">
     <meta name="description" content="AI API集成最佳实践：错误处理与性能优化。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法、成本控制技巧与部署注意事项，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目成功率。欢迎访问 TokenNexus 获取更多 AI API 平台对比、">
     <meta name="keywords" content="AI API集成,API错误处理,API重试策略,API流式响应,AI API性能优化,API成本控制,rate limiting">
 
@@ -52,6 +52,7 @@ var _hmt = _hmt || [];
     <meta property="article:tag" content="Python">
 
     <!-- Twitter Card -->
+    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI API集成最佳实践：错误处理与性能优化">
     <meta name="twitter:description" content="AI API集成最佳实践：错误处理与性能优化。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法、成本控制技巧与部署注意事项，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目成功率。欢迎访问 TokenNexus 获取更多 AI API 平台对比、">
@@ -163,17 +164,7 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/api-integration-best-practices"
             },
-            "author": {
-                "@type": "Person",
-                "name": "TokenNexus内容团队",
-                "description": "TokenNexus，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
-                "url": "https://www.tokenfind.cn/about",
-                "jobTitle": "AI API内容编辑",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "TokenNexus",
-                    "url": "https://www.tokenfind.cn/"
-                }
+            "author": {"@type": "Person", "name": "陈明"}
             },
             "publisher": {
                 "@type": "Organization",
@@ -350,7 +341,19 @@ var _hmt = _hmt || [];
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这篇文章会把我们在生产环境里摸爬滚打总结出来的经验整理出来，涵盖错误处理、重试策略、流式响应、成本控制这些核心话题。所有代码都是Python实现，可以直接拿去用。</p>
 
-            <h2>一、API错误处理：别让一次失败拖垮整个服务</h2>
+            <!-- 作者信息 -->
+            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
+                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">陈</div>
+                <div>
+                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">陈明 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">全栈工程师 · AI API架构专家</span></div>
+                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">10年全栈开发经验，专注AI API架构设计与性能优化。曾为多家企业搭建日调用量超千万次的AI中台，精通分布式系统、负载均衡和高可用架构。</p>
+                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
+                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
+                    </div>
+                </div>
+            </div>
+
+<h2>一、API错误处理：别让一次失败拖垮整个服务</h2>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">调用AI API时，你大概率会遇到这几类错误：</p>
             <div class="debug-note" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-left:4px solid #ffd700;border-radius:0 8px 8px 0;padding:20px;margin:28px 0;">
                 <h4 style="color:#ffd700;margin:0 0 12px;font-size:1rem;">⚠️ 踩坑备注：成本失控的常见原因</h4>

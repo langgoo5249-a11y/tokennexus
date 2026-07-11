@@ -69,7 +69,7 @@ for page in ['official.html', 'aggregator.html', 'china.html']:
 # 信息页面
 xml_lines.append('')
 xml_lines.append('    <!-- 信息页面 -->')
-for page in ['about.html', 'contact.html', 'business.html', 'submit.html', 'privacy.html', 'terms.html', 'disclaimer.html']:
+for page in ['about.html', 'contact.html', 'business.html', 'submit.html', 'privacy.html', 'terms.html', 'disclaimer.html', 'editorial-process.html']:
     xml_lines.append('    <url>')
     xml_lines.append(f'        <loc>{BASE_URL}/{page}</loc>')
     xml_lines.append(f'        <lastmod>{TODAY}</lastmod>')
@@ -157,7 +157,7 @@ print(f"Sitemap generated: {output_path}")
 print(f"- Homepage: 1")
 print(f"- Blog listing: 1")
 print(f"- Category pages: 3")
-print(f"- Info pages: 7")
+print(f"- Info pages: 8")
 print(f"- Blog articles: {len(blog_articles)}")
 print(f"- Platform pages: {len(platform_pages)}")
-print(f"- Total URLs: {1 + 1 + 3 + 7 + len(blog_articles) + len(platform_pages)}")
+print(f"- Total URLs: {1 + 1 + 3 + 8 + len(blog_articles) + len(platform_pages)}")

@@ -20,7 +20,7 @@ s.parentNode.insertBefore(el, s);
     <title>AI API本地测试沙盒搭建完全指南：从Mock到A/B测试的实战方案 | TokenNexus博客</title>
     <meta name="description" content="详解AI API本地测试沙盒搭建方法，包含LLM Mock测试、API本地开发环境配置、Mock Server选型、模型A/B测试方法，帮助开发者降低测试成本并提升AI应用稳定性。">
     <meta name="keywords" content="AI API本地测试沙盒,LLM Mock测试,API本地开发环境,Mock Server搭建,模型A/B测试方法,AI API测试工具">
-    <meta name="author" content="TokenNexus团队">
+    <meta name="author" content="张蕾">
     
     <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-local-testing-sandbox-2026">
     <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/blog/ai-api-local-testing-sandbox-2026">
@@ -34,10 +34,11 @@ s.parentNode.insertBefore(el, s);
     <meta property="og:image" content="https://www.tokenfind.cn/blog/images/ai-api-local-testing-sandbox-2026.jpg">
     <meta property="article:published_time" content="2026-07-05">
     <meta property="article:modified_time" content="2026-07-05">
-    <meta property="article:author" content="TokenNexus团队">
+    <meta property="article:author" content="张蕾">
     <meta property="article:section" content="开发实战">
     <meta property="article:tag" content="AI API,测试沙盒,Mock测试,A/B测试,本地开发">
     
+    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI API本地测试沙盒搭建完全指南：从Mock到A/B测试的实战方案">
     <meta name="twitter:description" content="详解AI API本地测试沙盒搭建方法，包含LLM Mock测试、API本地开发环境配置、Mock Server选型、模型A/B测试方法，帮助开发者降低测试成本并提升AI应用稳定性。">
@@ -108,12 +109,7 @@ s.parentNode.insertBefore(el, s);
             "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.tokenfind.cn/blog/ai-api-local-testing-sandbox-2026"},
             "datePublished": "2026-07-05",
             "dateModified": "2026-07-05",
-            "author": {
-                "@type": "Person",
-                "name": "TokenNexus团队",
-                "url": "https://www.tokenfind.cn/about",
-                "jobTitle": "AI API 研究员",
-                "worksFor": {"@type": "Organization", "name": "TokenNexus", "url": "https://www.tokenfind.cn"}
+            "author": {"@type": "Person", "name": "张蕾"}
             },
             "publisher": {
                 "@type": "Organization",
@@ -187,7 +183,7 @@ s.parentNode.insertBefore(el, s);
                 <div class="article-meta">
                     <div class="author-info">
                         <div class="author-avatar"></div>
-                        <span>TokenNexus团队</span>
+                        <span>张蕾</span>
                     </div>
                     <span>·</span>
                     <time datetime="2026-07-05">2026-07-05</time>
@@ -202,7 +198,19 @@ s.parentNode.insertBefore(el, s);
             <p>去年我做 AI 应用开发时，最痛苦的不是写代码，而是测试。每次跑单元测试都要调用 OpenAI API，一个 200 条的测试用例跑下来，几十美元就没了。更崩溃的是，有些边界情况（比如模型返回空字符串、JSON 解析失败、429 限频）根本没法稳定复现——今天能跑出来，明天同样的代码就过了。</p>
             <p>后来我花了两周时间搭了一套 AI API 本地测试沙盒，把测试成本压到了原来的 5%，而且那些线上才出现的奇奇怪怪的问题，在本地就能提前发现。这篇文章我会把整个方案分享出来，从最简单的 Mock 到高级的 A/B 测试，适合个人开发者也适合中小团队。</p>
 
-            <h2>为什么必须用本地沙盒测试 AI API</h2>
+            <!-- 作者信息 -->
+            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
+                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">张</div>
+                <div>
+                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">张蕾 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">技术内容主编 · AI API生态观察者</span></div>
+                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">5年AI技术内容创作经验，深度体验过200+ AI API平台。擅长技术评测、平台对比和开发者工具推荐，文章被多个技术社区转载。</p>
+                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
+                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
+                    </div>
+                </div>
+            </div>
+
+<h2>为什么必须用本地沙盒测试 AI API</h2>
             <p>直接用生产 API 测试有三个致命问题。<strong>第一，成本高。</strong>以 GPT-4o 为例，输入 $2.5/百万 token、输出 $10/百万 token，一个中大型项目的 CI 测试每月轻松烧掉几百美元。<strong>第二，不稳定。</strong>网络抖动、平台限频、模型行为微调都会让同样的测试用例有时通过有时失败。<strong>第三，无法测试异常场景。</strong>你总不能故意把 API Key 写错、故意触发内容安全策略吧？但在生产环境，这些都是真实会发生的。</p>
             <div class="tip-box">
                 <div class="tip-box-title">💡 成本对比：真实API vs 本地Mock</div>

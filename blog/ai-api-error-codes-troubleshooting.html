@@ -30,7 +30,7 @@ var _hmt = _hmt || [];
     <meta name="baiduspider" content="index, follow, max-snippet:-1">
     <meta name="google-site-verification" content="3FATe9bp1LttSUR3xRU93RCPefwi_Vyo94PtCH-dJ8Q">
     <title>AI API错误码大全与故障排查：OpenAI、Claude、国内平台踩坑实录 | TokenNexus</title>
-    <meta name="author" content="TokenNexus团队">
+    <meta name="author" content="张蕾">
     <meta name="description" content="AI API错误码大全与故障排查：OpenAI、Claude、国内平台踩坑实录。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI ">
     <meta name="keywords" content="AI API错误码,OpenAI 429错误,OpenAI rate limit,API错误处理,Claude API错误,AI API故障排查,API重试策略,context_length_exceeded,AI API超时处理">
     <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting">
@@ -46,7 +46,7 @@ var _hmt = _hmt || [];
     <meta property="og:image" content="https://www.tokenfind.cn/blog/images/api-monitoring.jpg">
     <meta property="article:published_time" content="2026-05-14T08:00:00+08:00">
     <meta property="article:modified_time" content="2026-05-14T08:00:00+08:00">
-    <meta property="article:author" content="TokenNexus团队">
+    <meta property="article:author" content="张蕾">
     <meta property="article:tag" content="AI API错误码">
     <meta property="article:tag" content="OpenAI错误处理">
     <meta property="article:tag" content="Claude API错误">
@@ -54,6 +54,7 @@ var _hmt = _hmt || [];
     <meta property="article:tag" content="API重试策略">
 
     <!-- Twitter Card -->
+    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI API错误码大全与故障排查：OpenAI、Claude、国内平台踩坑实录">
     <meta name="twitter:description" content="AI API错误码大全与故障排查：OpenAI、Claude、国内平台踩坑实录。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI ">
@@ -573,17 +574,7 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting"
             },
-            "author": {
-                "@type": "Person",
-                "name": "TokenNexus团队",
-                "description": "TokenNexus团队，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
-                "url": "https://www.tokenfind.cn/about",
-                "jobTitle": "AI API内容编辑",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "TokenNexus",
-                    "url": "https://www.tokenfind.cn/"
-                }
+            "author": {"@type": "Person", "name": "张蕾"}
             },
             "publisher": {
                 "@type": "Organization",
@@ -773,7 +764,19 @@ var _hmt = _hmt || [];
 
                 <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">做AI应用开发这两年，我踩过的<a href="/blog/ai-aggregator-platform-guide-2026" style="color:#00f0ff;text-decoration:none;">API</a>错误坑比吃过的米还多。OpenAI的429限流、Claude的overloaded_error、通义千问的奇葩code格式……每个平台都有自己的脾气。今天这篇文章，我把这些错误码整理成一份完整的排查手册，希望能帮你在凌晨两点少掉几根头发。</p>
 
-                <h2>一、OpenAI API错误码全解析</h2>
+                <!-- 作者信息 -->
+            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
+                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">张</div>
+                <div>
+                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">张蕾 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">技术内容主编 · AI API生态观察者</span></div>
+                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">5年AI技术内容创作经验，深度体验过200+ AI API平台。擅长技术评测、平台对比和开发者工具推荐，文章被多个技术社区转载。</p>
+                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
+                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
+                    </div>
+                </div>
+            </div>
+
+<h2>一、OpenAI API错误码全解析</h2>
 
                 <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI是目前国内开发者用得最多的AI API，它的错误体系相对规范，HTTP状态码 + 错误类型 + 错误消息三层结构。但别被这个"规范"骗了——有些错误码的含义跟你直觉想的不太一样。</p>
 

@@ -20,7 +20,7 @@ s.parentNode.insertBefore(el, s);
     <title>AI API性能调优实战：从3秒延迟到300ms，我的优化全记录 | TokenNexus博客</title>
     <meta name="description" content="AI API性能调优实战：从3秒延迟到300ms，我的优化全记录。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API 平台对">
     <meta name="keywords" content="AI API性能优化,API延迟优化,流式输出配置,AI模型缓存策略,LangSmith监控,API吞吐量提升,AI响应速度优化,模型降级策略,TTFT,TPOT,Redis缓存,连接池">
-    <meta name="author" content="TokenNexus团队">
+    <meta name="author" content="陈明">
 
     <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-performance-tuning-guide-2026">
     <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/blog/ai-api-performance-tuning-guide-2026">
@@ -34,10 +34,11 @@ s.parentNode.insertBefore(el, s);
     <meta property="og:image" content="https://www.tokenfind.cn/blog/images/ai-api-performance-tuning-guide.jpg">
     <meta property="article:published_time" content="2026-06-05">
     <meta property="article:modified_time" content="2026-06-05">
-    <meta property="article:author" content="TokenNexus团队">
+    <meta property="article:author" content="陈明">
     <meta property="article:section" content="技术教程">
     <meta property="article:tag" content="AI API性能优化,流式输出,缓存策略,模型降级,LangSmith,Prometheus,Grafana">
 
+    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI API性能调优实战：从3秒延迟到300ms">
     <meta name="twitter:description" content="AI API性能调优实战：从3秒延迟到300ms，我的优化全记录。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API 平台对">
@@ -106,17 +107,7 @@ s.parentNode.insertBefore(el, s);
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-performance-tuning-guide-2026"
             },
-            "author": {
-                "@type": "Person",
-                "name": "TokenNexus团队",
-                "description": "TokenNexus团队，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
-                "url": "https://www.tokenfind.cn/about",
-                "jobTitle": "AI API内容编辑",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "TokenNexus",
-                    "url": "https://www.tokenfind.cn/"
-                }
+            "author": {"@type": "Person", "name": "陈明"}
             },
             "publisher": {
                 "@type": "Organization",
@@ -232,7 +223,7 @@ s.parentNode.insertBefore(el, s);
             <div class="article-meta">
                 <div class="author-info">
                     <div class="author-avatar"></div>
-                    <span>TokenNexus团队</span>
+                    <span>陈明</span>
                 </div>
                 <span>2026-06-05</span>
                 <span>阅读时间：21分钟</span>
@@ -299,7 +290,19 @@ s.parentNode.insertBefore(el, s);
 
             <div class="ad-placeholder in-article">广告位预留</div>
 
-            <h2>一、问题诊断：找到真正的瓶颈</h2>
+            <!-- 作者信息 -->
+            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
+                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">陈</div>
+                <div>
+                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">陈明 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">全栈工程师 · AI API架构专家</span></div>
+                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">10年全栈开发经验，专注AI API架构设计与性能优化。曾为多家企业搭建日调用量超千万次的AI中台，精通分布式系统、负载均衡和高可用架构。</p>
+                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
+                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
+                    </div>
+                </div>
+            </div>
+
+<h2>一、问题诊断：找到真正的瓶颈</h2>
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">接到任务后，我没有急着改代码，而是先花了一天时间做全面诊断。很多开发者一遇到性能问题就盲目优化，结果改了半天发现瓶颈根本不在这里。我的诊断流程分为三步：</p>
 

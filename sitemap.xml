@@ -81,6 +81,12 @@
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
+    <url>
+        <loc>https://www.tokenfind.cn/editorial-process.html</loc>
+        <lastmod>2026-07-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
 
     <!-- AI 模型发现文件 -->
     <url>

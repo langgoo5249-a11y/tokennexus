@@ -20,7 +20,7 @@ s.parentNode.insertBefore(el, s);
     <title>2026年AI多模态API完全指南：从理论到落地，一文搞懂视觉、语音、视频理解 | TokenNexus博客</title>
     <meta name="description" content="2026年AI多模态API完全指南：从理论到落地，一文搞懂视觉、语音、视频理解。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI ">
     <meta name="keywords" content="AI多模态API,视觉理解API,语音识别API,GPT-4o Vision使用,Gemini多模态接入,AI图像理解,多模态大模型对比,Whisper API,TTS API,AI视频理解">
-    <meta name="author" content="TokenNexus团队">
+    <meta name="author" content="赵思远">
     
     <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-multimodal-api-integration-guide-2026">
     <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/blog/ai-multimodal-api-integration-guide-2026">
@@ -34,10 +34,11 @@ s.parentNode.insertBefore(el, s);
     <meta property="og:image" content="https://www.tokenfind.cn/blog/images/ai-multimodal-api-integration-guide.jpg">
     <meta property="article:published_time" content="2026-06-03">
     <meta property="article:modified_time" content="2026-06-03">
-    <meta property="article:author" content="TokenNexus团队">
+    <meta property="article:author" content="赵思远">
     <meta property="article:section" content="技术教程">
     <meta property="article:tag" content="AI多模态API,视觉理解API,语音识别API,GPT-4o Vision,Gemini多模态">
     
+    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="2026年AI多模态API完全指南">
     <meta name="twitter:description" content="2026年AI多模态API完全指南：从理论到落地，一文搞懂视觉、语音、视频理解。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI ">
@@ -108,17 +109,7 @@ s.parentNode.insertBefore(el, s);
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-multimodal-api-integration-guide-2026"
             },
-            "author": {
-                "@type": "Person",
-                "name": "TokenNexus团队",
-                "description": "TokenNexus团队，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
-                "url": "https://www.tokenfind.cn/about",
-                "jobTitle": "AI API内容编辑",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "TokenNexus",
-                    "url": "https://www.tokenfind.cn/"
-                }
+            "author": {"@type": "Person", "name": "赵思远"}
             },
             "publisher": {
                 "@type": "Organization",
@@ -248,7 +239,7 @@ s.parentNode.insertBefore(el, s);
             <div class="article-meta">
                 <div class="author-info">
                     <div class="author-avatar"></div>
-                    <span>TokenNexus团队</span>
+                    <span>赵思远</span>
                 </div>
                 <span>2026-06-03</span>
                 <span>阅读时间：20分钟</span>
@@ -313,7 +304,19 @@ s.parentNode.insertBefore(el, s);
             
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">后来我才意识到，这就是多模态AI的价值所在。用一个模型、一套API，同时理解图像、语音和视频，不仅架构简洁了，成本还降了40%。今天这篇文章，我想把我这一年多折腾多模态API的经验，从平台选型到代码落地，完整地分享给你。</p>
             
-            <h2>一、为什么你的下一个项目需要多模态能力</h2>
+            <!-- 作者信息 -->
+            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
+                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">赵</div>
+                <div>
+                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">赵思远 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">AI研究员 · 多模态应用专家</span></div>
+                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">计算机视觉博士，前大厂AI Lab研究员。专注多模态大模型应用开发，在Agent系统、Function Calling和图像生成领域有深入研究。</p>
+                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
+                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
+                    </div>
+                </div>
+            </div>
+
+<h2>一、为什么你的下一个项目需要多模态能力</h2>
             
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在深入技术细节之前，先聊聊为什么多模态能力正在从"加分项"变成"必选项"。</p>
             

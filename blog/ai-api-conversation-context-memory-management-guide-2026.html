@@ -29,7 +29,7 @@ var _hmt = _hmt || [];
     <meta name="bingbot" content="index, follow">
     <meta name="baiduspider" content="index, follow, max-snippet:-1">
     <title>AI API对话上下文管理实战：Session管理、上下文窗口优化与Token计算 | TokenNexus</title>
-    <meta name="author" content="TokenNexus">
+    <meta name="author" content="赵思远">
     <meta name="description" content="AI API对话上下文管理实战：Session管理、上下文窗口优化与Token计算。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 A">
     <meta name="keywords" content="AI对话上下文管理, API Session管理, AI Memory实现, 上下文窗口优化, ChatGPT历史记录, Claude对话管理, Token上下文限制, 对话摘要">
     <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-conversation-context-memory-management-guide-2026">
@@ -43,6 +43,7 @@ var _hmt = _hmt || [];
     <meta property="og:site_name" content="TokenNexus">
     <meta property="article:published_time" content="2026-06-12">
     <meta property="article:modified_time" content="2026-06-12">
+    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI API对话上下文管理实战：Session管理、上下文窗口优化与Token计算">
     <meta name="twitter:description" content="AI API对话上下文管理实战：Session管理、上下文窗口优化与Token计算。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 A">
@@ -148,17 +149,7 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-conversation-context-memory-management-guide-2026"
             },
-            "author": {
-                "@type": "Person",
-                "name": "TokenNexus内容团队",
-                "description": "TokenNexus，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
-                "url": "https://www.tokenfind.cn/about",
-                "jobTitle": "AI API内容编辑",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "TokenNexus",
-                    "url": "https://www.tokenfind.cn/"
-                }
+            "author": {"@type": "Person", "name": "赵思远"}
             },
             "publisher": {
                 "@type": "Organization",
@@ -356,7 +347,19 @@ var _hmt = _hmt || [];
                 </ul>
             </div>
 
-            <h2 id="section1">Session与Context的本质区别</h2>
+            <!-- 作者信息 -->
+            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
+                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">赵</div>
+                <div>
+                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">赵思远 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">AI研究员 · 多模态应用专家</span></div>
+                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">计算机视觉博士，前大厂AI Lab研究员。专注多模态大模型应用开发，在Agent系统、Function Calling和图像生成领域有深入研究。</p>
+                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
+                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
+                    </div>
+                </div>
+            </div>
+
+<h2 id="section1">Session与Context的本质区别</h2>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先把这个两个概念搞清楚，很多人搞混了。</p>
 
             <table>

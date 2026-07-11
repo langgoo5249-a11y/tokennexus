@@ -31,7 +31,7 @@ var _hmt = _hmt || [];
     <title>2026年AI API免费额度完全攻略：如何薅到$200+免费试用 | TokenNexus博客</title>
     <meta name="description" content="2026年AI API免费额度完全攻略：如何薅到$200+免费试用。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API 平台">
     <meta name="keywords" content="AI API免费额度, OpenAI免费试用, Claude免费API, Gemini免费额度, DeepSeek免费, AI API省钱, 免费AI API, API试用额度">
-    <meta name="author" content="TokenNexus团队">
+    <meta name="author" content="林小雪">
     
     <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-free-tier-guide-2026">
     <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/blog/ai-api-free-tier-guide-2026">
@@ -45,10 +45,11 @@ var _hmt = _hmt || [];
     <meta property="og:image" content="https://www.tokenfind.cn/blog/images/free-tier-guide.jpg">
     <meta property="article:published_time" content="2026-05-29">
     <meta property="article:modified_time" content="2026-05-29">
-    <meta property="article:author" content="TokenNexus团队">
+    <meta property="article:author" content="林小雪">
     <meta property="article:section" content="省钱攻略">
     <meta property="article:tag" content="免费额度, 省钱攻略, API试用">
     
+    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="2026年AI API免费额度完全攻略">
     <meta name="twitter:description" content="2026年AI API免费额度完全攻略：如何薅到$200+免费试用。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API 平台">
@@ -132,17 +133,7 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-free-tier-guide-2026"
             },
-            "author": {
-                "@type": "Person",
-                "name": "TokenNexus团队",
-                "description": "TokenNexus团队，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
-                "url": "https://www.tokenfind.cn/about",
-                "jobTitle": "AI API内容编辑",
-                "worksFor": {
-                    "@type": "Organization",
-                    "name": "TokenNexus",
-                    "url": "https://www.tokenfind.cn/"
-                }
+            "author": {"@type": "Person", "name": "林小雪"}
             },
             "publisher": {
                 "@type": "Organization",
@@ -270,7 +261,7 @@ var _hmt = _hmt || [];
             <div class="article-meta">
                 <div class="author-info">
                     <div class="author-avatar"></div>
-                    <span>TokenNexus团队</span>
+                    <span>林小雪</span>
                 </div>
                 <span>2026-05-29</span>
                 <span>阅读时间：18分钟</span>
@@ -335,7 +326,19 @@ var _hmt = _hmt || [];
             
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先说结论：如果你是个人开发者或小团队，完全可以在不花一分钱的情况下，完成AI应用的原型开发和初步验证。关键在于<strong>知道哪些平台有免费额度、如何领取、以及如何最大化利用这些额度</strong>。</p>
             
-            <h2>一、为什么要关注免费额度？</h2>
+            <!-- 作者信息 -->
+            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
+                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">林</div>
+                <div>
+                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">林小雪 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">AI产品经理 · API成本优化专家</span></div>
+                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">专注AI API商业化与成本优化5年，服务过200+企业客户。擅长Token预算规划、定价策略分析和ROI评估，帮助客户平均降低60% API支出。</p>
+                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
+                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
+                    </div>
+                </div>
+            </div>
+
+<h2>一、为什么要关注免费额度？</h2>
             
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">很多人觉得"免费额度肯定很少，没什么用"。这个想法大错特错。我去年帮一个朋友做智能客服原型，用免费额度跑了整整两个月的测试，处理了超过5000条对话，最后才花了不到20美元。</p>
             
