@@ -1,6 +1,6 @@
 # TokenNexus 机器人访问协议
 # robots.txt for tokenfind.cn
-# 更新日期: 2026-06-14 (SEO + GEO优化版)
+# 更新日期: 2026-07-13 (AI爬虫全面白名单)
 # ============================================================
 
 # ============================================
@@ -61,9 +61,85 @@ Crawl-delay: 2
 User-agent: CloudflareBrowserRenderingCrawler
 Allow: /
 
-# 字节跳动爬虫
+# ============================================
+# 字节跳动/豆包 AI 爬虫组 (GEO关键)
+# ⚠️ Doubaobot ≠ Bytespider！豆包使用独立的AI专用爬虫
+# ============================================
+# 豆包 AI 专用爬虫 (Doubao AI Assistant)
+User-agent: Doubaobot
+Allow: /
+# 字节跳动通用爬虫 (头条/西瓜/抖音搜索)
 User-agent: Bytespider
 Allow: /
+# TikTok/抖音视频生态爬虫
+User-agent: TikTokSpider
+Allow: /
+
+# ============================================
+# 中国 AI 搜索引擎爬虫组 (2026年新增)
+# ============================================
+# 月之暗面 Kimi
+User-agent: MoonshotBot
+Allow: /
+# 腾讯元宝
+User-agent: YuanbaoBot
+Allow: /
+# DeepSeek
+User-agent: DeepSeekBot
+Allow: /
+# 阿里通义千问
+User-agent: TongyiSpider
+Allow: /
+# 昆仑万维 天工AI
+User-agent: TiangongBot
+Allow: /
+# 秘塔AI搜索
+User-agent: MitaBot
+Allow: /
+# 百度文心一言 (文心)
+User-agent: ErnieBot
+Allow: /
+# 讯飞星火
+User-agent: SparkBot
+Allow: /
+# 智谱清言 (ChatGLM)
+User-agent: ChatGLMBot
+Allow: /
+# 百川智能
+User-agent: BaichuanBot
+Allow: /
+# MiniMax
+User-agent: MiniMaxBot
+Allow: /
+# 零一万物
+User-agent: YiBot
+Allow: /
+# 阶跃星辰
+User-agent: StepBot
+Allow: /
+
+# ============================================
+# 国际 AI 搜索引擎爬虫 (已有,补充)
+# ============================================
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+# Brave Search
+User-agent: Bravebot
+Allow: /
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+# Kagi
+User-agent: KagiBot
+Allow: /
+# You.com
+User-agent: YouBot
+Allow: /
+
+# 字节跳动爬虫 (保留旧配置)
 
 # ChatGPT / OpenAI 爬虫
 User-agent: ChatGPT-User
