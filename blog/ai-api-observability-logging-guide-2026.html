@@ -107,8 +107,7 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-observability-logging-guide-2026"
             },
-            "author": {"@type": "Person", "name": "张蕾"}
-            },
+            "author": {"@type": "Person", "name": "张蕾"},
             "publisher": {
                 "@type": "Organization",
                 "name": "TokenNexus",
@@ -199,7 +198,9 @@ var _hmt = _hmt || [];
                         "text": "本文适合AI开发者、技术负责人和对AI API日志与可观测性实战：从摸黑排感兴趣的读者。内容涵盖从入门到进阶的实操技巧，无论你是新手还是老手都能从中获益。"
                     }
                 }
-            ]
+            ,
+            {"@type": "Question", "name": "AI API日志与可观测性实战：从摸黑排障到全链路追踪的核心要点是什么？", "acceptedAnswer": {"@type": "Answer", "text": "本文涵盖AI API日志与可观测性实战：从摸黑排障到全链路追踪的完整知识体系，包括核心概念、实现方法、最佳实践和常见问题解决方案，帮助读者快速掌握关键技能。"}}
+        ]
         }
     ]
 }
@@ -221,6 +222,8 @@ var _hmt = _hmt || [];
             <span class="article-tag">技术教程</span>
             <span class="article-date">2026-06-08</span>
         </div>
+        
+            <img src="https://www.tokenfind.cn/blog/images/ai-api-observability-logging-guide-2026.jpg" alt="AI API日志与可观测性实战：从摸黑排障到全链路追踪" class="article-hero" loading="lazy">
         <h1 class="article-title">AI API日志与可观测性实战：从摸黑排障到全链路追踪</h1>
         <p class="article-subtitle">线上AI功能突然抽风，用户投诉涌入，你打开监控面板一看——什么数据都没有。这不是恐怖故事，是我去年真实经历的事。今天把踩过的坑和最终搭建的可观测性方案完整分享出来。</p>
 
@@ -237,7 +240,18 @@ var _hmt = _hmt || [];
                 </div>
             </div>
 
-<h2>一次惨痛的生产事故</h2>
+
+                    <div class="key-points" style="background:linear-gradient(135deg, rgba(0,240,255,0.08), rgba(184,41,221,0.08));border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:24px;margin:30px 0">
+                        <h2 style="border:none;margin-top:0;padding-bottom:8px;font-size:1.2rem;color:#00f0ff">核心要点</h2>
+                        <p style="margin-bottom:12px;font-size:1.05rem;line-height:1.7"><strong>一句话总结：</strong>AI API日志与可观测性实战：从摸黑排障到全链路追踪。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API 平台对比、价格评</p>
+                        <ul style="margin:0;padding-left:20px;list-style-type:disc">
+                            <li style="margin:6px 0"><strong>涵盖内容：</strong>一次惨痛的生产事故、AI API可观测性的三大支柱、开源监控工具选型、Python日志中间件：从零搭建</li>
+                            <li style="margin:6px 0"><strong>适用读者：</strong>AI 开发者、后端工程师、技术决策者</li>
+                            <li style="margin:6px 0"><strong>阅读时间：</strong>约 8-12 分钟</li>
+                        </ul>
+                    </div>
+
+                    <h2>一次惨痛的生产事故</h2>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年11月的一个周五晚上，我们产品的AI摘要功能突然开始返回乱码。用户群里炸了锅，客服那边一单接一单地转过来。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我第一时间登录服务器查日志，结果发现：日志里只有一行 <code>response.ok</code>，没有任何请求细节、没有模型版本、没有token用量、没有响应时间。排查了两个小时，最后才发现是<a href="/blog/ai-api-error-codes-troubleshooting" style="color:#00f0ff;text-decoration:none;">OpenAI</a>那边悄悄更新了API返回格式，我们的解析逻辑直接炸了。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">那天晚上我加班到凌晨三点，发誓一定要把AI API的可观测性搞起来。这次事故让我深刻认识到：<strong>调用AI API和调用普通HTTP接口完全不一样，你需要一套专门的监控体系。</strong></p>
@@ -699,7 +713,14 @@ def call_openai(messages, model="gpt-4o", request_id=None, **kwargs):
         </section>
 
     </article>
-    <footer class="footer">
+    <div class="references-section" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:24px;margin:30px 0">
+<h2 style="border:none;margin-top:0;padding-bottom:8px">📚 参考来源</h2>
+<ul style="margin:0;padding-left:20px">
+<li style="margin:8px 0"><a href="https://platform.openai.com/docs" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">OpenAI API 官方文档</a></li>
+<li style="margin:8px 0"><a href="https://github.com/openai" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">OpenAI GitHub</a></li>
+</ul>
+</div>
+<footer class="footer">
         <div class="footer-links">
             <a href="../" class="footer-link">首页</a>
             <a href="guides.html" class="footer-link">攻略</a>

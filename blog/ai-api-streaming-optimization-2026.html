@@ -188,8 +188,7 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-streaming-optimization-2026"
             },
-            "author": {"@type": "Person", "name": "陈明"}
-            },
+            "author": {"@type": "Person", "name": "陈明"},
             "publisher": {
                 "@type": "Organization",
                 "name": "TokenNexus",
@@ -287,7 +286,9 @@ var _hmt = _hmt || [];
                         "text": "本文适合AI开发者、技术负责人和对AI API流式输出深度优化：从SSE到感兴趣的读者。内容涵盖从入门到进阶的实操技巧，无论你是新手还是老手都能从中获益。"
                     }
                 }
-            ]
+            ,
+            {"@type": "Question", "name": "AI API流式输出深度优化：从SSE到WebSocket的完整性能调优指南的核心要点是什么？", "acceptedAnswer": {"@type": "Answer", "text": "本文涵盖AI API流式输出深度优化：从SSE到WebSocket的完整性能调优指南的完整知识体系，包括核心概念、实现方法、最佳实践和常见问题解决方案，帮助读者快速掌握关键技能。"}}
+        ]
         }
     ]
 }
@@ -346,7 +347,18 @@ var _hmt = _hmt || [];
                 </div>
             </div>
 
-<h2 id="section1">为什么流式输出是AI API体验的核心</h2>
+
+                    <div class="key-points" style="background:linear-gradient(135deg, rgba(0,240,255,0.08), rgba(184,41,221,0.08));border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:24px;margin:30px 0">
+                        <h2 style="border:none;margin-top:0;padding-bottom:8px;font-size:1.2rem;color:#00f0ff">核心要点</h2>
+                        <p style="margin-bottom:12px;font-size:1.05rem;line-height:1.7"><strong>一句话总结：</strong>AI API流式输出深度优化：从SSE到WebSocket的完整性能调优指南 - TokenNexus。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法、成本控制技巧与部署注意事项，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目成功率。</p>
+                        <ul style="margin:0;padding-left:20px;list-style-type:disc">
+                            <li style="margin:6px 0"><strong>涵盖内容：</strong>为什么流式输出是AI API体验的核心、核心指标：TTFT、TPS、Chunk间隔、SSE深度优化：从基础配置到生产级方案、WebSocket方案：什么时候值得升级</li>
+                            <li style="margin:6px 0"><strong>适用读者：</strong>AI 开发者、后端工程师、技术决策者</li>
+                            <li style="margin:6px 0"><strong>阅读时间：</strong>约 8-12 分钟</li>
+                        </ul>
+                    </div>
+
+                    <h2 id="section1">为什么流式输出是AI API体验的核心</h2>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先说一个数据：流式输出能把用户的<strong>感知延迟降低 80%</strong>。这不是我拍脑袋说的，是我们 A/B 测试的真实结果。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">同样的 <a href="/blog/ai-api-multimodal-gpt4o-gemini-complete-guide-2026" style="color:#00f0ff;text-decoration:none;">GPT-4</a> 级别模型，生成一段 500 token 的回复，非流式模式需要等 8-12 秒才能看到完整结果。用户在这 8-12 秒里什么也看不到，只能盯着一个 loading 动画。而流式模式下，第一个 token 在 0.8-1.2 秒内就出现了，用户立刻知道"系统在工作"，心理等待感大幅降低。</p>
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们做了两组 A/B 测试，每组 10000 个用户：</p>
@@ -850,7 +862,14 @@ class StreamingMarkdownRenderer {
 
     </article>
 
-    <footer class="footer">
+    <div class="references-section" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:24px;margin:30px 0">
+<h2 style="border:none;margin-top:0;padding-bottom:8px">📚 参考来源</h2>
+<ul style="margin:0;padding-left:20px">
+<li style="margin:8px 0"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">MDN SSE 文档</a></li>
+<li style="margin:8px 0"><a href="https://html.spec.whatwg.org/multipage/server-sent-events.html" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">W3C Eventsource 规范</a></li>
+</ul>
+</div>
+<footer class="footer">
         <div class="footer-logo">TokenNexus</div>
         <p class="footer-text">致力于打造最全面的全球 AI Token 导航平台</p>
         <nav class="footer-links">

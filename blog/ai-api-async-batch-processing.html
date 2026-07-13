@@ -569,8 +569,7 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-async-batch-processing"
             },
-            "author": {"@type": "Person", "name": "陈明"}
-            },
+            "author": {"@type": "Person", "name": "陈明"},
             "publisher": {
                 "@type": "Organization",
                 "name": "TokenNexus",
@@ -658,7 +657,9 @@ var _hmt = _hmt || [];
                         "text": "本文适合AI开发者、技术负责人和对AI API异步调用与批处理优化：提升1感兴趣的读者。内容涵盖从入门到进阶的实操技巧，无论你是新手还是老手都能从中获益。"
                     }
                 }
-            ]
+            ,
+            {"@type": "Question", "name": "AI API异步调用与批处理优化：提升10倍吞吐量的核心要点是什么？", "acceptedAnswer": {"@type": "Answer", "text": "本文涵盖AI API异步调用与批处理优化：提升10倍吞吐量的完整知识体系，包括核心概念、实现方法、最佳实践和常见问题解决方案，帮助读者快速掌握关键技能。"}}
+        ]
         }
     ]
 }
@@ -702,7 +703,9 @@ var _hmt = _hmt || [];
                 </div>
             </header>
             
-            <div class="intro">
+            
+            <img src="https://www.tokenfind.cn/blog/images/ai-api-async-batch-processing.jpg" alt="AI API异步调用与批处理优化：提升10倍吞吐量" class="article-hero" loading="lazy">
+        <div class="intro">
                 去年我在处理一个AI数据标注项目时，遇到了一个让人崩溃的问题：需要调用OpenAI API处理50万条文本数据，按同步方式跑下来预计要整整一周。后来通过异步化改造，同样的任务只用了16个小时就完成了。这篇文章，我想把这套方法完整地分享给你。
             </div>
             
@@ -718,7 +721,18 @@ var _hmt = _hmt || [];
                 </div>
             </div>
 
-<h2>同步调用的问题：为什么你的API这么慢？</h2>
+
+                    <div class="key-points" style="background:linear-gradient(135deg, rgba(0,240,255,0.08), rgba(184,41,221,0.08));border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:24px;margin:30px 0">
+                        <h2 style="border:none;margin-top:0;padding-bottom:8px;font-size:1.2rem;color:#00f0ff">核心要点</h2>
+                        <p style="margin-bottom:12px;font-size:1.05rem;line-height:1.7"><strong>一句话总结：</strong>AI API异步调用与批处理优化：提升10倍吞吐量。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API 平台对比、价格评测和</p>
+                        <ul style="margin:0;padding-left:20px;list-style-type:disc">
+                            <li style="margin:6px 0"><strong>涵盖内容：</strong>同步调用的问题：为什么你的API这么慢？、异步的本质：让等待的时间产生价值、Python asyncio 基础：从零开始、实战：用 aiohttp 进行异步API调用</li>
+                            <li style="margin:6px 0"><strong>适用读者：</strong>AI 开发者、后端工程师、技术决策者</li>
+                            <li style="margin:6px 0"><strong>阅读时间：</strong>约 8-12 分钟</li>
+                        </ul>
+                    </div>
+
+                    <h2>同步调用的问题：为什么你的API这么慢？</h2>
             
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">先说说最常见的写法。很多开发者刚开始接触AI API时，代码大概长这样：</p>
             
@@ -1219,7 +1233,14 @@ results = asyncio.run(main())</code></pre>
     </div>
     
     <!-- Footer -->
-    <footer>
+    <div class="references-section" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:24px;margin:30px 0">
+<h2 style="border:none;margin-top:0;padding-bottom:8px">📚 参考来源</h2>
+<ul style="margin:0;padding-left:20px">
+<li style="margin:8px 0"><a href="https://ai.google.dev" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">Google AI 官方文档</a></li>
+<li style="margin:8px 0"><a href="https://platform.openai.com/docs" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">OpenAI 官方文档</a></li>
+</ul>
+</div>
+<footer>
         <div class="footer-content">
             <div class="footer-links">
                 <a href="../about.html">关于我们</a>

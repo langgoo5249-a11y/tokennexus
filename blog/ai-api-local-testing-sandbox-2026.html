@@ -109,8 +109,7 @@ s.parentNode.insertBefore(el, s);
             "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.tokenfind.cn/blog/ai-api-local-testing-sandbox-2026"},
             "datePublished": "2026-07-05",
             "dateModified": "2026-07-05",
-            "author": {"@type": "Person", "name": "张蕾"}
-            },
+            "author": {"@type": "Person", "name": "张蕾"},
             "publisher": {
                 "@type": "Organization",
                 "name": "TokenNexus",
@@ -134,7 +133,11 @@ s.parentNode.insertBefore(el, s);
         },
         {
             "@type": "FAQPage",
-            "mainEntity": [{"@type": "Question", "name": "Mock测试会不会导致上线后行为不一致？", "acceptedAnswer": {"@type": "Answer", "text": "会，如果Mock数据太简单。建议使用 Record/Replay 模式捕获真实响应，或者用本地小模型（如Ollama + Llama 3.2）做近似模拟。关键是让Mock覆盖边界情况和错误场景，而不仅是正常返回。"}}, {"@type": "Question", "name": "AI API A/B测试应该关注哪些指标？", "acceptedAnswer": {"@type": "Answer", "text": "核心指标：响应准确率（人工评估或自动评分）、首字延迟(TTFT)、总耗时、Token成本、错误率、用户满意度。建议每次只对比一个变量，比如同一提示词下 GPT-4o vs Claude 3.5 的效果。"}}, {"@type": "Question", "name": "本地测试沙盒需要多少硬件资源？", "acceptedAnswer": {"@type": "Answer", "text": "纯Mock方案几乎零资源；本地LLM方案建议至少 16GB 内存 + 8GB 显存（运行 7B 模型）；如果做 CI/CD 集成，用 Docker 容器化后可以在任何环境复现。"}}]
+            "mainEntity": [{"@type": "Question", "name": "Mock测试会不会导致上线后行为不一致？", "acceptedAnswer": {"@type": "Answer", "text": "会，如果Mock数据太简单。建议使用 Record/Replay 模式捕获真实响应，或者用本地小模型（如Ollama + Llama 3.2）做近似模拟。关键是让Mock覆盖边界情况和错误场景，而不仅是正常返回。"}}, {"@type": "Question", "name": "AI API A/B测试应该关注哪些指标？", "acceptedAnswer": {"@type": "Answer", "text": "核心指标：响应准确率（人工评估或自动评分）、首字延迟(TTFT)、总耗时、Token成本、错误率、用户满意度。建议每次只对比一个变量，比如同一提示词下 GPT-4o vs Claude 3.5 的效果。"}}, {"@type": "Question", "name": "本地测试沙盒需要多少硬件资源？", "acceptedAnswer": {"@type": "Answer", "text": "纯Mock方案几乎零资源；本地LLM方案建议至少 16GB 内存 + 8GB 显存（运行 7B 模型）；如果做 CI/CD 集成，用 Docker 容器化后可以在任何环境复现。"}},
+            {"@type": "Question", "name": "本文适合哪些读者阅读？", "acceptedAnswer": {"@type": "Answer", "text": "本文适合AI开发者、后端工程师、技术架构师以及对大模型API集成感兴趣的读者，无论您是初学者还是有经验的开发者，都能从中获得实用价值。"}}
+        ,
+            {"@type": "Question", "name": "AI API本地测试沙盒搭建完全指南：从Mock到A/B测试的实战方案的核心要点是什么？", "acceptedAnswer": {"@type": "Answer", "text": "本文涵盖AI API本地测试沙盒搭建完全指南：从Mock到A/B测试的实战方案的完整知识体系，包括核心概念、实现方法、最佳实践和常见问题解决方案，帮助读者快速掌握关键技能。"}}
+        ]
         }
     ]
     }
@@ -210,7 +213,18 @@ s.parentNode.insertBefore(el, s);
                 </div>
             </div>
 
-<h2>为什么必须用本地沙盒测试 AI API</h2>
+
+                    <div class="key-points" style="background:linear-gradient(135deg, rgba(0,240,255,0.08), rgba(184,41,221,0.08));border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:24px;margin:30px 0">
+                        <h2 style="border:none;margin-top:0;padding-bottom:8px;font-size:1.2rem;color:#00f0ff">核心要点</h2>
+                        <p style="margin-bottom:12px;font-size:1.05rem;line-height:1.7"><strong>一句话总结：</strong>详解AI API本地测试沙盒搭建方法，包含LLM Mock测试、API本地开发环境配置、Mock Server选型、模型A/B测试方法，帮助开发者降低测试成本并提升AI应用稳定性。</p>
+                        <ul style="margin:0;padding-left:20px;list-style-type:disc">
+                            <li style="margin:6px 0"><strong>涵盖内容：</strong>为什么必须用本地沙盒测试 AI API、三种本地测试方案选型对比、实战：用 llmock 搭建 Mock Server、进阶：A/B 测试与模型路由</li>
+                            <li style="margin:6px 0"><strong>适用读者：</strong>AI 开发者、后端工程师、技术决策者</li>
+                            <li style="margin:6px 0"><strong>阅读时间：</strong>约 8-12 分钟</li>
+                        </ul>
+                    </div>
+
+                    <h2>为什么必须用本地沙盒测试 AI API</h2>
             <p>直接用生产 API 测试有三个致命问题。<strong>第一，成本高。</strong>以 GPT-4o 为例，输入 $2.5/百万 token、输出 $10/百万 token，一个中大型项目的 CI 测试每月轻松烧掉几百美元。<strong>第二，不稳定。</strong>网络抖动、平台限频、模型行为微调都会让同样的测试用例有时通过有时失败。<strong>第三，无法测试异常场景。</strong>你总不能故意把 API Key 写错、故意触发内容安全策略吧？但在生产环境，这些都是真实会发生的。</p>
             <div class="tip-box">
                 <div class="tip-box-title">💡 成本对比：真实API vs 本地Mock</div>
@@ -357,7 +371,14 @@ s.parentNode.insertBefore(el, s);
         </article>
     </main>
 
-    <footer class="footer">
+    <div class="references-section" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:24px;margin:30px 0">
+<h2 style="border:none;margin-top:0;padding-bottom:8px">📚 参考来源</h2>
+<ul style="margin:0;padding-left:20px">
+<li style="margin:8px 0"><a href="https://ai.google.dev" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">Google AI 官方文档</a></li>
+<li style="margin:8px 0"><a href="https://platform.openai.com/docs" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">OpenAI 官方文档</a></li>
+</ul>
+</div>
+<footer class="footer">
         <div class="footer-logo">TokenNexus</div>
         <p class="footer-text">AI API 导航 · 价格对比 · 模型评测</p>
         <nav class="footer-links" aria-label="页脚导航">

@@ -77,6 +77,26 @@ for page in ['about.html', 'contact.html', 'business.html', 'submit.html', 'priv
     xml_lines.append('        <priority>0.6</priority>')
     xml_lines.append('    </url>')
 
+# 作者页面
+AUTHORS_DIR = os.path.join(SITE_ROOT, 'authors')
+if os.path.exists(AUTHORS_DIR):
+    xml_lines.append('')
+    xml_lines.append('    <!-- 作者页面 -->')
+    xml_lines.append('    <url>')
+    xml_lines.append(f'        <loc>{BASE_URL}/authors/</loc>')
+    xml_lines.append(f'        <lastmod>{TODAY}</lastmod>')
+    xml_lines.append('        <changefreq>monthly</changefreq>')
+    xml_lines.append('        <priority>0.7</priority>')
+    xml_lines.append('    </url>')
+    for af in sorted(os.listdir(AUTHORS_DIR)):
+        if af.endswith('.html') and af != 'index.html':
+            xml_lines.append('    <url>')
+            xml_lines.append(f'        <loc>{BASE_URL}/authors/{af}</loc>')
+            xml_lines.append(f'        <lastmod>{TODAY}</lastmod>')
+            xml_lines.append('        <changefreq>monthly</changefreq>')
+            xml_lines.append('        <priority>0.6</priority>')
+            xml_lines.append('    </url>')
+
 def get_article_date(article_filename):
     """从文章HTML中提取发布日期"""
     article_path = os.path.join(BLOG_DIR, article_filename)
@@ -158,6 +178,7 @@ print(f"- Homepage: 1")
 print(f"- Blog listing: 1")
 print(f"- Category pages: 3")
 print(f"- Info pages: 8")
+print(f"- Author pages: {1 + len([f for f in os.listdir(AUTHORS_DIR) if f.endswith('.html') and f != 'index.html']) if os.path.exists(AUTHORS_DIR) else 0}")
 print(f"- Blog articles: {len(blog_articles)}")
 print(f"- Platform pages: {len(platform_pages)}")
-print(f"- Total URLs: {1 + 1 + 3 + 8 + len(blog_articles) + len(platform_pages)}")
+print(f"- Total URLs: {1 + 1 + 3 + 8 + len(blog_articles) + len(platform_pages) + (1 + len([f for f in os.listdir(AUTHORS_DIR) if f.endswith('.html') and f != 'index.html']) if os.path.exists(AUTHORS_DIR) else 0)}")

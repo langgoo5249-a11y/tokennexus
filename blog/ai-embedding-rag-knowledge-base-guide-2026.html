@@ -110,8 +110,7 @@ s.parentNode.insertBefore(el, s);
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-embedding-rag-knowledge-base-guide-2026"
             },
-            "author": {"@type": "Person", "name": "林小雪"}
-            },
+            "author": {"@type": "Person", "name": "林小雪"},
             "publisher": {
                 "@type": "Organization",
                 "name": "TokenNexus",
@@ -195,7 +194,9 @@ s.parentNode.insertBefore(el, s);
                         "text": "本文适合AI开发者、技术负责人和对从零搭建企业级RAG知识库：Embedd感兴趣的读者。内容涵盖从入门到进阶的实操技巧，无论你是新手还是老手都能从中获益。"
                     }
                 }
-            ]
+            ,
+            {"@type": "Question", "name": "从零搭建企业级RAG知识库：Embedding选型到上线的完整踩坑记录的核心要点是什么？", "acceptedAnswer": {"@type": "Answer", "text": "本文涵盖从零搭建企业级RAG知识库：Embedding选型到上线的完整踩坑记录的完整知识体系，包括核心概念、实现方法、最佳实践和常见问题解决方案，帮助读者快速掌握关键技能。"}}
+        ]
         }
     ]
 }
@@ -231,6 +232,8 @@ s.parentNode.insertBefore(el, s);
             </div>
         </header>
 
+        
+            <img src="https://www.tokenfind.cn/blog/images/ai-embedding-rag-knowledge-base-guide-2026.jpg" alt="从零搭建企业级RAG知识库：Embedding选型到上线的完整踩坑记录" class="article-hero" loading="lazy">
         <div class="article-content">
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年底，我们公司CTO拍板要搞一个内部知识库系统。原因很简单——销售团队每天花大量时间翻阅产品文档、技术手册、历史案例，效率极低。更头疼的是，客户问一些专业问题，新人根本答不上来，全靠老员工"口口相传"。CTO的原话是："我们积累了这么多年的知识资产，不能让它躺在文档库里吃灰。"</p>
             <div class="real-data-table" data-source="official">
@@ -303,7 +306,18 @@ s.parentNode.insertBefore(el, s);
                 </div>
             </div>
 
-<h2>为什么企业需要RAG知识库？</h2>
+
+                    <div class="key-points" style="background:linear-gradient(135deg, rgba(0,240,255,0.08), rgba(184,41,221,0.08));border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:24px;margin:30px 0">
+                        <h2 style="border:none;margin-top:0;padding-bottom:8px;font-size:1.2rem;color:#00f0ff">核心要点</h2>
+                        <p style="margin-bottom:12px;font-size:1.05rem;line-height:1.7"><strong>一句话总结：</strong>从零搭建企业级RAG知识库：Embedding选型到上线的完整踩坑记录。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法与成本优化技巧，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目落地效率。欢迎访问 TokenNexus 获取更多 AI API</p>
+                        <ul style="margin:0;padding-left:20px;list-style-type:disc">
+                            <li style="margin:6px 0"><strong>涵盖内容：</strong>为什么企业需要RAG知识库？、一、Embedding模型选型：6款模型深度对比、二、向量数据库选型：5款数据库全面对比、三、RAG系统架构设计</li>
+                            <li style="margin:6px 0"><strong>适用读者：</strong>AI 开发者、后端工程师、技术决策者</li>
+                            <li style="margin:6px 0"><strong>阅读时间：</strong>约 8-12 分钟</li>
+                        </ul>
+                    </div>
+
+                    <h2>为什么企业需要RAG知识库？</h2>
 
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">在动手之前，我先花了一周时间调研为什么企业一定要用RAG，而不是直接让大模型回答问题。结论很明确：</p>
 
@@ -645,7 +659,15 @@ s.parentNode.insertBefore(el, s);
 
     </article>
 
-    <footer class="footer">
+    <div class="references-section" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:24px;margin:30px 0">
+<h2 style="border:none;margin-top:0;padding-bottom:8px">📚 参考来源</h2>
+<ul style="margin:0;padding-left:20px">
+<li style="margin:8px 0"><a href="https://platform.openai.com/docs/guides/embeddings" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">OpenAI Embeddings 指南</a></li>
+<li style="margin:8px 0"><a href="https://github.com/run-llama/llama_index" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">LlamaIndex GitHub</a></li>
+<li style="margin:8px 0"><a href="https://docs.llamaindex.ai" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">LlamaIndex 文档</a></li>
+</ul>
+</div>
+<footer class="footer">
         <div class="footer-logo">TokenNexus</div>
         <div class="footer-text">致力于打造最全面的全球AI Token导航平台</div>
         <div class="footer-links">

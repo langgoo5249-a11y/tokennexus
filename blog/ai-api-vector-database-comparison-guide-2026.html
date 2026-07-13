@@ -114,8 +114,7 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-vector-database-comparison-guide-2026"
             },
-            "author": {"@type": "Person", "name": "张蕾"}
-            },
+            "author": {"@type": "Person", "name": "张蕾"},
             "publisher": {
                 "@type": "Organization",
                 "name": "TokenNexus",
@@ -220,6 +219,8 @@ var _hmt = _hmt || [];
             <span class="article-tag">技术教程</span>
             <span class="article-date">2026-06-10</span>
         </div>
+        
+            <img src="https://www.tokenfind.cn/blog/images/ai-api-vector-database-comparison-guide-2026.jpg" alt="AI API向量数据库选型指南" class="article-hero" loading="lazy">
         <h1 class="article-title">AI API向量数据库选型指南</h1>
         <p class="article-subtitle">从RAG翻车到完美选型，手把手教你选对向量数据库</p>
         
@@ -236,7 +237,18 @@ var _hmt = _hmt || [];
                 </div>
             </div>
 
-<h2>我是怎么被向量检索坑了3天的</h2>
+
+                    <div class="key-points" style="background:linear-gradient(135deg, rgba(0,240,255,0.08), rgba(184,41,221,0.08));border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:24px;margin:30px 0">
+                        <h2 style="border:none;margin-top:0;padding-bottom:8px;font-size:1.2rem;color:#00f0ff">核心要点</h2>
+                        <p style="margin-bottom:12px;font-size:1.05rem;line-height:1.7"><strong>一句话总结：</strong>AI API向量数据库选型指南。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法、成本控制技巧与部署注意事项，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目成功率。欢迎访问 TokenNexus 获取更多 AI API 平台对比、</p>
+                        <ul style="margin:0;padding-left:20px;list-style-type:disc">
+                            <li style="margin:6px 0"><strong>涵盖内容：</strong>我是怎么被向量检索坑了3天的、向量数据库核心原理、三大主流向量数据库横评、五维对比表</li>
+                            <li style="margin:6px 0"><strong>适用读者：</strong>AI 开发者、后端工程师、技术决策者</li>
+                            <li style="margin:6px 0"><strong>阅读时间：</strong>约 8-12 分钟</li>
+                        </ul>
+                    </div>
+
+                    <h2>我是怎么被向量检索坑了3天的</h2>
             
             <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">去年做企业<a href="/blog/ai-embedding-rag-knowledge-base-guide-2026" style="color:#00f0ff;text-decoration:none;">知识库</a>RAG项目，用的是某云厂商的向量数据库。测试阶段一切正常，上线第一天就傻眼了——<strong>100个用户同时查询，响应时间从0.1秒飙到8秒</strong>。</p>
             
@@ -1001,7 +1013,15 @@ print(f"Milvus月成本: ${cost['total']}")
         </section>
 
     </article>
-    <footer class="footer">
+    <div class="references-section" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:24px;margin:30px 0">
+<h2 style="border:none;margin-top:0;padding-bottom:8px">📚 参考来源</h2>
+<ul style="margin:0;padding-left:20px">
+<li style="margin:8px 0"><a href="https://platform.openai.com/docs/guides/embeddings" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">OpenAI Embeddings 指南</a></li>
+<li style="margin:8px 0"><a href="https://github.com/run-llama/llama_index" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">LlamaIndex GitHub</a></li>
+<li style="margin:8px 0"><a href="https://docs.llamaindex.ai" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">LlamaIndex 文档</a></li>
+</ul>
+</div>
+<footer class="footer">
         <div class="footer-links">
             <a href="../" class="footer-link">首页</a>
             <a href="guides.html" class="footer-link">攻略</a>
