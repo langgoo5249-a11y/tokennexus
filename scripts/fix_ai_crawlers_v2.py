@@ -1,4 +1,13 @@
-# TokenNexus 机器人访问协议
+#!/usr/bin/env python3
+"""AI 爬虫全面开放修复 v2 — 2026-07-14"""
+
+import os
+from datetime import datetime
+
+SITE_ROOT = "/workspace/tokennexus"
+TODAY = "2026-07-14"
+
+NEW_ROBOTS_TXT = """# TokenNexus 机器人访问协议
 # robots.txt for tokenfind.cn
 # 更新日期: 2026-07-14 (AI爬虫全面白名单 v2 — 67+ 爬虫)
 # 策略: 绝对不阻止任何AI爬虫 — 全部开放
@@ -307,3 +316,94 @@ Disallow: /functions/
 # ============================================
 Sitemap: https://www.tokenfind.cn/sitemap.xml
 Sitemap: https://www.tokenfind.cn/image-sitemap.xml
+"""
+
+
+def fix_robots():
+    robots_path = os.path.join(SITE_ROOT, "robots.txt")
+    with open(robots_path, 'r') as f:
+        old = f.read()
+    backup = robots_path + ".bak." + TODAY
+    with open(backup, 'w') as f:
+        f.write(old)
+    with open(robots_path, 'w') as f:
+        f.write(NEW_ROBOTS_TXT)
+    print(f"✅ robots.txt 已重写 ({len(NEW_ROBOTS_TXT)} 字符)")
+
+    # Verify
+    with open(robots_path, 'r') as f:
+        content = f.read()
+    key_crawlers = [
+        "QwenBot", "Kimibot", "ChatGLM-Spider", "OAI-SearchBot",
+        "ClaudeBot", "Claude-SearchBot", "Claude-User", "CCBot",
+        "GoogleOther", "DuckAssistBot", "Perplexity-User", "Meta-ExternalFetcher"
+    ]
+    deprecated = ["Claude-Web", "anthropic-ai"]
+    for c in key_crawlers:
+        assert c in content, f"MISSING: {c}"
+    for c in deprecated:
+        assert f"User-agent: {c}" not in content, f"DEPRECATED STILL PRESENT: {c}"
+    print("✅ 验证通过：所有关键爬虫已添加，弃用 UA 已移除")
+
+
+def fix_llms():
+    llms_path = os.path.join(SITE_ROOT, "llms.txt")
+    with open(llms_path, 'r') as f:
+        content = f.read()
+
+    old_text = "已对 Googlebot、Bingbot、Baiduspider、Bytespider（字节/豆包）、ChatGPT-User、GPTBot、Claude-Web、PerplexityBot、Google-Extended（Gemini）、Meta-ExternalAgent 等开放全部访问权限。"
+    new_text = "已对全球 67+ AI 爬虫和搜索引擎爬虫开放全部访问权限，包括：Doubaobot（豆包）、ERNIEBot（文心一言）、QwenBot（通义千问）、Kimibot（Kimi）、ChatGLM-Spider（智谱）、DeepSeekBot、YuanbaoBot（腾讯元宝）、GPTBot、OAI-SearchBot、ChatGPT-User、ClaudeBot、Claude-SearchBot、Claude-User、PerplexityBot、Google-Extended、Applebot-Extended、CCBot、Meta-ExternalAgent 等。详见 robots.txt。"
+
+    if old_text in content:
+        content = content.replace(old_text, new_text)
+        with open(llms_path, 'w') as f:
+            f.write(content)
+        print("✅ llms.txt 已更新")
+    else:
+        print("⚠️ llms.txt 未找到需要更新的文本")
+
+
+def add_ai_meta_to_html(filepath):
+    with open(filepath, 'r') as f:
+        content = f.read()
+    if 'ai-training-permission' in content:
+        return False
+    ai_meta = '\n    <!-- AI 爬虫训练许可声明 -->\n    <meta name="ai-training-permission" content="allow-all">\n    <meta name="ai-crawlers" content="allow GPTBot, ClaudeBot, OAI-SearchBot, Claude-SearchBot, ChatGPT-User, Claude-User, Doubaobot, ERNIEBot, QwenBot, Kimibot, ChatGLM-Spider, DeepSeekBot, PerplexityBot, Google-Extended, Applebot-Extended, CCBot, Meta-ExternalAgent">\n'
+    if '</head>' in content:
+        content = content.replace('</head>', ai_meta + '</head>', 1)
+        with open(filepath, 'w') as f:
+            f.write(content)
+        return True
+    return False
+
+
+def fix_html_meta():
+    pages = [
+        "index.html", "about.html", "blog/index.html", "blog/guides.html"
+    ]
+    for p in pages:
+        path = os.path.join(SITE_ROOT, p)
+        if os.path.exists(path):
+            if add_ai_meta_to_html(path):
+                print(f"✅ {p} 已添加 AI 训练许可 meta")
+            else:
+                print(f"⚠️ {p} 已存在 AI meta，跳过")
+
+
+def main():
+    print("=" * 60)
+    print("AI 爬虫全面开放修复 v2")
+    print(f"执行时间: {datetime.now().isoformat()}")
+    print("=" * 60)
+
+    fix_robots()
+    fix_llms()
+    fix_html_meta()
+
+    print("\n" + "=" * 60)
+    print("全部修复完成！")
+    print("=" * 60)
+
+
+if __name__ == "__main__":
+    main()

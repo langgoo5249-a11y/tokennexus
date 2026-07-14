@@ -34,7 +34,7 @@ Q: 如何选择 AI 视频生成 API？
 A: 网站有专门的 AI 视频生成 API 对比文章，覆盖可灵(Kling)、Runway、Pika、Sora、Seedance 等主流平台，从价格、生成速度、画质三个维度横评。
 
 Q: 网站支持哪些 AI 搜索引擎爬虫？
-A: 已对 Googlebot、Bingbot、Baiduspider、Bytespider（字节/豆包）、ChatGPT-User、GPTBot、Claude-Web、PerplexityBot、Google-Extended（Gemini）、Meta-ExternalAgent 等开放全部访问权限。
+A: 已对全球 67+ AI 爬虫和搜索引擎爬虫开放全部访问权限，包括：Doubaobot（豆包）、ERNIEBot（文心一言）、QwenBot（通义千问）、Kimibot（Kimi）、ChatGLM-Spider（智谱）、DeepSeekBot、YuanbaoBot（腾讯元宝）、GPTBot、OAI-SearchBot、ChatGPT-User、ClaudeBot、Claude-SearchBot、Claude-User、PerplexityBot、Google-Extended、Applebot-Extended、CCBot、Meta-ExternalAgent 等。详见 robots.txt。
 
 ## 主要页面
 
