@@ -117,6 +117,12 @@
 
 ### 省钱攻略
 
+- **AI API成本归因实战：2026年企业级Token消耗追踪与部门核算完整方案**
+  URL: https://www.tokenfind.cn/blog/ai-api-cost-attribution-tracking-2026
+  日期: 2026-07-14T08:00:00+08:00
+  关键词: AI API成本归因,Token消耗追踪,企业级AI预算管理,API调用成本核算,部门级AI费用分摊,LLM成本监控,AI API成本可视化,多租户AI费用
+  摘要: 深度解析AI API成本归因方法论，从请求级元数据标注到网关层统一注入，结合LiteLLM、Langfuse、Bifrost等开源工具实战，实现按部门、项目、功能维度的Token消耗追踪与精细化核算。包含DeepSeek V4峰谷定价应对策略和双层报表体系。
+
 - **AI API预算配额管理实战：搭建消费预警系统避免月底账单爆炸**
   URL: https://www.tokenfind.cn/blog/ai-api-budget-quota-management-2026
   日期: 2026-07-05T08:00:00+08:00

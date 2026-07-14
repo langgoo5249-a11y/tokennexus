@@ -80,6 +80,7 @@ A: 已对全球 67+ AI 爬虫和搜索引擎爬虫开放全部访问权限，包
 
 ### 省钱攻略
 
+- [AI API成本归因实战：2026年企业级Token消耗追踪与部门核算完整方案](https://www.tokenfind.cn/blog/ai-api-cost-attribution-tracking-2026) | 2026-07-14
 - [AI API预算配额管理实战：搭建消费预警系统避免月底账单爆炸](https://www.tokenfind.cn/blog/ai-api-budget-quota-management-2026) | 2026-07-05
 - [AI API本地测试沙盒搭建完全指南：从Mock到A/B测试的实战方案](https://www.tokenfind.cn/blog/ai-api-local-testing-sandbox-2026) | 2026-07-05
 - [AI API成本优化实战：从月账单5000元降到500元的7个方法](https://www.tokenfind.cn/blog/ai-api-cost-optimization-practical-guide) | 2026-06-21
