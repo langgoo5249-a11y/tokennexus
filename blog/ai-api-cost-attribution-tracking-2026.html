@@ -137,9 +137,9 @@ s.parentNode.insertBefore(el, s);
         {
             "@type": "FAQPage",
             "mainEntity": [
-                {"@type": "Question", "name": "什么是AI API成本归因？为什么企业需要它？", "acceptedAnswer": {"@type": "Answer", "text": "AI API成本归因是将每笔API调用费用精确追溯到具体团队、项目、功能或租户的实践。当企业月消费从几百美元增长到数万美元时，没有归因就无法回答"钱花在哪了"这个基本问题，导致预算失控和资源浪费。通过请求级元数据标注和网关层统一注入，可以实现按部门、功能、租户等维度的精细化成本核算。"}},
+                {"@type": "Question", "name": "什么是AI API成本归因？为什么企业需要它？", "acceptedAnswer": {"@type": "Answer", "text": "AI API成本归因是将每笔API调用费用精确追溯到具体团队、项目、功能或租户的实践。当企业月消费从几百美元增长到数万美元时，没有归因就无法回答「钱花在哪了」这个基本问题，导致预算失控和资源浪费。通过请求级元数据标注和网关层统一注入，可以实现按部门、功能、租户等维度的精细化成本核算。"}},
                 {"@type": "Question", "name": "LiteLLM和Langfuse在成本归因中各扮演什么角色？", "acceptedAnswer": {"@type": "Answer", "text": "LiteLLM是网关层工具，负责在请求路径上拦截、注入归因元数据、执行预算控制（事前控制）；Langfuse是可观测层工具，负责事后追踪Trace、分析成本构成、生成per-user/per-feature报表（事后分析）。两者配合使用可以实现完整的成本归因闭环。"}},
-                {"@type": "Question", "name": "DeepSeek V4峰谷定价对成本归因有什么影响？", "acceptedAnswer": {"@type": "Answer", "text": "DeepSeek V4于2026年7月引入峰谷定价，高峰时段（09:00-12:00和14:00-18:00）价格翻倍。这意味着成本归因不仅要追踪"谁用了多少Token"，还要追踪"什么时候用的"，因为同一批Token在高峰时段的成本是平时的两倍。这也是2026年AI API成本归因的新挑战。"}},
+                {"@type": "Question", "name": "DeepSeek V4峰谷定价对成本归因有什么影响？", "acceptedAnswer": {"@type": "Answer", "text": "DeepSeek V4于2026年7月引入峰谷定价，高峰时段（09:00-12:00和14:00-18:00）价格翻倍。这意味着成本归因不仅要追踪「谁用了多少Token」，还要追踪「什么时候用的」，因为同一批Token在高峰时段的成本是平时的两倍。这也是2026年AI API成本归因的新挑战。"}},
                 {"@type": "Question", "name": "中小团队如何低成本实现AI API成本归因？", "acceptedAnswer": {"@type": "Answer", "text": "月消费低于$1000的团队可以从最简单的方案开始：在每个API请求的metadata中手动添加team_id和project_id字段，然后通过Langfuse Hobby版（免费）或LangSmith免费版进行Trace追踪和成本面板展示。不需要引入完整网关，但需要团队在代码层面遵守统一的元数据标注规范。"}},
                 {"@type": "Question", "name": "AI API成本归因实战的核心要点是什么？", "acceptedAnswer": {"@type": "Answer", "text": "本文涵盖AI API成本归因的完整知识体系，包括请求级元数据标注方案、网关层统一注入实现、LiteLLM+Langfuse+Bifrost工具链实战、多平台成本归一化处理、DeepSeek峰谷定价下的成本计算、以及双层报表体系搭建。核心要点是：成本归因不是事后补救，而是架构设计阶段就必须考虑的基础设施。"}}
             ]
