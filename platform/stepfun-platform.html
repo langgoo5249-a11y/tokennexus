@@ -55,37 +55,71 @@ var _hmt = _hmt || [];
     <!-- Schema.org 结构化数据 -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "阶跃星辰StepFun API",
-        "applicationCategory": "AIApplication",
-        "operatingSystem": "Web",
-        "offers": {
-            "@type": "Offer",
-            "price": "0.01",
-            "priceCurrency": "CNY",
-            "priceValidUntil": "2026-12-31"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "阶跃星辰",
-            "founder": {
-                "@type": "Person",
-                "name": "姜大昕"
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "阶跃星辰StepFun API",
+    "applicationCategory": "AIApplication",
+    "operatingSystem": "Web",
+    "offers": {
+        "@type": "Offer",
+        "price": "0.01",
+        "priceCurrency": "CNY",
+        "priceValidUntil": "2026-12-31",
+        "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+                "@type": "MonetaryAmount",
+                "value": "0",
+                "currency": "USD"
             },
-            "location": {
-                "@type": "Place",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "上海",
-                    "addressCountry": "CN"
+            "shippingDestination": {
+                "@type": "DefinedRegion",
+                "addressCountry": "CN"
+            },
+            "deliveryTime": {
+                "@type": "ShippingDeliveryTime",
+                "handlingTime": {
+                    "@type": "QuantitativeValue",
+                    "minValue": 0,
+                    "maxValue": 0,
+                    "unitCode": "DAY"
                 }
             }
         },
-        "featureList": "万亿参数模型,多模态理解,长上下文,企业级部署,私有化定制",
-        "softwareVersion": "Step-2",
-        "programmingLanguage": ["Python", "JavaScript", "Java", "Go"]
-    }
+        "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotApplicable",
+            "merchantReturnDays": 0,
+            "returnMethod": "https://schema.org/ReturnNotApplicable",
+            "returnFees": "https://schema.org/FreeReturn"
+        }
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "阶跃星辰",
+        "founder": {
+            "@type": "Person",
+            "name": "姜大昕"
+        },
+        "location": {
+            "@type": "Place",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "上海",
+                "addressCountry": "CN"
+            }
+        }
+    },
+    "featureList": "万亿参数模型,多模态理解,长上下文,企业级部署,私有化定制",
+    "softwareVersion": "Step-2",
+    "programmingLanguage": [
+        "Python",
+        "JavaScript",
+        "Java",
+        "Go"
+    ],
+    "image": "https://www.tokenfind.cn/images/og-stepfun.jpg"
+}
     </script>
     
     <!-- 面包屑结构化数据 -->

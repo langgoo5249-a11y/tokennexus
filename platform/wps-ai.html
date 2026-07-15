@@ -80,20 +80,51 @@ var _hmt = _hmt || [];
     }
   ]
 }</script>
-    <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "金山办公 WPS AI API",
-  "applicationCategory": "DeveloperApplication",
-  "operatingSystem": "Web",
-  "description": "金山办公WPS AI是专为办公场景设计的AI服务，提供文档处理、智能写作和表格分析等能力。深度集成WPS办公套件，支持PPT生成、文档摘要和智能排版。是提升办公效率的理想选择。",
-  "url": "https://ai.wps.cn",
-  "offers": {
-    "@type": "Offer",
-    "price": "¥0.005-0.1/1K tokens",
-    "priceCurrency": "USD"
-  }
-}</script>
+        <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "金山办公 WPS AI API",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web",
+    "description": "金山办公WPS AI是专为办公场景设计的AI服务，提供文档处理、智能写作和表格分析等能力。深度集成WPS办公套件，支持PPT生成、文档摘要和智能排版。是提升办公效率的理想选择。",
+    "url": "https://ai.wps.cn",
+    "offers": {
+        "@type": "Offer",
+        "price": "¥0.005-0.1/1K tokens",
+        "priceCurrency": "USD",
+        "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+                "@type": "MonetaryAmount",
+                "value": "0",
+                "currency": "USD"
+            },
+            "shippingDestination": {
+                "@type": "DefinedRegion",
+                "addressCountry": "CN"
+            },
+            "deliveryTime": {
+                "@type": "ShippingDeliveryTime",
+                "handlingTime": {
+                    "@type": "QuantitativeValue",
+                    "minValue": 0,
+                    "maxValue": 0,
+                    "unitCode": "DAY"
+                }
+            }
+        },
+        "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotApplicable",
+            "merchantReturnDays": 0,
+            "returnMethod": "https://schema.org/ReturnNotApplicable",
+            "returnFees": "https://schema.org/FreeReturn"
+        }
+    },
+    "image": "https://www.tokenfind.cn/og-image.png"
+}
+    </script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",

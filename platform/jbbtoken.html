@@ -430,7 +430,49 @@ var _hmt = _hmt || [];
     </footer>
 
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Product","name":"JBBToken","url":"https://jbbtoken.cn","description":"AI API聚合平台，仅需9.9元即可享受无限量AI能力，支持Agnes文本无限量、图片无限生成、视频无限创作","applicationCategory":"DeveloperApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"9.9","priceCurrency":"CNY"}}
+    {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "JBBToken",
+    "url": "https://jbbtoken.cn",
+    "description": "AI API聚合平台，仅需9.9元即可享受无限量AI能力，支持Agnes文本无限量、图片无限生成、视频无限创作",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web",
+    "offers": {
+        "@type": "Offer",
+        "price": "9.9",
+        "priceCurrency": "CNY",
+        "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+                "@type": "MonetaryAmount",
+                "value": "0",
+                "currency": "USD"
+            },
+            "shippingDestination": {
+                "@type": "DefinedRegion",
+                "addressCountry": "CN"
+            },
+            "deliveryTime": {
+                "@type": "ShippingDeliveryTime",
+                "handlingTime": {
+                    "@type": "QuantitativeValue",
+                    "minValue": 0,
+                    "maxValue": 0,
+                    "unitCode": "DAY"
+                }
+            }
+        },
+        "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotApplicable",
+            "merchantReturnDays": 0,
+            "returnMethod": "https://schema.org/ReturnNotApplicable",
+            "returnFees": "https://schema.org/FreeReturn"
+        }
+    },
+    "image": "https://www.tokenfind.cn/logos/jbbtoken.png"
+}
     </script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.tokenfind.cn/"},{"@type":"ListItem","position":2,"name":"聚合平台","item":"https://www.tokenfind.cn/aggregator"},{"@type":"ListItem","position":3,"name":"JBBToken","item":"https://www.tokenfind.cn/platform/jbbtoken"}]}

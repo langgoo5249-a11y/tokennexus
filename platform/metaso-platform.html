@@ -55,33 +55,65 @@ var _hmt = _hmt || [];
     <!-- Schema.org 结构化数据 -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "秘塔AI Metaso",
-        "applicationCategory": "SearchApplication",
-        "operatingSystem": "Web",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "CNY",
-            "priceValidUntil": "2026-12-31"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "秘塔科技",
-            "location": {
-                "@type": "Place",
-                "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "上海",
-                    "addressCountry": "CN"
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "秘塔AI Metaso",
+    "applicationCategory": "SearchApplication",
+    "operatingSystem": "Web",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CNY",
+        "priceValidUntil": "2026-12-31",
+        "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+                "@type": "MonetaryAmount",
+                "value": "0",
+                "currency": "USD"
+            },
+            "shippingDestination": {
+                "@type": "DefinedRegion",
+                "addressCountry": "CN"
+            },
+            "deliveryTime": {
+                "@type": "ShippingDeliveryTime",
+                "handlingTime": {
+                    "@type": "QuantitativeValue",
+                    "minValue": 0,
+                    "maxValue": 0,
+                    "unitCode": "DAY"
                 }
             }
         },
-        "featureList": "法律AI搜索,学术论文检索,长文档分析,案例检索,专业问答",
-        "softwareVersion": "2.0",
-        "programmingLanguage": ["Python", "JavaScript"]
-    }
+        "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotApplicable",
+            "merchantReturnDays": 0,
+            "returnMethod": "https://schema.org/ReturnNotApplicable",
+            "returnFees": "https://schema.org/FreeReturn"
+        }
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "秘塔科技",
+        "location": {
+            "@type": "Place",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "上海",
+                "addressCountry": "CN"
+            }
+        }
+    },
+    "featureList": "法律AI搜索,学术论文检索,长文档分析,案例检索,专业问答",
+    "softwareVersion": "2.0",
+    "programmingLanguage": [
+        "Python",
+        "JavaScript"
+    ],
+    "image": "https://www.tokenfind.cn/images/og-metaso.jpg"
+}
     </script>
     
     <!-- 面包屑结构化数据 -->

@@ -237,44 +237,73 @@ var _hmt = _hmt || [];
     <!-- Schema.org SoftwareApplication结构化数据 -->
     <script type="application/ld+json">
     {
-        "@context":"https://schema.org",
-        "@type":"Product",
-        "name":"Writer AI",
-        "applicationCategory":"BusinessApplication",
-        "operatingSystem":"Web, Cloud",
-        "description":"Writer是总部位于旧金山的企业级生成式AI平台，提供Palmyra系列大模型API。专注金融、医疗、零售行业合规，支持多模态内容生成，提供企业级安全与治理功能。",
-        "url":"https://www.tokenfind.cn/platform/writer-ai-platform",
-        "offers":{
-            "@type":"Offer",
-            "price":"0",
-            "priceCurrency":"USD",
-            "availability":"https://schema.org/OnlineOnly",
-            "description":"企业订阅制，支持按需定价"
-        },
-        "author":{
-            "@type":"Organization",
-            "name":"Writer",
-            "url":"https://writer.com",
-            "foundingDate":"2020",
-            "location":{
-                "@type":"Place",
-                "address":{
-                    "@type":"PostalAddress",
-                    "addressLocality":"San Francisco",
-                    "addressRegion":"CA",
-                    "addressCountry":"US"
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Writer AI",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, Cloud",
+    "description": "Writer是总部位于旧金山的企业级生成式AI平台，提供Palmyra系列大模型API。专注金融、医疗、零售行业合规，支持多模态内容生成，提供企业级安全与治理功能。",
+    "url": "https://www.tokenfind.cn/platform/writer-ai-platform",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/OnlineOnly",
+        "description": "企业订阅制，支持按需定价",
+        "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+                "@type": "MonetaryAmount",
+                "value": "0",
+                "currency": "USD"
+            },
+            "shippingDestination": {
+                "@type": "DefinedRegion",
+                "addressCountry": "CN"
+            },
+            "deliveryTime": {
+                "@type": "ShippingDeliveryTime",
+                "handlingTime": {
+                    "@type": "QuantitativeValue",
+                    "minValue": 0,
+                    "maxValue": 0,
+                    "unitCode": "DAY"
                 }
             }
         },
-        "provider":{
-            "@type":"Organization",
-            "name":"TokenNexus",
-            "url":"https://www.tokenfind.cn/"
-        },
-        "featureList":"Palmyra X 004通用模型, Palmyra Med医疗专用模型, Palmyra Fin金融合规模型, 企业级安全与治理, SSO单点登录, 审计日志, 数据隔离, 自定义模型微调",
-        "softwareRequirements":"Web浏览器, REST API",
-        "permissions":"企业级数据安全, GDPR合规, HIPAA合规, SOC 2 Type II认证"
-    }
+        "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotApplicable",
+            "merchantReturnDays": 0,
+            "returnMethod": "https://schema.org/ReturnNotApplicable",
+            "returnFees": "https://schema.org/FreeReturn"
+        }
+    },
+    "author": {
+        "@type": "Organization",
+        "name": "Writer",
+        "url": "https://writer.com",
+        "foundingDate": "2020",
+        "location": {
+            "@type": "Place",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "San Francisco",
+                "addressRegion": "CA",
+                "addressCountry": "US"
+            }
+        }
+    },
+    "provider": {
+        "@type": "Organization",
+        "name": "TokenNexus",
+        "url": "https://www.tokenfind.cn/"
+    },
+    "featureList": "Palmyra X 004通用模型, Palmyra Med医疗专用模型, Palmyra Fin金融合规模型, 企业级安全与治理, SSO单点登录, 审计日志, 数据隔离, 自定义模型微调",
+    "softwareRequirements": "Web浏览器, REST API",
+    "permissions": "企业级数据安全, GDPR合规, HIPAA合规, SOC 2 Type II认证",
+    "image": "https://www.tokenfind.cn/logos/writer.png"
+}
     </script>
     
     <!-- FAQ结构化数据 -->
