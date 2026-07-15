@@ -325,7 +325,7 @@ result = call_with_backoff([
 
             <div class="tip-box">
                 <div class="tip-box-title">生产环境建议</div>
-                <p>将退避上限设为60秒（即最多重试6次：1+2+4+8+16+32=63秒），超过这个时间说明不是临时限流而是系统级问题，应该触发降级逻辑。同时建议把重试次数设置为5-6次——太少会放弃过早，太多会让用户等太久。更多错误处理方案可以参考我们的<a href="https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting-2026.html">AI API错误码完全排查指南</a>。</p>
+                <p>将退避上限设为60秒（即最多重试6次：1+2+4+8+16+32=63秒），超过这个时间说明不是临时限流而是系统级问题，应该触发降级逻辑。同时建议把重试次数设置为5-6次——太少会放弃过早，太多会让用户等太久。更多错误处理方案可以参考我们的<a href="https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting-2026">AI API错误码完全排查指南</a>。</p>
             </div>
 
             <h2>第二道防线：请求队列控制并发</h2>
@@ -402,7 +402,7 @@ async def call_with_fallback(messages):
     
     raise Exception("所有模型均不可用")</code></pre>
 
-            <p>降级链的关键是确保备选模型的能力足够。GPT-5.6 Terra降级到Claude Sonnet 4.6没问题，但如果降级到一个小模型，输出质量可能断崖式下降。建议在降级时同时降低用户预期——比如返回一个"系统繁忙，已切换到经济模式"的提示。更多多模型路由策略可以参考我们的<a href="https://www.tokenfind.cn/blog/ai-model-routing-guide-2026.html">AI模型智能路由实战指南</a>。</p>
+            <p>降级链的关键是确保备选模型的能力足够。GPT-5.6 Terra降级到Claude Sonnet 4.6没问题，但如果降级到一个小模型，输出质量可能断崖式下降。建议在降级时同时降低用户预期——比如返回一个"系统繁忙，已切换到经济模式"的提示。更多多模型路由策略可以参考我们的<a href="https://www.tokenfind.cn/blog/ai-model-routing-guide-2026">AI模型智能路由实战指南</a>。</p>
 
             <h2>DeepSeek V4峰谷定价的特殊应对</h2>
 
@@ -420,7 +420,7 @@ async def call_with_fallback(messages):
                 <div class="warning-box-title">关键时间节点</div>
                 <p><strong>7月17日</strong>：DeepSeek V4正式版上线，峰谷定价生效。<br>
                 <strong>7月24日</strong>：<code>deepseek-chat</code>和<code>deepseek-reasoner</code>旧接口永久停用，无缓冲期，直接报错。<br>
-                如果你的系统还在用旧接口，现在就必须开始迁移，否则7月24日当天会全线瘫痪。详细的迁移步骤和避坑清单可以参考我们的<a href="https://www.tokenfind.cn/blog/ai-api-peak-pricing-migration-guide-2026.html">大模型API迁移避坑指南</a>。</p>
+                如果你的系统还在用旧接口，现在就必须开始迁移，否则7月24日当天会全线瘫痪。详细的迁移步骤和避坑清单可以参考我们的<a href="https://www.tokenfind.cn/blog/ai-api-peak-pricing-migration-guide-2026">大模型API迁移避坑指南</a>。</p>
             </div>
 
             <h2>FAQ 常见问题</h2>
@@ -441,7 +441,7 @@ async def call_with_fallback(messages):
 
             <p>429限流不是一个"配置一下就好了"的问题，它是一套系统工程：理解平台限流机制是基础，指数退避是被动防御，请求队列是主动控制，多模型降级是最后兜底。三层防线缺一不可。</p>
 
-            <p>尤其7月17日DeepSeek V4峰谷定价上线后，限流问题会更频繁地出现在高峰时段。提前做好降级链和错峰调度，远比事后救火省心。如果你在寻找备选平台搭建降级链，可以去 <a href="https://www.tokenfind.cn">TokenNexus</a> 对比各平台的实时定价和配额信息。我们的<a href="https://www.tokenfind.cn/blog/ai-api-load-balancing-ha-architecture-2026.html">API负载均衡与高可用架构实战指南</a>和<a href="https://www.tokenfind.cn/blog/ai-api-fault-tolerance-resilience-architecture-2026.html">容错降级架构实战指南</a>也有更深入的系统设计思路，配合本文一起看效果更好。</p>
+            <p>尤其7月17日DeepSeek V4峰谷定价上线后，限流问题会更频繁地出现在高峰时段。提前做好降级链和错峰调度，远比事后救火省心。如果你在寻找备选平台搭建降级链，可以去 <a href="https://www.tokenfind.cn">TokenNexus</a> 对比各平台的实时定价和配额信息。我们的<a href="https://www.tokenfind.cn/blog/ai-api-load-balancing-ha-architecture-2026">API负载均衡与高可用架构实战指南</a>和<a href="https://www.tokenfind.cn/blog/ai-api-fault-tolerance-resilience-architecture-2026">容错降级架构实战指南</a>也有更深入的系统设计思路，配合本文一起看效果更好。</p>
             </div>
             
             <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">

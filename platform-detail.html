@@ -32,9 +32,9 @@ var _hmt = _hmt || [];
     <meta property="og:title" content="{{platform.name}} - AI API平台详情 | TokenNexus">
     <meta property="og:description" content="{{platform.name}} API 平台详情：支持{{platform.models.join('、')}}等模型，倍率{{platform.priceMultiplier}}，{{platform.paymentMethods.join('、')}}支付，30天可用率{{platform.">
     <meta property="og:image" content="https://www.tokenfind.cn/logos/{{platform.logoFile}}">
-    <meta property="og:url" content="https://www.tokenfind.cn/platform/{{platform.slug}}.html">
+    <meta property="og:url" content="https://www.tokenfind.cn/platform/{{platform.slug}}">
     
-    <link rel="canonical" href="https://www.tokenfind.cn/platform/{{platform.slug}}.html">
+    <link rel="canonical" href="https://www.tokenfind.cn/platform/{{platform.slug}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     
@@ -747,7 +747,7 @@ var _hmt = _hmt || [];
         <nav class="breadcrumb">
             <a href="/">首页</a>
             <span>/</span>
-            <a href="/{{platform.category}}.html">{{platform.categoryName}}</a>
+            <a href="/{{platform.category}}">{{platform.categoryName}}</a>
             <span>/</span>
             <span>{{platform.name}}</span>
         </nav>
@@ -964,7 +964,7 @@ var _hmt = _hmt || [];
         <section class="related-platforms">
             <h2 class="faq-section-title">同类平台推荐</h2>
             <div class="related-grid">
-                <a href="/{{platform.category}}.html" class="related-card">
+                <a href="/{{platform.category}}" class="related-card">
                     <span class="related-icon">📋</span>
                     <span>查看更多 {{platform.category === 'official' ? '海外官方' : platform.category === 'aggregator' ? '聚合中转' : '国内'}} 平台</span>
                 </a>
@@ -974,13 +974,13 @@ var _hmt = _hmt || [];
         <!-- 页脚 -->
         <footer class="footer">
             <div class="footer-links">
-                <a href="/about.html" class="footer-link">关于我们</a>
-                <a href="/contact.html" class="footer-link">联系我们</a>
-                <a href="/privacy.html" class="footer-link">隐私政策</a>
-                <a href="/submit.html" class="footer-link">提交收录</a>
-                <a href="/terms.html" class="footer-link">使用条款</a>
-                <a href="/disclaimer.html" class="footer-link">免责声明</a>
-                <a href="/cookie-policy.html" class="footer-link">Cookie政策</a>
+                <a href="/about" class="footer-link">关于我们</a>
+                <a href="/contact" class="footer-link">联系我们</a>
+                <a href="/privacy" class="footer-link">隐私政策</a>
+                <a href="/submit" class="footer-link">提交收录</a>
+                <a href="/terms" class="footer-link">使用条款</a>
+                <a href="/disclaimer" class="footer-link">免责声明</a>
+                <a href="/cookie-policy" class="footer-link">Cookie政策</a>
             </div>
             <p style="color: var(--text-secondary); font-size: 14px;">
                 &copy; 2024-2026 TokenNexus. All rights reserved.
@@ -998,7 +998,7 @@ var _hmt = _hmt || [];
                 <line x1="10" y1="14" x2="21" y2="3"></line>
             </svg>
         </a>
-        <a href="/{{platform.category}}.html" class="btn btn-secondary">返回列表</a>
+        <a href="/{{platform.category}}" class="btn btn-secondary">返回列表</a>
     </div>
 
     <!-- 结构化数据 -->

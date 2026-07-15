@@ -255,7 +255,7 @@ var _hmt = _hmt || [];
         </a>
         <div class="nav-links">
             <a href="/">首页</a>
-            <a href="/official.html">海外官方</a>
+            <a href="/official">海外官方</a>
             <a href="/aggregator">聚合中转</a>
             <a href="/china">国内平台</a>
             <a href="/blog/guides" class="active">博客</a>
@@ -555,7 +555,7 @@ var _hmt = _hmt || [];
             
             <div class="tip-box">
                 <div class="tip-box-title">实用建议：多账号轮询策略</div>
-                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你的业务量确实很大，单账号的限额不够用，可以考虑用多个API Key轮询请求。但要注意遵守平台的服务条款。另外，使用聚合中转平台（如 <a href="/official.html">TokenNexus收录的官方平台</a>）通常可以获得更高的限额。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你的业务量确实很大，单账号的限额不够用，可以考虑用多个API Key轮询请求。但要注意遵守平台的服务条款。另外，使用聚合中转平台（如 <a href="/official">TokenNexus收录的官方平台</a>）通常可以获得更高的限额。</p>
             </div>
             
             <div class="ad-placeholder in-article">广告位预留</div>
@@ -611,7 +611,7 @@ MODEL_FALLBACK_CHAIN = [
             
             <div class="tip-box">
                 <div class="tip-box-title">经验之谈：多模型降级是生产环境的标配</div>
-                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我强烈建议任何生产环境的AI应用都实现多模型降级。不要把所有鸡蛋放在一个篮子里。我的做法是：主力用GPT-4o，备用Claude 3.5 <a href="/blog/gpt4o-vs-claude35-sonnet-comparison" style="color:#00f0ff;text-decoration:none;">Sonnet</a>，最后兜底用GPT-4o-mini。虽然备用模型的效果可能差一点，但总比服务完全不可用强。你可以在 <a href="/official.html">TokenNexus海外官方平台列表</a> 中对比各平台的可用性和价格。</p>
+                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我强烈建议任何生产环境的AI应用都实现多模型降级。不要把所有鸡蛋放在一个篮子里。我的做法是：主力用GPT-4o，备用Claude 3.5 <a href="/blog/gpt4o-vs-claude35-sonnet-comparison" style="color:#00f0ff;text-decoration:none;">Sonnet</a>，最后兜底用GPT-4o-mini。虽然备用模型的效果可能差一点，但总比服务完全不可用强。你可以在 <a href="/official">TokenNexus海外官方平台列表</a> 中对比各平台的可用性和价格。</p>
             </div>
             
             <h2>五、401/403认证与权限错误</h2>
@@ -844,7 +844,7 @@ MODEL_FALLBACK_CHAIN = [
             <div class="faq-item">
                 <div class="faq-question">Q2：OpenAI和Claude的API Key可以混用吗？</div>
                 <div class="faq-answer">
-                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不可以。每个平台的API Key只能在自己的平台上使用。OpenAI的Key以 <code>sk-</code> 开头，Anthropic的Key以 <code>sk-ant-</code> 开头。如果你用OpenAI的Key去调Claude的API，会收到401错误。如果你希望统一管理多个平台的Key，可以使用聚合平台（如 <a href="/official.html">TokenNexus收录的聚合中转服务</a>），它们通常提供统一的API格式来调用多个模型。</p>
+                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">不可以。每个平台的API Key只能在自己的平台上使用。OpenAI的Key以 <code>sk-</code> 开头，Anthropic的Key以 <code>sk-ant-</code> 开头。如果你用OpenAI的Key去调Claude的API，会收到401错误。如果你希望统一管理多个平台的Key，可以使用聚合平台（如 <a href="/official">TokenNexus收录的聚合中转服务</a>），它们通常提供统一的API格式来调用多个模型。</p>
                 </div>
             </div>
             
@@ -883,7 +883,7 @@ MODEL_FALLBACK_CHAIN = [
                 <li><strong>了解你用的平台的限额和特性</strong>：每个平台的RPM/TPM/并发限制都不同，提前了解能避免很多坑</li>
             </ol>
             
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">希望这篇文章能帮你少走一些弯路。如果你在排查过程中遇到什么奇怪的问题，欢迎来 <a href="/official.html">TokenNexus</a> 的社区交流，大家一起讨论。毕竟，踩过的坑说出来，别人就能绕过去了。</p>
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">希望这篇文章能帮你少走一些弯路。如果你在排查过程中遇到什么奇怪的问题，欢迎来 <a href="/official">TokenNexus</a> 的社区交流，大家一起讨论。毕竟，踩过的坑说出来，别人就能绕过去了。</p>
             
             <div class="tip-box">
                 <div class="tip-box-title">延伸阅读</div>
