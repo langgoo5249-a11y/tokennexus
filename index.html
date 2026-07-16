@@ -3245,7 +3245,7 @@ var _hmt = _hmt || [];
 
         let html = filtered.map(platform => {
           const comments = getComments(platform.id);
-          const detailUrl = platform.detailUrl || `/platform/${slugify(platform.name)}.html`;
+          const detailUrl = platform.detailUrl || `/platform/${slugify(platform.name)}`;
           return `
           <a href="${detailUrl}" class="platform-card" data-id="${platform.id}" style="text-decoration:none;color:inherit;">
             <div class="card-header">
@@ -3300,7 +3300,7 @@ var _hmt = _hmt || [];
     <div class="platforms-grid">
             ${displayPlatforms.map(platform => {
               const comments = getComments(platform.id);
-              const detailUrl = platform.detailUrl || `/platform/${slugify(platform.name)}.html`;
+              const detailUrl = platform.detailUrl || `/platform/${slugify(platform.name)}`;
               return `
               <a href="${detailUrl}" class="platform-card" data-id="${platform.id}" style="text-decoration:none;color:inherit;">
                 <div class="card-header">
