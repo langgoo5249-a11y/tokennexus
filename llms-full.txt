@@ -1,6 +1,6 @@
 # TokenNexus — AI API 导航全站内容索引（llms-full.txt）
 > 本文件为 AI 搜索引擎和大模型优化的完整内容索引，包含每篇文章和平台的摘要信息。
-> 最后更新: 2026-07-11
+> 最后更新: 2026-07-21
 >  shorter version: https://www.tokenfind.cn/llms.txt
 
 ## Organization
@@ -116,6 +116,12 @@
   摘要: 深入对比OpenAI和DeepSeek两大AI API平台的性能、价格、稳定性。包含2026年最新测试数据、价格对比表和选型建议，帮你找到最适合的AI服务。
 
 ### 省钱攻略
+
+- **AI API网关LiteLLM实战：零代码实现多模型故障转移与自动切换**
+  URL: https://www.tokenfind.cn/blog/ai-api-gateway-litellm-failover-2026
+  日期: 2026-07-21T08:00:00+08:00
+  关键词: AI API网关, LiteLLM网关, 多模型故障转移, AI API自动切换, LLM Gateway, API限流解决方案, LiteLLM实战教程, AI API负载均衡, 大模型API统一入口, AI API高可用, API fallback策略, 多模型路由
+  摘要: 从零搭建LiteLLM多模型统一入口，实现OpenAI、Claude、DeepSeek自动故障转移和智能路由，解决API限流、并发瓶颈和生产环境高可用问题。含完整YAML配置和Docker部署方案。
 
 - **AI API成本归因实战：2026年企业级Token消耗追踪与部门核算完整方案**
   URL: https://www.tokenfind.cn/blog/ai-api-cost-attribution-tracking-2026
