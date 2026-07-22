@@ -237,68 +237,6 @@ function generateLongDescription(platform) {
     <p><strong>${platform.name} 安全可靠吗？</strong> ${platform.name} 用户评分 ${platform.rating}/5.0，${platform.verified ? '已通过TokenNexus平台验证。' : ''}建议开发者在使用时做好API Key安全管理，定期轮换密钥。</p>`;
 }
 
-// Generate FAQ Schema for Google rich results
-function generateFAQSchema(platform) {
-    const catInfo = categoryMap[platform.category] || categoryMap.china;
-    const isOfficial = platform.category === 'official';
-    const hasFree = platform.tags.some(t => t.includes('免费'));
-    
-    return JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": `${platform.name}是什么？`,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": `${platform.name}是${catInfo.name}，${platform.description}。支持${platform.tags.slice(0,4).join('、')}等AI模型，用户评分${platform.rating}分。`
-                }
-            },
-            {
-                "@type": "Question",
-                "name": `${platform.name}怎么注册？`,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": `访问${platform.name}官网 ${platform.url}，点击注册按钮，使用邮箱完成注册即可。注册后可在控制台创建API Key开始使用。`
-                }
-            },
-            {
-                "@type": "Question",
-                "name": `${platform.name} API Key怎么获取？`,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": `登录${platform.name}控制台，进入API管理页面，点击创建新的API Key。建议为不同项目创建独立的Key便于管理。`
-                }
-            },
-            {
-                "@type": "Question",
-                "name": `${platform.name}有免费额度吗？`,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": hasFree ? `是的，${platform.name}为新用户提供免费额度，可以免费体验API服务。` : `建议查看${platform.name}官网最新活动，部分平台会不定期提供免费试用额度。`
-                }
-            },
-            {
-                "@type": "Question",
-                "name": `${platform.name}价格是多少？`,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": `${platform.name}的定价为${platform.pricing}。${isOfficial ? '官方定价透明无加价。' : '中转服务价格合理。'}建议根据业务需求选择合适的模型等级以控制成本。`
-                }
-            },
-            {
-                "@type": "Question",
-                "name": `${platform.name}国内能用吗？`,
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": isOfficial ? `${platform.name}是海外官方平台，国内直接访问可能需要特殊网络环境。推荐使用支持国内直连的聚合平台作为替代。` : `${platform.name}支持国内直连访问，国内开发者可以直接使用，无需特殊网络配置。`
-                }
-            }
-        ]
-    });
-}
-
 // Generate BreadcrumbList Schema
 function generateBreadcrumbSchema(platform) {
     const catInfo = categoryMap[platform.category] || categoryMap.china;
@@ -408,7 +346,6 @@ platforms.forEach(platform => {
     const baiduDesc = generateBaiduDesc(platform);
     const title = generateTitle(platform);
     const stars = generateStars(platform.rating);
-    const faqSchema = generateFAQSchema(platform);
     const breadcrumbSchema = generateBreadcrumbSchema(platform);
 
     const featureRows = [
@@ -605,9 +542,6 @@ platforms.forEach(platform => {
         "author":{"@type":"Organization","name":"${platform.name}","url":"${platform.url}"},
         "provider":{"@type":"Organization","name":"TokenNexus","url":"https://www.tokenfind.cn/"}
     }
-    </script>
-    <script type="application/ld+json">
-    ${faqSchema}
     </script>
     <script type="application/ld+json">
     ${breadcrumbSchema}
