@@ -13,254 +13,11 @@ s.parentNode.insertBefore(el, s);
 
 <script>
 var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?aa6a94065c3983b2407d20b92e8d1fd9";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
+(function() { var hm = document.createElement("script"); hm.src = "https://hm.baidu.com/hm.js?aa6a94065c3983b2407d20b92e8d1fd9"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);
 })();
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI API Token计费原理深度解析 | TokenNexus AI API攻略</title>
-    <meta name="description" content="AI API Token计费原理深度解析。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法、成本控制技巧与部署注意事项，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目成功率。欢迎访问 TokenNexus 获取更多 AI API 平台对比、">
-    <meta name="keywords" content="AI API Token计算、ChatGPT API费用、Claude API定价、AI Token计费原理、GPT-4o价格、DeepSeek API费用、AI API成本计算、Token怎么算">
-    <meta name="author" content="林小雪">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-token-pricing-cost-calculation-guide-2026">
-    <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/blog/ai-api-token-pricing-cost-calculation-guide-2026">
-    <link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/blog/ai-api-token-pricing-cost-calculation-guide-2026">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="AI API Token计费原理深度解析">
-    <meta property="og:description" content="AI API Token计费原理深度解析。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法、成本控制技巧与部署注意事项，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目成功率。欢迎访问 TokenNexus 获取更多 AI API 平台对比、">
-    <meta property="og:url" content="https://www.tokenfind.cn/blog/ai-api-token-pricing-cost-calculation-guide-2026">
-    <meta property="og:image" content="https://www.tokenfind.cn/blog/images/ai-api-token-pricing-cost-calculation-guide-2026.jpg">
-    <meta property="article:published_time" content="2026-06-10">
-    <meta property="article:modified_time" content="2026-07-11">
-    <meta property="og:site_name" content="TokenNexus">
-    <meta property="article:reviewed_by" content="张蕾">
-    <meta name="twitter:card" content="summary_large_image">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0CX9NNWKR8');
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root{--neon-cyan:#00f0ff;--neon-purple:#b829dd;--dark-bg:#050508;--card-bg:rgba(10,10,18,0.9);--card-border:rgba(0,240,255,0.15);--text-primary:#fff;--text-secondary:#8b92a8}
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Noto Sans SC',sans-serif;background:var(--dark-bg);color:var(--text-primary);min-height:100vh;line-height:1.8}
-        .navbar{position:fixed;top:0;left:0;right:0;height:80px;background:rgba(5,5,8,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--card-border);display:flex;align-items:center;justify-content:space-between;padding:0 60px;z-index:1000}
-        .logo{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--text-primary)}
-        .logo-text{font-family:'Orbitron',sans-serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-        .nav-links{display:flex;gap:32px}
-        .nav-link{color:var(--text-secondary);text-decoration:none;font-size:16px;transition:color .3s}
-        .nav-link:hover,.nav-link.active{color:var(--neon-cyan)}
-        .article-container{max-width:800px;margin:0 auto;padding:120px 60px 80px}
-        .article-meta{display:flex;gap:16px;align-items:center;margin-bottom:24px;flex-wrap:wrap}
-        .article-tag{padding:4px 12px;background:rgba(0,240,255,0.1);border:1px solid rgba(0,240,255,0.2);border-radius:12px;font-size:0.75rem;color:var(--neon-cyan)}
-        .article-date{color:var(--text-secondary);font-size:0.85rem}
-        .article-title{font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:700;line-height:1.3;margin-bottom:24px;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-        .article-subtitle{font-size:1.1rem;color:var(--text-secondary);margin-bottom:40px;line-height:1.6}
-        .article-content{font-size:1rem;line-height:2;color:var(--text-secondary)}
-        .article-content h2{font-family:'Orbitron',sans-serif;font-size:1.3rem;color:var(--neon-cyan);margin:40px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--card-border)}
-        .article-content h3{font-size:1.1rem;color:var(--text-primary);margin:24px 0 12px}
-        .article-content p{margin-bottom:16px}
-        .article-content ul,.article-content ol{margin:0 0 16px 24px}
-        .article-content li{margin-bottom:8px}
-        .article-content strong{color:var(--text-primary)}
-        .article-content code{background:rgba(0,240,255,0.08);padding:2px 8px;border-radius:4px;font-size:0.9rem;color:var(--neon-cyan)}
-        .article-content pre{background:rgba(0,0,0,0.4);border:1px solid var(--card-border);border-radius:12px;padding:20px;margin:16px 0;overflow-x:auto;font-size:0.85rem;line-height:1.6}
-        .article-content pre code{background:none;padding:0;color:var(--text-secondary)}
-        .article-content table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.9rem}
-        .article-content th{background:rgba(0,240,255,0.08);color:var(--neon-cyan);padding:12px 16px;text-align:left;border-bottom:1px solid var(--card-border)}
-        .article-content td{padding:10px 16px;border-bottom:1px solid rgba(0,240,255,0.06)}
-        .article-content tr:hover{background:rgba(0,240,255,0.03)}
-        .article-content blockquote{border-left:3px solid var(--neon-cyan);padding:12px 20px;margin:16px 0;background:rgba(0,240,255,0.03);border-radius:0 8px 8px 0}
-        .highlight-box{background:linear-gradient(135deg,rgba(0,240,255,0.08),rgba(184,41,221,0.08));border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:20px;margin:20px 0}
-        .warning-box{background:rgba(255,100,100,0.08);border:1px solid rgba(255,100,100,0.2);border-radius:12px;padding:20px;margin:20px 0}
-        .warning-box h4{color:#ff6b6b;margin-bottom:8px}
-        .tip-box{background:rgba(0,240,255,0.05);border:1px solid var(--card-border);border-radius:12px;padding:16px;margin:16px 0}
-        .tip-box h4{color:var(--neon-cyan);margin-bottom:8px;font-size:0.95rem}
-        .cta-box{background:linear-gradient(135deg,rgba(0,240,255,0.05),rgba(184,41,221,0.05));border:1px solid var(--card-border);border-radius:16px;padding:24px;margin:40px 0;text-align:center}
-        .cta-box h3{font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--neon-cyan);margin-bottom:12px}
-        .cta-box p{color:var(--text-secondary);margin-bottom:16px;font-size:0.9rem}
-        .cta-box a{display:inline-block;padding:10px 24px;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));color:#000;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.9rem}
-        .footer{background:rgba(5,5,8,0.95);border-top:1px solid var(--card-border);padding:40px 60px;text-align:center;margin-top:60px}
-        .footer-links{display:flex;justify-content:center;gap:32px;margin-bottom:16px}
-        .footer-link{color:var(--text-secondary);text-decoration:none;font-size:14px}
-        .footer-link:hover{color:var(--neon-cyan)}
-        @media(max-width:768px){.navbar{padding:0 20px}.nav-links{display:none}.article-container{padding:100px 20px 60px}.article-title{font-size:1.5rem}}
-    </style>
-    <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
-        <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
-        <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
-        <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@graph": [
-        {
-            "@type": "BlogPosting",
-            "headline": "AI API Token计费原理深度解析 AI API攻略",
-            "description": "深入解析AI API Token计算原理，涵盖中英文Token化差异、GPT-4o/Claude/DeepSeek最新定价表、多模态Token计算、Python工具代码及成本优化技巧。",
-            "image": "https://www.tokenfind.cn/blog/images/ai-api-token-pricing-cost-calculation-guide-2026.jpg",
-            "url": "https://www.tokenfind.cn/blog/ai-api-token-pricing-cost-calculation-guide-2026",
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://www.tokenfind.cn/blog/ai-api-token-pricing-cost-calculation-guide-2026"
-            },
-            "author": {"@type": "Person", "name": "林小雪"},
-            "publisher": {
-                "@type": "Organization",
-                "name": "TokenNexus",
-                "url": "https://www.tokenfind.cn/",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://www.tokenfind.cn/images/logo.png"
-                }
-            },
-            "datePublished": "2026-06-10",
-            "dateModified": "2026-06-10",
-                    "reviewedBy": {
-                        "@type": "Person",
-                        "name": "王浩然",
-                        "jobTitle": "技术架构师 · API 集成专家",
-                        "url": "https://www.tokenfind.cn/authors/王浩然"
-                    },
-            "articleSection": "AI API",
-            "keywords": [
-                "AI API Token计算、ChatGPT API费用、Claude API定价、AI Token计费原理、GPT-4o价格、DeepSeek API费用、AI API成本计算、Token怎么算"
-            ],
-            "inLanguage": "zh-CN",
-            "speakable": {
-                "@type": "SpeakableSpecification",
-                "cssSelector": [
-                    ".article-content h2",
-                    ".article-content p"
-                ]
-            }
-        },
-        {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "首页",
-                    "item": "https://www.tokenfind.cn/"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "攻略",
-                    "item": "https://www.tokenfind.cn/blog/guides"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "name": "AI API Token计费原理深度解析 AI API攻略",
-                    "item": "https://www.tokenfind.cn/blog/ai-api-token-pricing-cost-calculation-guide-2026"
-                }
-            ]
-        },
-        {
-            "@type": "FAQPage",
-            "mainEntity": [
-                {
-                    "@type": "Question",
-                    "name": "AI API Token计费原理深度解析的核心要点是什么？",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "本文深度解析了AI API Token计费原理深度解析的核心要点，涵盖关键技术方案、实际应用场景和常见避坑指南。AI API Token计费原理深度解析。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法、成本控制技巧与部署注意事项，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目成"
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "我是怎么被Token坑了$8的？",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "关于我是怎么被Token坑了$8的，本文提供了详细的实操指南和代码示例。开发者可以按照文中步骤快速上手，并结合实际业务场景进行调优。"
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "多模态Token怎么算？",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "关于多模态Token怎么算，本文提供了详细的实操指南和代码示例。开发者可以按照文中步骤快速上手，并结合实际业务场景进行调优。"
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "本文适合哪些读者阅读？",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "本文适合AI开发者、技术负责人和对AI API Token计费原理深度解析感兴趣的读者。内容涵盖从入门到进阶的实操技巧，无论你是新手还是老手都能从中获益。"
-                    }
-                }
-            ,
-            {"@type": "Question", "name": "Token到底是什么鬼？", "acceptedAnswer": {"@type": "Answer", "text": "本文详细介绍了Token到底鬼？的定义、原理和应用场景，帮助读者全面理解这一概念。"}}
-        ]
-        }
-    ]
-}
-    </script>
-    </head>
-<body>
-    <nav class="navbar">
-        <a href="../" class="logo"><span class="logo-text">TokenNexus</span></a>
-        <div class="nav-links">
-            <a href="../" class="nav-link">首页</a>
-            <a href="../official" class="nav-link">官方平台</a>
-            <a href="../aggregator" class="nav-link">聚合平台</a>
-            <a href="../china" class="nav-link">国内平台</a>
-            <a href="guides" class="nav-link active">攻略</a>
-        </div>
-    </nav>
-    <article class="article-container">
-        <div class="article-meta">
-            <span class="article-tag">省钱攻略</span>
-            <span class="article-date">2026-06-10</span>
-        </div>
-        
-            <img src="https://www.tokenfind.cn/blog/images/ai-api-token-pricing-cost-calculation-guide-2026.jpg" alt="AI API Token计费原理深度解析" class="article-hero" loading="lazy">
-        <h1 class="article-title">AI API Token计费原理深度解析</h1>
-        <p class="article-subtitle">从踩坑$8账单开始，彻底搞懂Token是怎么算钱的</p>
-        
-        <div class="article-content">
-            <!-- 作者信息 -->
-            <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start">
-                <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">林</div>
-                <div>
-                    <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">林小雪 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">AI产品经理 · API成本优化专家</span></div>
-                    <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">专注AI API商业化与成本优化5年，服务过200+企业客户。擅长Token预算规划、定价策略分析和ROI评估，帮助客户平均降低60% API支出。</p>
-                    <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)">
-                        <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span>
-                    </div>
-                </div>
-            </div>
-
-
-                    <div class="key-points" style="background:linear-gradient(135deg, rgba(0,240,255,0.08), rgba(184,41,221,0.08));border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:24px;margin:30px 0">
-                        <h2 style="border:none;margin-top:0;padding-bottom:8px;font-size:1.2rem;color:#00f0ff">核心要点</h2>
-                        <p style="margin-bottom:12px;font-size:1.05rem;line-height:1.7"><strong>一句话总结：</strong>AI API Token计费原理深度解析。本文从实际项目出发，系统讲解核心原理、常见误区、选型建议和完整落地步骤，并提供可直接复用的代码示例、性能调优方法、成本控制技巧与部署注意事项，帮助你快速掌握相关能力并应用到真实业务场景中，提升项目成功率。欢迎访问 TokenNexus 获取更多 AI API 平台对比、</p>
-                        <ul style="margin:0;padding-left:20px;list-style-type:disc">
-                            <li style="margin:6px 0"><strong>涵盖内容：</strong>我是怎么被Token坑了$8的、Token到底是什么鬼？、2026年主流模型最新定价表、多模态Token怎么算</li>
-                            <li style="margin:6px 0"><strong>适用读者：</strong>AI 开发者、后端工程师、技术决策者</li>
-                            <li style="margin:6px 0"><strong>阅读时间：</strong>约 8-12 分钟</li>
-                        </ul>
-                    </div>
-
-                    <h2>我是怎么被Token坑了$8的</h2>
-            
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上个月用ChatGPT API写了一个客服机器人，心想就几百条对话，能花多少钱？结果月底看到账单直接傻眼——<strong>$8.47</strong>。</p>
-            
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我回溯了一下日志，明明对话量很少，每条消息撑死100个词，怎么就烧了这么多？后来才搞明白，原来我用的那个<a href="/blog/ai-api-content-safety-moderation-hallucination-guide-2026" style="color:#00f0ff;text-decoration:none;">Prompt</a>模板长这样：</p>
-            
-<pre><code>你是一个专业的电商客服。请根据以下产品信息回答用户问题。
+</script> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>AI API Token计费原理深度解析 | TokenNexus AI API攻略</title> <meta name="description" content="AI API Token计费原理深度解析。本文提供完整的实操指南、代码示例和最佳实践，帮助开发者快速上手并应用到实际项目中。"> <meta name="keywords" content="API, Token计费原理深度解析"> <meta name="author" content="林小雪"> <meta name="robots" content="index, follow"> <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-token-pricing-cost-calculation-guide-2026"> <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/blog/ai-api-token-pricing-cost-calculation-guide-2026"> <link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/blog/ai-api-token-pricing-cost-calculation-guide-2026"> <meta property="og:type" content="article"> <meta property="og:title" content="AI API Token计费原理深度解析"> <meta property="og:description" content="AI API Token计费原理深度解析。本文提供完整的实操指南、代码示例和最佳实践，帮助开发者快速上手并应用到实际项目中。"> <meta property="og:url" content="https://www.tokenfind.cn/blog/ai-api-token-pricing-cost-calculation-guide-2026"> <meta property="og:image" content="https://www.tokenfind.cn/blog/images/ai-api-token-pricing-cost-calculation-guide-2026.jpg"> <meta property="article:published_time" content="2026-06-10"> <meta property="article:modified_time" content="2026-07-11"> <meta property="og:site_name" content="TokenNexus"> <meta property="article:reviewed_by" content="张蕾"> <meta name="twitter:card" content="summary_large_image"> <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-0CX9NNWKR8'); </script> <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet"> <style> :root{--neon-cyan:#00f0ff;--neon-purple:#b829dd;--dark-bg:#050508;--card-bg:rgba(10,10,18,0.9);--card-border:rgba(0,240,255,0.15);--text-primary:#fff;--text-secondary:#8b92a8} *{margin:0;padding:0;box-sizing:border-box} body{font-family:'Noto Sans SC',sans-serif;background:var(--dark-bg);color:var(--text-primary);min-height:100vh;line-height:1.8} .navbar{position:fixed;top:0;left:0;right:0;height:80px;background:rgba(5,5,8,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--card-border);display:flex;align-items:center;justify-content:space-between;padding:0 60px;z-index:1000} .logo{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--text-primary)} .logo-text{font-family:'Orbitron',sans-serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent} .nav-links{display:flex;gap:32px} .nav-link{color:var(--text-secondary);text-decoration:none;font-size:16px;transition:color .3s} .nav-link:hover,.nav-link.active{color:var(--neon-cyan)} .article-container{max-width:800px;margin:0 auto;padding:120px 60px 80px} .article-meta{display:flex;gap:16px;align-items:center;margin-bottom:24px;flex-wrap:wrap} .article-tag{padding:4px 12px;background:rgba(0,240,255,0.1);border:1px solid rgba(0,240,255,0.2);border-radius:12px;font-size:0.75rem;color:var(--neon-cyan)} .article-date{color:var(--text-secondary);font-size:0.85rem} .article-title{font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:700;line-height:1.3;margin-bottom:24px;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent} .article-subtitle{font-size:1.1rem;color:var(--text-secondary);margin-bottom:40px;line-height:1.6} .article-content{font-size:1rem;line-height:2;color:var(--text-secondary)} .article-content h2{font-family:'Orbitron',sans-serif;font-size:1.3rem;color:var(--neon-cyan);margin:40px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--card-border)} .article-content h3{font-size:1.1rem;color:var(--text-primary);margin:24px 0 12px} .article-content p{margin-bottom:16px} .article-content ul,.article-content ol{margin:0 0 16px 24px} .article-content li{margin-bottom:8px} .article-content strong{color:var(--text-primary)} .article-content code{background:rgba(0,240,255,0.08);padding:2px 8px;border-radius:4px;font-size:0.9rem;color:var(--neon-cyan)} .article-content pre{background:rgba(0,0,0,0.4);border:1px solid var(--card-border);border-radius:12px;padding:20px;margin:16px 0;overflow-x:auto;font-size:0.85rem;line-height:1.6} .article-content pre code{background:none;padding:0;color:var(--text-secondary)} .article-content table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.9rem} .article-content th{background:rgba(0,240,255,0.08);color:var(--neon-cyan);padding:12px 16px;text-align:left;border-bottom:1px solid var(--card-border)} .article-content td{padding:10px 16px;border-bottom:1px solid rgba(0,240,255,0.06)} .article-content tr:hover{background:rgba(0,240,255,0.03)} .article-content blockquote{border-left:3px solid var(--neon-cyan);padding:12px 20px;margin:16px 0;background:rgba(0,240,255,0.03);border-radius:0 8px 8px 0} .highlight-box{background:linear-gradient(135deg,rgba(0,240,255,0.08),rgba(184,41,221,0.08));border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:20px;margin:20px 0} .warning-box{background:rgba(255,100,100,0.08);border:1px solid rgba(255,100,100,0.2);border-radius:12px;padding:20px;margin:20px 0} .warning-box h4{color:#ff6b6b;margin-bottom:8px} .tip-box{background:rgba(0,240,255,0.05);border:1px solid var(--card-border);border-radius:12px;padding:16px;margin:16px 0} .tip-box h4{color:var(--neon-cyan);margin-bottom:8px;font-size:0.95rem} .cta-box{background:linear-gradient(135deg,rgba(0,240,255,0.05),rgba(184,41,221,0.05));border:1px solid var(--card-border);border-radius:16px;padding:24px;margin:40px 0;text-align:center} .cta-box h3{font-family:'Orbitron',sans-serif;font-size:1.1rem;color:var(--neon-cyan);margin-bottom:12px} .cta-box p{color:var(--text-secondary);margin-bottom:16px;font-size:0.9rem} .cta-box a{display:inline-block;padding:10px 24px;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-purple));color:#000;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.9rem} .footer{background:rgba(5,5,8,0.95);border-top:1px solid var(--card-border);padding:40px 60px;text-align:center;margin-top:60px} .footer-links{display:flex;justify-content:center;gap:32px;margin-bottom:16px} .footer-link{color:var(--text-secondary);text-decoration:none;font-size:14px} .footer-link:hover{color:var(--neon-cyan)} @media(max-width:768px){.navbar{padding:0 20px}.nav-links{display:none}.article-container{padding:100px 20px 60px}.article-title{font-size:1.5rem}} </style> <!-- Schema.org BlogPosting + BreadcrumbList + Speakable --> <!-- Schema.org BlogPosting + BreadcrumbList + Speakable --> <!-- Schema.org BlogPosting + BreadcrumbList + Speakable --> <!-- Schema.org BlogPosting + BreadcrumbList + Speakable --> <script type="application/ld+json"> { "@context": "https://schema.org", "@graph": [ { "@type": "BlogPosting", "headline": "AI API Token计费原理深度解析 AI API攻略", "description": "深入解析AI API Token计算原理，涵盖中英文Token化差异、GPT-4o/Claude/DeepSeek最新定价表、多模态Token计算、Python工具代码及成本优化技巧。", "image": "https://www.tokenfind.cn/blog/images/ai-api-token-pricing-cost-calculation-guide-2026.jpg", "url": "https://www.tokenfind.cn/blog/ai-api-token-pricing-cost-calculation-guide-2026", "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.tokenfind.cn/blog/ai-api-token-pricing-cost-calculation-guide-2026" }, "author": {"@type": "Person", "name": "林小雪"}, "publisher": { "@type": "Organization", "name": "TokenNexus", "url": "https://www.tokenfind.cn/", "logo": { "@type": "ImageObject", "url": "https://www.tokenfind.cn/images/logo.png" } }, "datePublished": "2026-06-10", "dateModified": "2026-06-10", "reviewedBy": { "@type": "Person", "name": "王浩然", "jobTitle": "技术架构师 · API 集成专家", "url": "https://www.tokenfind.cn/authors/王浩然" }, "articleSection": "AI API", "keywords": [ "AI API Token计算、ChatGPT API费用、Claude API定价、AI Token计费原理、GPT-4o价格、DeepSeek API费用、AI API成本计算、Token怎么算" ], "inLanguage": "zh-CN", "speakable": { "@type": "SpeakableSpecification", "cssSelector": [ ".article-content h2", ".article-content p" ] } }, { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.tokenfind.cn/" }, { "@type": "ListItem", "position": 2, "name": "攻略", "item": "https://www.tokenfind.cn/blog/guides" }, { "@type": "ListItem", "position": 3, "name": "AI API Token计费原理深度解析 AI API攻略", "item": "https://www.tokenfind.cn/blog/ai-api-token-pricing-cost-calculation-guide-2026" } ] }} ] } ]
+} </script> </head>
+<body> <nav class="navbar"> <a href="../" class="logo"><span class="logo-text">TokenNexus</span></a> <div class="nav-links"> <a href="../" class="nav-link">首页</a> <a href="../official" class="nav-link">官方平台</a> <a href="../aggregator" class="nav-link">聚合平台</a> <a href="../china" class="nav-link">国内平台</a> <a href="guides" class="nav-link active">攻略</a> </div> </nav> <article class="article-container"> <div class="article-meta"> <span class="article-tag">省钱攻略</span> <span class="article-date">2026-06-10</span> </div> <img src="https://www.tokenfind.cn/blog/images/ai-api-token-pricing-cost-calculation-guide-2026.jpg" alt="AI API Token计费原理深度解析" class="article-hero" loading="lazy"> <h1 class="article-title">AI API Token计费原理深度解析</h1> <p class="article-subtitle">从踩坑$8账单开始，彻底搞懂Token是怎么算钱的</p> <div class="article-content"> <!-- 作者信息 --> <div class="author-card" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:20px;margin:30px 0;display:flex;gap:16px;align-items:flex-start"> <div class="author-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--neon-cyan,#00f0ff),var(--neon-purple,#b829dd));display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:bold;color:#fff;flex-shrink:0">林</div> <div> <div style="font-weight:600;font-size:1.05rem;margin-bottom:4px;color:var(--text-primary,#e0e0e0)">林小雪 <span style="font-weight:400;font-size:0.85rem;color:var(--text-secondary,#888);margin-left:8px">AI产品经理 · API成本优化专家</span></div> <p style="font-size:0.9rem;color:var(--text-secondary,#888);margin:6px 0 0;line-height:1.6">专注AI API商业化与成本优化5年，服务过200+企业客户。擅长Token预算规划、定价策略分析和ROI评估，帮助客户平均降低60% API支出。</p> <div style="margin-top:8px;font-size:0.8rem;color:var(--text-secondary,#888)"> <span>✅ 本文经 <strong>张蕾</strong>（技术内容主编）审核发布</span> </div> </div> </div> <div class="key-points" style="background:linear-gradient(135deg, rgba(0,240,255,0.08), rgba(184,41,221,0.08));border:1px solid rgba(0,240,255,0.2);border-radius:12px;padding:24px;margin:30px 0"> <h2 style="border:none;margin-top:0;padding-bottom:8px;font-size:1.2rem;color:#00f0ff">核心要点</h2> <p style="margin-bottom:12px;font-size:1.05rem;line-height:1.7"><strong>一句话总结：</strong>AI API Token计费原理深度解析。欢迎访问 TokenNexus 获取更多 AI API 平台对比、</p> <ul style="margin:0;padding-left:20px;list-style-type:disc"> <li style="margin:6px 0"><strong>涵盖内容：</strong>我是怎么被Token坑了$8的、Token到底是什么鬼？、2026年主流模型最新定价表、多模态Token怎么算</li> <li style="margin:6px 0"><strong>适用读者：</strong>AI 开发者、后端工程师、技术决策者</li> <li style="margin:6px 0"><strong>阅读时间：</strong>约 8-12 分钟</li> </ul> </div> <h2>我是怎么被Token坑了$8的</h2> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">上个月用ChatGPT API写了一个客服机器人，心想就几百条对话，能花多少钱？结果月底看到账单直接傻眼——<strong>$8.47</strong>。</p> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我回溯了一下日志，明明对话量很少，每条消息撑死100个词，怎么就烧了这么多？后来才搞明白，原来我用的那个<a href="/blog/ai-api-content-safety-moderation-hallucination-guide-2026" style="color:#00f0ff;text-decoration:none;">Prompt</a>模板长这样：</p> <pre><code>你是一个专业的电商客服。请根据以下产品信息回答用户问题。
 
 产品名称：XXX智能手表
 价格：1999元
@@ -268,181 +25,13 @@ var _hmt = _hmt || [];
 （后面还有500字的产品详情）
 
 用户问题是：{user_question}
-请用专业、友好的语气回答，不要超过100字。</code></pre>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">就这个Prompt，每次请求都要完整发送。我以为"1000 Token"是1000个英文单词，实际上一条Prompt就吃了<strong>800多Token</strong>。这才反应过来——<a href="/blog/ai-api-conversation-context-memory-management-guide-2026" style="color:#00f0ff;text-decoration:none;">Token</a>根本不是按词算的，是按字符/子词切分的。</p>
-
-            <div class="warning-box">
-                <h4>血泪教训</h4>
-                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">千万别用"词数"来估算Token消耗。中文尤其坑——一个短句可能就是几十个Token。</p>
-            </div>
-
-            <h2>Token到底是什么鬼？</h2>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">简单说，Token是大模型处理文本的最小单位。模型不认字符，而是把文本切成一串Token来理解。</p>
-
-            <h3>中英文Token化差异巨大</h3>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这里有个关键规律：</p>
-            
-            <ul>
-                <li><strong>英文</strong>：通常1 Token ≈ 0.75个单词，1000个Token约等于750个英文单词</li>
-                <li><strong>中文</strong>：1个汉字 ≈ 1-2个Token，标点符号也算</li>
-                <li><strong>代码</strong>：tokenizer对代码更友好，1 Token通常能覆盖更多字符</li>
-            </ul>
-
-            <div class="highlight-box">
-                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>实测数据：</strong></p>
-                <ul>
-                    <li>"Hello, world!" → 6 Tokens</li>
-                    <li>"你好，世界！" → 7 Tokens（每个汉字约1.5-2 Token，标点另算）</li>
-                    <li>"AI大模型真厉害" → 9 Tokens</li>
-                </ul>
-            </div>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">所以中文开发者尤其要注意：一个看似简短的Prompt，实际上Token消耗可能远超预期。</p>
-
-            <h3>标点符号和空格也占Token</h3>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这点很多人忽视。在API眼里，<code>，</code>、<code>。</code>、<code>\n</code>都是独立的Token。格式化越复杂，Token越多。</p>
+请用专业、友好的语气回答，不要超过100字。</code></pre> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">就这个Prompt，每次请求都要完整发送。我以为"1000 Token"是1000个英文单词，实际上一条Prompt就吃了<strong>800多Token</strong>。这才反应过来——<a href="/blog/ai-api-conversation-context-memory-management-guide-2026" style="color:#00f0ff;text-decoration:none;">Token</a>根本不是按词算的，是按字符/子词切分的。</p> <div class="warning-box"> <h4>血泪教训</h4> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">千万别用"词数"来估算Token消耗。中文尤其坑——一个短句可能就是几十个Token。</p> </div> <h2>Token到底是什么鬼？</h2> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">简单说，Token是大模型处理文本的最小单位。模型不认字符，而是把文本切成一串Token来理解。</p> <h3>中英文Token化差异巨大</h3> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这里有个关键规律：</p> <ul> <li><strong>英文</strong>：通常1 Token ≈ 0.75个单词，1000个Token约等于750个英文单词</li> <li><strong>中文</strong>：1个汉字 ≈ 1-2个Token，标点符号也算</li> <li><strong>代码</strong>：tokenizer对代码更友好，1 Token通常能覆盖更多字符</li> </ul> <div class="highlight-box"> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>实测数据：</strong></p> <ul> <li>"Hello, world!" → 6 Tokens</li> <li>"你好，世界！" → 7 Tokens（每个汉字约1.5-2 Token，标点另算）</li> <li>"AI大模型真厉害" → 9 Tokens</li> </ul> </div> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">所以中文开发者尤其要注意：一个看似简短的Prompt，实际上Token消耗可能远超预期。</p> <h3>标点符号和空格也占Token</h3> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">这点很多人忽视。在API眼里，<code>，</code>、<code>。</code>、<code>\n</code>都是独立的Token。格式化越复杂，Token越多。</p>
 
 <pre><code># 高Token消耗的写法
-"产品列表：\n\n1. 手机\n   - 品牌：XXX\n   - 价格：2999\n\n2. 电脑\n   - 品牌：YYY\n   - 价格：5999"
+"产品列表：\n\n1. 手机\n - 品牌：XXX\n - 价格：2999\n\n2. 电脑\n - 品牌：YYY\n - 价格：5999"
 
 # 低Token消耗的写法
-"产品: 手机(品牌XXX,价格2999) | 电脑(品牌YYY,价格5999)"</code></pre>
-
-            <h2>2026年主流模型最新定价表</h2>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我整理了目前最常用的几个模型的最新价格，数据来自各平台官网（截至2026年6月）：</p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>模型</th>
-                        <th>输入 ($/1M Tokens)</th>
-                        <th>输出 ($/1M Tokens)</th>
-                        <th>特点</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>GPT-4o</strong></td>
-                        <td>$2.50</td>
-                        <td>$10.00</td>
-                        <td>全能型，多模态强</td>
-                    </tr>
-                    <tr>
-                        <td><strong>GPT-4o mini</strong></td>
-                        <td>$0.15</td>
-                        <td>$0.60</td>
-                        <td>性价比之选</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Claude 3.5 Sonnet</strong></td>
-                        <td>$3.00</td>
-                        <td>$15.00</td>
-                        <td>长上下文，代码强</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Claude 3.5 Haiku</strong></td>
-                        <td>$0.80</td>
-                        <td>$4.00</td>
-                        <td>速度快，便宜</td>
-                    </tr>
-                    <tr>
-                        <td><strong>DeepSeek V3</strong></td>
-                        <td>$0.27</td>
-                        <td>$1.10</td>
-                        <td>国产性价比王</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Gemini 2.0 Flash</strong></td>
-                        <td>$0.10</td>
-                        <td>$0.40</td>
-                        <td>Google主力模型</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="chart-container" style="background:#12121a;border:1px solid rgba(0,240,255,0.15);border-radius:12px;padding:24px;margin:28px 0;">
-                <h4 style="color:#00f0ff;margin:0 0 16px;font-size:1rem;">📊 主流 AI API 输入价格对比（美元/百万Token，2026年7月数据）</h4>
-                <svg viewBox="0 0 600 320" style="width:100%;height:auto;" role="img" aria-label="AI API价格对比图表">
-                    <defs>
-                        <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
-                            <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.3"/>
-                        </linearGradient>
-                        <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#b829dd" stop-opacity="0.9"/>
-                            <stop offset="100%" stop-color="#b829dd" stop-opacity="0.3"/>
-                        </linearGradient>
-                        <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#ffd700" stop-opacity="0.9"/>
-                            <stop offset="100%" stop-color="#ffd700" stop-opacity="0.3"/>
-                        </linearGradient>
-                    </defs>
-                    <!-- Y轴 -->
-                    <line x1="120" y1="20" x2="120" y2="270" stroke="#333" stroke-width="1"/>
-                    <!-- X轴 -->
-                    <line x1="120" y1="270" x2="580" y2="270" stroke="#333" stroke-width="1"/>
-                    <!-- 网格线 -->
-                    <line x1="120" y1="220" x2="580" y2="220" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
-                    <line x1="120" y1="170" x2="580" y2="170" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
-                    <line x1="120" y1="120" x2="580" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
-                    <line x1="120" y1="70" x2="580" y2="70" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
-                    <!-- Y轴标签 -->
-                    <text x="110" y="275" text-anchor="end" fill="#8a8aa3" font-size="10">$0</text>
-                    <text x="110" y="225" text-anchor="end" fill="#8a8aa3" font-size="10">$5</text>
-                    <text x="110" y="175" text-anchor="end" fill="#8a8aa3" font-size="10">$10</text>
-                    <text x="110" y="125" text-anchor="end" fill="#8a8aa3" font-size="10">$15</text>
-                    <text x="110" y="75" text-anchor="end" fill="#8a8aa3" font-size="10">$20</text>
-                    <!-- DeepSeek V3: $0.07/1M → 极小条 -->
-                    <rect x="135" y="269" width="50" height="1" fill="url(#barGrad1)" rx="2"/>
-                    <text x="160" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">DeepSeek</text>
-                    <text x="160" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">V3 $0.07</text>
-                    <!-- GPT-4o-mini: $0.15/1M -->
-                    <rect x="210" y="268.5" width="50" height="1.5" fill="url(#barGrad1)" rx="2"/>
-                    <text x="235" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
-                    <text x="235" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">mini $0.15</text>
-                    <!-- Claude 3.5: $3/1M -->
-                    <rect x="285" y="240" width="50" height="30" fill="url(#barGrad2)" rx="2"/>
-                    <text x="310" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
-                    <text x="310" y="300" text-anchor="middle" fill="#b829dd" font-size="9">3.5 $3</text>
-                    <!-- GPT-4o: $2.50/1M -->
-                    <rect x="360" y="245" width="50" height="25" fill="url(#barGrad3)" rx="2"/>
-                    <text x="385" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text>
-                    <text x="385" y="300" text-anchor="middle" fill="#ffd700" font-size="9">$2.50</text>
-                    <!-- Gemini Pro: $1.25/1M -->
-                    <rect x="435" y="257.5" width="50" height="12.5" fill="url(#barGrad1)" rx="2"/>
-                    <text x="460" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Gemini</text>
-                    <text x="460" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">Pro $1.25</text>
-                    <!-- Claude Opus: $15/1M -->
-                    <rect x="510" y="120" width="50" height="150" fill="url(#barGrad2)" rx="2"/>
-                    <text x="535" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text>
-                    <text x="535" y="300" text-anchor="middle" fill="#b829dd" font-size="9">Opus $15</text>
-                    <!-- 标题 -->
-                    <text x="300" y="315" text-anchor="middle" fill="#8a8aa3" font-size="9">数据来源：各平台官方定价页（2026年7月） · TokenNexus 整理</text>
-                </svg>
-            </div>
-
-            <div class="debug-note" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-left:4px solid #ffd700;border-radius:0 8px 8px 0;padding:20px;margin:28px 0;">
-                <h4 style="color:#ffd700;margin:0 0 12px;font-size:1rem;">⚠️ 踩坑备注：成本失控的常见原因</h4>
-                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.7;">实际项目中导致成本飙升的三大原因：① 未启用 Prompt Caching，重复 system prompt 每次都全量计费；② 未设置 max_tokens，模型滔滔不绝烧钱；③ 用 GPT-4o 做简单分类任务（应该用 GPT-4o-mini）。建议每周检查 Token 用量趋势，异常增长时立即排查。</p>
-            </div>
-
-
-            <div class="tip-box">
-                <h4>成本换算小工具</h4>
-                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">100万Token约等于75万英文单词或50万汉字。写一篇2000字的中文文章，输入大概消耗4-8元。</p>
-            </div>
-
-            <h2>多模态Token怎么算</h2>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你用GPT-4V或者Gemini处理图片、音频，那Token计算就更复杂了。</p>
-
-            <h3>图片Token计算</h3>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI的图片Token计算公式是：</p>
+"产品: 手机(品牌XXX,价格2999) | 电脑(品牌YYY,价格5999)"</code></pre> <h2>2026年主流模型最新定价表</h2> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我整理了目前最常用的几个模型的最新价格，数据来自各平台官网（截至2026年6月）：</p> <table> <thead> <tr> <th>模型</th> <th>输入 ($/1M Tokens)</th> <th>输出 ($/1M Tokens)</th> <th>特点</th> </tr> </thead> <tbody> <tr> <td><strong>GPT-4o</strong></td> <td>$2.50</td> <td>$10.00</td> <td>全能型，多模态强</td> </tr> <tr> <td><strong>GPT-4o mini</strong></td> <td>$0.15</td> <td>$0.60</td> <td>性价比之选</td> </tr> <tr> <td><strong>Claude 3.5 Sonnet</strong></td> <td>$3.00</td> <td>$15.00</td> <td>长上下文，代码强</td> </tr> <tr> <td><strong>Claude 3.5 Haiku</strong></td> <td>$0.80</td> <td>$4.00</td> <td>速度快，便宜</td> </tr> <tr> <td><strong>DeepSeek V3</strong></td> <td>$0.27</td> <td>$1.10</td> <td>国产性价比王</td> </tr> <tr> <td><strong>Gemini 2.0 Flash</strong></td> <td>$0.10</td> <td>$0.40</td> <td>Google主力模型</td> </tr> </tbody> </table> <div class="chart-container" style="background:#12121a;border:1px solid rgba(0,240,255,0.15);border-radius:12px;padding:24px;margin:28px 0;"> <h4 style="color:#00f0ff;margin:0 0 16px;font-size:1rem;">📊 主流 AI API 输入价格对比（美元/百万Token，2026年7月数据）</h4> <svg viewBox="0 0 600 320" style="width:100%;height:auto;" role="img" aria-label="AI API价格对比图表"> <defs> <linearGradient id="barGrad1" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/> <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.3"/> </linearGradient> <linearGradient id="barGrad2" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#b829dd" stop-opacity="0.9"/> <stop offset="100%" stop-color="#b829dd" stop-opacity="0.3"/> </linearGradient> <linearGradient id="barGrad3" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#ffd700" stop-opacity="0.9"/> <stop offset="100%" stop-color="#ffd700" stop-opacity="0.3"/> </linearGradient> </defs> <!-- Y轴 --> <line x1="120" y1="20" x2="120" y2="270" stroke="#333" stroke-width="1"/> <!-- X轴 --> <line x1="120" y1="270" x2="580" y2="270" stroke="#333" stroke-width="1"/> <!-- 网格线 --> <line x1="120" y1="220" x2="580" y2="220" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/> <line x1="120" y1="170" x2="580" y2="170" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/> <line x1="120" y1="120" x2="580" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/> <line x1="120" y1="70" x2="580" y2="70" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/> <!-- Y轴标签 --> <text x="110" y="275" text-anchor="end" fill="#8a8aa3" font-size="10">$0</text> <text x="110" y="225" text-anchor="end" fill="#8a8aa3" font-size="10">$5</text> <text x="110" y="175" text-anchor="end" fill="#8a8aa3" font-size="10">$10</text> <text x="110" y="125" text-anchor="end" fill="#8a8aa3" font-size="10">$15</text> <text x="110" y="75" text-anchor="end" fill="#8a8aa3" font-size="10">$20</text> <!-- DeepSeek V3: $0.07/1M → 极小条 --> <rect x="135" y="269" width="50" height="1" fill="url(#barGrad1)" rx="2"/> <text x="160" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">DeepSeek</text> <text x="160" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">V3 $0.07</text> <!-- GPT-4o-mini: $0.15/1M --> <rect x="210" y="268.5" width="50" height="1.5" fill="url(#barGrad1)" rx="2"/> <text x="235" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text> <text x="235" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">mini $0.15</text> <!-- Claude 3.5: $3/1M --> <rect x="285" y="240" width="50" height="30" fill="url(#barGrad2)" rx="2"/> <text x="310" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text> <text x="310" y="300" text-anchor="middle" fill="#b829dd" font-size="9">3.5 $3</text> <!-- GPT-4o: $2.50/1M --> <rect x="360" y="245" width="50" height="25" fill="url(#barGrad3)" rx="2"/> <text x="385" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">GPT-4o</text> <text x="385" y="300" text-anchor="middle" fill="#ffd700" font-size="9">$2.50</text> <!-- Gemini Pro: $1.25/1M --> <rect x="435" y="257.5" width="50" height="12.5" fill="url(#barGrad1)" rx="2"/> <text x="460" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Gemini</text> <text x="460" y="300" text-anchor="middle" fill="#00f0ff" font-size="9">Pro $1.25</text> <!-- Claude Opus: $15/1M --> <rect x="510" y="120" width="50" height="150" fill="url(#barGrad2)" rx="2"/> <text x="535" y="288" text-anchor="middle" fill="#8a8aa3" font-size="9">Claude</text> <text x="535" y="300" text-anchor="middle" fill="#b829dd" font-size="9">Opus $15</text> <!-- 标题 --> <text x="300" y="315" text-anchor="middle" fill="#8a8aa3" font-size="9">数据来源：各平台官方定价页（2026年7月） · TokenNexus 整理</text> </svg> </div> <div class="debug-note" style="background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-left:4px solid #ffd700;border-radius:0 8px 8px 0;padding:20px;margin:28px 0;"> <h4 style="color:#ffd700;margin:0 0 12px;font-size:1rem;">⚠️ 踩坑备注：成本失控的常见原因</h4> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.7;">实际项目中导致成本飙升的三大原因：① 未启用 Prompt Caching，重复 system prompt 每次都全量计费；② 未设置 max_tokens，模型滔滔不绝烧钱；③ 用 GPT-4o 做简单分类任务（应该用 GPT-4o-mini）。建议每周检查 Token 用量趋势，异常增长时立即排查。</p> </div> <div class="tip-box"> <h4>成本换算小工具</h4> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">100万Token约等于75万英文单词或50万汉字。写一篇2000字的中文文章，输入大概消耗4-8元。</p> </div> <h2>多模态Token怎么算</h2> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">如果你用GPT-4V或者Gemini处理图片、音频，那Token计算就更复杂了。</p> <h3>图片Token计算</h3> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI的图片Token计算公式是：</p>
 
 <pre><code># 图片Token计算（简化版）
 # 短边 resize 到 512，长边按比例缩放
@@ -450,111 +39,39 @@ var _hmt = _hmt || [];
 # 每块 = 170 Tokens
 # 最低消费 = 85 Tokens
 
-def calc_image_tokens(width, height):
-    # 1. 短边缩放到 512
-    if width < height:
-        new_width = 512
-        new_height = int(height * 512 / width)
-    else:
-        new_height = 512
-        new_width = int(width * 512 / height)
-    
-    # 2. 向上取整到 512 的倍数
-    tiles_x = (new_width + 511) // 512
-    tiles_y = (new_height + 511) // 512
-    
-    # 3. 每块 170 Tokens，最低 85
-    total = tiles_x * tiles_y * 170
-    return max(total, 85)
+def calc_image_tokens(width, height): # 1. 短边缩放到 512 if width < height: new_width = 512 new_height = int(height * 512 / width) else: new_height = 512 new_width = int(width * 512 / height) # 2. 向上取整到 512 的倍数 tiles_x = (new_width + 511) // 512 tiles_y = (new_height + 511) // 512 # 3. 每块 170 Tokens，最低 85 total = tiles_x * tiles_y * 170 return max(total, 85)
 
 # 例子：一手机照片 1080x1920
-print(calc_image_tokens(1080, 1920))  # 输出约 850 Tokens</code></pre>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">所以一张普通手机照片，传给<a href="/blog/ai-api-multimodal-gpt4o-gemini-complete-guide-2026" style="color:#00f0ff;text-decoration:none;">GPT-4o</a> Vision大约消耗<strong>800-1000 Token</strong>，比很多文字Prompt都贵。</p>
-
-            <h3>音频Token计算</h3>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Whisper API的音频处理：</p>
-
-            <ul>
-                <li>按分钟计费：$0.006/分钟</li>
-                <li>不会消耗输入Token配额，但会有单独的费用</li>
-                <li>建议上传前压缩到16kHz单声道，节省处理时间</li>
-            </ul>
-
-            <h3>视频帧Token估算</h3>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">视频处理按帧计费，估算公式：</p>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><code>视频Token ≈ 帧数 × 单帧Token数 × 采样率系数</code></p>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">一般1秒钟视频（按1fps采样）≈ 100-200 Tokens。</p>
-
-            <h2>Python Token计算工具</h2>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">与其瞎猜，不如直接用代码算。下面是两个实用的Token计数方案：</p>
-
-            <h3>方案1：tiktoken（英文为主）</h3>
+print(calc_image_tokens(1080, 1920))  # 输出约 850 Tokens</code></pre> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">所以一张普通手机照片，传给<a href="/blog/ai-api-multimodal-gpt4o-gemini-complete-guide-2026" style="color:#00f0ff;text-decoration:none;">GPT-4o</a> Vision大约消耗<strong>800-1000 Token</strong>，比很多文字Prompt都贵。</p> <h3>音频Token计算</h3> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Whisper API的音频处理：</p> <ul> <li>按分钟计费：$0.006/分钟</li> <li>不会消耗输入Token配额，但会有单独的费用</li> <li>建议上传前压缩到16kHz单声道，节省处理时间</li> </ul> <h3>视频帧Token估算</h3> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">视频处理按帧计费，估算公式：</p> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><code>视频Token ≈ 帧数 × 单帧Token数 × 采样率系数</code></p> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">一般1秒钟视频（按1fps采样）≈ 100-200 Tokens。</p> <h2>Python Token计算工具</h2> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">与其瞎猜，不如直接用代码算。下面是两个实用的Token计数方案：</p> <h3>方案1：tiktoken（英文为主）</h3>
 
 <pre><code>pip install tiktoken openai
 
 import tiktoken
 
-def count_tokens_english(text: str, model: str = "gpt-4o") -> int:
-    """使用tiktoken计算英文Token数"""
-    encoding = tiktoken.encoding_for_model(model)
-    tokens = encoding.encode(text)
-    return len(tokens)
+def count_tokens_english(text: str, model: str = "gpt-4o") -> int: """使用tiktoken计算英文Token数""" encoding = tiktoken.encoding_for_model(model) tokens = encoding.encode(text) return len(tokens)
 
 # 测试
 text = "Hello, world! How are you today?"
-print(count_tokens_english(text))  # 输出: 9</code></pre>
-
-            <h3>方案2：中文Tokenizer（更准确）</h3>
+print(count_tokens_english(text))  # 输出: 9</code></pre> <h3>方案2：中文Tokenizer（更准确）</h3>
 
 <pre><code># 安装中文分词器
 pip install transformers
 
 from transformers import AutoTokenizer
 
-def count_tokens_chinese(text: str, model: str = "gpt-3.5-turbo") -> int:
-    """
-    使用HuggingFace分词器计算中英文混合Token
-    支持大多数<a href="/blog/ai-api-error-codes-troubleshooting" style="color:#00f0ff;text-decoration:none;">OpenAI</a>兼容格式
-    """
-    tokenizer = AutoTokenizer.from_pretrained(
-        "portkey-ai/gpt-3.5-turbo",
-        trust_remote_code=True
-    )
-    tokens = tokenizer.encode(text, add_special_tokens=True)
-    return len(tokens)
+def count_tokens_chinese(text: str, model: str = "gpt-3.5-turbo") -> int: """ 使用HuggingFace分词器计算中英文混合Token 支持大多数<a href="/blog/ai-api-error-codes-troubleshooting" style="color:#00f0ff;text-decoration:none;">OpenAI</a>兼容格式 """ tokenizer = AutoTokenizer.from_pretrained( "portkey-ai/gpt-3.5-turbo", trust_remote_code=True ) tokens = tokenizer.encode(text, add_special_tokens=True) return len(tokens)
 
 # 实际测试
-test_cases = [
-    "你好世界",
-    "Hello world",
-    "AI大模型真的很厉害！",
-    "产品名称：智能手表\n价格：1999元\n功能：心率监测"
+test_cases = [ "你好世界", "Hello world", "AI大模型真的很厉害！", "产品名称：智能手表\n价格：1999元\n功能：心率监测"
 ]
 
-for text in test_cases:
-    tokens = count_tokens_chinese(text)
-    print(f"文本: {text[:30]}... → {tokens} Tokens")</code></pre>
-
-            <h3>方案3：直接用API返回的数据</h3>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最准确的方法是看API返回的usage字段：</p>
+for text in test_cases: tokens = count_tokens_chinese(text) print(f"文本: {text[:30]}... → {tokens} Tokens")</code></pre> <h3>方案3：直接用API返回的数据</h3> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最准确的方法是看API返回的usage字段：</p>
 
 <pre><code>import openai
 
 client = openai.OpenAI(api_key="your-api-key")
 
-response = client.chat.completions.create(
-    model="gpt-4o",
-    messages=[
-        {"role": "system", "content": "你是一个有帮助的助手。"},
-        {"role": "user", "content": "解释一下量子计算的基本原理"}
-    ]
+response = client.chat.completions.create( model="gpt-4o", messages=[ {"role": "system", "content": "你是一个有帮助的助手。"}, {"role": "user", "content": "解释一下量子计算的基本原理"} ]
 )
 
 # 从响应中提取详细用量
@@ -566,22 +83,7 @@ Completion Tokens (输出): {usage.completion_tokens}
 Total Tokens (总计): {usage.total_tokens}
 
 预估费用: ${(usage.prompt_tokens / 1_000_000) * 2.50 + (usage.completion_tokens / 1_000_000) * 10:.4f}
-""")</code></pre>
-
-            <div class="highlight-box">
-                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>重要字段说明：</strong></p>
-                <ul>
-                    <li><code>prompt_tokens</code>：你的输入（Prompt）消耗的Token</li>
-                    <li><code>completion_tokens</code>：模型的输出消耗的Token</li>
-                    <li><code>total_tokens</code>：两者之和</li>
-                </ul>
-            </div>
-
-            <h2>Cache命中：省钱的秘密武器</h2>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Claude和OpenAI都推出了上下文缓存功能，命中Cache可以大幅降低费用。</p>
-
-            <h3>OpenAI Cache机制</h3>
+""")</code></pre> <div class="highlight-box"> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;"><strong>重要字段说明：</strong></p> <ul> <li><code>prompt_tokens</code>：你的输入（Prompt）消耗的Token</li> <li><code>completion_tokens</code>：模型的输出消耗的Token</li> <li><code>total_tokens</code>：两者之和</li> </ul> </div> <h2>Cache命中：省钱的秘密武器</h2> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">Claude和OpenAI都推出了上下文缓存功能，命中Cache可以大幅降低费用。</p> <h3>OpenAI Cache机制</h3>
 
 <pre><code># OpenAI的响应中会返回cache相关字段
 print(f"""
@@ -591,248 +93,31 @@ completion_tokens_details: {usage.completion_tokens_details}
 
 # 如果使用了cache，会看到：
 # cached_read_tokens: 1234  (从缓存读取的Token)
-""")</code></pre>
-
-            <h3>Claude的Cache字段</h3>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>字段</th>
-                        <th>说明</th>
-                        <th>计费</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>prompt_tokens</td>
-                        <td>正常输入Token</td>
-                        <td>全价</td>
-                    </tr>
-                    <tr>
-                        <td>cache_creation_input_tokens</td>
-                        <td>创建缓存的输入</td>
-                        <td>全价（仅首次）</td>
-                    </tr>
-                    <tr>
-                        <td>cache_read_input_tokens</td>
-                        <td>从缓存读取的输入</td>
-                        <td><strong>10%价格</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">简单说，如果你在Prompt前加一段固定上下文（如产品知识库），首次调用贵一些，后续调用因为Cache命中，实际费用只有原来的<strong>10%-50%</strong>。</p>
-
-            <h2>Batch API：50%折扣的正确用法</h2>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI和<a href="/blog/ai-aggregator-platform-guide-2026" style="color:#00f0ff;text-decoration:none;">Groq</a>都有Batch API，价格更便宜，但有24小时延迟。</p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>平台</th>
-                        <th>折扣</th>
-                        <th>延迟</th>
-                        <th>适用场景</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>OpenAI Batch</td>
-                        <td>50%</td>
-                        <td>最长24小时</td>
-                        <td>批量翻译、批量总结、离线处理</td>
-                    </tr>
-                    <tr>
-                        <td>Groq Batch</td>
-                        <td>节省规则</td>
-                        <td>实时或排队</td>
-                        <td>大批量非实时任务</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>OpenAI Batch API调用示例</h3>
+""")</code></pre> <h3>Claude的Cache字段</h3> <table> <thead> <tr> <th>字段</th> <th>说明</th> <th>计费</th> </tr> </thead> <tbody> <tr> <td>prompt_tokens</td> <td>正常输入Token</td> <td>全价</td> </tr> <tr> <td>cache_creation_input_tokens</td> <td>创建缓存的输入</td> <td>全价（仅首次）</td> </tr> <tr> <td>cache_read_input_tokens</td> <td>从缓存读取的输入</td> <td><strong>10%价格</strong></td> </tr> </tbody> </table> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">简单说，如果你在Prompt前加一段固定上下文（如产品知识库），首次调用贵一些，后续调用因为Cache命中，实际费用只有原来的<strong>10%-50%</strong>。</p> <h2>Batch API：50%折扣的正确用法</h2> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">OpenAI和<a href="/blog/ai-aggregator-platform-guide-2026" style="color:#00f0ff;text-decoration:none;">Groq</a>都有Batch API，价格更便宜，但有24小时延迟。</p> <table> <thead> <tr> <th>平台</th> <th>折扣</th> <th>延迟</th> <th>适用场景</th> </tr> </thead> <tbody> <tr> <td>OpenAI Batch</td> <td>50%</td> <td>最长24小时</td> <td>批量翻译、批量总结、离线处理</td> </tr> <tr> <td>Groq Batch</td> <td>节省规则</td> <td>实时或排队</td> <td>大批量非实时任务</td> </tr> </tbody> </table> <h3>OpenAI Batch API调用示例</h3>
 
 <pre><code># 准备batch请求
-batch_requests = [
-    {"custom_id": f"req_{i}", "method": "POST", "url": "/v1/chat/completions", 
-     "body": {"model": "gpt-4o-mini", "messages": [{"role": "user", "content": f"任务{i}"}]}}
-    for i in range(100)
+batch_requests = [ {"custom_id": f"req_{i}", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "gpt-4o-mini", "messages": [{"role": "user", "content": f"任务{i}"}]}} for i in range(100)
 ]
 
 # 创建batch任务
-batch_file = client.files.create(
-    file=io.StringIO(json.dumps(batch_requests)),
-    purpose="batch"
+batch_file = client.files.create( file=io.StringIO(json.dumps(batch_requests)), purpose="batch"
 )
 
-batch_job = client.batches.create(
-    input_file_id=batch_file.id,
-    endpoint="/v1/chat/completions",
-    completion_window="24h"
+batch_job = client.batches.create( input_file_id=batch_file.id, endpoint="/v1/chat/completions", completion_window="24h"
 )
 
 print(f"Batch ID: {batch_job.id}")
-print("等待24小时内完成...")</code></pre>
+print("等待24小时内完成...")</code></pre> <h2>不同场景Token消耗实测</h2> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我跑了几个常见场景的实测数据：</p> <table> <thead> <tr> <th>场景</th> <th>输入Token</th> <th>输出Token</th> <th>GPT-4o费用</th> <th>GPT-4o mini费用</th> </tr> </thead> <tbody> <tr> <td>简短问答（50字）</td> <td>~150</td> <td>~50</td> <td>$0.0011</td> <td>$0.00007</td> </tr> <tr> <td>中等长度对话（500字上下文）</td> <td>~800</td> <td>~200</td> <td>$0.0055</td> <td>$0.0003</td> </tr> <tr> <td>长文摘要（2000字文章）</td> <td>~3500</td> <td>~150</td> <td>$0.012</td> <td>$0.0007</td> </tr> <tr> <td>代码生成（100行）</td> <td>~500</td> <td>~800</td> <td>$0.0135</td> <td>$0.0008</td> </tr> <tr> <td>多模态（1张手机照片+问题）</td> <td>~1200</td> <td>~100</td> <td>$0.006</td> <td>N/A</td> </tr> </tbody> </table> <div class="tip-box"> <h4>优化建议</h4> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">从实测数据看：</p> <ul> <li>简单问答场景，用GPT-4o mini能省<strong>15倍</strong>费用</li> <li>输出越长，输出Token费用占比越高</li> <li>多模态输入比纯文字贵很多，能文字描述就别传图</li> </ul> </div> <h2>精准成本监控方案</h2> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最后分享一个我用的成本监控方案，实时追踪每个请求的费用：</p>
 
-            <h2>不同场景Token消耗实测</h2>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我跑了几个常见场景的实测数据：</p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>场景</th>
-                        <th>输入Token</th>
-                        <th>输出Token</th>
-                        <th>GPT-4o费用</th>
-                        <th>GPT-4o mini费用</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>简短问答（50字）</td>
-                        <td>~150</td>
-                        <td>~50</td>
-                        <td>$0.0011</td>
-                        <td>$0.00007</td>
-                    </tr>
-                    <tr>
-                        <td>中等长度对话（500字上下文）</td>
-                        <td>~800</td>
-                        <td>~200</td>
-                        <td>$0.0055</td>
-                        <td>$0.0003</td>
-                    </tr>
-                    <tr>
-                        <td>长文摘要（2000字文章）</td>
-                        <td>~3500</td>
-                        <td>~150</td>
-                        <td>$0.012</td>
-                        <td>$0.0007</td>
-                    </tr>
-                    <tr>
-                        <td>代码生成（100行）</td>
-                        <td>~500</td>
-                        <td>~800</td>
-                        <td>$0.0135</td>
-                        <td>$0.0008</td>
-                    </tr>
-                    <tr>
-                        <td>多模态（1张手机照片+问题）</td>
-                        <td>~1200</td>
-                        <td>~100</td>
-                        <td>$0.006</td>
-                        <td>N/A</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="tip-box">
-                <h4>优化建议</h4>
-                <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">从实测数据看：</p>
-                <ul>
-                    <li>简单问答场景，用GPT-4o mini能省<strong>15倍</strong>费用</li>
-                    <li>输出越长，输出Token费用占比越高</li>
-                    <li>多模态输入比纯文字贵很多，能文字描述就别传图</li>
-                </ul>
-            </div>
-
-            <h2>精准成本监控方案</h2>
-
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">最后分享一个我用的成本监控方案，实时追踪每个请求的费用：</p>
-
-<pre><code>class TokenTracker:
-    """Token消耗追踪器"""
-    
-    PRICING = {
-        "gpt-4o": {"input": 2.50, "output": 10.00},
-        "gpt-4o-mini": {"input": 0.15, "output": 0.60},
-        "claude-3.5-sonnet": {"input": 3.00, "output": 15.00},
-        "deepseek-v3": {"input": 0.27, "output": 1.10},
-    }
-    
-    def __init__(self):
-        self.total_cost = 0
-        self.total_tokens = 0
-        self.request_count = 0
-    
-    def record(self, model: str, usage: dict):
-        price = self.PRICING.get(model, {})
-        input_cost = (usage['prompt_tokens'] / 1_000_000) * price.get('input', 0)
-        output_cost = (usage['completion_tokens'] / 1_000_000) * price.get('output', 0)
-        total = input_cost + output_cost
-        
-        self.total_cost += total
-        self.total_tokens += usage['total_tokens']
-        self.request_count += 1
-        
-        print(f"[请求#{self.request_count}] {model}")
-        print(f"  Tokens: {usage['total_tokens']} (输入:{usage['prompt_tokens']}, 输出:{usage['completion_tokens']})")
-        print(f"  费用: ${total:.6f}")
-        print(f"  累计: ${self.total_cost:.4f} / {self.total_tokens} Tokens")
-    
-    def report(self):
-        return f"总请求: {self.request_count}, 总Token: {self.total_tokens}, 总费用: ${self.total_cost:.4f}"
+<pre><code>class TokenTracker: """Token消耗追踪器""" PRICING = { "gpt-4o": {"input": 2.50, "output": 10.00}, "gpt-4o-mini": {"input": 0.15, "output": 0.60}, "claude-3.5-sonnet": {"input": 3.00, "output": 15.00}, "deepseek-v3": {"input": 0.27, "output": 1.10}, } def __init__(self): self.total_cost = 0 self.total_tokens = 0 self.request_count = 0 def record(self, model: str, usage: dict): price = self.PRICING.get(model, {}) input_cost = (usage['prompt_tokens'] / 1_000_000) * price.get('input', 0) output_cost = (usage['completion_tokens'] / 1_000_000) * price.get('output', 0) total = input_cost + output_cost self.total_cost += total self.total_tokens += usage['total_tokens'] self.request_count += 1 print(f"[请求#{self.request_count}] {model}") print(f"  Tokens: {usage['total_tokens']} (输入:{usage['prompt_tokens']}, 输出:{usage['completion_tokens']})") print(f"  费用: ${total:.6f}") print(f"  累计: ${self.total_cost:.4f} / {self.total_tokens} Tokens") def report(self): return f"总请求: {self.request_count}, 总Token: {self.total_tokens}, 总费用: ${self.total_cost:.4f}"
 
 tracker = TokenTracker()
 
 # 每次API调用后
-tracker.record("gpt-4o-mini", {
-    "prompt_tokens": 150,
-    "completion_tokens": 50,
-    "total_tokens": 200
-})</code></pre>
-
-            <h2>总结：控制Token成本的几个关键</h2>
-
-            <ol>
-                <li><strong>用mini模型</strong>：简单任务别浪费在GPT-4o上，4o mini能省15倍</li>
-                <li><strong>精简Prompt</strong>：删除重复的指令词，减少不必要的格式</li>
-                <li><strong>善用Cache</strong>：固定上下文做缓存，后续调用打折</li>
-                <li><strong>批量处理</strong>：非实时任务用Batch API，省50%</li>
-                <li><strong>监控每一分</strong>：接入usage字段统计，别等账单吓一跳</li>
-            </ol>
-
-        </div>
-
-        <div class="cta-box">
-            <h3>发现更便宜的API平台</h3>
-            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">TokenNexus收录330+国内外AI API平台，支持按价格、功能、地区筛选，找到最适合你预算的选择。</p>
-            <a href="../">立即探索</a>
-        </div>
-    
-        <!-- 相关文章推荐 -->
-        <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;">
-            <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3>
-            <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;">
-                
-                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
-                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-pricing-comparison-2026-guide">2026年AI大模型API价格终极对比：GPT-5.5、Claude、DeepSeek、Gemini怎么选最省钱</a></h4>
-                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深度对比2026年主流AI大模型API价格，包括GPT-5.5、Claude Opus 4.7、DeepSeek V4、Gemini 3.5等20+模型，用真实...</p>
-                
-<div style="margin:40px 0;padding:20px;background:rgba(0,240,255,0.05);border-left:3px solid #00f0ff;border-radius:8px;">
+tracker.record("gpt-4o-mini", { "prompt_tokens": 150, "completion_tokens": 50, "total_tokens": 200
+})</code></pre> <h2>总结：控制Token成本的几个关键</h2> <ol> <li><strong>用mini模型</strong>：简单任务别浪费在GPT-4o上，4o mini能省15倍</li> <li><strong>精简Prompt</strong>：删除重复的指令词，减少不必要的格式</li> <li><strong>善用Cache</strong>：固定上下文做缓存，后续调用打折</li> <li><strong>批量处理</strong>：非实时任务用Batch API，省50%</li> <li><strong>监控每一分</strong>：接入usage字段统计，别等账单吓一跳</li> </ol> </div> <div class="cta-box"> <h3>发现更便宜的API平台</h3> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">TokenNexus收录330+国内外AI API平台，支持按价格、功能、地区筛选，找到最适合你预算的选择。</p> <a href="../">立即探索</a> </div> <!-- 相关文章推荐 --> <section class="related-posts" aria-label="相关文章推荐" style="margin-top:3rem;padding-top:2rem;border-top:1px solid #1f1f33;"> <h3 style="color:#00f0ff;margin-bottom:1.25rem;font-size:1.3rem;">相关文章推荐</h3> <div class="related-posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:1rem;"> <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;"> <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-pricing-comparison-2026-guide">2026年AI大模型API价格终极对比：GPT-5.5、Claude、DeepSeek、Gemini怎么选最省钱</a></h4> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深度对比2026年主流AI大模型API价格，包括GPT-5.5、Claude Opus 4.7、DeepSeek V4、Gemini 3.5等20+模型，用真实...</p> <div style="margin:40px 0;padding:20px;background:rgba(0,240,255,0.05);border-left:3px solid #00f0ff;border-radius:8px;">
 <p style="font-size:0.9rem;color:#8b92a8;margin:0;">本文由 <a href="https://www.tokenfind.cn/authors/王浩然" style="color:#00f0ff;text-decoration:none;">王浩然</a>（技术架构师 · API 集成专家）技术审阅，确保内容准确性和技术可靠性。</p>
-</div>
-        </article>
-
-                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
-                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-multimodal-gpt4o-gemini-complete-guide-2026">AI API多模态应用实战：GPT-4o Vision与Gemini完整指南(2026) AI API攻略</a></h4>
-                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入解析AI多模态API调用实战，从GPT-4o Vision图像分析到Gemini原生多模态，对比主流视觉理解API，附完整Python代码示例和视频理解架构...</p>
-                </article>
-
-                <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;">
-                    <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-ab-testing-model-selection-2026">AI API多模型A/B测试实战：用数据选出最优LLM AI API攻略</a></h4>
-                    <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI模型A/B测试完整实战教程，详解GPT-4o vs Claude Sonnet vs DeepSeek V3 vs Gemini Pro多模型对比测试方法，...</p>
-                </article>
-
-            </div>
-        </section>
-
-    </article>
-    <div class="references-section" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:24px;margin:30px 0">
+</div> </article> <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;"> <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-multimodal-gpt4o-gemini-complete-guide-2026">AI API多模态应用实战：GPT-4o Vision与Gemini完整指南(2026) AI API攻略</a></h4> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入解析AI多模态API调用实战，从GPT-4o Vision图像分析到Gemini原生多模态，对比主流视觉理解API，附完整Python代码示例和视频理解架构...</p> </article> <article class="related-post-card" style="background:#12121c;border:1px solid #1f1f33;border-radius:10px;padding:1rem;"> <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-ab-testing-model-selection-2026">AI API多模型A/B测试实战：用数据选出最优LLM AI API攻略</a></h4> <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">AI模型A/B测试完整实战教程，详解GPT-4o vs Claude Sonnet vs DeepSeek V3 vs Gemini Pro多模型对比测试方法，...</p> </article> </div> </section> </article> <div class="references-section" style="background:var(--card-bg,#0a0a0f);border:1px solid var(--border-color,#1a1a2e);border-radius:12px;padding:24px;margin:30px 0">
 <h2 style="border:none;margin-top:0;padding-bottom:8px">📚 参考来源</h2>
 <ul style="margin:0;padding-left:20px">
 <li style="margin:8px 0"><a href="https://platform.openai.com/docs" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">OpenAI API 官方文档</a></li>
@@ -840,14 +125,6 @@ tracker.record("gpt-4o-mini", {
 <li style="margin:8px 0"><a href="https://docs.anthropic.com/en/docs" target="_blank" rel="noopener noreferrer" style="color:var(--neon-cyan,#00f0ff)">Anthropic Claude API 文档</a></li>
 </ul>
 </div>
-<footer class="footer">
-        <div class="footer-links">
-            <a href="../" class="footer-link">首页</a>
-            <a href="guides" class="footer-link">攻略</a>
-            <a href="../about" class="footer-link">关于</a>
-            <a href="../privacy" class="footer-link">隐私政策</a>
-        </div>
-        <p style="color:var(--text-secondary);font-size:13px">&copy; 2024-2026 TokenNexus. All rights reserved.</p>
-    </footer>
+<footer class="footer"> <div class="footer-links"> <a href="../" class="footer-link">首页</a> <a href="guides" class="footer-link">攻略</a> <a href="../about" class="footer-link">关于</a> <a href="../privacy" class="footer-link">隐私政策</a> </div> <p style="color:var(--text-secondary);font-size:13px">&copy; 2024-2026 TokenNexus. All rights reserved.</p> </footer>
 </body>
 </html>

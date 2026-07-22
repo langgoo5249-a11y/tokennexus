@@ -19,3 +19,10 @@ https://tokennexus.pages.dev/* https://www.tokenfind.cn/:splat 301
 
 # 将旧域名301重定向到新域名
 https://tokennexus.skillxm.cn/* https://www.tokenfind.cn/:splat 301
+/blog/ai-api-cost-optimization-guide-2026 /blog/ai-api-cost-optimization-2026 301
+/blog/ai-api-cost-optimization-practical-guide /blog/ai-api-cost-optimization-2026 301
+/blog/ai-api-cost-optimization-strategies-2026 /blog/ai-api-cost-optimization-2026 301
+/blog/ai-api-error-codes-troubleshooting /blog/ai-api-error-codes-troubleshooting-2026 301
+/blog/ai-api-error-codes-troubleshooting-handbook-2026 /blog/ai-api-error-codes-troubleshooting-2026 301
+/blog/ai-api-streaming-sse-guide /blog/ai-api-streaming-optimization-2026 301
+/blog/ai-api-streaming-sse-websocket-implementation-guide-2026 /blog/ai-api-streaming-optimization-2026 301
