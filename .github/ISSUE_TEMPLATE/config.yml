@@ -1,0 +1,14 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 🌐 TokenNexus 官方网站
+    url: https://www.tokenfind.cn
+    about: 访问 TokenNexus AI API 导航平台
+  - name: 📝 技术博客
+    url: https://www.tokenfind.cn/blog/
+    about: 阅读 AI API 开发教程和最佳实践
+  - name: 📋 平台提交
+    url: https://www.tokenfind.cn/submit
+    about: 提交新的 AI API 平台收录
+  - name: 📧 商务合作
+    url: https://www.tokenfind.cn/business
+    about: 广告投放、API 接入、品牌合作
