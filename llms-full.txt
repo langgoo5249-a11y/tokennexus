@@ -53,7 +53,7 @@
 
 - **AI API版本管理与向后兼容实战：从OpenAI API废弃风波中学到的血泪教训**
   URL: https://www.tokenfind.cn/blog/ai-api-versioning-compatibility-guide-2026
-  日期: 2026-06-16T08:00:00+08:00
+  日期: 2026-07-28T08:00:00+08:00
   关键词: AI API版本管理, OpenAI API废弃, API向后兼容, AI API迁移, API版本路由, Claude API版本, gpt-3.5-turbo替代, AI API升级策略
   摘要: 从OpenAI废弃gpt-3.5-turbo到Anthropic Claude API版本策略，详解AI API版本管理最佳实践。附API版本路由中间件代码、向后兼容设计模式、废弃迁移Checklist，真实案例：零停机完成3次API大版本迁移。
 
@@ -71,7 +71,7 @@
 
 - **AI API边缘计算实战：在树莓派和IoT设备上跑通大模型推理的完整方案**
   URL: https://www.tokenfind.cn/blog/ai-api-edge-computing-iot-guide-2026
-  日期: 2026-06-16T08:00:00+08:00
+  日期: 2026-07-28T08:00:00+08:00
   关键词: AI边缘计算, IoT AI应用, 树莓派AI推理, NVIDIA Jetson, Ollama本地部署, 边缘AI API, 工业AI质检, MQTT AI数据处理, 边缘计算大模型
   摘要: 从树莓派5到NVIDIA Jetson，详解如何在边缘设备上调用AI API实现本地推理。覆盖Ollama本地部署、Cloudflare Workers边缘推理、MQTT+AI实时数据处理、工业质检案例，附完整代码和成本对比。
 

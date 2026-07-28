@@ -115,10 +115,10 @@ A: 已对全球 67+ AI 爬虫和搜索引擎爬虫开放全部访问权限，包
 - [AI API速率限制(Rate Limit)全面应对策略：从429到丝滑并发的实战之路](https://www.tokenfind.cn/blog/ai-api-rate-limit-strategies) | 2026-05-18
 - [AI API错误码大全与故障排查：OpenAI、Claude、国内平台踩坑实录](https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting) | 2026-05-14
 - [AI API Schema设计实战：从踩坑到精通](https://www.tokenfind.cn/blog/ai-api-schema-design-function-calling-guide-2026) | 2026-06-09
-- [AI API版本管理与向后兼容实战：从OpenAI API废弃风波中学到的血泪教训](https://www.tokenfind.cn/blog/ai-api-versioning-compatibility-guide-2026) | 2026-06-16
+- [AI API版本管理与向后兼容实战：从OpenAI API废弃风波中学到的血泪教训](https://www.tokenfind.cn/blog/ai-api-versioning-compatibility-guide-2026) | 2026-07-28
 - [从零搭建企业级RAG知识库：Embedding选型到上线的完整踩坑记录](https://www.tokenfind.cn/blog/ai-embedding-rag-knowledge-base-guide-2026) | 2026-06-06
 - [RAG与AI API结合：构建私有知识库的完整指南](https://www.tokenfind.cn/blog/rag-ai-api-knowledge-base) | 2026-03-10
-- [AI API边缘计算实战：在树莓派和IoT设备上跑通大模型推理的完整方案](https://www.tokenfind.cn/blog/ai-api-edge-computing-iot-guide-2026) | 2026-06-16
+- [AI API边缘计算实战：在树莓派和IoT设备上跑通大模型推理的完整方案](https://www.tokenfind.cn/blog/ai-api-edge-computing-iot-guide-2026) | 2026-07-28
 - [AI API流式输出深度优化：从SSE到WebSocket的完整性能调优指南](https://www.tokenfind.cn/blog/ai-api-streaming-optimization-2026) | 2026-05-27
 - [AI API Schema设计实战：从踩坑到精通](https://www.tokenfind.cn/blog/ai-api-schema-design-function-calling-guide-2026) | 2026-06-09
 - [AI API日志与可观测性实战：从摸黑排障到全链路追踪](https://www.tokenfind.cn/blog/ai-api-observability-logging-guide-2026) | 2026-06-08
