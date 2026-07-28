@@ -15,9 +15,9 @@ if (!fs.existsSync(platformDir)) fs.mkdirSync(platformDir, { recursive: true });
 
 // Category mapping
 const categoryMap = {
-    official: { name: '官方平台', link: 'official.html', enName: 'Official Platform' },
-    aggregator: { name: '聚合平台', link: 'aggregator.html', enName: 'Aggregator Platform' },
-    china: { name: '国内平台', link: 'china.html', enName: 'China Platform' }
+    official: { name: '官方平台', link: '/official', enName: 'Official Platform' },
+    aggregator: { name: '聚合平台', link: '/aggregator', enName: 'Aggregator Platform' },
+    china: { name: '国内平台', link: '/china', enName: 'China Platform' }
 };
 
 // Payment methods by category
@@ -260,7 +260,7 @@ function generateBreadcrumbSchema(platform) {
                 "@type": "ListItem",
                 "position": 3,
                 "name": platform.name,
-                "item": `https://www.tokenfind.cn/platform/${slugify(platform.name)}.html`
+                "item": `https://www.tokenfind.cn/platform/${slugify(platform.name)}`
             }
         ]
     });
@@ -301,7 +301,7 @@ function generateSidebar(currentPlatform) {
             const pSlug = slugify(p.name);
             return `
                 <li class="rank-item">
-                    <a href="/platform/${pSlug}.html">
+                    <a href="/platform/${pSlug}">
                         <span class="rank-num ${numClass}">${idx + 1}</span>
                         <span class="rank-name">${p.name}</span>
                         <span class="rank-rating">${p.rating}</span>
@@ -375,7 +375,7 @@ platforms.forEach(platform => {
     <meta property="og:title" content="${platform.name} - ${platform.tags[0]} API评测|价格|使用教程 | TokenNexus">
     <meta property="og:description" content="${metaDesc}">
     <meta property="og:image" content="https://www.tokenfind.cn${platform.logo}">
-    <meta property="og:url" content="https://www.tokenfind.cn/platform/${slug}.html">
+    <meta property="og:url" content="https://www.tokenfind.cn/platform/${slug}">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:site_name" content="TokenNexus">
@@ -383,7 +383,7 @@ platforms.forEach(platform => {
     <meta name="twitter:title" content="${platform.name} - ${platform.tags[0]} API评测 | TokenNexus">
     <meta name="twitter:description" content="${metaDesc}">
     <meta name="twitter:image" content="https://www.tokenfind.cn${platform.logo}">
-    <link rel="canonical" href="https://www.tokenfind.cn/platform/${slug}.html">
+    <link rel="canonical" href="https://www.tokenfind.cn/platform/${slug}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -536,7 +536,7 @@ platforms.forEach(platform => {
         "applicationCategory":"AI API Platform",
         "operatingSystem":"Web",
         "description":"${platform.description.replace(/"/g, '&quot;')}",
-        "url":"https://www.tokenfind.cn/platform/${slug}.html",
+        "url":"https://www.tokenfind.cn/platform/${slug}",
         "offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/OnlineOnly"},
         "aggregateRating":{"@type":"AggregateRating","ratingValue":"${platform.rating}","bestRating":"5","worstRating":"1","reviewCount":"${platform.reviews}"},
         "author":{"@type":"Organization","name":"${platform.name}","url":"${platform.url}"},
@@ -684,8 +684,8 @@ platforms.forEach(platform => {
                     <div class="footer-links">
                         <a href="/" class="footer-link">首页</a>
                         <a href="/${catInfo.link}" class="footer-link">${catInfo.name}</a>
-                        <a href="/about.html" class="footer-link">关于我们</a>
-                        <a href="/privacy.html" class="footer-link">隐私政策</a>
+                        <a href="/about" class="footer-link">关于我们</a>
+                        <a href="/privacy" class="footer-link">隐私政策</a>
                     </div>
                     <p style="color:var(--text-secondary);font-size:13px">&copy; 2024-2026 TokenNexus. All rights reserved.</p>
                 </footer>

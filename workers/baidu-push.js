@@ -10,14 +10,14 @@ const PLATFORM_SLUGS = [
 ];
 
 const MAIN_PAGES = [
-  '/', '/official.html', '/aggregator.html', '/china.html',
-  '/about.html', '/contact.html', '/business.html',
-  '/submit.html', '/privacy.html', '/terms.html'
+  '/', '/official', '/aggregator', '/china',
+  '/about', '/contact', '/business',
+  '/submit', '/privacy', '/terms'
 ];
 
 function generateAllUrls() {
   const urls = MAIN_PAGES.map(p => SITE + p);
-  PLATFORM_SLUGS.forEach(slug => urls.push(SITE + '/platform/' + slug + '.html'));
+  PLATFORM_SLUGS.forEach(slug => urls.push(SITE + '/platform/' + slug));
   return urls;
 }
 

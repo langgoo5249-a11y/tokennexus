@@ -149,19 +149,36 @@ var _hmt = _hmt || [];
         .highlight-box .subtitle{font-size:16px;color:var(--text-secondary);margin-top:8px}
         @media(max-width:1024px){.layout{grid-template-columns:1fr}.sidebar-right{display:none}.price-grid{grid-template-columns:repeat(2,1fr)}}
         @media(max-width:768px){.main{padding:80px 16px 80px}.header-top{flex-direction:column}.price-grid{grid-template-columns:1fr}.platform-name{font-size:22px}}
-    </style>
+    
+        .nav-links { display: flex; gap: 32px; }
+        .nav-link { color: #8b92a8; text-decoration: none; font-size: 16px; transition: color 0.3s; }
+        .nav-link:hover, .nav-link.active { color: #00f0ff; }
+        .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+        .logo-icon{width:50px;height:50px;flex-shrink:0}
+        @media (max-width: 768px) { .navbar { padding: 0 20px; } .nav-links { display: none; } }
+</style>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="../" class="logo"><span class="logo-text">TokenNexus</span></a>
-        <div style="margin-left:auto;display:flex;gap:24px">
-            <a href="../" class="nav-link" style="color:var(--text-secondary);text-decoration:none;font-size:15px">首页</a>
-            <a href="../official" class="nav-link" style="color:var(--text-secondary);text-decoration:none;font-size:15px">官方平台</a>
-            <a href="../aggregator" class="nav-link" style="color:var(--text-secondary);text-decoration:none;font-size:15px">聚合平台</a>
-            <a href="../china" class="nav-link" style="color:var(--text-secondary);text-decoration:none;font-size:15px">国内平台</a>
+        <nav class="navbar" role="navigation" aria-label="主导航">
+        <a href="/" class="logo" aria-label="TokenNexus首页">
+            <div class="logo-icon">
+                <svg viewBox="0 0 100 100" width="50" height="50">
+                    <polygon fill="none" stroke="#00f0ff" stroke-width="3" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"/>
+                    <text x="50" y="58" text-anchor="middle" fill="#00f0ff" font-size="35" font-weight="bold">T</text>
+                </svg>
+            </div>
+            <span class="logo-text">TokenNexus</span>
+        </a>
+        <div class="nav-links" id="navLinks" role="menubar">
+            <a href="/platforms" class="nav-link" role="menuitem">平台大全</a>
+            <a href="/official" class="nav-link" role="menuitem">官方平台</a>
+            <a href="/aggregator" class="nav-link" role="menuitem">聚合平台</a>
+            <a href="/china" class="nav-link" role="menuitem">国内平台</a>
+            <a href="/blog/" class="nav-link" role="menuitem">博客</a>
+            <a href="/blog/guides" class="nav-link" role="menuitem">攻略</a>
+            <a href="/ai-overview" class="nav-link" role="menuitem">AI Overview</a>
         </div>
     </nav>
-
     <main class="main">
         <div class="breadcrumb">
             <a href="../">首页</a> &gt;

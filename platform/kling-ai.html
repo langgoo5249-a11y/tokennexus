@@ -189,7 +189,14 @@ var _hmt = _hmt || [];
             .btn{width:100%;justify-content:center}
             .cta-section{grid-template-columns:1fr}
         }
-    </style>
+    
+        .nav-links { display: flex; gap: 32px; }
+        .nav-link { color: #8b92a8; text-decoration: none; font-size: 16px; transition: color 0.3s; }
+        .nav-link:hover, .nav-link.active { color: #00f0ff; }
+        .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+        .logo-icon{width:50px;height:50px;flex-shrink:0}
+        @media (max-width: 768px) { .navbar { padding: 0 20px; } .nav-links { display: none; } }
+</style>
     <script type="application/ld+json">
     {
     "@context": "https://schema.org",
@@ -220,7 +227,7 @@ var _hmt = _hmt || [];
     </script>
     
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.tokenfind.cn/"},{"@type":"ListItem","position":2,"name":"国内平台","item":"https://www.tokenfind.cn/china.html"},{"@type":"ListItem","position":3,"name":"可灵AI","item":"https://www.tokenfind.cn/platform/kling-ai"}]}
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.tokenfind.cn/"},{"@type":"ListItem","position":2,"name":"国内平台","item":"https://www.tokenfind.cn/china"},{"@type":"ListItem","position":3,"name":"可灵AI","item":"https://www.tokenfind.cn/platform/kling-ai"}]}
     </script>
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8"></script>
@@ -232,8 +239,25 @@ var _hmt = _hmt || [];
     </script>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="/" class="logo"><span class="logo-text">TokenNexus</span></a>
+        <nav class="navbar" role="navigation" aria-label="主导航">
+        <a href="/" class="logo" aria-label="TokenNexus首页">
+            <div class="logo-icon">
+                <svg viewBox="0 0 100 100" width="50" height="50">
+                    <polygon fill="none" stroke="#00f0ff" stroke-width="3" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"/>
+                    <text x="50" y="58" text-anchor="middle" fill="#00f0ff" font-size="35" font-weight="bold">T</text>
+                </svg>
+            </div>
+            <span class="logo-text">TokenNexus</span>
+        </a>
+        <div class="nav-links" id="navLinks" role="menubar">
+            <a href="/platforms" class="nav-link" role="menuitem">平台大全</a>
+            <a href="/official" class="nav-link" role="menuitem">官方平台</a>
+            <a href="/aggregator" class="nav-link" role="menuitem">聚合平台</a>
+            <a href="/china" class="nav-link" role="menuitem">国内平台</a>
+            <a href="/blog/" class="nav-link" role="menuitem">博客</a>
+            <a href="/blog/guides" class="nav-link" role="menuitem">攻略</a>
+            <a href="/ai-overview" class="nav-link" role="menuitem">AI Overview</a>
+        </div>
     </nav>
     <main class="main">
         <nav class="breadcrumb">

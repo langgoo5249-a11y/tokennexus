@@ -19,15 +19,14 @@ echo "[$DATE] 开始执行百度URL推送..." >> "$LOG_FILE"
 # 定义要推送的URL列表（核心页面）
 URLS=(
     "https://www.tokenfind.cn/"
-    "https://www.tokenfind.cn/index.html"
-    "https://www.tokenfind.cn/blog/guides.html"
-    "https://www.tokenfind.cn/blog/free-ai-api-guide-2026.html"
-    "https://www.tokenfind.cn/blog/ai-model-routing-guide-2026.html"
-    "https://www.tokenfind.cn/blog/ai-api-pricing-comparison-guide-2025.html"
-    "https://www.tokenfind.cn/blog/china-api-transit-platform-guide.html"
-    "https://www.tokenfind.cn/official.html"
-    "https://www.tokenfind.cn/aggregator.html"
-    "https://www.tokenfind.cn/china.html"
+    "https://www.tokenfind.cn/blog/guides"
+    "https://www.tokenfind.cn/blog/free-ai-api-guide-2026"
+    "https://www.tokenfind.cn/blog/ai-model-routing-guide-2026"
+    "https://www.tokenfind.cn/blog/ai-api-pricing-comparison-guide-2025"
+    "https://www.tokenfind.cn/blog/china-api-transit-platform-guide"
+    "https://www.tokenfind.cn/official"
+    "https://www.tokenfind.cn/aggregator"
+    "https://www.tokenfind.cn/china"
 )
 
 # 将URL列表转换为换行分隔的字符串

@@ -294,9 +294,39 @@ s.parentNode.insertBefore(el, s);
     .ai-overview-meta a { margin:0 .5rem; }
     h2.section-title { color:var(--purple); margin:2rem 0 1rem; font-size:1.5rem; }
     @media (max-width:768px) { header h1 { font-size:1.8rem; } .ai-overview-list { grid-template-columns:1fr; } }
-  </style>
+  
+        /* 导航栏 */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: rgba(5,5,8,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,240,255,0.15); display: flex; align-items: center; justify-content: space-between; padding: 0 60px; z-index: 1000; }
+        .logo { display: flex; align-items: center; gap: 16px; text-decoration: none; color: #fff; }
+        .logo-text { font-family: 'Orbitron', sans-serif; font-size: 28px; font-weight: 700; background: linear-gradient(135deg, #00f0ff, #b829dd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-link { color: #8b92a8; text-decoration: none; font-size: 16px; transition: color 0.3s; }
+        .nav-link:hover, .nav-link.active { color: #00f0ff; }
+        @media (max-width: 768px) { .navbar { padding: 0 20px; } .nav-links { display: none; } }
+</style>
 </head>
 <body>
+    <nav class="navbar" role="navigation" aria-label="主导航">
+        <a href="/" class="logo" aria-label="TokenNexus首页">
+            <div class="logo-icon">
+                <svg viewBox="0 0 100 100" width="50" height="50">
+                    <polygon fill="none" stroke="#00f0ff" stroke-width="3" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"/>
+                    <text x="50" y="58" text-anchor="middle" fill="#00f0ff" font-size="35" font-weight="bold">T</text>
+                </svg>
+            </div>
+            <span class="logo-text">TokenNexus</span>
+        </a>
+        <div class="nav-links" id="navLinks" role="menubar">
+            <a href="/platforms" class="nav-link" role="menuitem">平台大全</a>
+            <a href="/official" class="nav-link" role="menuitem">官方平台</a>
+            <a href="/aggregator" class="nav-link" role="menuitem">聚合平台</a>
+            <a href="/china" class="nav-link" role="menuitem">国内平台</a>
+            <a href="/blog/" class="nav-link" role="menuitem">博客</a>
+            <a href="/blog/guides" class="nav-link" role="menuitem">攻略</a>
+            <a href="/ai-overview" class="nav-link active" aria-current="page" role="menuitem">AI Overview</a>
+        </div>
+    </nav>
+
   <div class="container">
     <header>
       <h1>TokenNexus AI Overview</h1>

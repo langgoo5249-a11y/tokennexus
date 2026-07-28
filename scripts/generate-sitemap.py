@@ -49,7 +49,7 @@ xml_lines.append('    </url>')
 xml_lines.append('')
 xml_lines.append('    <!-- 攻略列表 -->')
 xml_lines.append('    <url>')
-xml_lines.append(f'        <loc>{BASE_URL}/blog/guides.html</loc>')
+xml_lines.append(f'        <loc>{BASE_URL}/blog/guides</loc>')
 xml_lines.append(f'        <lastmod>{TODAY}</lastmod>')
 xml_lines.append('        <changefreq>daily</changefreq>')
 xml_lines.append('        <priority>0.9</priority>')
@@ -58,7 +58,7 @@ xml_lines.append('    </url>')
 # 分类页面
 xml_lines.append('')
 xml_lines.append('    <!-- 分类页面 -->')
-for page in ['official.html', 'aggregator.html', 'china.html']:
+for page in ['official', 'aggregator', 'china']:
     xml_lines.append('    <url>')
     xml_lines.append(f'        <loc>{BASE_URL}/{page}</loc>')
     xml_lines.append(f'        <lastmod>{TODAY}</lastmod>')
@@ -69,7 +69,7 @@ for page in ['official.html', 'aggregator.html', 'china.html']:
 # 信息页面
 xml_lines.append('')
 xml_lines.append('    <!-- 信息页面 -->')
-for page in ['about.html', 'contact.html', 'business.html', 'submit.html', 'privacy.html', 'terms.html', 'disclaimer.html', 'editorial-process.html']:
+for page in ['about', 'contact', 'business', 'submit', 'privacy', 'terms', 'disclaimer', 'editorial-process']:
     xml_lines.append('    <url>')
     xml_lines.append(f'        <loc>{BASE_URL}/{page}</loc>')
     xml_lines.append(f'        <lastmod>{TODAY}</lastmod>')
@@ -91,7 +91,7 @@ if os.path.exists(AUTHORS_DIR):
     for af in sorted(os.listdir(AUTHORS_DIR)):
         if af.endswith('.html') and af != 'index.html':
             xml_lines.append('    <url>')
-            xml_lines.append(f'        <loc>{BASE_URL}/authors/{af}</loc>')
+            xml_lines.append(f'        <loc>{BASE_URL}/authors/{af.replace(".html", "")}</loc>')
             xml_lines.append(f'        <lastmod>{TODAY}</lastmod>')
             xml_lines.append('        <changefreq>monthly</changefreq>')
             xml_lines.append('        <priority>0.6</priority>')
@@ -149,7 +149,7 @@ xml_lines.append(f'    <!-- 攻略文章 ({len(blog_articles)}篇) -->')
 for article in blog_articles:
     pub_date = get_article_date(article)
     xml_lines.append('    <url>')
-    xml_lines.append(f'        <loc>{BASE_URL}/blog/{article}</loc>')
+    xml_lines.append(f'        <loc>{BASE_URL}/blog/{article.replace(".html", "")}</loc>')
     xml_lines.append(f'        <lastmod>{pub_date}</lastmod>')
     xml_lines.append('        <changefreq>weekly</changefreq>')
     xml_lines.append('        <priority>0.8</priority>')
@@ -160,7 +160,7 @@ xml_lines.append('')
 xml_lines.append(f'    <!-- 平台详情页 ({len(platform_pages)}个) -->')
 for platform in platform_pages:
     xml_lines.append('    <url>')
-    xml_lines.append(f'        <loc>{BASE_URL}/platform/{platform}</loc>')
+    xml_lines.append(f'        <loc>{BASE_URL}/platform/{platform.replace(".html", "")}</loc>')
     xml_lines.append(f'        <lastmod>{TODAY}</lastmod>')
     xml_lines.append('        <changefreq>weekly</changefreq>')
     xml_lines.append('        <priority>0.7</priority>')

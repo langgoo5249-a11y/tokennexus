@@ -67,7 +67,7 @@ const seoConfig = {
 
 // 生成hreflang标签
 function generateHreflangTags(page) {
-    const basePath = '/' + page;
+    const basePath = '/' + page.replace('.html', '');
     let tags = '';
     
     LANGUAGES.forEach(lang => {
@@ -131,7 +131,7 @@ function addSeoTags(filePath, config) {
     <meta property="og:site_name" content="${SITE_NAME}">
     <meta property="og:title" content="${escapeAttr(config.title || SITE_NAME)}">
     <meta property="og:description" content="${escapeAttr(config.description || '')}">
-    <meta property="og:url" content="${SITE_URL}/${path.basename(filePath)}">
+    <meta property="og:url" content="${SITE_URL}/${path.basename(filePath).replace('.html', '')}">
     <meta property="og:locale" content="zh_CN">
     
     <!-- Twitter Card -->

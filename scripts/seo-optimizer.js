@@ -33,7 +33,7 @@ function generatePlatformSitemap() {
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">`;
 
     platforms.forEach(p => {
-        const url = `${SITE_URL}/platform/${p.slug}.html`;
+        const url = `${SITE_URL}/platform/${p.slug}`;
         const priority = ['openai', 'anthropic', 'google', 'deepseek', 'aliyun'].includes(p.slug) ? '0.9' : '0.7';
         
         xml += `

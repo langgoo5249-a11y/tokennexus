@@ -68,17 +68,24 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0CX9NNWKR8');</script>
 </head>
 <body>
-    <nav class="navbar">
-        <a href="https://www.tokenfind.cn/" class="logo">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="#00f0ff" stroke-width="2"/><path d="M12 20C12 15.5817 15.5817 12 20 12V20H28C28 24.4183 24.4183 28 20 28C15.5817 28 12 24.4183 12 20Z" fill="#00f0ff"/></svg>
+        <nav class="navbar" role="navigation" aria-label="主导航">
+        <a href="/" class="logo" aria-label="TokenNexus首页">
+            <div class="logo-icon">
+                <svg viewBox="0 0 100 100" width="50" height="50">
+                    <polygon fill="none" stroke="#00f0ff" stroke-width="3" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"/>
+                    <text x="50" y="58" text-anchor="middle" fill="#00f0ff" font-size="35" font-weight="bold">T</text>
+                </svg>
+            </div>
             <span class="logo-text">TokenNexus</span>
         </a>
-        <div class="nav-links">
-            <a href="https://www.tokenfind.cn/">首页</a>
-            <a href="https://www.tokenfind.cn/platform/official">官方平台</a>
-            <a href="https://www.tokenfind.cn/platform/aggregator">聚合平台</a>
-            <a href="https://www.tokenfind.cn/platform/china">国内平台</a>
-            <a href="https://www.tokenfind.cn/blog/">博客</a>
+        <div class="nav-links" id="navLinks" role="menubar">
+            <a href="/platforms" class="nav-link" role="menuitem">平台大全</a>
+            <a href="/official" class="nav-link" role="menuitem">官方平台</a>
+            <a href="/aggregator" class="nav-link" role="menuitem">聚合平台</a>
+            <a href="/china" class="nav-link" role="menuitem">国内平台</a>
+            <a href="/blog/" class="nav-link" role="menuitem">博客</a>
+            <a href="/blog/guides" class="nav-link" role="menuitem">攻略</a>
+            <a href="/ai-overview" class="nav-link" role="menuitem">AI Overview</a>
         </div>
     </nav>
     <main class="container">

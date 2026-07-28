@@ -14,8 +14,27 @@ s.parentNode.insertBefore(el, s);
 <body>
 
 <!-- Navigation -->
-<nav class="navbar"> <div class="nav-container"> <div class="nav-logo">TokenNexus</div> <ul class="nav-links"> <li><a href="../">首页</a></li> <li><a href="../official">官方API</a></li> <li><a href="../aggregator">API中转</a></li> <li><a href="../china">国内直连</a></li> <li><a href="./" class="active">攻略</a></li> <li><a href="../about">关于我们</a></li> </ul> </div>
-</nav>
+    <nav class="navbar" role="navigation" aria-label="主导航">
+        <a href="../" class="logo" aria-label="TokenNexus首页">
+            <div class="logo-icon">
+                <svg viewBox="0 0 100 100" width="50" height="50">
+                    <polygon fill="none" stroke="#00f0ff" stroke-width="3" points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5"/>
+                    <text x="50" y="58" text-anchor="middle" fill="#00f0ff" font-size="35" font-weight="bold">T</text>
+                </svg>
+            </div>
+            <span class="logo-text">TokenNexus</span>
+        </a>
+        <div class="nav-links" id="navLinks" role="menubar">
+            <a href="../" class="nav-link" role="menuitem">首页</a>
+            <a href="../platforms" class="nav-link" role="menuitem">平台大全</a>
+            <a href="../official" class="nav-link" role="menuitem">官方平台</a>
+            <a href="../aggregator" class="nav-link" role="menuitem">聚合平台</a>
+            <a href="../china" class="nav-link" role="menuitem">国内平台</a>
+            <a href="../blog/" class="nav-link" role="menuitem">博客</a>
+            <a href="guides" class="nav-link" role="menuitem">攻略</a>
+            <a href="../ai-overview" class="nav-link" role="menuitem">AI Overview</a>
+        </div>
+    </nav>
 
 <!-- Header ad -->
 <div class="ad-leaderboard"> <div class="ad-placeholder leaderboard">728 × 90 广告位</div>

@@ -175,7 +175,14 @@ var _hmt = _hmt || [];
             padding: 16px;
             border-left: 3px solid var(--metaso-primary);
         }
-    </style>
+    
+        .nav-links { display: flex; gap: 32px; }
+        .nav-link { color: #8b92a8; text-decoration: none; font-size: 16px; transition: color 0.3s; }
+        .nav-link:hover, .nav-link.active { color: #00f0ff; }
+        .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+        .logo-icon{width:50px;height:50px;flex-shrink:0}
+        @media (max-width: 768px) { .navbar { padding: 0 20px; } .nav-links { display: none; } }
+</style>
 
     <!-- Cookie Consent GA4 Protection - blocks GA4 until user accepts -->
     <script>
@@ -225,13 +232,14 @@ var _hmt = _hmt || [];
                 <span class="logo-icon">🔍</span>
                 <span>TokenFind</span>
             </a>
-            <div class="nav-links" id="navLinks">
-                <a href="/">首页</a>
-                <a href="/official">官方API</a>
-                <a href="/aggregator">API聚合</a>
-                <a href="/china" class="active">国内通道</a>
-                <a href="/blog/guides">攻略</a>
-                <a href="/about">关于</a>
+            <div class="nav-links" id="navLinks" role="menubar">
+                <a href="/platforms" class="nav-link" role="menuitem">平台大全</a>
+                <a href="/official" class="nav-link" role="menuitem">官方平台</a>
+                <a href="/aggregator" class="nav-link" role="menuitem">聚合平台</a>
+                <a href="/china" class="nav-link active" role="menuitem" aria-current="page">国内平台</a>
+                <a href="/blog/" class="nav-link" role="menuitem">博客</a>
+                <a href="/blog/guides" class="nav-link" role="menuitem">攻略</a>
+                <a href="/ai-overview" class="nav-link" role="menuitem">AI Overview</a>
             </div>
             <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="切换菜单">☰</button>
         </div>
