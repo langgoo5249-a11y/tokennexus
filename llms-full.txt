@@ -82,7 +82,6 @@
   摘要: AI API流式输出性能调优实战指南：SSE优化降低80%感知延迟、WebSocket+Token Bucket延迟波动仅±0.1%、10秒无chunk流90%概率失败。附FastAPI亿级调用量演进经验。
 
 - **AI API Schema设计实战：从踩坑到精通 AI API攻略**
-  URL: https://www.tokenfind.cn/blog/ai-api-schema-design-function-calling-guide-2026
   日期: 2026-06-09
   关键词: Function Calling Schema设计, AI API Schema规范, JSON Schema AI, 工具调用接口设计, OpenAI function参数, Gemini function declaration, AI Schema版本管理
   摘要: 深入讲解Function Calling Schema设计实战，涵盖JSON Schema核心关键字技巧、OpenAI vs Anthropic vs Gemini格式对比、天气查询/数据库搜索/文件操作三大场景案例、Pydantic集成代码，以及Schema版本管理与调试技巧。
@@ -350,7 +349,6 @@
   摘要: 全栈工程师真实AI API接入日记。记录从选型OpenAI到迁移DeepSeek的30天完整历程，包含密钥泄露事故、429限流噩梦、账单暴涨、Prompt注入攻击等真实踩坑经历，以及最终架构方案。
 
 - **我是如何用AI语音API做出日活过万的声音助手：从想法到MVP的完整复盘**
-  URL: https://www.tokenfind.cn/blog/ai-voice-application-development-guide-2026
   日期: 2026-06-23T08:00:00+08:00
   关键词: AI语音应用开发, AI语音助手开发, OpenAI Realtime API, ElevenLabs中文语音, AI语音合成实战, 语音识别API选型, AI通话机器人, 语音交互产品设计, AI播客生成, 语音API成本优化
   摘要: 一个真实AI语音应用项目的完整复盘。从选型ElevenLabs、OpenAI Realtime API到上线的全流程，包含语音转文字、大模型对话、语音合成、低延迟优化、成本控制等实战经验。

@@ -2006,7 +2006,7 @@ var _hmt = _hmt || [];
     }
     .cookie-btn:hover { transform: scale(1.05); }
 
-    /* 广告位预留样式 */
+    /* 
     .ad-placeholder {
       background: rgba(255, 255, 255, 0.03);
       border: 2px dashed rgba(255, 255, 255, 0.15);
@@ -3705,14 +3705,7 @@ var _hmt = _hmt || [];
         try { localStorage.setItem(MP_MODAL_KEY, Date.now().toString()); } catch(e) {}
       }
 
-      // 页面加载后延迟3秒自动弹出
-      if (shouldShowAutoPopup()) {
-        setTimeout(function() {
-          var overlay = document.getElementById('mpModal');
-          if (overlay) overlay.classList.add('active');
-        }, 3000);
-      }
-
+      // 仅用户手动点击时弹出，不再自动弹出
       window.toggleMpModal = function() {
         var overlay = document.getElementById('mpModal');
         if (overlay) overlay.classList.toggle('active');

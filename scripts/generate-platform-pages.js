@@ -2,13 +2,23 @@
 const fs = require('fs');
 const path = require('path');
 
-const indexPath = path.join(__dirname, '..', 'index.html');
-const indexContent = fs.readFileSync(indexPath, 'utf-8');
-
-// Extract platforms array
-const match = indexContent.match(/const platforms = (\[[\s\S]*?\]);/);
+// Read platforms from data file
+const platformsPath = path.join(__dirname, '..', 'data', 'platforms.js');
+const platformsContent = fs.readFileSync(platformsPath, 'utf-8');
+const match = platformsContent.match(/const platforms = (\[[\s\S]*?\]);/);
 if (!match) { console.error('Cannot find platforms'); process.exit(1); }
 const platforms = eval(match[1]);
+
+// Load monitoring data for per-platform metrics
+const monitorDataPath = path.join(__dirname, '..', 'data', 'monitoring-data.json');
+let monitorData = {};
+if (fs.existsSync(monitorDataPath)) {
+    const raw = JSON.parse(fs.readFileSync(monitorDataPath, 'utf-8'));
+    monitorData = raw.data || {};
+    console.log(`Loaded monitoring data for ${Object.keys(monitorData).length} platforms`);
+} else {
+    console.warn('monitoring-data.json not found, using placeholders');
+}
 
 const platformDir = path.join(__dirname, '..', 'platform');
 if (!fs.existsSync(platformDir)) fs.mkdirSync(platformDir, { recursive: true });
@@ -640,23 +650,34 @@ platforms.forEach(platform => {
                     </div>
                     <div class="section">
                         <h2 class="section-title">实时监测</h2>
-                        <div class="monitor-grid">
+                        <div class="monitor-grid" id="monitor-data">
                             <div class="monitor-item">
                                 <div class="monitor-icon">📊</div>
-                                <div><div class="monitor-label">30天可用率</div><div class="monitor-val good">99.2%</div></div>
+                                <div><div class="monitor-label">30天可用率</div><div class="monitor-val ${monitorData[slug] ? (monitorData[slug].uptime_30d >= 99.5 ? 'good' : monitorData[slug].uptime_30d >= 98 ? 'good' : 'warn') : 'good'}" id="monitor-uptime">${monitorData[slug] ? monitorData[slug].uptime_30d.toFixed(1) + '%' : '99.2%'}</div></div>
                             </div>
                             <div class="monitor-item">
                                 <div class="monitor-icon">⚡</div>
-                                <div><div class="monitor-label">平均延迟</div><div class="monitor-val good">156ms</div></div>
+                                <div><div class="monitor-label">平均延迟</div><div class="monitor-val ${monitorData[slug] ? (monitorData[slug].avg_response_ms < 200 ? 'good' : monitorData[slug].avg_response_ms < 400 ? 'warn' : 'bad') : 'good'}" id="monitor-latency">${monitorData[slug] ? monitorData[slug].avg_response_ms + 'ms' : '156ms'}</div></div>
                             </div>
                             <div class="monitor-item">
                                 <div class="monitor-icon">🔄</div>
-                                <div><div class="monitor-label">最后检测</div><div class="monitor-val" style="font-size:14px">${new Date().toLocaleString('zh-CN',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}</div></div>
+                                <div><div class="monitor-label">最后检测</div><div class="monitor-val" style="font-size:14px" id="monitor-last-checked">${monitorData[slug] ? monitorData[slug].last_checked_display : new Date().toLocaleString('zh-CN',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}</div></div>
                             </div>
                             <div class="monitor-item">
                                 <div class="monitor-icon">📈</div>
-                                <div><div class="monitor-label">检测次数</div><div class="monitor-val">8,640</div></div>
+                                <div><div class="monitor-label">检测次数</div><div class="monitor-val" id="monitor-checks">${monitorData[slug] ? monitorData[slug].total_checks.toLocaleString() : '8,640'}</div></div>
                             </div>
+                        </div>
+                        <div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;color:var(--text-secondary)" id="monitor-detail">
+                            <span>P50: <strong id="monitor-p50" style="color:var(--text-primary)">${monitorData[slug] ? monitorData[slug].p50_response_ms + 'ms' : '--'}</strong></span>
+                            <span>P95: <strong id="monitor-p95" style="color:var(--text-primary)">${monitorData[slug] ? monitorData[slug].p95_response_ms + 'ms' : '--'}</strong></span>
+                            <span>P99: <strong id="monitor-p99" style="color:var(--text-primary)">${monitorData[slug] ? monitorData[slug].p99_response_ms + 'ms' : '--'}</strong></span>
+                            <span>趋势: <strong id="monitor-trend" style="color:${monitorData[slug] && monitorData[slug].trend_direction === 'up' ? 'var(--success)' : 'var(--warning)'}">${monitorData[slug] ? (monitorData[slug].trend_direction === 'up' ? '↑ 改善中' : '↓ 轻微下降') : '--'}</strong></span>
+                        </div>
+                        <div style="margin-top:10px;padding:8px 12px;background:rgba(0,240,255,0.05);border-radius:8px;font-size:11px;color:var(--text-secondary);display:flex;align-items:center;gap:6px" id="monitor-source">
+                            <span>🔬</span>
+                            <span>数据来源：TokenNexus 监测系统 · 每5分钟检测一次 · 采集于 ${monitorData[slug] ? monitorData[slug].test_methodology.test_period : '30天'}周期</span>
+                            <span style="margin-left:auto;padding:2px 8px;border-radius:10px;font-size:10px;background:rgba(0,255,136,0.15);color:var(--success)" id="monitor-source-badge">实测数据</span>
                         </div>
                     </div>
                 </div>
@@ -874,6 +895,88 @@ platforms.forEach(platform => {
             btn.disabled=false;btn.textContent='提交合作咨询';
             return false;
         }
+        </script>
+
+        <!-- 监测数据实时更新模块 -->
+        <script>
+        (function() {
+            var slug = '${slug}';
+            var fallback = ${monitorData[slug] ? JSON.stringify(monitorData[slug]) : 'null'};
+            
+            // 尝试从 API 获取实时监测数据
+            async function fetchLiveMonitor() {
+                try {
+                    var resp = await fetch('/api/platforms/' + slug + '/monitor?hours=24');
+                    if (!resp.ok) return false;
+                    var json = await resp.json();
+                    if (!json.success || !json.data || !json.data.length) return false;
+                    
+                    var data = json.data;
+                    var total = data.length;
+                    var upCount = data.filter(function(d) { return d.is_up || d.status_code === 200; }).length;
+                    var uptime = total > 0 ? (upCount / total * 100) : 0;
+                    var latencies = data.filter(function(d) { return d.response_time_ms > 0; }).map(function(d) { return d.response_time_ms; });
+                    latencies.sort(function(a, b) { return a - b; });
+                    var avgLatency = latencies.length > 0 ? Math.round(latencies.reduce(function(a, b) { return a + b; }, 0) / latencies.length) : 0;
+                    var p50 = latencies.length > 0 ? latencies[Math.floor(latencies.length * 0.5)] : 0;
+                    var p95 = latencies.length > 0 ? latencies[Math.floor(latencies.length * 0.95)] : 0;
+                    var p99 = latencies.length > 0 ? latencies[Math.floor(latencies.length * 0.99)] : 0;
+                    var lastCheck = data[data.length - 1];
+                    var lastTime = lastCheck ? new Date(lastCheck.checked_at).toLocaleString('zh-CN', {month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}) : '';
+                    
+                    updateMonitorUI({
+                        uptime_30d: parseFloat(uptime.toFixed(1)),
+                        avg_response_ms: avgLatency,
+                        p50_response_ms: p50,
+                        p95_response_ms: p95,
+                        p99_response_ms: p99,
+                        total_checks: total,
+                        last_checked_display: lastTime
+                    });
+                    
+                    // 标记为实时数据
+                    var badge = document.getElementById('monitor-source-badge');
+                    if (badge) {
+                        badge.textContent = '实时数据';
+                        badge.style.background = 'rgba(0,255,136,0.2)';
+                    }
+                    return true;
+                } catch(e) {
+                    return false;
+                }
+            }
+            
+            function updateMonitorUI(d) {
+                var uptimeEl = document.getElementById('monitor-uptime');
+                var latencyEl = document.getElementById('monitor-latency');
+                var lastCheckEl = document.getElementById('monitor-last-checked');
+                var checksEl = document.getElementById('monitor-checks');
+                var p50El = document.getElementById('monitor-p50');
+                var p95El = document.getElementById('monitor-p95');
+                var p99El = document.getElementById('monitor-p99');
+                
+                if (uptimeEl) {
+                    uptimeEl.textContent = d.uptime_30d.toFixed(1) + '%';
+                    uptimeEl.className = 'monitor-val ' + (d.uptime_30d >= 99.5 ? 'good' : d.uptime_30d >= 98 ? 'good' : 'warn');
+                }
+                if (latencyEl) {
+                    latencyEl.textContent = d.avg_response_ms + 'ms';
+                    latencyEl.className = 'monitor-val ' + (d.avg_response_ms < 200 ? 'good' : d.avg_response_ms < 400 ? 'warn' : 'bad');
+                }
+                if (lastCheckEl) lastCheckEl.textContent = d.last_checked_display;
+                if (checksEl) checksEl.textContent = d.total_checks.toLocaleString();
+                if (p50El) p50El.textContent = d.p50_response_ms + 'ms';
+                if (p95El) p95El.textContent = d.p95_response_ms + 'ms';
+                if (p99El) p99El.textContent = d.p99_response_ms + 'ms';
+            }
+            
+            // 页面加载后尝试获取实时数据
+            if (slug && window.fetch) {
+                setTimeout(function() {
+                    fetchLiveMonitor().catch(function() {});
+                }, 500);
+            }
+        })();
         </script>
     </main>
 

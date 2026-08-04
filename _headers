@@ -9,7 +9,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://www.googletagmanager.com https://hm.baidu.com https://hmcdn.baidu.com https://sp0.baidu.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://tpc.googlesyndication.com https://adservice.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://pagead2.googlesyndication.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; media-src 'self' blob:; connect-src 'self' https://www.google-analytics.com https://hm.baidu.com https://hmcdn.baidu.com https://sp0.baidu.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com; frame-src 'self' https://www.googletagmanager.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.youtube.com; frame-ancestors 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.googletagmanager.com https://hm.baidu.com https://hmcdn.baidu.com https://sp0.baidu.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://tpc.googlesyndication.com https://adservice.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://pagead2.googlesyndication.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; media-src 'self' blob:; connect-src 'self' https://www.google-analytics.com https://hm.baidu.com https://hmcdn.baidu.com https://sp0.baidu.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com; frame-src 'self' https://www.googletagmanager.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.youtube.com; frame-ancestors 'self'; upgrade-insecure-requests
 
 /ads.txt
   Content-Type: text/plain; charset=utf-8
@@ -33,10 +33,12 @@
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 /llms.txt
+  Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
   Access-Control-Allow-Origin: *
 
 /llms-full.txt
+  Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
   Access-Control-Allow-Origin: *
 
@@ -71,4 +73,4 @@
   Cache-Control: public, max-age=86400, stale-while-revalidate=3600
 
 /blog/images/*
-  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+  Cache-Control: public, max-age=31536000, immutable

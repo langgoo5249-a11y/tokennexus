@@ -57,7 +57,7 @@ A: 已对全球 67+ AI 爬虫和搜索引擎爬虫开放全部访问权限，包
 | 免责声明 | https://www.tokenfind.cn/disclaimer | 免责声明 | 2026-07-04 |
 | Cookie政策 | https://www.tokenfind.cn/cookie-policy | Cookie政策与Google AdSense说明 | 2026-07-04 |
 
-## 博客文章 (共 96 篇)
+## 博客文章 (共 99 篇)
 
 ### 企业选型
 
@@ -120,7 +120,6 @@ A: 已对全球 67+ AI 爬虫和搜索引擎爬虫开放全部访问权限，包
 - [RAG与AI API结合：构建私有知识库的完整指南](https://www.tokenfind.cn/blog/rag-ai-api-knowledge-base) | 2026-03-10
 - [AI API边缘计算实战：在树莓派和IoT设备上跑通大模型推理的完整方案](https://www.tokenfind.cn/blog/ai-api-edge-computing-iot-guide-2026) | 2026-07-28
 - [AI API流式输出深度优化：从SSE到WebSocket的完整性能调优指南](https://www.tokenfind.cn/blog/ai-api-streaming-optimization-2026) | 2026-05-27
-- [AI API Schema设计实战：从踩坑到精通](https://www.tokenfind.cn/blog/ai-api-schema-design-function-calling-guide-2026) | 2026-06-09
 - [AI API日志与可观测性实战：从摸黑排障到全链路追踪](https://www.tokenfind.cn/blog/ai-api-observability-logging-guide-2026) | 2026-06-08
 - [AI API监控与告警系统搭建：保障生产环境稳定运行](https://www.tokenfind.cn/blog/ai-api-monitoring-alerting) | 2026-02-05
 - [AI API自动化测试与CI/CD集成：三层测试金字塔实战](https://www.tokenfind.cn/blog/ai-api-testing-cicd-guide-2026) | 2026-05-26
@@ -177,7 +176,6 @@ A: 已对全球 67+ AI 爬虫和搜索引擎爬虫开放全部访问权限，包
 - [从零到上线：我是如何用3周搭建一个AI产品的完整实战经验](https://www.tokenfind.cn/blog/build-ai-product-from-scratch-2026) | 2026-06-04
 - [AI API企业级采购与合同谈判攻略｜从月账单$3万到省下40%](https://www.tokenfind.cn/blog/ai-api-enterprise-procurement-contract-negotiation-guide-2026) | 2026-06-11
 - [一个全栈工程师的AI API接入日记：从零到上线的30天真实踩坑记录](https://www.tokenfind.cn/blog/ai-api-integration-diary-fullstack-engineer-2026) | 2026-06-22
-- [我是如何用AI语音API做出日活过万的声音助手：从想法到MVP的完整复盘](https://www.tokenfind.cn/blog/ai-voice-application-development-guide-2026) | 2026-06-23
 
 ## 数据来源与权威引用
 
@@ -191,3 +189,15 @@ A: 已对全球 67+ AI 爬虫和搜索引擎爬虫开放全部访问权限，包
 - Google AI 官方文档 (Gemini API)
 - Anthropic 官方文档 (Claude API)
 - 各平台公开发布的定价页面与模型卡 (Model Card)
+
+# 新增博客文章
+
+- [ai-api-bill-explosion-hidden-costs-2026](https://www.tokenfind.cn/blog/ai-api-bill-explosion-hidden-costs-2026)
+- [ai-api-downtime-failover-survival-guide-2026](https://www.tokenfind.cn/blog/ai-api-downtime-failover-survival-guide-2026)
+- [ai-api-error-codes-troubleshooting-2026](https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting-2026)
+- [ai-api-hidden-cost-traps-2026](https://www.tokenfind.cn/blog/ai-api-hidden-cost-traps-2026)
+- [ai-api-peak-pricing-migration-guide-2026](https://www.tokenfind.cn/blog/ai-api-peak-pricing-migration-guide-2026)
+- [ai-api-price-crash-july-2026-multi-model-routing-guide](https://www.tokenfind.cn/blog/ai-api-price-crash-july-2026-multi-model-routing-guide)
+- [ai-api-rate-limit-429-solution-guide-2026](https://www.tokenfind.cn/blog/ai-api-rate-limit-429-solution-guide-2026)
+- [ai-model-release-avalanche-july-2026-developer-guide](https://www.tokenfind.cn/blog/ai-model-release-avalanche-july-2026-developer-guide)
+- [ai-multimodal-api-integration-guide-2026](https://www.tokenfind.cn/blog/ai-multimodal-api-integration-guide-2026)
