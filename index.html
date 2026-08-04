@@ -3675,34 +3675,24 @@ var _hmt = _hmt || [];
     </div>
 
     <script>
-    (function() {
-      var MP_INTERVAL = 24 * 60 * 60 * 1000; // 24小时
-      catch(e) { return true; }
+    // 仅用户手动点击时弹出，不再自动弹出
+    window.toggleMpModal = function() {
+      var overlay = document.getElementById('mpModal');
+      if (overlay) overlay.classList.toggle('active');
+    };
+
+    window.closeMpModal = function() {
+      var overlay = document.getElementById('mpModal');
+      if (overlay) overlay.classList.remove('active');
+    };
+
+    // 点击遮罩关闭
+    document.addEventListener('click', function(e) {
+      var overlay = document.getElementById('mpModal');
+      if (e.target === overlay) {
+        overlay.classList.remove('active');
       }
-      catch(e) {}
-      }
-
-      // 仅用户手动点击时弹出，不再自动弹出
-      window.toggleMpModal = function() {
-        var overlay = document.getElementById('mpModal');
-        if (overlay) overlay.classList.toggle('active');
-      };
-
-      window.closeMpModal = function() {
-        var overlay = document.getElementById('mpModal');
-        if (overlay) overlay.classList.remove('active');
-        setDismissed();
-      };
-
-      // 点击遮罩关闭
-      document.addEventListener('click', function(e) {
-        var overlay = document.getElementById('mpModal');
-        if (e.target === overlay) {
-          overlay.classList.remove('active');
-          setDismissed();
-        }
-      });
-    })();
+    });
     </script>
 </body>
 </html>
