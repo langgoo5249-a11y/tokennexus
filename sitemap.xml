@@ -2761,4 +2761,23 @@
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
+
+  <url>
+    <loc>https://www.tokenfind.cn/platforms</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.tokenfind.cn/ai-overview</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.tokenfind.cn/cookie-policy</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>

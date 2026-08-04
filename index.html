@@ -2006,36 +2006,11 @@ var _hmt = _hmt || [];
     }
     .cookie-btn:hover { transform: scale(1.05); }
 
-    /* 
-    .ad-placeholder {
-      background: rgba(255, 255, 255, 0.03);
-      border: 2px dashed rgba(255, 255, 255, 0.15);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255, 255, 255, 0.3);
-      font-size: 0.85rem;
-      margin: 20px auto;
-    }
+    /*
 
-    .ad-placeholder.top-banner {
-      width: 100%;
-      max-width: 728px;
-      height: 90px;
-      margin: 20px auto;
-    }
+    
 
-    .ad-placeholder.sidebar {
-      width: 300px;
-      height: 250px;
-    }
-
-    .ad-placeholder.in-content {
-      width: 100%;
-      max-width: 336px;
-      height: 280px;
-    }
+    
 
     @media (max-width: 768px) {
       .cookie-banner { padding: 16px 20px; }
@@ -2266,6 +2241,18 @@ var _hmt = _hmt || [];
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
+    }
+    
+    @media (max-width: 768px) {
+      .mp-float-btn {
+        width: 40px !important;
+        height: 40px !important;
+        bottom: 70px !important;
+        right: 12px !important;
+        opacity: 0.7 !important;
+      }
+      .mp-float-btn svg { width: 20px !important; height: 20px !important; }
+      .mp-float-btn:hover { opacity: 1 !important; transform: scale(1.05) !important; }
     }
     </style>
     <script src="/data/platforms.js" defer></script>
@@ -3689,20 +3676,10 @@ var _hmt = _hmt || [];
 
     <script>
     (function() {
-      var MP_MODAL_KEY = 'mpModalDismissed';
       var MP_INTERVAL = 24 * 60 * 60 * 1000; // 24小时
-
-      function shouldShowAutoPopup() {
-        try {
-          var dismissed = localStorage.getItem(MP_MODAL_KEY);
-          if (!dismissed) return true;
-          var elapsed = Date.now() - parseInt(dismissed, 10);
-          return elapsed >= MP_INTERVAL;
-        } catch(e) { return true; }
+      catch(e) { return true; }
       }
-
-      function setDismissed() {
-        try { localStorage.setItem(MP_MODAL_KEY, Date.now().toString()); } catch(e) {}
+      catch(e) {}
       }
 
       // 仅用户手动点击时弹出，不再自动弹出
