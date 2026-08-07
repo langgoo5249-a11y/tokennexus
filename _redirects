@@ -19,6 +19,13 @@ https://tokennexus.pages.dev/* https://www.tokenfind.cn/:splat 301
 
 # 将旧域名301重定向到新域名
 https://tokennexus.skillxm.cn/* https://www.tokenfind.cn/:splat 301
+
+# ============================================
+# 博客板块合并：/blog/ → /blog/guides
+# ============================================
+# 2026-08-07: 将博客主页重定向到攻略页，合并两个板块
+/blog/ /blog/guides 301
+/blog /blog/guides 301
 /blog/ai-api-cost-optimization-guide-2026 /blog/ai-api-cost-optimization-2026 301
 /blog/ai-api-cost-optimization-practical-guide /blog/ai-api-cost-optimization-2026 301
 /blog/ai-api-cost-optimization-strategies-2026 /blog/ai-api-cost-optimization-2026 301

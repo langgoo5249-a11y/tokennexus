@@ -271,7 +271,6 @@ var _hmt = _hmt || [];
             <a href="../official" class="nav-link">官方平台</a>
             <a href="../aggregator" class="nav-link">聚合平台</a>
             <a href="../china" class="nav-link">国内平台</a>
-            <a href="../blog/" class="nav-link">博客</a>
             <a href="guides" class="nav-link active">攻略</a>
             <a href="../ai-overview" class="nav-link">AI Overview</a>
         </div>
@@ -295,6 +294,83 @@ var _hmt = _hmt || [];
 
     <!-- 文章网格 -->
     <div class="guides-grid" id="guidesGrid">
+
+        <!-- AI API效果退化模型漂移（最新：2026-08-07） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-litellm-failover-2026.jpg" alt="AI API效果退化排查"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-quality-degradation-model-drift-2026">AI API用了三个月效果越来越差？3个隐形退化在毁掉你的应用</a></h2>
+                <p class="guide-card-excerpt">深度复盘模型漂移、Prompt膨胀和数据漂移三大隐形退化原因，引用GPT-4准确率从84%跌到51%等真实数据，附效果回归测试和模型漂移检测完整方案。</p>
+                <div class="guide-card-meta"><span>陈思远</span><span>2026-08-07</span></div>
+            </div>
+        </article>
+
+        <!-- AI API宕机容灾生存指南（2026-07-31） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-litellm-failover-2026.jpg" alt="AI API宕机容灾"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-downtime-failover-survival-guide-2026">AI API凌晨宕机2小时用户投诉刷屏——2026年真实宕机实录与容灾方案</a></h2>
+                <p class="guide-card-excerpt">整理2026上半年AI API真实宕机事件：OpenAI三天崩三次、Claude六月两度全球宕机。拆解SLA数字游戏，给出多模型三层降级容灾架构和完整代码方案。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-07-31</span></div>
+            </div>
+        </article>
+
+        <!-- AI API隐藏收费陷阱（2026-07-31） -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-litellm-failover-2026.jpg" alt="AI API隐藏收费陷阱"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-hidden-cost-traps-2026">每月$5000的AI API账单排查两周才发现：3个隐藏收费陷阱正在偷走你的预算</a></h2>
+                <p class="guide-card-excerpt">Thinking Tokens隐形消耗、System Prompt重复计费、聊天历史雪球效应——三个开发者最常忽略的API收费陷阱，每月让团队多花$3000+。</p>
+                <div class="guide-card-meta"><span>林小雪</span><span>2026-07-31</span></div>
+            </div>
+        </article>
+
+        <!-- AI API账单暴涨隐形杀手（2026-07-27） -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-litellm-failover-2026.jpg" alt="AI API账单暴涨"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-bill-explosion-hidden-costs-2026">AI API月账单从3000暴涨到12000：5个隐形杀手在吞钱</a></h2>
+                <p class="guide-card-excerpt">深度复盘AI API账单暴涨4倍的真相：无差别调用顶级模型、未启用Prompt Caching、不设max_tokens、单点依赖无降级、缺乏用量监控。附真实账单对比和多模型路由方案。</p>
+                <div class="guide-card-meta"><span>王浩然</span><span>2026-07-27</span></div>
+            </div>
+        </article>
+
+        <!-- AI API预算配额管理（2026-07-05） -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-litellm-failover-2026.jpg" alt="AI API预算配额管理"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-budget-quota-management-2026">AI API预算配额管理实战：搭建消费预警系统避免月底账单爆炸</a></h2>
+                <p class="guide-card-excerpt">详解AI API预算配额管理系统搭建方法，包含消费预警、月度预算控制、API账单监控工具选型与OpenAI/Claude预算设置实战。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-07-05</span></div>
+            </div>
+        </article>
+
+        <!-- AI API本地测试沙盒（2026-07-05） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-litellm-failover-2026.jpg" alt="AI API本地测试沙盒"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-local-testing-sandbox-2026">AI API本地测试沙盒搭建完全指南：从Mock到A/B测试的实战方案</a></h2>
+                <p class="guide-card-excerpt">详解AI API本地测试沙盒搭建方法，包含LLM Mock测试、API本地开发环境配置、Mock Server选型、模型A/B测试方法，帮助开发者降低测试成本并提升稳定性。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-07-05</span></div>
+            </div>
+        </article>
+
+        <!-- AI API价格战多模型路由（2026-07-13） -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-litellm-failover-2026.jpg" alt="AI API价格战多模型路由"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-price-crash-july-2026-multi-model-routing-guide">2026年7月AI API价格战全面爆发：多模型路由省钱实战指南</a></h2>
+                <p class="guide-card-excerpt">Grok 4.5、Claude Sonnet 5、GPT-5.6 Luna同期降价，多模型路由策略帮你抓住价格战红利，附真实成本对比和路由配置方案。</p>
+                <div class="guide-card-meta"><span>林小雪</span><span>2026-07-13</span></div>
+            </div>
+        </article>
 
         <!-- AI API网关LiteLLM实战（最新） -->
         <article class="guide-card" data-category="技术教程">
