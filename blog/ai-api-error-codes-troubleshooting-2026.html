@@ -128,7 +128,7 @@ var _hmt = _hmt || [];
         @media (max-width: 768px) { .navbar { padding: 0 20px; } .nav-links { display: none; } .article-container { padding: 100px 20px 40px; } .article-title { font-size: 1.6rem; } .article-content { font-size: 0.95rem; } }
     </style>
     <script type="application/ld+json">
-    {
+{
     "@context": "https://schema.org",
     "@graph": [
         {
@@ -141,7 +141,10 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting-2026"
             },
-            "author": {"@type": "Person", "name": "张蕾"},
+            "author": {
+                "@type": "Person",
+                "name": "张蕾"
+            },
             "publisher": {
                 "@type": "Organization",
                 "name": "TokenNexus",
@@ -153,12 +156,6 @@ var _hmt = _hmt || [];
             },
             "datePublished": "2026-07-22",
             "dateModified": "2026-07-22",
-            "reviewedBy": {
-                "@type": "Person",
-                "name": "王浩然",
-                "jobTitle": "技术架构师 · API 集成专家",
-                "url": "https://www.tokenfind.cn/authors/王浩然"
-            },
             "articleSection": "开发实战",
             "keywords": [
                 "AI API错误码",
@@ -172,14 +169,7 @@ var _hmt = _hmt || [];
                 "断路器模式",
                 "API故障排查"
             ],
-            "inLanguage": "zh-CN",
-            "speakable": {
-                "@type": "SpeakableSpecification",
-                "cssSelector": [
-                    ".article-content h2",
-                    ".article-content p"
-                ]
-            }
+            "inLanguage": "zh-CN"
         },
         {
             "@type": "BreadcrumbList",
@@ -201,6 +191,59 @@ var _hmt = _hmt || [];
                     "position": 3,
                     "name": "AI API错误码排查终极手册：2026年从入门到精通的全场景故障诊断指南",
                     "item": "https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting-2026"
+                }
+            ]
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "关于「先建立正确的分类框架」有哪些实操要点？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "先说一个很多人不知道的事实：不同AI API平台的错误码体系并不统一。OpenAI用的是标准HTTP状态码+自定义错误类型，Anthropic在此基础上加了自己的错误码层级（比如529），Google Gemini则有一套完全不同的错误结构，而国内平台如阿里云DashScope和百度千帆又各有自己的编码习惯。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "关于「AI API错误码速查表」有哪些实操要点？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "下面这张速查表是我整理的，建议收藏。遇到报错的时候直接对照查，能省不少时间。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "关于「最常见也最让人头疼的\"头号公敌\"」有哪些实操要点？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "429是我遇到频率最高的错误，没有之一。根据过去一年的日志统计，在日均百万级调用的生产环境中，429错误大约占了所有API错误的47%-62%。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "关于「不是你的错，但得你来扛」有哪些实操要点？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "服务端错误是最让人无力的——你代码没问题，参数没问题，就是服务端挂了。根据我的经验，AI API的服务端错误大概占所有错误的15%左右，而且往往集中在特定时间段。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "关于「小细节造成大麻烦」有哪些实操要点？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "认证错误虽然排查起来相对简单，但发生频率不低。尤其是当你管理多个API Key、多个环境（开发/测试/生产）的时候，Key搞混是常有的事。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "关于「400/408请求参数与超时错误」有哪些实操要点？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "6.1 400 Bad Request：参数出了什么问题？ 400错误是\"你发的东西不对\"。"
+                    }
                 }
             ]
         }
@@ -997,7 +1040,11 @@ logging.basicConfig(
                     <h4 style="margin:0 0 .5rem;font-size:1.05rem;"><a style="color:#00f0ff;text-decoration:none;" href="/blog/ai-api-cost-optimization-strategies-2026">AI API成本控制实战：月账单从$5000降到$800</a></h4>
                     <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">详解AI API成本优化策略，包括Prompt Caching、模型选择、Token控制、缓存策略等，附真实降本案例。</p>
                 </article>
-            </div>
+            
+                <a href="/blog/topics/model.html" style="text-decoration:none;padding:16px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:8px;transition:all .3s;color:var(--text-secondary)">
+                    <div style="font-weight:600;color:var(--text-primary);margin-bottom:6px">📚 模型指南与选型</div>
+                    <div style="font-size:.85rem">同主题攻略合集，系统提升 API 实战能力</div>
+                </a></div>
         </section>
 
     </article>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>TokenNexus · 模型指南与选型攻略合集 | AI API 实战指南</title>
+    <meta name="description" content="TokenNexus 模型指南与选型主题下 56 篇 AI API 实战攻略合集，系统讲解核心方法论与落地经验。">
+    <link rel="canonical" href="https://www.tokenfind.cn/blog/topics/model.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TokenNexus">
+    <meta property="og:title" content="TokenNexus · 模型指南与选型攻略合集">
+    <meta property="og:description" content="TokenNexus 模型指南与选型主题下 56 篇 AI API 实战攻略合集。">
+    <meta property="og:url" content="https://www.tokenfind.cn/blog/topics/model.html">
+    <meta property="og:image" content="https://www.tokenfind.cn/og-image.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>:root { --neon-cyan: #00f0ff; --neon-purple: #b829dd; --dark-bg: #050508; --card-bg: rgba(10, 10, 18, 0.9); --card-border: rgba(0, 240, 255, 0.15); --text-primary: #ffffff; --text-secondary: #8b92a8; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', sans-serif; background: var(--dark-bg); color: var(--text-primary); min-height: 100vh; line-height: 1.8; }
+.navbar { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: rgba(5, 5, 8, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--card-border); display: flex; align-items: center; justify-content: space-between; padding: 0 60px; z-index: 1000; }
+.logo { display: flex; align-items: center; gap: 16px; }
+.logo-icon { width: 40px; height: 40px; }
+.logo-text { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--neon-cyan); }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--neon-cyan); }
+.container { max-width: 1100px; margin: 0 auto; padding: 120px 40px 60px; }
+.cat-badge { display: inline-block; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; margin-bottom: 16px; }
+.hub-title { font-size: 2.2rem; font-weight: 700; line-height: 1.4; margin-bottom: 16px; background: linear-gradient(135deg, var(--text-primary), var(--neon-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hub-desc { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 40px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+.card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 22px; transition: all .3s; text-decoration: none; display: block; }
+.card:hover { border-color: var(--neon-cyan); transform: translateY(-3px); }
+.card h3 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 10px; line-height: 1.4; }
+.card p { color: var(--text-secondary); font-size: 0.88rem; }
+.section-h { color: var(--neon-cyan); font-size: 1.3rem; font-weight: 600; margin: 50px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--card-border); }
+.topic-nav { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--card-border); }
+.topic-nav a { color: var(--text-secondary); text-decoration: none; padding: 8px 16px; border: 1px solid var(--card-border); border-radius: 20px; font-size: 0.88rem; transition: all .3s; }
+.topic-nav a:hover, .topic-nav a.active { color: var(--neon-cyan); border-color: var(--neon-cyan); }
+.footer { background: rgba(5, 5, 8, 0.95); border-top: 1px solid var(--card-border); padding: 40px 60px; margin-top: 60px; text-align: center; }
+.footer-text { color: var(--text-secondary); font-size: 0.9rem; }
+@media (max-width: 768px) { .navbar { padding: 0 20px; } .nav-links { display: none; } .container { padding: 100px 20px 40px; } .hub-title { font-size: 1.6rem; } }</style>
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "TokenNexus · 模型指南与选型攻略合集",
+    "description": "TokenNexus 模型指南与选型主题下 56 篇 AI API 实战攻略合集。",
+    "url": "https://www.tokenfind.cn/blog/topics/model.html",
+    "isPartOf": {
+        "@type": "WebSite",
+        "name": "TokenNexus",
+        "url": "https://www.tokenfind.cn/"
+    },
+    "hasPart": [
+        {
+            "@type": "WebPage",
+            "name": "从零构建AI Agent：2026年最实用的开发框架选型与落地实战",
+            "url": "https://www.tokenfind.cn/blog/ai-agent-development-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "2026年AI Agent开发实战：Function Calling从入门到生产级应用",
+            "url": "https://www.tokenfind.cn/blog/ai-agent-function-calling-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "2026年AI API聚合平台实测：OpenRouter、Groq、硅基流动哪家更适合你？",
+            "url": "https://www.tokenfind.cn/blog/ai-aggregator-platform-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API多模型A/B测试实战：用数据选出最优LLM",
+            "url": "https://www.tokenfind.cn/blog/ai-api-ab-testing-model-selection-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "2026年AI API聚合中转平台深度评测：我实测了15家，只推荐这5家",
+            "url": "https://www.tokenfind.cn/blog/ai-api-aggregator-review-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API缓存策略与成本优化：降低80%调用成本的实战指南",
+            "url": "https://www.tokenfind.cn/blog/ai-api-caching-strategy"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API内容安全与审核实战｜Prompt注入防护、幻觉检测、完整过滤Pipeline",
+            "url": "https://www.tokenfind.cn/blog/ai-api-content-safety-moderation-hallucination-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API对话上下文管理实战：Session管理、上下文窗口优化与Token计算",
+            "url": "https://www.tokenfind.cn/blog/ai-api-conversation-context-memory-management-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API边缘计算实战：在树莓派和IoT设备上跑通大模型推理的完整方案",
+            "url": "https://www.tokenfind.cn/blog/ai-api-edge-computing-iot-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API Embedding与向量搜索实战指南：从原理到生产落地",
+            "url": "https://www.tokenfind.cn/blog/ai-api-embedding-vector-search-guide"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API错误码排查终极手册：2026年从入门到精通的全场景故障诊断指南",
+            "url": "https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API容错降级架构实战：让你的服务在API翻车时依然坚挺",
+            "url": "https://www.tokenfind.cn/blog/ai-api-fault-tolerance-resilience-architecture-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API微调(Fine-tuning)入门与成本优化完全指南",
+            "url": "https://www.tokenfind.cn/blog/ai-api-fine-tuning-guide"
+        },
+        {
+            "@type": "WebPage",
+            "name": "2026年AI API免费额度完全攻略：如何薅到$200+免费试用",
+            "url": "https://www.tokenfind.cn/blog/ai-api-free-tier-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API Function Calling与工具调用完全指南：从入门到实战",
+            "url": "https://www.tokenfind.cn/blog/ai-api-function-calling-guide"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API网关设计与实现：企业级统一接入架构实战",
+            "url": "https://www.tokenfind.cn/blog/ai-api-gateway-design-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API负载均衡与高可用架构实战：从单点故障到99.99%可用性的进化之路",
+            "url": "https://www.tokenfind.cn/blog/ai-api-load-balancing-ha-architecture-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API本地测试沙盒搭建完全指南：从Mock到A/B测试的实战方案",
+            "url": "https://www.tokenfind.cn/blog/ai-api-local-testing-sandbox-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API迁移完全指南：从OpenAI到DeepSeek/Claude的无缝切换",
+            "url": "https://www.tokenfind.cn/blog/ai-api-migration-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API监控与告警系统搭建：保障生产环境稳定运行",
+            "url": "https://www.tokenfind.cn/blog/ai-api-monitoring-alerting"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API多租户架构实战：企业如何搭建成本可控的AI平台",
+            "url": "https://www.tokenfind.cn/blog/ai-api-multi-tenant-architecture-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API日志与可观测性实战：从摸黑排障到全链路追踪",
+            "url": "https://www.tokenfind.cn/blog/ai-api-observability-logging-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API性能测试方法与实践：延迟、吞吐量、稳定性全面评测",
+            "url": "https://www.tokenfind.cn/blog/ai-api-performance-testing"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API性能调优实战：从3秒延迟到300ms，我的优化全记录",
+            "url": "https://www.tokenfind.cn/blog/ai-api-performance-tuning-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "2026年AI API平台选型完全指南：开发者避坑手册与性价比终极对比",
+            "url": "https://www.tokenfind.cn/blog/ai-api-platform-selection-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API Prompt工程实战：我是如何用一句话让API成本降60%的",
+            "url": "https://www.tokenfind.cn/blog/ai-api-prompt-engineering-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API代理与中转服务指南：国内开发者如何稳定调用OpenAI",
+            "url": "https://www.tokenfind.cn/blog/ai-api-proxy-relay-guide"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API用了三个月效果越来越差？不是模型变笨了，是3个隐形退化在毁掉你的应用",
+            "url": "https://www.tokenfind.cn/blog/ai-api-quality-degradation-model-drift-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API Schema设计实战：从踩坑到精通",
+            "url": "https://www.tokenfind.cn/blog/ai-api-schema-design-function-calling-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "2026年AI API选型完全指南：从需求分析到平台对比的实战经验",
+            "url": "https://www.tokenfind.cn/blog/ai-api-selection-complete-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "2026年AI API选型完全指南：从需求分析到平台对比",
+            "url": "https://www.tokenfind.cn/blog/ai-api-selection-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API自动化测试与CI/CD集成：三层测试金字塔实战",
+            "url": "https://www.tokenfind.cn/blog/ai-api-testing-cicd-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API Token计费详解：如何精准控制成本",
+            "url": "https://www.tokenfind.cn/blog/ai-api-token-billing-guide"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API版本管理与向后兼容实战：从OpenAI API废弃风波中学到的血泪教训",
+            "url": "https://www.tokenfind.cn/blog/ai-api-versioning-compatibility-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "从零搭建企业级RAG知识库：Embedding选型到上线的完整踩坑记录",
+            "url": "https://www.tokenfind.cn/blog/ai-embedding-rag-knowledge-base-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "2026年7月AI大模型发布潮实测：GPT-5.6、Grok 4.5、DeepSeek V4同期上线开发者怎么选",
+            "url": "https://www.tokenfind.cn/blog/ai-model-release-avalanche-july-2026-developer-guide"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI提示词工程完全指南：Prompt Engineering技巧与实战",
+            "url": "https://www.tokenfind.cn/blog/ai-prompt-engineering-guide"
+        },
+        {
+            "@type": "WebPage",
+            "name": "从零到上线：我是如何用3周搭建一个AI产品的完整实战经验",
+            "url": "https://www.tokenfind.cn/blog/build-ai-product-from-scratch-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "国内AI大模型API接入指南：阿里云百炼、百度千帆、讯飞星火对比",
+            "url": "https://www.tokenfind.cn/blog/china-ai-api-guide"
+        },
+        {
+            "@type": "WebPage",
+            "name": "国内AI API中转平台完全指南：为什么更适合中国开发者",
+            "url": "https://www.tokenfind.cn/blog/china-api-transit-platform-guide"
+        },
+        {
+            "@type": "WebPage",
+            "name": "国产大模型API生态全景图：2026年最全国产AI指南",
+            "url": "https://www.tokenfind.cn/blog/china-llm-ecosystem-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "国内开发者使用海外AI API完整指南：网络、支付、合规全解析",
+            "url": "https://www.tokenfind.cn/blog/chinese-developers-overseas-ai-api-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "Claude API完整指南：从入门到生产部署（2026版）",
+            "url": "https://www.tokenfind.cn/blog/claude-api-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "DeepSeek API完全指南：极致性价比国产之光",
+            "url": "https://www.tokenfind.cn/blog/deepseek-api-complete-guide"
+        },
+        {
+            "@type": "WebPage",
+            "name": "2026年国产AI编程助手横评：通义灵码、CodeGeeX、文心快码、Trae等七款工具实测",
+            "url": "https://www.tokenfind.cn/blog/domestic-ai-coding-assistant-review-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "2026年AI API免费额度完全指南：14个平台薅羊毛攻略",
+            "url": "https://www.tokenfind.cn/blog/free-ai-api-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "免费AI API平台深度横评2026：6大平台实测对比",
+            "url": "https://www.tokenfind.cn/blog/free-ai-api-platform-review-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "免费AI API推荐：2026年最值得尝试的免费额度",
+            "url": "https://www.tokenfind.cn/blog/free-ai-api-recommendations-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "Gemini API完全指南：Google最强多模态AI（2026版）",
+            "url": "https://www.tokenfind.cn/blog/gemini-api-complete-guide"
+        },
+        {
+            "@type": "WebPage",
+            "name": "GPT-4o vs Claude 3.5 Sonnet深度对比：2026年最强AI模型之争",
+            "url": "https://www.tokenfind.cn/blog/gpt4o-vs-claude35-sonnet-comparison"
+        },
+        {
+            "@type": "WebPage",
+            "name": "如何获取OpenAI API Key：完整教程（2026版）",
+            "url": "https://www.tokenfind.cn/blog/how-to-get-openai-api-key"
+        },
+        {
+            "@type": "WebPage",
+            "name": "MCP协议完全实战：用Model Context Protocol让大模型读懂你的数据库和代码库",
+            "url": "https://www.tokenfind.cn/blog/mcp-model-context-protocol-practical-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "OpenAI vs DeepSeek：2026年性价比全面对比",
+            "url": "https://www.tokenfind.cn/blog/openai-vs-deepseek-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "OpenRouter完全指南：一站式访问400+模型",
+            "url": "https://www.tokenfind.cn/blog/openrouter-complete-guide"
+        },
+        {
+            "@type": "WebPage",
+            "name": "RAG与AI API结合：构建私有知识库的完整指南",
+            "url": "https://www.tokenfind.cn/blog/rag-ai-api-knowledge-base"
+        },
+        {
+            "@type": "WebPage",
+            "name": "2026年最值得使用的10个AI API平台推荐",
+            "url": "https://www.tokenfind.cn/blog/top-10-ai-apis-2026"
+        }
+    ]
+}
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo"><span class="logo-text">TokenNexus</span></a>
+        <div class="nav-links">
+            <a href="/">首页</a>
+            <a href="/platforms">平台大全</a>
+            <a href="/official">官方平台</a>
+            <a href="/aggregator">聚合平台</a>
+            <a href="/china">国内平台</a>
+            <a href="/blog/guides" class="active">攻略</a>
+            <a href="/ai-overview">AI Overview</a>
+        </div>
+    </nav>
+    <main class="container">
+        <span class="cat-badge">模型指南与选型</span>
+        <h1 class="hub-title">模型指南与选型 · AI API 实战攻略合集</h1>
+        <p class="hub-desc">本合集汇总 TokenNexus 在「模型指南与选型」主题下的 56 篇深度攻略，帮你体系化掌握相关能力。</p>
+        <div class="grid">
+            <a class="card" href="/blog/ai-agent-development-guide-2026"><h3>从零构建AI Agent：2026年最实用的开发框架选型与落地实战</h3><p>阅读这篇《从零构建AI Agent：2026年最实用的开发框架选型与落地实战》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-agent-function-calling-guide-2026"><h3>2026年AI Agent开发实战：Function Calling从入门到生产级应用</h3><p>阅读这篇《2026年AI Agent开发实战：Function Calling从入门到生产级应用》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-aggregator-platform-guide-2026"><h3>2026年AI API聚合平台实测：OpenRouter、Groq、硅基流动哪家更适合你？</h3><p>阅读这篇《2026年AI API聚合平台实测：OpenRouter、Groq、硅基流动哪家更适合你？》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-ab-testing-model-selection-2026"><h3>AI API多模型A/B测试实战：用数据选出最优LLM</h3><p>阅读这篇《AI API多模型A/B测试实战：用数据选出最优LLM》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-aggregator-review-2026"><h3>2026年AI API聚合中转平台深度评测：我实测了15家，只推荐这5家</h3><p>阅读这篇《2026年AI API聚合中转平台深度评测：我实测了15家，只推荐这5家》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-caching-strategy"><h3>AI API缓存策略与成本优化：降低80%调用成本的实战指南</h3><p>阅读这篇《AI API缓存策略与成本优化：降低80%调用成本的实战指南》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-content-safety-moderation-hallucination-guide-2026"><h3>AI API内容安全与审核实战｜Prompt注入防护、幻觉检测、完整过滤Pipeline</h3><p>阅读这篇《AI API内容安全与审核实战｜Prompt注入防护、幻觉检测、完整过滤Pipeline》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-conversation-context-memory-management-guide-2026"><h3>AI API对话上下文管理实战：Session管理、上下文窗口优化与Token计算</h3><p>阅读这篇《AI API对话上下文管理实战：Session管理、上下文窗口优化与Token计算》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-edge-computing-iot-guide-2026"><h3>AI API边缘计算实战：在树莓派和IoT设备上跑通大模型推理的完整方案</h3><p>阅读这篇《AI API边缘计算实战：在树莓派和IoT设备上跑通大模型推理的完整方案》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-embedding-vector-search-guide"><h3>AI API Embedding与向量搜索实战指南：从原理到生产落地</h3><p>阅读这篇《AI API Embedding与向量搜索实战指南：从原理到生产落地》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-error-codes-troubleshooting-2026"><h3>AI API错误码排查终极手册：2026年从入门到精通的全场景故障诊断指南</h3><p>阅读这篇《AI API错误码排查终极手册：2026年从入门到精通的全场景故障诊断指南》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-fault-tolerance-resilience-architecture-2026"><h3>AI API容错降级架构实战：让你的服务在API翻车时依然坚挺</h3><p>阅读这篇《AI API容错降级架构实战：让你的服务在API翻车时依然坚挺》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-fine-tuning-guide"><h3>AI API微调(Fine-tuning)入门与成本优化完全指南</h3><p>阅读这篇《AI API微调(Fine-tuning)入门与成本优化完全指南》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-free-tier-guide-2026"><h3>2026年AI API免费额度完全攻略：如何薅到$200+免费试用</h3><p>阅读这篇《2026年AI API免费额度完全攻略：如何薅到$200+免费试用》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-function-calling-guide"><h3>AI API Function Calling与工具调用完全指南：从入门到实战</h3><p>阅读这篇《AI API Function Calling与工具调用完全指南：从入门到实战》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-gateway-design-2026"><h3>AI API网关设计与实现：企业级统一接入架构实战</h3><p>阅读这篇《AI API网关设计与实现：企业级统一接入架构实战》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-load-balancing-ha-architecture-2026"><h3>AI API负载均衡与高可用架构实战：从单点故障到99.99%可用性的进化之路</h3><p>阅读这篇《AI API负载均衡与高可用架构实战：从单点故障到99.99%可用性的进化之路》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-local-testing-sandbox-2026"><h3>AI API本地测试沙盒搭建完全指南：从Mock到A/B测试的实战方案</h3><p>阅读这篇《AI API本地测试沙盒搭建完全指南：从Mock到A/B测试的实战方案》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-migration-guide-2026"><h3>AI API迁移完全指南：从OpenAI到DeepSeek/Claude的无缝切换</h3><p>阅读这篇《AI API迁移完全指南：从OpenAI到DeepSeek/Claude的无缝切换》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-monitoring-alerting"><h3>AI API监控与告警系统搭建：保障生产环境稳定运行</h3><p>阅读这篇《AI API监控与告警系统搭建：保障生产环境稳定运行》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-multi-tenant-architecture-2026"><h3>AI API多租户架构实战：企业如何搭建成本可控的AI平台</h3><p>阅读这篇《AI API多租户架构实战：企业如何搭建成本可控的AI平台》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-observability-logging-guide-2026"><h3>AI API日志与可观测性实战：从摸黑排障到全链路追踪</h3><p>阅读这篇《AI API日志与可观测性实战：从摸黑排障到全链路追踪》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-performance-testing"><h3>AI API性能测试方法与实践：延迟、吞吐量、稳定性全面评测</h3><p>阅读这篇《AI API性能测试方法与实践：延迟、吞吐量、稳定性全面评测》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-performance-tuning-guide-2026"><h3>AI API性能调优实战：从3秒延迟到300ms，我的优化全记录</h3><p>阅读这篇《AI API性能调优实战：从3秒延迟到300ms，我的优化全记录》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-platform-selection-guide-2026"><h3>2026年AI API平台选型完全指南：开发者避坑手册与性价比终极对比</h3><p>阅读这篇《2026年AI API平台选型完全指南：开发者避坑手册与性价比终极对比》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-prompt-engineering-2026"><h3>AI API Prompt工程实战：我是如何用一句话让API成本降60%的</h3><p>阅读这篇《AI API Prompt工程实战：我是如何用一句话让API成本降60%的》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-proxy-relay-guide"><h3>AI API代理与中转服务指南：国内开发者如何稳定调用OpenAI</h3><p>阅读这篇《AI API代理与中转服务指南：国内开发者如何稳定调用OpenAI》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-quality-degradation-model-drift-2026"><h3>AI API用了三个月效果越来越差？不是模型变笨了，是3个隐形退化在毁掉你的应用</h3><p>阅读这篇《AI API用了三个月效果越来越差？不是模型变笨了，是3个隐形退化在毁掉你的应用》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-schema-design-function-calling-guide-2026"><h3>AI API Schema设计实战：从踩坑到精通</h3><p>阅读这篇《AI API Schema设计实战：从踩坑到精通》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-selection-complete-guide-2026"><h3>2026年AI API选型完全指南：从需求分析到平台对比的实战经验</h3><p>阅读这篇《2026年AI API选型完全指南：从需求分析到平台对比的实战经验》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-selection-guide-2026"><h3>2026年AI API选型完全指南：从需求分析到平台对比</h3><p>阅读这篇《2026年AI API选型完全指南：从需求分析到平台对比》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-testing-cicd-guide-2026"><h3>AI API自动化测试与CI/CD集成：三层测试金字塔实战</h3><p>阅读这篇《AI API自动化测试与CI/CD集成：三层测试金字塔实战》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-token-billing-guide"><h3>AI API Token计费详解：如何精准控制成本</h3><p>阅读这篇《AI API Token计费详解：如何精准控制成本》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-versioning-compatibility-guide-2026"><h3>AI API版本管理与向后兼容实战：从OpenAI API废弃风波中学到的血泪教训</h3><p>阅读这篇《AI API版本管理与向后兼容实战：从OpenAI API废弃风波中学到的血泪教训》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-embedding-rag-knowledge-base-guide-2026"><h3>从零搭建企业级RAG知识库：Embedding选型到上线的完整踩坑记录</h3><p>阅读这篇《从零搭建企业级RAG知识库：Embedding选型到上线的完整踩坑记录》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-model-release-avalanche-july-2026-developer-guide"><h3>2026年7月AI大模型发布潮实测：GPT-5.6、Grok 4.5、DeepSeek V4同期上线开发者怎么选</h3><p>阅读这篇《2026年7月AI大模型发布潮实测：GPT-5.6、Grok 4.5、DeepSeek V4同期上线开发者怎么选》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-prompt-engineering-guide"><h3>AI提示词工程完全指南：Prompt Engineering技巧与实战</h3><p>阅读这篇《AI提示词工程完全指南：Prompt Engineering技巧与实战》实战攻略 →</p></a>
+            <a class="card" href="/blog/build-ai-product-from-scratch-2026"><h3>从零到上线：我是如何用3周搭建一个AI产品的完整实战经验</h3><p>阅读这篇《从零到上线：我是如何用3周搭建一个AI产品的完整实战经验》实战攻略 →</p></a>
+            <a class="card" href="/blog/china-ai-api-guide"><h3>国内AI大模型API接入指南：阿里云百炼、百度千帆、讯飞星火对比</h3><p>阅读这篇《国内AI大模型API接入指南：阿里云百炼、百度千帆、讯飞星火对比》实战攻略 →</p></a>
+            <a class="card" href="/blog/china-api-transit-platform-guide"><h3>国内AI API中转平台完全指南：为什么更适合中国开发者</h3><p>阅读这篇《国内AI API中转平台完全指南：为什么更适合中国开发者》实战攻略 →</p></a>
+            <a class="card" href="/blog/china-llm-ecosystem-2026"><h3>国产大模型API生态全景图：2026年最全国产AI指南</h3><p>阅读这篇《国产大模型API生态全景图：2026年最全国产AI指南》实战攻略 →</p></a>
+            <a class="card" href="/blog/chinese-developers-overseas-ai-api-guide-2026"><h3>国内开发者使用海外AI API完整指南：网络、支付、合规全解析</h3><p>阅读这篇《国内开发者使用海外AI API完整指南：网络、支付、合规全解析》实战攻略 →</p></a>
+            <a class="card" href="/blog/claude-api-guide-2026"><h3>Claude API完整指南：从入门到生产部署（2026版）</h3><p>阅读这篇《Claude API完整指南：从入门到生产部署（2026版）》实战攻略 →</p></a>
+            <a class="card" href="/blog/deepseek-api-complete-guide"><h3>DeepSeek API完全指南：极致性价比国产之光</h3><p>阅读这篇《DeepSeek API完全指南：极致性价比国产之光》实战攻略 →</p></a>
+            <a class="card" href="/blog/domestic-ai-coding-assistant-review-2026"><h3>2026年国产AI编程助手横评：通义灵码、CodeGeeX、文心快码、Trae等七款工具实测</h3><p>阅读这篇《2026年国产AI编程助手横评：通义灵码、CodeGeeX、文心快码、Trae等七款工具实测》实战攻略 →</p></a>
+            <a class="card" href="/blog/free-ai-api-guide-2026"><h3>2026年AI API免费额度完全指南：14个平台薅羊毛攻略</h3><p>阅读这篇《2026年AI API免费额度完全指南：14个平台薅羊毛攻略》实战攻略 →</p></a>
+            <a class="card" href="/blog/free-ai-api-platform-review-2026"><h3>免费AI API平台深度横评2026：6大平台实测对比</h3><p>阅读这篇《免费AI API平台深度横评2026：6大平台实测对比》实战攻略 →</p></a>
+            <a class="card" href="/blog/free-ai-api-recommendations-2026"><h3>免费AI API推荐：2026年最值得尝试的免费额度</h3><p>阅读这篇《免费AI API推荐：2026年最值得尝试的免费额度》实战攻略 →</p></a>
+            <a class="card" href="/blog/gemini-api-complete-guide"><h3>Gemini API完全指南：Google最强多模态AI（2026版）</h3><p>阅读这篇《Gemini API完全指南：Google最强多模态AI（2026版）》实战攻略 →</p></a>
+            <a class="card" href="/blog/gpt4o-vs-claude35-sonnet-comparison"><h3>GPT-4o vs Claude 3.5 Sonnet深度对比：2026年最强AI模型之争</h3><p>阅读这篇《GPT-4o vs Claude 3.5 Sonnet深度对比：2026年最强AI模型之争》实战攻略 →</p></a>
+            <a class="card" href="/blog/how-to-get-openai-api-key"><h3>如何获取OpenAI API Key：完整教程（2026版）</h3><p>阅读这篇《如何获取OpenAI API Key：完整教程（2026版）》实战攻略 →</p></a>
+            <a class="card" href="/blog/mcp-model-context-protocol-practical-guide-2026"><h3>MCP协议完全实战：用Model Context Protocol让大模型读懂你的数据库和代码库</h3><p>阅读这篇《MCP协议完全实战：用Model Context Protocol让大模型读懂你的数据库和代码库》实战攻略 →</p></a>
+            <a class="card" href="/blog/openai-vs-deepseek-2026"><h3>OpenAI vs DeepSeek：2026年性价比全面对比</h3><p>阅读这篇《OpenAI vs DeepSeek：2026年性价比全面对比》实战攻略 →</p></a>
+            <a class="card" href="/blog/openrouter-complete-guide"><h3>OpenRouter完全指南：一站式访问400+模型</h3><p>阅读这篇《OpenRouter完全指南：一站式访问400+模型》实战攻略 →</p></a>
+            <a class="card" href="/blog/rag-ai-api-knowledge-base"><h3>RAG与AI API结合：构建私有知识库的完整指南</h3><p>阅读这篇《RAG与AI API结合：构建私有知识库的完整指南》实战攻略 →</p></a>
+            <a class="card" href="/blog/top-10-ai-apis-2026"><h3>2026年最值得使用的10个AI API平台推荐</h3><p>阅读这篇《2026年最值得使用的10个AI API平台推荐》实战攻略 →</p></a>
+        </div>
+        <div class="topic-nav">
+            <span style="color:var(--text-secondary);align-self:center;margin-right:8px">其他主题：</span>
+            <a href="/blog/topics/multimodal.html" class="">多模态与生成式API</a>
+            <a href="/blog/topics/compliance.html" class="">合规·安全·隐私</a>
+            <a href="/blog/topics/enterprise.html" class="">企业落地与采购</a>
+            <a href="/blog/topics/routing.html" class="">路由·缓存·稳定性</a>
+            <a href="/blog/topics/cost.html" class="">成本优化与价格</a>
+            <a href="/blog/topics/model.html" class="active">模型指南与选型</a>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-text">TokenNexus · AI API 一站式导航与实战平台</div>
+    </footer>
+</body>
+</html>

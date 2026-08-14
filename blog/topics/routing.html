@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>TokenNexus · 路由·缓存·稳定性攻略合集 | AI API 实战指南</title>
+    <meta name="description" content="TokenNexus 路由·缓存·稳定性主题下 8 篇 AI API 实战攻略合集，系统讲解核心方法论与落地经验。">
+    <link rel="canonical" href="https://www.tokenfind.cn/blog/topics/routing.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TokenNexus">
+    <meta property="og:title" content="TokenNexus · 路由·缓存·稳定性攻略合集">
+    <meta property="og:description" content="TokenNexus 路由·缓存·稳定性主题下 8 篇 AI API 实战攻略合集。">
+    <meta property="og:url" content="https://www.tokenfind.cn/blog/topics/routing.html">
+    <meta property="og:image" content="https://www.tokenfind.cn/og-image.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>:root { --neon-cyan: #00f0ff; --neon-purple: #b829dd; --dark-bg: #050508; --card-bg: rgba(10, 10, 18, 0.9); --card-border: rgba(0, 240, 255, 0.15); --text-primary: #ffffff; --text-secondary: #8b92a8; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans SC', sans-serif; background: var(--dark-bg); color: var(--text-primary); min-height: 100vh; line-height: 1.8; }
+.navbar { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: rgba(5, 5, 8, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--card-border); display: flex; align-items: center; justify-content: space-between; padding: 0 60px; z-index: 1000; }
+.logo { display: flex; align-items: center; gap: 16px; }
+.logo-icon { width: 40px; height: 40px; }
+.logo-text { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--neon-cyan); }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--neon-cyan); }
+.container { max-width: 1100px; margin: 0 auto; padding: 120px 40px 60px; }
+.cat-badge { display: inline-block; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; margin-bottom: 16px; }
+.hub-title { font-size: 2.2rem; font-weight: 700; line-height: 1.4; margin-bottom: 16px; background: linear-gradient(135deg, var(--text-primary), var(--neon-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hub-desc { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 40px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+.card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 22px; transition: all .3s; text-decoration: none; display: block; }
+.card:hover { border-color: var(--neon-cyan); transform: translateY(-3px); }
+.card h3 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 10px; line-height: 1.4; }
+.card p { color: var(--text-secondary); font-size: 0.88rem; }
+.section-h { color: var(--neon-cyan); font-size: 1.3rem; font-weight: 600; margin: 50px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--card-border); }
+.topic-nav { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--card-border); }
+.topic-nav a { color: var(--text-secondary); text-decoration: none; padding: 8px 16px; border: 1px solid var(--card-border); border-radius: 20px; font-size: 0.88rem; transition: all .3s; }
+.topic-nav a:hover, .topic-nav a.active { color: var(--neon-cyan); border-color: var(--neon-cyan); }
+.footer { background: rgba(5, 5, 8, 0.95); border-top: 1px solid var(--card-border); padding: 40px 60px; margin-top: 60px; text-align: center; }
+.footer-text { color: var(--text-secondary); font-size: 0.9rem; }
+@media (max-width: 768px) { .navbar { padding: 0 20px; } .nav-links { display: none; } .container { padding: 100px 20px 40px; } .hub-title { font-size: 1.6rem; } }</style>
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "TokenNexus · 路由·缓存·稳定性攻略合集",
+    "description": "TokenNexus 路由·缓存·稳定性主题下 8 篇 AI API 实战攻略合集。",
+    "url": "https://www.tokenfind.cn/blog/topics/routing.html",
+    "isPartOf": {
+        "@type": "WebSite",
+        "name": "TokenNexus",
+        "url": "https://www.tokenfind.cn/"
+    },
+    "hasPart": [
+        {
+            "@type": "WebPage",
+            "name": "AI API异步调用与批处理优化：提升10倍吞吐量",
+            "url": "https://www.tokenfind.cn/blog/ai-api-async-batch-processing"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API凌晨宕机2小时，用户投诉刷屏——2026年真实宕机实录：为什么你的SLA 99.9%只是一张废纸",
+            "url": "https://www.tokenfind.cn/blog/ai-api-downtime-failover-survival-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API网关LiteLLM实战：零代码实现多模型故障转移与自动切换 | TokenNexus",
+            "url": "https://www.tokenfind.cn/blog/ai-api-gateway-litellm-failover-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "2026年7月AI API价格战全面爆发：Grok 4.5、Claude Sonnet 5、GPT-5.6 Luna多模型路由省钱实战指南",
+            "url": "https://www.tokenfind.cn/blog/ai-api-price-crash-july-2026-multi-model-routing-guide"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API 429限流终极解决方案：2026年大模型API速率限制应对实战指南",
+            "url": "https://www.tokenfind.cn/blog/ai-api-rate-limit-429-solution-guide-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API速率限制(Rate Limit)全面应对策略：从429到丝滑并发的实战之路",
+            "url": "https://www.tokenfind.cn/blog/ai-api-rate-limit-strategies"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI API流式输出(SSE/WebSocket)终极指南：2026年从原理到生产级优化实战",
+            "url": "https://www.tokenfind.cn/blog/ai-api-streaming-optimization-2026"
+        },
+        {
+            "@type": "WebPage",
+            "name": "AI模型智能路由实战：多模型调度让API成本降70%",
+            "url": "https://www.tokenfind.cn/blog/ai-model-routing-guide-2026"
+        }
+    ]
+}
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo"><span class="logo-text">TokenNexus</span></a>
+        <div class="nav-links">
+            <a href="/">首页</a>
+            <a href="/platforms">平台大全</a>
+            <a href="/official">官方平台</a>
+            <a href="/aggregator">聚合平台</a>
+            <a href="/china">国内平台</a>
+            <a href="/blog/guides" class="active">攻略</a>
+            <a href="/ai-overview">AI Overview</a>
+        </div>
+    </nav>
+    <main class="container">
+        <span class="cat-badge">路由·缓存·稳定性</span>
+        <h1 class="hub-title">路由·缓存·稳定性 · AI API 实战攻略合集</h1>
+        <p class="hub-desc">本合集汇总 TokenNexus 在「路由·缓存·稳定性」主题下的 8 篇深度攻略，帮你体系化掌握相关能力。</p>
+        <div class="grid">
+            <a class="card" href="/blog/ai-api-async-batch-processing"><h3>AI API异步调用与批处理优化：提升10倍吞吐量</h3><p>阅读这篇《AI API异步调用与批处理优化：提升10倍吞吐量》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-downtime-failover-survival-guide-2026"><h3>AI API凌晨宕机2小时，用户投诉刷屏——2026年真实宕机实录：为什么你的SLA 99.9%只是一张废纸</h3><p>阅读这篇《AI API凌晨宕机2小时，用户投诉刷屏——2026年真实宕机实录：为什么你的SLA 99.9%只是一张废纸》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-gateway-litellm-failover-2026"><h3>AI API网关LiteLLM实战：零代码实现多模型故障转移与自动切换 | TokenNexus</h3><p>阅读这篇《AI API网关LiteLLM实战：零代码实现多模型故障转移与自动切换 | TokenNexus》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-price-crash-july-2026-multi-model-routing-guide"><h3>2026年7月AI API价格战全面爆发：Grok 4.5、Claude Sonnet 5、GPT-5.6 Luna多模型路由省钱实战指南</h3><p>阅读这篇《2026年7月AI API价格战全面爆发：Grok 4.5、Claude Sonnet 5、GPT-5.6 Luna多模型路由省钱实战指南》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-rate-limit-429-solution-guide-2026"><h3>AI API 429限流终极解决方案：2026年大模型API速率限制应对实战指南</h3><p>阅读这篇《AI API 429限流终极解决方案：2026年大模型API速率限制应对实战指南》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-rate-limit-strategies"><h3>AI API速率限制(Rate Limit)全面应对策略：从429到丝滑并发的实战之路</h3><p>阅读这篇《AI API速率限制(Rate Limit)全面应对策略：从429到丝滑并发的实战之路》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-api-streaming-optimization-2026"><h3>AI API流式输出(SSE/WebSocket)终极指南：2026年从原理到生产级优化实战</h3><p>阅读这篇《AI API流式输出(SSE/WebSocket)终极指南：2026年从原理到生产级优化实战》实战攻略 →</p></a>
+            <a class="card" href="/blog/ai-model-routing-guide-2026"><h3>AI模型智能路由实战：多模型调度让API成本降70%</h3><p>阅读这篇《AI模型智能路由实战：多模型调度让API成本降70%》实战攻略 →</p></a>
+        </div>
+        <div class="topic-nav">
+            <span style="color:var(--text-secondary);align-self:center;margin-right:8px">其他主题：</span>
+            <a href="/blog/topics/multimodal.html" class="">多模态与生成式API</a>
+            <a href="/blog/topics/compliance.html" class="">合规·安全·隐私</a>
+            <a href="/blog/topics/enterprise.html" class="">企业落地与采购</a>
+            <a href="/blog/topics/routing.html" class="active">路由·缓存·稳定性</a>
+            <a href="/blog/topics/cost.html" class="">成本优化与价格</a>
+            <a href="/blog/topics/model.html" class="">模型指南与选型</a>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-text">TokenNexus · AI API 一站式导航与实战平台</div>
+    </footer>
+</body>
+</html>

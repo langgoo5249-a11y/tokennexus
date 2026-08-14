@@ -33,3 +33,6 @@ https://tokennexus.skillxm.cn/* https://www.tokenfind.cn/:splat 301
 /blog/ai-api-error-codes-troubleshooting-handbook-2026 /blog/ai-api-error-codes-troubleshooting-2026 301
 /blog/ai-api-streaming-sse-guide /blog/ai-api-streaming-optimization-2026 301
 /blog/ai-api-streaming-sse-websocket-implementation-guide-2026 /blog/ai-api-streaming-optimization-2026 301
+
+# 2026-08-14: 将过时的 2025 价格对比旧文 301 重定向到 2026 版
+/blog/ai-api-pricing-comparison-guide-2025 /blog/ai-api-pricing-comparison-2026-guide 301

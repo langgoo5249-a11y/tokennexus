@@ -1,0 +1,65 @@
+name: SEO & 内容时效性月度审计
+
+on:
+  schedule:
+    # 每月 1 日 03:17 UTC 执行（避开整点高峰）
+    - cron: '17 3 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: 内容时效性扫描
+        run: |
+          python3 content_freshness_scan.py --csv freshness-report.csv
+          echo "时效性扫描完成，报告见产物 freshness-report.csv"
+
+      - name: ttzz 追踪脚本回归检测
+        run: |
+          # 若任何博客文章仍含第三方 ttzz/bytegoofy 追踪脚本则报错，防止历史问题复发
+          if grep -rl "ttzz\|bytegoofy" blog/ > /dev/null 2>&1; then
+            echo "❌ 检测到 ttzz/bytegoofy 追踪脚本回归:"
+            grep -rl "ttzz\|bytegoofy" blog/
+            exit 1
+          else
+            echo "✅ 未发现 ttzz/bytegoofy 追踪脚本回归"
+          fi
+
+      - name: JSON-LD 结构化数据校验
+        run: |
+          python3 - <<'PY'
+          import glob, re, json, sys
+          S = re.S
+          bad = []
+          for f in glob.glob("blog/*.html"):
+              if f.endswith(("index.html", "guides.html")):
+                  continue
+              h = open(f, encoding="utf-8", errors="ignore").read()
+              m = re.search(r'<script type="application/ld\+json">(.*?)</script>', h, flags=S)
+              if not m:
+                  bad.append((f, "NO_JSONLD")); continue
+              try:
+                  json.loads(m.group(1))
+              except Exception as e:
+                  bad.append((f, str(e)[:50]))
+          if bad:
+              print("❌ JSON-LD 校验失败:")
+              for b in bad: print("  ", b)
+              sys.exit(1)
+          print("✅ 全部博客文章 JSON-LD 合法")
+          PY
+
+      - name: 上传扫描报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-audit-report
+          path: freshness-report.csv
+          retention-days: 30

@@ -160,7 +160,7 @@ var _hmt = _hmt || [];
     </script>
     <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
     <script type="application/ld+json">
-    {
+{
     "@context": "https://schema.org",
     "@graph": [
         {
@@ -173,7 +173,10 @@ var _hmt = _hmt || [];
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-streaming-optimization-2026"
             },
-            "author": {"@type": "Person", "name": "陈明"},
+            "author": {
+                "@type": "Person",
+                "name": "陈明"
+            },
             "publisher": {
                 "@type": "Organization",
                 "name": "TokenNexus",
@@ -185,12 +188,6 @@ var _hmt = _hmt || [];
             },
             "datePublished": "2026-05-27",
             "dateModified": "2026-07-22",
-                    "reviewedBy": {
-                        "@type": "Person",
-                        "name": "王浩然",
-                        "jobTitle": "技术架构师 · API 集成专家",
-                        "url": "https://www.tokenfind.cn/authors/王浩然"
-                    },
             "articleSection": "性能优化",
             "keywords": [
                 "AI API流式输出",
@@ -205,14 +202,7 @@ var _hmt = _hmt || [];
                 "断线重连",
                 "背压处理"
             ],
-            "inLanguage": "zh-CN",
-            "speakable": {
-                "@type": "SpeakableSpecification",
-                "cssSelector": [
-                    ".article-content h2",
-                    ".article-content p"
-                ]
-            }
+            "inLanguage": "zh-CN"
         },
         {
             "@type": "BreadcrumbList",
@@ -234,6 +224,59 @@ var _hmt = _hmt || [];
                     "position": 3,
                     "name": "AI API流式输出(SSE/WebSocket)终极指南：2026年从原理到生产级优化实战 - TokenNexus",
                     "item": "https://www.tokenfind.cn/blog/ai-api-streaming-optimization-2026"
+                }
+            ]
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "关于「为什么流式输出是AI API体验的核心」有哪些实操要点？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "先搞清楚一个核心概念：AI模型是逐token生成的。 不像传统API，你发请求，它算完了给你完整结果。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "关于「数据说话」有哪些实操要点？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "同样的 GPT-4 级别模型，生成一段 500 token 的回复，非流式模式需要等 8-12 秒才能看到完整结果。用户在这 8-12 秒里什么也看不到。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "关于「TTFT、TPS、Chunk间隔」有哪些实操要点？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "要优化流式输出，首先得知道该优化什么。我们关注三个核心指标： TTFT（Time To First Token）：从用户发送请求到收到第一个 token 的时间。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "关于「轮询 vs SSE vs WebSocket」有哪些实操要点？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "实现实时流式输出，常见三种方案： 方案原理优点缺点适用场景 轮询（Polling）客户端定时请求，服务器返回最新状态实现简单，HTTP兼容性好延迟高、资源浪费、服务器压力大Demo演示，不推荐生产 SSE（Server-Sent Events）服务端主动推送，HTTP长连接实现简单、单向推送可靠、支持自动重连单向通信、需特殊代理配置AI对话、实时通知（主流方案） WebSocket双向实时通信、复用TCP连接低延迟、双向通信、支持二进制实现复杂、需独立端口/路径需要客户端实时反馈的场景 我的建议：AI对话场景用SSE足够了。OpenAI、Anthropic、Google 官方API都支持SSE。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "关于「OpenAI / Claude / DeepSeek 三大平台流式API实战」有哪些实操要点？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "三大主流AI平台的流式API各有特点，但核心逻辑相似：都是通过SSE协议，在请求中设置stream参数为true，逐块返回生成内容。下面逐一拆解各自的实现细节和差异。"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "关于「从基础配置到生产级方案」有哪些实操要点？",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "SSE（Server-Sent Events）是 AI API 流式输出最常用的协议，OpenAI、Anthropic、Google 都用 SSE。但默认配置下 SSE 的性能远达不到生产要求。"
+                    }
                 }
             ]
         }
@@ -1135,7 +1178,11 @@ class SecureStreamValidator:
                     <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">深入讲解AI Function Calling与Tool Use技术，涵盖OpenAI和Claude的工具调用实现、完整Python实战案例、并行函数调用技巧。</p>
                 </article>
 
-            </div>
+            
+                <a href="/blog/topics/routing.html" style="text-decoration:none;padding:16px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:8px;transition:all .3s;color:var(--text-secondary)">
+                    <div style="font-weight:600;color:var(--text-primary);margin-bottom:6px">📚 路由·缓存·稳定性</div>
+                    <div style="font-size:.85rem">同主题攻略合集，系统提升 API 实战能力</div>
+                </a></div>
         </section>
 
         <div style="margin:40px 0;padding:20px;background:rgba(0,240,255,0.05);border-left:3px solid #00f0ff;border-radius:8px;">
