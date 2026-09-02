@@ -1,6 +1,6 @@
 # TokenNexus — AI API 导航全站内容索引（llms-full.txt）
 > 本文件为 AI 搜索引擎和大模型优化的完整内容索引，包含每篇文章和平台的摘要信息。
-> 最后更新: 2026-07-21
+> 最后更新: 2026-09-02
 >  shorter version: https://www.tokenfind.cn/llms.txt
 
 ## Organization
@@ -33,6 +33,26 @@
 | 免责声明 | https://www.tokenfind.cn/disclaimer | 免责声明 | 2026-05-27 |
 
 ## 博客文章摘要
+
+### 省钱攻略
+
+- **Cline接入DeepSeek实测：AI编程API成本直降90%的完整教程**
+  URL: https://www.tokenfind.cn/blog/cline-deepseek-coding-cost-guide-2026
+  日期: 2026-09-02
+  关键词: Cline接入DeepSeek, AI编程API成本, Cline配置国产大模型, DeepSeek写代码, Claude API太贵, AI编程省钱, DeepSeek API价格, AI编程工具成本对比, Cline教程
+  摘要: 用官方价格数据实测算账：Claude Sonnet 5月账单约1050元 vs DeepSeek V3.2方案76元，降幅约93%。详解Agent循环烧token的原理、Cline接入DeepSeek三步配置教程、SWE-bench Verified能力对比，以及80/20分层省钱策略——日常任务用DeepSeek、硬任务留给旗舰模型。
+
+- **每次请求都在为重复的系统提示词全价买单？Prompt Caching（KV Cache）命中计费与省钱实战**
+  URL: https://www.tokenfind.cn/blog/ai-api-prompt-caching-kv-cache-2026
+  日期: 2026-08-28
+  关键词: Prompt Caching, KV Cache, 系统提示词缓存, 上下文缓存命中率, AI API成本优化, 缓存TTL刷新
+  摘要: OpenAI缓存读取0.1倍价、Claude命中文档打9折、DeepSeek磁盘上下文缓存命中价仅为未命中的1/30。逐字拆解KV Cache命中计费规则、提高缓存命中率的5条硬核原则与3个翻车陷阱，附真实可算账的案例。
+
+- **DeepSeek峰谷调价刚生效：你的AI账单为什么又翻倍了？——2026年8月API计费规则全解析**
+  URL: https://www.tokenfind.cn/blog/deepseek-peak-valley-pricing-2026-cost-optimization-guide
+  日期: 2026-08-25
+  关键词: DeepSeek峰谷调价, API计费规则, 多模型路由, 提示词缓存, AI账单优化
+  摘要: DeepSeek 8月23日调整峰谷计费规则，周末统一低谷价，工作日高峰价高达3倍。深度分析各厂商AI API计费陷阱、多模型路由策略和提示词缓存优化方案。
 
 ### 企业选型
 
