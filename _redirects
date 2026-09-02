@@ -1,5 +1,5 @@
 # TokenNexus Cloudflare Pages 重定向配置
-# 更新日期: 2026-07-09
+# 更新日期: 2026-09-02
 #
 # 重要：Cloudflare Pages 会自动处理 clean URL（/about → about.html）
 # 不要在 _redirects 中添加自引用重定向，会导致 redirect loop！
