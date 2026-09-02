@@ -193,6 +193,7 @@ A: 已对全球 67+ AI 爬虫和搜索引擎爬虫开放全部访问权限，包
 
 # 新增博客文章
 
+- [cline-deepseek-coding-cost-guide-2026](https://www.tokenfind.cn/blog/cline-deepseek-coding-cost-guide-2026)
 - [ai-api-bill-explosion-hidden-costs-2026](https://www.tokenfind.cn/blog/ai-api-bill-explosion-hidden-costs-2026)
 - [ai-api-downtime-failover-survival-guide-2026](https://www.tokenfind.cn/blog/ai-api-downtime-failover-survival-guide-2026)
 - [ai-api-error-codes-troubleshooting-2026](https://www.tokenfind.cn/blog/ai-api-error-codes-troubleshooting-2026)
