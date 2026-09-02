@@ -1,6 +1,6 @@
 # TokenNexus — AI API 导航全站内容索引（llms-full.txt）
 > 本文件为 AI 搜索引擎和大模型优化的完整内容索引，包含每篇文章和平台的摘要信息。
-> 最后更新: 2026-07-21
+> 最后更新: 2026-09-02
 >  shorter version: https://www.tokenfind.cn/llms.txt
 
 ## Organization
@@ -33,6 +33,12 @@
 | 免责声明 | https://www.tokenfind.cn/disclaimer | 免责声明 | 2026-05-27 |
 
 ## 博客文章摘要
+
+- **Cline接入DeepSeek实测：AI编程API成本直降90%的完整教程**
+  URL: https://www.tokenfind.cn/blog/cline-deepseek-coding-cost-guide-2026
+  日期: 2026-09-02
+  关键词: Cline接入DeepSeek, AI编程API成本, Cline配置国产大模型, DeepSeek写代码, Claude API太贵, AI编程省钱, DeepSeek API价格, AI编程工具成本对比, Cline教程
+  摘要: 用官方价格数据实测算账：Claude Sonnet 5月账单约1050元 vs DeepSeek V3.2方案76元，降幅约93%。详解Agent循环烧token的原理、Cline接入DeepSeek三步配置教程、SWE-bench Verified能力对比，以及80/20分层省钱策略——日常任务用DeepSeek、硬任务留给旗舰模型。
 
 ### 企业选型
 

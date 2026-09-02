@@ -33,3 +33,6 @@ https://tokennexus.skillxm.cn/* https://www.tokenfind.cn/:splat 301
 /blog/ai-api-error-codes-troubleshooting-handbook-2026 /blog/ai-api-error-codes-troubleshooting-2026 301
 /blog/ai-api-streaming-sse-guide /blog/ai-api-streaming-optimization-2026 301
 /blog/ai-api-streaming-sse-websocket-implementation-guide-2026 /blog/ai-api-streaming-optimization-2026 301
+
+# 根路径访问新文章时重定向到博客目录
+/cline-deepseek-coding-cost-guide-2026 /blog/cline-deepseek-coding-cost-guide-2026 301

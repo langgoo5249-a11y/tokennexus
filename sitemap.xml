@@ -2767,6 +2767,12 @@
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://www.tokenfind.cn/blog/cline-deepseek-coding-cost-guide-2026</loc>
+        <lastmod>2026-09-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
   <url>
     <loc>https://www.tokenfind.cn/platforms</loc>
