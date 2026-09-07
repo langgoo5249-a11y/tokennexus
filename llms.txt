@@ -1,7 +1,7 @@
 # TokenNexus — 全球AI Token导航
 > 收录 330+ AI API 服务商，提供实时价格对比、模型评测、开发教程。覆盖 OpenAI、Claude、DeepSeek、通义千问、文心一言、Gemini 等主流大模型 API。
 > 完整内容索引（含每篇文章摘要）: https://www.tokenfind.cn/llms-full.txt
-> 最后更新: 2026-09-02
+> 最后更新: 2026-09-07
 
 ## Organization
 - 名称: TokenNexus
@@ -75,7 +75,7 @@ A: 已对全球 67+ AI 爬虫和搜索引擎爬虫开放全部访问权限，包
 | 免责声明 | https://www.tokenfind.cn/disclaimer | 免责声明 | 2026-07-04 |
 | Cookie政策 | https://www.tokenfind.cn/cookie-policy | Cookie政策与Google AdSense说明 | 2026-07-04 |
 
-## 博客文章 (共 99 篇)
+## 博客文章 (共 100 篇)
 
 ### 企业选型
 
@@ -83,6 +83,7 @@ A: 已对全球 67+ AI 爬虫和搜索引擎爬虫开放全部访问权限，包
 
 ### 平台对比与选型
 
+- [大模型联网搜索API实测对比：Perplexity Sonar、Tavily、Gemini怎么选最省钱](https://www.tokenfind.cn/blog/ai-web-search-api-comparison-guide-2026) | 2026-09-07
 - [2026年AI大模型API价格终极对比：GPT-5.5、Claude、DeepSeek、Gemini怎么选最省钱](https://www.tokenfind.cn/blog/ai-api-pricing-comparison-2026-guide) | 2026-06-21
 - [2026年AI API平台选型完全指南：开发者避坑手册与性价比终极对比](https://www.tokenfind.cn/blog/ai-api-platform-selection-guide-2026) | 2026-06-18
 - [2026年AI API价格全面对比：开发者省钱实战指南](https://www.tokenfind.cn/blog/ai-api-pricing-comparison-guide-2025) | 2026-05-20
@@ -222,4 +223,5 @@ A: 已对全球 67+ AI 爬虫和搜索引擎爬虫开放全部访问权限，包
 - [ai-api-rate-limit-429-solution-guide-2026](https://www.tokenfind.cn/blog/ai-api-rate-limit-429-solution-guide-2026)
 - [ai-model-release-avalanche-july-2026-developer-guide](https://www.tokenfind.cn/blog/ai-model-release-avalanche-july-2026-developer-guide)
 - [ai-multimodal-api-integration-guide-2026](https://www.tokenfind.cn/blog/ai-multimodal-api-integration-guide-2026)
+- [ai-web-search-api-comparison-guide-2026](https://www.tokenfind.cn/blog/ai-web-search-api-comparison-guide-2026)
 - [cline-deepseek-coding-cost-guide-2026](https://www.tokenfind.cn/blog/cline-deepseek-coding-cost-guide-2026)

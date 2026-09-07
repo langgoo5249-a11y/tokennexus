@@ -1,6 +1,6 @@
 # TokenNexus — AI API 导航全站内容索引（llms-full.txt）
 > 本文件为 AI 搜索引擎和大模型优化的完整内容索引，包含每篇文章和平台的摘要信息。
-> 最后更新: 2026-09-02
+> 最后更新: 2026-09-07
 >  shorter version: https://www.tokenfind.cn/llms.txt
 
 ## Organization
@@ -35,6 +35,12 @@
 ## 博客文章摘要
 
 ### 省钱攻略
+
+- **大模型联网搜索API实测对比：Perplexity Sonar、Tavily、Gemini怎么选最省钱**
+  URL: https://www.tokenfind.cn/blog/ai-web-search-api-comparison-guide-2026
+  日期: 2026-09-07
+  关键词: 大模型联网搜索API, Perplexity Sonar API价格, Tavily免费额度, Gemini Search Grounding, AI Agent联网搜索, 大模型知识截止, AI搜索API对比, 博查搜索API价格, LLM实时信息获取
+  摘要: 大模型知识截止与幻觉决定了实时信息必须外接搜索API。用官方价格横评Perplexity Sonar（$1/$1每百万tokens+约$5/千次请求）、Tavily（每月1000免费credits）、Gemini Search Grounding（2.5系列每天1500次请求免费、Gemini 3每月5000条提示免费）、OpenAI Web Search及国内的博查（0.036元/次）与阿里云百炼。月3万次搜索实测算账：Gemini免费层约370元 vs OpenAI方案约5600元，差15倍。附场景化选型建议与意图过滤、热查询缓存、搜索次数监控三条省钱实战经验。
 
 - **Cline接入DeepSeek实测：AI编程API成本直降90%的完整教程**
   URL: https://www.tokenfind.cn/blog/cline-deepseek-coding-cost-guide-2026
