@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script>
+(function(){
+var el = document.createElement("script");
+el.src = "https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?7ed0b6a78266711e9a17448067a625a5adfeed1f0fb6d4e019aaaed29b4f0896bc434964556b7d7129e9b750ed197d397efd7b0c6c715c1701396e1af40cec962b8d7c8c6655c9b00211740aa8a98e2e";
+el.id = "ttzz";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(el, s);
+})(window)
+</script>
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?aa6a94065c3983b2407d20b92e8d1fd9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    <!-- Google Search Console 验证 -->
+    <meta name="google-site-verification" content="3FATe9bp1LttSUR3xRU93RCPefwi_Vyo94PtCH-dJ8Q">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>攻略 - TokenNexus | AI API使用攻略与教程</title>
+    <meta name="author" content="TokenNexus">
+    <meta name="description" content="TokenNexus 攻略中心系统整理 AI API 平台对比、使用教程、省钱技巧、安全合规、迁移实战、性能调优和国内专题，帮助开发者与企业快速找到最适合自身业务场景的大模型 API 解决方案。">
+    <meta name="keywords" content="AI API攻略, AI API教程, AI API对比, AI省钱攻略, API使用指南">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="baiduspider" content="index, follow, max-snippet:-1">
+
+    <link rel="canonical" href="https://www.tokenfind.cn/blog/guides">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/blog/guides">
+    <link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/blog/guides">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="攻略 - TokenNexus | AI API使用攻略与教程">
+    <meta property="og:description" content="TokenNexus 攻略中心系统整理 AI API 平台对比、使用教程、省钱技巧、安全合规、迁移实战、性能调优和国内专题，帮助开发者与企业快速找到最适合自身业务场景的大模型 API 解决方案。">
+    <meta property="og:url" content="https://www.tokenfind.cn/blog/guides">
+    <meta property="og:image" content="https://www.tokenfind.cn/og-image.png">
+    <meta property="og:site_name" content="TokenNexus">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="攻略 - TokenNexus | AI API使用攻略与教程">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0CX9NNWKR8');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-cyan: #00f0ff;
+            --neon-purple: #b829dd;
+            --dark-bg: #050508;
+            --card-bg: rgba(10, 10, 18, 0.9);
+            --card-border: rgba(0, 240, 255, 0.15);
+            --text-primary: #ffffff;
+            --text-secondary: #8b92a8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans SC', sans-serif; background: var(--dark-bg); color: var(--text-primary); min-height: 100vh; line-height: 1.8; }
+
+        /* 导航栏 */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: rgba(5,5,8,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--card-border); display: flex; align-items: center; justify-content: space-between; padding: 0 60px; z-index: 1000; }
+        .logo { display: flex; align-items: center; gap: 16px; text-decoration: none; color: var(--text-primary); }
+        .logo-text { font-family: 'Orbitron', sans-serif; font-size: 28px; font-weight: 700; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links { display: flex; gap: 32px; }
+
+        /* 移动端菜单 */
+        .mobile-menu-btn { display: none; flex-direction: column; gap: 6px; padding: 10px; background: none; border: none; cursor: pointer; }
+        .mobile-menu-btn span { display: block; width: 28px; height: 2px; background: var(--neon-cyan); }
+        .nav-link { color: var(--text-secondary); text-decoration: none; font-size: 16px; transition: color 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--neon-cyan); }
+
+        /* 页面头部 */
+        .page-header { padding: 140px 60px 60px; text-align: center; }
+        .page-header h1 { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px; }
+        .page-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        /* 分类筛选 */
+        .category-filter { display: flex; justify-content: center; gap: 16px; padding: 0 60px 40px; flex-wrap: wrap; }
+        .filter-btn { padding: 10px 24px; background: transparent; border: 1px solid var(--card-border); border-radius: 20px; color: var(--text-secondary); cursor: pointer; font-size: 0.9rem; transition: all 0.3s; font-family: 'Noto Sans SC', sans-serif; }
+        .filter-btn:hover, .filter-btn.active { background: rgba(0,240,255,0.1); border-color: var(--neon-cyan); color: var(--neon-cyan); }
+
+        /* 文章网格 */
+        .guides-grid { max-width: 1200px; margin: 0 auto; padding: 0 60px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
+
+        /* 文章卡片 */
+        .guide-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; overflow: hidden; transition: all 0.3s; cursor: pointer; }
+        .guide-card:hover { transform: translateY(-4px); border-color: rgba(0,240,255,0.3); box-shadow: 0 8px 32px rgba(0,240,255,0.1); }
+        .guide-card-cover { height: 180px; overflow: hidden; position: relative; }
+        .guide-card-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .guide-card:hover .guide-card-cover img { transform: scale(1.05); }
+        .guide-card-body { padding: 24px; }
+        .guide-card-category { display: inline-block; padding: 4px 12px; background: rgba(0,240,255,0.1); border: 1px solid rgba(0,240,255,0.2); border-radius: 12px; font-size: 0.75rem; color: var(--neon-cyan); margin-bottom: 12px; }
+        .guide-card-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 12px; line-height: 1.4; }
+        .guide-card-title a { color: var(--text-primary); text-decoration: none; transition: color 0.3s; }
+        .guide-card-title a:hover { color: var(--neon-cyan); }
+        .guide-card-excerpt { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .guide-card-meta { display: flex; justify-content: space-between; align-items: center; color: var(--text-secondary); font-size: 0.8rem; }
+
+        /* 页脚 */
+        .footer { background: rgba(5,5,8,0.95); border-top: 1px solid var(--card-border); padding: 60px; text-align: center; }
+        .footer-logo { font-family: 'Orbitron', sans-serif; font-size: 24px; font-weight: 700; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px; }
+        .footer-text { color: var(--text-secondary); margin-bottom: 24px; }
+        .footer-links { display: flex; justify-content: center; gap: 32px; }
+        .footer-link { color: var(--text-secondary); text-decoration: none; font-size: 14px; }
+        .footer-link:hover { color: var(--neon-cyan); }
+
+        /* Cookie同意横幅 */
+        .cookie-consent { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(26,26,46,0.95); border-top: 1px solid rgba(0,240,255,0.3); padding: 20px; z-index: 10000; backdrop-filter: blur(10px); }
+        .cookie-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        .cookie-content p { margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+        .cookie-buttons { display: flex; gap: 15px; flex-shrink: 0; }
+        .cookie-btn { padding: 10px 24px; border-radius: 8px; font-size: 0.9rem; cursor: pointer; transition: all 0.3s; text-decoration: none; font-family: 'Noto Sans SC', sans-serif; }
+        .cookie-btn.accept { background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); border: none; color: #fff; }
+        .cookie-btn.more { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 0 20px; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .nav-links.show { display: flex; flex-direction: column; position: absolute; top: 80px; left: 0; right: 0; background: rgba(5,5,8,0.98); padding: 20px; gap: 16px; border-bottom: 1px solid var(--card-border); }
+            .page-header { padding: 120px 20px 40px; }
+            .page-header h1 { font-size: 1.8rem; }
+            .guides-grid { padding: 0 20px 60px; grid-template-columns: 1fr; }
+            .category-filter { padding: 0 20px 30px; }
+            .cookie-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+
+    <!-- Cookie Consent GA4 Protection - blocks GA4 until user accepts -->
+    <script>
+    (function() {
+      // Override gtag temporarily until consent
+      var _gtq = window.dataLayer = window.dataLayer || [];
+      var _ogs = window.gtag;
+      window.gtag = function(){_gtq.push(arguments);};
+      if (document.cookie.indexOf('cookieConsent=accepted') !== -1) {
+        // Already consented - load GA4
+        _ogs = window.gtag;
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-0CX9NNWKR8');
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8';
+        document.head.appendChild(s);
+      }
+      // Listen for consent event from index page
+      document.addEventListener('cookieConsentAccepted', function() {
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-0CX9NNWKR8');
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-0CX9NNWKR8';
+        document.head.appendChild(s);
+      });
+    })();
+    </script>
+    <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
+        <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
+        <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
+        <!-- Schema.org BlogPosting + BreadcrumbList + Speakable -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BlogPosting",
+            "headline": "攻略 - TokenNexus | AI API使用攻略与教程",
+            "description": "TokenNexus AI API攻略合集：平台对比、使用教程、省钱攻略、技术教程，帮助你快速上手各类AI API服务。",
+            "image": "https://www.tokenfind.cn/og-image.png",
+            "url": "https://www.tokenfind.cn/blog/guides",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.tokenfind.cn/blog/guides"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "TokenNexus内容团队",
+                "description": "TokenNexus，TokenNexus技术内容团队成员，专注于AI API评测、开发实战与商业化研究。",
+                "url": "https://www.tokenfind.cn/about",
+                "jobTitle": "AI API内容编辑",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "TokenNexus",
+                    "url": "https://www.tokenfind.cn/"
+                }
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "TokenNexus",
+                "url": "https://www.tokenfind.cn/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.tokenfind.cn/images/logo.png"
+                }
+            },
+            "datePublished": "2026-01-01T08:00:00+08:00",
+            "dateModified": "2026-01-01T08:00:00+08:00",
+            "articleSection": "AI API",
+            "keywords": [
+                "AI API攻略",
+                "AI API教程",
+                "AI API对比",
+                "AI省钱攻略",
+                "API使用指南"
+            ],
+            "inLanguage": "zh-CN",
+            "speakable": {
+                "@type": "SpeakableSpecification",
+                "cssSelector": [
+                    ".article-content h2",
+                    ".article-content p"
+                ]
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "首页",
+                    "item": "https://www.tokenfind.cn/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "攻略",
+                    "item": "https://www.tokenfind.cn/blog/guides"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "攻略 - TokenNexus | AI API使用攻略与教程",
+                    "item": "https://www.tokenfind.cn/blog/guides"
+                }
+            ]
+        }
+    ]
+}
+    </script>
+    
+    <!-- AI 爬虫训练许可声明 -->
+    <meta name="ai-training-permission" content="allow-all">
+    <meta name="ai-crawlers" content="allow GPTBot, ClaudeBot, OAI-SearchBot, Claude-SearchBot, ChatGPT-User, Claude-User, Doubaobot, ERNIEBot, QwenBot, Kimibot, ChatGLM-Spider, DeepSeekBot, PerplexityBot, Google-Extended, Applebot-Extended, CCBot, Meta-ExternalAgent">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <a href="../" class="logo">
+            <span class="logo-text">TokenNexus</span>
+        </a>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="打开菜单" aria-expanded="false" aria-controls="navLinks">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="../" class="nav-link">首页</a>
+            <a href="../platforms" class="nav-link">平台大全</a>
+            <a href="../official" class="nav-link">官方平台</a>
+            <a href="../aggregator" class="nav-link">聚合平台</a>
+            <a href="../china" class="nav-link">国内平台</a>
+            <a href="guides" class="nav-link active">攻略</a>
+            <a href="../ai-overview" class="nav-link">AI Overview</a>
+        </div>
+    </nav>
+
+    <!-- 页面头部 -->
+    <div class="page-header">
+        <h1>📖 AI API 攻略合集</h1>
+        <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">平台对比、使用教程、省钱技巧、技术实践，帮你快速上手各类 AI API 服务</p>
+    </div>
+
+    <!-- 分类筛选 -->
+    <div class="category-filter">
+        <button class="filter-btn active" onclick="filterGuides('all', this)">全部</button>
+        <button class="filter-btn" onclick="filterGuides('平台对比', this)">平台对比</button>
+        <button class="filter-btn" onclick="filterGuides('使用教程', this)">使用教程</button>
+        <button class="filter-btn" onclick="filterGuides('省钱攻略', this)">省钱攻略</button>
+        <button class="filter-btn" onclick="filterGuides('技术教程', this)">技术教程</button>
+        <button class="filter-btn" onclick="filterGuides('行业资讯', this)">行业资讯</button>
+    </div>
+
+    <!-- 文章网格 -->
+    <div class="guides-grid" id="guidesGrid">
+
+        <!-- 大模型工具调用Function Calling各家对比（最新：2026-09-12） -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="/images/ai-function-calling-tool-use-comparison-guide-2026.jpg" alt="大模型Function Calling工具调用各家API对比指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="ai-function-calling-tool-use-comparison-guide-2026">大模型工具调用怎么选？Function Calling各家API实测对比：准确率、token开销与成本（2026）</a></h2>
+                <p class="guide-card-excerpt">实测对比OpenAI、Claude、Gemini、DeepSeek四家工具调用：准确率97~99%、单次token开销295~512，DeepSeek便宜近10倍但准确率打八折。附DeepSeek 8月17日峰谷涨价案例和3条省钱又稳的实战经验。</p>
+                <div class="guide-card-meta"><span>王浩然</span><span>2026-09-12</span></div>
+            </div>
+        </article>
+
+        <!-- 大模型联网搜索API对比选型（2026-09-07） -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="/images/ai-web-search-api-comparison-guide-2026.jpg" alt="大模型联网搜索API对比选型指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="ai-web-search-api-comparison-guide-2026">大模型联网搜索API实测对比：Perplexity Sonar、Tavily、Gemini怎么选最省钱</a></h2>
+                <p class="guide-card-excerpt">用官方价格实测算账：Gemini Grounding每月5000次免费、Tavily每月1000 credits白嫖起步、博查0.036元/次。月3万次搜索测算，不同方案账单差出15倍，附场景化选型和3条省钱实战经验。</p>
+                <div class="guide-card-meta"><span>王浩然</span><span>2026-09-07</span></div>
+            </div>
+        </article>
+
+        <!-- Cline接入DeepSeek成本优化实战（2026-09-02） -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="/images/cline-deepseek-coding-cost-guide-2026.jpg" alt="Cline接入DeepSeek成本优化教程"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="cline-deepseek-coding-cost-guide-2026">Cline接入DeepSeek实测：AI编程API成本直降90%的完整教程</a></h2>
+                <p class="guide-card-excerpt">用官方价格数据实测算账：Claude Sonnet月账单约1050元 vs DeepSeek方案76元，降幅约93%。附三步配置教程、SWE-bench能力对比和80/20分层省钱策略。</p>
+                <div class="guide-card-meta"><span>王浩然</span><span>2026-09-02</span></div>
+            </div>
+        </article>
+
+        <!-- Prompt Caching / KV Cache命中计费省钱（2026-08-28） -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="/images/prompt-caching-kv-cache-2026.jpg" alt="Prompt Caching KV Cache命中计费"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-prompt-caching-kv-cache-2026">每次请求都在为重复的系统提示词全价买单？Prompt Caching（KV Cache）命中计费与省钱实战</a></h2>
+                <p class="guide-card-excerpt">OpenAI缓存读取0.1倍价、Claude命中打9折、DeepSeek命中价低到未命中的1/30。用官方价目逐字拆解KV Cache命中计费规则，附提高命中的5条硬核原则和可算账的案例。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-08-28</span></div>
+            </div>
+        </article>
+
+        <!-- DeepSeek峰谷调价成本优化（2026-08-25） -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="/images/deepseek-peak-valley-pricing-2026.jpg" alt="DeepSeek峰谷调价"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="deepseek-peak-valley-pricing-2026-cost-optimization-guide">DeepSeek峰谷调价刚生效：你的AI账单为什么又翻倍了？——2026年8月API计费规则全解析</a></h2>
+                <p class="guide-card-excerpt">DeepSeek 8月23日调整峰谷计费规则，周末统一低谷价，工作日高峰价高达3倍。本文深度分析各厂商AI API计费陷阱、多模型路由策略和提示词缓存优化方案。</p>
+                <div class="guide-card-meta"><span>林小雪</span><span>2026-08-25</span></div>
+            </div>
+        </article>
+
+        <!-- AI API效果退化模型漂移（最新：2026-08-07） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-litellm-failover-2026.jpg" alt="AI API效果退化排查"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-quality-degradation-model-drift-2026">AI API用了三个月效果越来越差？3个隐形退化在毁掉你的应用</a></h2>
+                <p class="guide-card-excerpt">深度复盘模型漂移、Prompt膨胀和数据漂移三大隐形退化原因，引用GPT-4准确率从84%跌到51%等真实数据，附效果回归测试和模型漂移检测完整方案。</p>
+                <div class="guide-card-meta"><span>陈思远</span><span>2026-08-07</span></div>
+            </div>
+        </article>
+
+        <!-- AI API宕机容灾生存指南（2026-07-31） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-litellm-failover-2026.jpg" alt="AI API宕机容灾"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-downtime-failover-survival-guide-2026">AI API凌晨宕机2小时用户投诉刷屏——2026年真实宕机实录与容灾方案</a></h2>
+                <p class="guide-card-excerpt">整理2026上半年AI API真实宕机事件：OpenAI三天崩三次、Claude六月两度全球宕机。拆解SLA数字游戏，给出多模型三层降级容灾架构和完整代码方案。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-07-31</span></div>
+            </div>
+        </article>
+
+        <!-- AI API隐藏收费陷阱（2026-07-31） -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-litellm-failover-2026.jpg" alt="AI API隐藏收费陷阱"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-hidden-cost-traps-2026">每月$5000的AI API账单排查两周才发现：3个隐藏收费陷阱正在偷走你的预算</a></h2>
+                <p class="guide-card-excerpt">Thinking Tokens隐形消耗、System Prompt重复计费、聊天历史雪球效应——三个开发者最常忽略的API收费陷阱，每月让团队多花$3000+。</p>
+                <div class="guide-card-meta"><span>林小雪</span><span>2026-07-31</span></div>
+            </div>
+        </article>
+
+        <!-- AI API账单暴涨隐形杀手（2026-07-27） -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-litellm-failover-2026.jpg" alt="AI API账单暴涨"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-bill-explosion-hidden-costs-2026">AI API月账单从3000暴涨到12000：5个隐形杀手在吞钱</a></h2>
+                <p class="guide-card-excerpt">深度复盘AI API账单暴涨4倍的真相：无差别调用顶级模型、未启用Prompt Caching、不设max_tokens、单点依赖无降级、缺乏用量监控。附真实账单对比和多模型路由方案。</p>
+                <div class="guide-card-meta"><span>王浩然</span><span>2026-07-27</span></div>
+            </div>
+        </article>
+
+        <!-- AI API预算配额管理（2026-07-05） -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-litellm-failover-2026.jpg" alt="AI API预算配额管理"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-budget-quota-management-2026">AI API预算配额管理实战：搭建消费预警系统避免月底账单爆炸</a></h2>
+                <p class="guide-card-excerpt">详解AI API预算配额管理系统搭建方法，包含消费预警、月度预算控制、API账单监控工具选型与OpenAI/Claude预算设置实战。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-07-05</span></div>
+            </div>
+        </article>
+
+        <!-- AI API本地测试沙盒（2026-07-05） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-litellm-failover-2026.jpg" alt="AI API本地测试沙盒"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-local-testing-sandbox-2026">AI API本地测试沙盒搭建完全指南：从Mock到A/B测试的实战方案</a></h2>
+                <p class="guide-card-excerpt">详解AI API本地测试沙盒搭建方法，包含LLM Mock测试、API本地开发环境配置、Mock Server选型、模型A/B测试方法，帮助开发者降低测试成本并提升稳定性。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-07-05</span></div>
+            </div>
+        </article>
+
+        <!-- AI API价格战多模型路由（2026-07-13） -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-litellm-failover-2026.jpg" alt="AI API价格战多模型路由"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-price-crash-july-2026-multi-model-routing-guide">2026年7月AI API价格战全面爆发：多模型路由省钱实战指南</a></h2>
+                <p class="guide-card-excerpt">Grok 4.5、Claude Sonnet 5、GPT-5.6 Luna同期降价，多模型路由策略帮你抓住价格战红利，附真实成本对比和路由配置方案。</p>
+                <div class="guide-card-meta"><span>林小雪</span><span>2026-07-13</span></div>
+            </div>
+        </article>
+
+        <!-- AI API网关LiteLLM实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-litellm-failover-2026.jpg" alt="AI API网关LiteLLM实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-gateway-litellm-failover-2026">AI API网关LiteLLM实战：零代码实现多模型故障转移与自动切换</a></h2>
+                <p class="guide-card-excerpt">从零搭建LiteLLM多模型统一入口，实现OpenAI/Claude/DeepSeek自动故障转移和智能路由，含完整YAML配置和Docker部署方案。</p>
+                <div class="guide-card-meta"><span>王浩然</span><span>2026-07-21</span></div>
+            </div>
+        </article>
+
+        <!-- AI API 429限流解决方案（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-rate-limit-429-solution-guide-2026.jpg" alt="AI API 429限流解决方案"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-rate-limit-429-solution-guide-2026">AI API 429限流终极解决方案：2026年大模型API速率限制应对实战指南</a></h2>
+                <p class="guide-card-excerpt">用真实数据拆解OpenAI/Claude/DeepSeek三大平台速率限制机制，附指数退避代码、请求队列限速器和多模型降级链完整实现。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-07-10</span></div>
+            </div>
+        </article>
+
+        <!-- 7月AI大模型发布潮实测（最新） -->
+        <article class="guide-card" data-category="行业资讯">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-model-release-avalanche-july-2026-developer-guide.jpg" alt="7月AI大模型发布潮实测"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">行业资讯</span>
+                <h2 class="guide-card-title"><a href="ai-model-release-avalanche-july-2026-developer-guide">2026年7月AI大模型发布潮实测：GPT-5.6、Grok 4.5、DeepSeek V4同期上线开发者怎么选</a></h2>
+                <p class="guide-card-excerpt">四大厂商同周发布新模型，以开发者实测视角对比性能、价格和迁移成本，附任务分类决策表和迁移避坑清单。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-07-09</span></div>
+            </div>
+        </article>
+
+        <!-- AI API产品化实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-productization-saas-guide-2026.jpg" alt="AI API产品化实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-productization-saas-guide-2026">AI API产品化实战：从API调用到月收$3万SaaS的完整商业化路径</a></h2>
+                <p class="guide-card-excerpt">从MVP设计、成本定价到增长变现，完整复盘如何用AI API打造月收入3万美元的SaaS产品。含真实案例和避坑清单。</p>
+                <div class="guide-card-meta"><span>TokenNexus社区作者</span><span>2026-07-03</span></div>
+            </div>
+        </article>
+
+        <!-- DeepSeek V4峰谷定价迁移指南（最新） -->
+        <article class="guide-card" data-category="行业资讯">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-peak-pricing-migration-guide-2026.jpg" alt="DeepSeek V4峰谷定价迁移指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">行业资讯</span>
+                <h2 class="guide-card-title"><a href="ai-api-peak-pricing-migration-guide-2026">DeepSeek V4峰谷定价落地：2026下半年大模型API迁移避坑指南</a></h2>
+                <p class="guide-card-excerpt">2026年6月AI API三件大事：DeepSeek V4峰谷定价、Claude Fable 5天价上市、Gemini 3.5 Flash降价40%。用真实数据拆解实际影响，附迁移策略和四个必避的坑。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-30</span></div>
+            </div>
+        </article>
+
+        <!-- MCP协议完全实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/mcp-model-context-protocol-practical-guide-2026.jpg" alt="MCP协议完全实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="mcp-model-context-protocol-practical-guide-2026">MCP协议完全实战：用Model Context Protocol让大模型读懂你的数据库和代码库</a></h2>
+                <p class="guide-card-excerpt">从原理到落地，教你用MCP让Claude、GPT安全连接数据库、文件系统、Git仓库。含完整代码示例和企业级安全实践。</p>
+                <div class="guide-card-meta"><span>TokenNexus技术团队</span><span>2026-06-23</span></div>
+            </div>
+        </article>
+
+        <!-- AI语音应用开发实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-voice-application-development-guide-2026.jpg" alt="AI语音应用开发实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-voice-application-development-guide-2026">我是如何用AI语音API做出日活过万的声音助手：从想法到MVP的完整复盘</a></h2>
+                <p class="guide-card-excerpt">真实AI语音应用项目复盘：从选型ElevenLabs、OpenAI Realtime API到上线的全流程，含低延迟优化和成本控制秘诀。</p>
+                <div class="guide-card-meta"><span>TokenNexus社区作者</span><span>2026-06-23</span></div>
+            </div>
+        </article>
+
+        <!-- AI API成本归因实战（最新） -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-cost-attribution-tracking-2026.jpg" alt="AI API成本归因实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-cost-attribution-tracking-2026">AI API成本归因实战：2026年企业级Token消耗追踪与部门核算完整方案</a></h2>
+                <p class="guide-card-excerpt">深度解析AI API成本归因方法论，从请求级元数据标注到网关层统一注入，结合LiteLLM、Langfuse、Bifrost等开源工具实战，实现按部门、项目、功能维度的Token消耗追踪与精细化核算。</p>
+                <div class="guide-card-meta"><span>王浩然</span><span>2026-07-14</span></div>
+            </div>
+        </article>
+
+        <!-- 2026年AI大模型API价格终极对比（最新） -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-pricing-comparison-2026-guide.jpg" alt="AI API价格对比"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="ai-api-pricing-comparison-2026-guide">2026年AI大模型API价格终极对比：GPT-5.5、Claude、DeepSeek、Gemini怎么选最省钱</a></h2>
+                <p class="guide-card-excerpt">深度对比2026年主流AI大模型API价格，包括GPT-5.5、Claude Opus 4.7、DeepSeek V4等20+模型，最便宜和最贵的模型差100倍，附选型决策框架和真实账单模拟。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-21</span></div>
+            </div>
+        </article>
+
+        <!-- 2026年AI API图像生成平台深度横评（最新） -->
+        <article class="guide-card" data-category="深度评测">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-image-generation-platform-comparison-2026.jpg" alt="2026年AI API图像生成平台深度横评"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">深度评测</span>
+                <h2 class="guide-card-title"><a href="ai-api-image-generation-platform-comparison-2026">2026年AI API图像生成平台深度横评：Midjourney、DALL-E 3、Stable Diffusion、Leonardo.ai实测对比</a></h2>
+                <p class="guide-card-excerpt">实测六大图像生成API，从价格、质量、速度、可控性、商用授权五维度深度对比。附真实生成效果对比和按场景选型建议。</p>
+                <div class="guide-card-meta"><span>TokenNexus评测实验室</span><span>2026-06-22</span></div>
+            </div>
+        </article>
+
+        <!-- 一个全栈工程师的AI API接入日记（最新） -->
+        <article class="guide-card" data-category="经验分享">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-integration-diary-fullstack-engineer-2026.jpg" alt="一个全栈工程师的AI API接入日记"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">经验分享</span>
+                <h2 class="guide-card-title"><a href="ai-api-integration-diary-fullstack-engineer-2026">一个全栈工程师的AI API接入日记：从零到上线的30天真实踩坑记录</a></h2>
+                <p class="guide-card-excerpt">记录从选型OpenAI到迁移DeepSeek的30天历程，包含密钥泄露、429限流、账单暴涨、Prompt注入等真实踩坑经历。</p>
+                <div class="guide-card-meta"><span>TokenNexus社区作者</span><span>2026-06-22</span></div>
+            </div>
+        </article>
+
+        <!-- 2026年AI API平台选型完全指南 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-platform-selection-guide-2026.jpg" alt="2026年AI API平台选型完全指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-platform-selection-guide-2026">2026年AI API平台选型完全指南：开发者避坑手册与性价比终极对比</a></h2>
+                <p class="guide-card-excerpt">覆盖OpenAI、Claude、DeepSeek、Gemini等20+主流平台真实对比，含价格、延迟、稳定性、中文能力维度。附选型决策树和避坑清单。</p>
+                <div class="guide-card-meta"><span>TokenNexus技术团队</span><span>2026-06-18</span></div>
+            </div>
+        </article>
+
+        <!-- 从零构建AI Agent -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-agent-development-guide-2026.jpg" alt="从零构建AI Agent"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-agent-development-guide-2026">从零构建AI Agent：2026年最实用的开发框架选型与落地实战</a></h2>
+                <p class="guide-card-excerpt">LangChain、LlamaIndex、AutoGPT、Dify框架对比，ReAct/Tool Use实战代码。真实案例：智能客服Agent响应时间从5分钟降到28秒。</p>
+                <div class="guide-card-meta"><span>TokenNexus技术团队</span><span>2026-06-18</span></div>
+            </div>
+        </article>
+
+        <!-- AI API负载均衡与高可用架构实战 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-load-balancing-ha-architecture-2026.jpg" alt="AI API负载均衡与高可用架构实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-load-balancing-ha-architecture-2026">AI API负载均衡与高可用架构实战：从单点故障到99.99%可用性的进化之路</a></h2>
+                <p class="guide-card-excerpt">Nginx/Kong网关配置、多模型故障转移、熔断降级策略、全球多活部署、真实案例：某SaaS平台可用性从99.5%提升到99.99%。</p>
+                <div class="guide-card-meta"><span>TokenNexus技术团队</span><span>2026-06-16</span></div>
+            </div>
+        </article>
+
+        <!-- AI API数据隐私与合规实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-data-privacy-compliance-guide-2026.jpg" alt="AI API数据隐私与合规实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-data-privacy-compliance-guide-2026">AI API数据隐私与合规实战：SOC2/ISO27001/GDPR全解析与落地checklist</a></h2>
+                <p class="guide-card-excerpt">从三星代码泄露到欧盟AI法案，详解SOC2/ISO27001/GDPR/CCPA合规全流程。附PII检测代码、数据跨境方案、100+审计Checklist。</p>
+                <div class="guide-card-meta"><span>TokenNexus合规研究团队</span><span>2026-06-16</span></div>
+            </div>
+        </article>
+
+        <!-- AI API版本管理与向后兼容实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-versioning-compatibility-guide-2026.jpg" alt="AI API版本管理与向后兼容实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-versioning-compatibility-guide-2026">AI API版本管理与向后兼容实战：从OpenAI API废弃风波中学到的血泪教训</a></h2>
+                <p class="guide-card-excerpt">OpenAI/Anthropic/Google三大平台版本策略对比、API版本路由中间件代码、向后兼容5个黄金法则、零停机迁移Checklist。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-16</span></div>
+            </div>
+        </article>
+
+        <!-- AI API边缘计算实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-edge-computing-iot-guide-2026.jpg" alt="AI API边缘计算实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-edge-computing-iot-guide-2026">AI API边缘计算实战：在树莓派和IoT设备上跑通大模型推理的完整方案</a></h2>
+                <p class="guide-card-excerpt">树莓派5/Jetson Orin硬件选型、Ollama本地部署、Cloudflare Workers边缘推理、MQTT+AI实时数据处理、工业质检完整案例。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-16</span></div>
+            </div>
+        </article>
+
+        <!-- AI API Schema设计实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-schema-design-function-calling-guide-2026.jpg" alt="AI API Schema设计实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-schema-design-function-calling-guide-2026">AI API Schema设计实战：如何设计出稳定可靠的Function Calling接口</a></h2>
+                <p class="guide-card-excerpt">JSON Schema关键字技巧、OpenAI vs Claude vs Gemini格式对比、三种场景Schema设计案例、Pydantic集成代码和版本管理策略。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-09</span></div>
+            </div>
+        </article>
+
+        <!-- AI API多模态应用实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-multimodal-gpt4o-gemini-complete-guide-2026.jpg" alt="AI API多模态应用实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-multimodal-gpt4o-gemini-complete-guide-2026">AI API多模态应用实战：从单模态到GPT-4o/Gemini全模态方案</a></h2>
+                <p class="guide-card-excerpt">GPT-4o Vision/Gemini/Qwen-VL多模态API对比、图像分析/视频理解/音频处理完整代码、多模态Pipeline架构和成本优化策略。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-13</span></div>
+            </div>
+        </article>
+
+        <!-- AI API生产部署避坑指南（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-production-deployment-scaling-guide-2026.jpg" alt="AI API生产部署避坑指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-production-deployment-scaling-guide-2026">AI API生产部署避坑指南：从本地Demo到日活百万的实战经验</a></h2>
+                <p class="guide-card-excerpt">API Gateway选型对比、K8s扩缩容配置、日活1万到100万架构演进、多级缓存方案、限流算法和故障复盘完整方案。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-13</span></div>
+            </div>
+        </article>
+
+        <!-- AI API对话上下文管理实战 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-conversation-context-memory-management-guide-2026.jpg" alt="AI API对话上下文管理"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-conversation-context-memory-management-guide-2026">AI API对话上下文管理实战：Session、Memory与上下文窗口优化</a></h2>
+                <p class="guide-card-excerpt">Session与Context本质区别、Redis对话存储、三种上下文策略对比、Token预算计算、RAG增强对话和多轮Agent框架代码。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-12</span></div>
+            </div>
+        </article>
+
+        <!-- AI API企业级采购与合同谈判攻略 -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-enterprise-procurement-contract-negotiation-guide-2026.jpg" alt="AI API企业级采购"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-enterprise-procurement-contract-negotiation-guide-2026">AI API企业级采购与合同谈判攻略：从标准定价到定制EA的完整指南</a></h2>
+                <p class="guide-card-excerpt">EA门槛与主流平台对比、4大谈判筹码、信用卡替代支付方式、SLA保障条款详解、企业采购Checklist和成本优化5层组合拳。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-11</span></div>
+            </div>
+        </article>
+
+        <!-- AI API内容安全与审核实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-content-safety-moderation-hallucination-guide-2026.jpg" alt="AI API内容安全"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-content-safety-moderation-hallucination-guide-2026">AI API内容安全与审核实战：Prompt注入防护与幻觉检测完整方案</a></h2>
+                <p class="guide-card-excerpt">Prompt注入4种手法、3道防御线、OpenAI/Azure/AWS内容审核对比、幻觉检测4种方法、完整AI安全过滤Pipeline代码和PII脱敏方案。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-11</span></div>
+            </div>
+        </article>
+
+        <!-- AI API Token计费原理深度解析 -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-token-pricing-cost-calculation-guide-2026.jpg" alt="AI API Token计费原理"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-token-pricing-cost-calculation-guide-2026">AI API Token计费原理深度解析：如何精准计算ChatGPT和Claude的实际成本</a></h2>
+                <p class="guide-card-excerpt">中英文Token差异、多模态Token计算、GPT-4o/Claude/DeepSeek 2026最新定价表、Cache命中省钱原理、Batch API 50%折扣对比。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-10</span></div>
+            </div>
+        </article>
+
+        <!-- AI API向量数据库选型指南（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-vector-database-comparison-guide-2026.jpg" alt="AI API向量数据库选型"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-vector-database-comparison-guide-2026">AI API向量数据库选型指南：Pinecone vs Milvus vs Weaviate 2026横评</a></h2>
+                <p class="guide-card-excerpt">向量检索原理、ANN/HNSW索引、五维对比表、选型决策树、OpenAI + Milvus/Weaviate完整集成代码、维度选择与Quantization压缩。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-10</span></div>
+            </div>
+        </article>
+
+        <!-- AI API容错降级架构 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-fault-tolerance-resilience-architecture-2026.jpg" alt="AI API容错降级架构"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-fault-tolerance-resilience-architecture-2026">AI API容错降级架构：从单点故障到弹性系统的完整方案</a></h2>
+                <p class="guide-card-excerpt">三层降级策略、断路器模式、隔离舱模式、完整ResilientAPIClient基类代码和压测验证方法。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-09</span></div>
+            </div>
+        </article>
+
+        <!-- AI API日志与可观测性实战 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-observability-logging-guide-2026.jpg" alt="AI API日志与可观测性实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-observability-logging-guide-2026">AI API日志与可观测性实战：从黑盒到全链路追踪</a></h2>
+                <p class="guide-card-excerpt">从一次线上事故讲起，详解AI API可观测性三大支柱，附Python日志中间件代码、Grafana看板配置和告警策略。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-08</span></div>
+            </div>
+        </article>
+
+        <!-- AI API多模型A/B测试（最新） -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-ab-testing-model-selection-2026.jpg" alt="AI API多模型A/B测试实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="ai-api-ab-testing-model-selection-2026">AI API多模型A/B测试实战：用数据驱动模型选型决策</a></h2>
+                <p class="guide-card-excerpt">GPT-4o/Claude Sonnet/DeepSeek V3/Gemini Pro四模型50题实测对比，附Python A/B测试框架代码和智能路由策略。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-08</span></div>
+            </div>
+        </article>
+
+        <!-- 免费AI API平台深度横评 -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/free-ai-api-platform-review-2026.jpg" alt="免费AI API平台深度横评"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="free-ai-api-platform-review-2026">2026年免费AI API平台深度横评：6大平台实测，哪些真的能白嫖？</a></h2>
+                <p class="guide-card-excerpt">GitHub Models、Groq、Google AI Studio、Cerebras、Agnes AI、Cloudflare Workers AI六大免费平台实测对比，含真实延迟数据和隐藏限制揭秘。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-07</span></div>
+            </div>
+        </article>
+
+        <!-- AI Agent与Function Calling实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-agent-function-calling-guide.jpg" alt="AI Agent与Function Calling实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-agent-function-calling-guide-2026">2026年AI Agent开发实战：Function Calling从入门到生产级应用</a></h2>
+                <p class="guide-card-excerpt">Function Calling原理详解，OpenAI和Anthropic双平台实战代码，Agent框架选型对比，附真实项目案例。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-06</span></div>
+            </div>
+        </article>
+
+        <!-- AI Embedding与RAG知识库搭建（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-embedding-rag-knowledge-base-guide.jpg" alt="AI Embedding与RAG知识库搭建"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-embedding-rag-knowledge-base-guide-2026">从零搭建企业级RAG知识库：Embedding选型到上线的完整踩坑记录</a></h2>
+                <p class="guide-card-excerpt">6款Embedding模型对比、5款向量数据库选型、RAG优化技巧，附法律知识库和产品文档问答真实案例。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-06</span></div>
+            </div>
+        </article>
+
+        <!-- AI API安全与密钥管理实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-security-key-management-guide.jpg" alt="AI API安全与密钥管理实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-security-key-management-guide-2026">AI API安全实战：我是如何防止API Key泄露并过SOC2审计的</a></h2>
+                <p class="guide-card-excerpt">真实案例复盘，从密钥管理到零信任架构，附SOC2/GDPR合规checklist和Prompt Injection防护方案。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-05</span></div>
+            </div>
+        </article>
+
+        <!-- AI API性能调优实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-performance-tuning-guide.jpg" alt="AI API性能调优实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-performance-tuning-guide-2026">AI API性能调优实战：从3秒延迟到300ms，我的优化全记录</a></h2>
+                <p class="guide-card-excerpt">电商客服系统真实优化案例，连接池、流式输出、缓存策略、模型降级，吞吐量提升10倍。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-05</span></div>
+            </div>
+        </article>
+
+        <!-- AI API聚合平台选型攻略（最新） -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-aggregator-platform-guide.jpg" alt="AI API聚合平台选型攻略"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="ai-aggregator-platform-guide-2026">2026年AI API聚合平台实测：OpenRouter、Groq、硅基流动哪家更适合你？</a></h2>
+                <p class="guide-card-excerpt">六大主流聚合平台深度对比，包含真实延迟、价格、稳定性数据，附接入代码和避坑指南。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-04</span></div>
+            </div>
+        </article>
+
+        <!-- 从零搭建AI产品实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/build-ai-product-from-scratch.jpg" alt="从零搭建AI产品实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="build-ai-product-from-scratch-2026">从零到上线：我是如何用3周搭建一个AI产品的完整实战经验</a></h2>
+                <p class="guide-card-excerpt">独立开发者真实项目复盘，从API选型到上线的完整流程，含成本控制和踩坑记录。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-04</span></div>
+            </div>
+        </article>
+
+        <!-- AI多模态API接入指南（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-multimodal-api-integration-guide.jpg" alt="AI多模态API接入指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-multimodal-api-integration-guide-2026">2026年AI多模态API完全指南：视觉、语音、视频理解一文搞懂</a></h2>
+                <p class="guide-card-excerpt">GPT-4o Vision、Claude Vision、Gemini多模态能力深度解析，包含真实代码示例和选型建议。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-03</span></div>
+            </div>
+        </article>
+
+        <!-- AI视频生成API选型攻略（最新） -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-video-generation-api-guide.jpg" alt="AI视频生成API选型攻略"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="ai-video-generation-api-guide-2026">2026年AI视频生成API选型攻略：可灵、Runway、Pika实测对比</a></h2>
+                <p class="guide-card-excerpt">五大主流AI视频生成平台实测对比，包含真实价格、生成速度和画质评测数据，帮你找到最适合的视频API方案。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-02</span></div>
+            </div>
+        </article>
+
+        <!-- 国产AI编程助手横评（最新） -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="images/domestic-ai-coding-assistant-review.jpg" alt="国产AI编程助手横评"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="domestic-ai-coding-assistant-review-2026">2026年国产AI编程助手横评：通义灵码、CodeGeeX等七款工具实测</a></h2>
+                <p class="guide-card-excerpt">从GitHub Copilot迁移到国产工具的真实经历，七款主流AI编程助手深度对比，包含补全质量、响应速度和场景适配数据。</p>
+                <div class="guide-card-meta"><span>TokenNexus团队</span><span>2026-06-02</span></div>
+            </div>
+        </article>
+
+        <!-- AI API Prompt工程实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-prompt-engineering.jpg" alt="AI API Prompt工程实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-prompt-engineering-2026">AI API Prompt工程实战：我是如何用一句话让API成本降60%的</a></h2>
+                <p class="guide-card-excerpt">详解六大Prompt优化技巧（角色设定、Few-shot、CoT、输出格式等），含真实案例和前后对比数据，帮你写出高效低成本的Prompt。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-06-01</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI API多模态能力实战（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-multimodal-guide.jpg" alt="AI API多模态能力实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-multimodal-guide-2026">AI API多模态能力实战：图文音视频一站式开发完全指南</a></h2>
+                <p class="guide-card-excerpt">覆盖图像理解、语音识别、视频分析、文档解析四大模态，含GPT-4V/Claude/Gemini平台对比和实战案例，带你玩转多模态AI开发。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-06-01</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI API聚合中转平台深度评测 -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-aggregator-review.jpg" alt="AI API聚合中转平台深度评测"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="ai-api-aggregator-review-2026">2026年AI API聚合中转平台深度评测：我实测了15家，只推荐这5家</a></h2>
+                <p class="guide-card-excerpt">实测15家AI API聚合中转平台，从价格、延迟、稳定性、模型覆盖四个维度深度评测，含真实测试数据和推荐排名。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-31</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI API错误码排查指南（最新） -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-error-codes-troubleshooting.jpg" alt="AI API错误码排查指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-error-codes-troubleshooting-2026">AI API错误码完全排查指南：从429限流到500超时的实战解决方案</a></h2>
+                <p class="guide-card-excerpt">覆盖OpenAI、Claude、Gemini、DeepSeek四大平台的错误码速查表，含Python/Node.js代码示例和重试策略，帮你快速定位和解决API调用问题。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-31</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI API选型完全指南 -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-selection-guide.jpg" alt="2026年AI API选型完全指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="ai-api-selection-guide-2026">2026年AI API选型完全指南：从需求分析到平台对比</a></h2>
+                <p class="guide-card-excerpt">详解AI API选型策略，包含OpenAI、Claude、DeepSeek等主流平台对比，真实性能测试数据，以及选型决策框架。帮助开发者找到最适合的AI API服务。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-30</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI API成本控制实战攻略（最新） -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-cost-optimization.jpg" alt="AI API成本控制实战攻略"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-cost-optimization-2026">AI API成本控制实战攻略：我是如何把月账单从2000降到300的</a></h2>
+                <p class="guide-card-excerpt">详解AI API成本优化实战技巧，包含缓存策略、模型降级、批量处理等7大降本方法，真实案例分享，帮助开发者降低AI API使用成本80%以上。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-30</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 国内开发者使用海外AI API完整指南（最新） -->
+        <article class="guide-card" data-category="使用教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/chinese-developers-guide.jpg" alt="国内开发者使用海外AI API完整指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">使用教程</span>
+                <h2 class="guide-card-title"><a href="chinese-developers-overseas-ai-api-guide-2026">国内开发者使用海外AI API完整指南：网络、支付、合规全解析</a></h2>
+                <p class="guide-card-excerpt">详解国内开发者如何顺利使用OpenAI、Claude、Gemini等海外AI API服务，包括网络访问方案对比、支付方式选择、手机验证技巧、合规注意事项，附真实踩坑经验分享。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-29</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI API免费额度完全攻略（最新） -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/free-tier-guide.jpg" alt="AI API免费额度完全攻略"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-free-tier-guide-2026">2026年AI API免费额度完全攻略：如何薅到$200+免费试用</a></h2>
+                <p class="guide-card-excerpt">汇总OpenAI、Claude、Gemini、DeepSeek等15个主流AI API平台的免费额度政策，教你如何最大化利用免费试用，省钱开发AI应用。真实案例分享，含具体领取方法。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-29</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI API选型完全指南（最新） -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="images/api-selection-guide.jpg" alt="2026年AI API选型完全指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="ai-api-selection-complete-guide-2026">2026年AI API选型完全指南：从需求分析到平台对比的实战经验</a></h2>
+                <p class="guide-card-excerpt">基于200+项目案例的AI API选型指南，深度对比OpenAI、Claude、DeepSeek等主流平台，包含价格分析、性能测试数据和四步选型决策框架。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-28</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI视频生成API全面对比 -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-video-api-comparison-2026.jpg" alt="AI视频生成API全面对比"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="ai-video-generation-api-comparison-2026">2026年AI视频生成API全面对比：Kling/Sora/Seedance/Runway选型指南</a></h2>
+                <p class="guide-card-excerpt">5大平台实测：Kling性价比最高$0.20/视频、Sora 2 Pro质量94.1分但$2.50最贵、Runway延迟最稳定、Seedance分辨率陷阱成本差10倍。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-27</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI API流式输出深度优化 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-streaming-optimization-2026.jpg" alt="AI API流式输出深度优化"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-streaming-optimization-2026">AI API流式输出深度优化：从SSE到WebSocket的完整性能调优指南</a></h2>
+                <p class="guide-card-excerpt">TTFT降低80%感知延迟、10秒无chunk 90%失败率、SSE 99%可靠性、WebSocket±0.1%延迟波动、FastAPI亿级调用量实战经验。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-27</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI语音合成API全面对比 -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-tts-api-comparison-2026.jpg" alt="AI语音合成API全面对比"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="ai-tts-api-comparison-2026">2026年AI语音合成API全面对比：ElevenLabs/OpenAI/Azure/TTS选型指南</a></h2>
+                <p class="guide-card-excerpt">8大TTS平台实测：ElevenLabs音质最佳、OpenAI最便宜$15/1M字符、Cartesia延迟最低90ms、Fish Audio克隆仅需$0.1。附各场景选型建议。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-26</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI API自动化测试与CI/CD集成 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-testing-cicd-2026.jpg" alt="AI API自动化测试与CI/CD集成"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-testing-cicd-guide-2026">AI API自动化测试与CI/CD集成：三层测试金字塔实战</a></h2>
+                <p class="guide-card-excerpt">三层测试金字塔、pytest-mock、GitHub Actions CI/CD流水线、快照测试捕捉模型变更、成本优化策略，测试效率提升300%。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-26</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI图像生成API全面对比 -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-image-api-comparison-2026.jpg" alt="AI图像生成API全面对比"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="ai-image-generation-api-comparison-2026">2026年AI图像生成API全面对比：DALL-E/Flux/SD3.5/Idéogram实测</a></h2>
+                <p class="guide-card-excerpt">6大平台速度质量价格实测：Flux延迟2.1秒最快、SD3.5仅$0.04/张最便宜、Ideogram文字渲染96%最准。附各场景选型建议和Python接入代码。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-25</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI API网关设计与实现 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-gateway-2026.jpg" alt="AI API网关设计与实现"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-gateway-design-2026">AI API网关设计与实现：企业级统一接入架构实战</a></h2>
+                <p class="guide-card-excerpt">Kong vs APISIX性能对比、负载均衡、熔断降级、密钥管理完整方案，附Python网关代理代码，真实案例成本降低60%。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-25</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI API合规与数据治理 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-compliance-gdpr-2026.jpg" alt="AI API合规与数据治理"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-compliance-gdpr-guide-2026">AI API合规与数据治理：GDPR/EU AI Act应对指南</a></h2>
+                <p class="guide-card-excerpt">GDPR罚款案例、PII脱敏技术、审计日志搭建、EU AI Act风险分级，企业出海合规完整方案。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-24</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI API多租户架构实战 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-multi-tenant-2026.jpg" alt="AI API多租户架构实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-multi-tenant-architecture-2026">AI API多租户架构实战：企业级成本分摊与隔离方案</a></h2>
+                <p class="guide-card-excerpt">LiteLLM组织架构、虚拟密钥管理、租户隔离策略、成本分摊模型，SaaS平台AI成本透明化完整方案。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-24</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI API成本预算与ROI规划 -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-budget-roi-2026.jpg" alt="AI API成本预算与ROI规划"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-budget-roi-planning-2026">AI API成本预算与ROI规划：企业如何避免超支并证明价值</a></h2>
+                <p class="guide-card-excerpt">80%企业AI预算超支25%+的真实原因，ROI计算完整框架，四步预算规划法，向老板汇报AI价值的技巧。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-23</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI API迁移完全指南 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-migration-2026.jpg" alt="AI API迁移完全指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-migration-guide-2026">AI API迁移完全指南：从OpenAI到DeepSeek/Claude的无缝切换</a></h2>
+                <p class="guide-card-excerpt">迁移省80%成本真实案例，OpenAI兼容平台对比，三种迁移策略，Python代码级迁移实战。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-23</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2026年AI API安全完全指南 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-security-2026.jpg" alt="2026年AI API安全指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-security-guide-2026">2026年AI API安全完全指南：从密钥泄露到企业级防护</a></h2>
+                <p class="guide-card-excerpt">API Key泄露损失$50,000真实案例分析，Prompt注入攻击与防护，六大风险类型详解，企业级安全方案从零搭建。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-22</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI API缓存优化实战 -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-caching-2026.jpg" alt="AI API缓存优化实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-caching-optimization-2026">AI API缓存优化实战：三层架构让成本降75%</a></h2>
+                <p class="guide-card-excerpt">月费用$47K降至$11.8K真实案例，Prompt Caching降低延迟80%，三层缓存架构手把手实现，附Python核心代码。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-22</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2026年AI API免费额度完全指南 -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/free-ai-api-2026.jpg" alt="2026年AI API免费额度指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="free-ai-api-guide-2026">2026年AI API免费额度完全指南：14个平台薅羊毛攻略</a></h2>
+                <p class="guide-card-excerpt">Gemini、OpenAI、Claude等14个平台免费额度详解，2026年4月大变局分析，5个免费额度最大化技巧，独立开发者零成本启动方案。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-21</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- AI模型智能路由实战 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-model-routing-2026.jpg" alt="AI模型智能路由实战"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-model-routing-guide-2026">AI模型智能路由实战：多模型调度让API成本降70%</a></h2>
+                <p class="guide-card-excerpt">从单一模型到智能路由的完整演进，LiteLLM/Portkey/TrueFoundry方案对比，手把手搭建路由系统，附Python核心代码。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-21</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 1. 2025年AI API价格全面对比 -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-pricing-2025.jpg" alt="2025年AI API价格对比"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-pricing-comparison-guide-2025">2025年AI API价格全面对比：开发者省钱实战指南</a></h2>
+                <p class="guide-card-excerpt">OpenAI、Claude、DeepSeek、Gemini等主流平台价格实测对比，真实数据+省钱技巧，帮你降低50%以上API成本。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-20</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2. 国内AI API中转平台完全指南 -->
+        <article class="guide-card" data-category="使用教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/china-api-transit.jpg" alt="国内AI API中转平台指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">使用教程</span>
+                <h2 class="guide-card-title"><a href="china-api-transit-platform-guide">国内AI API中转平台完全指南：为什么更适合中国开发者</a></h2>
+                <p class="guide-card-excerpt">解决网络不稳定、支付困难、账号风控等问题。2025年主流中转平台实测横评+真实案例，帮你找到最可靠的中转服务。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-20</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3. AI API长上下文优化实战 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/long-context.jpg" alt="AI API长上下文优化"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-long-context-optimization">AI API长上下文优化实战：从Gemini 200万到Lost in the Middle</a></h2>
+                <p class="guide-card-excerpt">主流平台200万token对比、5个优化技巧附Python代码，法律合同审查4小时→8分钟真实案例，准确率提升15%。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-19</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2. AI API微调入门与成本优化 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/fine-tuning.jpg" alt="AI API微调入门"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-fine-tuning-guide">AI API微调入门与成本优化：从数据到部署完整流程</a></h2>
+                <p class="guide-card-excerpt">OpenAI微调价格对比、JSONL数据准备、完整Python代码，客服问题解决率68%→89%，成本降低60%真实案例。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-19</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3. AI API速率限制全面应对策略 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/rate-limit.jpg" alt="AI API速率限制应对策略"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-rate-limit-strategies">AI API速率限制全面应对策略：告别429错误</a></h2>
+                <p class="guide-card-excerpt">OpenAI/Claude/国产平台RPM TPM限制详解，令牌桶限流、多Key轮询、模型降级5大策略，429错误率从8.3%降至0.02%。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-18</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2. AI API Embedding与向量搜索实战 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/embedding-vector.jpg" alt="AI API Embedding与向量搜索"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-embedding-vector-search-guide">AI API Embedding与向量搜索实战指南</a></h2>
+                <p class="guide-card-excerpt">OpenAI Embedding模型对比、向量数据库选型、Python+FAISS完整代码，法律检索效率提升93%真实案例。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-18</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2. AI API Function Calling完全指南 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/function-calling.jpg" alt="AI API Function Calling指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-function-calling-guide">AI API Function Calling完全指南：构建智能工具链</a></h2>
+                <p class="guide-card-excerpt">OpenAI/Claude工具调用双版本教程，天气+航班助手实战，电商客服案例人工工作量减少67%。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-16</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3. AI API代理与中转服务指南 -->
+        <article class="guide-card" data-category="使用教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/api-proxy-relay.jpg" alt="AI API代理与中转服务"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">使用教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-proxy-relay-guide">AI API代理与中转服务指南：国内稳定调用方案</a></h2>
+                <p class="guide-card-excerpt">详解Cloudflare Workers自建代理、第三方中转平台对比，附完整搭建代码，延迟从800ms降至120ms实战案例。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-15</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2. AI API错误码大全与故障排查 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/api-error-codes.jpg" alt="AI API错误码大全"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-error-codes-troubleshooting">AI API错误码大全与故障排查手册</a></h2>
+                <p class="guide-card-excerpt">OpenAI/Claude/国产平台错误码全解析，429限流、超时、认证失败解决方案，附Python重试框架代码。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-14</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3. OpenAI vs DeepSeek -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="images/openai-vs-deepseek.jpg" alt="OpenAI vs DeepSeek对比"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="openai-vs-deepseek-2026">OpenAI vs DeepSeek：2026年性价比全面对比</a></h2>
+                <p class="guide-card-excerpt">深入对比OpenAI和DeepSeek两大AI API平台的性能、价格、稳定性，帮你找到最适合的选择。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-12</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2. 如何获取OpenAI API Key -->
+        <article class="guide-card" data-category="使用教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/openai-api-key.jpg" alt="OpenAI API Key教程"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">使用教程</span>
+                <h2 class="guide-card-title"><a href="how-to-get-openai-api-key">如何获取OpenAI API Key：完整教程（2026版）</a></h2>
+                <p class="guide-card-excerpt">从注册到获取API Key的完整流程，包括常见问题解决、充值方法和安全使用建议。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-10</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3. AI API价格对比 -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/ai-api-pricing.jpg" alt="AI API价格对比"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-pricing-guide-2026">AI API价格对比：2026年省钱完全指南</a></h2>
+                <p class="guide-card-excerpt">详细对比主流AI API平台的价格体系，教你如何在保证质量的前提下节省50%以上的成本。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-08</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 4. 国内AI大模型API接入指南 -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="images/china-ai-api.jpg" alt="国内AI大模型API"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="china-ai-api-guide">国内AI大模型API接入指南：阿里云、百度、讯飞对比</a></h2>
+                <p class="guide-card-excerpt">全面对比阿里云百炼、百度千帆、讯飞星火三大国产AI API平台的价格、性能和接入方式。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-05</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 5. AI API集成最佳实践 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/api-integration.jpg" alt="AI API集成最佳实践"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="api-integration-best-practices">AI API集成最佳实践：错误处理与性能优化</a></h2>
+                <p class="guide-card-excerpt">涵盖重试策略、流式响应、Token监控、Rate Limiting等生产环境必备的API集成技巧。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-05-01</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 6. 2026年最值得使用的10个AI API平台 -->
+        <article class="guide-card" data-category="行业资讯">
+            <div class="guide-card-cover"><img loading="lazy" src="images/top-ai-apis.jpg" alt="2026年最佳AI API平台"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">行业资讯</span>
+                <h2 class="guide-card-title"><a href="top-10-ai-apis-2026">2026年最值得使用的10个AI API平台</a></h2>
+                <p class="guide-card-excerpt">基于性能、价格、稳定性等多维度评测，精选2026年最值得开发者关注的AI API平台。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-04-28</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 7. Claude API完整指南 -->
+        <article class="guide-card" data-category="使用教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/claude-api.jpg" alt="Claude API完整指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">使用教程</span>
+                <h2 class="guide-card-title"><a href="claude-api-guide-2026">Claude API完整指南：从入门到生产部署</a></h2>
+                <p class="guide-card-excerpt">Anthropic Claude API注册、定价、调用示例和生产部署的完整教程，含Claude 4 Sonnet详解。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-04-25</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 8. AI API Token计费详解 -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/token-billing.jpg" alt="AI API Token计费详解"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-token-billing-guide">AI API Token计费详解：如何精准控制成本</a></h2>
+                <p class="guide-card-excerpt">深入解析Token计费机制，附真实案例：客服机器人月成本从5160元降至812元的优化全过程。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-04-20</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 9. 免费AI API推荐 -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/free-ai-api.jpg" alt="免费AI API推荐"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="free-ai-api-recommendations-2026">免费AI API推荐：2026年最值得尝试的免费额度</a></h2>
+                <p class="guide-card-excerpt">盘点10个提供免费额度的AI API平台，从Google Gemini到Groq，学习和小项目完全够用。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-04-15</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 10. Gemini API完全指南 -->
+        <article class="guide-card" data-category="使用教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/gemini-api.jpg" alt="Gemini API完全指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">使用教程</span>
+                <h2 class="guide-card-title"><a href="gemini-api-complete-guide">Gemini API完全指南：Google最强多模态AI</a></h2>
+                <p class="guide-card-excerpt">详解Gemini 1.5/2.0系列，200万token上下文、多模态能力，附Google AI Studio注册教程和价格分析。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-04-10</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 11. DeepSeek API完全指南 -->
+        <article class="guide-card" data-category="使用教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/deepseek-api.jpg" alt="DeepSeek API完全指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">使用教程</span>
+                <h2 class="guide-card-title"><a href="deepseek-api-complete-guide">DeepSeek API完全指南：极致性价比国产之光</a></h2>
+                <p class="guide-card-excerpt">DeepSeek V3和R1深度解析，价格仅为OpenAI的1/10，含500万免费额度申请和真实降本案例。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-04-05</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 12. OpenRouter完全指南 -->
+        <article class="guide-card" data-category="使用教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/openrouter.jpg" alt="OpenRouter完全指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">使用教程</span>
+                <h2 class="guide-card-title"><a href="openrouter-complete-guide">OpenRouter完全指南：一站式访问400+模型</a></h2>
+                <p class="guide-card-excerpt">全球最大AI API聚合平台，支持GPT-4o、Claude、Gemini等400+模型，智能路由自动选择最优方案。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-04-01</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 13. AI提示词工程最佳实践 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/prompt-engineering.jpg" alt="AI提示词工程最佳实践"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-prompt-engineering-guide">AI API提示词工程最佳实践</a></h2>
+                <p class="guide-card-excerpt">零样本/少样本提示、结构化设计、温度参数调节，附普通vs优化提示词效果对比案例。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-03-25</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 14. 企业AI API选型指南 -->
+        <article class="guide-card" data-category="行业资讯">
+            <div class="guide-card-cover"><img loading="lazy" src="images/enterprise-ai.jpg" alt="企业AI API选型指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">行业资讯</span>
+                <h2 class="guide-card-title"><a href="enterprise-ai-api-selection-guide">企业AI API选型指南：2026年决策手册</a></h2>
+                <p class="guide-card-excerpt">从技术、成本、合规三维度详解企业选型要点，含主流供应商对比矩阵和真实电商选型案例。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-03-20</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 15. API安全使用指南 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/api-security.jpg" alt="API安全使用指南"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="api-key-security-guide">AI API安全使用指南：保护API Key最佳实践</a></h2>
+                <p class="guide-card-excerpt">API Key泄露真实案例、安全存储方法、IP白名单配置、用量监控，附GitHub Actions安全配置指南。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-03-15</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 16. RAG与AI API结合 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/rag-knowledge.jpg" alt="RAG与AI API结合"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="rag-ai-api-knowledge-base">RAG与AI API结合：构建私有知识库</a></h2>
+                <p class="guide-card-excerpt">详解RAG工作流程、向量数据库选择、Embedding模型配置，附Python搭建私有知识库完整代码。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-03-10</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 17. AI API监控与告警系统搭建 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/api-monitoring.jpg" alt="AI API监控与告警系统"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-monitoring-alerting">AI API监控与告警系统搭建</a></h2>
+                <p class="guide-card-excerpt">生产级AI API监控方案，Prometheus+Grafana搭建教程，含延迟/错误率/成本多维监控配置。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-02-05</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 18. AI API异步调用与批处理优化 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/async-batch.jpg" alt="AI API异步调用与批处理"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-async-batch-processing">AI API异步调用与批处理优化</a></h2>
+                <p class="guide-card-excerpt">Python asyncio实现高并发API调用，AsyncAPIProcessor完整代码，吞吐量提升8倍实战案例。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-02-10</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 19. 国产大模型API生态全景图 -->
+        <article class="guide-card" data-category="行业资讯">
+            <div class="guide-card-cover"><img loading="lazy" src="images/china-llm-ecosystem.jpg" alt="国产大模型API生态全景图"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">行业资讯</span>
+                <h2 class="guide-card-title"><a href="china-llm-ecosystem-2026">国产大模型API生态全景图2026</a></h2>
+                <p class="guide-card-excerpt">通义千问、文心一言、讯飞星火、Kimi等国产大模型深度对比，2026年最新价格与性能评测。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-02-15</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 20. AI API缓存策略与成本优化 -->
+        <article class="guide-card" data-category="省钱攻略">
+            <div class="guide-card-cover"><img loading="lazy" src="images/api-caching.jpg" alt="AI API缓存策略与成本优化"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">省钱攻略</span>
+                <h2 class="guide-card-title"><a href="ai-api-caching-strategy">AI API缓存策略与成本优化</a></h2>
+                <p class="guide-card-excerpt">Redis语义缓存实战，某SaaS公司月成本从$12,000降至$2,160，82%成本削减完整方案。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-02-20</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 21. 多模态AI API应用开发指南 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/multimodal-ai.jpg" alt="多模态AI API应用开发"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="multimodal-ai-api-development">多模态AI API应用开发指南</a></h2>
+                <p class="guide-card-excerpt">GPT-4V、Gemini多模态API开发实战，图像识别、语音转文字、视频分析完整代码示例。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-02-25</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 22. AI API性能测试方法与实践 -->
+        <article class="guide-card" data-category="技术教程">
+            <div class="guide-card-cover"><img loading="lazy" src="images/api-performance.jpg" alt="AI API性能测试方法"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">技术教程</span>
+                <h2 class="guide-card-title"><a href="ai-api-performance-testing">AI API性能测试方法与实践</a></h2>
+                <p class="guide-card-excerpt">Locust+Python构建API性能测试框架，延迟、吞吐量、并发压力测试完整方法论。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-03-01</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- 23. GPT-4o vs Claude 3.5 Sonnet深度对比 -->
+        <article class="guide-card" data-category="平台对比">
+            <div class="guide-card-cover"><img loading="lazy" src="images/gpt4o-vs-claude.jpg" alt="GPT-4o vs Claude对比"></div>
+            <div class="guide-card-body">
+                <span class="guide-card-category">平台对比</span>
+                <h2 class="guide-card-title"><a href="gpt4o-vs-claude35-sonnet-comparison">GPT-4o vs Claude 3.5 Sonnet深度对比</a></h2>
+                <p class="guide-card-excerpt">MMLU、HumanEval、GPQA真实基准测试对比，代码生成、推理能力、性价比全方位评测。</p>
+                <div class="guide-card-meta">
+                    <span>TokenNexus团队</span>
+                    <span>2026-03-05</span>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-logo">TokenNexus</div>
+        <p class="footer-text">致力于打造最全面的全球 AI Token 导航平台</p>
+        <nav class="footer-links">
+            <a href="../about" class="footer-link">关于我们</a>
+            <a href="../contact" class="footer-link">联系我们</a>
+            <a href="../privacy" class="footer-link">隐私政策</a>
+            <a href="../terms" class="footer-link">使用条款</a>
+        </nav>
+        <p style="margin-top: 24px; font-size: 12px; color: var(--text-secondary);">&copy; 2024-2026 TokenNexus. All rights reserved.</p>
+    </footer>
+
+    <!-- Cookie同意横幅 -->
+    <div id="cookie-consent" class="cookie-consent" style="display: none;">
+        <div class="cookie-content">
+            <p style="margin:0;color:#8a8aa3;font-size:.9rem;line-height:1.6;">我们使用Cookie和类似技术来改善您的浏览体验、个性化内容和广告。继续使用本网站即表示您同意我们的隐私政策。</p>
+            <div class="cookie-buttons">
+                <button onclick="acceptCookies()" class="cookie-btn accept">同意</button>
+                <a href="../privacy" class="cookie-btn more">了解更多</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 移动端菜单切换
+        function toggleMobileMenu() {
+            document.getElementById('navLinks').classList.toggle('show');
+        }
+
+        // Cookie同意功能
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookie-consent').style.display = 'none';
+        }
+        if (!localStorage.getItem('cookieConsent')) {
+            document.getElementById('cookie-consent').style.display = 'block';
+        }
+
+        // 整个卡片可点击
+        document.querySelectorAll('.guide-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // 如果点击的是链接本身，不重复处理
+                if (e.target.tagName === 'A') return;
+                const link = this.querySelector('.guide-card-title a');
+                if (link) {
+                    window.location.href = link.href;
+                }
+            });
+        });
+
+        // 分类筛选功能
+        function filterGuides(category, btn) {
+            // 更新按钮状态
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // 筛选卡片
+            const cards = document.querySelectorAll('.guide-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -36,6 +36,12 @@
 
 ### 省钱攻略
 
+- **大模型工具调用怎么选？Function Calling各家API实测对比：准确率、token开销与成本（2026）**
+  URL: https://www.tokenfind.cn/blog/ai-function-calling-tool-use-comparison-guide-2026
+  日期: 2026-09-12
+  关键词: Function Calling对比, 大模型工具调用, tool use成本, 大模型API工具调用准确率, 结构化输出可靠性, DeepSeek涨价, OpenAI Claude Gemini工具调用, tool calling token开销, AI Agent工具选择
+  摘要: 实测对比OpenAI、Claude、Gemini、DeepSeek四家Function Calling API的工具选择准确率（OpenAI 97~99%最高、Claude 96~99%、Gemini 95~98%、DeepSeek 90~95%）、单次工具调用token开销（OpenAI约346、Claude约512、DeepSeek约295）与单价。结合DeepSeek 2026年8月17日峰谷定价案例（高峰9:00-12:00、14:00-18:00为空闲价2倍，V4-Pro高峰输出价一度冲到27元/百万，官方口径最高涨1100%），以及9月10日发布的V4.1 Flash降价（非高峰缓存命中输入低至0.02元/百万），算清月10万次调用的真实成本，并给出「高可靠任务给OpenAI/Claude、高批量低成本给DeepSeek」、批量任务挪夜间空闲时段、按schema复杂度选模型三条实战经验。
+
 - **大模型联网搜索API实测对比：Perplexity Sonar、Tavily、Gemini怎么选最省钱**
   URL: https://www.tokenfind.cn/blog/ai-web-search-api-comparison-guide-2026
   日期: 2026-09-07
