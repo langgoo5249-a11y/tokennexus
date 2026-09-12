@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<script>
-(function(){
-var el = document.createElement("script");
-el.src = "https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?7ed0b6a78266711e9a17448067a625a5adfeed1f0fb6d4e019aaaed29b4f0896bc434964556b7d7129e9b750ed197d397efd7b0c6c715c1701396e1af40cec962b8d7c8c6655c9b00211740aa8a98e2e";
-el.id = "ttzz";
-var s = document.getElementsByTagName("script")[0];
-s.parentNode.insertBefore(el, s);
-})(window)
-</script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -45,7 +35,6 @@ s.parentNode.insertBefore(el, s);
     <meta property="article:author" content="TokenNexus团队">
     <meta property="article:section" content="省钱攻略">
     <meta property="article:tag" content="Prompt Caching,KV Cache,系统提示词缓存,AI API成本优化,上下文缓存,缓存命中率,API定价,TokenNexus">
-    <meta property="article:reviewed_by" content="林小雪">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="每次请求都在为重复的系统提示词全价买单？Prompt Caching命中计费拆解">
     <meta name="twitter:description" content="OpenAI 0.1倍读、Claude 9折、DeepSeek命中价只占未命中1/30。KV Cache命中计费与省钱实战。">
@@ -62,7 +51,7 @@ s.parentNode.insertBefore(el, s);
           "description": "系统提示词是Prompt Caching省钱的要害：OpenAI缓存读取0.1倍价、Claude命中文档打9折、DeepSeek磁盘上下文缓存命中价仅为未命中的1/30。本文用官方价目逐字拆解KV Cache命中计费规则、提高缓存命中率的5条硬核原则与3个翻车陷阱，附真实可算账的案例。",
           "image": "https://www.tokenfind.cn/images/og-prompt-caching-kv-cache-2026.jpg",
           "url": "https://www.tokenfind.cn/blog/ai-api-prompt-caching-kv-cache-2026",
-          "author": {"@type": "Person", "name": "TokenNexus团队", "url": "https://www.tokenfind.cn/about"},
+          "author": {"@type":"Organization","name":"TokenNexus","url":"https://www.tokenfind.cn/"},
           "publisher": {
             "@type": "Organization",
             "name": "TokenNexus",
@@ -72,9 +61,7 @@ s.parentNode.insertBefore(el, s);
           "datePublished": "2026-08-28",
           "dateModified": "2026-08-28",
           "articleSection": "省钱攻略",
-          "keywords": ["Prompt Caching","KV Cache","系统提示词缓存","AI API成本优化","上下文缓存","缓存命中率"],
-          "reviewedBy": {"@type": "Person", "name": "林小雪", "jobTitle": "技术内容主编 · AI API生态观察者"}
-        },
+          "keywords": ["Prompt Caching","KV Cache","系统提示词缓存","AI API成本优化","上下文缓存","缓存命中率"]},
         {
           "@type": "WebPage",
           "name": "Prompt Caching（KV Cache）命中计费与省钱实战",
@@ -213,10 +200,6 @@ s.parentNode.insertBefore(el, s);
             <span class="article-category">省钱攻略</span>
             <h1 class="article-title">每次请求都在为重复的系统提示词全价买单？Prompt Caching（KV Cache）命中计费与省钱实战</h1>
             <div class="article-meta">
-                <div class="author-info">
-                    <div class="author-avatar"></div>
-                    <span>林小雪</span>
-                </div>
                 <span>2026-08-28</span>
                 <span>阅读约 12 分钟</span>
             </div>
@@ -406,14 +389,6 @@ s.parentNode.insertBefore(el, s);
             <a href="/blog/guides?keyword=API定价" class="tag">API定价</a>
         </div>
 
-        <div class="author-card">
-            <div class="author-card-avatar"></div>
-            <div>
-                <div class="author-card-name">林小雪</div>
-                <div class="author-card-title">技术内容主编 · AI API生态观察者</div>
-                <div class="author-card-bio">前某头部AI大厂技术运营，现专注于AI API市场分析与开发者工具研究。擅长把复杂的技术定价策略翻译成企业可落地的成本优化动作。累计发表AI API深度分析文章50+篇，为200+家企业做过API成本体检。</div>
-            </div>
-        </div>
 
         <h3>推荐阅读</h3>
         <div class="related-posts">

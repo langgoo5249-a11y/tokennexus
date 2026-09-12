@@ -36,3 +36,50 @@ https://tokennexus.skillxm.cn/* https://www.tokenfind.cn/:splat 301
 
 # 2026-08-14: 将过时的 2025 价格对比旧文 301 重定向到 2026 版
 /blog/ai-api-pricing-comparison-guide-2025 /blog/ai-api-pricing-comparison-2026-guide 301
+
+# ============================================
+# 2026-09-12 P0：重复页合并 / 占位符 URL / 下线页面
+# ============================================
+/platform/360智脑api /platform/360智脑 301
+/platform/baseten-更新 /platform/baseten 301
+/platform/kimi /platform/月之暗面-kimi 301
+/platform/kimi-api /platform/月之暗面-kimi 301
+/platform/minimax-api /platform/minimax 301
+/platform/platform-34 /platform/阿里云百炼 301
+/platform/platform-35 /platform/百度千帆 301
+/platform/platform-36 /platform/腾讯混元 301
+/platform/platform-37 /platform/讯飞星火 301
+/platform/platform-38 /platform/字节豆包 301
+/platform/platform-42 /platform/零一万物 301
+/platform/platform-43 /platform/百川智能 301
+/platform/platform-44 /platform/商汤日日新 301
+/platform/platform-45 /platform/阶跃星辰 301
+/platform/platform-48 /platform/快手万擎 301
+/platform/platform-49 /platform/华为云盘古 301
+/platform/platform-55 /platform/幂简集成 301
+/platform/replicate-更新 /platform/replicate 301
+/platform/商汤日日新api /platform/商汤日日新 301
+/platform/智谱ai /platform/智谱-glm 301
+/platform/智谱glm-api /platform/智谱-glm 301
+/platform/月之暗面api /platform/月之暗面-kimi 301
+/platform/百川智能api /platform/百川智能 301
+/platform/第四范式式说 /platform/第四范式 301
+/platform/讯飞星火api /platform/讯飞星火 301
+/platform/阶跃星辰api /platform/阶跃星辰 301
+/platform/零一万物api /platform/零一万物 301
+/platform/gpt4free /platforms 301
+/platform/pawan-osint /platforms 301
+/authors/* /about 301
+/editorial-process /about 301
+/platform-detail /platforms 301
+/platform/ai--api /platform/便携ai聚合api 301
+/platform/uiuiapi /platform/uiuiapi聚合平台 301
+/platform/aggregator /aggregator 301
+/platform/baseten--更新- /platform/baseten 301
+/platform/china /china 301
+/platform/cohere--embed- /platform/cohere-embed 301
+/platform/official /official 301
+/platform/replicate--更新- /platform/replicate 301
+/blog/continuous-drift-detection-preventing-ai-regressions /blog 301
+/blog/openai-api-cost-calculator /blog 301
+/blog/the-hidden-costs-of-ai-apis-and-how-to-avoid-them /blog 301

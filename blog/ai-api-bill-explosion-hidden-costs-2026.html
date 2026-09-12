@@ -11,7 +11,7 @@
     <title>AI API月账单从3000暴涨到12000，排查两周才发现：不是模型贵，是5个隐形杀手在吞钱</title>
     <meta name="description" content="TokenNexus深度复盘：AI API账单一个月暴涨4倍的真相。不是模型涨价，而是无差别调用顶级模型、未启用Prompt Caching、不设max_tokens、单点依赖无降级、缺乏用量监控——这5个隐形杀手让中小团队每月多花8000+。附真实账单对比、多模型路由策略和完整代码方案。">
     <meta name="keywords" content="AI API账单暴涨,API成本失控,模型选型成本,max_tokens限制,API降级策略,Token成本控制,API单点依赖,API用量监控工具,Helicone Langfuse,中小团队API预算管理">
-    <meta name="author" content="王浩然">
+    <meta name="author" content="TokenNexus">
 
     <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-bill-explosion-hidden-costs-2026">
     <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/blog/ai-api-bill-explosion-hidden-costs-2026">
@@ -25,10 +25,8 @@
     <meta property="og:image" content="https://www.tokenfind.cn/og-image.png">
     <meta property="article:published_time" content="2026-07-27">
     <meta property="article:modified_time" content="2026-07-27">
-    <meta property="article:author" content="王浩然">
     <meta property="article:section" content="成本优化">
     <meta property="article:tag" content="AI API,成本优化,多模型路由,Prompt Caching,账单管理,降级策略,预算控制,Token控制">
-    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI API月账单从3000暴涨到12000？5个隐形杀手在吞你的钱">
     <meta name="twitter:description" content="不是模型涨价，是5个隐形杀手在吞钱。TokenNexus团队用真实账单数据复盘，附完整解决方案。">
@@ -114,10 +112,7 @@
                 "@type": "WebPage",
                 "@id": "https://www.tokenfind.cn/blog/ai-api-bill-explosion-hidden-costs-2026"
             },
-            "author": {
-                "@type": "Person",
-                "name": "王浩然"
-            },
+            "author":{"@type":"Organization","name":"TokenNexus","url":"https://www.tokenfind.cn/"},
             "publisher": {
                 "@type": "Organization",
                 "name": "TokenNexus",
@@ -252,10 +247,6 @@
         <span class="article-category">💰 成本优化</span>
         <h1 class="article-title">AI API月账单从3000暴涨到12000，排查两周才发现：不是模型贵，是5个隐形杀手在吞钱</h1>
         <div class="article-meta">
-            <div class="author-info">
-                <div class="author-avatar"></div>
-                <span>王浩然</span>
-            </div>
             <span>📅 2026年7月27日</span>
             <span>📖 阅读时间：13分钟</span>
             <span>👁️ 186次阅读</span>
@@ -407,7 +398,7 @@
 
         <h2>杀手四：单点依赖无降级——OpenAI挂了就干等</h2>
 
-        <p>朋友团队的所有API调用都指向OpenAI。这在2026年7月特别危险——这个月GPT-5.6 Sol刚发布，OpenAI的API经历了数次波动。根据TokenNexus平台的<a href="/platform/openai">OpenAI实时监测数据</a>，7月第2周OpenAI API的可用率一度降至98.7%，部分地区延迟飙升至800ms+。</p>
+        <p>朋友团队的所有API调用都指向OpenAI。这在2026年7月特别危险——这个月GPT-5.6 Sol刚发布，OpenAI的API经历了数次波动。根据 OpenAI 官方状态页（status.openai.com）的公开记录，7 月该平台出现过数次服务波动，部分地区延迟明显上升。</p>
 
         <p>单点依赖的代价不仅是可用性风险，还有<strong>被动的成本上升</strong>。当OpenAI API响应变慢时，很多请求会超时重试——一次调用变成两次、三次，成本翻倍。更糟糕的是，如果业务高峰期OpenAI限流，用户体验直接崩盘。</p>
 
@@ -631,9 +622,6 @@ def smart_route(messages, system_prompt, user_id=None):
         </div>
 
         <div style="margin-top:30px;padding:20px;background:rgba(0,240,255,0.05);border:1px solid var(--card-border);border-radius:8px;">
-            <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:0;">
-                <strong>本文由 <a href="/authors/王浩然">王浩然</a></strong>（技术架构师 · API 集成专家）撰写，<strong>经 <a href="/authors/张蕾">张蕾</a></strong>（技术内容主编）审核发布。文章中引用的价格数据采集于2026年7月，实际价格请以各平台官方页面为准。朋友团队的案例数据已脱敏处理，代表了典型的中小团队AI API使用场景。
-            </p>
         </div>
 
     </div>

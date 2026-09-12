@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<script>
-(function(){
-var el = document.createElement("script");
-el.src = "https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?7ed0b6a78266711e9a17448067a625a5adfeed1f0fb6d4e019aaaed29b4f0896bc434964556b7d7129e9b750ed197d397efd7b0c6c715c1701396e1af40cec962b8d7c8c6655c9b00211740aa8a98e2e";
-el.id = "ttzz";
-var s = document.getElementsByTagName("script")[0];
-s.parentNode.insertBefore(el, s);
-})(window)
-</script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -20,7 +10,7 @@ s.parentNode.insertBefore(el, s);
     <title>大模型联网搜索API怎么选？Perplexity Sonar、Tavily、Gemini实测对比与省钱指南</title>
     <meta name="description" content="大模型联网搜索API怎么选？本文用官方价格实测算账：Gemini Grounding每月5000次免费、Tavily每月1000 credits白嫖起步、Perplexity Sonar $5/千次请求、博查0.036元/次。附场景化选型和3条省钱实战经验。">
     <meta name="keywords" content="大模型联网搜索API,Perplexity Sonar API价格,Tavily免费额度,Gemini Search Grounding,AI Agent联网搜索,大模型知识截止,AI搜索API对比,博查搜索API价格,LLM实时信息获取">
-    <meta name="author" content="王浩然">
+    <meta name="author" content="TokenNexus">
     <meta name="date" content="2026-09-07">
     <meta name="modified-date" content="2026-09-07">
     <meta name="topic" content="Technology">
@@ -42,10 +32,8 @@ s.parentNode.insertBefore(el, s);
     <meta property="og:image" content="https://www.tokenfind.cn/images/og-ai-web-search-api-comparison-guide-2026.jpg">
     <meta property="article:published_time" content="2026-09-07">
     <meta property="article:modified_time" content="2026-09-07">
-    <meta property="article:author" content="王浩然">
     <meta property="article:section" content="平台对比">
     <meta property="article:tag" content="联网搜索API,Perplexity Sonar,Tavily,Gemini,AI搜索,Agent开发,API成本,大模型API">
-    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="大模型联网搜索API实测对比：Perplexity Sonar、Tavily、Gemini怎么选">
     <meta name="twitter:description" content="月3万次搜索实测算账：Gemini免费层0元 vs OpenAI方案约5600元，差出三倍以上。附选型建议。">
@@ -63,7 +51,7 @@ s.parentNode.insertBefore(el, s);
           "image": "https://www.tokenfind.cn/images/og-ai-web-search-api-comparison-guide-2026.jpg",
           "url": "https://www.tokenfind.cn/blog/ai-web-search-api-comparison-guide-2026",
           "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.tokenfind.cn/blog/ai-web-search-api-comparison-guide-2026"},
-          "author": {"@type": "Person", "name": "王浩然", "url": "https://www.tokenfind.cn/authors/王浩然"},
+          "author":{"@type":"Organization","name":"TokenNexus","url":"https://www.tokenfind.cn/"},
           "publisher": {
             "@type": "Organization",
             "name": "TokenNexus",
@@ -75,9 +63,7 @@ s.parentNode.insertBefore(el, s);
           "articleSection": "平台对比",
           "keywords": ["大模型联网搜索API","Perplexity Sonar API价格","Tavily免费额度","Gemini Search Grounding","AI Agent联网搜索","大模型知识截止","AI搜索API对比","博查搜索API价格","LLM实时信息获取"],
           "inLanguage": "zh-CN",
-          "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".article-content h2", ".article-content p"]},
-          "reviewedBy": {"@type": "Person", "name": "张蕾", "jobTitle": "技术内容主编 · AI API生态观察者", "url": "https://www.tokenfind.cn/authors/张蕾"}
-        },
+          "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".article-content h2", ".article-content p"]}},
         {
           "@type": "WebPage",
           "name": "大模型联网搜索API实测对比：Perplexity Sonar、Tavily、Gemini怎么选最省钱",
@@ -235,10 +221,6 @@ s.parentNode.insertBefore(el, s);
             <span class="article-category">平台对比</span>
             <h1 class="article-title">大模型联网搜索API实测对比：Perplexity Sonar、Tavily、Gemini怎么选最省钱</h1>
             <div class="article-meta">
-                <div class="author-info">
-                    <div class="author-avatar"></div>
-                    <span>王浩然</span>
-                </div>
                 <span>2026-09-07</span>
                 <span>阅读约 12 分钟</span>
             </div>
@@ -442,7 +424,7 @@ s.parentNode.insertBefore(el, s);
 
             <p>我们的建议始终是那条朴素的原则：<strong>先用免费额度验证需求，再按真实用量算账迁移</strong>。Gemini的白嫖额度适合起步，博查和Tavily适合规模化，Sonar适合要引用质量的资讯场景，OpenAI适合不差钱的生态党。想横向比较更多AI API服务商的价格和能力，TokenNexus收录了330+国内外平台，从<a href="/official">海外官方</a>、<a href="/aggregator">聚合中转</a>到<a href="/china">国内平台</a>都整理好了。如果你最近在搭Agent，还可以看看我们刚发的《<a href="/blog/cline-deepseek-coding-cost-guide-2026">Cline接入DeepSeek成本实测</a>》，把模型侧的成本也一起压下来。</p>
 
-            <p><em>本文由王浩然（开发者社区运营）撰写，经张蕾（技术内容主编）审核发布。文中所有价格均来自各厂商官方定价页面及官方文档（采集于2026年9月7日），成本测算基于文中标注的假设用量，实际费用请以各平台账单为准；Perplexity与OpenAI的部分档位价格存在多个第三方跟踪来源的差异，已按保守口径标注区间。最后更新：2026年9月7日。</em></p>
+            <p><em>文中所有价格均来自各厂商官方定价页面及官方文档（采集于2026年9月7日），成本测算基于文中标注的假设用量，实际费用请以各平台账单为准；Perplexity与OpenAI的部分档位价格存在多个第三方跟踪来源的差异，已按保守口径标注区间。最后更新：2026年9月7日。</em></p>
         </div>
 
         <div class="tags">
@@ -456,14 +438,6 @@ s.parentNode.insertBefore(el, s);
             <a href="/blog/guides?keyword=API成本" class="tag">API成本</a>
         </div>
 
-        <div class="author-card">
-            <div class="author-card-avatar"></div>
-            <div>
-                <div class="author-card-name">王浩然</div>
-                <div class="author-card-title">开发者社区运营 · AI开发者生态建设者</div>
-                <div class="author-card-bio">TokenNexus 开发者社区运营，拥有4年技术社区运营和开发者关系经验。擅长将开发者反馈转化为产品改进、策划技术内容选题，主持的TokenNexus开发者社区已聚集超过5000名AI开发者。</div>
-            </div>
-        </div>
 
         <h3>推荐阅读</h3>
         <div class="related-posts">

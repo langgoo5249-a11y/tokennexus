@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<script>
-(function(){
-var el = document.createElement("script");
-el.src = "https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?7ed0b6a78266711e9a17448067a625a5adfeed1f0fb6d4e019aaaed29b4f0896bc434964556b7d7129e9b750ed197d397efd7b0c6c715c1701396e1af40cec962b8d7c8c6655c9b00211740aa8a98e2e";
-el.id = "ttzz";
-var s = document.getElementsByTagName("script")[0];
-s.parentNode.insertBefore(el, s);
-})(window)
-</script>
 
 <!-- 百度统计 -->
 <script>
@@ -520,80 +511,10 @@ var _hmt = _hmt || [];
     </div>
 
     <!-- 用户中心 -->
-    <div class="user-center-overlay" id="userCenter">
-        <button class="user-center-close" onclick="closeUserCenter()">✕</button>
-        <div class="user-center">
-            <div class="user-center-header">
-                <div class="user-center-avatar" id="userCenterAvatar">U</div>
-                <div class="user-center-info">
-                    <h2 id="userCenterName">用户名</h2>
-                    <p id="userCenterEmail">user@example.com</p>
-                </div>
-            </div>
-            <div class="user-stats-grid">
-                <div class="user-stat-card">
-                    <div class="user-stat-value" id="userCommentCount">0</div>
-                    <div class="user-stat-label">我的评论</div>
-                </div>
-                <div class="user-stat-card">
-                    <div class="user-stat-value" id="userPlatformCount">0</div>
-                    <div class="user-stat-label">评论平台</div>
-                </div>
-                <div class="user-stat-card">
-                    <div class="user-stat-value" id="userJoinDate">--</div>
-                    <div class="user-stat-label">加入时间</div>
-                </div>
-            </div>
-            <h3 class="user-section-title">我的评论</h3>
-            <div class="user-comments-list" id="userCommentsList"></div>
-        </div>
-    </div>
 
     <!-- 登录弹窗 -->
-    <div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
-        <div class="modal" role="document">
-            <button class="modal-close" onclick="closeLoginModal()" aria-label="关闭登录窗口">✕</button>
-            <div class="modal-title" id="loginTitle"><span class="gradient-text">欢迎回来</span></div>
-            <p style="color: var(--text-secondary); margin-bottom: 30px;">登录以参与评论和评分</p>
-            <form onsubmit="event.preventDefault(); handleLogin();" autocomplete="on">
-                <label for="loginEmail" class="sr-only">邮箱地址</label>
-                <input type="email" class="form-input" id="loginEmail" placeholder="your@email.com" autocomplete="email" required>
-                <label for="loginPassword" class="sr-only">密码</label>
-                <input type="password" class="form-input" id="loginPassword" placeholder="密码" autocomplete="current-password" required>
-                <div style="display: flex; gap: 16px;">
-                    <button type="button" class="btn btn-secondary" onclick="closeLoginModal()" style="flex: 1;">取消</button>
-                    <button type="submit" class="btn btn-primary" style="flex: 1;">登录</button>
-                </div>
-            </form>
-            <p style="text-align: center; margin-top: 20px; color: var(--text-secondary); font-size: 14px;">
-                还没有账号？<a href="#" onclick="switchToRegister(); return false;" style="color: var(--neon-cyan);">立即注册</a>
-            </p>
-        </div>
-    </div>
 
     <!-- 注册弹窗 -->
-    <div class="modal-overlay" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
-        <div class="modal" role="document">
-            <button class="modal-close" onclick="closeRegisterModal()" aria-label="关闭注册窗口">✕</button>
-            <div class="modal-title" id="registerTitle"><span class="gradient-text">创建账号</span></div>
-            <p style="color: var(--text-secondary); margin-bottom: 30px;">注册后即可评论和评分平台</p>
-            <form onsubmit="event.preventDefault(); handleRegister();" autocomplete="on">
-                <label for="regUsername" class="sr-only">用户名</label>
-                <input type="text" class="form-input" id="regUsername" placeholder="用户名" autocomplete="username" required>
-                <label for="regEmail" class="sr-only">邮箱地址</label>
-                <input type="email" class="form-input" id="regEmail" placeholder="your@email.com" autocomplete="email" required>
-                <label for="regPassword" class="sr-only">密码</label>
-                <input type="password" class="form-input" id="regPassword" placeholder="密码" autocomplete="new-password" required>
-                <div style="display: flex; gap: 16px;">
-                    <button type="button" class="btn btn-secondary" onclick="closeRegisterModal()" style="flex: 1;">取消</button>
-                    <button type="submit" class="btn btn-primary" style="flex: 1;">注册</button>
-                </div>
-            </form>
-            <p style="text-align: center; margin-top: 20px; color: var(--text-secondary); font-size: 14px;">
-                已有账号？<a href="#" onclick="switchToLogin(); return false;" style="color: var(--neon-cyan);">立即登录</a>
-            </p>
-        </div>
-    </div>
 
     <script>
         // ==================== 数据存储 ====================
@@ -713,65 +634,6 @@ var _hmt = _hmt || [];
             { id: 280, name: "思必驰DFM", verified: true, description: "思必驰DFM是面向语音交互的大模型，在语音识别、语音合成和对话管理方面有优势。支持全双工对话和情感计算。DFM大模型适合智能家居、车载、客服等语音场景，是语音AI的领先者。", url: "https://www.aispeech.com", logo: "/logos/dfm.png", category: "china", tags: ["思必驰", "DFM", "语音交互", "全双工对话", "情感计算"], pricing: "免费额度 + 按量付费", rating: 4.3, reviews: 876 }
         ];
 
-        // ==================== 初始评论数据 ====================
-        const initialComments = {
-            1: [
-                { userName: "Jason Chen", rating: 5, text: "GPT-4o的推理能力真的很强，API响应速度快，文档完善。虽然价格稍高，但物有所值。", date: "2024-01-15" },
-                { userName: "林雨晴", rating: 5, text: "OpenAI的API稳定性很好，我们产品已经稳定运行两年了。o1模型的推理能力令人印象深刻。", date: "2024-01-10" },
-                { userName: "Michael Zhang", rating: 4, text: "功能强大，但价格确实不便宜。建议先用免费额度测试，确认适合再付费。", date: "2024-01-05" }
-            ],
-            2: [
-                { userName: "王思远", rating: 5, text: "Claude的安全对齐做得很好，不会输出有害内容。200K上下文处理长文档非常方便。", date: "2024-01-14" },
-                { userName: "Emily Liu", rating: 5, text: "Claude 4 Sonnet的推理能力媲美GPT-4，但价格更合理。强烈推荐用于复杂任务。", date: "2024-01-12" },
-                { userName: "陈浩然", rating: 4, text: "API稳定，响应速度快。希望中文能力能进一步提升。", date: "2024-01-08" }
-            ],
-            3: [
-                { userName: "David Wang", rating: 5, text: "Gemini 2.0 Pro的多模态能力很强，200万token上下文是业界领先。AI Studio免费额度很良心。", date: "2024-01-13" },
-                { userName: "张诗涵", rating: 5, text: "Google AI Studio的免费额度让我可以学习和实验，非常适合学生和初学者。", date: "2024-01-11" },
-                { userName: "Kevin Zhao", rating: 4, text: "Gemini API接入简单，但有时候响应会比较慢。整体来说性价比很高。", date: "2024-01-06" }
-            ],
-            5: [
-                { userName: "刘子轩", rating: 5, text: "DeepSeek的价格只有OpenAI的1/10，但性能差距不大。R1推理模型很强，性价比无敌！", date: "2024-01-15" },
-                { userName: "Sarah Li", rating: 5, text: "国产模型的骄傲！中文理解能力出色，API响应速度快，价格便宜。强烈推荐！", date: "2024-01-14" },
-                { userName: "周明辉", rating: 5, text: "DeepSeek-V3在代码生成任务上表现优秀，R1的推理能力令人印象深刻。", date: "2024-01-10" }
-            ],
-            26: [
-                { userName: "Alex Huang", rating: 5, text: "OpenRouter太方便了！一个API Key访问400+模型，智能路由自动选择最优模型。", date: "2024-01-15" },
-                { userName: "李梦琪", rating: 5, text: "可以按需选择不同价格的模型，非常灵活。故障转移功能也很实用。", date: "2024-01-12" },
-                { userName: "Ryan Wu", rating: 4, text: "统一接口设计得很好，文档清晰。希望能支持更多新模型。", date: "2024-01-08" }
-            ],
-            28: [
-                { userName: "郑雅婷", rating: 5, text: "Groq的推理速度太惊人了！10ms延迟让实时对话成为可能。LPU芯片技术领先。", date: "2024-01-14" },
-                { userName: "Chris Yang", rating: 5, text: "把Groq用在游戏NPC对话中，响应速度让玩家感觉不到延迟。免费额度也很慷慨。", date: "2024-01-11" },
-                { userName: "何俊杰", rating: 5, text: "语音助手项目用了Groq，用户体验提升明显。速度是最大的优势。", date: "2024-01-09" }
-            ],
-            34: [
-                { userName: "Sophia Guo", rating: 5, text: "Qwen-Max的中文能力很强，128K上下文处理长文档很方便。与阿里云生态集成很好。", date: "2024-01-15" },
-                { userName: "黄伟强", rating: 4, text: "企业级支持完善，稳定性好。价格在国内平台中比较合理。", date: "2024-01-12" },
-                { userName: "Jessica Lin", rating: 5, text: "通义千问在电商客服场景表现优秀，中文理解准确。", date: "2024-01-08" }
-            ],
-            39: [
-                { userName: "吴思远", rating: 5, text: "Kimi的200万字上下文太强了！处理学术论文和长文档非常方便。", date: "2024-01-14" },
-                { userName: "Daniel Zhou", rating: 5, text: "上传PDF直接解析，提取信息准确。长文档理解能力是最大优势。", date: "2024-01-11" },
-                { userName: "杨雪婷", rating: 4, text: "知识问答准确，但有时候会过于保守。整体体验很好。", date: "2024-01-07" }
-            ],
-            46: [
-                { userName: "Andrew Xu", rating: 5, text: "硅基流动的价格太香了！DeepSeek、Qwen等开源模型API价格比官方还低。", date: "2024-01-13" },
-                { userName: "马晓东", rating: 5, text: "同样的模型，这里价格便宜一半以上。稳定性也不错，强烈推荐！", date: "2024-01-10" },
-                { userName: "Linda Fang", rating: 5, text: "作为学生预算有限，这里的价格让我可以负担得起AI API。", date: "2024-01-06" }
-            ],
-            51: [
-                { userName: "孙浩然", rating: 5, text: "老张API稳定运营多年，中文技术支持响应快。支持支付宝充值很方便。", date: "2024-01-15" },
-                { userName: "Brian Ma", rating: 5, text: "国内使用Claude的首选中转平台，稳定可靠，价格合理。", date: "2024-01-12" },
-                { userName: "许婷婷", rating: 4, text: "文档完善，接入简单。希望价格能再优惠一些。", date: "2024-01-08" }
-            ],
-            52: [
-                { userName: "Steven Jiang", rating: 5, text: "DMXAPI聚合了103+模型，一个API Key搞定所有需求。支付宝充值方便。", date: "2024-01-14" },
-                { userName: "罗志强", rating: 5, text: "价格比官方优惠很多，稳定性也不错。非常适合预算有限的团队。", date: "2024-01-11" },
-                { userName: "Amy Cheng", rating: 4, text: "模型选择丰富，计费灵活。希望能增加更多新模型。", date: "2024-01-07" }
-            ]
-        };
-
         // ==================== 全局状态 ====================
         let currentUser = Storage.get('currentUser');
         const PAGE_CATEGORY = 'china';
@@ -788,68 +650,11 @@ var _hmt = _hmt || [];
         // ==================== 初始化 ====================
         document.addEventListener('DOMContentLoaded', function() {
             renderPlatforms();
-            updateNavForUser();
             showCookieBanner();
             document.querySelectorAll('.modal-overlay').forEach(overlay => {
                 overlay.addEventListener('click', function(e) { if (e.target === this) this.classList.remove('show'); });
             });
         });
-
-        // ==================== 用户认证 ====================
-        function updateNavForUser() {
-            const navActions = document.getElementById('navActions');
-            if (currentUser) {
-                navActions.innerHTML = '<div class="user-menu"><div class="user-avatar" onclick="toggleUserMenu()">' + currentUser.username.charAt(0).toUpperCase() + '</div><div class="user-dropdown" id="userDropdown"><div class="user-dropdown-item" onclick="openUserCenter()">👤 个人中心</div><div class="user-dropdown-item" onclick="logout()">🚪 退出登录</div></div></div>';
-            } else {
-                navActions.innerHTML = '<button class="btn btn-secondary" onclick="openLoginModal()">登录</button><button class="btn btn-primary" onclick="openRegisterModal()">注册</button>';
-            }
-        }
-        function toggleUserMenu() { document.getElementById('userDropdown').classList.toggle('show'); }
-        function openUserCenter() { document.getElementById('userDropdown').classList.remove('show'); document.getElementById('userCenter').classList.add('show'); renderUserCenter(); }
-        function closeUserCenter() { document.getElementById('userCenter').classList.remove('show'); }
-        function renderUserCenter() {
-            if (!currentUser) return;
-            document.getElementById('userCenterAvatar').textContent = currentUser.username.charAt(0).toUpperCase();
-            document.getElementById('userCenterName').textContent = currentUser.username;
-            document.getElementById('userCenterEmail').textContent = currentUser.email;
-            document.getElementById('userJoinDate').textContent = currentUser.joinDate || new Date().toLocaleDateString('zh-CN');
-            const allComments = Storage.get('comments') || {};
-            let userComments = [];
-            Object.keys(allComments).forEach(platformId => {
-                allComments[platformId].forEach(comment => {
-                    if (comment.userId === currentUser.id) {
-                        const platform = platforms.find(p => p.id == platformId);
-                        userComments.push({ ...comment, platformName: platform ? platform.name : '未知平台' });
-                    }
-                });
-            });
-            document.getElementById('userCommentCount').textContent = userComments.length;
-            document.getElementById('userPlatformCount').textContent = new Set(userComments.map(c => c.platformName)).size;
-            const commentsList = document.getElementById('userCommentsList');
-            if (userComments.length === 0) { commentsList.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 40px;">暂无评论</p>'; }
-            else { commentsList.innerHTML = userComments.map(comment => '<div class="user-comment-item"><div class="user-comment-platform">' + comment.platformName + '</div><div class="comment-rating">' + '★'.repeat(comment.rating) + '☆'.repeat(5-comment.rating) + '</div><p class="comment-text">' + comment.text + '</p><div class="comment-date">' + comment.date + '</div></div>').join(''); }
-        }
-        function handleLogin() {
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            if (!email || !password) { alert('请填写完整信息'); return; }
-            const users = Storage.get('users') || [];
-            const user = users.find(u => u.email === email && u.password === password);
-            if (user) { currentUser = user; Storage.set('currentUser', user); closeLoginModal(); updateNavForUser(); renderPlatforms(); alert('登录成功！'); }
-            else { alert('邮箱或密码错误'); }
-        }
-        function handleRegister() {
-            const username = document.getElementById('regUsername').value;
-            const email = document.getElementById('regEmail').value;
-            const password = document.getElementById('regPassword').value;
-            if (!username || !email || !password) { alert('请填写完整信息'); return; }
-            const users = Storage.get('users') || [];
-            if (users.find(u => u.email === email)) { alert('该邮箱已注册'); return; }
-            const newUser = { id: Date.now(), username, email, password, joinDate: new Date().toLocaleDateString('zh-CN') };
-            users.push(newUser); Storage.set('users', users); currentUser = newUser; Storage.set('currentUser', newUser);
-            closeRegisterModal(); updateNavForUser(); renderPlatforms(); alert('注册成功！');
-        }
-        function logout() { currentUser = null; Storage.remove('currentUser'); updateNavForUser(); renderPlatforms(); document.getElementById('userDropdown').classList.remove('show'); }
 
         // ==================== 渲染平台 ====================
         function slugify(name) {
@@ -872,70 +677,21 @@ var _hmt = _hmt || [];
             }
             document.getElementById('platformCount').textContent = filtered.length + ' 个平台';
             let html = filtered.map(platform => {
-                const comments = getComments(platform.id);
                 const slug = slugify(platform.name); return '<a href="/platform/' + slug + '" class="platform-card" data-id="' + platform.id + '" style="text-decoration:none;color:inherit;">' +
                     '<div class="card-header"><div class="platform-logo"><img src="' + platform.logo + '" alt="' + platform.name + ' logo" loading="lazy" decoding="async" onerror="this.src=\'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2740%27 fill=%27%2300f0ff%27/%3E%3Ctext x=%2750%27 y=%2765%27 text-anchor=%27middle%27 font-size=%2730%27 fill=%27white%27%3E' + platform.name.charAt(0) + '%3C/text%3E%3C/svg%3E\'"></div>' +
-                    '<div><div class="platform-name">' + platform.name + (platform.verified ? ' <span class="verified-badge">✓</span>' : '') + '</div></div></div>' +
+                    '<div><div class="platform-name">' + platform.name + '' + '</div></div></div>' +
                     '<p class="platform-description">' + platform.description + '</p>' +
                     '<div class="platform-tags">' + platform.tags.map(tag => '<span class="tag">' + tag + '</span>').join('') + '<span class="tag pricing">' + platform.pricing + '</span></div>' +
-                    '<div class="card-footer"><div><span class="stars">' + '★'.repeat(Math.floor(platform.rating)) + '☆'.repeat(5-Math.floor(platform.rating)) + '</span><span style="color: var(--text-secondary); font-size: 14px;">' + platform.rating + ' (' + (platform.reviews + comments.length) + '条评价)</span></div>' +
-                    '<span class="visit-btn">查看详情 →</span></div>' +
-                    '<div class="comments-section"><div class="comments-header" onclick="toggleComments(' + platform.id + ')"><span>◈ 查看评论 (' + comments.length + ')</span><span class="comments-toggle" id="toggle-' + platform.id + '">▼</span></div>' +
-                    '<div class="comments-container" id="comments-' + platform.id + '">' + renderCommentForm(platform.id) + '<div id="commentList-' + platform.id + '">' + renderComments(platform.id) + '</div></div></div></a>';
+                    '<div class="card-footer"><span class="visit-btn">查看详情 →</span></div></a>';
             }).join('');
             grid.innerHTML = html;
         }
-
-        // ==================== 评论系统 ====================
-        function getComments(platformId) {
-            const allComments = Storage.get('comments') || {};
-            const userComments = allComments[platformId] || [];
-            const presetComments = initialComments[platformId] || [];
-            return [...presetComments, ...userComments];
-        }
-        function renderCommentForm(platformId) {
-            if (!currentUser) { return '<div style="text-align:center;padding:20px;"><p style="color:var(--text-secondary);margin-bottom:16px;">登录后发表评论</p><button class="btn btn-primary" onclick="openLoginModal()">登录</button></div>'; }
-            return '<div class="comment-form"><div class="comment-user-info"><div class="comment-user-avatar">' + currentUser.username.charAt(0).toUpperCase() + '</div><span class="comment-user-name">' + currentUser.username + '</span></div>' +
-                '<textarea class="comment-input" id="comment-' + platformId + '" placeholder="分享你的使用体验..."></textarea>' +
-                '<div style="display: flex; justify-content: space-between; align-items: center;"><div>' + [1,2,3,4,5].map(i => '<button class="star-btn" onclick="setRating(' + platformId + ', ' + i + ', this)">★</button>').join('') + '</div>' +
-                '<button class="submit-comment" onclick="submitComment(' + platformId + ')">发表评论</button></div></div>';
-        }
-        function renderComments(platformId) {
-            const comments = getComments(platformId);
-            if (comments.length === 0) return '<div style="text-align:center;padding:32px;color:var(--text-secondary);">暂无评论，成为第一个评论者吧！</div>';
-            return comments.map(c => '<div class="comment-item"><div class="comment-item-header"><div class="comment-author"><div class="comment-author-avatar">' + c.userName.charAt(0).toUpperCase() + '</div><span class="comment-author-name">' + c.userName + '</span></div><span class="comment-rating">' + '★'.repeat(c.rating) + '☆'.repeat(5-c.rating) + '</span></div><p class="comment-text">' + c.text + '</p><div class="comment-date">' + c.date + '</div></div>').join('');
-        }
-        function toggleComments(platformId) { document.getElementById('comments-' + platformId).classList.toggle('show'); document.getElementById('toggle-' + platformId).classList.toggle('expanded'); }
-        function setRating(platformId, rating, btn) { btn.parentElement.querySelectorAll('.star-btn').forEach((b, i) => b.classList.toggle('active', i < rating)); window['rating_' + platformId] = rating; }
-        function submitComment(platformId) {
-            if (!currentUser) { openLoginModal(); return; }
-            const textarea = document.getElementById('comment-' + platformId);
-            const text = textarea.value.trim();
-            const rating = window['rating_' + platformId] || 5;
-            if (!text) { alert('请输入评论内容'); return; }
-            const allComments = Storage.get('comments') || {};
-            if (!allComments[platformId]) allComments[platformId] = [];
-            allComments[platformId].unshift({ userId: currentUser.id, userName: currentUser.username, text, rating, date: new Date().toLocaleString('zh-CN') });
-            Storage.set('comments', allComments);
-            document.getElementById('commentList-' + platformId).innerHTML = renderComments(platformId);
-            textarea.value = '';
-            document.querySelectorAll('#comments-' + platformId + ' .star-btn').forEach(b => b.classList.remove('active'));
-            const comments = getComments(platformId);
-            document.querySelector('[data-id="' + platformId + '"] .comments-header span').textContent = '◈ 查看评论 (' + comments.length + ')';
-        }
-        function handleSearch(value) { renderPlatforms(); }
 
         // ==================== 导航 ====================
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
         function toggleMobileMenu() { document.getElementById('navLinks').classList.toggle('show'); }
 
-        // ==================== 弹窗 ====================
-        function openLoginModal() { document.getElementById('loginModal').classList.add('show'); }
-        function closeLoginModal() { document.getElementById('loginModal').classList.remove('show'); }
-        function openRegisterModal() { document.getElementById('registerModal').classList.add('show'); }
-        function closeRegisterModal() { document.getElementById('registerModal').classList.remove('show'); }
-        function switchToRegister() { closeLoginModal(); setTimeout(openRegisterModal, 100); }
-        function switchToLogin() { closeRegisterModal(); setTimeout(openLoginModal, 100); }
+
     </script>
 
     <!-- 多语言切换组件 -->

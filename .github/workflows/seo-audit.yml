@@ -16,10 +16,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 内容时效性扫描
+      - name: Web 根目录清洁度守卫（禁止内部脚本/配置文件被发布）
         run: |
-          python3 content_freshness_scan.py --csv freshness-report.csv
-          echo "时效性扫描完成，报告见产物 freshness-report.csv"
+          # 本站以仓库根目录作为 CF Pages 发布目录，内部辅助脚本会被公开访问，
+          # 因此在此守卫：根目录不得出现 .py 构建/优化脚本。
+          BAD=$(ls -1 *.py 2>/dev/null || true)
+          if [ -n "$BAD" ]; then
+            echo "❌ 检测到根目录遗留内部脚本（会被公网访问）:"
+            echo "$BAD"
+            exit 1
+          fi
+          echo "✅ 根目录无内部脚本外泄"
 
       - name: ttzz 追踪脚本回归检测
         run: |
@@ -56,10 +63,3 @@ jobs:
           print("✅ 全部博客文章 JSON-LD 合法")
           PY
 
-      - name: 上传扫描报告
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: seo-audit-report
-          path: freshness-report.csv
-          retention-days: 30

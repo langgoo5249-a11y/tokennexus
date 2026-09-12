@@ -28,7 +28,6 @@
     <meta property="article:author" content="TokenNexus团队">
     <meta property="article:section" content="可靠性">
     <meta property="article:tag" content="AI API,宕机,可靠性,多模型容灾,故障转移,SLA,OpenAI,Claude,DeepSeek,高可用,降级策略,监控">
-    <meta property="article:reviewed_by" content="张蕾">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI API凌晨宕机2小时，用户投诉刷屏——2026年真实宕机实录">
     <meta name="twitter:description" content="OpenAI三天崩三次、Claude六月两度全球宕机、DeepSeek七小时黑屏。TokenNexus整理2026上半年AI API宕机全记录，附多模型容灾方案。">
@@ -131,8 +130,7 @@
                 "@id": "https://www.tokenfind.cn/blog/ai-api-downtime-failover-survival-guide-2026"
             },
             "author": {
-                "@type": "Person",
-                "name": "TokenNexus团队"
+                "@type":"Organization","name":"TokenNexus","url":"https://www.tokenfind.cn/"
             },
             "publisher": {
                 "@type": "Organization",
@@ -391,7 +389,7 @@
 
         <div class="tip-box">
             <div class="tip-box-title">💡 TokenNexus监测数据佐证</div>
-            <p>我们自己也对285个AI API平台进行实时监测。以OpenAI为例，我们的监测数据显示其30天可用率在98.5%-99.8%之间波动，与ai-watch.dev的97.44%虽有一定差距（可能因为监测方式不同），但整体趋势一致——<strong>距离99.9%的承诺都有不小的距离</strong>。你可以在我们的<a href="/platform/openai">OpenAI平台详情页</a>查看实时监测数据，每天更新。</p>
+            
         </div>
 
         <h2>单点依赖的真实代价</h2>
@@ -523,7 +521,7 @@ async def call_with_failover(messages, **kwargs):
         <ol>
             <li><strong>注册至少一个备用平台账号并充值</strong>——哪怕只充$20。OpenAI宕机的时候，你花10分钟改一行base_url就能切到DeepSeek或Gemini，比从零开始注册快得多。我们整理了<a href="/official">官方AI API平台</a>和<a href="/aggregator">聚合中转平台</a>的完整列表，可以直接对比选择。</li>
             <li><strong>在代码里加一个环境变量切换入口</strong>——不要硬编码API endpoint。用<code>API_BASE_URL</code>和<code>API_KEY</code>两个环境变量，出问题的时候运维同学改个配置就能切，不用等开发改代码发版。</li>
-            <li><strong>关注各平台的status page</strong>——OpenAI的<a href="https://status.openai.com/" target="_blank" rel="noopener noreferrer">status.openai.com</a>、Claude的<a href="https://status.claude.com/" target="_blank" rel="noopener noreferrer">status.claude.com</a>、DeepSeek的<a href="https://status.deepseek.com/" target="_blank" rel="noopener noreferrer">status.deepseek.com</a>。我们也在<a href="/platform/openai">每个平台详情页</a>提供了实时监测数据，可以配合使用。</li>
+            <li><strong>关注各平台的status page</strong>——OpenAI的<a href="https://status.openai.com/" target="_blank" rel="noopener noreferrer">status.openai.com</a>、Claude的<a href="https://status.claude.com/" target="_blank" rel="noopener noreferrer">status.claude.com</a>、DeepSeek的<a href="https://status.deepseek.com/" target="_blank" rel="noopener noreferrer">status.deepseek.com</a>。建议以各平台官方状态页为准，并与第三方监测站点交叉验证。</li>
         </ol>
 
         
@@ -534,7 +532,7 @@ async def call_with_failover(messages, **kwargs):
 
         <p>作为依赖这些API的开发者，我们无法控制平台何时宕机。但我们可以控制自己的架构是否具备容灾能力。把鸡蛋放在多个篮子里，这不是过度设计——这是2026年做AI应用的基本生存法则。</p>
 
-        <p>最后，如果你正在评估应该选择哪些平台作为主力+备用组合，可以参考TokenNexus上的<a href="/platforms">平台大全</a>——我们收录了330+个AI API平台，每个平台都有实时监测数据、用户评价和价格对比，帮你做出有数据支撑的决策。</p>
+        <p>最后，如果你正在评估应该选择哪些平台作为主力+备用组合，可以参考TokenNexus上的<a href="/platforms">平台大全</a>——我们收录了330+个AI API平台，每个平台都整理了公开定价、支持模型与官方文档入口，帮你做出有数据支撑的决策。</p>
 
     </div>
 
@@ -555,14 +553,6 @@ async def call_with_failover(messages, **kwargs):
     </div>
 
     <!-- 作者卡片 -->
-    <div class="author-card">
-        <div class="author-card-avatar"></div>
-        <div>
-            <div class="author-card-name">TokenNexus团队</div>
-            <div class="author-card-title">AI API生态观察者 · 可靠性研究</div>
-            <div class="author-card-bio">TokenNexus技术内容团队，持续追踪全球AI API平台的可用性、性能和价格变化。我们监测285个平台，发布月度可靠性报告，帮助开发者做出有数据支撑的选型决策。本文由技术内容主编张蕾审核。</div>
-        </div>
-    </div>
 
     <!-- 核心要点 -->
     <div class="key-points">
