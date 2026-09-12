@@ -13,12 +13,13 @@
 # 将根域名重定向到www子域名（SEO最佳实践）
 https://tokenfind.cn/* https://www.tokenfind.cn/:splat 301
 
-# 将pages.dev域名301重定向到主域名
-https://tokennexus-*.pages.dev/* https://www.tokenfind.cn/:splat 301
-https://tokennexus.pages.dev/* https://www.tokenfind.cn/:splat 301
+# P1-5: pages.dev 镜像下线由 functions/_middleware.js 按 host 判断接管，
+# _redirects 中的 full-URL 写法对 pages.dev 不生效（实测仍 200）。
+# 保留原规则作为双保险，以防 middleware 出错。
+# https://tokennexus-*.pages.dev/* https://www.tokenfind.cn/:splat 301
+# https://tokennexus.pages.dev/* https://www.tokenfind.cn/:splat 301
 
-# 将旧域名301重定向到新域名
-https://tokennexus.skillxm.cn/* https://www.tokenfind.cn/:splat 301
+# 旧域名 tokennexus.skillxm.cn 的 DNS 已不解析（实测连不上），规则注销。
 
 # ============================================
 # 博客板块合并：/blog/ → /blog/guides
