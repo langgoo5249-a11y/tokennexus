@@ -1,4 +1,4 @@
-# TokenNexus Cloudflare Pages 重定向配置
+﻿# TokenNexus Cloudflare Pages 重定向配置
 # 更新日期: 2026-07-09
 #
 # 重要：Cloudflare Pages 会自动处理 clean URL（/about → about.html）
@@ -70,7 +70,6 @@ https://tokenfind.cn/* https://www.tokenfind.cn/:splat 301
 /platform/零一万物api /platform/零一万物 301
 /platform/gpt4free /platforms 301
 /platform/pawan-osint /platforms 301
-/authors/* /about 301
 /editorial-process /about 301
 /platform-detail /platforms 301
 /platform/ai--api /platform/便携ai聚合api 301
