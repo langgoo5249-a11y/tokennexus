@@ -74,3 +74,8 @@
 
 /blog/images/*
   Cache-Control: public, max-age=31536000, immutable
+/og-image.png
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/images/og-image.png
+  Cache-Control: public, max-age=3600, must-revalidate
