@@ -83,3 +83,9 @@ https://tokenfind.cn/* https://www.tokenfind.cn/:splat 301
 /blog/continuous-drift-detection-preventing-ai-regressions /blog 301
 /blog/openai-api-cost-calculator /blog 301
 /blog/the-hidden-costs-of-ai-apis-and-how-to-avoid-them /blog 301
+/guides /blog/guides 301
+/authors/%E5%BC%A0%E8%95%BE /blog/guides 301
+/authors/%E6%9E%97%E5%B0%8F%E9%9B%AA /blog/guides 301
+/authors/%E7%8E%8B%E6%B5%A9%E7%84%B6 /blog/guides 301
+/authors/%E8%B5%B5%E6%80%9D%E8%BF%9C /blog/guides 301
+/authors/%E9%99%88%E6%98%8E /blog/guides 301

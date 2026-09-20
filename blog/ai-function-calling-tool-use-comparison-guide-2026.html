@@ -1,17 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head><script>(function(s){s.dataset.zone='11828203',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script><script>(function(s){s.dataset.zone='11828104',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
-<script>
-(function(){
-var el = document.createElement("script");
-el.src = "https://lf1-cdn-tos.bytegoofy.com/goofy/ttzz/push.js?7ed0b6a78266711e9a17448067a625a5adfeed1f0fb6d4e019aaaed29b4f0896bc434964556b7d7129e9b750ed197d397efd7b0c6c715c1701396e1af40cec962b8d7c8c6655c9b00211740aa8a98e2e";
-el.id = "ttzz";
-var s = document.getElementsByTagName("script")[0];
-s.parentNode.insertBefore(el, s);
-})(window)
-</script>
-
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
@@ -20,7 +10,7 @@ s.parentNode.insertBefore(el, s);
     <title>大模型工具调用怎么选？Function Calling各家API实测对比：准确率、token开销与成本（2026）</title>
     <meta name="description" content="大模型工具调用怎么选？本文实测对比OpenAI、Claude、Gemini、DeepSeek四家Function Calling API：准确率97~99%、单次工具调用token开销295~512、DeepSeek便宜近10倍。附DeepSeek 8月涨价案例和省钱实战经验。">
     <meta name="keywords" content="大模型工具调用,Function Calling对比,大模型API工具调用准确率,tool use成本,结构化输出可靠性,DeepSeek涨价,OpenAI Claude Gemini工具调用,tool calling token开销,AI Agent工具选择">
-    <meta name="author" content="王浩然">
+    <meta name="author" content="TokenNexus团队">
     <meta name="date" content="2026-09-12">
     <meta name="modified-date" content="2026-09-12">
     <meta name="topic" content="Technology">
@@ -42,10 +32,10 @@ s.parentNode.insertBefore(el, s);
     <meta property="og:image" content="https://www.tokenfind.cn/images/og-ai-function-calling-tool-use-comparison-guide-2026.jpg">
     <meta property="article:published_time" content="2026-09-12">
     <meta property="article:modified_time" content="2026-09-12">
-    <meta property="article:author" content="王浩然">
+    <meta property="article:author" content="TokenNexus团队">
     <meta property="article:section" content="平台对比">
     <meta property="article:tag" content="工具调用,Function Calling,大模型API对比,tool use,API成本,AI Agent,DeepSeek">
-    <meta property="article:reviewed_by" content="张蕾">
+    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="大模型工具调用实测对比：Function Calling各家API怎么选">
     <meta name="twitter:description" content="四家工具调用准确率、token开销实测。DeepSeek便宜近10倍但准确率打八折，选型看这里。">
@@ -63,7 +53,7 @@ s.parentNode.insertBefore(el, s);
           "image": "https://www.tokenfind.cn/images/og-ai-function-calling-tool-use-comparison-guide-2026.jpg",
           "url": "https://www.tokenfind.cn/blog/ai-function-calling-tool-use-comparison-guide-2026",
           "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.tokenfind.cn/blog/ai-function-calling-tool-use-comparison-guide-2026"},
-          "author": {"@type": "Person", "name": "王浩然", "url": "https://www.tokenfind.cn/authors/王浩然"},
+          "author": {"@type": "Organization", "name": "TokenNexus", "url": "https://www.tokenfind.cn/"},
           "publisher": {
             "@type": "Organization",
             "name": "TokenNexus",
@@ -75,8 +65,7 @@ s.parentNode.insertBefore(el, s);
           "articleSection": "平台对比",
           "keywords": ["大模型工具调用","Function Calling对比","大模型API工具调用准确率","tool use成本","结构化输出可靠性","DeepSeek涨价","OpenAI Claude Gemini工具调用","tool calling token开销","AI Agent工具选择"],
           "inLanguage": "zh-CN",
-          "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".article-content h2", ".article-content p"]},
-          "reviewedBy": {"@type": "Person", "name": "张蕾", "jobTitle": "技术内容主编 · AI API生态观察者", "url": "https://www.tokenfind.cn/authors/张蕾"}
+          "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".article-content h2", ".article-content p"]}
         },
         {
           "@type": "WebPage",
@@ -237,7 +226,7 @@ s.parentNode.insertBefore(el, s);
             <div class="article-meta">
                 <div class="author-info">
                     <div class="author-avatar"></div>
-                    <span>王浩然</span>
+                    <span>TokenNexus团队</span>
                 </div>
                 <span>2026-09-12</span>
                 <span>阅读约 13 分钟</span>
@@ -414,7 +403,7 @@ s.parentNode.insertBefore(el, s);
 
             <p>想把模型侧的成本整体再压一压，可以看看我们那篇《<a href="/blog/cline-deepseek-coding-cost-guide-2026">Cline接入DeepSeek成本实测</a>》，把Agent工具调用的账单一起算明白。横向比较更多大模型API的价格和能力，TokenNexus收录了330+国内外平台，从<a href="/official">海外官方</a>、<a href="/aggregator">聚合中转</a>到<a href="/china">国内平台</a>都整理好了。想搭Agent，还可以看看《<a href="/blog/ai-agent-function-calling-guide-2026">Function Calling从入门到生产级应用</a>》。</p>
 
-            <p><em>本文由王浩然（开发者社区运营）撰写，经张蕾（技术内容主编）审核发布。文中准确率与token开销数据来自2026年9月的多个第三方基准交叉采集，价格数据均来自各厂商官方定价页面及官方文档（DeepSeek 8月17日峰谷调价、9月10日V4.1 Flash降价为官方口径），实际费用请以各平台最新账单为准；部分第三方价格跟踪来源存在区间差异，已按保守口径标注。最后更新：2026年9月12日。</em></p>
+            <p><em>本文由 TokenNexus 团队撰写并审核发布。文中准确率与token开销数据来自2026年9月的多个第三方基准交叉采集，价格数据均来自各厂商官方定价页面及官方文档（DeepSeek 8月17日峰谷调价、9月10日V4.1 Flash降价为官方口径），实际费用请以各平台最新账单为准；部分第三方价格跟踪来源存在区间差异，已按保守口径标注。最后更新：2026年9月12日。</em></p>
         </div>
 
         <div class="tags">
@@ -431,9 +420,9 @@ s.parentNode.insertBefore(el, s);
         <div class="author-card">
             <div class="author-card-avatar"></div>
             <div>
-                <div class="author-card-name">王浩然</div>
-                <div class="author-card-title">开发者社区运营 · AI开发者生态建设者</div>
-                <div class="author-card-bio">TokenNexus 开发者社区运营，拥有4年技术社区运营和开发者关系经验。擅长将开发者反馈转化为产品改进、策划技术内容选题，主持的TokenNexus开发者社区已聚集超过5000名AI开发者。</div>
+                <div class="author-card-name">TokenNexus 团队</div>
+                <div class="author-card-title">TokenNexus 团队</div>
+                <div class="author-card-bio">TokenNexus 团队持续跟踪全球主流 AI API 平台的定价、性能与可靠性变化，所有实测数据均来自各厂商官方文档与真实调用记录，评测方法与原始数据随文公开。</div>
             </div>
         </div>
 
