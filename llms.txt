@@ -84,6 +84,7 @@ A: 已对全球 67+ AI 爬虫和搜索引擎爬虫开放全部访问权限，包
 ### 平台对比与选型
 
 - [大模型工具调用怎么选？Function Calling各家API实测对比：准确率、token开销与成本](https://www.tokenfind.cn/blog/ai-function-calling-tool-use-comparison-guide-2026) | 2026-09-12
+- [推理模型API为什么越用越贵？思考Token计费规则详解与5个省钱方案（2026版）](https://www.tokenfind.cn/blog/ai-api-reasoning-token-billing-guide-2026) | 2026-09-20
 - [大模型联网搜索API实测对比：Perplexity Sonar、Tavily、Gemini怎么选最省钱](https://www.tokenfind.cn/blog/ai-web-search-api-comparison-guide-2026) | 2026-09-07
 - [2026年AI大模型API价格终极对比：GPT-5.5、Claude、DeepSeek、Gemini怎么选最省钱](https://www.tokenfind.cn/blog/ai-api-pricing-comparison-2026-guide) | 2026-06-21
 - [2026年AI API平台选型完全指南：开发者避坑手册与性价比终极对比](https://www.tokenfind.cn/blog/ai-api-platform-selection-guide-2026) | 2026-06-18
