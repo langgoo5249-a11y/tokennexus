@@ -40,7 +40,7 @@ jobs:
       #      (原文件既没设 fetch-depth, 也没处理首推)
       #   2) 只处理新增/修改, 删除的页面从不通知, 搜索引擎继续抓 404
       #   3) URL 拼接用 shell 字符串, 带空格或特殊字符即坏
-      - name: Notify IndexNow (incremental: added + modified + removed)
+      - name: Notify IndexNow (incremental added modified removed)
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
           if git rev-parse HEAD~1 >/dev/null 2>&1; then
