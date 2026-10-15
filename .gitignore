@@ -4,3 +4,6 @@ node_modules/
 Thumbs.db
 *.log
 freshness-report.csv
+
+# IndexNow 增量 diff 的运行期基线, 不入库
+scripts/.indexnow-snapshot/

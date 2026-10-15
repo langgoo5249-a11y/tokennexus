@@ -3,8 +3,7 @@ name: Deploy to Cloudflare Pages
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -16,6 +15,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # 需要完整历史: 脚本用 git diff 算出本次真正变更的页面,
+          # 浅克隆(默认 depth:1)下 HEAD~1 不存在, 会退化成全量提交
+          fetch-depth: 0
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
@@ -27,72 +30,30 @@ jobs:
           branch: main
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Submit changed URLs to IndexNow
+      # ── 通知搜索引擎: 本次发布的 URL 新增 / 修改 / 删除 ──
+      # 本站是静态 HTML 站, 仓库内容即线上产物, 因此直接用 git diff
+      # 把变更文件映射成 URL — 比 diff sitemap 更精确, 且天然覆盖
+      # 删除(删掉的文件也会出现在 diff 里)。
+      #
+      # 2026-10-14 替换原先的内联 shell 版。原版三个问题:
+      #   1) `git diff HEAD~1 HEAD` 在浅克隆/首推时直接报错
+      #      (原文件既没设 fetch-depth, 也没处理首推)
+      #   2) 只处理新增/修改, 删除的页面从不通知, 搜索引擎继续抓 404
+      #   3) URL 拼接用 shell 字符串, 带空格或特殊字符即坏
+      - name: Notify IndexNow (incremental: added + modified + removed)
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
-          echo "Submitting changed URLs to IndexNow..."
-          KEY="c2cf787c8e784d5aa145d5fb9b8db1f4"
-          KEY_LOCATION="https://www.tokenfind.cn/c2cf787c8e784d5aa145d5fb9b8db1f4.txt"
-          HOST="www.tokenfind.cn"
-          
-          # 获取最近一次提交中修改的 .html 文件
-          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD | grep -E '\.(html|txt|xml)$' || true)
-          
-          if [ -z "$CHANGED_FILES" ]; then
-            echo "No HTML/TXT/XML files changed, skipping IndexNow submission."
+          if git rev-parse HEAD~1 >/dev/null 2>&1; then
+            mapfile -t CHANGED < <(git diff --name-only --diff-filter=ACMRT HEAD~1 HEAD)
+          else
+            echo "首次提交(无 HEAD~1), 提交全部页面"
+            mapfile -t CHANGED < <(git ls-files '*.html' 'robots.txt' 'sitemap*.xml' 'llms*.txt' 'rss.xml')
+          fi
+          if [ ${#CHANGED[@]} -eq 0 ]; then
+            echo "无变更文件, 跳过 IndexNow 提交"
             exit 0
           fi
-          
-          # 构建 URL 列表
-          URL_LIST=""
-          COUNT=0
-          for file in $CHANGED_FILES; do
-            # 只处理根目录、blog/、platform/ 下的页面
-            if [[ "$file" =~ ^(blog|platform)/[^/]+\.html$ ]]; then
-              URL="https://${HOST}/${file%.html}"
-            elif [[ "$file" =~ ^[^/]+\.html$ ]]; then
-              URL="https://${HOST}/${file%.html}"
-            elif [[ "$file" == "sitemap.xml" ]] || [[ "$file" == "llms.txt" ]] || [[ "$file" == "llms-full.txt" ]]; then
-              URL="https://${HOST}/${file}"
-            else
-              continue
-            fi
-            
-            URL_LIST="${URL_LIST}\"${URL}\","
-            COUNT=$((COUNT + 1))
-            
-            # IndexNow 每次最多 10,000 个 URL，这里限制 5000 个/次
-            if [ "$COUNT" -ge 5000 ]; then
-              break
-            fi
-          done
-          
-          if [ "$COUNT" -eq 0 ]; then
-            echo "No indexable URLs found in changed files."
-            exit 0
-          fi
-          
-          # 去掉最后一个逗号
-          URL_LIST="${URL_LIST%,}"
-          
-          # 构建 JSON
-          JSON_PAYLOAD=$(printf '{"host":"%s","key":"%s","keyLocation":"%s","urlList":[%s]}' \
-            "$HOST" "$KEY" "$KEY_LOCATION" "$URL_LIST")
-          
-          echo "Submitting $COUNT URLs to IndexNow..."
-          echo "$JSON_PAYLOAD" | head -c 500
-          echo ""
-          
-          # 提交到 Bing / IndexNow
-          STATUS=$(curl -s -o /tmp/indexnow_response.txt -w "%{http_code}" \
-            -X POST "https://www.bing.com/indexnow" \
-            -H "Content-Type: application/json" \
-            -d "$JSON_PAYLOAD")
-          
-          echo "IndexNow response code: $STATUS"
-          cat /tmp/indexnow_response.txt
-          echo ""
-          
-          if [ "$STATUS" != "200" ] && [ "$STATUS" != "202" ]; then
-            echo "IndexNow submission may have failed, but deployment is complete."
-          fi
+          echo "变更文件 ${#CHANGED[@]} 个:"
+          printf '  %s\n' "${CHANGED[@]}"
+          node scripts/indexnow-submit.mjs --changed-files "${CHANGED[@]}"
+        continue-on-error: true
