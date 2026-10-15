@@ -20,15 +20,22 @@ jobs:
           # 浅克隆(默认 depth:1)下 HEAD~1 不存在, 会退化成全量提交
           fetch-depth: 0
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: tokennexus
-          directory: .
-          branch: main
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          node-version: '20'
+
+      # 2026-10-15 修正: 原用 cloudflare/pages-action@v1, 该仓库已被上游
+      # 删除(GitHub 404), 导致每次运行都卡在 "Prepare all required actions"
+      # 后中断, Set up job 失败 — 自 2026-09 起本工作流 11 连败从未成功过。
+      # 改用 numbertool 同款、已验证可用的 wrangler CLI 直接部署。
+      - name: Publish to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npx --yes wrangler@4 pages deploy . \
+            --project-name=tokennexus --branch=main --commit-dirty=true
 
       # ── 通知搜索引擎: 本次发布的 URL 新增 / 修改 / 删除 ──
       # 本站是静态 HTML 站, 仓库内容即线上产物, 因此直接用 git diff
@@ -36,7 +43,7 @@ jobs:
       # 删除(删掉的文件也会出现在 diff 里)。
       #
       # 2026-10-14 替换原先的内联 shell 版。原版三个问题:
-      #   1) `git diff HEAD~1 HEAD` 在浅克隆/首推时直接报错
+      #   1) git diff HEAD~1 HEAD 在浅克隆或首次推送时直接报错
       #      (原文件既没设 fetch-depth, 也没处理首推)
       #   2) 只处理新增/修改, 删除的页面从不通知, 搜索引擎继续抓 404
       #   3) URL 拼接用 shell 字符串, 带空格或特殊字符即坏
