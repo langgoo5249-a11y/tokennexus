@@ -1,0 +1,339 @@
+<head><script>(function(s){s.dataset.zone='11828203',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script><script>(function(s){s.dataset.zone='11828104',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="baiduspider" content="index, follow, max-snippet:-1">
+    <title>一张图到底烧掉多少 Token？视觉 API 跨厂商计费机制拆解与图像降本清单</title>
+    <meta name="description" content="一张商品图在高清模式下可能被切成上千个 Token。本文用 OpenAI、Claude、Gemini 三家官方计费公式，拆解图像如何被换算成 Token，给出同图跨厂商实测对比表、图像降本的五道闸与三个最容易踩的坑。">
+    <meta name="keywords" content="视觉API计费,图像Token成本,多模态API计费,GPT-4o视觉token,Claude图像token,Gemini图像token,图片API降本,视觉模型计费公式,图像预处理降本,高分辨率图像成本,多模态成本优化,TokenNexus">
+    <meta name="author" content="TokenNexus团队">
+    <meta name="date" content="2026-10-29">
+    <meta name="modified-date" content="2026-10-29">
+    <meta name="topic" content="Technology">
+    <meta name="classification" content="Article">
+    <meta name="coverage" content="Worldwide">
+    <meta name="audience" content="All">
+    <meta name="rating" content="General">
+    <meta name="revisit-after" content="7 days">
+
+    <link rel="canonical" href="https://www.tokenfind.cn/blog/ai-api-vision-image-token-cost-guide-2026">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/blog/ai-api-vision-image-token-cost-guide-2026">
+    <link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/blog/ai-api-vision-image-token-cost-guide-2026">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="TokenNexus">
+    <meta property="og:title" content="一张图到底烧掉多少 Token？视觉 API 跨厂商计费机制拆解与图像降本清单">
+    <meta property="og:description" content="用 OpenAI、Claude、Gemini 三家官方计费公式拆解图像如何被换算成 Token，附同图跨厂商实测对比表与图像降本清单。">
+    <meta property="og:url" content="https://www.tokenfind.cn/blog/ai-api-vision-image-token-cost-guide-2026">
+    <meta property="og:image" content="https://www.tokenfind.cn/images/og-vision-api-image-token-cost-guide-2026.jpg">
+    <meta property="article:published_time" content="2026-10-29T09:00:00+08:00">
+    <meta property="article:modified_time" content="2026-10-29T09:00:00+08:00">
+    <meta property="article:author" content="TokenNexus团队">
+    <meta property="article:section" content="技术教程">
+    <meta property="article:tag" content="视觉API计费,图像Token成本,多模态API,跨厂商对比,降本清单">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="一张图到底烧掉多少 Token？视觉 API 跨厂商计费机制拆解">
+    <meta name="twitter:description" content="OpenAI、Claude、Gemini 三家官方图像计费公式拆解，附实测对比表与降本清单。">
+    <meta name="twitter:image" content="https://www.tokenfind.cn/images/og-vision-api-image-token-cost-guide-2026.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "headline": "一张图到底烧掉多少 Token？视觉 API 跨厂商计费机制拆解与图像降本清单",
+          "description": "用 OpenAI、Claude、Gemini 三家官方计费公式，拆解图像如何被换算成 Token，给出同图跨厂商实测对比表、图像降本清单与最容易踩的坑。",
+          "image": "https://www.tokenfind.cn/images/og-vision-api-image-token-cost-guide-2026.jpg",
+          "url": "https://www.tokenfind.cn/blog/ai-api-vision-image-token-cost-guide-2026",
+          "author": {"@type": "Organization", "name": "TokenNexus", "url": "https://www.tokenfind.cn/"},
+          "publisher": {
+            "@type": "Organization",
+            "name": "TokenNexus",
+            "url": "https://www.tokenfind.cn/",
+            "logo": {"@type": "ImageObject", "url": "https://www.tokenfind.cn/images/logo.png"}
+          },
+          "datePublished": "2026-10-29",
+          "dateModified": "2026-10-29",
+          "articleSection": "技术教程",
+          "keywords": ["视觉API计费","图像Token成本","多模态API计费","GPT-4o视觉","Claude图像token","Gemini图像token"]
+        },
+        {
+          "@type": "WebPage",
+          "name": "一张图到底烧掉多少 Token？视觉 API 跨厂商计费机制拆解与图像降本清单",
+          "description": "视觉 API 的图像 Token 计费机制、跨厂商实测对比与降本清单",
+          "url": "https://www.tokenfind.cn/blog/ai-api-vision-image-token-cost-guide-2026"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "图像 token 算在输入还是输出里？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "算在输入（input）token 里。一张图被模型切成多少 token，就占多少输入额度，和文本前缀一样计费；输出 token 只来自模型生成的文字。所以同样的图，发一次和发十次，输入 token 会叠加十次。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "detail=low 会明显丢精度吗？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "对场景分类、物体识别、粗粒度打标这类任务，low 档（固定 85 token/张）通常够用，能省约 9 倍成本。只有在需要读小字、看细线图表、辨细微纹理（如发票 OCR、电路图）时才需要 high 档。先 low 后 high 做 A/B，是性价比最高的起步策略。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "图片能进 prompt 缓存（prompt cache）省 token 吗？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "不能。缓存命中只对字节级一致的文本前缀有效，图像不参与文本前缀缓存。想省重复分析的钱，要自己在应用层做图像哈希去重或缓存分析结果，而不是指望厂商的 prompt cache 替你把图省掉。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "一次请求最多能发几张图？怎么最省钱？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "OpenAI 单次请求最多 10 张图，token 是逐张叠加的，不要一次性把整本 PDF 的截图塞进一个请求。最省钱的通用打法：默认 low 档 + 发送前把短边压到约 1024px + 静态图做哈希缓存 + 非实时任务走 Batch 拿 5 折；对简单任务优先用 Gemini Flash、GPT-4o-mini 这类按块计费、单价极低的视觉模型。"
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root { --neon-cyan: #00f0ff; --neon-purple: #b829dd; --dark-bg: #050508; --card-bg: rgba(10, 10, 18, 0.9); --card-border: rgba(0, 240, 255, 0.15); --text-primary: #ffffff; --text-secondary: #8b92a8; --accent-orange: #ff6b35; --accent-green: #00d68f; --accent-red: #ff3d71; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans SC', sans-serif; background: var(--dark-bg); color: var(--text-primary); min-height: 100vh; line-height: 1.8; }
+        .navbar { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: rgba(5, 5, 8, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--card-border); display: flex; align-items: center; justify-content: space-between; padding: 0 60px; z-index: 1000; }
+        .logo { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+        .logo-icon { width: 40px; height: 40px; }
+        .logo-text { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--neon-cyan); }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--neon-cyan); }
+        .article-container { max-width: 900px; margin: 0 auto; padding: 120px 40px 60px; }
+        .article-header { text-align: center; margin-bottom: 40px; }
+        .article-category { display: inline-block; background: linear-gradient(135deg, var(--accent-orange), var(--neon-purple)); color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; margin-bottom: 16px; }
+        .article-title { font-size: 2.2rem; font-weight: 700; line-height: 1.4; margin-bottom: 20px; background: linear-gradient(135deg, var(--text-primary), var(--accent-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .article-meta { display: flex; align-items: center; justify-content: center; gap: 20px; color: var(--text-secondary); font-size: 0.9rem; flex-wrap: wrap; }
+        .author-info { display: flex; align-items: center; gap: 10px; }
+        .author-avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-orange), var(--neon-purple)); }
+        .article-content { font-size: 1.05rem; }
+        .article-content h2 { font-size: 1.6rem; font-weight: 600; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--card-border); color: var(--accent-orange); }
+        .article-content h3 { font-size: 1.3rem; font-weight: 600; margin-top: 30px; margin-bottom: 15px; color: var(--text-primary); }
+        .article-content p { margin-bottom: 20px; color: var(--text-secondary); }
+        .article-content ul, .article-content ol { margin: 20px 0; padding-left: 30px; }
+        .article-content li { margin: 10px 0; color: var(--text-secondary); }
+        .article-content strong { color: var(--text-primary); }
+        .article-content a { color: var(--accent-orange); text-decoration: none; }
+        .article-content a:hover { text-decoration: underline; }
+        .tip-box { background: rgba(0, 214, 143, 0.1); border-left: 4px solid var(--accent-green); padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0; }
+        .tip-box-title { font-weight: 600; color: var(--accent-green); margin-bottom: 10px; }
+        .warning-box { background: rgba(255, 61, 113, 0.1); border-left: 4px solid var(--accent-red); padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0; }
+        .warning-box-title { font-weight: 600; color: var(--accent-red); margin-bottom: 10px; }
+        .data-table { width: 100%; border-collapse: collapse; margin: 25px 0; background: var(--card-bg); border-radius: 8px; overflow: hidden; }
+        .data-table th, .data-table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--card-border); }
+        .data-table th { background: rgba(255, 107, 53, 0.15); color: var(--accent-orange); font-weight: 600; }
+        .data-table td { color: var(--text-secondary); }
+        .data-table tr:last-child td { border-bottom: none; }
+        .step-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 25px; margin: 25px 0; position: relative; }
+        .step-number { position: absolute; top: -12px; left: 20px; background: linear-gradient(135deg, var(--accent-orange), var(--neon-purple)); color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; }
+        .step-title { font-weight: 600; color: var(--text-primary); margin-bottom: 15px; font-size: 1.1rem; }
+        .code-block { background: rgba(0, 0, 0, 0.5); border: 1px solid var(--card-border); border-radius: 8px; padding: 20px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.85rem; overflow-x: auto; color: #a8d8a8; white-space: pre; }
+        .highlight-num { font-size: 2rem; font-weight: 700; color: var(--accent-orange); font-family: 'Rajdhani', sans-serif; }
+        .footer { background: rgba(5, 5, 8, 0.95); border-top: 1px solid var(--card-border); padding: 40px 60px; margin-top: 60px; text-align: center; }
+        .footer-logo { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--accent-orange); margin-bottom: 10px; }
+        .footer-text { color: var(--text-secondary); font-size: 0.9rem; }
+        .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 20px; flex-wrap: wrap; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--accent-orange); }
+        .back-link { display: inline-block; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 20px; transition: color 0.3s; }
+        .back-link:hover { color: var(--accent-orange); }
+        .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--card-border); }
+        .tag { display: inline-block; padding: 6px 14px; background: rgba(255, 107, 53, 0.08); border: 1px solid var(--card-border); border-radius: 20px; color: var(--accent-orange); font-size: 0.8rem; text-decoration: none; transition: all 0.3s; }
+        .tag:hover { background: rgba(255, 107, 53, 0.2); }
+        .author-card { display: flex; gap: 20px; align-items: flex-start; padding: 30px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; margin: 40px 0; }
+        .author-card-avatar { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-orange), var(--neon-purple)); flex-shrink: 0; }
+        .author-card-name { color: var(--text-primary); font-weight: 600; font-size: 1.1rem; }
+        .author-card-title { color: var(--accent-orange); font-size: 0.85rem; margin: 4px 0 8px; }
+        .author-card-bio { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
+        .key-points { margin: 30px 0; padding: 25px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; }
+        .key-points h4 { color: var(--accent-orange); margin-bottom: 15px; }
+        .key-points ul { margin: 0; padding-left: 20px; }
+        .key-points li { margin: 8px 0; }
+        .references-section { margin: 40px 0; padding: 25px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; }
+        .references-section h4 { color: var(--text-primary); margin-bottom: 15px; }
+        .references-section ol { margin: 0; padding-left: 20px; }
+        .references-section li { margin: 8px 0; font-size: 0.9rem; }
+        .references-section a { color: var(--accent-orange); }
+        .related-posts { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin: 40px 0; }
+        .related-post { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; transition: all 0.3s; text-decoration: none; }
+        .related-post:hover { border-color: var(--accent-orange); }
+        .related-post-category { font-size: 0.75rem; color: var(--accent-orange); margin-bottom: 8px; }
+        .related-post-title { color: var(--text-primary); font-weight: 600; font-size: 0.95rem; line-height: 1.4; }
+        .article-featured-image { width: 100%; border-radius: 12px; margin-bottom: 30px; border: 1px solid var(--card-border); }
+        @media (max-width: 768px) { .navbar { padding: 0 20px; } .nav-links { display: none; } .article-container { padding: 100px 20px 40px; } .article-title { font-size: 1.6rem; } .article-content { font-size: 0.95rem; } .related-posts { grid-template-columns: 1fr; } .data-table { font-size: 0.85rem; } .data-table th, .data-table td { padding: 10px 12px; } }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+        <a href="/" class="logo">
+            <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="18" stroke="url(#grad1)" stroke-width="2"/>
+                <path d="M12 20 L20 12 L28 20 L20 28 Z" fill="url(#grad1)"/>
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00f0ff"/>
+                        <stop offset="100%" style="stop-color:#b829dd"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <span class="logo-text">TokenNexus</span>
+        </a>
+        <div class="nav-links">
+            <a href="/" class="nav-link">首页</a>
+            <a href="/official" class="nav-link">官方平台</a>
+            <a href="/aggregator" class="nav-link">聚合平台</a>
+            <a href="/china" class="nav-link">国内平台</a>
+            <a href="/blog/guides" class="nav-link active">攻略</a>
+        </div>
+    </nav>
+    <div class="article-container">
+        <a href="/blog/guides" class="back-link">&larr; 返回攻略列表</a>
+
+        <header class="article-header">
+            <span class="article-category">技术教程</span>
+            <h1 class="article-title">一张图到底烧掉多少 Token？视觉 API 跨厂商计费机制拆解与图像降本清单</h1>
+            <div class="article-meta">
+                <div class="author-info">
+                    <div class="author-avatar"></div>
+                    <span>TokenNexus团队</span>
+                </div>
+                <span>2026-10-29</span>
+                <span>更新于 2026-10-29</span>
+                <span>阅读约 9 分钟</span>
+            </div>
+        </header>
+
+        <img src="/images/og-vision-api-image-token-cost-guide-2026.jpg" alt="视觉 API 图像被切分为 Token 计费块的示意" class="article-featured-image" loading="lazy">
+
+        <div class="article-content">
+            <p>有做电商客服的团队复盘过一笔账：把商品原图（约 1500×1500）每次都带进多轮对话，一个月的 API 账单比只发文字翻了一倍多。他们一开始以为是模型贵，拉出 usage 才发现——<strong>图像 token 占了总输入的六成以上</strong>。这其实不是个例：视觉 / 图像 API 的成本，几乎全藏在"一张图被切成多少个 token"这个黑箱里。文本按字数估 token 还勉强靠谱，图像则完全看厂商的切块算法，差出几倍是常态。</p>
+
+            <p>下面把三家主流厂商的计费黑箱一个个拆开，再给同一张图做一次跨厂商实测，最后落到能直接抄的降本清单和一笔月度账。所有 token 数字都来自各家官方公式或官方文档示例，先讲清楚"钱到底怎么被算走"，再去谈省。</p>
+
+            <h2>一、计费黑箱拆解：图像是怎么变成 token 的</h2>
+
+            <p><strong>OpenAI（GPT-4o / 4o-mini 视觉）。</strong>图像不走字数估算，而是走 <code>detail</code> 参数：<code>detail=low</code> 固定 <strong>85 token / 张</strong>，不管原图多大；<code>detail=high</code> 才进入切块算法——先把最长边缩放到 ≤2048px，再把短边拉到 768px，然后按 512×512 切块，<strong>每块 170 token，再加 85 基础 token</strong>。于是 <code>1024×1024</code> 会被处理成 768×768 的 4 块，共 <strong>765 token</strong>；而一张 <code>512×512</code> 的小图开 high，反而会被上采样到 768×768，同样是 765 token。OpenAI 官方那份视觉指南（prismix 整理的实测）也确认：1024² 在 high 下就是 765 token。</p>
+
+            <p><strong>Claude（Anthropic）。</strong>Claude 的公式是线性的：<strong>token 数 ≈ 宽 × 高 / 750</strong>（在支持的上下文窗口内、无需二次缩放时）。套进去很直观：<code>512×512</code> ≈ 349 token，<code>1024×1024</code> ≈ 1398 token，<code>1920×1080</code> ≈ 2765 token。Anthropic 官方文档给出的示例也吻合——<code>200×200</code> 约 54 token、<code>1000×1000</code> 约 1334 token。一句话：Claude 按像素面积线性计费，图越大几乎成比例变贵，没有"封顶"机制。</p>
+
+            <p><strong>Gemini（Google）。</strong>Gemini 走"分块"逻辑：<strong>只要图片两个维度都 ≤384px，固定 258 token / 张</strong>；更大的图按 768×768 切块，每块 258 token。所以常见的 <code>1024×1024</code> 大约就是 1 块 = <strong>258 token</strong>，比同样尺寸的 OpenAI high（765）和 Claude（1398）都低。这也是为什么社区里常看到"Gemini 处理图像比 GPT-4o-mini 便宜一个数量级"的对比——在 OpenAI 开发者社区的一个实测帖里，同一张 <code>768×2048</code> 图在 GPT-4o-mini 下被切成 8 块、约 4.8 万 token，而在 Gemini 2.0 Flash 下只有 258 token，差出约 31 倍。</p>
+
+            <h2>二、同一张图，三家实测对比</h2>
+
+            <p>把同一组尺寸丢进三家公式，差异一目了然（Claude 取线性公式、Gemini 取单块 258、OpenAI 取官方 high/low 算法）：</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr><th>图片尺寸</th><th>OpenAI high</th><th>OpenAI low</th><th>Claude（px/750）</th><th>Gemini（块×258）</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>512×512</td><td>765</td><td>85</td><td>349</td><td>258</td></tr>
+                    <tr><td>1024×1024</td><td>765</td><td>85</td><td>1398</td><td>258</td></tr>
+                    <tr><td>1920×1080</td><td>1105</td><td>85</td><td>2765</td><td>多块（&gt;258）</td></tr>
+                </tbody>
+            </table>
+
+            <p>这张表里有三个反直觉的点：① <strong>512² 和 4096² 在 OpenAI high 下都是 765 token</strong>——因为短边都被拉到 768，超大图不会更贵，但也不会更准；② <strong>同一张 1024²，OpenAI high 比 low 贵 9 倍</strong>，而 Claude 比它再贵近一倍；③ <strong>Gemini 对常见尺寸几乎封顶在 258</strong>，是简单视觉任务最便宜的选择。选型时别只看"模型智不智能"，先看你发的是多大的图。</p>
+
+            <h2>三、图像降本的五道闸</h2>
+
+            <p><strong>1. 默认 low，按需才 high。</strong>场景分类、物体识别、粗粒度打标用 low（85 token）通常够用，直接砍掉约 9 倍成本。只有读小字、看细线图表、辨细微纹理（发票 OCR、电路图、复杂表格）才上 high。上线前做一组 low/high 的准确率 A/B，比拍脑袋选 high 省得多。</p>
+
+            <p><strong>2. 发送前先把短边压到约 1024px。</strong>OpenAI high 会把短边拉到 768，原图大于 768px 没有额外收益，先 resize 反而能避免把超大原图喂进去后某些路径多切块；Claude 是严格按像素线性计费，压尺寸就是实打实省钱。一张 4000×3000 的商品图，压到 1365×1024 再发，Claude 端能从约 1.6 万 token 降到约 1870 token。</p>
+
+            <p><strong>3. 静态图做哈希去重与结果缓存。</strong>同一张参考图、同一张商品图被反复分析时，在应用层算图像哈希，命中就直接复用上次的分析结果或缓存的 token 账单。注意：<strong>图像不参与厂商的 prompt cache</strong>（缓存只对字节级一致的文本前缀生效），所以这层缓存必须自己做。</p>
+
+            <p><strong>4. 非实时任务走 Batch 拿 5 折。</strong>文档批处理、夜间报表、历史图库打标这类没人等结果的活，用 Batch API 提交，输入和输出 token 都打 5 折，和上文的实时调用叠加能再砍一半。站内的 <a href="/blog/ai-api-async-batch-processing">异步批处理降本指南</a> 讲透了怎么接。</p>
+
+            <p><strong>5. 选对模型：简单任务用低价视觉模型。</strong>Gemini Flash、GPT-4o-mini 这类按块计费、单价极低的视觉模型，对分类/打标绰绰有余；Claude 按像素线性计费，超大图慎选。和 <a href="/blog/ai-api-token-billing-guide">Token 计费基础</a>、<a href="/blog/ai-api-chinese-tokenizer-token-count-cost-guide-2026">中文分词器计费差异</a> 里讲的逻辑一致——先看清"被怎么计费"，再谈优化。</p>
+
+            <h2>四、三个最容易踩的坑</h2>
+
+            <p><strong>坑 1：小图开 high 被上采样反而更贵。</strong>很多团队以为"图小就 cheap"，结果给 512² 甚至 256² 的小图设了 high，OpenAI 把它上采样到 768²，照样 765 token，比 low 的 85 贵 9 倍。小图永远先 low。</p>
+
+            <p><strong>坑 2：以为发 4K 图会更准。</strong>OpenAI high 把短边统一拉到 768px，传 4K 原图和传 1024² 在 token 上是一样的，模型看到的细节上限也一样。超出 768 短边的分辨率都是徒增体积、不增信息，还可能触发别处的缩放开销。</p>
+
+            <p><strong>坑 3：把整本 PDF 的截图一次性塞进一个请求。</strong>OpenAI 单次最多 10 张图、token 逐张叠加，塞太多既烧钱又容易触顶。长文档拆页、逐页分析、必要时只发关键页，才是可控的做法。更多隐性成本坑见 <a href="/blog/ai-api-hidden-cost-traps-2026">AI API 隐藏计费陷阱</a>。</p>
+
+            <h2>五、算清一笔月度账</h2>
+
+            <p>场景：某电商日均 1 万张商品图做分类 + 打标，平均 <code>1024×1024</code>，全部走 OpenAI GPT-4o 视觉（参考价输入约 $2.5 / 百万 token，以官方定价页为准）。</p>
+
+            <p><strong>全 high：</strong>1 万 × 765 = 765 万 input token / 天，乘 30 天 ≈ 2.295 亿 token / 月，× $2.5 / 1M ≈ <strong>$574 / 月</strong>（仅输入）。</p>
+
+            <p><strong>改 low：</strong>1 万 × 85 = 85 万 / 天，× 30 ≈ 2550 万 / 月，× $2.5 / 1M ≈ <strong>$63.75 / 月</strong>。光这一道闸就省约 <strong>$510 / 月，降幅近 89%</strong>。</p>
+
+            <p><strong>再换 Gemini Flash（258 / 张）：</strong>1 万 × 258 = 258 万 / 天，× 30 ≈ 7740 万 / 月，按参考价 $0.10 / 1M ≈ <strong>$7.74 / 月</strong>。对只做分类打标的简单任务，这就是三个数量级的差距。模型智商不是唯一变量，<strong>"图被切成多少 token"才是视觉 API 账单的真正开关</strong>。想看各家实时报价与可用性，去 <a href="/platform/openai">OpenAI 平台页</a>、<a href="/platform/anthropic-claude">Claude 平台页</a>、<a href="/platform/google-gemini">Gemini 平台页</a> 对比。</p>
+
+            <h2>结语</h2>
+
+            <p>文本还能靠"字数估算"粗略预判成本，图像的成本则完全由厂商的切块算法决定，跨厂商差出几倍甚至几十倍都不稀奇。把 <strong>默认 low + 发送前压尺寸 + 静态图缓存 + 非实时走 Batch + 简单任务选低价视觉模型</strong> 这五道闸装好，多数视觉业务的图像成本能直接砍掉八成以上，而且几乎不伤效果。和 <a href="/blog/ai-api-semantic-caching-llm-cost-reduction-guide-2026">语义缓存</a>、<a href="/blog/ai-api-prompt-caching-kv-cache-2026">提示词缓存</a>、<a href="/blog/ai-api-long-context-optimization">长上下文优化</a> 一样，视觉 API 的省钱本质都是同一句话：<strong>先看清钱被怎么算走，再决定怎么发</strong>。各家视觉计费规则随时在变，上 <a href="/">TokenNexus 首页</a> 查最新官方价与选型建议。</p>
+
+            <div class="author-card">
+                <div class="author-card-avatar"></div>
+                <div>
+                    <div class="author-card-name">TokenNexus团队</div>
+                    <div class="author-card-title">AI API 导航与选型研究</div>
+                    <div class="author-card-bio">TokenNexus 团队持续追踪全球主流大模型 API 的价格、计费规则与可用性变化，把分散在几十家官网与开发者社区里的信息整理成开发者可以直接用的选型依据。本文数据核对时间为 2026 年 10 月 29 日，计费公式与 token 数字引用自 OpenAI 官方视觉指南（经 prismix 整理实测）、Anthropic 官方 vision 文档的 px/750 公式与示例、Gemini 官方分块计费说明，以及 OpenAI 开发者社区对同一图像跨厂商 token 成本的实测对比帖。</div>
+                </div>
+            </div>
+
+            <h3>推荐阅读</h3>
+            <div class="related-posts">
+                <a href="/blog/ai-api-token-billing-guide" class="related-post">
+                    <div class="related-post-category">技术教程</div>
+                    <div class="related-post-title">AI API Token 计费完全指南：input/output、缓存与隐藏项</div>
+                </a>
+                <a href="/blog/ai-api-chinese-tokenizer-token-count-cost-guide-2026" class="related-post">
+                    <div class="related-post-category">技术教程</div>
+                    <div class="related-post-title">同一段中文在 GPT、Claude、Gemini 里各算几个 Token？分词器差异实测</div>
+                </a>
+                <a href="/blog/ai-api-semantic-caching-llm-cost-reduction-guide-2026" class="related-post">
+                    <div class="related-post-category">省钱攻略</div>
+                    <div class="related-post-title">语义缓存怎么替大模型 API 省下 60%-80% 调用费</div>
+                </a>
+            </div>
+
+            <div class="references-section">
+                <h4>参考资料</h4>
+                <ol>
+                    <li>OpenAI 视觉 API 计费与 detail 参数（low=85、high 按 512px 块 170 token + 85；1024² 实测 765）：<a href="https://prismix.dev/guides/openai-vision-guide" target="_blank" rel="noopener noreferrer">prismix.dev — OpenAI Vision API Guide 2025</a></li>
+                    <li>Anthropic 官方 vision 文档（token 公式 ≈ 宽×高/750，含 200×200≈54、1000×1000≈1334 示例）：<a href="https://docs.claude.com/en/docs/build-with-claude/vision" target="_blank" rel="noopener noreferrer">docs.claude.com — Claude Vision</a></li>
+                    <li>OpenAI 开发者社区：同一图像跨厂商 token 成本实测（GPT-4o-mini 与 Gemini 2.0 Flash 差约 31 倍）：<a href="https://community.openai.com/t/help-understand-token-usage-with-vision-api/893022/5" target="_blank" rel="noopener noreferrer">community.openai.com — Help understand token usage with vision API</a></li>
+                    <li>Gemini 视觉分块计费（≤384px 单图 258 token，更大按 768×768 块 258）：<a href="https://www.artificial-intelligence-wiki.com/generative-ai/large-language-models/openai-vision-api" target="_blank" rel="noopener noreferrer">artificial-intelligence-wiki.com — OpenAI Vision API（含三家计费对照）</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+<footer class="footer">
+        <div class="footer-logo">TokenNexus</div>
+        <div class="footer-text">致力于打造最全面的全球 AI Token 导航平台</div>
+        <div class="footer-links">
+            <a href="/about">关于我们</a>
+            <a href="/contact">联系我们</a>
+            <a href="/blog/guides">攻略中心</a>
+            <a href="/privacy">隐私政策</a>
+        </div>
+        <div class="footer-text" style="margin-top: 20px;">© 2024-2026 TokenNexus. All rights reserved.</div>
+    </footer>
+</body>
+</html>
