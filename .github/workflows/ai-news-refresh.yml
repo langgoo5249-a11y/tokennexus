@@ -1,10 +1,10 @@
 name: Refresh AI News
 
-# 每 3 小时抓取一次中英文 AI 新闻，更新 data/ai-news.json 后自动部署。
+# 每 3 小时抓取一次中英文 AI 新闻，更新 data/ai-news.json 后提交推送。
 #
-# 为什么自己部署而不依赖 deploy.yml：
-#   GitHub Actions 用内置 GITHUB_TOKEN 产生的 push 事件不会触发其他 workflow，
-#   所以这里 push 完必须自己跑一次 wrangler 部署，否则线上不会更新。
+# 部署方式：本仓库的 Cloudflare Pages 项目绑定了 GitHub 仓库，
+# push 到 main 后 Cloudflare 自动构建，因此这里不需要再跑 wrangler
+# （deploy.yml 的 wrangler 步骤依赖未配置的 CLOUDFLARE_API_TOKEN，长期失败，勿效仿）。
 
 on:
   schedule:
@@ -52,13 +52,7 @@ jobs:
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
       - name: Publish to Cloudflare Pages
-        if: steps.commit.outputs.changed == 'true'
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: |
-          npx --yes wrangler@4 pages deploy . \
-            --project-name=tokennexus --branch=main --commit-dirty=true
+        run: echo "已 push 到 main，Cloudflare Pages 会自动构建部署"
 
       - name: Notify IndexNow (homepage)
         if: steps.commit.outputs.changed == 'true'

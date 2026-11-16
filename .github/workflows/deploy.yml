@@ -25,17 +25,10 @@ jobs:
         with:
           node-version: '20'
 
-      # 2026-10-15 修正: 原用 cloudflare/pages-action@v1, 该仓库已被上游
-      # 删除(GitHub 404), 导致每次运行都卡在 "Prepare all required actions"
-      # 后中断, Set up job 失败 — 自 2026-09 起本工作流 11 连败从未成功过。
-      # 改用 numbertool 同款、已验证可用的 wrangler CLI 直接部署。
-      - name: Publish to Cloudflare Pages
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: |
-          npx --yes wrangler@4 pages deploy . \
-            --project-name=tokennexus --branch=main --commit-dirty=true
+      # 2026-11-16 修正: 本仓库的 Cloudflare Pages 项目已绑定 GitHub 仓库,
+      # push 到 main 后 Cloudflare 自动构建部署。原先此处的 wrangler 步骤
+      # 依赖未配置的 CLOUDFLARE_API_TOKEN/ACCOUNT_ID, 每次都 "Not logged in"
+      # 失败, 并使后续 IndexNow 步骤被跳过 — 已移除, 只保留搜索引擎通知。
 
       # ── 通知搜索引擎: 本次发布的 URL 新增 / 修改 / 删除 ──
       # 本站是静态 HTML 站, 仓库内容即线上产物, 因此直接用 git diff
