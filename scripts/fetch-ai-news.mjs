@@ -96,14 +96,16 @@ function stripHtml(input) {
   // 若先剥标签，`<[^>]+>` 会把整段 `<![CDATA[...]]>` 当作标签吃掉，
   // 导致大量源的标题解析为空（The Verge / OpenAI / 36氪 等均用 CDATA 包裹）。
   const unwrapped = String(input || '').replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1');
-  return decodeEntities(
-    unwrapped
+  // 跑两轮：不少源把 HTML 转义后再塞进 description（形如 &lt;p data-vmark="xxx"&gt;），
+  // 第一轮解码后标签才现形，必须在解码之后再剥一次，否则页面上会露出源码。
+  let text = unwrapped;
+  for (let i = 0; i < 2; i++) {
+    text = decodeEntities(text)
       .replace(/<script[\s\S]*?<\/script>/gi, ' ')
       .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-      .replace(/<[^>]+>/g, ' ')
-  )
-    .replace(/\s+/g, ' ')
-    .trim();
+      .replace(/<[^>]+>/g, ' ');
+  }
+  return text.replace(/<[^>]*$/g, '').replace(/\s+/g, ' ').trim();
 }
 
 function truncate(text, max) {
@@ -397,7 +399,15 @@ async function main() {
   const currentIds = new Set(fresh.map((it) => normalizeTitle(it.title)));
   const carried = previousItems
     .filter((it) => isFresh(it.publishedAt) && !currentIds.has(normalizeTitle(it.title)))
-    .map((it) => ({ ...it, carried: true }));
+    .map((it) => ({
+      ...it,
+      // 历史条目沿用上一版 JSON：清掉可能残留的 HTML，并去掉 ev_ 前缀，
+      // 避免 scoreCluster 再拼一次变成 ev_ev_xxx。
+      id: String(it.id || '').replace(/^(ev_)+/, ''),
+      title: stripHtml(it.title),
+      summary: stripHtml(it.summary),
+      carried: true,
+    }));
 
   const merged = dedupe([...fresh, ...carried]);
   const clusters = clusterEvents(merged);
