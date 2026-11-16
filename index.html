@@ -607,7 +607,7 @@ var _hmt = _hmt || [];
 
     /* Hero */
     .hero {
-      min-height: 100vh;
+      min-height: 72vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -2244,6 +2244,99 @@ var _hmt = _hmt || [];
       .mp-float-btn svg { width: 20px !important; height: 20px !important; }
       .mp-float-btn:hover { opacity: 1 !important; transform: scale(1.05) !important; }
     }
+
+    /* ========== AI 新闻三栏区（左：免费攻略 / 中：新闻公告 / 右：排行榜） ========== */
+    .news-hub { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; padding: 36px 24px 12px; }
+    .news-hub-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+    .news-hub-title { font-family: 'Orbitron', 'Noto Sans SC', sans-serif; font-size: 1.45rem; letter-spacing: .02em; display: flex; align-items: center; gap: 10px; }
+    .news-hub-title::before { content: ''; width: 4px; height: 22px; border-radius: 2px; background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple)); }
+    .news-hub-sub { color: var(--text-secondary); font-size: .82rem; margin-top: 6px; padding-left: 14px; }
+    .news-hub-meta { display: flex; align-items: center; gap: 8px; font-size: .76rem; color: var(--text-secondary); background: rgba(0,240,255,.05); border: 1px solid rgba(0,240,255,.15); border-radius: 99px; padding: 6px 14px; }
+    .news-hub-meta .pulse-dot { width: 7px; height: 7px; }
+
+    .news-hub-grid { display: grid; grid-template-columns: 300px minmax(0, 1fr) 340px; gap: 18px; align-items: start; }
+    .news-col { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+    .news-col-left, .news-col-rank { position: sticky; top: 84px; max-height: calc(100vh - 104px); overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(0,240,255,.25) transparent; }
+    .news-col-left::-webkit-scrollbar, .news-col-rank::-webkit-scrollbar { width: 5px; }
+    .news-col-left::-webkit-scrollbar-thumb, .news-col-rank::-webkit-scrollbar-thumb { background: rgba(0,240,255,.22); border-radius: 3px; }
+
+    .col-head { position: sticky; top: 0; z-index: 3; display: flex; align-items: center; gap: 9px; padding: 13px 15px; border-bottom: 1px solid rgba(0,240,255,.12); background: linear-gradient(90deg, rgba(0,240,255,.09), rgba(184,41,221,.05) 60%, transparent); backdrop-filter: blur(12px); }
+    .col-kicker { font-family: 'Orbitron', sans-serif; font-size: .66rem; color: var(--neon-cyan); opacity: .75; letter-spacing: .08em; }
+    .col-head h3 { font-size: .92rem; font-weight: 600; letter-spacing: .01em; }
+    .col-tabs { margin-left: auto; display: flex; gap: 4px; flex-wrap: wrap; }
+    .col-tab { background: transparent; border: 1px solid transparent; color: var(--text-secondary); font-size: .72rem; padding: 3px 9px; border-radius: 99px; cursor: pointer; font-family: inherit; transition: all .18s; }
+    .col-tab:hover { color: var(--neon-cyan); }
+    .col-tab.active { color: #01131a; background: var(--neon-cyan); border-color: var(--neon-cyan); font-weight: 600; }
+
+    .news-feed { flex: 1; min-width: 0; }
+    .news-item { display: block; padding: 13px 15px; border-bottom: 1px solid rgba(255,255,255,.05); text-decoration: none; color: inherit; transition: background .18s; }
+    .news-item:hover { background: rgba(0,240,255,.05); }
+    .news-item-top { display: flex; align-items: center; gap: 8px; font-size: .7rem; color: var(--text-secondary); margin-bottom: 6px; flex-wrap: wrap; }
+    .news-source { color: var(--neon-cyan); font-weight: 500; }
+    .news-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,.25); }
+    .news-item h4 { font-size: .92rem; line-height: 1.55; font-weight: 600; margin-bottom: 5px; transition: color .18s; }
+    .news-item:hover h4 { color: var(--neon-cyan); }
+    .news-item p { font-size: .78rem; line-height: 1.6; color: var(--text-secondary); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .news-tags { display: flex; gap: 5px; margin-top: 7px; flex-wrap: wrap; }
+    .news-tag { font-size: .66rem; padding: 1px 7px; border-radius: 99px; border: 1px solid rgba(0,240,255,.22); color: #8fe9f5; background: rgba(0,240,255,.05); }
+    .news-tag.free { border-color: rgba(255,215,0,.42); color: var(--gold); background: rgba(255,215,0,.07); }
+    .news-tag.hot { border-color: rgba(184,41,221,.42); color: #dc9bf0; background: rgba(184,41,221,.07); }
+    .news-empty { padding: 28px 16px; text-align: center; color: var(--text-secondary); font-size: .84rem; line-height: 1.9; }
+    .news-more-btn { display: block; width: 100%; padding: 11px; background: transparent; border: none; border-top: 1px solid rgba(255,255,255,.06); color: var(--neon-cyan); font-size: .78rem; cursor: pointer; font-family: inherit; }
+    .news-more-btn:hover { background: rgba(0,240,255,.05); }
+
+    .rank-list { list-style: none; margin: 0; padding: 0; }
+    .rank-item { display: flex; gap: 10px; padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,.05); text-decoration: none; color: inherit; }
+    .rank-item:hover { background: rgba(0,240,255,.05); }
+    .rank-num { font-family: 'Orbitron', sans-serif; font-size: .9rem; width: 20px; flex: none; text-align: center; color: var(--text-secondary); padding-top: 1px; }
+    .rank-list li:nth-child(1) .rank-num { color: var(--gold); }
+    .rank-list li:nth-child(2) .rank-num { color: #c9d3e3; }
+    .rank-list li:nth-child(3) .rank-num { color: #d08a4e; }
+    .rank-body { min-width: 0; flex: 1; }
+    .rank-title { font-size: .8rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .rank-meta { display: flex; align-items: center; gap: 6px; margin-top: 5px; font-size: .66rem; color: var(--text-secondary); }
+    .rank-delta { color: #3ddc84; }
+    .rank-delta.new { color: var(--gold); }
+    .rank-bar { height: 2px; margin-top: 6px; background: rgba(255,255,255,.06); border-radius: 2px; overflow: hidden; }
+    .rank-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple)); }
+    .rank-foot { padding: 10px 14px; font-size: .68rem; color: var(--text-secondary); border-top: 1px solid rgba(255,255,255,.05); }
+
+    .free-block { border-bottom: 1px solid rgba(255,255,255,.05); }
+    .free-block-title { padding: 11px 15px 5px; font-size: .66rem; letter-spacing: .1em; color: var(--text-secondary); text-transform: uppercase; font-family: 'Orbitron', sans-serif; }
+    .free-mini { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; padding: 8px 15px; text-decoration: none; color: inherit; }
+    .free-mini:hover strong { color: var(--neon-cyan); }
+    .free-mini strong { font-size: .8rem; font-weight: 600; transition: color .18s; }
+    .free-mini em { display: block; font-style: normal; font-size: .68rem; color: var(--text-secondary); margin-top: 2px; }
+    .free-mini-quota { flex: none; font-size: .66rem; color: var(--gold); text-align: right; max-width: 96px; line-height: 1.4; }
+    .guide-link { display: flex; gap: 8px; align-items: baseline; padding: 7px 15px; font-size: .78rem; color: var(--text-secondary); text-decoration: none; line-height: 1.5; }
+    .guide-link::before { content: '▸'; color: var(--neon-purple); font-size: .7rem; flex: none; }
+    .guide-link:hover { color: var(--neon-cyan); }
+    .col-foot-link { display: block; padding: 11px 15px; font-size: .76rem; color: var(--neon-cyan); text-decoration: none; border-top: 1px solid rgba(0,240,255,.1); }
+    .col-foot-link:hover { background: rgba(0,240,255,.05); }
+    .skeleton-row { height: 54px; margin: 9px 14px; border-radius: 8px; background: linear-gradient(90deg, rgba(255,255,255,.035), rgba(255,255,255,.075), rgba(255,255,255,.035)); background-size: 200% 100%; animation: newsSkeleton 1.4s ease-in-out infinite; }
+    @keyframes newsSkeleton { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+    @media (max-width: 1180px) {
+      .news-hub-grid { grid-template-columns: 260px minmax(0, 1fr) 300px; gap: 14px; }
+    }
+    @media (max-width: 1024px) {
+      .news-hub { padding: 28px 18px 10px; }
+      .news-hub-grid { grid-template-columns: 1fr 1fr; }
+      .news-col-left, .news-col-rank { position: static; max-height: none; }
+      .news-col-left { grid-column: 1; grid-row: 1; }
+      .news-col-rank { grid-column: 2; grid-row: 1; }
+      .news-col-main { grid-column: 1 / -1; grid-row: 2; }
+    }
+    @media (max-width: 760px) {
+      .news-hub-grid { grid-template-columns: 1fr; }
+      .news-col-left, .news-col-rank, .news-col-main { grid-column: 1; grid-row: auto; }
+      .news-col-main { grid-row: 1; }
+      .news-col-left { grid-row: 2; }
+      .news-col-rank { grid-row: 3; }
+      .news-hub-title { font-size: 1.2rem; }
+      .col-head { flex-wrap: wrap; }
+      .col-tabs { width: 100%; margin-left: 0; margin-top: 8px; }
+    }
     </style>
     <script src="/data/platforms.js" defer></script>
 
@@ -2343,8 +2436,85 @@ var _hmt = _hmt || [];
       </div>
     </section>
 
+    <!-- ========== AI 新闻采集公告区（左：免费 Token 攻略 / 中：新闻公告 / 右：热度排行榜） ========== -->
+    <section class="news-hub" id="aiNewsHub" aria-labelledby="aiNewsTitle">
+      <div class="news-hub-head">
+        <div>
+          <h2 class="news-hub-title" id="aiNewsTitle">AI 新闻采集公告区</h2>
+          <p class="news-hub-sub">12 个中英文 AI 信源实时汇总 · 每 3 小时自动更新 · 热度按多源报道与新鲜度加权</p>
+        </div>
+        <div class="news-hub-meta" id="newsMeta"><span class="pulse-dot"></span><span id="newsMetaText">新闻数据加载中…</span></div>
+      </div>
+      <div class="news-hub-grid">
+
+        <!-- 左栏：免费 Token 获取 / 免费平台 -->
+        <aside class="news-col news-col-left" aria-label="免费 Token 与免费平台攻略">
+          <div class="col-head">
+            <span class="col-kicker">01</span>
+            <h3>免费 Token 攻略</h3>
+          </div>
+          <div id="freePlatformList">
+            <div class="skeleton-row"></div>
+            <div class="skeleton-row"></div>
+            <div class="skeleton-row"></div>
+            <div class="skeleton-row"></div>
+          </div>
+          <div class="free-block" id="freePicksBlock" hidden>
+            <div class="free-block-title">最新免费动态</div>
+            <div id="freePicks"></div>
+          </div>
+          <div class="free-block">
+            <div class="free-block-title">站内省钱攻略</div>
+            <a class="guide-link" href="/blog/free-ai-api-guide-2026">2026 免费 AI API 清单：额度、限制与申请方式</a>
+            <a class="guide-link" href="/blog/ai-api-batch-mode-half-price-guide-2026">Batch API 批处理：同样的模型只花一半钱</a>
+            <a class="guide-link" href="/blog/ai-api-bill-explosion-hidden-costs-2026">月账单暴涨 4 倍：5 个隐形烧钱点</a>
+            <a class="guide-link" href="/blog/ai-api-caching-strategy">Prompt 缓存策略：重复上下文不再重复付费</a>
+          </div>
+          <a class="col-foot-link" href="/blog/guides">查看全部省钱攻略 →</a>
+        </aside>
+
+        <!-- 中栏：最新 AI 新闻公告 -->
+        <div class="news-col news-col-main">
+          <div class="col-head">
+            <span class="col-kicker">02</span>
+            <h3>最新 AI 新闻</h3>
+            <div class="col-tabs" id="newsTabs" role="tablist" aria-label="新闻筛选">
+              <button type="button" class="col-tab active" data-tab="all" role="tab" aria-selected="true">全部</button>
+              <button type="button" class="col-tab" data-tab="zh" role="tab" aria-selected="false">中文</button>
+              <button type="button" class="col-tab" data-tab="en" role="tab" aria-selected="false">英文</button>
+              <button type="button" class="col-tab" data-tab="free" role="tab" aria-selected="false">免费/开源</button>
+            </div>
+          </div>
+          <div class="news-feed" id="newsFeed">
+            <div class="skeleton-row"></div>
+            <div class="skeleton-row"></div>
+            <div class="skeleton-row"></div>
+            <div class="skeleton-row"></div>
+            <div class="skeleton-row"></div>
+          </div>
+          <button type="button" class="news-more-btn" id="newsMoreBtn" hidden>展开全部新闻</button>
+        </div>
+
+        <!-- 右栏：热度排行榜 -->
+        <aside class="news-col news-col-rank" aria-label="AI 新闻热度排行榜">
+          <div class="col-head">
+            <span class="col-kicker">03</span>
+            <h3>新闻热度榜</h3>
+          </div>
+          <ol class="rank-list" id="rankList">
+            <li class="skeleton-row"></li>
+            <li class="skeleton-row"></li>
+            <li class="skeleton-row"></li>
+            <li class="skeleton-row"></li>
+          </ol>
+          <div class="rank-foot">按报道源数量、发布新鲜度与关键词热度综合加权，每 3 小时重新计算</div>
+        </aside>
+
+      </div>
+    </section>
+
     <!-- 顶部横幅 -->
-    <div class="top-banner" style="margin-top: 100px; min-height: 90px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(0,240,255,0.08), rgba(184,41,221,0.08)); border: 1px solid rgba(0,240,255,0.15); border-radius: 8px; padding: 20px; gap: 16px;">
+    <div class="top-banner" style="margin-top: 28px; min-height: 90px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(0,240,255,0.08), rgba(184,41,221,0.08)); border: 1px solid rgba(0,240,255,0.15); border-radius: 8px; padding: 20px; gap: 16px;">
       <div style="font-size: 2rem;">💰</div>
       <div>
         <div style="font-size: 1.1rem; font-weight: 600; color: #fff;">AI API月账单从3000暴涨到12000？5个隐形杀手在吞钱</div>
@@ -2913,6 +3083,229 @@ var _hmt = _hmt || [];
     function toggleMobileMenu() {
       document.getElementById('navLinks').classList.toggle('show');
     }
+
+    // ==================== AI 新闻采集公告区 ====================
+    (function () {
+      const NEWS_URL = '/data/ai-news.json';
+      const COLLAPSED_COUNT = 12;
+      const state = { news: [], ranking: [], free: [], tab: 'all', expanded: false };
+
+      function esc(str) {
+        return String(str == null ? '' : str).replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+
+      function timeAgo(iso) {
+        const t = Date.parse(iso);
+        if (!t) return '';
+        const diff = Date.now() - t;
+        if (diff < 60000) return '刚刚';
+        const m = Math.floor(diff / 60000);
+        if (m < 60) return m + ' 分钟前';
+        const h = Math.floor(m / 60);
+        if (h < 24) return h + ' 小时前';
+        return Math.floor(h / 24) + ' 天前';
+      }
+
+      function isFree(item) {
+        return !!(item && (item.free || item.openSource));
+      }
+
+      // ---- 左栏：免费额度平台（来自站内 platforms 数据） ----
+      function renderFreePlatforms() {
+        const box = document.getElementById('freePlatformList');
+        if (!box) return;
+        const all = (typeof platforms !== 'undefined' && Array.isArray(platforms)) ? platforms : [];
+        const list = all.filter(function (p) {
+          const text = [p.pricing, (p.tags || []).join(' '), p.description].join(' ');
+          return /免费|free|赠送|试用/i.test(text);
+        }).slice(0, 6);
+        if (!list.length) {
+          box.innerHTML = '<div class="news-empty">暂未匹配到免费额度平台，可先看下方攻略。</div>';
+          return;
+        }
+        box.innerHTML = list.map(function (p) {
+          const quota = String(p.pricing || '').trim();
+          const href = p.detailUrl || p.url || '#';
+          const external = p.detailUrl ? '' : ' target="_blank" rel="noopener nofollow"';
+          const sub = (p.tags || []).slice(0, 2).join(' · ') || '免费额度';
+          return '<a class="free-mini" href="' + esc(href) + '"' + external + '>' +
+            '<span><strong>' + esc(p.name) + '</strong><em>' + esc(sub) + '</em></span>' +
+            '<span class="free-mini-quota">' + esc(quota.length > 16 ? quota.slice(0, 16) + '…' : (quota || '免费')) + '</span>' +
+          '</a>';
+        }).join('');
+      }
+
+      // ---- 左栏：新闻中抓到的免费/开源动态 ----
+      function renderFreePicks() {
+        const block = document.getElementById('freePicksBlock');
+        const box = document.getElementById('freePicks');
+        if (!block || !box) return;
+        if (!state.free.length) {
+          block.hidden = true;
+          return;
+        }
+        block.hidden = false;
+        box.innerHTML = state.free.slice(0, 4).map(function (item) {
+          return '<a class="guide-link" href="' + esc(item.url) + '" target="_blank" rel="noopener nofollow">' +
+            esc(item.title) + '</a>';
+        }).join('');
+      }
+
+      // ---- 中栏：新闻列表 ----
+      function newsItemHTML(item) {
+        const tags = [];
+        if (isFree(item)) tags.push('<span class="news-tag free">' + (item.openSource ? '开源' : '免费') + '</span>');
+        if (item.score >= 40) tags.push('<span class="news-tag hot">热议</span>');
+        (item.tags || []).slice(0, 2).forEach(function (t) {
+          tags.push('<span class="news-tag">' + esc(t) + '</span>');
+        });
+        const sourceCount = item.reportCount > 1
+          ? '<span class="news-dot"></span><span>' + item.reportCount + ' 源报道</span>'
+          : '';
+        return '<a class="news-item" href="' + esc(item.url) + '" target="_blank" rel="noopener nofollow">' +
+          '<div class="news-item-top">' +
+            '<span class="news-source">' + esc(item.source) + '</span>' +
+            '<span class="news-dot"></span><span>' + esc(timeAgo(item.publishedAt)) + '</span>' + sourceCount +
+          '</div>' +
+          '<h4>' + esc(item.title) + '</h4>' +
+          (item.summary ? '<p>' + esc(item.summary) + '</p>' : '') +
+          (tags.length ? '<div class="news-tags">' + tags.join('') + '</div>' : '') +
+        '</a>';
+      }
+
+      function filteredNews() {
+        if (state.tab === 'zh' || state.tab === 'en') {
+          return state.news.filter(function (i) { return i.lang === state.tab; });
+        }
+        if (state.tab === 'free') {
+          return state.news.filter(isFree);
+        }
+        return state.news;
+      }
+
+      function renderFeed() {
+        const feed = document.getElementById('newsFeed');
+        const btn = document.getElementById('newsMoreBtn');
+        if (!feed) return;
+        const list = filteredNews();
+        if (!list.length) {
+          feed.innerHTML = '<div class="news-empty">该分类暂无新闻<br>数据每 3 小时自动更新，可先切换到「全部」。</div>';
+          if (btn) btn.hidden = true;
+          return;
+        }
+        const shown = state.expanded ? list : list.slice(0, COLLAPSED_COUNT);
+        feed.innerHTML = shown.map(newsItemHTML).join('');
+        if (btn) {
+          if (list.length > COLLAPSED_COUNT) {
+            btn.hidden = false;
+            btn.textContent = state.expanded ? '收起列表' : '展开全部 ' + list.length + ' 条新闻';
+          } else {
+            btn.hidden = true;
+          }
+        }
+      }
+
+      // ---- 右栏：热度排行榜 ----
+      function renderRanking() {
+        const box = document.getElementById('rankList');
+        if (!box) return;
+        if (!state.ranking.length) {
+          box.innerHTML = '<li class="news-empty">排行榜数据加载中或暂时不可用。</li>';
+          return;
+        }
+        const max = Math.max.apply(null, state.ranking.map(function (i) { return i.score || 0; })) || 1;
+        box.innerHTML = state.ranking.slice(0, 10).map(function (item, idx) {
+          let delta = '';
+          if (item.rankDelta === null || item.rankDelta === undefined) {
+            delta = '<span class="rank-delta new">NEW</span>';
+          } else if (item.rankDelta > 0) {
+            delta = '<span class="rank-delta">↑' + item.rankDelta + '</span>';
+          }
+          const pct = Math.max(8, Math.round((item.score || 0) / max * 100));
+          return '<li>' +
+            '<a class="rank-item" href="' + esc(item.url) + '" target="_blank" rel="noopener nofollow">' +
+              '<span class="rank-num">' + (idx + 1) + '</span>' +
+              '<div class="rank-body">' +
+                '<div class="rank-title">' + esc(item.title) + '</div>' +
+                '<div class="rank-meta"><span>' + esc(item.source) + '</span>' +
+                  '<span class="news-dot"></span><span>' + esc(timeAgo(item.publishedAt)) + '</span>' + delta +
+                '</div>' +
+                '<div class="rank-bar"><i style="width:' + pct + '%"></i></div>' +
+              '</div>' +
+            '</a>' +
+          '</li>';
+        }).join('');
+      }
+
+      function renderMeta(data) {
+        const text = document.getElementById('newsMetaText');
+        if (!text) return;
+        const d = new Date(data.generatedAt || Date.now());
+        const pad = function (n) { return n < 10 ? '0' + n : '' + n; };
+        const time = (d.getMonth() + 1) + '-' + pad(d.getDate()) + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+        const stats = data.stats || {};
+        text.textContent = '更新于 ' + time + ' · 信源 ' + (stats.sourcesOk || 0) + '/' + (stats.sourcesTotal || 0) + ' 正常';
+      }
+
+      function bindTabs() {
+        const tabs = document.getElementById('newsTabs');
+        if (!tabs) return;
+        tabs.addEventListener('click', function (e) {
+          const btn = e.target.closest('.col-tab');
+          if (!btn) return;
+          state.tab = btn.dataset.tab || 'all';
+          state.expanded = false;
+          tabs.querySelectorAll('.col-tab').forEach(function (t) {
+            const active = t === btn;
+            t.classList.toggle('active', active);
+            t.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          renderFeed();
+        });
+        const more = document.getElementById('newsMoreBtn');
+        if (more) {
+          more.addEventListener('click', function () {
+            state.expanded = !state.expanded;
+            renderFeed();
+          });
+        }
+      }
+
+      function fail() {
+        const text = document.getElementById('newsMetaText');
+        if (text) text.textContent = '新闻源暂时不可用，稍后自动重试';
+        const feed = document.getElementById('newsFeed');
+        if (feed) feed.innerHTML = '<div class="news-empty">新闻数据暂时不可用<br>可先浏览左侧免费额度平台与下方站内攻略。</div>';
+        const rank = document.getElementById('rankList');
+        if (rank) rank.innerHTML = '<li class="news-empty">排行榜暂时不可用</li>';
+      }
+
+      function init() {
+        renderFreePlatforms();
+        bindTabs();
+        fetch(NEWS_URL + '?t=' + Date.now(), { cache: 'no-store' })
+          .then(function (r) {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.json();
+          })
+          .then(function (data) {
+            state.news = (data.news || []).slice().sort(function (a, b) {
+              return Date.parse(b.publishedAt || 0) - Date.parse(a.publishedAt || 0);
+            });
+            state.ranking = data.ranking || [];
+            state.free = data.freeTakes || [];
+            renderMeta(data);
+            renderFeed();
+            renderRanking();
+            renderFreePicks();
+          })
+          .catch(fail);
+      }
+
+      document.addEventListener('DOMContentLoaded', init);
+    })();
 
     // ==================== 弹窗 ====================
 </script>
