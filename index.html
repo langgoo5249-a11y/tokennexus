@@ -250,7 +250,7 @@ var _hmt = _hmt || [];
           "@id": "https://www.tokenfind.cn/#ai-news-hub",
           "name": "AI 新闻采集公告区",
           "url": "https://www.tokenfind.cn/",
-          "description": "聚合 12 个中英文 AI 信源的最新人工智能新闻，每 3 小时自动更新，并按多源报道、新鲜度与关键词热度生成新闻排行榜，同步提供免费 Token 获取与免费 AI 平台攻略。",
+          "description": "聚合 12 个中英文 AI 信源的最新人工智能新闻，每 2 小时自动更新，并按多源报道、新鲜度与关键词热度生成新闻排行榜，同步提供免费 Token 获取与免费 AI 平台攻略。",
           "inLanguage": ["zh-CN", "en"],
           "isPartOf": { "@id": "https://www.tokenfind.cn/#webpage" }
         }
@@ -2488,7 +2488,7 @@ var _hmt = _hmt || [];
       <div class="news-hub-head">
         <div>
           <h2 class="news-hub-title" id="aiNewsTitle">AI 新闻采集公告区</h2>
-          <p class="news-hub-sub">12 个中英文 AI 信源实时汇总 · 每 3 小时自动更新 · 热度按多源报道与新鲜度加权</p>
+          <p class="news-hub-sub">12 个中英文 AI 信源实时汇总 · 每 2 小时自动更新 · 热度按多源报道与新鲜度加权</p>
         </div>
         <div class="news-hub-meta" id="newsMeta"><span class="pulse-dot"></span><span id="newsMetaText">新闻数据加载中…</span></div>
       </div>
@@ -2554,7 +2554,7 @@ var _hmt = _hmt || [];
             <li class="skeleton-row"></li>
             <li class="skeleton-row"></li>
           </ol>
-          <div class="rank-foot">按报道源数量、发布新鲜度与关键词热度综合加权，每 3 小时重新计算</div>
+          <div class="rank-foot">按报道源数量、发布新鲜度与关键词热度综合加权，每 2 小时重新计算</div>
         </aside>
 
       </div>
@@ -3238,7 +3238,7 @@ var _hmt = _hmt || [];
         if (!feed) return;
         const list = filteredNews();
         if (!list.length) {
-          feed.innerHTML = '<div class="news-empty">该分类暂无新闻<br>数据每 3 小时自动更新，可先切换到「全部」。</div>';
+          feed.innerHTML = '<div class="news-empty">该分类暂无新闻<br>数据每 2 小时自动更新，可先切换到「全部」。</div>';
           if (btn) btn.hidden = true;
           return;
         }

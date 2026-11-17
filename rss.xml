@@ -3,11 +3,47 @@
   <channel>
     <title>TokenNexus · AI 新闻采集公告区</title>
     <link>https://www.tokenfind.cn/</link>
-    <description>聚合 12 个中英文 AI 信源的最新人工智能新闻，每 3 小时自动更新，并按多源报道、新鲜度与关键词热度生成排行榜。</description>
+    <description>聚合 12 个中英文 AI 信源的最新人工智能新闻，每 2 小时自动更新，并按多源报道、新鲜度与关键词热度生成排行榜。</description>
     <language>zh-cn</language>
     <atom:link href="https://www.tokenfind.cn/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Tue, 17 Nov 2026 00:45:41 GMT</lastBuildDate>
-    <ttl>180</ttl>
+    <lastBuildDate>Tue, 17 Nov 2026 01:08:46 GMT</lastBuildDate>
+    <ttl>120</ttl>
+    <item>
+      <title>超频玩家借助 AI 修改主板 BIOS：尝试复活华擎 SkyOC BCLK 超频功能，绕过英特尔非 K 处理器限制</title>
+      <link>https://www.ithome.com/1/028/053.htm</link>
+      <guid isPermaLink="false">ev_1yciqhn</guid>
+      <pubDate>Tue, 17 Nov 2026 01:04:11 GMT</pubDate>
+      <description>IT之家 11 月 17 日消息，据 Tom's Hardware 昨日报道，一名硬件超频爱好者尝试借助 AI 修改主板 BIOS，重新启用华擎此前已经取消的 SkyOC 技术，以绕过英特尔非 K 系列处理器的超频限制。 Hardware 360º 在 X 上发布消息称，他借助 ChatGPT Astra，对两个不同版本的华擎 BIOS 进行了反编译和代码对…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>OpenAI 奥尔特曼谈黄仁勋离职：我也被解雇过，相信 AI 行业能平稳度过</title>
+      <link>https://www.ithome.com/1/028/052.htm</link>
+      <guid isPermaLink="false">ev_1j4qdhw</guid>
+      <pubDate>Tue, 17 Nov 2026 01:03:01 GMT</pubDate>
+      <description>IT之家 11 月 17 日消息，据彭博社今天报道，OpenAI 首席执行官萨姆 · 奥尔特曼表示，即使英伟达前 CEO 黄仁勋不再掌舵，AI 行业依然会“运转良好”。 当被问及是否认为黄仁勋应该重返英伟达时，奥尔特曼表示：“我认为自己掌握的信息不足以回答这个问题。” 不过他对黄仁勋的处境表示同情 ， 并提到了自己 2023 年被 OpenAI 董事会罢免的…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>Edge AI Daily 早报（11月17日）</title>
+      <link>https://www.tmtpost.com/8207785.html</link>
+      <guid isPermaLink="false">ev_qsbbfy</guid>
+      <pubDate>Tue, 17 Nov 2026 00:55:53 GMT</pubDate>
+      <description>英伟达领导层变动、Anthropic拟上市与财报窗口，使AI交易从增长叙事转向现金流、资本效率和治理连续性验证；美国将先进芯片出口管制延伸至远程算力与最终用户审查。OpenAI在儿童安全、媒体分发与健康研究上推进基础设施化，同时因自主智能体安全遭加州起诉。Claude Fable 5.2展现过程智能，谷歌Gemini4Carbon接入腾讯WorkBuddy，…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>Switch 2 被发现桌面同款 DLSS 4：输入特征缩减 75%、预设 H/I 两大低负载模式</title>
+      <link>https://www.ithome.com/1/028/049.htm</link>
+      <guid isPermaLink="false">ev_1bttf7s</guid>
+      <pubDate>Tue, 17 Nov 2026 00:49:11 GMT</pubDate>
+      <description>IT之家 11 月 17 日消息，开发者 Eren Doğan 昨日（11 月 16 日）在 X 平台发布推文，披露称 他从任天堂 Switch 2 中提取出英伟达 DLSS 模型，发现其中包含 DLSS 4 引入的第一代 Transformer 模型，模型权重与 PC 桌面版相同 ，但未发现 DLSS 4.5 模型。 根据挖掘的代码信息，Switch 2 …</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
     <item>
       <title>卖股票必须提前 30 天写书面计划：Anthropic 上市前把“高管紧箍咒”套在了每个普通员工头上</title>
       <link>https://www.ithome.com/1/028/040.htm</link>
@@ -241,42 +277,6 @@
       <description>OpenAI CEO Sam Altman acknowledged the special role Nvidia CEO Jensen Huang has played in the AI boom, but ultimately thinks the industry will be “fine” without him at the helm.</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>English</category>
-    </item>
-    <item>
-      <title>FBI says Artex AI open source hacking tool used to breach networks in ‘under three hours’</title>
-      <link>https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/</link>
-      <guid isPermaLink="false">ev_1ct0bs8</guid>
-      <pubDate>Mon, 16 Nov 2026 17:36:43 GMT</pubDate>
-      <description>The FBI says that the open source hacking tool was used in cyberattacks targeting a U.S. IT giant and the South Korean financial industry.</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>消息人士称 360 市场负责人卜思南涉嫌职务侵占已被警方带走调查</title>
-      <link>https://www.ithome.com/1/028/009.htm</link>
-      <guid isPermaLink="false">ev_182ux78</guid>
-      <pubDate>Mon, 16 Nov 2026 17:16:43 GMT</pubDate>
-      <description>IT之家 11 月 17 日消息，综合第一财经、鞭牛士报道，多位消息人士透露， 360 副总裁、市场部负责人卜思南因涉嫌职务侵占等案件已在上周一被警方带走调查 。截至发稿，360 方面暂未回应。 今年 8 月，360 集团宣布，为推进“安全 +AI”战略，对集团市场与传播中心进行组织调整，设立公关部和市场部，任命卜思南为市场部负责人，向周鸿祎汇报。 消息人士…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>Jordan Belfort’s new AI voice startup, Tone, wants to sell like the ‘Wolf of Wall Street’</title>
-      <link>https://techcrunch.com/2026/11/16/jordan-belforts-new-ai-voice-startup-tone-wants-to-sell-like-the-wolf-of-wall-street/</link>
-      <guid isPermaLink="false">ev_d34h9t</guid>
-      <pubDate>Mon, 16 Nov 2026 17:10:00 GMT</pubDate>
-      <description>Belfort claims his AI sales voice can already close deals almost as well as the best human salespeople, and he thinks it will catch up in a year.</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>华为 Mate 90 系列手机 HarmonyOS 7 小艺 AI 快捷栏适配效果公开</title>
-      <link>https://www.ithome.com/1/028/007.htm</link>
-      <guid isPermaLink="false">ev_fpd8wm</guid>
-      <pubDate>Mon, 16 Nov 2026 17:05:15 GMT</pubDate>
-      <description>IT之家 11 月 17 日消息，在今年 9 月 7 日的 HarmonyOS 7 | HUAWEI Mate XT 2 及全场景新品发布会上，鸿蒙 7 操作系统正式发布。在发布会现场，华为还剧透了全新功能 —— 小艺 AI 快捷栏。官方 PPT 页面显示，该功能开启后，小艺将在手机桌面底部的 Dock 栏常驻。 根据最新规划， 华为 Mate 90、Mat…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
     </item>
   </channel>
 </rss>

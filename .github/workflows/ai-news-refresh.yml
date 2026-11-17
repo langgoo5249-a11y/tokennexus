@@ -1,6 +1,6 @@
 name: Refresh AI News
 
-# 每 3 小时抓取一次中英文 AI 新闻，更新 data/ai-news.json 后提交推送。
+# 每 2 小时抓取一次中英文 AI 新闻，更新 data/ai-news.json 后提交推送。
 #
 # 部署方式：本仓库的 Cloudflare Pages 项目绑定了 GitHub 仓库，
 # push 到 main 后 Cloudflare 自动构建，因此这里不需要再跑 wrangler
@@ -8,8 +8,8 @@ name: Refresh AI News
 
 on:
   schedule:
-    # UTC 每 3 小时整点。北京时间 = UTC+8
-    - cron: '0 */3 * * *'
+    # UTC 每 2 小时整点。北京时间 = UTC+8
+    - cron: '0 */2 * * *'
   workflow_dispatch:
 
 permissions:
