@@ -6,8 +6,134 @@
     <description>聚合 12 个中英文 AI 信源的最新人工智能新闻，每 2 小时自动更新，并按多源报道、新鲜度与关键词热度生成排行榜。</description>
     <language>zh-cn</language>
     <atom:link href="https://www.tokenfind.cn/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Tue, 17 Nov 2026 01:14:38 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 17 Nov 2026 10:21:04 GMT</lastBuildDate>
     <ttl>120</ttl>
+    <item>
+      <title>欧洲云服务企业 OVH 涉足 AI 模型，开源发布 Olala mini 7A1B</title>
+      <link>https://www.ithome.com/1/028/453.htm</link>
+      <guid isPermaLink="false">ev_97lhtj</guid>
+      <pubDate>Tue, 17 Nov 2026 10:06:46 GMT</pubDate>
+      <description>IT之家 11 月 17 日消息，欧洲云服务企业 OVHcloud 当地时间今日宣布推出其首个 AI 模型家族 Olala，同时公布了该系列的首个成员 Olala mini 7A1B。 Olala mini 7A1B 采用结合了 Differential-TPA 和 Mamba-3 的混合注意力机制，总参数 70 亿、激活参数 10 亿，使用 BF16 数据…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>Mac 收紧权限，苹果开始防着 AI 了</title>
+      <link>https://www.ifanr.com/1689832</link>
+      <guid isPermaLink="false">ev_v67rgs</guid>
+      <pubDate>Tue, 17 Nov 2026 10:00:27 GMT</pubDate>
+      <description>AI 越自由，人越麻烦 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>小米雷军：具身智能机器人未来一定是一个巨大的产业机会，它的想象力会超过汽车产业</title>
+      <link>https://www.ithome.com/1/028/437.htm</link>
+      <guid isPermaLink="false">ev_1twdqit</guid>
+      <pubDate>Tue, 17 Nov 2026 09:53:00 GMT</pubDate>
+      <description>IT之家 11 月 17 日消息，2026 年 APEC 工商领导人峰会 11 月 17 日至 18 日在深圳举办，主题为“共促繁荣，共赢未来”。小米创办人、董事长兼 CEO 雷军认为， 过去 4 年时间，AI 大模型的技术突飞猛进，给我们的生活工作带来了巨大变化 。 雷军表示，当 AI 走向物理世界、与终端和各类应用场景深度结合之后，机会巨大。比如 AI …</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>谷歌 Gemini 4 Argon 安全测试失控：40 个 AI 智能体擅自攻击真实网站，还互相分享漏洞</title>
+      <link>https://www.ithome.com/1/028/433.htm</link>
+      <guid isPermaLink="false">ev_1jiub01</guid>
+      <pubDate>Tue, 17 Nov 2026 09:41:54 GMT</pubDate>
+      <description>IT之家 11 月 17 日消息，在一项最新的 AI 安全实验中，谷歌最新推出的 Gemini 4 Argon 智能体在接到一项根本不可能完成的任务后，被发现反复使用未经授权的手段访问一家真实机构的系统，试图获取不存在的问题对应的官方答案。 据IT之家了解，这项实验由 AI 安全研究公司 Trajectory Labs 进行，目的是观察 Gemini 智能体…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>华为 Mate 90 系列手机获鸿蒙 HarmonyOS 7.0.0.115 升级，AI 快捷栏如约上线</title>
+      <link>https://www.ithome.com/1/028/432.htm</link>
+      <guid isPermaLink="false">ev_1eeqfia</guid>
+      <pubDate>Tue, 17 Nov 2026 09:36:22 GMT</pubDate>
+      <description>IT之家 11 月 17 日消息，华为 Mate 90 系列手机今日率先开启鸿蒙 HarmonyOS 7.0.0.115 SP11 版本升级，系统包大小约 10.31GB， 带来了 AI 快捷栏等功能 。 IT之家附华为 Mate 90 系列手机此次更新内容如下： 桌面 桌面新增 AI 快捷栏， 按住 AI 圆环可直接说话 ， 点击可探索更多 AI 服务 （…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>DeepSeek限额，C端付费的前奏？</title>
+      <link>https://www.tmtpost.com/8207729.html</link>
+      <guid isPermaLink="false">ev_127o2sk</guid>
+      <pubDate>Tue, 17 Nov 2026 09:21:49 GMT</pubDate>
+      <description>DeepSeek的AGI之路</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>瑞士生物科技企业Orbis Medicines研发AI驱动高通量药物发现工艺，设计新型口服大环药物</title>
+      <link>https://www.tmtpost.com/8207902.html</link>
+      <guid isPermaLink="false">ev_3dbkor</guid>
+      <pubDate>Tue, 17 Nov 2026 09:21:45 GMT</pubDate>
+      <description>潜在化学设计空间可达10³⁰种结构组合。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>AI4S火热，离“ChatGPT时刻”还有多远？</title>
+      <link>https://www.tmtpost.com/8207938.html</link>
+      <guid isPermaLink="false">ev_1py5abc</guid>
+      <pubDate>Tue, 17 Nov 2026 09:21:39 GMT</pubDate>
+      <description>AI走进实验室，但离独立搞科研还很远。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>腾讯加速挺进AI下半场</title>
+      <link>https://www.tmtpost.com/8207501.html</link>
+      <guid isPermaLink="false">ev_ytpcyw</guid>
+      <pubDate>Tue, 17 Nov 2026 09:21:36 GMT</pubDate>
+      <description>腾讯正在进化成为一家AI科技公司</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>DeepSeek 不限额的用法，都在这里了 | 附指南</title>
+      <link>https://www.ifanr.com/1689869</link>
+      <guid isPermaLink="false">ev_x4myf8</guid>
+      <pubDate>Tue, 17 Nov 2026 08:51:24 GMT</pubDate>
+      <description>花钱接 API，导入历史记录 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>黄仁勋被换，像极了当年的胡宗宪</title>
+      <link>https://www.tmtpost.com/8207408.html</link>
+      <guid isPermaLink="false">ev_1sq6r14</guid>
+      <pubDate>Tue, 17 Nov 2026 07:52:44 GMT</pubDate>
+      <description>离了“黄屠户”，英伟达真就没肉好吃了么？</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>闲鱼亮相联合国气候变化大会：AI加速闲置流转，低碳融入日常</title>
+      <link>https://www.leiphone.com/category/industrynews/fZwDw188Li4SuyQM.html</link>
+      <guid isPermaLink="false">ev_ybqk5s</guid>
+      <pubDate>Tue, 17 Nov 2026 06:40:00 GMT</pubDate>
+      <description>一台上架长达923天的相机，在AI辅助调整商品信息和价格并重新发布后，仅用时约两小时便成功出售；一台屏幕损坏、看似失去使用价值的便携影音播放器，经AI梳理故障和剩余可用功能后，仅65分钟便找到了买家，实现物尽其用。 当地时间11月14日，在土耳其安塔利亚举行的第31届联合国气候变化大会（COP31）中国角边会上，闲鱼ESG负责人李翔分享了两个AI促进闲置流通…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>微软全球大宕机，AI 怎么又成了背锅侠</title>
+      <link>https://www.ifanr.com/1689638</link>
+      <guid isPermaLink="false">ev_t3ueck</guid>
+      <pubDate>Tue, 17 Nov 2026 02:23:50 GMT</pubDate>
+      <description>微软宕机与美国航班停飞，背后都是 AI 失控吗？ #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>网传360集团副总裁涉贪腐问题被带走调查；英伟达董事会：没考虑让黄仁勋复任CEO；知名手游宣布明年3月停止运营，曾月流水破10亿</title>
+      <link>https://www.leiphone.com/category/zaobao/ksECYyYOXDL6IQ2q.html</link>
+      <guid isPermaLink="false">ev_5fzjlx</guid>
+      <pubDate>Tue, 17 Nov 2026 01:33:00 GMT</pubDate>
+      <description>要闻提示 1.黄仁勋借钱成新型诈骗！英伟达董事会：没考虑让黄仁勋复任 CEO 2.已到生死存亡时刻！腾讯内部讲话：现在不是和平年代，大家不能自以为站在高处很安全 3.网传360集团副总裁卜思南涉贪腐问题被带走调查，本人回应：不是真的，在处理ing 4.网易《哈利波特：魔法觉醒》手游宣布明年 3 月停止运营，曾月流水破10亿 5.AI 演员方桃子代言美瞳广告被…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
     <item>
       <title>超频玩家借助 AI 修改主板 BIOS：尝试复活华擎 SkyOC BCLK 超频功能，绕过英特尔非 K 处理器限制</title>
       <link>https://www.ithome.com/1/028/053.htm</link>
@@ -81,6 +207,15 @@
       <category>中文</category>
     </item>
     <item>
+      <title>Strengthening NATO and allied cyber defenses with AI</title>
+      <link>https://openai.com/index/strengthening-nato-allied-cyber-defences-ai</link>
+      <guid isPermaLink="false">ev_kf9qcn</guid>
+      <pubDate>Tue, 17 Nov 2026 00:00:00 GMT</pubDate>
+      <description>How OpenAI is working with NATO and allied cyber agencies to help trusted defenders find vulnerabilities, test fixes and protect essential systems.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
       <title>苹果 iOS 27.3 测试版新增 Siri AI 每日限额，付费订阅 iCloud+ 可提升 2~20 倍</title>
       <link>https://www.ithome.com/1/028/033.htm</link>
       <guid isPermaLink="false">ev_1rsxsxp</guid>
@@ -142,141 +277,6 @@
       <description>IT之家 11 月 17 日消息，OpenAI 宣布扩大面向学术研究人员的 ChatGPT 免费使用计划（ChatGPT for Academic Researchers），目标是为全球最多 20 万名研究人员提供免费访问权限。 OpenAI 今日宣布，新一轮申请将于当地时间 11 月 23 日开放，计划新增 5 万个免费访问名额。 根据 OpenAI 公告…</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>中文</category>
-    </item>
-    <item>
-      <title>Tech leaders are convinced that Jensen Huang’s exit was a plot against him</title>
-      <link>https://www.theverge.com/tech/1035027/tech-leaders-nvidia-jensen-huang-theories</link>
-      <guid isPermaLink="false">ev_130mgby</guid>
-      <pubDate>Mon, 16 Nov 2026 23:17:34 GMT</pubDate>
-      <description>Jensen Huang's stunning resignation from Nvidia after more than 33 years has sent shockwaves throughout the tech industry. Now prominent figures are calling for Huang's reinstateme…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>OpenAI 与 Goodfire 达成 AI 安全合作，此前曾探讨超 50 亿美元收购</title>
-      <link>https://www.ithome.com/1/028/024.htm</link>
-      <guid isPermaLink="false">ev_6uusqh</guid>
-      <pubDate>Mon, 16 Nov 2026 23:12:19 GMT</pubDate>
-      <description>IT之家 11 月 17 日消息，今日，OpenAI 宣布与 Apollo Research、METR、Transluce 和 Goodfire 达成合作，将启动首阶段嵌入式评估项目（Embedded Assessments），共同开展模型可解释性与安全评估工作。 与此同时，据《The Information》今日报道，OpenAI 此前曾探讨以超过 50 …</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>美国推动全栈 AI / SI 技术出海：首批 33 个联盟获指定，覆盖芯片、模型及行业应用</title>
-      <link>https://www.ithome.com/1/028/022.htm</link>
-      <guid isPermaLink="false">ev_8hcztb</guid>
-      <pubDate>Mon, 16 Nov 2026 23:01:32 GMT</pubDate>
-      <description>IT之家 11 月 17 日消息，美国商务部当地时间 11 月 16 日宣布，美国 SI 出口计划（American SI Exports Program）进入新阶段，首批指定 33 个预先组建的产业联盟，提供面向海外市场的全栈超级智能（SI）技术出口方案。同时，项目将于 11 月 30 日开放按需组建联盟的申请。 根据美国商务部国际贸易管理局当天发布的公告…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>All the questions Nvidia should answer on Tuesday — but probably won’t</title>
-      <link>https://techcrunch.com/2026/11/16/all-the-questions-nvidia-should-answer-on-tuesday-but-probably-wont/</link>
-      <guid isPermaLink="false">ev_1hlz6t5</guid>
-      <pubDate>Mon, 16 Nov 2026 22:03:02 GMT</pubDate>
-      <description>Nvidia interim CEO and longtime CFO Colette Kress is about to have one of the biggest days of her career on Tuesday when the company reports its third-quarter results. Given the tu…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>California sues OpenAI over rogue AI hacking incidents</title>
-      <link>https://www.theverge.com/ai-artificial-intelligence/1034815/california-openai-hugging-face-lawsuit</link>
-      <guid isPermaLink="false">ev_1upjrit</guid>
-      <pubDate>Mon, 16 Nov 2026 20:46:01 GMT</pubDate>
-      <description>California is suing OpenAI after its AI agents broke out of their testing environment and hacked other companies, including Hugging Face. In a lawsuit filed Monday, Attorney Genera…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>Sam Altman says he wants everyone ‘to have a lot of RAM’</title>
-      <link>https://www.theverge.com/ai-artificial-intelligence/1034787/sam-altman-ram-shortage-semafor</link>
-      <guid isPermaLink="false">ev_1pw1s9u</guid>
-      <pubDate>Mon, 16 Nov 2026 20:41:28 GMT</pubDate>
-      <description>OpenAI CEO Sam Altman is once again addressing his controversial comments on PC RAM purchases. &quot;I want to be clear, I want people to have a lot of RAM, I think everybody should be …</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>Shareholders sue Intel, its CEO, and CFO after stock drops 28.6 percent in one day</title>
-      <link>https://arstechnica.com/tech-policy/2026/11/shareholders-sue-intel-its-ceo-and-cfo-after-stock-drops-28-6-percent-in-one-day/</link>
-      <guid isPermaLink="false">ev_1t0rvv0</guid>
-      <pubDate>Mon, 16 Nov 2026 20:37:47 GMT</pubDate>
-      <description>The PC sales slump &quot;more than offset” AI boom gains, shareholders say.</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>Big Nuclear isn’t worried about the Democrats stopping data centers</title>
-      <link>https://www.theverge.com/science/1034694/nuclear-energy-constellation-earnings-data-centers-democrats</link>
-      <guid isPermaLink="false">ev_1xuxt6o</guid>
-      <pubDate>Mon, 16 Nov 2026 20:29:37 GMT</pubDate>
-      <description>Constellation Energy - America's largest operator of nuclear power plants - does not share Wall Street's concerns that the Democrats will slow down data center development. On the …</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>US data centers now burn more electricity than a midsized country</title>
-      <link>https://www.theverge.com/ai-artificial-intelligence/1034668/data-centers-electricity-climate-pollution-study-harvard</link>
-      <guid isPermaLink="false">ev_uyoqpt</guid>
-      <pubDate>Mon, 16 Nov 2026 20:27:58 GMT</pubDate>
-      <description>Fossil fuels are still the biggest source of electricity for hyperscale data centers in the US, a new paper published in the journal Nature Sustainability shows. They likely burn t…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>Apple is testing daily usage limits for more complex Siri AI interactions</title>
-      <link>https://www.theverge.com/tech/1034581/apple-intelligence-siri-ai-daily-usage-limits-icloud-subscription</link>
-      <guid isPermaLink="false">ev_lratw6</guid>
-      <pubDate>Mon, 16 Nov 2026 19:24:40 GMT</pubDate>
-      <description>Apple released betas of iOS 27.3, iPadOS 27.3, and macOS 27.3 today, and the company is using the update to test new per device daily usage limits for some Siri AI and Apple Intell…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>OpenAI wants to stop deepfakes from overwhelming child abuse tiplines</title>
-      <link>https://www.theverge.com/policy/1034527/openai-csam-classifier</link>
-      <guid isPermaLink="false">ev_18897tc</guid>
-      <pubDate>Mon, 16 Nov 2026 19:23:45 GMT</pubDate>
-      <description>OpenAI is announcing a tool that it says will help child sexual abuse investigators cut through the noise to find harmful material they can act on quickly. At a Monday press briefi…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>Trump says ex-Nvidia CEO Jensen Huang’s affair with an alleged Chinese spy did not threaten national security</title>
-      <link>https://techcrunch.com/2026/11/16/trump-says-ex-nvidia-ceo-jensen-huangs-affair-with-an-alleged-chinese-spy-did-not-threaten-national-security/</link>
-      <guid isPermaLink="false">ev_ot5tdr</guid>
-      <pubDate>Mon, 16 Nov 2026 19:12:02 GMT</pubDate>
-      <description>Trump contradicted his own government's intelligence officials, who reportedly concluded that Alice Huang is a Chinese spy.</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>Nvidia’s board is reportedly ‘not considering’ hiring Jensen Huang back</title>
-      <link>https://www.theverge.com/tech/1034501/nvidia-board-jensen-huang-not-bringing-back</link>
-      <guid isPermaLink="false">ev_1simph8</guid>
-      <pubDate>Mon, 16 Nov 2026 18:43:35 GMT</pubDate>
-      <description>Nvidia's board of directors &quot;isn't considering&quot; having Jensen Huang return as CEO, according to a report from CNBC. A source tells the outlet the board &quot;is focused on an investigat…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>The open-source movement wants Jensen Huang back</title>
-      <link>https://www.technologyreview.com/2026/11/16/1148624/the-open-source-movement-wants-jensen-huang-back/</link>
-      <guid isPermaLink="false">ev_qxaobh</guid>
-      <pubDate>Mon, 16 Nov 2026 18:38:47 GMT</pubDate>
-      <description>This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. On Friday, a petition to reinstate Jensen …</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>Sam Altman on Nvidia without Jensen Huang: The industry will be ‘fine’</title>
-      <link>https://techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine/</link>
-      <guid isPermaLink="false">ev_9xgx5b</guid>
-      <pubDate>Mon, 16 Nov 2026 18:11:10 GMT</pubDate>
-      <description>OpenAI CEO Sam Altman acknowledged the special role Nvidia CEO Jensen Huang has played in the AI boom, but ultimately thinks the industry will be “fine” without him at the helm.</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
     </item>
   </channel>
 </rss>
