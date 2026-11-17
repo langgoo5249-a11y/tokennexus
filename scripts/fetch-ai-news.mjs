@@ -18,6 +18,8 @@ import path from 'node:path';
 
 const OUT_DIR = path.resolve('data');
 const OUT_FILE = path.join(OUT_DIR, 'ai-news.json');
+const RSS_FILE = path.resolve('rss.xml');
+const SITE_URL = 'https://www.tokenfind.cn';
 const HISTORY_DAYS = 5;      // 历史条目保留天数（抓取失败时兜底）
 const MAX_NEWS = 40;         // 公告区最多条数
 const MAX_RANKING = 20;      // 排行榜最多条数
@@ -465,11 +467,55 @@ async function main() {
 
   await mkdir(OUT_DIR, { recursive: true });
   await writeFile(OUT_FILE, JSON.stringify(payload), 'utf8');
+  await writeFile(RSS_FILE, buildRss(news), 'utf8');
   console.log(
     `\n已写入 ${OUT_FILE}：源 ${okSources.length}/${SOURCES.length}，` +
       `原始 ${payload.stats.rawItems} 条 → ${events.length} 个事件，` +
-      `公告 ${news.length} / 排行 ${ranking.length} / 免费 ${freeTakes.length}`
+      `公告 ${news.length} / 排行 ${ranking.length} / 免费 ${freeTakes.length}\n` +
+      `已写入 ${RSS_FILE}（${Math.min(news.length, 30)} 条）`
   );
+}
+
+/** 生成 RSS 2.0 feed，取最新 30 条公告，供搜索引擎与订阅器抓取 */
+function buildRss(news) {
+  const esc = (s) =>
+    String(s ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '');
+  const items = news.slice(0, 30).map((n) => {
+    const pub = new Date(n.publishedAt || Date.now()).toUTCString();
+    const cat = n.lang === 'en' ? 'English' : '中文';
+    return [
+      '    <item>',
+      `      <title>${esc(n.title)}</title>`,
+      `      <link>${esc(n.url)}</link>`,
+      `      <guid isPermaLink="false">${esc(n.id)}</guid>`,
+      `      <pubDate>${pub}</pubDate>`,
+      `      <description>${esc(n.summary || n.title)}</description>`,
+      `      <source url="${SITE_URL}/">TokenNexus</source>`,
+      `      <category>${cat}</category>`,
+      '    </item>',
+    ].join('\n');
+  });
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+    '  <channel>',
+    '    <title>TokenNexus · AI 新闻采集公告区</title>',
+    `    <link>${SITE_URL}/</link>`,
+    '    <description>聚合 12 个中英文 AI 信源的最新人工智能新闻，每 3 小时自动更新，并按多源报道、新鲜度与关键词热度生成排行榜。</description>',
+    '    <language>zh-cn</language>',
+    `    <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml" />`,
+    `    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>`,
+    '    <ttl>180</ttl>',
+    items.join('\n'),
+    '  </channel>',
+    '</rss>',
+    '',
+  ].join('\n');
 }
 
 main().catch((err) => {

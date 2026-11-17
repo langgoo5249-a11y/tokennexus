@@ -39,14 +39,14 @@ jobs:
       - name: Commit data
         id: commit
         run: |
-          if git diff --quiet -- data/ai-news.json; then
+          if git diff --quiet -- data/ai-news.json rss.xml; then
             echo "新闻数据无变化，跳过部署"
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/ai-news.json
+          git add data/ai-news.json rss.xml
           git commit -m "chore(news): 自动刷新 AI 新闻与排行榜（$(date -u '+%Y-%m-%d %H:%M UTC')）"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -54,7 +54,7 @@ jobs:
       - name: Publish to Cloudflare Pages
         run: echo "已 push 到 main，Cloudflare Pages 会自动构建部署"
 
-      - name: Notify IndexNow (homepage)
+      - name: Notify IndexNow (homepage + rss)
         if: steps.commit.outputs.changed == 'true'
         continue-on-error: true
-        run: node scripts/indexnow-submit.mjs --changed-files index.html
+        run: node scripts/indexnow-submit.mjs --changed-files index.html rss.xml
