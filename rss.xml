@@ -6,8 +6,188 @@
     <description>聚合 12 个中英文 AI 信源的最新人工智能新闻，每 2 小时自动更新，并按多源报道、新鲜度与关键词热度生成排行榜。</description>
     <language>zh-cn</language>
     <atom:link href="https://www.tokenfind.cn/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Fri, 20 Nov 2026 12:36:26 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 21:42:41 GMT</lastBuildDate>
     <ttl>120</ttl>
+    <item>
+      <title>Researcher plants 2m canaries into the AI supply chain. A privacy disaster surfaced.</title>
+      <link>https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/</link>
+      <guid isPermaLink="false">ev_ts1uf8</guid>
+      <pubDate>Fri, 20 Nov 2026 20:59:08 GMT</pubDate>
+      <description>Test using prompts with unique, trackable secrets proves that data doesn't stay private.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Daniel Ek backs AI researcher’s fusion power startup. Here’s what they’re building.</title>
+      <link>https://techcrunch.com/2026/11/20/daniel-ek-backs-ai-researchers-fusion-power-startup-heres-what-theyre-building/</link>
+      <guid isPermaLink="false">ev_1axx7oi</guid>
+      <pubDate>Fri, 20 Nov 2026 19:53:41 GMT</pubDate>
+      <description>Spotify founder Daniel Ek is backing Europa Fusion, a fusion power startup founded by an AI researcher. Here's what the startup is building.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>AI claimed a solution to the 167-year-old Riemann Hypothesis — and a human did, too</title>
+      <link>https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/</link>
+      <guid isPermaLink="false">ev_iz254l</guid>
+      <pubDate>Fri, 20 Nov 2026 19:32:08 GMT</pubDate>
+      <description>Mathematicians are having their minds blown by the latest AI-driven result — and there's a competing human solution, too.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>独占特性确认：华为 Mate 系列旗舰机“无缘”OSTA 小星芒、AI 屏等功能</title>
+      <link>https://www.ithome.com/1/030/284.htm</link>
+      <guid isPermaLink="false">ev_1vb3m5o</guid>
+      <pubDate>Fri, 20 Nov 2026 19:20:43 GMT</pubDate>
+      <description>IT之家 11 月 21 日消息，首款为 AI 而生的鸿蒙手机 —— 华为星芒 OSTA O1 Pro 已于昨日下午正式发布 ，叠加国补后 4999 元起。华为星芒品牌总经理刘赫开通微博， 透露最受欢迎的 16G 版本已经在全平台售罄 。 ▲ IT之家开箱：华为全新子品牌星芒 OSTA O1 Pro 手机实拍 IT之家注意到，刘赫还在自己微博的评论区与网友展…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>Trump threatens ‘tremendous tax’ for moving AI data centers outside the US</title>
+      <link>https://www.theverge.com/policy/1038892/trump-foreign-data-centers-tax</link>
+      <guid isPermaLink="false">ev_1nm6ykn</guid>
+      <pubDate>Fri, 20 Nov 2026 18:50:19 GMT</pubDate>
+      <description>President Donald Trump promised to put a &quot;tremendous tax&quot; on companies that build data centers outside of the US, even as states and cities around the country are placing restricti…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>华为星芒刘赫：OSTA O1 Pro 最受欢迎的 16G 版本已在全平台售罄，远超预期</title>
+      <link>https://www.ithome.com/1/030/282.htm</link>
+      <guid isPermaLink="false">ev_12uj22e</guid>
+      <pubDate>Fri, 20 Nov 2026 18:43:53 GMT</pubDate>
+      <description>IT之家 11 月 21 日消息，首款为 AI 而生的鸿蒙手机 —— 华为星芒 OSTA O1 Pro 已于昨日下午正式发布 ， 首发价 5499 元起、叠加国补后 4999 元起 。 ▲ IT之家开箱：华为全新子品牌星芒 OSTA O1 Pro 手机实拍 IT之家注意到，华为星芒品牌总经理刘赫已开通微博，并在 00:10 发文汇报了品牌开山之作 —— OS…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>The most misunderstood graph in AI just got a major update</title>
+      <link>https://www.technologyreview.com/2026/11/20/1149399/the-most-misunderstood-graph-in-ai-just-got-a-major-update/</link>
+      <guid isPermaLink="false">ev_1s3l3vs</guid>
+      <pubDate>Fri, 20 Nov 2026 18:15:15 GMT</pubDate>
+      <description>A new report from the AI evaluation nonprofit METR finds that some AI capabilities are continuing to improve along an exponential trajectory—but it also indicates that models aren’…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Chips can survive the space environment — can their financing?</title>
+      <link>https://techcrunch.com/2026/11/20/chips-can-survive-the-space-environment-can-their-financing/</link>
+      <guid isPermaLink="false">ev_1at8tb7</guid>
+      <pubDate>Fri, 20 Nov 2026 17:40:01 GMT</pubDate>
+      <description>Lenders don't want SpaceX shooting their collateral into orbit. What does that mean for space data centers writ large?</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Anthropic mathematician claims to have solved prestigious Millennium Prize problem with Claude</title>
+      <link>https://www.theverge.com/ai-artificial-intelligence/1010051/anthropic-riemann-hypothesis-millennium-prize-problem</link>
+      <guid isPermaLink="false">ev_dc3wx4</guid>
+      <pubDate>Fri, 20 Nov 2026 16:34:13 GMT</pubDate>
+      <description>Anthropic mathematician Levent Alpöge claims he has proved the Riemann hypothesis, one of mathematics's most notoriously difficult problems, with the help of Claude, cracking a puz…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>AI 攻克黎曼猜想？Anthropic 数学家宣称已与 Claude 合作完成证明</title>
+      <link>https://www.ithome.com/1/030/278.htm</link>
+      <guid isPermaLink="false">ev_14850jz</guid>
+      <pubDate>Fri, 20 Nov 2026 15:37:46 GMT</pubDate>
+      <description>IT之家 11 月 20 日消息，据《科学美国人》报道，当地时间 20 日，Anthropic 数学家莱文特 · 阿尔波格宣称，自己与 AI 模型 Claude 合作，攻克了数学界最著名的难题之一 —— 黎曼猜想。 阿尔波格在个人网站发表声明称：“我相信， 我与 Claude 合作找到了黎曼猜想的证明 。” IT之家注：黎曼猜想由德国数学家伯恩哈德 · 黎曼…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>明基 AK900ST AI 高尔夫投影机发售：6000lm 亮度、短焦镜头设计，52999 元</title>
+      <link>https://www.ithome.com/1/030/277.htm</link>
+      <guid isPermaLink="false">ev_s3adsy</guid>
+      <pubDate>Fri, 20 Nov 2026 15:37:26 GMT</pubDate>
+      <description>IT之家 11 月 20 日消息，明基旗下 AK900ST“AI 高尔夫投影机”现已在京东发售，该产品专为高尔夫模拟及多场景娱乐打造，定价为 52999 元。 京东 明基（BenQ）AK900ST AI 高尔夫专业模拟投影仪 激光投影（4K 超清 AI 画质臻彩引擎 6000 流明 镜头位移） 52999 元 直达链接 该机搭载激光光源，正常寿命达 2000…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>The fallout from Nvidia’s Jensen Huang scandal continues</title>
+      <link>https://techcrunch.com/podcast/the-fallout-from-nvidias-jensen-huang-scandal-continues/</link>
+      <guid isPermaLink="false">ev_poknyy</guid>
+      <pubDate>Fri, 20 Nov 2026 14:55:44 GMT</pubDate>
+      <description>In the midst of dealing with the fallout from its ouster of CEO Jensen Huang, Nvidia delivered its latest earnings report this week, with healthy growth and promises that the good …</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>内存成本涨幅前所未有，Valve 坦承 Steam Machine 未来售价“无法得知”</title>
+      <link>https://www.ithome.com/1/030/273.htm</link>
+      <guid isPermaLink="false">ev_17int1i</guid>
+      <pubDate>Fri, 20 Nov 2026 14:46:40 GMT</pubDate>
+      <description>IT之家 11 月 20 日消息，AI 热潮引发的内存危机波及几乎所有消费电子产品，Steam Machine 也未能幸免。 由于需求旺盛，Valve 直到近期才完成 512GB 版的全部预订订单。目前该版本尚有少量现货，消费者可以直接下单，无需继续排队。 好消息之外还有坏消息。Valve 透露，Steam Machine 仍在持续生产，但内存和存储设备的成…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>德国首家，奔驰获批在“老家”开展点到点辅助驾驶</title>
+      <link>https://www.ithome.com/1/030/249.htm</link>
+      <guid isPermaLink="false">ev_v26p97</guid>
+      <pubDate>Fri, 20 Nov 2026 14:30:37 GMT</pubDate>
+      <description>IT之家 11 月 20 日消息，梅赛德斯-奔驰今天（20 日）宣布，成为德国首家获得 点到点辅助驾驶 监管许可的车企，为高级自动驾驶技术在公共道路上的应用取得重要突破。 这是德国首次依据联合国高级驾驶辅助系统新规颁发此类许可 。 各大车企也在竞相拓展自动驾驶功能的使用场景，突破以往主要局限于高速公路的限制。 此次获批的 MB.DRIVE ASSIST PR…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>三星电子高管：Neocloud 风险有限，AI 投资基于实际需求</title>
+      <link>https://www.ithome.com/1/030/247.htm</link>
+      <guid isPermaLink="false">ev_1fg4k6t</guid>
+      <pubDate>Fri, 20 Nov 2026 14:09:40 GMT</pubDate>
+      <description>IT之家 11 月 20 日消息，据路透社当地时间 18 日报道，三星电子两位高管在本周举行的摩根士丹利会议上表示 Neocloud（新兴 AI 云服务企业）面临的不确定性对整体市场的影响有限，这轮 AI 投资基于实际需求而非投机。 三星 DS（设备解决方案，半导体板块）部门经营战略总管负责人 Kim Yong-kwan 表示，Neocloud 的“市占份额…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>The week everything fell apart</title>
+      <link>https://www.theverge.com/podcast/1038419/outage-outlook-ground-stop-tech-failure-vergecast</link>
+      <guid isPermaLink="false">ev_1az8p9c</guid>
+      <pubDate>Fri, 20 Nov 2026 14:06:59 GMT</pubDate>
+      <description>There was a dayslong Outlook outage. A nationwide ground stop for only the second time in 25 years. Banks seemed to suddenly stop working. Even iCloud couldn't stay up and running.…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Anthropic 上市次日股价下跌 9%，AI 板块雪上加霜</title>
+      <link>https://www.ithome.com/1/030/246.htm</link>
+      <guid isPermaLink="false">ev_1g62992</guid>
+      <pubDate>Fri, 20 Nov 2026 14:05:13 GMT</pubDate>
+      <description>IT之家 11 月 20 日消息，据路透社报道，当地时间 20 日，Anthropic 上市次日股价下跌，令低迷的 AI 板块雪上加霜。这场备受期待的 IPO，也没能重新点燃投资者的热情。 作为 AI 投资热潮的重要风向标，Anthropic 上市曾被寄予厚望，市场期待借此提振经历一段动荡时期后持续疲软的 AI 板块。 然而，Anthropic 股价报 88…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>Six AI-powered gadgets that could make your home office smarter</title>
+      <link>https://techcrunch.com/2026/11/20/6-ai-powered-gadgets-that-could-make-your-home-office-smarter/</link>
+      <guid isPermaLink="false">ev_ll2ae</guid>
+      <pubDate>Fri, 20 Nov 2026 14:00:00 GMT</pubDate>
+      <description>From notetakers to webcams, here are six AI-powered gadgets to upgrade your workspace.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Take-Two 前 CEO 费德：《GTA 6》将是 AI 时代前夜最后的“传统”3A 大作</title>
+      <link>https://www.ithome.com/1/030/238.htm</link>
+      <guid isPermaLink="false">ev_1mo60u3</guid>
+      <pubDate>Fri, 20 Nov 2026 13:01:44 GMT</pubDate>
+      <description>IT之家 11 月 20 日消息，Take-Two 前 CEO 本 · 费德认为，《GTA 6》将成为 AI 时代全面到来前 最后一部采用传统开发模式打造的 3A 大作 ，游戏行业也将由此告别一个时代。 费德在《财富》杂志撰文称：“《GTA 6》的发布将成为一场文化盛事，带来史诗般的游戏体验。我相信它会是一部杰作，但也会是同类作品中的最后一部。” IT之家获…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>Signal is blocking Gemini and Siri AI from reading your screen</title>
+      <link>https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app</link>
+      <guid isPermaLink="false">ev_1bs0fi6</guid>
+      <pubDate>Fri, 20 Nov 2026 12:30:47 GMT</pubDate>
+      <description>Signal is restricting the ability to take screenshots on Android and iOS devices in an effort to prevent AI agents from reading users' messages and other data. The agentic AI capab…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
     <item>
       <title>开发者将櫻井政博游戏制作教程整合为 Skill 技能，可供各类 AI 智能体调用</title>
       <link>https://www.ithome.com/1/030/228.htm</link>
@@ -95,186 +275,6 @@
       <guid isPermaLink="false">ev_ka447p</guid>
       <pubDate>Fri, 20 Nov 2026 10:23:58 GMT</pubDate>
       <description>五一视界启动A股IPO辅导。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>“DeepSeek们”都在退场：限额并非免费AI的终结？</title>
-      <link>https://www.tmtpost.com/8212818.html</link>
-      <guid isPermaLink="false">ev_1f2rcg5</guid>
-      <pubDate>Fri, 20 Nov 2026 10:23:37 GMT</pubDate>
-      <description>无限量免费AI撑不住了。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>小米 MiMo：Token Plan 的 Pro / Max 套餐限时支持 UltraSpeed 超高速推理模型</title>
-      <link>https://www.ithome.com/1/030/193.htm</link>
-      <guid isPermaLink="false">ev_1t93cv1</guid>
-      <pubDate>Fri, 20 Nov 2026 10:11:05 GMT</pubDate>
-      <description>IT之家 11 月 20 日消息，小米 MiMo 官方文档显示，11 月 19 日起， Token Plan 限时支持 UltraSpeed 超高速旗舰推理模型 。 Token Plan 的 Pro / Max 套餐现已限时开放和支持 MiMo-V2.6-Pro-UltraSpeed 超高速推理模型，兼具旗舰级智能与更快的响应速度，模型调用更高效、交互体验更…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>解读丨智能戒指红海之外，Elah Ring 正在深入美国腹地</title>
-      <link>https://www.leiphone.com/category/weiwu/ptAnAiMGqEOX65EI.html</link>
-      <guid isPermaLink="false">ev_1cr4zm4</guid>
-      <pubDate>Fri, 20 Nov 2026 10:09:00 GMT</pubDate>
-      <description>斯坦福毕业生做的 Elah Ring，要当美国百姓的“Personal Faith Agent”。 作者丨 陈玘凡 编辑丨吴优 斯坦福周边没有密集的商圈与高楼，和车程半小时的旧金山城区氛围差别明显。校园占地 8180 英亩，大片山丘林地，建筑低矮，很容易让人产生孤独感。 2014 年，Everblessed 创始人温立来到这里，攻读流体力学与水文硕士。 初来…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>欧洲央行行长拉加德：AI 加剧网络攻击威胁，使我夜不能寐</title>
-      <link>https://www.ithome.com/1/030/191.htm</link>
-      <guid isPermaLink="false">ev_13kzv33</guid>
-      <pubDate>Fri, 20 Nov 2026 10:06:09 GMT</pubDate>
-      <description>IT之家 11 月 20 日消息，据路透社报道，当地时间 20 日，欧洲央行行长克里斯蒂娜 · 拉加德发出警告，随着 AI 智能体日益先进，网络攻击的威胁也随之加剧，可能成为全球金融业当前面临的最大挑战。 拉加德在法兰克福举行的欧洲银行业大会上坦言，政策制定者尚未充分重视这一威胁。“ 真正让我和在座许多人夜不能寐的，就是 AI 与网络威胁的结合 。” 综合I…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>消息称林俊旸从阿里离职后创办的 AI 公司语用科技完成新一轮融资，估值达 50 亿美元</title>
-      <link>https://www.ithome.com/1/030/176.htm</link>
-      <guid isPermaLink="false">ev_1yc7gs0</guid>
-      <pubDate>Fri, 20 Nov 2026 09:59:30 GMT</pubDate>
-      <description>IT之家 11 月 20 日消息，据彭博社报道，林俊旸（yáng）从阿里离职后，今年夏天创立的语用科技 Pragmatik Labs 已完成新一轮融资， 估值达 50 亿美元 （IT之家注：现汇率约合 334.6 亿元人民币） 。 知情人士透露，语用科技在近期完成的一轮融资中筹集了数千万美元。今年 8 月，该公司在数亿美元的首轮融资中获得 20 亿美元 （现…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>Falling Prices Push AI Video Toward Platform Economics</title>
-      <link>https://www.tmtpost.com/8212911.html</link>
-      <guid isPermaLink="false">ev_scqymh</guid>
-      <pubDate>Fri, 20 Nov 2026 09:54:05 GMT</pubDate>
-      <description>Video-model quality is converging as per-second API prices decline. OpenAI discontinued Sora after sustained losses. Google, ByteDance, and Kuaishou continue to invest, recovering …</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>法院批准交易，谷歌 1000 万美元收购精神航空数据过关</title>
-      <link>https://www.ithome.com/1/030/137.htm</link>
-      <guid isPermaLink="false">ev_1tavl0b</guid>
-      <pubDate>Fri, 20 Nov 2026 09:40:55 GMT</pubDate>
-      <description>IT之家 11 月 20 日消息，据外媒 The Record 报道，美国纽约联邦破产法官当地时间 17 日批准 Google（谷歌）收购破产廉价航空公司 Spirit Airlines（精神航空）企业数据。 该交易价值 1,000 万美元 （IT之家注：现汇率约合 6,692 万元人民币） 。 这些数据将用于改进谷歌的产品与人工智能模型 。 图源：Pexe…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>今年前三季度我国数字产业收入超 32 万亿元，同比增长 14.8%</title>
-      <link>https://www.ithome.com/1/030/135.htm</link>
-      <guid isPermaLink="false">ev_9rx6a1</guid>
-      <pubDate>Fri, 20 Nov 2026 09:34:36 GMT</pubDate>
-      <description>IT之家 11 月 20 日消息，据央视新闻今天（20 日）下午报道，前三季度，我国数字产业整体延续向优向好发展态势，收入增速加快，盈利水平持续提升，电子产品对外出口延续强劲增势，人工智能创新迭代提速，智能终端产品密集发布，产业新动能加速积蓄，为稳定经济增长、培育发展新质生产力、赋能千行百业数智转型提供有力支撑。 一、发展质效持续提升 IT之家从数据中获悉，…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>Waymo被迫退出高速公路，无人驾驶的商业化开始碰到监管天花板</title>
-      <link>https://www.tmtpost.com/8211917.html</link>
-      <guid isPermaLink="false">ev_1a8ukk6</guid>
-      <pubDate>Fri, 20 Nov 2026 09:22:50 GMT</pubDate>
-      <description>自动驾驶行业一直在回答一个问题：机器能不能像人一样开车？但当Robotaxi真正走向商业化，问题开始变得复杂。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>Anthropic正式登陆纳斯达克：敲钟那天，账已经在另一张纸上？</title>
-      <link>https://www.tmtpost.com/8212716.html</link>
-      <guid isPermaLink="false">ev_815v0w</guid>
-      <pubDate>Fri, 20 Nov 2026 09:22:47 GMT</pubDate>
-      <description>这场上市真正的赢家不在敲钟的那几个人里，在那七家收着算力钱又拿着股票的公司身上，它们把未来十五年的订单提前折成了今天的股权。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>AI这一年，倒下的APP们</title>
-      <link>https://www.tmtpost.com/8212771.html</link>
-      <guid isPermaLink="false">ev_1c0fp2l</guid>
-      <pubDate>Fri, 20 Nov 2026 09:22:43 GMT</pubDate>
-      <description>一年之内，上千个AI应用为何接连退场？</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>50天推出4款模型，谷歌想当“造物主”了？</title>
-      <link>https://www.tmtpost.com/8212777.html</link>
-      <guid isPermaLink="false">ev_1wowj8b</guid>
-      <pubDate>Fri, 20 Nov 2026 09:22:37 GMT</pubDate>
-      <description>OpenAI却有点拉了。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>首款鸿蒙 AI 手机发布：华为全新子品牌 OSTA 星芒有一个「增援未来计划」</title>
-      <link>https://www.ifanr.com/1690642</link>
-      <guid isPermaLink="false">ev_1sxakar</guid>
-      <pubDate>Fri, 20 Nov 2026 09:17:05 GMT</pubDate>
-      <description>在手机里打开了一个关于 AI 的「平行宇宙」 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>给 Gemini 道歉，请自觉排队</title>
-      <link>https://www.ifanr.com/1690572</link>
-      <guid isPermaLink="false">ev_19bchd5</guid>
-      <pubDate>Fri, 20 Nov 2026 09:03:13 GMT</pubDate>
-      <description>Gemini 4 真的越来越好用了。 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>速卖通双11收官：品牌成交大涨近50%，美国、巴西、小众潜力市场均创新高</title>
-      <link>https://www.leiphone.com/category/industrynews/RBVQITzBAqkoQGzE.html</link>
-      <guid isPermaLink="false">ev_58zbvc</guid>
-      <pubDate>Fri, 20 Nov 2026 08:37:00 GMT</pubDate>
-      <description>11月19日，海外双11收官。速卖通美国市场单日成交刷新去年关税风波以来纪录，巴西市场单日访客数创建站以来新高；品牌生意持续爆发，双11全周期大涨近50%，欧盟市场逆势大涨超三成。在关税与跨境履约成本变化之下，速卖通以品牌化建立消费者认知、以本地化提升交付确定性，率先跑出低价小包裹之外的新增长路径。平台还借助AI运营托管拓展增长边界，帮商家在北极圈、佛得角、…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>CoCreate伦敦峰会揭开跨境B2B电商新机遇：阿里国际站欧洲订单三年增长70%</title>
-      <link>https://www.leiphone.com/category/industrynews/eqi19Azefys58IT4.html</link>
-      <guid isPermaLink="false">ev_bwa6g4</guid>
-      <pubDate>Fri, 20 Nov 2026 08:35:00 GMT</pubDate>
-      <description>11月19日，阿里国际站CoCreate峰会在英国伦敦举行，超过5000名欧洲中小企业主风雨无阻地奔赴这场AI跨境采购盛会。如此热情的背后，是跨境B2B电商正在迎来新的增长机遇。 阿里国际站欧美买家业务副总裁郭威廷在现场透露了几个关键数字：三年来，阿里国际站欧洲订单、买家双双累计增长70%。 （图：阿里国际站欧美买家业务副总裁郭威廷） 细分到品类，欧洲市场的…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>昇腾算力训出了双榜SOTA的具身世界模型，华为云这次想把整套底座开放出来</title>
-      <link>https://www.qbitai.com/2026/11/511610.html</link>
-      <guid isPermaLink="false">ev_1va018</guid>
-      <pubDate>Fri, 20 Nov 2026 08:04:58 GMT</pubDate>
-      <description>国产算力的成熟，把具身竞争维度从「芯片有多强」，拉入了一个比拼训练效率、数据规模、部署成本和场景落地速度的多维战场。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>第六代 AMD EPYC 处理器技术峰会在京举行</title>
-      <link>https://www.leiphone.com/category/industrynews/TVtcS88CGW5q5JDk.html</link>
-      <guid isPermaLink="false">ev_fwg9wi</guid>
-      <pubDate>Fri, 20 Nov 2026 07:47:00 GMT</pubDate>
-      <description>重塑计算，领航 AI 时代：AMD 携手生态伙伴推动 Agentic AI 基础设施创新 2026年11月19日，中国北京——今日，以“重塑计算，领航 AI 时代”为主题的第六代 AMD EPYC 处理器技术峰会在北京中国大饭店举行，吸引1237位嘉宾参会。AMD 携手服务器系统厂商、软件与硬件生态合作伙伴及行业用户，围绕第六代 AMD EPYC 处理器（代…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>灵光开放生态再扩容：新增企业微信、腾讯文档等7项连接能力，累计支持54项外部服务</title>
-      <link>https://www.leiphone.com/category/industrynews/walzAUin5QxPaCOQ.html</link>
-      <guid isPermaLink="false">ev_1n6j3j8</guid>
-      <pubDate>Fri, 20 Nov 2026 07:43:00 GMT</pubDate>
-      <description>近日，蚂蚁集团旗下AI助手灵光宣布开放生态再度扩容，新增企业微信、腾讯文档、腾讯会议、飞常准等7项外部连接能力。至此，灵光支持的外部服务及连接能力已从47项增加至54项，进一步拓展AI助手在个人生活、办公协作、差旅出行等场景中的服务边界。 此次新增能力进一步覆盖用户日常高频需求。在个人生活场景中，灵光新增相册连接能力，并通过快捷指令支持修改壁纸、备忘录等系统…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>当AI影视遇上文化出海：优秀作品亮相第47届美国电影市场</title>
-      <link>https://www.leiphone.com/category/industrynews/sFbtCLZ06plyUxPF.html</link>
-      <guid isPermaLink="false">ev_193j0sv</guid>
-      <pubDate>Fri, 20 Nov 2026 06:40:00 GMT</pubDate>
-      <description>当地时间11月10日至15日，第47届美国电影市场（AFM）在洛杉矶举行。AI影视平台携中国传统文化题材作品亮相展会并达成多项海外合作，为中华文化国际传播探索技术赋能的新实践。 本届展会以“全球影视经济新图景”为主题，聚焦全球影视产业融资、制作、发行领域的新机遇，吸引来自全球超85个国家的数千名制片人、发行商、投资者及业界代表参会。中国电影联合展台、法国电影…</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>中文</category>
     </item>
