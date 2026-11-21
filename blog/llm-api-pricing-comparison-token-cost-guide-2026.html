@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"> <meta name="googlebot" content="index, follow"> <meta name="bingbot" content="index, follow"> <meta name="baiduspider" content="index, follow, max-snippet:-1"> <title>大模型 API 价格怎么算？主流模型每百万 Token 价格对比与账单拆解（2026 版）</title>
+    <meta name="description" content="一文讲清大模型 API 计费方式：每百万 Token 价格怎么看、输入输出为什么分开计价，并用 GPT-5、Claude、Gemini、DeepSeek 官方价格做对比表，附一个可复算的客服机器人月账单拆解案例与 4 个最容易被忽略的计费细节。"> <meta name="keywords" content="大模型 API 价格对比, 每百万 Token 价格, GPT-5 API 价格, Claude API 价格, DeepSeek API 价格, Gemini API 价格, AI API 计费方式, Token 成本计算, AI API 账单估算"> <meta name="author" content="TokenNexus"> <link rel="canonical" href="https://www.tokenfind.cn/blog/llm-api-pricing-comparison-token-cost-guide-2026"> <link rel="alternate" hreflang="zh-CN" href="https://www.tokenfind.cn/blog/llm-api-pricing-comparison-token-cost-guide-2026"> <link rel="alternate" hreflang="x-default" href="https://www.tokenfind.cn/blog/llm-api-pricing-comparison-token-cost-guide-2026"> <meta property="og:type" content="article"> <meta property="og:site_name" content="TokenNexus"> <meta property="og:title" content="大模型 API 价格怎么算？主流模型每百万 Token 价格对比与账单拆解（2026 版）"> <meta property="og:description" content="讲清大模型 API 计费方式与每百万 Token 价格对比，附可复算的月账单拆解案例与 4 个容易被忽略的计费细节。"> <meta property="og:url" content="https://www.tokenfind.cn/blog/llm-api-pricing-comparison-token-cost-guide-2026"> <meta property="og:image" content="https://www.tokenfind.cn/blog/images/llm-api-pricing-comparison-token-cost-guide-2026.jpg"> <meta property="article:published_time" content="2026-11-21"> <meta property="article:modified_time" content="2026-11-21"> <meta property="article:section" content="省钱攻略"> <meta property="article:tag" content="API价格对比,每百万Token,GPT-5,Claude,Gemini,DeepSeek,Token成本"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="大模型 API 价格怎么算？每百万 Token 价格对比与账单拆解"> <meta name="twitter:description" content="GPT-5、Claude、Gemini、DeepSeek 官方价格对比表 + 可复算的月账单案例 + 4 个计费细节。"> <meta name="twitter:image" content="https://www.tokenfind.cn/blog/images/llm-api-pricing-comparison-token-cost-guide-2026.jpg"> <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet"> <style> :root { --neon-cyan: #00f0ff; --neon-purple: #b829dd; --dark-bg: #050508; --card-bg: rgba(10, 10, 18, 0.9); --card-border: rgba(0, 240, 255, 0.15); --text-primary: #ffffff; --text-secondary: #8b92a8; } * { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: 'Noto Sans SC', sans-serif; background: var(--dark-bg); color: var(--text-primary); min-height: 100vh; line-height: 1.8; } .navbar { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: rgba(5, 5, 8, 0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--card-border); display: flex; align-items: center; justify-content: space-between; padding: 0 60px; z-index: 1000; } .logo { display: flex; align-items: center; gap: 16px; } .logo-icon { width: 40px; height: 40px; } .logo-text { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--neon-cyan); } .nav-links { display: flex; gap: 32px; } .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; } .nav-links a:hover, .nav-links a.active { color: var(--neon-cyan); } .article-container { max-width: 900px; margin: 0 auto; padding: 120px 40px 60px; } .article-header { text-align: center; margin-bottom: 40px; } .article-category { display: inline-block; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); color: #fff; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; margin-bottom: 16px; } .article-title { font-size: 2.2rem; font-weight: 700; line-height: 1.4; margin-bottom: 20px; background: linear-gradient(135deg, var(--text-primary), var(--neon-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; } .article-meta { display: flex; align-items: center; justify-content: center; gap: 20px; color: var(--text-secondary); font-size: 0.9rem; } .article-hero { width: 100%; border-radius: 16px; margin: 30px 0; border: 1px solid var(--card-border); } .article-content { font-size: 1.05rem; } .article-content h2 { font-size: 1.6rem; font-weight: 600; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--card-border); color: var(--neon-cyan); } .article-content h3 { font-size: 1.3rem; font-weight: 600; margin-top: 30px; margin-bottom: 15px; color: var(--text-primary); } .article-content p { margin-bottom: 20px; color: var(--text-secondary); } .article-content ul, .article-content ol { margin: 20px 0; padding-left: 30px; } .article-content li { margin: 10px 0; color: var(--text-secondary); } .article-content strong { color: var(--text-primary); } .article-content a { color: var(--neon-cyan); text-decoration: none; } .article-content a:hover { text-decoration: underline; } .article-content pre { background: rgba(0, 240, 255, 0.06); border: 1px solid var(--card-border); border-radius: 8px; padding: 18px; overflow-x: auto; margin: 20px 0; font-size: 0.9rem; line-height: 1.6; } .article-content code { font-family: Consolas, Monaco, monospace; color: var(--neon-cyan); } .tip-box { background: rgba(0, 240, 255, 0.1); border-left: 4px solid var(--neon-cyan); padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0; } .tip-box-title { font-weight: 600; color: var(--neon-cyan); margin-bottom: 10px; } .data-table { width: 100%; border-collapse: collapse; margin: 25px 0; background: var(--card-bg); border-radius: 8px; overflow: hidden; } .data-table th, .data-table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--card-border); } .data-table th { background: rgba(0, 240, 255, 0.15); color: var(--neon-cyan); font-weight: 600; } .data-table td { color: var(--text-secondary); } .data-table tr:last-child td { border-bottom: none; } .footer { background: rgba(5, 5, 8, 0.95); border-top: 1px solid var(--card-border); padding: 40px 60px; margin-top: 60px; text-align: center; } .footer-logo { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--neon-cyan); margin-bottom: 10px; } .footer-text { color: var(--text-secondary); font-size: 0.9rem; } .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 20px; flex-wrap: wrap; } .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; } .footer-links a:hover { color: var(--neon-cyan); } @media (max-width: 768px) { .navbar { padding: 0 20px; } .nav-links { display: none; } .article-container { padding: 100px 20px 40px; } .article-title { font-size: 1.6rem; } .article-content { font-size: 0.95rem; } .data-table th, .data-table td { padding: 10px 12px; font-size: 0.9rem; } } </style> <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BlogPosting",
+            "headline": "大模型 API 价格怎么算？主流模型每百万 Token 价格对比与账单拆解（2026 版）",
+            "description": "讲清大模型 API 计费方式与每百万 Token 价格对比，附可复算的月账单拆解案例与 4 个容易被忽略的计费细节。",
+            "image": "https://www.tokenfind.cn/blog/images/llm-api-pricing-comparison-token-cost-guide-2026.jpg",
+            "url": "https://www.tokenfind.cn/blog/llm-api-pricing-comparison-token-cost-guide-2026",
+            "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.tokenfind.cn/blog/llm-api-pricing-comparison-token-cost-guide-2026"},
+            "author": {"@type": "Organization", "name": "TokenNexus", "url": "https://www.tokenfind.cn/"},
+            "publisher": {"@type": "Organization", "name": "TokenNexus", "url": "https://www.tokenfind.cn/"},
+            "datePublished": "2026-11-21",
+            "dateModified": "2026-11-21",
+            "articleSection": "省钱攻略",
+            "keywords": ["大模型 API 价格对比", "每百万 Token 价格", "GPT-5 API 价格", "Claude API 价格", "DeepSeek API 价格", "AI API 计费方式"],
+            "inLanguage": "zh-CN"
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "首页", "item": "https://www.tokenfind.cn/"},
+                {"@type": "ListItem", "position": 2, "name": "博客", "item": "https://www.tokenfind.cn/blog/guides"},
+                {"@type": "ListItem", "position": 3, "name": "省钱攻略", "item": "https://www.tokenfind.cn/blog/guides"},
+                {"@type": "ListItem", "position": 4, "name": "大模型 API 价格对比与账单拆解", "item": "https://www.tokenfind.cn/blog/llm-api-pricing-comparison-token-cost-guide-2026"}
+            ]
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {"@type": "Question", "name": "每百万 Token 价格是什么意思？", "acceptedAnswer": {"@type": "Answer", "text": "主流大模型 API 统一按 Token 计量，官方报价通常以「每百万 Token 多少美元」标注。1百万 Token 约相当于 60万至90万字的英文文本，中文约50万至70万字，具体取决于分词器。把单价乘以实际用量（再除以一百万）即可估算成本。"}},
+                {"@type": "Question", "name": "为什么输入和输出的价格不一样？", "acceptedAnswer": {"@type": "Answer", "text": "生成 Token 需要逐个自回归解码，算力开销远高于一次性并行处理输入，因此输出单价通常是输入的 3 至 8 倍。控制输出长度（max_tokens）、避免让模型复述长文，是压账单最直接的手段。"}},
+                {"@type": "Question", "name": "同一个模型为什么在不同平台价格不同？", "acceptedAnswer": {"@type": "Answer", "text": "官方 API 按官网定价结算；云厂商托管版、聚合平台与中转服务会在官方价上加价或做折扣活动，部分平台还按充值档位浮动。选型时应同时对比单价、稳定性和合规性，可以在 TokenNexus 的平台对比页查看各服务商的实时报价与免费额度。"}},
+                {"@type": "Question", "name": "怎么估算自己应用的月账单？", "acceptedAnswer": {"@type": "Answer", "text": "公式为：月成本 =（日均调用次数 × 平均输入 Token × 30 ÷ 1,000,000 × 输入单价）+（日均调用次数 × 平均输出 Token × 30 ÷ 1,000,000 × 输出单价）。先在小流量阶段用日志里的 usage 字段统计真实 Token 用量，再代入单价即可。"}}
+            ]
+        }
+    ]
+}
+</script></head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <svg class="logo-icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="17" stroke="#00f0ff" stroke-width="2.5"/><path d="M12 24 L18 14 L23 21 L28 12" stroke="#b829dd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="logo-text">TokenNexus</span>
+        </div>
+        <div class="nav-links">
+            <a href="/">首页</a>
+            <a href="/platforms">平台对比</a>
+            <a href="/blog/guides" class="active">攻略</a>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        <header class="article-header">
+            <span class="article-category">省钱攻略</span>
+            <h1 class="article-title">大模型 API 价格怎么算？主流模型每百万 Token 价格对比与账单拆解（2026 版）</h1>
+            <div class="article-meta"><span>TokenNexus团队</span><span>2026-11-21</span><span>约 12 分钟读完</span></div>
+        </header>
+        <img class="article-hero" src="images/llm-api-pricing-comparison-token-cost-guide-2026.jpg" alt="大模型 API 每百万 Token 价格对比示意图" loading="eager">
+
+        <div class="article-content">
+            <p>同一个客服机器人需求，用不同的大模型 API 跑一个月，账单可以从几十美元差到上千美元——差距不是玄学，而是<strong>计费规则和选型策略</strong>的差别。这篇文章不谈虚的，只做三件事：讲清大模型 API 的计费公式，给出主流模型每百万 Token 的价格对比表，再用一个可以逐行复算的案例把"账单是怎么长出来的"拆开给你看。</p>
+            <p>先说结论：<strong>输出 Token 单价贵、多轮对话历史重复计费、推理模型的思维链也收费</strong>，这三件事吃掉了绝大多数人账单里意想不到的部分。看懂它们，比任何"省钱咒语"都管用。</p>
+
+            <h2>一、大模型 API 计费方式：每百万 Token 单价是唯一锚点</h2>
+            <p>目前几乎所有主流大模型 API（OpenAI、Anthropic、Google Gemini、DeepSeek、通义千问等）都采用同一套计费逻辑：<strong>按 Token 用量计费，输入与输出分开计价，官方报价以"每百万 Token（1M tokens）多少美元"标注</strong>。Token 是模型处理文本的最小单位，一个英文单词约等于 1.3 个 Token，中文则平均一个字约等于 0.6～0.7 个 Token——中英文的 Token 换算差异直接影响成本，我们在此前的 <a href="/blog/ai-api-chinese-tokenizer-token-count-cost-guide-2026">中文 Token 计量与成本指南</a>里做过详细测算。</p>
+            <p>月账单的计算公式只有一行：</p>
+            <pre>月成本 =（日均调用次数 × 平均输入Token × 30 ÷ 1,000,000 × 输入单价）
+      +（日均调用次数 × 平均输出Token × 30 ÷ 1,000,000 × 输出单价）</pre>
+            <p>注意三个要点：<strong>第一</strong>，输入输出的单价不同，输出通常贵 3～8 倍，因为生成 Token 需要逐个解码，算力开销远高于并行处理输入；<strong>第二</strong>，多轮对话的历史消息每次都会重新计入输入 Token，对话轮次越多，这条"隐形复利"越夸张；<strong>第三</strong>，推理类模型（如 OpenAI o 系列、DeepSeek R1）的思维链 Token 同样计费，有时候甚至超过最终答案的长度。</p>
+
+            <h2>二、主流模型每百万 Token 价格对比（2026 年 11 月发稿口径）</h2>
+            <p>下表整理了各厂商官网定价页当前列示的标准 API 价格（美元 / 每百万 Token）。<strong>各家价格随新版本发布调整频繁，且部分模型按上下文长度分档计价，下单前务必以官方定价页实时数据为准</strong>：OpenAI 定价页、Anthropic 定价页、Gemini API 定价文档、DeepSeek 价格文档（均为官方来源，已附在文末参考链接）。</p>
+            <table class="data-table">
+                <thead><tr><th>模型</th><th>输入（$/1M）</th><th>输出（$/1M）</th><th>备注</th></tr></thead>
+                <tbody>
+                    <tr><td>GPT-5</td><td>$1.25</td><td>$10.00</td><td>缓存命中输入约 $0.125</td></tr>
+                    <tr><td>GPT-5 mini</td><td>$0.25</td><td>$2.00</td><td>轻量任务性价比款</td></tr>
+                    <tr><td>Claude Opus 4.5</td><td>$5.00</td><td>$25.00</td><td>旗舰，复杂推理与编程</td></tr>
+                    <tr><td>Claude Sonnet 4.5</td><td>$3.00</td><td>$15.00</td><td>缓存读取约 $0.30</td></tr>
+                    <tr><td>Claude Haiku 4.5</td><td>$1.00</td><td>$5.00</td><td>快速轻量档</td></tr>
+                    <tr><td>Gemini 2.5 Pro</td><td>$1.25</td><td>$10.00</td><td>≤200K 上下文档</td></tr>
+                    <tr><td>Gemini 2.5 Flash</td><td>$0.30</td><td>$2.50</td><td>高吞吐低价档</td></tr>
+                    <tr><td>DeepSeek V3.2</td><td>$0.28</td><td>$0.42</td><td>缓存命中输入约 $0.028</td></tr>
+                </tbody>
+            </table>
+            <p>从这张表能直接读出三个市场事实：<strong>旗舰与轻量档的价差在 10 倍以上</strong>（Opus 4.5 输出 $25 对比 Flash 输出 $2.5）；<strong>国产模型的定价显著低于海外第一梯队</strong>，DeepSeek 输出单价不到 GPT-5 的二十分之一；<strong>缓存命中价格普遍是标准输入价的 1/10 左右</strong>，这是所有厂商共同的设计——鼓励你复用相同的系统提示词和文档前缀，具体机制见我们的 <a href="/blog/ai-api-caching-optimization-2026">提示缓存优化指南</a>。</p>
+
+            <h2>三、账单拆解：同一个客服机器人，四种方案的月账单</h2>
+            <p>空谈单价没有体感，我们用一个典型场景做完整测算。假设你在做一个智能客服机器人：</p>
+            <ul>
+                <li>日均 5,000 次对话请求，每月按 30 天计；</li>
+                <li>每次请求平均输入 2,000 Token（含多轮历史和知识库摘要）；</li>
+                <li>每次请求平均输出 500 Token。</li>
+            </ul>
+            <p>先算总用量：每月输入 Token = 5,000 × 2,000 × 30 = <strong>3 亿（300M）</strong>；每月输出 Token = 5,000 × 500 × 30 = <strong>7,500 万（75M）</strong>。下面代入四种方案（美元计，人民币按 7.2 估算仅作参考）：</p>
+            <table class="data-table">
+                <thead><tr><th>方案</th><th>计算过程</th><th>月成本</th></tr></thead>
+                <tbody>
+                    <tr><td>A：全量旗舰（GPT-5）</td><td>300M×$1.25÷1M + 75M×$10÷1M = $375 + $750</td><td>$1,125 ≈ ¥8,100</td></tr>
+                    <tr><td>B：轻量档（Haiku 4.5）</td><td>300M×$1÷1M + 75M×$5÷1M = $300 + $375</td><td>$675 ≈ ¥4,860</td></tr>
+                    <tr><td>C：高性价比国产（DeepSeek V3.2，假设 60% 输入缓存命中）</td><td>120M×$0.28 + 180M×$0.028 + 75M×$0.42 = $33.6 + $5.04 + $31.5</td><td>约 $70 ≈ ¥505</td></tr>
+                    <tr><td>D：分级路由（70% 简单问题走 GPT-5 mini，30% 复杂走 GPT-5）</td><td>210M×$0.25 + 52.5M×$2 + 90M×$1.25 + 22.5M×$10 = $52.5 + $105 + $112.5 + $225</td><td>$495 ≈ ¥3,564</td></tr>
+                </tbody>
+            </table>
+            <p>同一个产品需求，账单从 ¥505 到 ¥8,100，相差 16 倍。这不是夸张的营销数字，而是上面公式逐行算出来的结果，你可以拿自己的用量代入验证。方案 C 和 D 之间怎么取舍，取决于业务对回答质量的要求：客服场景里大量问题其实是"查订单、问退货政策"这类模板化需求，把它们路由给便宜模型、只把疑难杂症交给旗舰，就是<strong>分级调用</strong>的价值。如果你的业务允许异步处理（比如批量生成日报、批量翻译），还可以叠加 Batch API 的官方五折，参考 <a href="/blog/ai-api-batch-mode-half-price-guide-2026">Batch API 半价实战</a>，方案 D 的成本还能再降一档。</p>
+
+            <h2>四、四个大多数开发者都忽略的计费细节</h2>
+            <h3>1. 输出才是账单大头，别让它"自由发挥"</h3>
+            <p>输出单价是输入的 3～8 倍，而很多应用默认让模型写到自然结束。给 <code>max_tokens</code> 设一个合理上限、要求"答案控制在 200 字以内"、让模型输出结构化 JSON 而不是整段散文，通常能直接砍掉 30% 以上账单。</p>
+            <h3>2. 多轮对话的历史是"重复付费"</h3>
+            <p>第 10 轮对话的输入包含前 9 轮全部内容——你为同一段文字付了 10 次钱。长对话场景务必做历史压缩或滑动窗口截断，配合提示缓存可以把重复部分的成本压到十分之一。</p>
+            <h3>3. 推理模型的思维链也在计费</h3>
+            <p>o 系列、DeepSeek R1 这类推理模型会先生成内部推理过程，这些 Token 同样按输出价收费。数学、代码类复杂任务物有所值，但让推理模型回答"今天天气怎么样"就是纯浪费——又一个该用分级路由的信号。</p>
+            <h3>4. 价格之外还有"结构性费用"</h3>
+            <p>文件存储、图片输入按张计费、工具调用的中间结果都可能产生附加费用。我们在此前的 <a href="/blog/ai-api-bill-explosion-hidden-costs-2026">账单暴涨排查指南</a>里记录过真实案例：一个团队月账单突然翻 4 倍，最后发现是日志系统把失败重试也全量计费了。拿到第一张真实账单后，务必逐项核对。</p>
+
+            <h2>五、价格不是全部：免费额度与降价时间线同样重要</h2>
+            <p>对比价格时别忽略三件事。<strong>其一</strong>，多数厂商提供免费额度或免费档（Google AI Studio、GitHub Models、各大聚合平台的免费模型），验证期和小流量阶段可以做到零成本，我们维护了一份持续更新的 <a href="/blog/ai-api-free-tier-guide-2026">AI API 免费额度汇总</a>。<strong>其二</strong>，大模型 API 的价格曲线整体是快速下探的：同样的能力，每一代新模型的单位价格几乎都在下降，锁死某一家的高价套餐前先看看市场。<strong>其三</strong>，开源模型自部署没有 Token 单价，但 GPU 成本和运维成本要摊进去算，小流量团队自部署多数情况下反而不划算。</p>
+            <p>想横向查看所有平台的实时报价、免费额度和限速规则，可以直接到 <a href="/platforms">TokenNexus 平台对比页</a>筛选比较。</p>
+
+            <h2>六、选型决策清单</h2>
+            <ul>
+                <li><strong>先测用量再谈价格</strong>：上线前用小流量跑一周，从响应的 <code>usage</code> 字段统计真实输入输出 Token 分布，代入本文公式；</li>
+                <li><strong>把输出长度管起来</strong>：max_tokens 上限 + 输出格式约束，收益立竿见影；</li>
+                <li><strong>能缓存的一定缓存</strong>：系统提示词、知识库前缀固定下来，享受 1/10 的缓存价；</li>
+                <li><strong>建立分级路由</strong>：模板化请求走轻量模型，复杂任务才请旗舰出场；</li>
+                <li><strong>异步任务走 Batch</strong>：不要求秒回的任务，官方五折是白送的；</li>
+                <li><strong>每月复盘一次账单</strong>：价格在降、用量在涨，静态方案三个月就会过期。</li>
+            </ul>
+
+            <h2>常见问题</h2>
+            <h3>每百万 Token 价格到底是什么单位？</h3>
+            <p>官方报价的统一计量方式：每处理 1,000,000 个 Token 收取标价的美元金额。1 百万 Token 约相当于 60～90 万英文单词量级的文本，中文约 50～70 万字，随分词器略有差异。</p>
+            <h3>为什么同一模型在不同平台价格不一样？</h3>
+            <p>官方 API 按官网价结算；云厂商托管版、聚合平台和中转服务会加价或折扣，部分按充值档位浮动。比价时同时看单价、稳定性与合规性，<a href="/platforms">平台对比页</a>有各家的结构化数据。</p>
+            <h3>输入输出为什么要分开计价？</h3>
+            <p>输入是一次性并行计算，输出是逐 Token 自回归解码，后者算力成本数倍于前者，所以输出单价普遍更高，这也是"控制输出长度"能省钱的原因。</p>
+            <h3>有没有官方的账单估算工具？</h3>
+            <p>OpenAI、Anthropic、Google 都在开发者文档中提供了交互式定价估算器或价格计算参考，配合本文第三节的公式，双核对基本可以控制在真实账单 ±10% 以内。</p>
+
+            <div class="tip-box">
+                <div class="tip-box-title">本文参考的官方定价来源</div>
+                <p>价格数据均取自各厂商官方定价页发稿时列示口径，后续可能随版本调整：OpenAI API Pricing（openai.com/api/pricing）、Anthropic Pricing（anthropic.com/pricing）、Gemini API Pricing（ai.google.dev/gemini-api/docs/pricing）、DeepSeek Pricing（api-docs.deepseek.com）。本文为选型方法论分享，不构成任何消费或投资建议。</p>
+            </div>
+
+            <h2>延伸阅读</h2>
+            <ul>
+                <li><a href="/blog/ai-api-batch-mode-half-price-guide-2026">Batch API 半价跑任务完整实战</a></li>
+                <li><a href="/blog/ai-api-caching-optimization-2026">提示缓存（Prompt Caching）优化指南</a></li>
+                <li><a href="/blog/ai-api-chinese-tokenizer-token-count-cost-guide-2026">中文 Token 计量与成本估算指南</a></li>
+                <li><a href="/blog/ai-api-bill-explosion-hidden-costs-2026">AI API 账单暴涨与隐藏费用排查</a></li>
+                <li><a href="/blog/ai-api-free-tier-guide-2026">AI API 免费额度汇总与白嫖攻略</a></li>
+                <li><a href="/blog/ai-api-cost-optimization-2026">AI API 成本优化全景路线</a></li>
+                <li><a href="/blog/guides">更多攻略文章</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-logo">TokenNexus</div>
+        <p class="footer-text">全球 AI API 平台导航 · 价格对比 · 实用攻略</p>
+        <div class="footer-links">
+            <a href="/">首页</a>
+            <a href="/platforms">平台对比</a>
+            <a href="/blog/guides">攻略合集</a>
+        </div>
+    </footer>
+</body>
+</html>
