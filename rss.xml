@@ -6,8 +6,107 @@
     <description>聚合 12 个中英文 AI 信源的最新人工智能新闻，每 2 小时自动更新，并按多源报道、新鲜度与关键词热度生成排行榜。</description>
     <language>zh-cn</language>
     <atom:link href="https://www.tokenfind.cn/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Fri, 20 Nov 2026 21:42:41 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 03:00:37 GMT</lastBuildDate>
     <ttl>120</ttl>
+    <item>
+      <title>拯救爆满的“下载”文件夹：微软 Win11 将推 AI 整理神器，授权后可查找 / 分类 / 移动 / 重命名文件</title>
+      <link>https://www.ithome.com/1/030/333.htm</link>
+      <guid isPermaLink="false">ev_sygz3l</guid>
+      <pubDate>Sat, 21 Nov 2026 02:59:20 GMT</pubDate>
+      <description>IT之家 11 月 21 日消息，科技媒体 Windows Latest 昨日（11 月 20 日）发布博文，报道称在 Ignite 2026 活动中，微软展示 Copilot“本地文件操作”功能， 在征得用户授权后可以查找、分类、移动或重命名本地文件。 IT之家附上相关视频如下： 微软表示该功能可以减少手动翻找和归类的麻烦，用户主动启用并授权后，即可用日常…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>英伟达发布 GeForce 621.35 热修复驱动，修复 SSD 后台异常写入问题</title>
+      <link>https://www.ithome.com/1/030/332.htm</link>
+      <guid isPermaLink="false">ev_nud3lu</guid>
+      <pubDate>Sat, 21 Nov 2026 02:55:52 GMT</pubDate>
+      <description>IT之家 11 月 21 日消息，英伟达于当地时间 11 月 20 日发布了 GeForce Hotfix 621.35 显卡驱动，修复此前部分 Game Ready 驱动可能在后台向固态硬盘（SSD）过度写入数据的问题。 这一热修复驱动基于最新的 GeForce Game Ready Driver 621.24 版本，仅包含一项修复： 解决后台可能向 nv…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>AI交易雪崩：纳指单日狂泻1261点，这次市场不再相信“故事”</title>
+      <link>https://www.tmtpost.com/8213381.html</link>
+      <guid isPermaLink="false">ev_3jqkuv</guid>
+      <pubDate>Sat, 21 Nov 2026 02:27:39 GMT</pubDate>
+      <description>“黑色星期五”。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>英伟达董事会为何对黄仁勋态度转变？婚外情无关紧要，核心问题在于诚信</title>
+      <link>https://www.ithome.com/1/030/325.htm</link>
+      <guid isPermaLink="false">ev_z9v1y</guid>
+      <pubDate>Sat, 21 Nov 2026 02:10:48 GMT</pubDate>
+      <description>IT之家 11 月 21 日消息，据《连线》（WIRED）今日报道，英伟达董事会最终决定接受黄仁勋的辞职，主要原因并不在于婚外情，而是董事会认为他在相关事件中多次存在撒谎行为，导致董事会对其诚信和信任产生严重质疑。 两名知情人士向《连线》透露，黄仁勋于 11 月 8 日承认存在婚外情，但当时董事会仍无法确定相关事件涉及的其他问题。同一天，英伟达董事会宣布启动…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>近 200 万条请求揭开 AI 隐私漏洞：“零数据保留”也会泄密</title>
+      <link>https://www.ithome.com/1/030/322.htm</link>
+      <guid isPermaLink="false">ev_15zc377</guid>
+      <pubDate>Sat, 21 Nov 2026 02:03:24 GMT</pubDate>
+      <description>IT之家 11 月 21 日消息，科技媒体 Ars Technica 今天（11 月 21 日）发布博文，报道称安全公司 Dragos 首席研究官 HD Moore 向多家 AI 服务商发送近 200 万条带有可追踪“诱饵”的请求， 发现 AI 服务链存在黑客窃取提示词、转售商泄露数据及未遵守隐私设置等问题。 研究人员故意把一批可追踪的“测试秘密”（并非从真…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>OpenAI 公布反蒸馏防护进展：GPT-6.2 Astra 思考链提取成功率从 54% 降至 0.2%</title>
+      <link>https://www.ithome.com/1/030/319.htm</link>
+      <guid isPermaLink="false">ev_1vm9jdd</guid>
+      <pubDate>Sat, 21 Nov 2026 01:45:22 GMT</pubDate>
+      <description>IT之家 11 月 21 日消息，当地时间 11 月 20 日，OpenAI 发布公告介绍了针对「对抗性蒸馏」（Adversarial Distillation）的防御措施。 OpenAI 称其已加强 GPT-6.2 Astra 和 GPT-6.2 Sol 对内部推理思考链（Chain-of-Thought）的保护，以降低其他模型通过提取推理过程获取其能力的…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>黄仁勋下台后有人挖出英伟达 20 年前员工投诉记录，指控其威胁下属、发表色情言论</title>
+      <link>https://www.ithome.com/1/030/316.htm</link>
+      <guid isPermaLink="false">ev_1y122co</guid>
+      <pubDate>Sat, 21 Nov 2026 01:33:53 GMT</pubDate>
+      <description>IT之家 11 月 21 日消息，彭博社今日报道称，一份 2007 年提交的加州诉讼文件显示，英伟达两名前员工曾对时任 CEO 黄仁勋的管理方式提出投诉，指控其存在辱骂、威胁员工以及发表色情言论等行为。 这些指控涉及大约二十年前的职场事件，近期随着黄仁勋寻求重返英伟达管理层而重新受到关注。 根据这份加州高等法院的诉讼文件，英伟达首任内部法律顾问斯蒂芬・佩蒂格…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>Edge AI Daily 早报（11月21日）</title>
+      <link>https://www.tmtpost.com/8213305.html</link>
+      <guid isPermaLink="false">ev_zblbqb</guid>
+      <pubDate>Sat, 21 Nov 2026 01:19:52 GMT</pubDate>
+      <description>苹果以Siri争夺系统级代理入口，OpenAI将ChatGPT改为多模块工作台，微软用USB4 RDMA聚合多机算力，谷歌直采HBM重构TPU供应链。亚洲股市创2020年3月以来最大单周跌幅，AI支出进入回报审计。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>“几乎所有人将永久失业”：Anthropic 研究员预测 2027 年底 AI 在几乎所有领域超越顶尖专家</title>
+      <link>https://www.ithome.com/1/030/308.htm</link>
+      <guid isPermaLink="false">ev_1o6gti7</guid>
+      <pubDate>Sat, 21 Nov 2026 00:53:29 GMT</pubDate>
+      <description>IT之家 11 月 21 日消息，11 月 15 日在接受 Palisade Research 采访时，Anthropic 公司技术团队成员 Tao Lin 预测到 2027 年年底，在编程、电影制作等几乎所有领域， 人工智能（AI）在发展大约还有 1.3 年后，可以媲美或超过世界顶尖人类专家的水平。 IT之家查询公开资料，Tao Lin 在 Anthrop…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>现价近 7000 欧元的英伟达 RTX 5090 FE 显卡送修后被销毁，平台只愿退原价 2369 欧元</title>
+      <link>https://www.ithome.com/1/030/307.htm</link>
+      <guid isPermaLink="false">ev_1b9ceb6</guid>
+      <pubDate>Sat, 21 Nov 2026 00:44:56 GMT</pubDate>
+      <description>IT之家 11 月 21 日消息，Reddit 用户 @xw1y 昨日发帖称，自己送修的一张 NVIDIA GeForce RTX 5090 Founders Edition 显卡，疑似在欧洲零售商 Proshop 的维修合作方手中被销毁或丢弃。 据该用户披露，这张 RTX 5090 Founders Edition 32GB 于 2025 年 2 月以为 …</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>早报｜曝Claude证明黎曼猜想，陶哲轩回应/余承东更正发布会表述：开车不能睡觉/五月天公布Vision Pro演唱会，Apple Store可预约体验</title>
+      <link>https://www.ifanr.com/1690759</link>
+      <guid isPermaLink="false">ev_2keu5w</guid>
+      <pubDate>Sat, 21 Nov 2026 00:25:08 GMT</pubDate>
+      <description>· 三星任命手机和存储业务新负责人 · 5499 元起，华为星芒发布首款阔直板手机 OSTA O1 Pro · ColorOS 17 上线跨品牌一碰传 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
     <item>
       <title>Researcher plants 2m canaries into the AI supply chain. A privacy disaster surfaced.</title>
       <link>https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/</link>
@@ -27,7 +126,7 @@
       <category>English</category>
     </item>
     <item>
-      <title>AI claimed a solution to the 167-year-old Riemann Hypothesis — and a human did, too</title>
+      <title>AI claimed a solution to the 167-year-old Riemann hypothesis — and a human did, too</title>
       <link>https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/</link>
       <guid isPermaLink="false">ev_iz254l</guid>
       <pubDate>Fri, 20 Nov 2026 19:32:08 GMT</pubDate>
@@ -176,105 +275,6 @@
       <guid isPermaLink="false">ev_1mo60u3</guid>
       <pubDate>Fri, 20 Nov 2026 13:01:44 GMT</pubDate>
       <description>IT之家 11 月 20 日消息，Take-Two 前 CEO 本 · 费德认为，《GTA 6》将成为 AI 时代全面到来前 最后一部采用传统开发模式打造的 3A 大作 ，游戏行业也将由此告别一个时代。 费德在《财富》杂志撰文称：“《GTA 6》的发布将成为一场文化盛事，带来史诗般的游戏体验。我相信它会是一部杰作，但也会是同类作品中的最后一部。” IT之家获…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>Signal is blocking Gemini and Siri AI from reading your screen</title>
-      <link>https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app</link>
-      <guid isPermaLink="false">ev_1bs0fi6</guid>
-      <pubDate>Fri, 20 Nov 2026 12:30:47 GMT</pubDate>
-      <description>Signal is restricting the ability to take screenshots on Android and iOS devices in an effort to prevent AI agents from reading users' messages and other data. The agentic AI capab…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>开发者将櫻井政博游戏制作教程整合为 Skill 技能，可供各类 AI 智能体调用</title>
-      <link>https://www.ithome.com/1/030/228.htm</link>
-      <guid isPermaLink="false">ev_1jjkh7y</guid>
-      <pubDate>Fri, 20 Nov 2026 11:55:46 GMT</pubDate>
-      <description>IT之家 11 月 20 日消息，日本开发者 kociden 近日在 GitHub 上公开了一款名为「sakurai-skill」的非官方项目，将知名游戏制作人樱井政博 YouTube 频道《樱井政博的游戏制作》（桜井政博のゲーム作るには）全 257 集正片及特别合作视频的字幕内容，整理为 AI 智能体 Skill 技能文件，用于辅助开发。 公开信息显示，《…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>三年销售目标 700 亿，京东与华为 OSTA 星芒达成战略合作</title>
-      <link>https://www.ithome.com/1/030/227.htm</link>
-      <guid isPermaLink="false">ev_d2f2cj</guid>
-      <pubDate>Fri, 20 Nov 2026 11:51:33 GMT</pubDate>
-      <description>IT之家 11 月 20 日消息，华为全新子品牌“OSTA 星芒”今日正式亮相，“首款为 AI 而生的鸿蒙手机”OSTA O1 Pro 同步发布，首发价 5499 元起。 IT之家获悉，近日，京东与华为 OSTA 星芒签署战略合作协议， 明确未来三年华为 OSTA 星芒在京东实现全品类销售额 700 亿的目标 。 根据协议，双方将围绕产品服务、用户运营、AI…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>影石 Mic Pro、Wave 两款麦克风获升级，可原生接入腾讯 WorkBuddy</title>
-      <link>https://www.ithome.com/1/030/221.htm</link>
-      <guid isPermaLink="false">ev_1bzgiit</guid>
-      <pubDate>Fri, 20 Nov 2026 11:19:32 GMT</pubDate>
-      <description>IT之家 11 月 20 日消息，影石官方宣布，即日起，影石 Insta360 旗下旗舰级无线麦克风 Mic Pro 与 AI 录音全向麦克风 Wave 完成免费固件升级，原生接入腾讯 WorkBuddy。 升级后，Mic Pro 的录音可 直接进入 AI 工作流 ，影石的音频产品也从「记录工具」延伸为 AI 办公的语音入口。 影石方面称，Mic Pro 和…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>小鹏预计全年海外销量破10万辆；涂鸦智能AI Energy方案在欧洲多国部署；美团索降无人机迪拜首秀｜一周大公司出海动态</title>
-      <link>https://www.tmtpost.com/8213045.html</link>
-      <guid isPermaLink="false">ev_1szysio</guid>
-      <pubDate>Fri, 20 Nov 2026 10:58:48 GMT</pubDate>
-      <description>一文看完本周大公司出海全全球化动态。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>DeepSeek 新一轮千亿级融资落地，梁文锋保留绝对控制权</title>
-      <link>https://www.ithome.com/1/030/199.htm</link>
-      <guid isPermaLink="false">ev_1y61j6f</guid>
-      <pubDate>Fri, 20 Nov 2026 10:47:45 GMT</pubDate>
-      <description>IT之家 11 月 20 日消息，工商信息显示，DeepSeek 运营主体杭州深度求索人工智能基础技术研究有限公司近日完成工商变更，新增股东杭州程砚企业管理咨询合伙企业（有限合伙）。 IT之家查询国家企业信用信息公示系统获悉，杭州深度求索注册资本由 1644.7496 万元增至 1991.8707 万元，增加 347.1211 万元，增幅约 21.1%。 据…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>自家人都看不下去了？数百谷歌员工要求公司允许中小学使用不含 AI 的谷歌搜索</title>
-      <link>https://www.ithome.com/1/030/197.htm</link>
-      <guid isPermaLink="false">ev_1jm9kqx</guid>
-      <pubDate>Fri, 20 Nov 2026 10:42:22 GMT</pubDate>
-      <description>IT之家 11 月 20 日消息，当地时间 19 日，据彭博社报道，超过 500 名谷歌员工和合同工联名请愿，要求公司允许中小学继续使用不含 AI 功能的谷歌搜索。 请愿书致谷歌 CEO 桑达尔 · 皮查伊、搜索业务负责人伊丽莎白 · 里德和教育业务负责人克里斯 · 菲利普斯。活动由 Alphabet 员工工会发起，其代表着 Alphabet 及旗下谷歌、Y…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>阿里发布2027年Q2财报：阿里云AI收入增长53%，即时零售减亏</title>
-      <link>https://www.tmtpost.com/8212798.html</link>
-      <guid isPermaLink="false">ev_1uo58r2</guid>
-      <pubDate>Fri, 20 Nov 2026 10:31:54 GMT</pubDate>
-      <description>AI相关产品收入已经连续第十三个季度保持三位数同比增长，互联网、汽车、具身智能、金融、生物科技等行业客户持续扩容算力采购需求。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>托举WorkBuddy登顶，腾讯AI高光藏软肋</title>
-      <link>https://www.tmtpost.com/8212605.html</link>
-      <guid isPermaLink="false">ev_p3c695</guid>
-      <pubDate>Fri, 20 Nov 2026 10:31:14 GMT</pubDate>
-      <description>WorkBuddy已登顶，腾讯AI待翻身。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>灵掌机器人太空灵巧手亮相世界智能制造博览会</title>
-      <link>https://www.leiphone.com/category/industrynews/leaIWtsEkg58zaCy.html</link>
-      <guid isPermaLink="false">ev_16gayyb</guid>
-      <pubDate>Fri, 20 Nov 2026 10:27:00 GMT</pubDate>
-      <description>11月19日至21日，第十一届世界智能制造博览会（以下简称“智博会”）在南京国际博览中心举办。无锡灵掌机器人科技有限公司（以下简称“灵掌机器人”）携全系列共9款灵巧手产品参展，重点展示了灵巧手在工业制造、太空任务、特种作业、科研与人形机器人等行业领域的落地场景及解决方案。 灵掌机器人创始人兼首席执行官张超介绍，灵巧手是具身智能走向真实操作的重要一环，也是连接…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>“物理AI第一股”冲刺A股：左手英伟达，右手摩尔线程</title>
-      <link>https://www.tmtpost.com/8212915.html</link>
-      <guid isPermaLink="false">ev_ka447p</guid>
-      <pubDate>Fri, 20 Nov 2026 10:23:58 GMT</pubDate>
-      <description>五一视界启动A股IPO辅导。</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>中文</category>
     </item>
