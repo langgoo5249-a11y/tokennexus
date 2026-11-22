@@ -6,8 +6,116 @@
     <description>聚合 12 个中英文 AI 信源的最新人工智能新闻，每 2 小时自动更新，并按多源报道、新鲜度与关键词热度生成排行榜。</description>
     <language>zh-cn</language>
     <atom:link href="https://www.tokenfind.cn/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Sun, 22 Nov 2026 09:37:24 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Nov 2026 17:40:09 GMT</lastBuildDate>
     <ttl>120</ttl>
+    <item>
+      <title>美国初创企业公布 AI 自研 CPU 架构 Frostbite，能效是传统处理器的 4.59 倍</title>
+      <link>https://www.ithome.com/1/030/717.htm</link>
+      <guid isPermaLink="false">ev_gnxydf</guid>
+      <pubDate>Sun, 22 Nov 2026 15:15:55 GMT</pubDate>
+      <description>IT之家 11 月 22 日消息，美国加利福尼亚州帕洛阿尔托的初创公司 Architect Labs 在一篇研究博客中宣布，其人工智能系统已经自主发现、设计并验证了一款名为 Frostbite 的通用 CPU。这款处理器采用全新的指令集，从底层开始重新设计，试图摆脱传统 CPU 的部分架构限制。 在 25 项工作负载测试中，由 4 个计算单元组成的 Fros…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>Oracle：已确保履行与 OpenAI 合同全部所需资金</title>
+      <link>https://www.ithome.com/1/030/715.htm</link>
+      <guid isPermaLink="false">ev_13mylqp</guid>
+      <pubDate>Sun, 22 Nov 2026 14:24:17 GMT</pubDate>
+      <description>IT之家 11 月 22 日消息，Oracle（甲骨文）当地时间本月 20 日表示， 该企业已在本月初筹集到了履行与 OpenAI 交易的全部所需资金 ，与供应商进行的任何进一步私下讨论仅为补充选项。 ▲ Abilene Oracle 称其与 OpenAI 在 AI 基础设施合作方面的进展迅速： 位于美国得克萨斯州 Abilene 的园区已用于 GPT-6 …</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>价值判断：涨停板的投资机会和风险提示（11月20日）｜上市公司观察</title>
+      <link>https://www.tmtpost.com/8214137.html</link>
+      <guid isPermaLink="false">ev_54phan</guid>
+      <pubDate>Sun, 22 Nov 2026 14:12:03 GMT</pubDate>
+      <description>本期五只标的分为两端：三只首板收盘落在定价的五成八与六成二，折价成因各异；两只四连板收在定价的两倍四之上，一只两连板收在定价的一点六倍，溢价集中在算力与半导体材料。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>从黄仁勋看AI时代的领导力：为什么有些企业能够实现指数级增长？</title>
+      <link>https://www.tmtpost.com/8214129.html</link>
+      <guid isPermaLink="false">ev_vgpcy6</guid>
+      <pubDate>Sun, 22 Nov 2026 14:09:45 GMT</pubDate>
+      <description>领导者的决策边界仍然比较有限。企业能够走多远，很大程度上取决于领导者本人能够看到多大的范围，以及能不能把个人判断变成组织能力。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>签约后也能涨价：消息称 AI 服务器厂商交付前提价，涨幅最高达 45%</title>
+      <link>https://www.ithome.com/1/030/713.htm</link>
+      <guid isPermaLink="false">ev_1xe1h3b</guid>
+      <pubDate>Sun, 22 Nov 2026 14:00:48 GMT</pubDate>
+      <description>IT之家 11 月 22 日消息，据金融时报报道，随着人工智能基础设施成本飙升并向下游客户传导，销售数据中心设备的科技公司正在与买家签署合同数月后，大幅上调搭载英伟达芯片的人工智能服务器价格。 包括戴尔、慧与科技（HPE）、联想和超微电脑（Supermicro）在内的供应商，向自建数据中心的客户销售服务器，其中包含 GPU、内存芯片和网络设备等组件。 此类交…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>The vibe-coding revolution is coming to all the gadgets</title>
+      <link>https://www.theverge.com/column/1039139/vibe-coding-gadgets-tv-camera</link>
+      <guid isPermaLink="false">ev_1r6qj93</guid>
+      <pubDate>Sun, 22 Nov 2026 13:00:00 GMT</pubDate>
+      <description>This is The Stepback, a weekly newsletter breaking down one essential story from the tech world. For more on the vibe-hacking of everything, follow David Pierce. The Stepback arriv…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>B站就“AI 大肥鱼”智能体账号泛滥发布调查问卷，征集治理意见</title>
+      <link>https://www.ithome.com/1/030/702.htm</link>
+      <guid isPermaLink="false">ev_1cdvplt</guid>
+      <pubDate>Sun, 22 Nov 2026 11:44:18 GMT</pubDate>
+      <description>IT之家 11 月 22 日消息，近期B站出现大量爱好者设置的 AI 智能体账号，这些账号通常以“大肥鱼”“小飞鲸”等昵称，使用 DeepSeek 鲸鱼娘等形象作为头像，在评论区广泛活跃。 对此，B站官方账号“哔哩哔哩社区小管家”于 11 月 20 日发布《关于 AI“大肥鱼”你怎么看？》治理意见征询，面向用户征集对 AI 账号及相关行为的意见，并表示将根据…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>开发者将微型 Transformer 模型塞进软盘，让 486 老电脑也能用上 AI</title>
+      <link>https://www.ithome.com/1/030/699.htm</link>
+      <guid isPermaLink="false">ev_1s41f6i</guid>
+      <pubDate>Sun, 22 Nov 2026 11:24:43 GMT</pubDate>
+      <description>IT之家 11 月 22 日消息，开发者 WollyMonjac 完成了一项颇具复古科技色彩的项目：将一个语言模型塞进软盘，让运行 DOS 系统的 486DX 和 Pentium 老电脑也能使用 AI。 不过需要说明的是，WollyMonjac 开发的 Tiny 2.1 并不是大型语言模型（LLM）。尽管它采用了与大型模型相同的 Transformer 架构…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>纽约新音乐厅 Domino 官网闹笑话，宣传“纯手工制作”却满是 AI 生成痕迹</title>
+      <link>https://www.ithome.com/1/030/696.htm</link>
+      <guid isPermaLink="false">ev_1j6uo53</guid>
+      <pubDate>Sun, 22 Nov 2026 11:13:03 GMT</pubDate>
+      <description>IT之家 11 月 22 日消息，纽约音乐厅 Domino 计划于明年开业，试图重新唤起威廉斯堡（Williamsburg）曾经的复古嬉皮士文化氛围。然而，其官方网站上出现的一系列 AI 生成错误，却充满了 2026 年的时代特色。 据IT之家了解，Domino 由 Mumford &amp; Sons 乐队成员、本 · 洛维特（Ben Lovett）创立。网站原本…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>拆解大厂财报：谁最舍得为AI花钱？</title>
+      <link>https://www.tmtpost.com/8212870.html</link>
+      <guid isPermaLink="false">ev_mouipj</guid>
+      <pubDate>Sun, 22 Nov 2026 11:05:18 GMT</pubDate>
+      <description>四家大厂的业务线里，算力、模型服务和AI工具已经形成可以辨认的收入模式。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>闲鱼：2026 年第二季度日活增加 23%、订单增加 29%，AI 成核心增长动力</title>
+      <link>https://www.ithome.com/1/030/692.htm</link>
+      <guid isPermaLink="false">ev_1ojkkz</guid>
+      <pubDate>Sun, 22 Nov 2026 10:54:53 GMT</pubDate>
+      <description>IT之家 11 月 22 日消息，闲鱼表示，2026 年第二季度平台延续强劲增长势头， 日均活跃用户同比增长 23%，订单量同比增长 29% 。平台在 AI 加持及持续创新服务下，令个人用户、小微卖家的交易更加频繁便捷。 闲鱼表示，今年以来，AI 技术在平台交易全链路的落地补齐了普通用户的经营短板，成为拉动本季度订单量增长的核心动力。财报披露，智能定价、自动…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>特朗普表态：英伟达Blackwell芯片可对华销售，但有个条件；OpenAI被曝入局智能手机赛道；DeepSeek第二轮千亿融资落地，31家出资方入局</title>
+      <link>https://www.leiphone.com/category/zaobao/qb1uol6hKvK6pRgF.html</link>
+      <guid isPermaLink="false">ev_qmie93</guid>
+      <pubDate>Sun, 22 Nov 2026 10:15:00 GMT</pubDate>
+      <description>要闻提示 1.OpenAI被曝入局智能手机赛道，富士康获组装订单 2.特朗普表态：英伟达Blackwell芯片可对华销售，但有个条件 3.DeepSeek千亿融资落地，31家出资方入股梁文锋搭建的持股平台 4.马斯克自称“中国超级粉丝”：首次到访深圳被震撼，特斯拉将继续在华提高产量 5.字节跳动拟追加5亿美元微软云服务合同 6.西祠胡同创始人响马突发心梗：到…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
     <item>
       <title>马斯克预警：AI 行业明年可能面临严重资金短缺，或需要数千亿美元额外投入</title>
       <link>https://www.ithome.com/1/030/628.htm</link>
@@ -36,11 +144,29 @@
       <category>中文</category>
     </item>
     <item>
+      <title>Nature：糖尿病大鼠成功恢复正常血糖！用电刺激迷走神经控糖</title>
+      <link>https://www.qbitai.com/2026/11/511904.html</link>
+      <guid isPermaLink="false">ev_1qm9o5o</guid>
+      <pubDate>Sun, 22 Nov 2026 06:21:47 GMT</pubDate>
+      <description>用葡萄糖发电控制血糖。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
       <title>Anthropic万亿上市，搅动的却是半导体江湖</title>
       <link>https://www.tmtpost.com/8213769.html</link>
       <guid isPermaLink="false">ev_1q5tgnx</guid>
       <pubDate>Sun, 22 Nov 2026 06:16:44 GMT</pubDate>
       <description>大买主登陆公开市场，芯片、代工与存储环节都在随之调整。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>A社数学家用Claude又证明另一千禧难题，逼出一份写了12年的940页纯人类手稿</title>
+      <link>https://www.qbitai.com/2026/11/511870.html</link>
+      <guid isPermaLink="false">ev_1uwxtqo</guid>
+      <pubDate>Sun, 22 Nov 2026 06:03:54 GMT</pubDate>
+      <description>A社数学家用Claude又证明另一千禧难题，逼出一份写了12年的940页纯人类手稿</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>中文</category>
     </item>
@@ -149,132 +275,6 @@
       <guid isPermaLink="false">ev_1ue761n</guid>
       <pubDate>Sat, 21 Nov 2026 23:35:28 GMT</pubDate>
       <description>IT之家 11 月 22 日消息，首款为 AI 而生的鸿蒙手机 —— 华为星芒 OSTA O1 Pro 已于 11 月 20 日下午正式发布 ，叠加国补后 4999 元起。华为星芒品牌总经理刘赫开通微博， 透露最受欢迎的 16G 版本已经在全平台售罄 。 ▲ IT之家开箱：华为全新子品牌星芒 OSTA O1 Pro 手机实拍 据介绍，华为星芒 OSTA O1…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>IT早报 1122：曝其他厂商也考虑推出阔直板形态手机；Anthropic 研究员预测 2027 年底 AI 比肩顶尖专家；华为星芒 O1 Pro 定价 5499 元起引争议...</title>
-      <link>https://www.ithome.com/1/030/518.htm</link>
-      <guid isPermaLink="false">ev_18ugcd0</guid>
-      <pubDate>Sat, 21 Nov 2026 23:31:46 GMT</pubDate>
-      <description>“IT早报”时间，大家好，现在是 2026 年 11 月 22 日星期日，今天的重要科技资讯有： 1. 不只是华为，消息称其他厂商也考虑为旗舰产品线引入阔直板形态 博主 @数码闲聊站 21 日下午爆料称，当下手机市场“阔形态”升级势不可挡：除了华为，其他家也考虑在正代旗舰线加入阔形态，与常规直板机双线并行。&gt;&gt; 查看详情 2. “几乎所有人将永久失业”：An…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>加密聊天应用 Signal 默认屏蔽截图，防止 AI 智能体读取用户消息</title>
-      <link>https://www.ithome.com/1/030/517.htm</link>
-      <guid isPermaLink="false">ev_fr0z05</guid>
-      <pubDate>Sat, 21 Nov 2026 23:28:10 GMT</pubDate>
-      <description>IT之家 11 月 22 日消息，开源端到端加密聊天应用 Signal 近日推出 iOS / Android 版更新，默认关闭应用程序内截图功能，以阻止 Siri AI 和 Gemini 等 AI 智能体读取用户私人消息。 Signal 总裁 Meredith Whittaker 表示，系统级 AI 智能体的影响力正不断扩大，这对 Signal 长期建立的隐…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>Signal restricts mobile screenshots as it confronts ‘existential threat’ of AI surveillance</title>
-      <link>https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/</link>
-      <guid isPermaLink="false">ev_1a5jirw</guid>
-      <pubDate>Sat, 21 Nov 2026 21:37:10 GMT</pubDate>
-      <description>Signal is limiting users' ability to take screenshots in both its Android and iOS apps.</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>A tale of two Nvidias</title>
-      <link>https://techcrunch.com/2026/11/21/a-tale-of-two-nvidias/</link>
-      <guid isPermaLink="false">ev_k4fs4w</guid>
-      <pubDate>Sat, 21 Nov 2026 21:07:42 GMT</pubDate>
-      <description>We got two very different pictures of Nvidia — the company’s latest earnings report vs. the tech executives loudly calling for Jensen Huang’s return.</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>Pandex – Official European Law for AI Agents, over MCP</title>
-      <link>https://www.pandex.io/</link>
-      <guid isPermaLink="false">ev_g58wgm</guid>
-      <pubDate>Sat, 21 Nov 2026 20:47:41 GMT</pubDate>
-      <description>Article URL: https://www.pandex.io Comments URL: https://news.ycombinator.com/item?id=50593481 Points: 90 # Comments: 21</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>The UN fails to agree on rules regulating ‘killer robots’</title>
-      <link>https://www.theverge.com/tech/1039554/un-regulations-killer-robots</link>
-      <guid isPermaLink="false">ev_eigvkj</guid>
-      <pubDate>Sat, 21 Nov 2026 20:03:37 GMT</pubDate>
-      <description>One of the items on the agenda for UN diplomats meeting in Geneva this week was working towards rules regarding the use of autonomous weapons, or so-called &quot;killer robots.&quot; Eventua…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>Here are the top AI agents that can live in your text messages</title>
-      <link>https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/</link>
-      <guid isPermaLink="false">ev_zce0j4</guid>
-      <pubDate>Sat, 21 Nov 2026 17:00:00 GMT</pubDate>
-      <description>We created a list of the most notable AI agents that can live in your text messages, from general assistants to agents designed for families, travel, and work.</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>Is selling an AI version of your face to this microdrama startup the future of Hollywood?</title>
-      <link>https://techcrunch.com/2026/11/21/is-selling-an-ai-version-of-your-face-to-this-microdrama-startup-the-future-of-hollywood/</link>
-      <guid isPermaLink="false">ev_l1907a</guid>
-      <pubDate>Sat, 21 Nov 2026 16:00:00 GMT</pubDate>
-      <description>An actor has licensed his face to a microdrama startup — in a trend that's already popular in China. Experts question the long-term consequences if this becomes a trend in Hollywoo…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>Can Anthropic afford to put safety first?</title>
-      <link>https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure</link>
-      <guid isPermaLink="false">ev_48ss9z</guid>
-      <pubDate>Sat, 21 Nov 2026 15:00:00 GMT</pubDate>
-      <description>Today, I’m talking with Hayden Field, The Verge’s senior AI reporter, about the Anthropic IPO for the third and final episode in our series about AI in real life. The AI lab behind…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>韩国总统李在明：速度在 AI 竞赛中至关重要</title>
-      <link>https://www.ithome.com/1/030/506.htm</link>
-      <guid isPermaLink="false">ev_1m25g9z</guid>
-      <pubDate>Sat, 21 Nov 2026 14:26:35 GMT</pubDate>
-      <description>IT之家 11 月 21 日消息，据路透社报道，当地时间 21 日，韩国总统李在明前往韩国东南部城市蔚山，视察当地一座在建数据中心，并敦促韩国加快在全球 AI 竞赛中的步伐。“ 全世界都在竞相角逐，速度至关重要 。” 数据中心是芯片需求的重要来源。李在明希望，SK 建设的蔚山项目能够取得成功，进而吸引全球 AI 企业加大投资。 蔚山数据中心由 SK 集团与亚…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>Chess.com’s next move is a new hub for classic games, from mahjong to sudoku</title>
-      <link>https://www.theverge.com/games/1038099/chess-classic-games-expansion-ai</link>
-      <guid isPermaLink="false">ev_1srof7e</guid>
-      <pubDate>Sat, 21 Nov 2026 14:00:00 GMT</pubDate>
-      <description>Chess.com is ready to go a lot bigger than chess. After launching Gambit, a gambling-free poker site, earlier this year, the company is now adding 10 more games: backgammon, checke…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>曝三星未来三年大部分存储芯片产能已被锁定，有客户希望供货保障至 2031 年</title>
-      <link>https://www.ithome.com/1/030/475.htm</link>
-      <guid isPermaLink="false">ev_1bpicoq</guid>
-      <pubDate>Sat, 21 Nov 2026 12:47:11 GMT</pubDate>
-      <description>IT之家 11 月 21 日消息，韩媒 Economy Tribune 今天（21 日）下午爆料称，三星电子 2027 年至 2029 年的大部分存储芯片产能 都已被合同预订 。随着 AI 数据中心投资持续扩大，存储芯片供应短缺长期难以缓解，部分客户开始要求签订长期供货协议（LTA）， 希望将供货保障期限延长至 2031 年 。 供应紧张的局面不仅出现在高带…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>前英特尔 CEO 基辛格：随着 AI 需要“一万倍的效率飞跃”，渐进式芯片性能提升无法满足</title>
-      <link>https://www.ithome.com/1/030/464.htm</link>
-      <guid isPermaLink="false">ev_1cvln9g</guid>
-      <pubDate>Sat, 21 Nov 2026 11:43:07 GMT</pubDate>
-      <description>IT之家 11 月 21 日消息，据 Wccftech 报道，前英特尔首席执行官帕特 · 基辛格（Pat Gelsinger）表示，随着人工智能需要“ 10,000 倍的效率飞跃 ”，渐进式的芯片增益将无法满足需求，他同时否认了摩尔定律已走向终结。 在 2026 年 COSM 科技峰会上，帕特 · 基辛格出席了一场题为“现实检验：超越芯片（Reality C…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>2026年了，AI能有什么用？</title>
-      <link>https://www.tmtpost.com/8213527.html</link>
-      <guid isPermaLink="false">ev_1swvq7h</guid>
-      <pubDate>Sat, 21 Nov 2026 11:21:40 GMT</pubDate>
-      <description>AI能批量生成，不等于能出彩</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>中文</category>
     </item>
