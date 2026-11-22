@@ -6,8 +6,71 @@
     <description>聚合 12 个中英文 AI 信源的最新人工智能新闻，每 2 小时自动更新，并按多源报道、新鲜度与关键词热度生成排行榜。</description>
     <language>zh-cn</language>
     <atom:link href="https://www.tokenfind.cn/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Sun, 22 Nov 2026 01:57:03 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Nov 2026 09:37:24 GMT</lastBuildDate>
     <ttl>120</ttl>
+    <item>
+      <title>马斯克预警：AI 行业明年可能面临严重资金短缺，或需要数千亿美元额外投入</title>
+      <link>https://www.ithome.com/1/030/628.htm</link>
+      <guid isPermaLink="false">ev_15oobey</guid>
+      <pubDate>Sun, 22 Nov 2026 08:47:38 GMT</pubDate>
+      <description>IT之家 11 月 22 日消息，深度学习领域开源项目 Keras 创始人弗朗索瓦・肖莱（François Chollet）在 X 上发文称，要么你认为 AI 基础设施建设已经结束，AI 只是一场昙花一现的泡沫，且算力需求已经见顶；要么，这就是一次难得的买入机会。 弗朗索瓦称，GPU 现货价格仍在上涨，产能难以保障，HBM 和 DRAM 到 2029 年的产…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>Hidisc Sound Glasses 轻量化蓝牙音频眼镜发布：10mm 扬声器、5.5 小时续航，3980 日元</title>
+      <link>https://www.ithome.com/1/030/623.htm</link>
+      <guid isPermaLink="false">ev_4pxrhf</guid>
+      <pubDate>Sun, 22 Nov 2026 08:39:48 GMT</pubDate>
+      <description>IT之家 11 月 22 日消息，制造商 Hidisc 宣布推出一款 Sound Glasses 轻量化蓝牙音频眼镜，该产品搭载蓝牙 6.0 技术、配有开放式扬声器，售价为 3,980 日元 （IT之家注：现汇率约合 167.5 元人民币） 。 与如今功能日益复杂的智能眼镜不同，这款产品没有摄像头、AI 助手等功能，而是专注于提供基础的无线音频体验。其镜腿内…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>跨境收款之后，中国公司盯上智能体支付的新生意</title>
+      <link>https://www.tmtpost.com/8213773.html</link>
+      <guid isPermaLink="false">ev_1sxw8lk</guid>
+      <pubDate>Sun, 22 Nov 2026 08:19:16 GMT</pubDate>
+      <description>中国公司正在通过智能体支付，从赚通道费走向把经营能力捆绑进企业的日常工作流。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>Anthropic万亿上市，搅动的却是半导体江湖</title>
+      <link>https://www.tmtpost.com/8213769.html</link>
+      <guid isPermaLink="false">ev_1q5tgnx</guid>
+      <pubDate>Sun, 22 Nov 2026 06:16:44 GMT</pubDate>
+      <description>大买主登陆公开市场，芯片、代工与存储环节都在随之调整。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>AI Supply Chain Security: What Canary Tokens Found</title>
+      <link>https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens</link>
+      <guid isPermaLink="false">ev_c651mb</guid>
+      <pubDate>Sun, 22 Nov 2026 05:11:43 GMT</pubDate>
+      <description>Article URL: https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens Comments URL: https://news.ycombinator.com/item?id=50596511 Points: 81 # Comments: 17</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>小鹏交出一份增长财报，盈利拐点为何还没来？</title>
+      <link>https://www.tmtpost.com/8213686.html</link>
+      <guid isPermaLink="false">ev_127g0wl</guid>
+      <pubDate>Sun, 22 Nov 2026 04:36:59 GMT</pubDate>
+      <description>小鹏三季度营收与交付量双创新高，但盈利压力犹存。海外扩张与物理AI商业化，能否成为新的增长动力？</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>The Mythology of Conscious AI</title>
+      <link>https://www.noemamag.com/the-mythology-of-conscious-ai/</link>
+      <guid isPermaLink="false">ev_1k14q2d</guid>
+      <pubDate>Sun, 22 Nov 2026 02:10:02 GMT</pubDate>
+      <description>Article URL: https://www.noemamag.com/the-mythology-of-conscious-ai/ Comments URL: https://news.ycombinator.com/item?id=50595537 Points: 59 # Comments: 114</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
     <item>
       <title>试题经过大模型测试？国家中医药管理局认证中心：未与任何大模型企业合作，亦未开展测评</title>
       <link>https://www.ithome.com/1/030/540.htm</link>
@@ -126,6 +189,15 @@
       <category>English</category>
     </item>
     <item>
+      <title>Pandex – Official European Law for AI Agents, over MCP</title>
+      <link>https://www.pandex.io/</link>
+      <guid isPermaLink="false">ev_g58wgm</guid>
+      <pubDate>Sat, 21 Nov 2026 20:47:41 GMT</pubDate>
+      <description>Article URL: https://www.pandex.io Comments URL: https://news.ycombinator.com/item?id=50593481 Points: 90 # Comments: 21</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
       <title>The UN fails to agree on rules regulating ‘killer robots’</title>
       <link>https://www.theverge.com/tech/1039554/un-regulations-killer-robots</link>
       <guid isPermaLink="false">ev_eigvkj</guid>
@@ -203,78 +275,6 @@
       <guid isPermaLink="false">ev_1swvq7h</guid>
       <pubDate>Sat, 21 Nov 2026 11:21:40 GMT</pubDate>
       <description>AI能批量生成，不等于能出彩</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>【数智周报】 Anthropic敲响纳斯达克开市钟，创史上最大规模IPO纪录；美国限制远程获取AI算力，海外数据中心出租算力须许可；DeepSeek第二轮融资落地</title>
-      <link>https://www.tmtpost.com/8213535.html</link>
-      <guid isPermaLink="false">ev_1m24hs4</guid>
-      <pubDate>Sat, 21 Nov 2026 11:19:38 GMT</pubDate>
-      <description>（11 月 16 日-21 日）英伟达史上首次单季营收突破1000亿美元，净利润同比翻倍；阿里巴巴：2027财年第二季度营收2715.2亿元，同比增长10%，AI相关产品收入超179亿元，连续13个季度实现三位数增长；腾讯：WorkBuddy近七天年化收入超5亿美元，三季度收入是第二季度的5倍以上；豆包工作日活突破800万，企业客户ARR突破20亿元...</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>前英伟达 AI 应用软件产品管理总监回忆黄仁勋：作风强硬，骨子里却很温暖</title>
-      <link>https://www.ithome.com/1/030/459.htm</link>
-      <guid isPermaLink="false">ev_cbml5w</guid>
-      <pubDate>Sat, 21 Nov 2026 11:10:42 GMT</pubDate>
-      <description>IT之家 11 月 21 日消息，据《商业内幕》，现年 43 岁、曾与黄仁勋共事三年半的前英伟达 AI 应用软件产品管理总监贾马尔，讲述了自己近距离观察黄仁勋及与其共事的经历。 IT之家附上全文大意如下： 在英伟达，黄仁勋与员工保持密切接触 我 2022 年加入英伟达，一直工作到 2025 年下半年，担任 AI 应用软件产品管理总监，办公室位于总部的 End…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>华中科技大学与阿里巴巴联合成立 AI 前沿安全研究中心，课题覆盖大模型安全攻防等</title>
-      <link>https://www.ithome.com/1/030/423.htm</link>
-      <guid isPermaLink="false">ev_12oz841</guid>
-      <pubDate>Sat, 21 Nov 2026 09:57:05 GMT</pubDate>
-      <description>IT之家 11 月 21 日消息，华中科技大学与阿里巴巴集团于 11 月 18 日签署合作协议，聚焦 AI 安全共建“智能攻防与前沿安全联合研究中心”，首批启动 9 个课题。 IT之家获悉，联合研究中心首批启动的 9 个课题，覆盖 大模型安全攻防、智能体与终端安全、智能化系统与软件安全、数据协同与隐私保护 四大方向，以下为官方公开的案例： 当 AI 智能体开…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>美参议员痛批苹果、谷歌：放任 AI 脱衣应用“野蛮生长”</title>
-      <link>https://www.ithome.com/1/030/421.htm</link>
-      <guid isPermaLink="false">ev_8pb6v7</guid>
-      <pubDate>Sat, 21 Nov 2026 09:22:39 GMT</pubDate>
-      <description>IT之家 11 月 21 日消息，据英国《卫报》报道，美国参议员罗恩 · 怀登、埃德 · 马基和本 · 卢汉指出，苹果和谷歌未能有效识别或下架用于生成未经当事人同意的裸照或色情图像的应用。 三人还指出，Meta 仍在从这些所谓的 AI 脱衣应用广告中获利。 当地时间 18 日，三人向苹果、谷歌和 Meta 的 CEO 致函，指出各公司现有的防护措施 不足以阻…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>代码显示三星正为 One UI 9.5 开发 AI 智能天气提醒功能：可根据用户作息与通勤时间推送通知</title>
-      <link>https://www.ithome.com/1/030/419.htm</link>
-      <guid isPermaLink="false">ev_1sir1so</guid>
-      <pubDate>Sat, 21 Nov 2026 08:53:47 GMT</pubDate>
-      <description>IT之家 11 月 21 日消息，外媒 SammyGuru 在拆解三星最新 One UI 9.5 测试版时，发现三星正在为天气应用测试多项 AI 智能提醒功能，系统能够识别用户的起床时间和通勤行为，在用户起床、上班或下班回家时自动加载最新天气信息。 具体来看，相应功能依赖三星 Personal Data Intelligence（个人数据智能）系统，能够识别…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>国家数据局：将积极拓展词元服务应用场景，健全词元计量计费、质量测评等标准规范</title>
-      <link>https://www.ithome.com/1/030/418.htm</link>
-      <guid isPermaLink="false">ev_1rs1x4v</guid>
-      <pubDate>Sat, 21 Nov 2026 08:51:37 GMT</pubDate>
-      <description>IT之家 11 月 21 日消息，国家数据局党组书记、局长刘烈宏出席昨日（20 日）在湖南长沙举办的 2026 世界计算大会开幕式并致辞。 刘烈宏表示，词元打通了算力、模型、数据间的价值传导链路，成为数智经济的价值锚点和数据价值的显性化载体。 一是词元发展初步起势，围绕词元生产、流通、消费的产业生态正加速构建，拓展了经济增长新空间。 二是“词元工厂”快速兴起…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>马化腾第四次改腾讯AI航道</title>
-      <link>https://www.tmtpost.com/8213477.html</link>
-      <guid isPermaLink="false">ev_1rpilrz</guid>
-      <pubDate>Sat, 21 Nov 2026 07:55:05 GMT</pubDate>
-      <description>老板得付第一责任</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>GPT-6.2 Astra再次暴击具身模型：16项任务成功率较GPT-6 Astra翻倍</title>
-      <link>https://www.qbitai.com/2026/11/511779.html</link>
-      <guid isPermaLink="false">ev_1g4ydzm</guid>
-      <pubDate>Sat, 21 Nov 2026 06:35:59 GMT</pubDate>
-      <description>还实现可变形物体操控全球首通</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>中文</category>
     </item>
