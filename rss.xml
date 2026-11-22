@@ -6,8 +6,80 @@
     <description>聚合 12 个中英文 AI 信源的最新人工智能新闻，每 2 小时自动更新，并按多源报道、新鲜度与关键词热度生成排行榜。</description>
     <language>zh-cn</language>
     <atom:link href="https://www.tokenfind.cn/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Sun, 22 Nov 2026 17:40:09 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Nov 2026 23:23:15 GMT</lastBuildDate>
     <ttl>120</ttl>
+    <item>
+      <title>OpenAI 首席科学家警告：AI 最早可能在 2027 年加速自身发展，奥尔特曼赞同为 AI 开发设限</title>
+      <link>https://www.ithome.com/1/030/720.htm</link>
+      <guid isPermaLink="false">ev_1xaeitp</guid>
+      <pubDate>Sun, 22 Nov 2026 22:50:46 GMT</pubDate>
+      <description>IT之家 11 月 23 日消息，当地时间于 11 月 22 日，OpenAI 首席科学家雅库布 · 帕霍茨基（Jakub Pachocki）发文，提议 AI 企业应建立行业统一标准，对先进 AI 模型的开发设置共同限制，在研究人员具备更可靠的模型行为理解和监控能力之前，不应突破约定的发展门槛。 他认为，传统 AI 能力评测基准会随着技术进步迅速过时，而困惑…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>We haven’t seen the last of the major tech outages</title>
+      <link>https://www.theverge.com/tech/1039851/major-tech-outages</link>
+      <guid isPermaLink="false">ev_u5ybbn</guid>
+      <pubDate>Sun, 22 Nov 2026 22:48:02 GMT</pubDate>
+      <description>Over the last week or so, we have seen a nationwide FAA ground stop, a multi-day Outlook outage that brought entire companies to a standstill, and a banking outage at JPMorgan Chas…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>古尔曼：苹果准备在明年 2 月至 3 月 iOS 27.4 周期中推出入门级 iPad、iPhone 18e 和全新 MacBook Neo</title>
+      <link>https://www.ithome.com/1/030/719.htm</link>
+      <guid isPermaLink="false">ev_1m8la4t</guid>
+      <pubDate>Sun, 22 Nov 2026 22:42:26 GMT</pubDate>
+      <description>IT之家 11 月 23 日消息，彭博社记者马克 · 古尔曼昨晚发布了最新一期 Power On 新闻通讯，分析了苹果在 AI Agent 竞争中的处境，并披露了苹果 2027 年上半年的部分新品计划。 IT之家此前报道，苹果正在招聘负责 Agentic AI 项目的高级工程管理人员，招聘描述涉及跨应用操作、网页浏览、命令执行及代码编写和调试等能力。 古尔曼…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>iPhone 18 大更新，明年春天见！但苹果的挑战才刚刚开始</title>
+      <link>https://www.ifanr.com/1690832</link>
+      <guid isPermaLink="false">ev_miyhou</guid>
+      <pubDate>Sun, 22 Nov 2026 22:19:08 GMT</pubDate>
+      <description>更多的新品，也不能消除苹果的 AI 焦虑 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>OpenAI’s chief scientist has thoughts on how to limit AI development</title>
+      <link>https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/</link>
+      <guid isPermaLink="false">ev_1dqwghf</guid>
+      <pubDate>Sun, 22 Nov 2026 21:14:07 GMT</pubDate>
+      <description>To establish a speed limit on AI development, you need to agree on how to measure speed.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>A Beginner's Guide to Local AI with Inkling, Qwen, and Unsloth</title>
+      <link>https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth</link>
+      <guid isPermaLink="false">ev_yt86fw</guid>
+      <pubDate>Sun, 22 Nov 2026 21:01:16 GMT</pubDate>
+      <description>Article URL: https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth Comments URL: https://news.ycombinator.com/item?id=50603845 Points: 104 # Comments: 31</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Why data centers are at the center of the Big Tech backlash</title>
+      <link>https://techcrunch.com/2026/11/22/why-data-centers-are-at-the-center-of-the-big-tech-backlash/</link>
+      <guid isPermaLink="false">ev_6irlro</guid>
+      <pubDate>Sun, 22 Nov 2026 18:08:43 GMT</pubDate>
+      <description>Journalist Paris Marx unpacks his new book &quot;Hyperscale.&quot;</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Binding of Isaac developer removes AI music from Repentance Plus</title>
+      <link>https://www.theverge.com/games/1039770/binding-of-isaac-ai-music</link>
+      <guid isPermaLink="false">ev_9ly3nh</guid>
+      <pubDate>Sun, 22 Nov 2026 17:25:20 GMT</pubDate>
+      <description>The Binding of Isaac: Repentance Plus has spent the last few days getting review-bombed on Steam after it was discovered that a particular segment of the game used AI music. Reddit…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
     <item>
       <title>美国初创企业公布 AI 自研 CPU 架构 Frostbite，能效是传统处理器的 4.59 倍</title>
       <link>https://www.ithome.com/1/030/717.htm</link>
@@ -54,11 +126,29 @@
       <category>中文</category>
     </item>
     <item>
+      <title>Show HN: I built a game where you are an LLM's subagent</title>
+      <link>https://github.com/gulivan/worker755</link>
+      <guid isPermaLink="false">ev_tt5yk7</guid>
+      <pubDate>Sun, 22 Nov 2026 13:56:58 GMT</pubDate>
+      <description>Article URL: https://github.com/gulivan/worker755 Comments URL: https://news.ycombinator.com/item?id=50599762 Points: 254 # Comments: 59</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
       <title>The vibe-coding revolution is coming to all the gadgets</title>
       <link>https://www.theverge.com/column/1039139/vibe-coding-gadgets-tv-camera</link>
       <guid isPermaLink="false">ev_1r6qj93</guid>
       <pubDate>Sun, 22 Nov 2026 13:00:00 GMT</pubDate>
       <description>This is The Stepback, a weekly newsletter breaking down one essential story from the tech world. For more on the vibe-hacking of everything, follow David Pierce. The Stepback arriv…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>AI is becoming a disaster for the climate</title>
+      <link>https://www.bloodinthemachine.com/p/ai-is-becoming-a-disaster-for-the</link>
+      <guid isPermaLink="false">ev_5k28sv</guid>
+      <pubDate>Sun, 22 Nov 2026 12:19:46 GMT</pubDate>
+      <description>Article URL: https://www.bloodinthemachine.com/p/ai-is-becoming-a-disaster-for-the Comments URL: https://news.ycombinator.com/item?id=50598961 Points: 96 # Comments: 41</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>English</category>
     </item>
@@ -117,6 +207,24 @@
       <category>中文</category>
     </item>
     <item>
+      <title>Muru – AI-assisted Rust server for Python apps by mod_WSGI's creator</title>
+      <link>https://simonwillison.net/2026/Nov/21/muru/</link>
+      <guid isPermaLink="false">ev_1j4os9e</guid>
+      <pubDate>Sun, 22 Nov 2026 09:57:01 GMT</pubDate>
+      <description>Article URL: https://simonwillison.net/2026/Nov/21/muru/ Comments URL: https://news.ycombinator.com/item?id=50597959 Points: 70 # Comments: 11</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>87% of the Anthropic power will come from gas and 11% from coal in 2028</title>
+      <link>https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/</link>
+      <guid isPermaLink="false">ev_8whldw</guid>
+      <pubDate>Sun, 22 Nov 2026 08:57:34 GMT</pubDate>
+      <description>Article URL: https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/ Comments URL: https://news.ycombinator.com/item?id=50597612 Points…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
       <title>马斯克预警：AI 行业明年可能面临严重资金短缺，或需要数千亿美元额外投入</title>
       <link>https://www.ithome.com/1/030/628.htm</link>
       <guid isPermaLink="false">ev_15oobey</guid>
@@ -167,114 +275,6 @@
       <guid isPermaLink="false">ev_1uwxtqo</guid>
       <pubDate>Sun, 22 Nov 2026 06:03:54 GMT</pubDate>
       <description>A社数学家用Claude又证明另一千禧难题，逼出一份写了12年的940页纯人类手稿</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>AI Supply Chain Security: What Canary Tokens Found</title>
-      <link>https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens</link>
-      <guid isPermaLink="false">ev_c651mb</guid>
-      <pubDate>Sun, 22 Nov 2026 05:11:43 GMT</pubDate>
-      <description>Article URL: https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens Comments URL: https://news.ycombinator.com/item?id=50596511 Points: 81 # Comments: 17</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>小鹏交出一份增长财报，盈利拐点为何还没来？</title>
-      <link>https://www.tmtpost.com/8213686.html</link>
-      <guid isPermaLink="false">ev_127g0wl</guid>
-      <pubDate>Sun, 22 Nov 2026 04:36:59 GMT</pubDate>
-      <description>小鹏三季度营收与交付量双创新高，但盈利压力犹存。海外扩张与物理AI商业化，能否成为新的增长动力？</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>The Mythology of Conscious AI</title>
-      <link>https://www.noemamag.com/the-mythology-of-conscious-ai/</link>
-      <guid isPermaLink="false">ev_1k14q2d</guid>
-      <pubDate>Sun, 22 Nov 2026 02:10:02 GMT</pubDate>
-      <description>Article URL: https://www.noemamag.com/the-mythology-of-conscious-ai/ Comments URL: https://news.ycombinator.com/item?id=50595537 Points: 59 # Comments: 114</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>试题经过大模型测试？国家中医药管理局认证中心：未与任何大模型企业合作，亦未开展测评</title>
-      <link>https://www.ithome.com/1/030/540.htm</link>
-      <guid isPermaLink="false">ev_tzs1m5</guid>
-      <pubDate>Sun, 22 Nov 2026 01:42:10 GMT</pubDate>
-      <description>IT之家 11 月 22 日消息，11 月 21 日晚，国家中医药管理局中医师资格认证中心通过官方公众号发布声明称，该中心从未公开历年真题，未与任何大模型企业合作，亦未开展测评。 声明称，中心从未以任何形式向社会公开、发布或出售中医类别医师资格考试历年试题（含真题、原题）、参考答案及相关考试资料，亦未授权任何单位或个人公开、发布、销售。市场上以“历年真题”“…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>Claude 的黎曼猜想证明获 Lean 官方认证，马斯克直呼惊人成就</title>
-      <link>https://www.ifanr.com/1690820</link>
-      <guid isPermaLink="false">ev_nn01yp</guid>
-      <pubDate>Sun, 22 Nov 2026 01:35:14 GMT</pubDate>
-      <description>AI 恐怖如斯 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>Edge AI Daily 早报（11月22日）</title>
-      <link>https://www.tmtpost.com/8213684.html</link>
-      <guid isPermaLink="false">ev_nq84lb</guid>
-      <pubDate>Sun, 22 Nov 2026 01:06:08 GMT</pubDate>
-      <description>英伟达同时面临治理追问、加州传票与SEC调查传闻，AI芯片估值经历重估；亚马逊拟以最高75亿美元收购Decart，AWS将LLM缓存推向集群。谷歌调整TPU出货并研究Agent记忆迁移，OpenAI把对抗性蒸馏防护推进API层。Anthropic黎曼猜想主张待验证，IPO定价为模型公司提供估值参照。Meta Muse用户破千万，AI脱衣应用引发参议员质询；特…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>可灵为何开始发力“图片”？</title>
-      <link>https://www.tmtpost.com/8212803.html</link>
-      <guid isPermaLink="false">ev_88z5lt</guid>
-      <pubDate>Sun, 22 Nov 2026 01:02:06 GMT</pubDate>
-      <description>两家头部AI公司几乎前后脚更新图像模型。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>全球Meta一家独大，中国AI眼镜为何还在混战？</title>
-      <link>https://www.tmtpost.com/8213674.html</link>
-      <guid isPermaLink="false">ev_1d7kxem</guid>
-      <pubDate>Sun, 22 Nov 2026 01:02:01 GMT</pubDate>
-      <description>中国AI眼镜，胜负未分。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>搜狐张朝阳回应“被证监会出具警示函”：此张朝阳不是我</title>
-      <link>https://www.ithome.com/1/030/533.htm</link>
-      <guid isPermaLink="false">ev_r08agr</guid>
-      <pubDate>Sun, 22 Nov 2026 00:59:23 GMT</pubDate>
-      <description>IT之家 11 月 22 日消息，11 月 20 日，北京证监局披露的一则对“张朝阳”出具警示函的信息在网络传播，部分舆论误将其与搜狐创始人、董事局主席兼首席执行官张朝阳关联。 IT之家注意到，张朝阳本人在搜狐视频关注流回应：“此张朝阳不是我”“ 首先我并没有收到警示函，其次我也没有从事证券咨询业啊 ”。同时，他还吐槽：“看来 AI 还是不行，区别不了同名同…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>特锐德、LG抢跑进场，AI抢电抢到气田门口，气电先端走69%份额，真正的账单还在后面</title>
-      <link>https://www.tmtpost.com/8213639.html</link>
-      <guid isPermaLink="false">ev_qxqbcb</guid>
-      <pubDate>Sun, 22 Nov 2026 00:45:35 GMT</pubDate>
-      <description>数据中心抢购稳定电力，重画美国气电定价与电网调峰；国内东数西算调峰账本同步重算，订单兑现待观察。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>群联展示内置 NPU 与 64GB 内存的智能固态硬盘，可直接运行 AI 模型</title>
-      <link>https://www.ithome.com/1/030/524.htm</link>
-      <guid isPermaLink="false">ev_17zwpfn</guid>
-      <pubDate>Sun, 22 Nov 2026 00:04:47 GMT</pubDate>
-      <description>IT之家 11 月 22 日消息，据科技媒体 Tom's Hardware 昨天报道，群联在 SC26 大会中展示两款企业级固态硬盘，专为 AI 场景设计。其中一款甚至带有 NPU 和 64GB 内存，可以直接运行 AI 模型。 IT之家从原报道获悉， 其中一款产品 SSD 内置 NPU（神经网络引擎） 、 64GB 内存 ，带宽达到 130GB/s，支持直…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>OSTA 新特性放开：华为鸿蒙 HarmonyOS 7 系统更多机型小艺助理上线“小艺星芒”音色</title>
-      <link>https://www.ithome.com/1/030/519.htm</link>
-      <guid isPermaLink="false">ev_1ue761n</guid>
-      <pubDate>Sat, 21 Nov 2026 23:35:28 GMT</pubDate>
-      <description>IT之家 11 月 22 日消息，首款为 AI 而生的鸿蒙手机 —— 华为星芒 OSTA O1 Pro 已于 11 月 20 日下午正式发布 ，叠加国补后 4999 元起。华为星芒品牌总经理刘赫开通微博， 透露最受欢迎的 16G 版本已经在全平台售罄 。 ▲ IT之家开箱：华为全新子品牌星芒 OSTA O1 Pro 手机实拍 据介绍，华为星芒 OSTA O1…</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>中文</category>
     </item>
