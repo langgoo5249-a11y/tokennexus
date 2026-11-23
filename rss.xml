@@ -6,275 +6,275 @@
     <description>聚合 12 个中英文 AI 信源的最新人工智能新闻，每 2 小时自动更新，并按多源报道、新鲜度与关键词热度生成排行榜。</description>
     <language>zh-cn</language>
     <atom:link href="https://www.tokenfind.cn/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 23 Nov 2026 06:23:48 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2026 19:56:21 GMT</lastBuildDate>
     <ttl>120</ttl>
     <item>
-      <title>鸿蒙版醒图新版本上线：AI修图「不烧心」</title>
-      <link>https://www.ifanr.com/1690991</link>
-      <guid isPermaLink="false">ev_1nt48di</guid>
-      <pubDate>Mon, 23 Nov 2026 06:07:33 GMT</pubDate>
-      <description>手边刚好有舍不得删又不好修的照片？可以先拿它试试。 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>自变量发布具身基础模型 WALL-OSS-1.0，零样本真机成功率达 55.1%</title>
-      <link>https://www.ithome.com/1/030/890.htm</link>
-      <guid isPermaLink="false">ev_hibnqz</guid>
-      <pubDate>Mon, 23 Nov 2026 06:06:12 GMT</pubDate>
-      <description>IT之家 11 月 23 日消息，自变量今日发布新一代具身基础模型 WALL-OSS-1.0。该模型将预训练本身当作智能的来源，而非后续任务微调的起点。 据介绍，这款模型的训练分为两个阶段：一阶段让动作数据前置加入训练，配合多模态数据，让“理解世界”和“动手干活”在同一套权重里成形；二阶段加入动作专家，学习精确、高效的动作生成。 IT之家注意到， 该模型在 …</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>联想确认拯救者 Y700 五代平板电脑《燕云十六声》定制版 12 月发布</title>
-      <link>https://www.ithome.com/1/030/865.htm</link>
-      <guid isPermaLink="false">ev_mos8vb</guid>
-      <pubDate>Mon, 23 Nov 2026 05:47:36 GMT</pubDate>
-      <description>IT之家 11 月 23 日消息，联想 (Lenovo) 拯救者 (Legion) 官方今日中午确认，其与游戏《燕云十六声》合作打造的 联想 AI 平板拯救者 Y700 五代燕云定制版将于 2026 年 12 月发布 。 IT之家获悉，这一联名产品 具有定制的开机动画、充电动画、主题 UI ，购机附赠拯救者斜挎包 S7 燕云定制版和游戏内虚拟权益，此外似乎还…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>美财长贝森特改口：英伟达应从公司“外部”寻找新 CEO，而黄仁勋现在就是“外部人士”</title>
-      <link>https://www.ithome.com/1/030/811.htm</link>
-      <guid isPermaLink="false">ev_1ja0n7g</guid>
-      <pubDate>Mon, 23 Nov 2026 05:08:14 GMT</pubDate>
-      <description>IT之家 11 月 23 日消息，据英国金融时报今日报道，美国财政部长斯科特 · 贝森特表示，他不会反对黄仁勋重返英伟达， 此前他曾呼吁英伟达董事会实施“彻底的改革” ， 应该从“外部”寻找新 CEO 。 美国总统唐纳德 · 特朗普今日在真实社交平台表示 ，他希望英伟达董事会能重新聘用黄仁勋。这对英伟达公司、美国来说都是最好的事情。 贝森特此前的态度与特朗普…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>智谱 GLM-5.4 模型发布，已上线 Coding Plan</title>
-      <link>https://www.ithome.com/1/030/809.htm</link>
-      <guid isPermaLink="false">ev_e44pkt</guid>
-      <pubDate>Mon, 23 Nov 2026 04:49:30 GMT</pubDate>
-      <description>IT之家 11 月 23 日消息，据IT之家小伙伴反馈，智谱官方运营人员发布消息， GLM-5.4 模型已经上线 Coding Plan 。“过去三个月，我们同时激进的 Scaling Loop 和模型大小，大家首先看到的是 Loop Transformer 带来的惊喜。GLM-5.4 新增视觉能力与更强的泛 Coding 能力。” 此外，V2、V3 及团队…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>蚂蚁CEO韩歆毅：AI拓宽人类健康自塑边界，1.5亿人已用阿福管健康</title>
-      <link>https://www.leiphone.com/category/industrynews/VK4viDe2WQp64rON.html</link>
-      <guid isPermaLink="false">ev_1e6aond</guid>
-      <pubDate>Mon, 23 Nov 2026 04:10:00 GMT</pubDate>
-      <description>11月22-23日，2026蚂蚁阿福医疗健康生态大会在广州举行。蚂蚁集团首席执行官韩歆毅在主论坛发言中表示，AI正在拓宽人类健康自塑的边界，让健康管理从“千人一方”走向“一人一方”、从“以治病为中心”转向“以健康为中心”，这是AI对医疗健康领域最深远的影响之一，其价值不亚于AI医疗和AI药物研发。他认为，AI与健康的深度融合正当其时，AI促进健康蕴含巨大需求…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>蚂蚁阿福App新版发布：实时视频“望闻问切”功能上线，小毛小病在家也能搞定</title>
-      <link>https://www.leiphone.com/category/industrynews/YXUz5sDMtx6SzE3P.html</link>
-      <guid isPermaLink="false">ev_151lb8j</guid>
-      <pubDate>Mon, 23 Nov 2026 03:47:00 GMT</pubDate>
-      <description>11月23日的蚂蚁阿福医疗健康生态大会上，健康AI蚂蚁阿福发布新版：基于蚂蚁百灵医疗健康系列模型，新增实时视频“看健康”功能，用户可与阿福视频电话，让阿福帮忙看症状、看状态、看药品、看报告，像真人一样“望闻问切”分析健康问题，并可联动医生在线把关。这意味着，日常一些不舒服或者小毛小病，用户通过“AI+真人医生”在家就能搞定。 此外，新版蚂蚁阿福App对于“A…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>蚂蚁 CEO 韩歆毅：阿福已有 1.5 亿用户成全球最大 AI 健康应用，呼吁医保、商保从“治病”延伸到“健康”</title>
-      <link>https://www.ithome.com/1/030/799.htm</link>
-      <guid isPermaLink="false">ev_1lv9nth</guid>
-      <pubDate>Mon, 23 Nov 2026 03:40:45 GMT</pubDate>
-      <description>IT之家 11 月 23 日现场消息，2026 蚂蚁阿福医疗健康生态大会今日（11 月 23 日）在广东广州举行。 蚂蚁集团首席执行官韩歆毅在主论坛发言中表示，AI 正在拓宽人类健康自塑的边界，让健康管理从“千人一方”走向“一人一方”、从“以治病为中心”转向“以健康为中心”，这是 AI 对医疗健康领域最深远的影响之一， 其价值不亚于 AI 医疗和 AI 药物…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>虚幻引擎 5.9 预览版 2 更新：支持纯蓝图项目 Web 打包，AI 工具集默认开启</title>
-      <link>https://www.ithome.com/1/030/798.htm</link>
-      <guid isPermaLink="false">ev_1ml7cvq</guid>
-      <pubDate>Mon, 23 Nov 2026 03:40:41 GMT</pubDate>
-      <description>IT之家 11 月 23 日消息，Epic Games 现已发布虚幻引擎 5.9 预览版 2，本次更新进一步改进了 Web 端打包功能，以及 AI 辅助游戏开发的相关功能。 IT之家注意到，本次更新引入一项实验性特性， 允许使用 WebAssembly 和 WebGPU 在浏览器运行 UE 项目 。在预览 2 中，开发者不再需要像 Preview 1 那样添…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>国内首个！蚂蚁阿福医生版上线“循证金标准”UpToDate ，打造全场景医生AI工作台</title>
-      <link>https://www.leiphone.com/category/industrynews/Ljtu9TVFrPPeiBsX.html</link>
-      <guid isPermaLink="false">ev_1r62sw8</guid>
-      <pubDate>Mon, 23 Nov 2026 03:38:00 GMT</pubDate>
-      <description>11月22日，蚂蚁阿福医生版发布PC工作台（电脑端）版本，同时接入威科集团循证医学临床决策支持解决方案UpToDate，成为国内首个接入该专业功能的AI平台。 即日起，全国医生、护士及药师等卫生专业技术人员都可通过阿福医生版限时免费试用UpToDate。 此次升级， 阿福医生版实现了手机App加PC工作台的双端布局， 医生既可以便捷地在手机上借助阿福在线接诊…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>迅合科技：在Excel和微信群里，给老板造一个Personal Agent</title>
-      <link>https://www.tmtpost.com/8209450.html</link>
-      <guid isPermaLink="false">ev_a2oljt</guid>
-      <pubDate>Mon, 23 Nov 2026 03:35:20 GMT</pubDate>
-      <description>老板对决策的要求比普通人更高，对知识库和决策质量的要求也更高，过去这样的需求长期存在但没有得到很好解决。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>硅基员工元年，投入要向组织与流程倾斜丨ToB产业观察</title>
-      <link>https://www.tmtpost.com/8214320.html</link>
-      <guid isPermaLink="false">ev_b6yxep</guid>
-      <pubDate>Mon, 23 Nov 2026 03:33:13 GMT</pubDate>
-      <description>AI进入企业的第一课，不是学会干活，而是学会按企业和当地法规的要求干活。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>【Fintech 周报】海南银行获批定向增资扩股；ChatGPT Wallet上线</title>
-      <link>https://www.tmtpost.com/8214380.html</link>
-      <guid isPermaLink="false">ev_lvanvz</guid>
-      <pubDate>Mon, 23 Nov 2026 03:03:56 GMT</pubDate>
-      <description>金融监管总局两司局“一把手”对调；互金协会通报两款银行App；商业银行总资产突破500万亿元；前三季度消费贷ABS同比下降18.85%；华夏银行董事会“换血”；平安系险资持有主动ETF近45%；云南省级农商行获批筹建；黔东南农商银行获批开业；平安银行400亿元二级资本债发行完毕；海南银行获批定向增资扩股；永诚财险总裁、副总裁同日被免职；蓝海银行回应3.30亿…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>这届大学生，狂卷黑客松</title>
-      <link>https://www.tmtpost.com/8214092.html</link>
-      <guid isPermaLink="false">ev_38m2yl</guid>
-      <pubDate>Mon, 23 Nov 2026 02:52:37 GMT</pubDate>
-      <description>还没毕业，大学生已经忙着搞AI项目了。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>中通快递与阿里云伶鹊达成深度合作，智慧AI打造客服新体验</title>
-      <link>https://www.leiphone.com/category/industrynews/MseGRLc64j2hTZxj.html</link>
-      <guid isPermaLink="false">ev_1s04at2</guid>
-      <pubDate>Mon, 23 Nov 2026 02:26:00 GMT</pubDate>
-      <description>近日，阿里云伶鹊与中通快递达成深度合作，为中通快递打造企业级AI客服，在小件末端配送场景中落地智能语音热线和智能语音外呼两大能力。上线后“呼入+外呼”日均服务量达数十万通，AI“呼入”热线带来的下单转化率提升近20%。 （AI客服产品示意图） 在“呼入”场景下，用户拨通中通快递客服热线后，伶鹊可以听懂“我要改地址”、“快递显示签收但我没收到”、“到上海要几天…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>How Notable Capital, GIC, and Baillie Gifford bet big on Anthropic before its IPO</title>
-      <link>https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo/</link>
-      <guid isPermaLink="false">ev_1lnqh7j</guid>
-      <pubDate>Mon, 23 Nov 2026 01:25:53 GMT</pubDate>
-      <description>Three significant backers share what gave them conviction to bet billions on Anthropic.</description>
+      <title>Google Search’s AI Mode can now tap into Drive and Wallet for more personalized responses</title>
+      <link>https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses/</link>
+      <guid isPermaLink="false">ev_lyl8wi</guid>
+      <pubDate>Mon, 23 Nov 2026 19:14:46 GMT</pubDate>
+      <description>By bringing Personal Intelligence in AI Mode to Drive, Wallet, and the Gemini app, Google is leveraging the wealth of user data that's already within its ecosystem</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>English</category>
     </item>
     <item>
-      <title>华为OSTA星芒 O1 Pro 评测：一台真正为 AI 而生的鸿蒙手机</title>
-      <link>https://www.ifanr.com/1690613</link>
-      <guid isPermaLink="false">ev_zsrykd</guid>
-      <pubDate>Mon, 23 Nov 2026 00:57:34 GMT</pubDate>
-      <description>面向 AI，面向世界，面向未来 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>Edge AI Daily 早报（11月23日）</title>
-      <link>https://www.tmtpost.com/8214195.html</link>
-      <guid isPermaLink="false">ev_97p30v</guid>
-      <pubDate>Mon, 23 Nov 2026 00:48:43 GMT</pubDate>
-      <description>英伟达季度营收1158亿美元、下季指引1300亿美元，市场焦点转向基建支出能否转化为可量化回报；Anthropic完成IPO募资约916亿美元，却背负约9009亿美元算力采购承诺，成本刚性与收入弹性错配待解；甲骨文筹足OpenAI合同资金，阿比林园区进入GPT-6 Astra训练。Anthropic数学家称与Claude提出黎曼猜想证明并经Lean/Math…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>早报｜曝苹果明年下半年发布iPhone 20与智能眼镜/丘成桐：AI证明黎曼猜想，数学进入新纪元/GTA6带动主机溢价，PS5 Pro涨至近1.6万元</title>
-      <link>https://www.ifanr.com/1690857</link>
-      <guid isPermaLink="false">ev_1ng0jxz</guid>
-      <pubDate>Mon, 23 Nov 2026 00:25:24 GMT</pubDate>
-      <description>· 曝小米汽车欧洲团队再添一名前小鹏高管 · 神舟二十四号完成发射前最后一次全区合练 · AI 服务器供应商被曝在交货前提价，部分订单涨幅达 45% #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>【钛晨报】A股利好！交易所打出稳市“组合拳”，事关两融、降费、创业板；积存金价格跌至“7字头”，银行纷纷提示贵金属市场风险；量子计算机“高速内存”全球首次真机实现</title>
-      <link>https://www.tmtpost.com/8214014.html</link>
-      <guid isPermaLink="false">ev_1j3ix1f</guid>
-      <pubDate>Sun, 22 Nov 2026 23:20:00 GMT</pubDate>
-      <description>搜狐张朝阳辟谣“被出具警示函”；天孚通信拟在南昌投建新一代高速光器件研发和生产制造项目；多品牌宣布下调金饰克价；美方拟禁止中国电信运营商直接获取美国互联网电话号码资源，商务部回应；特斯拉在美推出FSDv 15；美国证券交易委员会据悉正对英伟达潜在会计问题展开调查。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>OpenAI 首席科学家警告：AI 最早可能在 2027 年加速自身发展，奥尔特曼赞同为 AI 开发设限</title>
-      <link>https://www.ithome.com/1/030/720.htm</link>
-      <guid isPermaLink="false">ev_1xaeitp</guid>
-      <pubDate>Sun, 22 Nov 2026 22:50:46 GMT</pubDate>
-      <description>IT之家 11 月 23 日消息，当地时间于 11 月 22 日，OpenAI 首席科学家雅库布 · 帕霍茨基（Jakub Pachocki）发文，提议 AI 企业应建立行业统一标准，对先进 AI 模型的开发设置共同限制，在研究人员具备更可靠的模型行为理解和监控能力之前，不应突破约定的发展门槛。 他认为，传统 AI 能力评测基准会随着技术进步迅速过时，而困惑…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>We haven’t seen the last of the major tech outages</title>
-      <link>https://www.theverge.com/tech/1039851/major-tech-outages</link>
-      <guid isPermaLink="false">ev_u5ybbn</guid>
-      <pubDate>Sun, 22 Nov 2026 22:48:02 GMT</pubDate>
-      <description>Over the last week or so, we have seen a nationwide FAA ground stop, a multi-day Outlook outage that brought entire companies to a standstill, and a banking outage at JPMorgan Chas…</description>
+      <title>Jensen Huang scheduled to testify next week in Senate following reinstatement as Nvidia CEO</title>
+      <link>https://techcrunch.com/2026/11/23/jensen-huang-scheduled-to-testify-next-week-in-senate-following-reinstatement-as-nvidia-ceo/</link>
+      <guid isPermaLink="false">ev_1iykhwj</guid>
+      <pubDate>Mon, 23 Nov 2026 18:12:22 GMT</pubDate>
+      <description>The public hearing follows bipartisan calls for Huang to testify about the affair with the suspected Chinese spy.</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>English</category>
     </item>
     <item>
-      <title>古尔曼：苹果准备在明年 2 月至 3 月 iOS 27.4 周期中推出入门级 iPad、iPhone 18e 和全新 MacBook Neo</title>
-      <link>https://www.ithome.com/1/030/719.htm</link>
-      <guid isPermaLink="false">ev_1m8la4t</guid>
-      <pubDate>Sun, 22 Nov 2026 22:42:26 GMT</pubDate>
-      <description>IT之家 11 月 23 日消息，彭博社记者马克 · 古尔曼昨晚发布了最新一期 Power On 新闻通讯，分析了苹果在 AI Agent 竞争中的处境，并披露了苹果 2027 年上半年的部分新品计划。 IT之家此前报道，苹果正在招聘负责 Agentic AI 项目的高级工程管理人员，招聘描述涉及跨应用操作、网页浏览、命令执行及代码编写和调试等能力。 古尔曼…</description>
+      <title>A legendary philosopher isn’t buying Anthropic’s consciousness argument</title>
+      <link>https://www.technologyreview.com/2026/11/23/1149569/a-legendary-philosopher-isnt-buying-anthropics-consciousness-argument/</link>
+      <guid isPermaLink="false">ev_u4axhv</guid>
+      <pubDate>Mon, 23 Nov 2026 17:36:08 GMT</pubDate>
+      <description>This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. Before going public last week, Anthropic n…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips</title>
+      <link>https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/</link>
+      <guid isPermaLink="false">ev_21nlpo</guid>
+      <pubDate>Mon, 23 Nov 2026 17:14:23 GMT</pubDate>
+      <description>Amazon is acquiring Decart’s AI optimization technology and research team in a reported $7.5 billion deal.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Jensen Huang isn’t out of the woods yet</title>
+      <link>https://techcrunch.com/2026/11/23/jensen-huang-isnt-out-of-the-woods-yet/</link>
+      <guid isPermaLink="false">ev_w54qot</guid>
+      <pubDate>Mon, 23 Nov 2026 16:57:40 GMT</pubDate>
+      <description>Tech leaders should be clear-eyed about all the problems likely to come with Huang's reinstatement.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Trump reportedly called into Nvidia board meeting to advocate for Huang’s return</title>
+      <link>https://techcrunch.com/2026/11/23/trump-reportedly-called-into-nvidia-board-meeting-to-advocate-for-huangs-return/</link>
+      <guid isPermaLink="false">ev_utw1df</guid>
+      <pubDate>Mon, 23 Nov 2026 16:39:10 GMT</pubDate>
+      <description>&quot;I spoke to them, let me put it that way … And I convinced them,&quot; the president told CNBC.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>White House brags that Trump was ‘totally involved’ in getting Jensen reinstated</title>
+      <link>https://www.theverge.com/policy/1040096/trump-nvidia-jensen-huang-reinstated</link>
+      <guid isPermaLink="false">ev_2w5hkj</guid>
+      <pubDate>Mon, 23 Nov 2026 16:30:11 GMT</pubDate>
+      <description>It sure looked like President Donald Trump played a role in Jensen Huang's reinstatement as Nvidia CEO - and now the White House is making sure everyone knows he was. &quot;President Tr…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Tech leaders are celebrating Jensen Huang’s return</title>
+      <link>https://www.theverge.com/tech/1040069/jensen-huang-return-elon-musk-sam-altman-yay</link>
+      <guid isPermaLink="false">ev_1t1p4j3</guid>
+      <pubDate>Mon, 23 Nov 2026 16:14:04 GMT</pubDate>
+      <description>Let's say you're Jensen Huang. You (allegedly) cheated on your wife with an alleged Chinese spy, allegedly had an affair with not one, but two subordinates, and (allegedly!) &quot;terro…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>手机只是开始：华为星芒刘赫确认 OSTA 品牌将推全场景产品，消息称小平板已安排</title>
+      <link>https://www.ithome.com/1/031/228.htm</link>
+      <guid isPermaLink="false">ev_1758ui9</guid>
+      <pubDate>Mon, 23 Nov 2026 15:15:25 GMT</pubDate>
+      <description>IT之家 11 月 23 日消息，首款为 AI 而生的鸿蒙手机 —— 华为星芒 OSTA O1 Pro 已于 11 月 20 日下午正式发布 ，叠加国补后 4999 元起。华为星芒品牌总经理刘赫也已开通微博，持续解答网友疑惑。 ▲ IT之家开箱：华为全新子品牌星芒 OSTA O1 Pro 手机实拍 IT之家注意到，面对网友提问品牌未来规划是否会扩展至电脑、手…</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>中文</category>
     </item>
     <item>
-      <title>iPhone 18 大更新，明年春天见！但苹果的挑战才刚刚开始</title>
-      <link>https://www.ifanr.com/1690832</link>
-      <guid isPermaLink="false">ev_miyhou</guid>
-      <pubDate>Sun, 22 Nov 2026 22:19:08 GMT</pubDate>
-      <description>更多的新品，也不能消除苹果的 AI 焦虑 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
+      <title>Trump endorses Jensen Huang’s return to Nvidia, says US has no evidence of wrongdoing</title>
+      <link>https://techcrunch.com/2026/11/23/trump-endorses-jensen-huangs-return-to-nvidia-says-us-has-no-evidence-of-wrongdoing/</link>
+      <guid isPermaLink="false">ev_l9k8ec</guid>
+      <pubDate>Mon, 23 Nov 2026 15:04:01 GMT</pubDate>
+      <description>The president cited the U.S. attorney general in defending Huang's return, while urging Nvidia to continue its export-control investigation.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>华为星芒 OSTA O1 Pro 新机确认支持 eSIM 能力：最多四号，允许同时启用双卡</title>
+      <link>https://www.ithome.com/1/031/219.htm</link>
+      <guid isPermaLink="false">ev_126fas9</guid>
+      <pubDate>Mon, 23 Nov 2026 14:58:55 GMT</pubDate>
+      <description>IT之家 11 月 23 日消息，首款为 AI 而生的鸿蒙手机 —— 华为星芒 OSTA O1 Pro 已于 11 月 20 日下午正式发布 ，叠加国补后 4999 元起。 ▲ IT之家开箱：华为全新子品牌星芒 OSTA O1 Pro 手机实拍 IT之家注意到，华为官网最新显示， 星芒 OSTA O1 Pro 支持 eSIM 能力 。 该功能需开通运营商相关…</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>中文</category>
     </item>
     <item>
-      <title>OpenAI’s chief scientist has thoughts on how to limit AI development</title>
-      <link>https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/</link>
-      <guid isPermaLink="false">ev_1dqwghf</guid>
-      <pubDate>Sun, 22 Nov 2026 21:14:07 GMT</pubDate>
-      <description>To establish a speed limit on AI development, you need to agree on how to measure speed.</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>A Beginner's Guide to Local AI with Inkling, Qwen, and Unsloth</title>
-      <link>https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth</link>
-      <guid isPermaLink="false">ev_yt86fw</guid>
-      <pubDate>Sun, 22 Nov 2026 21:01:16 GMT</pubDate>
-      <description>Article URL: https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth Comments URL: https://news.ycombinator.com/item?id=50603845 Points: 104 # Comments: 31</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>Why data centers are at the center of the Big Tech backlash</title>
-      <link>https://techcrunch.com/2026/11/22/why-data-centers-are-at-the-center-of-the-big-tech-backlash/</link>
-      <guid isPermaLink="false">ev_6irlro</guid>
-      <pubDate>Sun, 22 Nov 2026 18:08:43 GMT</pubDate>
-      <description>Journalist Paris Marx unpacks his new book &quot;Hyperscale.&quot;</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>Binding of Isaac developer removes AI music from Repentance Plus</title>
-      <link>https://www.theverge.com/games/1039770/binding-of-isaac-ai-music</link>
-      <guid isPermaLink="false">ev_9ly3nh</guid>
-      <pubDate>Sun, 22 Nov 2026 17:25:20 GMT</pubDate>
-      <description>The Binding of Isaac: Repentance Plus has spent the last few days getting review-bombed on Steam after it was discovered that a particular segment of the game used AI music. Reddit…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>美国初创企业公布 AI 自研 CPU 架构 Frostbite，能效是传统处理器的 4.59 倍</title>
-      <link>https://www.ithome.com/1/030/717.htm</link>
-      <guid isPermaLink="false">ev_gnxydf</guid>
-      <pubDate>Sun, 22 Nov 2026 15:15:55 GMT</pubDate>
-      <description>IT之家 11 月 22 日消息，美国加利福尼亚州帕洛阿尔托的初创公司 Architect Labs 在一篇研究博客中宣布，其人工智能系统已经自主发现、设计并验证了一款名为 Frostbite 的通用 CPU。这款处理器采用全新的指令集，从底层开始重新设计，试图摆脱传统 CPU 的部分架构限制。 在 25 项工作负载测试中，由 4 个计算单元组成的 Fros…</description>
+      <title>刚刚，黄仁勋重返英伟达！董事会全票通过，盘前大涨 30%</title>
+      <link>https://www.ifanr.com/1691103</link>
+      <guid isPermaLink="false">ev_ly39ak</guid>
+      <pubDate>Mon, 23 Nov 2026 14:50:12 GMT</pubDate>
+      <description>皮衣战神回宫 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>中文</category>
     </item>
     <item>
-      <title>Oracle：已确保履行与 OpenAI 合同全部所需资金</title>
-      <link>https://www.ithome.com/1/030/715.htm</link>
-      <guid isPermaLink="false">ev_13mylqp</guid>
-      <pubDate>Sun, 22 Nov 2026 14:24:17 GMT</pubDate>
-      <description>IT之家 11 月 22 日消息，Oracle（甲骨文）当地时间本月 20 日表示， 该企业已在本月初筹集到了履行与 OpenAI 交易的全部所需资金 ，与供应商进行的任何进一步私下讨论仅为补充选项。 ▲ Abilene Oracle 称其与 OpenAI 在 AI 基础设施合作方面的进展迅速： 位于美国得克萨斯州 Abilene 的园区已用于 GPT-6 …</description>
+      <title>英伟达恢复黄仁勋 CEO 职务，马斯克称“错误已更正”</title>
+      <link>https://www.ithome.com/1/031/218.htm</link>
+      <guid isPermaLink="false">ev_1g84vd6</guid>
+      <pubDate>Mon, 23 Nov 2026 14:49:24 GMT</pubDate>
+      <description>IT之家 11 月 23 日消息，英伟达今日宣布， 即日起恢复黄仁勋（Jensen Huang）总裁兼首席执行官及董事会成员职务 。 对于此消息，马斯克在 X 平台转发英伟达公司对黄仁勋的复职声明，并配文“错误已更正。” 马斯克稍早还发布了一条疑似回应此事的消息称，“搞定了 (It is done)。 IT之家注意到，英伟达在新闻稿中表示，在与黄仁勋进行一系…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>Sierra doubles valuation to $30B within six months as demand for AI in CX takes off</title>
+      <link>https://techcrunch.com/2026/11/23/sierra-doubles-valuation-to-30b-within-six-months-as-demand-for-ai-in-cx-takes-off/</link>
+      <guid isPermaLink="false">ev_ldnm3z</guid>
+      <pubDate>Mon, 23 Nov 2026 14:43:03 GMT</pubDate>
+      <description>Enterprise customer experience company Sierra, co-founded by former Salesforce co-CEO Bret Taylor, said on Monday that it has raised $1.75 billion in a Series F round.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>特朗普祝贺黄仁勋重返英伟达：美国需要其领导才能确保公司以及整个美国经济的繁荣与成功</title>
+      <link>https://www.ithome.com/1/031/216.htm</link>
+      <guid isPermaLink="false">ev_1a35br4</guid>
+      <pubDate>Mon, 23 Nov 2026 14:41:11 GMT</pubDate>
+      <description>IT之家 11 月 23 日消息，英伟达今日宣布， 即日起恢复黄仁勋（Jensen Huang）总裁兼首席执行官及董事会成员职务 。英伟达表示，在与黄仁勋进行一系列讨论和会议后，董事会一致投票决定恢复其职务，董事会随后对黄仁勋的坦诚及其领导英伟达的能力表示满意。 IT之家注意到，美国总统唐纳德 · 特朗普随后发文向黄仁勋表示祝贺，称英伟达董事会作出了正确的决…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>黄仁勋恢复 CEO 职务：英伟达美股开盘大涨 32%，市值增加超 1 万亿美元</title>
+      <link>https://www.ithome.com/1/031/217.htm</link>
+      <guid isPermaLink="false">ev_1p5p4rr</guid>
+      <pubDate>Mon, 23 Nov 2026 14:39:57 GMT</pubDate>
+      <description>IT之家 11 月 23 日消息，今日英伟达美股开盘跳涨 32%，市值增加超 1 万亿美元 （IT之家注：现汇率约合 6.68 万亿元人民币） ，总市值重新站上 4 万亿美元 （现汇率约合 26.73 万亿元人民币） 。英伟达当日宣布，即日起恢复黄仁勋总裁兼首席执行官及董事会成员职务。 IT之家注意到，英伟达在新闻稿中称，在与黄仁勋进行一系列讨论和会议后，董…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>Nvidia reverses course and brings Jensen Huang back as CEO</title>
+      <link>https://techcrunch.com/2026/11/23/nvidia-reverses-course-and-brings-jensen-huang-back-as-ceo/</link>
+      <guid isPermaLink="false">ev_19i5m2o</guid>
+      <pubDate>Mon, 23 Nov 2026 14:21:59 GMT</pubDate>
+      <description>The stunning reversal was supported by senior officials in the U.S. government.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>黄仁勋：很荣幸重返英伟达，迫不及待想回去工作</title>
+      <link>https://www.ithome.com/1/031/211.htm</link>
+      <guid isPermaLink="false">ev_w3de7l</guid>
+      <pubDate>Mon, 23 Nov 2026 14:18:34 GMT</pubDate>
+      <description>IT之家 11 月 23 日消息，今日英伟达宣布，即日起恢复黄仁勋（Jensen Huang）总裁兼首席执行官及董事会成员职务。英伟达表示，在与黄仁勋进行一系列讨论和会议后，董事会一致投票决定恢复其职务，董事会随后对黄仁勋的坦诚及其领导英伟达的能力表示满意。 “我很荣幸能重返英伟达，并在新一轮工业革命伊始领导这家全球最具影响力的科技公司之一，”黄仁勋表示。“…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>英伟达盘前股价大涨 30%，此前董事会宣布恢复黄仁勋 CEO 职务</title>
+      <link>https://www.ithome.com/1/031/209.htm</link>
+      <guid isPermaLink="false">ev_pggf4w</guid>
+      <pubDate>Mon, 23 Nov 2026 14:16:01 GMT</pubDate>
+      <description>IT之家 11 月 23 日消息，英伟达美股盘前涨幅一度扩大至 30%，截至IT之家发稿回落至 29% 左右。消息面上，英伟达董事会一致同意恢复黄仁勋 CEO 职务。 IT之家注意到，英伟达在新闻稿中称，在与黄仁勋进行一系列讨论和会议后，董事会一致投票决定恢复其职务，董事会随后对黄仁勋的坦诚及其领导英伟达的能力表示满意。 “我很荣幸能重返英伟达，并在新一轮工…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>英伟达董事会恢复黄仁勋总裁兼首席执行官职务，英伟达美股盘前涨幅最高达 30%</title>
+      <link>https://www.ithome.com/1/031/207.htm</link>
+      <guid isPermaLink="false">ev_ifr0a2</guid>
+      <pubDate>Mon, 23 Nov 2026 13:59:29 GMT</pubDate>
+      <description>IT之家 11 月 23 日闪讯速报，英伟达官方今日宣布，公司董事会已一致投票决定， 即日起恢复黄仁勋的总裁、首席执行官及董事职务 。 英伟达表示，董事会经过与黄仁勋多轮讨论和会议，对其坦诚程度及领导公司能力表示认可，并认为恢复其职务符合股东、员工、合作伙伴及客户的最佳利益。 科莱特 · 克雷斯（Colette Kress）将结束临时 CEO 职责，继续担任…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>《生化危机》之父三上真司：希望 AI 彻底消失</title>
+      <link>https://www.ithome.com/1/031/204.htm</link>
+      <guid isPermaLink="false">ev_1d0psaz</guid>
+      <pubDate>Mon, 23 Nov 2026 13:27:20 GMT</pubDate>
+      <description>IT之家 11 月 23 日消息，今年 3 月底，《生化危机》和《恐龙危机》系列导演三上真司（Shinji Mikami）正式宣布，其创立的游戏工作室 Unbound 已与《剑星》开发商 Shift Up 达成合作，将共同发行他的下一款游戏。11 月 20 日，三上真司与 Shift Up 首席执行官金亨泰（Kim Hyung-tae）在 G-CON 202…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>儿童权益保护组织喊话亚马逊、eBay：别卖 AI 玩具了</title>
+      <link>https://www.ithome.com/1/031/203.htm</link>
+      <guid isPermaLink="false">ev_mdmaby</guid>
+      <pubDate>Mon, 23 Nov 2026 13:15:12 GMT</pubDate>
+      <description>IT之家 11 月 23 日消息，由 155 家儿童权益保护组织组成的联盟近日向亚马逊和 eBay 首席执行官发出公开信，呼吁两家电商平台停止销售搭载人工智能技术的玩具。联盟指出，这类产品价格低廉、购买门槛低，却缺乏充分的安全测试，可能给儿童带来多方面的风险。 公开信列举了 AI 玩具存在的诸多问题，包括生成色情内容、夸大未经证实的教育效果、侵犯用户隐私，以…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>华为 × 澳门电讯联合发布 Wi-Fi 感知服务，支持动态感知并识别家庭成员活动状态</title>
+      <link>https://www.ithome.com/1/031/196.htm</link>
+      <guid isPermaLink="false">ev_yo9t3h</guid>
+      <pubDate>Mon, 23 Nov 2026 12:25:48 GMT</pubDate>
+      <description>IT之家 11 月 23 日消息，据华为光网今日分享，澳门电讯（CTM）携手华为联合发布“AI-FTTR”宽带服务，并基于华为 FTTR 全光组网解决方案的智能计算能力，融合 AI Wi-Fi 感知及 AI Wi-Fi 抗干扰两大核心技术，推出 Wi-Fi 感知服务商用套餐。 ▲ 图源：华为光网 | 澳门电讯与华为联合创新，发布 Wi-Fi 感知服务 据介绍…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>实测：1450亿参数塞进笔记本，每秒狂飙80+Token！国产端侧大模型杀疯了</title>
+      <link>https://www.qbitai.com/2026/11/512195.html</link>
+      <guid isPermaLink="false">ev_tzzjbf</guid>
+      <pubDate>Mon, 23 Nov 2026 11:01:15 GMT</pubDate>
+      <description>零Token成本，断网也能自由Vibe Coding</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>Meta Muse can do your Black Friday shopping at Walmart</title>
+      <link>https://www.theverge.com/ai-artificial-intelligence/1039874/walmart-agent-gateway-meta-muse-black-friday</link>
+      <guid isPermaLink="false">ev_1xkcibi</guid>
+      <pubDate>Mon, 23 Nov 2026 11:00:00 GMT</pubDate>
+      <description>Walmart will now let Meta's Muse shop on your behalf, allowing the AI agent to find and purchase Black Friday deals via Walmart's Sparky AI assistant. The retail giant is rolling o…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>华为星芒限时5499元起，网友喊话再便宜500，刘赫回应：我们选择创新优先；英伟达才说H200芯片不卖中国，美财长突喊：不用再限丨雷峰早报</title>
+      <link>https://www.leiphone.com/category/zaobao/WvQYh5bertpjOZdF.html</link>
+      <guid isPermaLink="false">ev_10lyf4k</guid>
+      <pubDate>Mon, 23 Nov 2026 10:40:00 GMT</pubDate>
+      <description>要闻提示 1.英伟达才说H200芯片不卖中国，美财长突喊：不用再限 2.限时售价5499元起！华为星芒总经理回应OSTA O1 Pro定价高：我们选择创新优先 3.ASML总裁急了：切断光刻机售后也没用，中国工厂依然能造芯 4.第一批买iPhone Duo的人亏麻了：渠道价大跌破发！差价至少4600元 5.娃哈哈董事长许思敏被曝辞职 6.小米从小鹏挖来了欧洲…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>800万对1000万，腾讯字节又在AI办公杠上了</title>
+      <link>https://www.tmtpost.com/8214502.html</link>
+      <guid isPermaLink="false">ev_8zq83v</guid>
+      <pubDate>Mon, 23 Nov 2026 10:36:11 GMT</pubDate>
+      <description>不是产品的胜负，而是存量生态的比拼</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>当AI开始自己上班</title>
+      <link>https://www.tmtpost.com/8214386.html</link>
+      <guid isPermaLink="false">ev_1cgom7t</guid>
+      <pubDate>Mon, 23 Nov 2026 10:36:07 GMT</pubDate>
+      <description>商业化推倒的第一块多米诺骨牌</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>当AI接管网购，年轻人迷上外包砍价</title>
+      <link>https://www.tmtpost.com/8214748.html</link>
+      <guid isPermaLink="false">ev_1t0dvl3</guid>
+      <pubDate>Mon, 23 Nov 2026 10:36:05 GMT</pubDate>
+      <description>未来的购物入口藏在对话框里</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>独家解读丨苦战三个月，AI办公经得起财报检验吗？</title>
+      <link>https://www.leiphone.com/category/industrynews/A2PIgIjrlQx63RSp.html</link>
+      <guid isPermaLink="false">ev_1t6a29i</guid>
+      <pubDate>Mon, 23 Nov 2026 09:54:00 GMT</pubDate>
+      <description>AI办公，正在进入财报检验期。 过去一个季度，大厂集中火力攻克这门AI应用生意。腾讯在Q3财报及业绩电话会中披露了WorkBuddy更多商业化进展， 包括Token消耗、企业客户采用情况，以及相关收入增长数据。 二级市场有人买账，认为“WorkBuddy进展不错”，但也有人泼冷水，“还是得看带来多少收益”。 而阿里最新一期财报 暂未单独披露千问办公的收入及经…</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>中文</category>
     </item>
