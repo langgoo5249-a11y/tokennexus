@@ -6,8 +6,17 @@
     <description>聚合 12 个中英文 AI 信源的最新人工智能新闻，每 2 小时自动更新，并按多源报道、新鲜度与关键词热度生成排行榜。</description>
     <language>zh-cn</language>
     <atom:link href="https://www.tokenfind.cn/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Wed, 25 Nov 2026 21:16:48 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 03:59:34 GMT</lastBuildDate>
     <ttl>120</ttl>
+    <item>
+      <title>“得Agent开发者，得天下”，70+技术大咖共探AI技术演进与生态变革，2026奇点智能技术大会圆满收官！</title>
+      <link>https://www.tmtpost.com/8217882.html</link>
+      <guid isPermaLink="false">ev_1suw0h7</guid>
+      <pubDate>Thu, 26 Nov 2026 03:55:49 GMT</pubDate>
+      <description>为期两天的「2026 奇点智能技术大会」与「2026 C++ 及系统软件技术大会」圆满落幕。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
     <item>
       <title>被红果改写的Q3财报季</title>
       <link>https://www.tmtpost.com/8216958.html</link>
@@ -16,6 +25,141 @@
       <description>二线大厂的冬天：砍成本，赌AI</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>中文</category>
+    </item>
+    <item>
+      <title>小米智能门锁 5 人脸版开售：搭载 3D 人脸 + 掌静脉 + 2K 智能猫眼，到手价 1799 元</title>
+      <link>https://www.ithome.com/1/032/618.htm</link>
+      <guid isPermaLink="false">ev_zt0wyr</guid>
+      <pubDate>Thu, 26 Nov 2026 03:22:11 GMT</pubDate>
+      <description>IT之家 11 月 26 日消息，小米智能门锁 5 人脸版今日开售，支持 AI 3D 人脸 +AI 掌静脉，新品到手价 1799 元。 这款智能门锁搭载 AI 3D 人脸识别技术 ，通过模拟人眼视差结合智能算法，高精度绘制人脸面谱，走到门前无需动手，刷脸即可自动开锁，同时配备 3D 活体防伪检测，可有效防止照片、视频等恶意攻击。 据介绍， 其识别速度约 1 …</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>巧克力、烟草与虫害防治：这些非AI标的逆势避开科技股回调</title>
+      <link>https://www.tmtpost.com/8218516.html</link>
+      <guid isPermaLink="false">ev_jpewg0</guid>
+      <pubDate>Thu, 26 Nov 2026 03:07:48 GMT</pubDate>
+      <description>随着科技股抛售进一步加剧，周三好时、奥驰亚和罗林斯股价上涨。自10月以来，必需消费品板块的表现已领先科技板块。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>黎曼猜想 AI 证明代码暴砍 99.5%：只剩 7.6 万行，又是 Anthropic</title>
+      <link>https://www.ithome.com/1/032/611.htm</link>
+      <guid isPermaLink="false">ev_s03w2s</guid>
+      <pubDate>Thu, 26 Nov 2026 03:01:11 GMT</pubDate>
+      <description>只剩 7.6 万行 了！！刚刚，轰动全网的 1740 万行 黎曼猜想证明，迎来了一波史诗级大瘦身。代码量暴砍 99.56% 。 原版证明那 175,188 个文件，在 AWS 高配机器上得跑足足 21 个小时才能编译完； 而现在的新版本，只需要一台 12 核、24GB 内存 的普通机器，在已有 Mathlib 缓存的情况下， 1 到 2 个小时 就能从头构建…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>买入这只制药股，躲避AI风暴冲击</title>
+      <link>https://www.tmtpost.com/8218492.html</link>
+      <guid isPermaLink="false">ev_1bzdl25</guid>
+      <pubDate>Thu, 26 Nov 2026 02:55:50 GMT</pubDate>
+      <description>艾伯维的股价目前接近历史最高点，但仍有理由预期其回报将持续强劲。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>AI影视高地正在北影海淀一带崛起，「一人制片厂」基建搭好了</title>
+      <link>https://www.qbitai.com/2026/11/512828.html</link>
+      <guid isPermaLink="false">ev_4m2ify</guid>
+      <pubDate>Thu, 26 Nov 2026 02:53:14 GMT</pubDate>
+      <description>叠满海淀最强AI Buff。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>《GTA 6》民间 PC 移植新突破：已能渲染游戏世界，帧率约 5~7 FPS</title>
+      <link>https://www.ithome.com/1/032/600.htm</link>
+      <guid isPermaLink="false">ev_13b0x0e</guid>
+      <pubDate>Thu, 26 Nov 2026 02:38:06 GMT</pubDate>
+      <description>IT之家 11 月 26 日消息，科技媒体 tweaktown 昨日（11 月 25 日）发布博文， 报道称开源社区借助 AI 以及此前曝光的 XBOX 可执行文件，正在加速推进非官方 PC 移植《侠盗猎车手 VI》（GTA 6）游戏。 名为“Belobug”的项目近日宣布，已能在 Windows 11 电脑上启动并渲染《GTA 6》的开放世界，画面包含光照…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>ByteDance's Short-Video Platform Hongguo Forces Second-Tier Platforms to Bet on AI</title>
+      <link>https://www.tmtpost.com/8218450.html</link>
+      <guid isPermaLink="false">ev_10hcbu3</guid>
+      <pubDate>Thu, 26 Nov 2026 02:31:04 GMT</pubDate>
+      <description>China's second-tier entertainment companies are scrambling to cut costs and go all in on artificial intelligence.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>OpenAI 开始合并 ChatGPT 聊天 / 工作模式，重度用户可能更早触及限额</title>
+      <link>https://www.ithome.com/1/032/599.htm</link>
+      <guid isPermaLink="false">ev_1rpjo89</guid>
+      <pubDate>Thu, 26 Nov 2026 02:30:00 GMT</pubDate>
+      <description>IT之家 11 月 26 日消息，OpenAICodex&amp;ChatGPT 团队负责人蒂博 · 索蒂奥（IT之家注：Tibo）今天宣布，公司已开始向小部分 Pro 订阅用户推送 ChatGPT 聊天 / 工作模式合并。部分用户对此表示批评，担心此举可能会限制他们的使用额度。 OpenAI 发言人向科技媒体 TechCrunch 表示，大多数用户预计不会因此更频…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>从聊天助手到主动Agent，字节和腾讯再次走上对立面</title>
+      <link>https://www.tmtpost.com/8217934.html</link>
+      <guid isPermaLink="false">ev_cnzk7d</guid>
+      <pubDate>Thu, 26 Nov 2026 01:59:00 GMT</pubDate>
+      <description>大厂的另一条“战争”之路。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>机器人量产背后，物理AI开始算新账：研发底座何必各自建？</title>
+      <link>https://www.leiphone.com/category/chips/HQvbSEUnkDy0Tos9.html</link>
+      <guid isPermaLink="false">ev_4qckkw</guid>
+      <pubDate>Thu, 26 Nov 2026 01:35:00 GMT</pubDate>
+      <description>2026年，人形机器人加速走出实验室。 但是让机器人在真实世界产生价值，依然复杂而成本高昂。 从数据采集、物理仿真到模型训练、真机验证，机器人每掌握一项新技能，背后都可能是一整套研发流程的反复运转。 更复杂的是，这些能力分散在不同的专业厂商手中。产业分工越来越细，如何将分散的技术能力组织起来，反而成了一道新的难题。 当机器人开始规模化交付，产业需要解决的不只…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>一月只开工两三天！奥迪中国回应长春工厂产能利用率跌破10%；Anthropic创始人兄妹上市次日套现37亿；小鹏智驾拟开启全球付费订阅</title>
+      <link>https://www.leiphone.com/category/zaobao/TaYBp58OxQSPMi10.html</link>
+      <guid isPermaLink="false">ev_1jowukt</guid>
+      <pubDate>Thu, 26 Nov 2026 01:30:00 GMT</pubDate>
+      <description>要闻提示 1.Anthropic创始人兄妹上市次日套现37亿元 2.一月只开工两三天，被称“幽灵工厂”！奥迪中国回应长春工厂产能利用率跌破10% 3.打脸自己？小鹏图灵AI智驾将于明年二季度开启全球收费订阅 4.希音披露美国FTC调查最新进展：将向美国财政部支付1亿美元 5.B站陈睿回应短剧冲击：我们没受影响 6.华为将展示自研HBM、逻辑堆叠等技术 7.特…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>A社曝光了一份AI整顿职场魔幻实录，请甩给你那位沉迷AI提效的老板</title>
+      <link>https://www.ifanr.com/1691748</link>
+      <guid isPermaLink="false">ev_1jybonj</guid>
+      <pubDate>Thu, 26 Nov 2026 01:28:30 GMT</pubDate>
+      <description>你用公司的 AI 省下的时间是公司的 #欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>S&amp;P considers Nvidia credit downgrade over governance and ‘key man’ risks</title>
+      <link>https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/</link>
+      <guid isPermaLink="false">ev_t5tk2w</guid>
+      <pubDate>Wed, 25 Nov 2026 22:44:32 GMT</pubDate>
+      <description>The credit rating agency may lower Nvidia's credit rating to AA-, the fourth-highest rating.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Google’s patent for custom AI video feeds paints a bleak picture of entertainment’s future</title>
+      <link>https://www.theverge.com/entertainment/1042221/google-my-channel-ai-video-patent</link>
+      <guid isPermaLink="false">ev_12udk7z</guid>
+      <pubDate>Wed, 25 Nov 2026 21:51:26 GMT</pubDate>
+      <description>Last year, Google filed a patent for a system called My Channel that's designed to create feeds filled with personalized, AI-generated videos and advertisements based on informatio…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Much shorter version of GRH Lean verification from Anthropic</title>
+      <link>https://github.com/lsernau/grh-lean</link>
+      <guid isPermaLink="false">ev_1b4iupi</guid>
+      <pubDate>Wed, 25 Nov 2026 21:48:10 GMT</pubDate>
+      <description>Article URL: https://github.com/lsernau/grh-lean Comments URL: https://news.ycombinator.com/item?id=50648050 Points: 328 # Comments: 163</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
     </item>
     <item>
       <title>OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work</title>
@@ -131,150 +275,6 @@
       <guid isPermaLink="false">ev_eamqtr</guid>
       <pubDate>Wed, 25 Nov 2026 14:21:20 GMT</pubDate>
       <description>11月25日，以“算力唤醒真实世界”为主题的2026物理AI行业峰会暨九章云极智算生态大会在深圳举行。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>逐际动⼒与商汤⼤装置达成合作，以高质量算力全⾯⽀撑机器⼈仿真训练与测试</title>
-      <link>https://www.qbitai.com/2026/11/512683.html</link>
-      <guid isPermaLink="false">ev_hqnce5</guid>
-      <pubDate>Wed, 25 Nov 2026 14:20:24 GMT</pubDate>
-      <description>贯通具⾝智能研发流程</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>Amazon is reportedly in talks to end Muse AI shopping block</title>
-      <link>https://www.theverge.com/tech/1042071/meta-amazon-muse-ai-shopping-discussions</link>
-      <guid isPermaLink="false">ev_y3cewv</guid>
-      <pubDate>Wed, 25 Nov 2026 14:12:33 GMT</pubDate>
-      <description>Amazon has held talks about letting Meta's Muse AI agent shop on its online marketplace, according to a report from Fortune. The discussions, which could end Amazon's block on Muse…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>中国算力采购信心指数启动 九章云极核心共建算力市场先行指标</title>
-      <link>https://www.leiphone.com/category/chips/G3lWNUyVJphxOTU2.html</link>
-      <guid isPermaLink="false">ev_1ipbv00</guid>
-      <pubDate>Wed, 25 Nov 2026 14:01:00 GMT</pubDate>
-      <description>11月25日，在2026物理AI行业峰会暨九章云极智算生态大会上，中国经济信息社新华指数研究院副院长周宇涵宣布“中国算力采购信心指数”正式启动。北京九章云极科技股份有限公司（下称“九章云极”）作为核心共建单位，参与指数体系搭建。 当前，中国算力产业正处于高速增长与结构性调整并行的阶段。我国智能算力规模高速增长，但训练与推理、东西部布局、层级供需三重错配依然存…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>九章云极携手多方战略合作，物理AI工厂生态协作走进真实场景</title>
-      <link>https://www.leiphone.com/category/chips/JWelmQaWCBCTOJi3.html</link>
-      <guid isPermaLink="false">ev_1rfttxk</guid>
-      <pubDate>Wed, 25 Nov 2026 13:59:00 GMT</pubDate>
-      <description>11月25日，在2026物理AI行业峰会暨九章云极智算生态大会上，北京九章云极科技股份有限公司（九章云极DataCanvas，下称“九章云极”）与深圳市龙华区工业和信息化局、北京清程智汇有限公司、深圳市怡亚通供应链股份有限公司签署物理AI工厂项目战略合作协议；另外两场签约中，九章云极分别与佳都科技集团股份有限公司、北京数字政通科技股份有限公司签署AI算力产业…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>九章云极开放两大接口，携手伙伴共建物理AI产业生态</title>
-      <link>https://www.leiphone.com/category/chips/omZ0PFr6zVtmUnap.html</link>
-      <guid isPermaLink="false">ev_2pbi62</guid>
-      <pubDate>Wed, 25 Nov 2026 13:56:00 GMT</pubDate>
-      <description>11月25日，在2026物理AI行业峰会暨九章云极智算生态大会上，九章云极DataCanvas宣布面向物理AI开放Physical AI Infra API和Physical AI Dev API两大接口，并联合二十余家产业伙伴成立极光物理AI产业生态联盟，推动技术连接与产业协作。 两大接口分别面向物理AI的智算基础设施和专业开发工具。Physical AI…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>多模型协同落地，浙江人形 NAVIAI 提升长序列任务作业稳定性</title>
-      <link>https://www.leiphone.com/category/industrynews/KnGzlsg6xlU9Nnpk.html</link>
-      <guid isPermaLink="false">ev_c137wi</guid>
-      <pubDate>Wed, 25 Nov 2026 13:51:00 GMT</pubDate>
-      <description>具身智能要真正走进现实世界，一个足够聪明的“大脑”还不够。 与以信息处理为主的数字世界不同，物理世界充满动态变化与不确定性。机器人不仅要理解任务，还要应对物体状态、接触条件和环境的变化，将认知判断转化为可靠的物理操作。模型具备强大的认知能力，并不意味着机器人就能胜任真实作业；面对多环节、长流程任务，单一模型或孤立技能难以独立应对，需要多种模型与技能协同配合，…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>The questions Jensen Huang and Nvidia will still have to answer about Megaspeed</title>
-      <link>https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/</link>
-      <guid isPermaLink="false">ev_fpc4wr</guid>
-      <pubDate>Wed, 25 Nov 2026 13:00:00 GMT</pubDate>
-      <description>The central question for investigators is what Nvidia knew about where those chips ended up and whether Huang's affair with a Megaspeed executive gave the company reason to doubt M…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>Has vibe coding made open source the new normal for synths?</title>
-      <link>https://www.theverge.com/ai-artificial-intelligence/1040081/vibe-coding-open-source-music-firmware</link>
-      <guid isPermaLink="false">ev_1htlyya</guid>
-      <pubDate>Wed, 25 Nov 2026 13:00:00 GMT</pubDate>
-      <description>The emergence of powerful vibe-coding agents and tools like Reverse Engineer Anything has caused chaos in the music gear world, leaving companies scrambling to figure out how to re…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>English</category>
-    </item>
-    <item>
-      <title>9400万参数硬刚50亿，权重显存直降98%！Loop架构被这家中国团队玩明白了</title>
-      <link>https://www.qbitai.com/2026/11/512565.html</link>
-      <guid isPermaLink="false">ev_1tw195q</guid>
-      <pubDate>Wed, 25 Nov 2026 11:07:14 GMT</pubDate>
-      <description>揭秘General Looped Model</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>元材新界发布 FrontierMat：330 道真实研发难题难住 GPT-6 Astra，自研跨尺度材料大模型登顶</title>
-      <link>https://www.leiphone.com/category/industrynews/GMIW0ZLuJPyQHSR4.html</link>
-      <guid isPermaLink="false">ev_568hyt</guid>
-      <pubDate>Wed, 25 Nov 2026 11:04:00 GMT</pubDate>
-      <description>今年 10 月，在美国得克萨斯州的 SpaceX 测试基地，马斯克让一辆特斯拉 Roadster“飞”了起来。支撑这次腾空的高压气体，其核心储能部件，正是塞满车身空间的碳纤维缠绕的复合材料压力容器。 从飞行汽车、大飞机到聚变装置，极端工况下先进装备的上限，归根结底受制于材料研发的边界。而材料研发有一个绕不开的特点： 答案从来不在同一个尺度上 。 一只复合材料…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>破发！但这仅仅是Anthropic要填的七个大坑之一</title>
-      <link>https://www.tmtpost.com/8217094.html</link>
-      <guid isPermaLink="false">ev_ef6yim</guid>
-      <pubDate>Wed, 25 Nov 2026 10:56:34 GMT</pubDate>
-      <description>游戏才刚刚开始</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>冻薪、加班、砍休息时长！大众汽车降本连招惹怒工会：员工抬着棺材威胁罢工；黄仁勋：英伟达不需要接班人计划；红果短剧上线「时间锁」</title>
-      <link>https://www.leiphone.com/category/zaobao/1ER4gdHHQ4gNFpKi.html</link>
-      <guid isPermaLink="false">ev_11shpdx</guid>
-      <pubDate>Wed, 25 Nov 2026 10:39:00 GMT</pubDate>
-      <description>要闻提示 1.冻薪、加班、砍休息时长！大众汽车降本连招惹怒工会：员工抬着棺材威胁罢工 2.新加坡子公司被列入美实体清单，阿里巴巴回应 3.魏建军自曝压力很大，长城汽车从自主品牌销量第一滑落到第九 4.红果短剧上线“时间锁” 5.影石经销商称 Luna 云台系列产品将于 12 月 15 日起涨价 6.传快手生活服务重启服务商和商户补贴，官方暂无回应 7.黄仁勋…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>英伟达开放 Nemotron-Labs-Image-30B-A3B 生图 AI 模型权重：某些跑分超 GPT Image 2</title>
-      <link>https://www.ithome.com/1/032/444.htm</link>
-      <guid isPermaLink="false">ev_1pcsb0g</guid>
-      <pubDate>Wed, 25 Nov 2026 10:37:28 GMT</pubDate>
-      <description>IT之家 11 月 25 日消息，科技媒体 Wccftech 今天（11 月 25 日）发布博文，报道称英伟达在 Hugging Face 平台悄然公开了 Nemotron-Labs-Image-30B-A3B 模型的权重。该模型采用混合专家架构，总参数达 300 亿，使用时激活 30 亿参数，对本地硬件更友好。 Nemotron-Labs-Image-30…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>亚马逊今年资本开支预计达 2200 亿美元创历史新高，AWS CFO 称 AI 赛道宁快勿慢</title>
-      <link>https://www.ithome.com/1/032/435.htm</link>
-      <guid isPermaLink="false">ev_oyd63k</guid>
-      <pubDate>Wed, 25 Nov 2026 10:24:06 GMT</pubDate>
-      <description>IT之家 11 月 25 日消息，亚马逊预计今年资本开支将达到约 2,200 亿美元 （IT之家注：现汇率约合 1.47 万亿元人民币） ，创下历史纪录，资金主要投向 AWS 以及人工智能基础设施。 AWS 首席财务官约翰 · 费尔顿（John Felton）在接受 Business Insider 邮件采访时表示，公司会提前锁定土地、电力、审批这类建设周期…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>豆包侧边栏放进购物入口：大厂AI，只做翻译，不当主人</title>
-      <link>https://www.tmtpost.com/8216992.html</link>
-      <guid isPermaLink="false">ev_oj5k5e</guid>
-      <pubDate>Wed, 25 Nov 2026 10:23:05 GMT</pubDate>
-      <description>AI翻译层、豆包购物、大厂AI入口战、独立变现、超级App</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>小米继续加码AI，MiMo靠什么回本？</title>
-      <link>https://www.tmtpost.com/8217008.html</link>
-      <guid isPermaLink="false">ev_1expf2h</guid>
-      <pubDate>Wed, 25 Nov 2026 10:23:02 GMT</pubDate>
-      <description>这笔投入的硬件生意，正面临利润压力。</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>中文</category>
     </item>
