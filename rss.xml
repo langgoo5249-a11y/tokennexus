@@ -6,8 +6,125 @@
     <description>聚合 12 个中英文 AI 信源的最新人工智能新闻，每 2 小时自动更新，并按多源报道、新鲜度与关键词热度生成排行榜。</description>
     <language>zh-cn</language>
     <atom:link href="https://www.tokenfind.cn/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Thu, 26 Nov 2026 13:46:47 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 22:51:34 GMT</lastBuildDate>
     <ttl>120</ttl>
+    <item>
+      <title>AI made self-hosting fun again</title>
+      <link>https://janlukas.blog/posts/ai-self-hosting</link>
+      <guid isPermaLink="false">ev_byzkmu</guid>
+      <pubDate>Thu, 26 Nov 2026 21:47:45 GMT</pubDate>
+      <description>Article URL: https://janlukas.blog/posts/ai-self-hosting Comments URL: https://news.ycombinator.com/item?id=50660180 Points: 70 # Comments: 48</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Nvidia hits pause on chip shipments to Southeast Asia</title>
+      <link>https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/</link>
+      <guid isPermaLink="false">ev_16e8u7r</guid>
+      <pubDate>Thu, 26 Nov 2026 20:03:54 GMT</pubDate>
+      <description>Nvidia has told manufacturing partners to pause server shipments to Malaysia, Singapore, Thailand and Indonesia as the U.S. tightens its push to keep AI chips out of China.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Tracking Diseases Cured by AI</title>
+      <link>https://diseasescuredbyai.com/</link>
+      <guid isPermaLink="false">ev_151myr1</guid>
+      <pubDate>Thu, 26 Nov 2026 17:16:41 GMT</pubDate>
+      <description>Article URL: https://diseasescuredbyai.com/ Comments URL: https://news.ycombinator.com/item?id=50657307 Points: 291 # Comments: 176</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>One guy is doing a hunger strike outside Anthropic, currently in his 3rd day</title>
+      <link>https://twitter.com/ElliotC1/status/2125689373337489419</link>
+      <guid isPermaLink="false">ev_11wye16</guid>
+      <pubDate>Thu, 26 Nov 2026 16:55:15 GMT</pubDate>
+      <description>Article URL: https://twitter.com/ElliotC1/status/2125689373337489419 Comments URL: https://news.ycombinator.com/item?id=50657110 Points: 55 # Comments: 46</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>Grand Theft Auto VI proves why efficiency isn’t a virtue</title>
+      <link>https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/</link>
+      <guid isPermaLink="false">ev_djnxpr</guid>
+      <pubDate>Thu, 26 Nov 2026 16:00:00 GMT</pubDate>
+      <description>On the same day that Anthropic entered the public market, a painstakingly human video game became one of most successful entertainment launches of all time.</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
+      <title>瑞士发生五起 AI 智能体网络攻击，电力供水通信系统遭入侵</title>
+      <link>https://www.ithome.com/1/033/131.htm</link>
+      <guid isPermaLink="false">ev_32ilxs</guid>
+      <pubDate>Thu, 26 Nov 2026 15:24:56 GMT</pubDate>
+      <description>IT之家 11 月 26 日消息，据路透社报道，瑞士联邦网络安全局（BACS）周四通报，过去几天瑞士发生五起网络攻击，攻击者使用 AI 智能体针对企业以及关键基础设施运营方发起入侵。 IT之家注意到，该局在公告中表示，五起攻击里有四起攻击得手，相关系统遭到入侵。遭到攻击的对象包含三家关键基础设施运营主体，据瑞士公共广播公司 SRF 介绍，它们分别是电力、供水…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>因隐私问题，荷兰多个组织要求法院叫停 Meta 智能眼镜销售</title>
+      <link>https://www.ithome.com/1/033/126.htm</link>
+      <guid isPermaLink="false">ev_dc14so</guid>
+      <pubDate>Thu, 26 Nov 2026 14:59:17 GMT</pubDate>
+      <description>IT之家 11 月 26 日消息，据路透社报道，荷兰多家消费者与数字权益组织于周四向法院提出申请，要求叫停 Meta 旗下 AI 智能眼镜在荷兰的销售。原告方主张，这款眼镜允许佩戴者在他人不知情的情况下进行拍摄，违反了欧洲隐私法规。 这起民事诉讼仅针对荷兰市场，但阿姆斯特丹地区法院的简易判决有可能形成判例。目前，这类智能眼镜已经在全球范围内引发公众强烈反对，…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>腾讯用 AI 挑战药物研发领域前沿难题：成果登 Nature，在减重降糖、肿瘤免疫方向完成验证</title>
+      <link>https://www.ithome.com/1/033/125.htm</link>
+      <guid isPermaLink="false">ev_tixht9</guid>
+      <pubDate>Thu, 26 Nov 2026 14:58:09 GMT</pubDate>
+      <description>IT之家 11 月 26 日消息，腾讯今日宣布，11 月 25 日，腾讯生命科学实验室的一项 AI for Science 研究成果，正式以第一单位登上《Nature》主刊。 据介绍， 腾讯用 AI 挑战了药物研发领域的一个前沿难题：高活性双靶点治疗性多肽的从头设计 。通俗来说，就是不依赖已有的分子模板，从零开始设计一把能打开两把锁的“钥匙”，为复杂疾病的治…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>华为：乾崑智驾和星驰辅助驾驶二者在具体功能和体验方面会有所差异</title>
+      <link>https://www.ithome.com/1/033/124.htm</link>
+      <guid isPermaLink="false">ev_uffkxa</guid>
+      <pubDate>Thu, 26 Nov 2026 14:50:19 GMT</pubDate>
+      <description>IT之家 11 月 26 日消息，在今晚的 2026 华为乾崑生态大会上， 华为智能汽车解决方案 BU CEO 靳玉志正式发布了华为星驰辅助驾驶系统 。 IT之家从华为官方了解到， 星驰辅助驾驶与乾崑智驾技术同源、资源共享 ：将采用技术同源的 WEWA（世界引擎 + 世界行为模型）架构，共享乾崑智驾的云端算力和数据资源，此外还将遵从同一套研发流程与车规级质量…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>华为：从市场来看，对 L2 辅助驾驶的需求将长期存在</title>
+      <link>https://www.ithome.com/1/033/118.htm</link>
+      <guid isPermaLink="false">ev_aee7ih</guid>
+      <pubDate>Thu, 26 Nov 2026 14:30:05 GMT</pubDate>
+      <description>IT之家 11 月 26 日现场消息，在今晚的 2026 华为乾崑生态大会上， 华为智能汽车解决方案 BU CEO 靳玉志正式发布了华为星驰辅助驾驶系统 。 IT之家在大会现场了解到，华为星驰辅助驾驶与乾崑智驾技术同源、资源共享：将采用技术同源的 WEWA（世界引擎 + 世界行为模型）架构，共享乾崑智驾的云端算力和数据资源。 华为官方表示， 从市场来看，对 …</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>381个AI直播冲刺证明P=NP！把GitHub干崩了</title>
+      <link>https://www.qbitai.com/2026/11/513021.html</link>
+      <guid isPermaLink="false">ev_11ss7t4</guid>
+      <pubDate>Thu, 26 Nov 2026 13:56:01 GMT</pubDate>
+      <description>已跑了超过一万次会话，在Lean4里验证通过了2400多条引理</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>深蓝汽车成华为星驰首批合作伙伴，双 07 率先搭载全新辅助驾驶系统</title>
+      <link>https://www.ithome.com/1/033/100.htm</link>
+      <guid isPermaLink="false">ev_10j95to</guid>
+      <pubDate>Thu, 26 Nov 2026 13:55:59 GMT</pubDate>
+      <description>IT之家 11 月 26 日现场消息，在今晚的 2026 华为乾崑生态大会上， 华为智能汽车解决方案 BU CEO 靳玉志正式发布了华为星驰辅助驾驶系统 。 深蓝汽车董事长邓承浩现场透露，全新深蓝 S07 AI 激光版和即将上市的全新深蓝 L07 AI 激光版 是行业首批搭载华为星驰驾驶辅助解决方案的车型 。 据介绍，这两台车是当前市面上唯一能体验星驰魅力的…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>直播 25 天训出一个模型，五项登顶，一群 00 后的 Physical AI 实验</title>
+      <link>https://www.leiphone.com/category/ai/0DEts3fxmZTZ7ojp.html</link>
+      <guid isPermaLink="false">ev_11uysps</guid>
+      <pubDate>Thu, 26 Nov 2026 12:50:00 GMT</pubDate>
+      <description>聊聊榜单之外的 Motubrain 2.0，和它背后那支不太一样的团队。 作者丨 齐铖湧 编辑丨岑 峰 近日，行业独角兽企业 生数科技 正式发布 Motubrain 2.0，并宣布将于近期开源。 这次发布包括一个 20B 参数的世界动作模型（WAM），以及一套名为 Motubrain-Harness 的智能体系统。 过去一个月里，生数科技把 Motubrai…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
     <item>
       <title>AI 3D界的“X光”来了！一图直出巴洛克雕塑，3D打印开箱即用</title>
       <link>https://www.qbitai.com/2026/11/512981.html</link>
@@ -126,6 +243,15 @@
       <category>English</category>
     </item>
     <item>
+      <title>Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email</title>
+      <link>https://techstackups.com/articles/google-workspace-ai-agents-mcp/</link>
+      <guid isPermaLink="false">ev_1ngsald</guid>
+      <pubDate>Thu, 26 Nov 2026 09:44:23 GMT</pubDate>
+      <description>Article URL: https://techstackups.com/articles/google-workspace-ai-agents-mcp/ Comments URL: https://news.ycombinator.com/item?id=50653477 Points: 181 # Comments: 179</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>English</category>
+    </item>
+    <item>
       <title>手表和眼镜，如何成为AI智能体的「随身感官」？</title>
       <link>https://www.leiphone.com/category/chips/1tx0UpMMROQn9vCW.html</link>
       <guid isPermaLink="false">ev_yjqf64</guid>
@@ -149,132 +275,6 @@
       <guid isPermaLink="false">ev_14sifek</guid>
       <pubDate>Thu, 26 Nov 2026 08:19:20 GMT</pubDate>
       <description>今天，IF 2027 全议程揭晓。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>报名最后2天｜AI浪潮之中，来认识创造未来的人</title>
-      <link>https://www.qbitai.com/2026/11/512942.html</link>
-      <guid isPermaLink="false">ev_1v3204v</guid>
-      <pubDate>Thu, 26 Nov 2026 07:36:04 GMT</pubDate>
-      <description>12月6日，WAIC将携手第六届“海聚英才”全球创新创业峰会，把这场关于“人”的讨论带回现场。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>顶尖商用级AI视频每秒只要5毛！中国开源新势力拿下全球第一</title>
-      <link>https://www.qbitai.com/2026/11/512916.html</link>
-      <guid isPermaLink="false">ev_1yudhck</guid>
-      <pubDate>Thu, 26 Nov 2026 06:41:23 GMT</pubDate>
-      <description>30秒一镜到底，可自动编排镜头</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>“得Agent开发者，得天下”，70+技术大咖共探AI技术演进与生态变革，2026奇点智能技术大会圆满收官！</title>
-      <link>https://www.tmtpost.com/8217882.html</link>
-      <guid isPermaLink="false">ev_1suw0h7</guid>
-      <pubDate>Thu, 26 Nov 2026 03:55:49 GMT</pubDate>
-      <description>为期两天的「2026 奇点智能技术大会」与「2026 C++ 及系统软件技术大会」圆满落幕。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>被红果改写的Q3财报季</title>
-      <link>https://www.tmtpost.com/8216958.html</link>
-      <guid isPermaLink="false">ev_13t3kpw</guid>
-      <pubDate>Thu, 26 Nov 2026 03:38:00 GMT</pubDate>
-      <description>二线大厂的冬天：砍成本，赌AI</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>任少卿带着世界模型3.0来了！蔚来智驾训练提效5倍，座舱也用上强化学习</title>
-      <link>https://www.qbitai.com/2026/11/512897.html</link>
-      <guid isPermaLink="false">ev_rcw63s</guid>
-      <pubDate>Thu, 26 Nov 2026 03:23:35 GMT</pubDate>
-      <description>李斌坦言：不做AI变革可能活不下去</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>小米智能门锁 5 人脸版开售：搭载 3D 人脸 + 掌静脉 + 2K 智能猫眼，到手价 1799 元</title>
-      <link>https://www.ithome.com/1/032/618.htm</link>
-      <guid isPermaLink="false">ev_zt0wyr</guid>
-      <pubDate>Thu, 26 Nov 2026 03:22:11 GMT</pubDate>
-      <description>IT之家 11 月 26 日消息，小米智能门锁 5 人脸版今日开售，支持 AI 3D 人脸 +AI 掌静脉，新品到手价 1799 元。 这款智能门锁搭载 AI 3D 人脸识别技术 ，通过模拟人眼视差结合智能算法，高精度绘制人脸面谱，走到门前无需动手，刷脸即可自动开锁，同时配备 3D 活体防伪检测，可有效防止照片、视频等恶意攻击。 据介绍， 其识别速度约 1 …</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>沈向洋刚讲了好多AI非共识啊</title>
-      <link>https://www.qbitai.com/2026/11/512840.html</link>
-      <guid isPermaLink="false">ev_us0nyg</guid>
-      <pubDate>Thu, 26 Nov 2026 03:13:16 GMT</pubDate>
-      <description>“灵巧手是人类最后的尊严”</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>巧克力、烟草与虫害防治：这些非AI标的逆势避开科技股回调</title>
-      <link>https://www.tmtpost.com/8218516.html</link>
-      <guid isPermaLink="false">ev_jpewg0</guid>
-      <pubDate>Thu, 26 Nov 2026 03:07:48 GMT</pubDate>
-      <description>随着科技股抛售进一步加剧，周三好时、奥驰亚和罗林斯股价上涨。自10月以来，必需消费品板块的表现已领先科技板块。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>黎曼猜想 AI 证明代码暴砍 99.5%：只剩 7.6 万行，又是 Anthropic</title>
-      <link>https://www.ithome.com/1/032/611.htm</link>
-      <guid isPermaLink="false">ev_s03w2s</guid>
-      <pubDate>Thu, 26 Nov 2026 03:01:11 GMT</pubDate>
-      <description>只剩 7.6 万行 了！！刚刚，轰动全网的 1740 万行 黎曼猜想证明，迎来了一波史诗级大瘦身。代码量暴砍 99.56% 。 原版证明那 175,188 个文件，在 AWS 高配机器上得跑足足 21 个小时才能编译完； 而现在的新版本，只需要一台 12 核、24GB 内存 的普通机器，在已有 Mathlib 缓存的情况下， 1 到 2 个小时 就能从头构建…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>买入这只制药股，躲避AI风暴冲击</title>
-      <link>https://www.tmtpost.com/8218492.html</link>
-      <guid isPermaLink="false">ev_1bzdl25</guid>
-      <pubDate>Thu, 26 Nov 2026 02:55:50 GMT</pubDate>
-      <description>艾伯维的股价目前接近历史最高点，但仍有理由预期其回报将持续强劲。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>AI影视高地正在北影海淀一带崛起，「一人制片厂」基建搭好了</title>
-      <link>https://www.qbitai.com/2026/11/512828.html</link>
-      <guid isPermaLink="false">ev_4m2ify</guid>
-      <pubDate>Thu, 26 Nov 2026 02:53:14 GMT</pubDate>
-      <description>叠满海淀最强AI Buff。</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>《GTA 6》民间 PC 移植新突破：已能渲染游戏世界，帧率约 5~7 FPS</title>
-      <link>https://www.ithome.com/1/032/600.htm</link>
-      <guid isPermaLink="false">ev_13b0x0e</guid>
-      <pubDate>Thu, 26 Nov 2026 02:38:06 GMT</pubDate>
-      <description>IT之家 11 月 26 日消息，科技媒体 tweaktown 昨日（11 月 25 日）发布博文， 报道称开源社区借助 AI 以及此前曝光的 XBOX 可执行文件，正在加速推进非官方 PC 移植《侠盗猎车手 VI》（GTA 6）游戏。 名为“Belobug”的项目近日宣布，已能在 Windows 11 电脑上启动并渲染《GTA 6》的开放世界，画面包含光照…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>ByteDance's Short-Video Platform Hongguo Forces Second-Tier Platforms to Bet on AI</title>
-      <link>https://www.tmtpost.com/8218450.html</link>
-      <guid isPermaLink="false">ev_10hcbu3</guid>
-      <pubDate>Thu, 26 Nov 2026 02:31:04 GMT</pubDate>
-      <description>China's second-tier entertainment companies are scrambling to cut costs and go all in on artificial intelligence.</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>OpenAI 开始合并 ChatGPT 聊天 / 工作模式，重度用户可能更早触及限额</title>
-      <link>https://www.ithome.com/1/032/599.htm</link>
-      <guid isPermaLink="false">ev_1rpjo89</guid>
-      <pubDate>Thu, 26 Nov 2026 02:30:00 GMT</pubDate>
-      <description>IT之家 11 月 26 日消息，OpenAICodex&amp;ChatGPT 团队负责人蒂博 · 索蒂奥（IT之家注：Tibo）今天宣布，公司已开始向小部分 Pro 订阅用户推送 ChatGPT 聊天 / 工作模式合并。部分用户对此表示批评，担心此举可能会限制他们的使用额度。 OpenAI 发言人向科技媒体 TechCrunch 表示，大多数用户预计不会因此更频…</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>中文</category>
     </item>
