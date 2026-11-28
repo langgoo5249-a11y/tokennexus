@@ -6,8 +6,62 @@
     <description>聚合 12 个中英文 AI 信源的最新人工智能新闻，每 2 小时自动更新，并按多源报道、新鲜度与关键词热度生成排行榜。</description>
     <language>zh-cn</language>
     <atom:link href="https://www.tokenfind.cn/rss.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Fri, 27 Nov 2026 17:55:17 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2026 01:14:05 GMT</lastBuildDate>
     <ttl>120</ttl>
+    <item>
+      <title>Edge AI Daily 早报（11月28日）</title>
+      <link>https://www.tmtpost.com/8220996.html</link>
+      <guid isPermaLink="false">ev_1y7ywzn</guid>
+      <pubDate>Sat, 28 Nov 2026 00:53:04 GMT</pubDate>
+      <description>Anthropic 发布 Claude Ship，将 GitHub PR 拆分为 Code Review、PR Steward 与 Claude Approvals，以权限隔离和过程留痕降低自审自批风险，其团队 6 至 9 月合并 PR 翻倍以上、回滚比例降超 40%；Anthropic 同时弱化工程师晋升中的完成时间权重，转向延迟、资源消耗与事故指标。英伟…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>IT早报 1128：DeepSeek 灰度测试“消耗额度”；有线电视与 IPTV 广告禁令生效；比亚迪海洋网旗舰 MPV 海鲸亮相；市监总局集中约谈 15 家电动自行车企业...</title>
+      <link>https://www.ithome.com/1/033/784.htm</link>
+      <guid isPermaLink="false">ev_1i57moa</guid>
+      <pubDate>Fri, 27 Nov 2026 23:28:45 GMT</pubDate>
+      <description>“IT早报”时间，大家好，现在是 2026 年 11 月 28 日星期六，今天的重要科技资讯有： 1. DeepSeek 灰度测试“消耗额度”：直观展示对话成本，此前已实施限额 DeepSeek 移动端小范围测试“显示本轮消耗额度”功能，可展示单次对话 Token 消耗及估算金额，当前个人用户仍可免费使用该服务。&gt;&gt; 查看详情 2. 有线电视与 IPTV 广…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>OpenAI 转守为攻：反诉苹果窃密，喊话“不公平竞争”</title>
+      <link>https://www.ithome.com/1/033/780.htm</link>
+      <guid isPermaLink="false">ev_1fy5rce</guid>
+      <pubDate>Fri, 27 Nov 2026 23:12:29 GMT</pubDate>
+      <description>IT之家 11 月 28 日消息，《金融时报》昨日（11 月 27 日）发布博文，报道称在苹果公司提起的商业秘密诉讼中，OpenAI 公司已经提出反诉，指控苹果自身窃取了 OpenAI 的商业秘密，并涉嫌胁迫和威胁同时为两家公司供货的供应商。 苹果公司于 2026 年 7 月起诉 OpenAI，称前员工 Tang Tan 和 Chang Liu 离职后，将商…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>全球首个：联想为部分 Win11 商用电脑预装 OpenAI ChatGPT，企业登录最高可领 100 美元优惠额度</title>
+      <link>https://www.ithome.com/1/033/777.htm</link>
+      <guid isPermaLink="false">ev_lroscw</guid>
+      <pubDate>Fri, 27 Nov 2026 23:04:37 GMT</pubDate>
+      <description>IT之家 11 月 28 日消息，据 Windows Latest 今日报道，联想成为全球首家在部分 Windows 11 商用电脑上预装 ChatGPT 的 PC 厂商。 OpenAI 同时也针对符合条件的联想设备推出商业推广活动，企业用户通过预装的 ChatGPT 桌面应用登录或创建 ChatGPT Business 工作区，最高可获得每个席位 100 …</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>画面像电影：《荒野大镖客 2》游戏非官方 DLSS 5 后惊艳玩家，但掉 31% 帧率</title>
+      <link>https://www.ithome.com/1/033/775.htm</link>
+      <guid isPermaLink="false">ev_1ujcd6e</guid>
+      <pubDate>Fri, 27 Nov 2026 22:49:52 GMT</pubDate>
+      <description>IT之家 11 月 28 日消息，YouTube 频道 MxBenchmarkPC 在最新一期视频中， 对比显示经过玩家 MOD 启用的英伟达 DLSS 5 神经渲染技术，可大幅改善《荒野大镖客 2》的光照效果，画面几乎具备电影质感，但同时带来明显的性能损耗。 该频道主播在英伟达 GeForce RTX 5080 显卡上，使用《荒野大镖客 2》（Red De…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
+    <item>
+      <title>独家丨瞄准 AI 算力天花板，「闪科光联」完成数千万融资</title>
+      <link>https://www.leiphone.com/category/ai/ilqJyKclWkhaWIps.html</link>
+      <guid isPermaLink="false">ev_1ayk2of</guid>
+      <pubDate>Fri, 27 Nov 2026 19:14:00 GMT</pubDate>
+      <description>“AI算力的成本中心正在从‘计算’转向‘连接’。” 雷峰网·鲸犀独家获悉，MicroLED 高速光互连芯片与光引擎研发商「闪科光联」近日完成数千万元人民币天使轮融资。 种子轮由励石创投独家投资，天使轮由商汤国香、长石资本、厚雪资本联合领投，险峰长青（K2）、磐霖资本、小苗朗程、柯熙创投等多家产业基金共同跟投。 鲸犀进一步获悉，闪科光联成立于 2026 年 9…</description>
+      <source url="https://www.tokenfind.cn/">TokenNexus</source>
+      <category>中文</category>
+    </item>
     <item>
       <title>防考生利用 AI 作弊，韩国学校抢购金属探测器</title>
       <link>https://www.ithome.com/1/033/763.htm</link>
@@ -221,60 +275,6 @@
       <guid isPermaLink="false">ev_1ymbtes</guid>
       <pubDate>Fri, 27 Nov 2026 07:01:20 GMT</pubDate>
       <description>地图能随时修，记忆能跨任务用</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>梅赛德斯-奔驰：Momenta R7 世界模型、全新 AI 智能座舱 2027 年覆盖更多燃油车型</title>
-      <link>https://www.ithome.com/1/033/382.htm</link>
-      <guid isPermaLink="false">ev_ns2mj8</guid>
-      <pubDate>Fri, 27 Nov 2026 06:52:14 GMT</pubDate>
-      <description>IT之家 11 月 27 日消息，2026 广州车展今日开幕，梅赛德斯-奔驰公布辅助驾驶、AI 智能座舱更多消息。 据其介绍， 梅赛德斯-奔驰是首批实现 Momenta R7 世界模型上车 、首个实现“车位到车位”能力的豪华品牌。奔驰与 Momenta 共创的城区及高速领航辅助驾驶系统，融合世界模型与强化学习能力，场景能力提升 3 至 5 倍。 奔驰是 Mo…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>全球近 3 万开发者洞察：JetBrains 称 55% 受访者认为 AI 提高其创造力</title>
-      <link>https://www.ithome.com/1/033/368.htm</link>
-      <guid isPermaLink="false">ev_dt8s8</guid>
-      <pubDate>Fri, 27 Nov 2026 06:47:09 GMT</pubDate>
-      <description>IT之家 11 月 27 日消息，JetBrains 发布《2026 开发者生态系统现状》报告， 报告称 AI 正在深入日常开发流程，55% 的受访者认为采用 AI 后创造力有所提升，但 46% 的人也感到对代码的“归属感”下降。 《开发者生态系统现状》年度调查已进入第十年，本次收集了全球 28,945 名开发者的有效反馈，内容覆盖编程语言与框架、人工智能集…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>全新梅赛德斯奔驰智混 CLA 上市：限时 19.9 万元起，配豆包 AI 与 Momenta 模型</title>
-      <link>https://www.ithome.com/1/033/357.htm</link>
-      <guid isPermaLink="false">ev_qe2hse</guid>
-      <pubDate>Fri, 27 Nov 2026 06:31:38 GMT</pubDate>
-      <description>IT之家 11 月 27 日消息，在 2026 广州车展上，全新梅赛德斯-奔驰智混 CLA 车型正式上市。新车推出两款车型，官方指导价为 22.9 万至 28.56 万元，限时专享价为 19.9 万至 24.56 万元。 新车延续纯电版 CLA 的设计风格，搭载奔驰全新 48 伏混合动力系统，并配备 Momenta R7 世界模型及豆包 AI 大模型。 外观…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>第二十八届高交会科学智能分论坛：从理解科学到自主实验，AI4S如何跨越产业化拐点？</title>
-      <link>https://www.leiphone.com/category/ai/c8sG7O6YKz3vKB6a.html</link>
-      <guid isPermaLink="false">ev_1i1juja</guid>
-      <pubDate>Fri, 27 Nov 2026 06:26:00 GMT</pubDate>
-      <description>当大模型开始调用科研软件，机器人能够执行实验，算法直接进入电池与中药研发流程，AI for Science所改变的，已不只是科研中的某一个环节，也在改变科学发现走向产业应用的方式。 2026年11月26日，深圳宝安。 第二十八届中国国际高新技术成果交易会（以下简称“高交会”）在深圳国际会展中心开幕。作为高新技术成果展示、交流与合作的重要平台，本届高交会汇集人…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>荣威家越 07 纯电版上市：行业首搭豆包座舱助手，13.28 万元起</title>
-      <link>https://www.ithome.com/1/033/348.htm</link>
-      <guid isPermaLink="false">ev_1h45t12</guid>
-      <pubDate>Fri, 27 Nov 2026 05:58:17 GMT</pubDate>
-      <description>IT之家 11 月 27 日消息，在今天的广州车展发布会上，荣威家越 07 纯电版正式发布，官方指导价 13.28 至 14.98 万元。 该车全系标配 800V 碳化硅平台 + 651km 超长纯电续航 + 80.6kWh 大电池，电机峰值功率达 245kW，峰值扭矩达 430N·m ，零百加速 5.9 秒。 荣威家越 07 长宽高为 4900*1910*…</description>
-      <source url="https://www.tokenfind.cn/">TokenNexus</source>
-      <category>中文</category>
-    </item>
-    <item>
-      <title>千问辟谣：周昊离职不实，将起诉自媒体&quot;Top华人科创社&quot;</title>
-      <link>https://www.leiphone.com/category/industrynews/CFGZPziprklwXuQw.html</link>
-      <guid isPermaLink="false">ev_tci9mx</guid>
-      <pubDate>Fri, 27 Nov 2026 05:52:00 GMT</pubDate>
-      <description>11月27日，针对自媒体&quot;Top华人科创社&quot;当日发布的《Qwen 后训练负责人周浩离职》一文，千问大模型官方回应称：内容纯属造谣，并将起诉追究其法律责任。 千问指出，该文章不仅杜撰事实，连当事人姓名都写错——被涉及人员实为&quot;周昊&quot;，而非文中所称&quot;周浩&quot;。千问称，近期针对Qwen大模型团队的不实信息持续出现，公司将依法追究相关主体的法律责任。</description>
       <source url="https://www.tokenfind.cn/">TokenNexus</source>
       <category>中文</category>
     </item>
